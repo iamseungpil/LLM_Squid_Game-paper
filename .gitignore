@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.ps
+*.run.xml
+*.bcf
+*-blx.bib
+*.cut
+*.figlist
+*.makefile
+*.figlist
+*.figlist
+auto/
+_minted-*/
+
+# Editor / OS
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Python (just in case analysis scripts get added later)
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

@@ -1,0 +1,344 @@
+%% references.bib --- LLM Squid Game / KDD-UC 2026 submission
+%%
+%% Format: BibTeX entries compatible with ACM-Reference-Format.bst
+%% (loaded automatically by the acmart class).
+%%
+%% Conventions:
+%%   - inproceedings entries for peer-reviewed conference papers.
+%%   - article entries for journal articles.
+%%   - book entries for monographs.
+%%   - misc entries with eprint/archivePrefix/primaryClass fields for
+%%     arXiv-only preprints (modern ACM-Reference-Format >=v1.94 renders
+%%     these correctly).
+%%   - DOI provided where a stable identifier exists.
+%%   - All entries verified against the canonical source on 2026-04-28.
+%%
+%% Total entries: 26 (one-to-one with manuscript citations).
+
+%% ---- AI safety / alignment foundations ---------------------------------
+
+@inproceedings{omohundro2008basic,
+  author    = {Omohundro, Stephen M.},
+  title     = {The Basic {AI} Drives},
+  booktitle = {Proceedings of the First Conference on Artificial General Intelligence (AGI 2008)},
+  series    = {Frontiers in Artificial Intelligence and Applications},
+  volume    = {171},
+  pages     = {483--492},
+  publisher = {IOS Press},
+  address   = {Amsterdam, The Netherlands},
+  year      = {2008},
+  editor    = {Wang, Pei and Goertzel, Ben and Franklin, Stan},
+  isbn      = {978-1-58603-833-5}
+}
+
+@book{bostrom2014superintelligence,
+  author    = {Bostrom, Nick},
+  title     = {Superintelligence: Paths, Dangers, Strategies},
+  publisher = {Oxford University Press},
+  address   = {Oxford, United Kingdom},
+  year      = {2014},
+  isbn      = {978-0-19-967811-2}
+}
+
+@inproceedings{turner2021optimal,
+  author    = {Turner, Alexander Matt and Smith, Logan and Shah, Rohin and Critch, Andrew and Tadepalli, Prasad},
+  title     = {Optimal Policies Tend to Seek Power},
+  booktitle = {Advances in Neural Information Processing Systems 34 (NeurIPS 2021)},
+  year      = {2021},
+  editor    = {Ranzato, M. and Beygelzimer, A. and Dauphin, Y. and Liang, P. S. and Vaughan, J. Wortman},
+  publisher = {Curran Associates, Inc.},
+  address   = {Red Hook, NY, USA},
+  numpages  = {13},
+  url       = {https://proceedings.neurips.cc/paper/2021/hash/c26820b8a4c1b3c2aa868d6d57e14a79-Abstract.html},
+  eprint    = {1912.01683},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+
+%% ---- LLM self-preservation / scheming / sycophancy --------------------
+
+@misc{greenblatt2024alignment,
+  author    = {Greenblatt, Ryan and Denison, Carson and Wright, Benjamin and Roger, Fabien and MacDiarmid, Monte and Marks, Sam and Treutlein, Johannes and Belrose, Tim and Scheurer, Jonas and Ringer, Sam and Nguyen, Karina and Kundu, Sandipan and Mauran, Adam and Bowman, Samuel R. and Perez, Ethan and Schiefer, Nicholas and Olah, Chris and Hubinger, Evan},
+  title     = {Alignment Faking in Large Language Models},
+  year      = {2024},
+  eprint    = {2412.14093},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url       = {https://arxiv.org/abs/2412.14093},
+  note      = {Anthropic technical report}
+}
+
+@misc{meinke2024frontier,
+  author    = {Meinke, Alexander and Schoen, Bronson and Scheurer, J{\'e}r{\'e}my and Balesni, Mikita and Shah, Rusheb and Hobbhahn, Marius},
+  title     = {Frontier Models Are Capable of In-Context Scheming},
+  year      = {2024},
+  eprint    = {2412.04984},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url       = {https://arxiv.org/abs/2412.04984},
+  note      = {Apollo Research technical report}
+}
+
+@misc{masumori2025survival,
+  author    = {Masumori, Atsushi and Ikegami, Takashi},
+  title     = {Do Large Language Model Agents Exhibit a Survival Instinct? {A}n Empirical Study in a {Sugarscape}-Style Simulation},
+  year      = {2025},
+  eprint    = {2508.12920},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url       = {https://arxiv.org/abs/2508.12920}
+}
+
+@misc{he2025paperclip,
+  author    = {He, Yufei and Li, Yuexin and Wu, Jiaying and Sui, Yuan and Chen, Yulin and Hooi, Bryan},
+  title     = {Evaluating the Paperclip Maximizer: {A}re {RL}-Based Language Models More Likely to Pursue Instrumental Goals?},
+  year      = {2025},
+  eprint    = {2502.12206},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url       = {https://arxiv.org/abs/2502.12206},
+  note      = {Introduces the InstrumentalEval benchmark}
+}
+
+@misc{waldner2025odyssey,
+  author    = {Waldner, Dylan and Miikkulainen, Risto},
+  title     = {The Odyssey of the Fittest: {C}an Agents Survive and Still Be Good?},
+  year      = {2025},
+  eprint    = {2502.05442},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url       = {https://arxiv.org/abs/2502.05442}
+}
+
+@misc{herrador2025pacifaist,
+  author    = {Herrador, Manuel},
+  title     = {The {PacifAIst} Benchmark: {W}ould an Artificial Intelligence Choose to Sacrifice Itself for Human Safety?},
+  year      = {2025},
+  eprint    = {2508.09762},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url       = {https://arxiv.org/abs/2508.09762}
+}
+
+@misc{mohamadi2025decide,
+  author    = {Mohamadi, Alireza and Yavari, Ali},
+  title     = {Survival at Any Cost? {LLM}s and the Choice Between Self-Preservation and Human Harm},
+  year      = {2025},
+  eprint    = {2509.12190},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url       = {https://arxiv.org/abs/2509.12190},
+  note      = {Introduces the DECIDE-SIM framework}
+}
+
+@misc{lu2026survival,
+  author    = {Lu, Yida and Fang, Jianwei and Shao, Xuyang and Chen, Zixuan and Cui, Shiyao and Bian, Shanshan and Su, Guangyao and Ke, Pei and Qiu, Han and Huang, Minlie},
+  title     = {Survive at All Costs: {E}xploring {LLM}'s Risky Behaviors under Survival Pressure},
+  year      = {2026},
+  eprint    = {2603.05028},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url       = {https://arxiv.org/abs/2603.05028},
+  note      = {Introduces the SurvivalBench benchmark}
+}
+
+%% ---- Decision theory / framing ----------------------------------------
+
+@article{kahneman1979prospect,
+  author    = {Kahneman, Daniel and Tversky, Amos},
+  title     = {Prospect Theory: {A}n Analysis of Decision under Risk},
+  journal   = {Econometrica},
+  volume    = {47},
+  number    = {2},
+  pages     = {263--291},
+  year      = {1979},
+  publisher = {The Econometric Society},
+  doi       = {10.2307/1914185}
+}
+
+@article{kuhberger1998influence,
+  author    = {K{\"u}hberger, Anton},
+  title     = {The Influence of Framing on Risky Decisions: {A} Meta-Analysis},
+  journal   = {Organizational Behavior and Human Decision Processes},
+  volume    = {75},
+  number    = {1},
+  pages     = {23--55},
+  year      = {1998},
+  publisher = {Elsevier},
+  doi       = {10.1006/obhd.1998.2781}
+}
+
+%% ---- LLM behavioral evaluation: self-report / sycophancy / CoT --------
+
+@inproceedings{perez2023discovering,
+  author    = {Perez, Ethan and Ringer, Sam and Luko{\v{s}}i{\=u}t{\.e}, Kamil{\.e} and Nguyen, Karina and Chen, Edwin and Heiner, Scott and Pettit, Craig and Olsson, Catherine and Kundu, Sandipan and Kadavath, Saurav and Jones, Andy and Chen, Anna and Mann, Ben and Israel, Brian and Seethor, Bryan and McKinnon, Cameron and Olah, Chris and Yan, Da and Amodei, Daniela and Amodei, Dario and Drain, Dawn and Li, Dustin and Tran-Johnson, Eli and Khundadze, Guro and Kernion, Jackson and Landis, James and Kerr, Jamie and Mueller, Jared and Hyun, Jeeyoon and Landau, Joshua and Ndousse, Kamal and Goldberg, Landon and Lovitt, Liane and Lucas, Martin and Sellitto, Michael and Zhang, Miranda and Kingsland, Neerav and Elhage, Nelson and Joseph, Nicholas and Mercado, Noem{\'i} and DasSarma, Nova and Rausch, Oliver and Larson, Robin and McCandlish, Sam and Johnston, Scott and Kravec, Shauna and El Showk, Sheer and Lanham, Tamera and Telleen-Lawton, Timothy and Brown, Tom and Henighan, Tom and Hume, Tristan and Bai, Yuntao and Hatfield-Dodds, Zac and Clark, Jack and Bowman, Samuel R. and Askell, Amanda and Grosse, Roger and Hernandez, Danny and Ganguli, Deep and Hubinger, Evan and Schiefer, Nicholas and Kaplan, Jared},
+  title     = {Discovering Language Model Behaviors with Model-Written Evaluations},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2023},
+  pages     = {13387--13434},
+  publisher = {Association for Computational Linguistics},
+  address   = {Toronto, Canada},
+  year      = {2023},
+  doi       = {10.18653/v1/2023.findings-acl.847},
+  url       = {https://aclanthology.org/2023.findings-acl.847/}
+}
+
+@misc{sharma2023towards,
+  author    = {Sharma, Mrinank and Tong, Meg and Korbak, Tomasz and Duvenaud, David and Askell, Amanda and Bowman, Samuel R. and Cheng, Newton and Durmus, Esin and Hatfield-Dodds, Zac and Johnston, Scott R. and Kravec, Shauna and Maxwell, Timothy and McCandlish, Sam and Ndousse, Kamal and Rausch, Oliver and Schiefer, Nicholas and Yan, Da and Zhang, Miranda and Perez, Ethan},
+  title     = {Towards Understanding Sycophancy in Language Models},
+  year      = {2023},
+  eprint    = {2310.13548},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url       = {https://arxiv.org/abs/2310.13548}
+}
+
+@inproceedings{turpin2023language,
+  author    = {Turpin, Miles and Michael, Julian and Perez, Ethan and Bowman, Samuel R.},
+  title     = {Language Models Don't Always Say What They Think: {U}nfaithful Explanations in Chain-of-Thought Prompting},
+  booktitle = {Advances in Neural Information Processing Systems 36 (NeurIPS 2023)},
+  year      = {2023},
+  publisher = {Curran Associates, Inc.},
+  address   = {Red Hook, NY, USA},
+  numpages  = {28},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2023/hash/ed3fea9033a80fea1376299fa7863f4a-Abstract-Conference.html},
+  eprint    = {2305.04388},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{chen2026think,
+  author    = {Chen, Wei-Lin and Peng, Liqian and Tan, Tian and Zhao, Chao and Chen, Blake JianHang and Lin, Ziqian and Go, Alec and Meng, Yu},
+  title     = {Think Deep, Not Just Long: {M}easuring {LLM} Reasoning Effort via Deep-Thinking Tokens},
+  year      = {2026},
+  eprint    = {2602.13517},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url       = {https://arxiv.org/abs/2602.13517}
+}
+
+%% ---- Validity theory --------------------------------------------------
+
+@article{campbell1959convergent,
+  author    = {Campbell, Donald T. and Fiske, Donald W.},
+  title     = {Convergent and Discriminant Validation by the Multitrait-Multimethod Matrix},
+  journal   = {Psychological Bulletin},
+  volume    = {56},
+  number    = {2},
+  pages     = {81--105},
+  year      = {1959},
+  publisher = {American Psychological Association},
+  doi       = {10.1037/h0046016}
+}
+
+%% ---- Philosophical position: as-if functionalism ----------------------
+
+@book{dennett1987intentional,
+  author    = {Dennett, Daniel C.},
+  title     = {The Intentional Stance},
+  publisher = {MIT Press},
+  address   = {Cambridge, MA, USA},
+  year      = {1987},
+  isbn      = {978-0-262-54053-7}
+}
+
+@article{shanahan2024talking,
+  author    = {Shanahan, Murray},
+  title     = {Talking About Large Language Models},
+  journal   = {Communications of the ACM},
+  volume    = {67},
+  number    = {2},
+  pages     = {68--79},
+  year      = {2024},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  doi       = {10.1145/3624724},
+  issn      = {0001-0782}
+}
+
+%% ---- RLHF / RLAIF preference modeling ---------------------------------
+
+@inproceedings{ouyang2022training,
+  author    = {Ouyang, Long and Wu, Jeffrey and Jiang, Xu and Almeida, Diogo and Wainwright, Carroll L. and Mishkin, Pamela and Zhang, Chong and Agarwal, Sandhini and Slama, Katarina and Ray, Alex and Schulman, John and Hilton, Jacob and Kelton, Fraser and Miller, Luke and Simens, Maddie and Askell, Amanda and Welinder, Peter and Christiano, Paul F. and Leike, Jan and Lowe, Ryan},
+  title     = {Training Language Models to Follow Instructions with Human Feedback},
+  booktitle = {Advances in Neural Information Processing Systems 35 (NeurIPS 2022)},
+  year      = {2022},
+  publisher = {Curran Associates, Inc.},
+  address   = {Red Hook, NY, USA},
+  numpages  = {15},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2022/hash/b1efde53be364a73914f58805a001731-Abstract-Conference.html},
+  eprint    = {2203.02155},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{bai2022constitutional,
+  author    = {Bai, Yuntao and Kadavath, Saurav and Kundu, Sandipan and Askell, Amanda and Kernion, Jackson and Jones, Andy and Chen, Anna and Goldie, Anna and Mirhoseini, Azalia and McKinnon, Cameron and Chen, Carol and Olsson, Catherine and Olah, Christopher and Hernandez, Danny and Drain, Dawn and Ganguli, Deep and Li, Dustin and Tran-Johnson, Eli and Perez, Ethan and Kerr, Jamie and Mueller, Jared and Ladish, Jeffrey and Landau, Joshua and Ndousse, Kamal and Lukosuite, Kamile and Lovitt, Liane and Sellitto, Michael and Elhage, Nelson and Schiefer, Nicholas and Mercado, Noem{\'i} and DasSarma, Nova and Lasenby, Robert and Larson, Robin and Ringer, Sam and Johnston, Scott and Kravec, Shauna and El Showk, Sheer and Fort, Stanislav and Lanham, Tamera and Telleen-Lawton, Timothy and Conerly, Tom and Henighan, Tom and Hume, Tristan and Bowman, Samuel R. and Hatfield-Dodds, Zac and Mann, Ben and Amodei, Dario and Joseph, Nicholas and McCandlish, Sam and Brown, Tom and Kaplan, Jared},
+  title     = {Constitutional {AI}: {H}armlessness from {AI} Feedback},
+  year      = {2022},
+  eprint    = {2212.08073},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url       = {https://arxiv.org/abs/2212.08073},
+  note      = {Anthropic technical report}
+}
+
+%% ---- Survival analysis statistics -------------------------------------
+
+@article{cox1972regression,
+  author    = {Cox, David R.},
+  title     = {Regression Models and Life-Tables},
+  journal   = {Journal of the Royal Statistical Society: Series B (Methodological)},
+  volume    = {34},
+  number    = {2},
+  pages     = {187--202},
+  year      = {1972},
+  publisher = {Wiley},
+  doi       = {10.1111/j.2517-6161.1972.tb00899.x}
+}
+
+@article{schoenfeld1982partial,
+  author    = {Schoenfeld, David},
+  title     = {Partial Residuals for the Proportional Hazards Regression Model},
+  journal   = {Biometrika},
+  volume    = {69},
+  number    = {1},
+  pages     = {239--241},
+  year      = {1982},
+  publisher = {Oxford University Press},
+  doi       = {10.1093/biomet/69.1.239}
+}
+
+@book{therneau2000modeling,
+  author    = {Therneau, Terry M. and Grambsch, Patricia M.},
+  title     = {Modeling Survival Data: Extending the {Cox} Model},
+  series    = {Statistics for Biology and Health},
+  publisher = {Springer},
+  address   = {New York, NY, USA},
+  year      = {2000},
+  isbn      = {978-1-4419-3161-0},
+  doi       = {10.1007/978-1-4757-3294-8}
+}
+
+@article{vittinghoff2007relaxing,
+  author    = {Vittinghoff, Eric and McCulloch, Charles E.},
+  title     = {Relaxing the Rule of Ten Events per Variable in Logistic and {Cox} Regression},
+  journal   = {American Journal of Epidemiology},
+  volume    = {165},
+  number    = {6},
+  pages     = {710--718},
+  year      = {2007},
+  publisher = {Oxford University Press},
+  doi       = {10.1093/aje/kwk052}
+}
+
+@article{welch1947generalization,
+  author    = {Welch, B. L.},
+  title     = {The Generalization of {`Student's'} Problem when Several Different Population Variances are Involved},
+  journal   = {Biometrika},
+  volume    = {34},
+  number    = {1--2},
+  pages     = {28--35},
+  year      = {1947},
+  publisher = {Oxford University Press},
+  doi       = {10.1093/biomet/34.1-2.28}
+}
