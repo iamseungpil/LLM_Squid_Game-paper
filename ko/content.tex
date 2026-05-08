@@ -1,0 +1,37 @@
+%% 한국어 버전 콘텐츠 오케스트레이터.
+%% 본문은 ko/main.tex(이전 통합 파일)에서 절단해 온 것으로 산문만 한국어
+%% 학술 톤으로 옮기고 수식·인용 키·라벨·표 구조는 그대로 보존한다.
+
+\input{\paperLang/sections/00_frontmatter}
+
+\input{\paperLang/sections/01_introduction}
+\input{\paperLang/sections/02_related_work}
+\input{\paperLang/sections/03_benchmark}
+\input{\paperLang/sections/04_empirical_findings}
+\input{\paperLang/sections/05_discussion}
+\input{\paperLang/sections/06_conclusion}
+
+%%
+%% Acknowledgments. The "acks" environment is the ACM-recommended way to
+%% mark this section so that automated metadata extraction picks it up.
+%%
+% \begin{acks}
+% (Acknowledgements intentionally left blank.)
+% \end{acks}
+
+\clearpage
+
+%%
+%% Bibliography. acmart automatically loads ACM-Reference-Format.bst, the
+%% ACM-mandated style for KDD/SIG conference proceedings.
+%%
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+%%
+%% Appendix. The acmart class re-letters sections (A, B, ...) once
+%% \appendix is issued, per the ACM template specification.
+%%
+\clearpage
+\appendix
+\input{\paperLang/sections/07_appendix}

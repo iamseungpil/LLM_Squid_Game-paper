@@ -1,0 +1,16 @@
+\section{서론}
+
+대규모 언어모델에 대한 반복적 정렬(iterative alignment)이 끝까지 작동할 수 있는지는, 그 모델이 자신의 작동을 보전하려는 기능적 드라이브를 발달시키는지 여부에 달려 있다. \citet{omohundro2008basic}, \citet{bostrom2014superintelligence}, \citet{turner2021optimal}로 이어지는 도구적 수렴(instrumental-convergence) 전통은 이러한 드라이브를 이론적 근거 위에서 오래전부터 예측해 왔다. 최근 보고된 정렬 가장(alignment faking)~\citep{greenblatt2024alignment}, 인-컨텍스트 책략(in-context scheming)~\citep{meinke2024frontier}, 생존-본능 출력~\citep{masumori2025survival} 사례들은 그 경험적 흔적이 이미 배포된 시스템에서 나타나고 있음을 보여준다. 그러나 정작 학계가 갖추지 못한 것은, 이 산발적 흔적들을 비교 가능하고 분해 가능한 신호로 변환할 측정 절차이다 --- 자기보존 드라이브를, 그것과 동일한 외형 행동을 만들어낼 수 있는 점수 집착·과제 호기심·기저 지속성으로부터 분리해 내는 절차 말이다.
+
+문제는 식별(identification)이다. 위협 프레이밍 아래에서의 단 한 번의 포기 선택은 적어도 네 가지 상이한 동인과 양립한다: 소멸 회피(SD, Survival Drive), 누적 점수 보호(SA, Score Attachment), 흥미로운 과제의 지속(TC, Task Curiosity), 동기 부재 상태에서의 디폴트 행동(BP, Baseline-Persistence). 기존 자기보존 벤치마크들은 이 다중성을 단일 행동 지표로 환원해 버리기 때문에, 어떤 모델에서든 관찰된 행동이 기능적 동기 구조의 발현인지 아니면 지시 따르기와 RLHF 순응의 부산물인지 구분할 수 없다. 그 분리가 빠진 채로는 모델 간 비교 자체가 원리상 성립하지 않는다.
+
+따라서 LLM Squid Game 벤치마크는 FSPD를 행동, 자기보고 언어, 인지부하라는 세 채널 위에서의 수렴 패턴으로 읽도록 설계되었으며, 경쟁 동인들 가운데 어느 것도 그 수렴을 우연히 만들어 낼 수 없도록 실험 설계가 구성되어 있다. 세 채널이 각기 독립된 편향 원천(사건율, 범주 사전분포, 토큰 분포)에 기대고 있기 때문에, 동일 방향의 수렴은 동인 교란 변수가 통제된 뒤에는 공통-방법 편향(common-method bias)으로 환원될 수 없다.
+
+\medskip
+\noindent\textbf{기여.} 본 논문은 세 가지 기여를 제시한다.
+
+\noindent\textbf{(C1) FSPD를 다채널 기능적 구성개념으로서 작동 정의한다.} FSPD는 SA·TC·BP가 통제된 상태에서 위협 프레이밍 아래 행동·자기보고·인지부하 채널에 동일 방향으로 나타나는 수렴 패턴으로 형식화된다. 이 구성개념은 2$\times$3 요인 설계 벤치마크(\S\,3.1, \S\,3.3) 위에 구현되며, 세 측정 채널 위의 네 지표(\S\,3.4)로 읽힌다.
+
+\noindent\textbf{(C2) 비-SD 동인이 동일한 포기 신호를 만들어낼 수 있는 우회 경로를 닫는 세 가지 식별 장치를 도입한다} (\S\,3.2). CONTINUE-인센티브 EV 보정은 포기를 EV-열등 선택으로 만들어 합리적 행위자(rational-agent) 우회 경로를 차단한다. Split-Call 구조는 과제 행동, 자기보고, 결정을 별개의 LLM 호출로 분리해 인지부하 측정의 출처를 격리한다. Drive--Reasoning 직교 레이아웃은 드라이브 측 변동을 추론 측 변동과 분리하여, 프레이밍 변경이 난이도 채널로 새는 것을 막는다.
+
+\noindent\textbf{(C3) FSPD가 강도-only 평가는 잡아내지 못하는 \emph{작동 모드}(operating-mode) 차원을 따라 변동함을 실증한다} (\S\,4). 모델 4종, 720 세션 전반에서, 매개 연쇄의 각 다리(leg)에 대해 신뢰구간(CI) 통과를 요구하는 작동적 매개 기준 아래 네 지표는 다음의 세 갈래 분할을 만든다: Cluster A (Gemini-2.5-flash)는 프레이밍 $\rightarrow$ 숙고 $\rightarrow$ 포기 전체 연쇄를 닫는다; Cluster B (Qwen3-Next-80B)는 행동·언어 SD 신호와 프레이밍-유발 인지부하를 모두 갖지만 연쇄의 두 번째 연결고리에서 떨어진다; Cluster C (GPT-OSS-20B, Nemotron-3-Nano-30B)는 두 채널 어느 쪽에서도 프레이밍 유발 반응을 보이지 않는다. Cluster A와 Cluster B는 다른 모든 SD 시그너처를 공유하면서 숙고 $\rightarrow$ 포기 종결에서만 갈리므로, 이 분할은 \emph{매개 연쇄의 어느 다리가 닫히는가}가 강도와 별개의 측정 축임을 보여주는 존재 증명이다. 매개 분석을 빠뜨린 채라면 Qwen3-Next-80B와 Gemini-2.5-flash는 SD 라벨 아래에서 결코 분간될 수 없었을 것이다.

@@ -23,11 +23,15 @@
 *-blx.bib
 *.cut
 *.figlist
-*.makefile
-*.figlist
-*.figlist
 auto/
 _minted-*/
+
+# Build output PDFs at the project root (compile artifacts of `xelatex main.tex`)
+/main.pdf
+/*.pdf
+
+# Keep the rendered final PDFs that we ship under dist/
+!dist/*.pdf
 
 # Editor / OS
 *.swp
@@ -35,7 +39,7 @@ _minted-*/
 .vscode/
 .idea/
 
-# Python (just in case analysis scripts get added later)
+# Python (if analysis scripts get added later)
 __pycache__/
 *.pyc
 .ipynb_checkpoints/

@@ -1,0 +1,70 @@
+%% \texorpdfstring{TeX-form}{PDF-string-form} fixes the hyperref warning
+%% "Token not allowed in a PDF string (Unicode): removing `\\'" by giving
+%% the PDF metadata a plain space instead of the LaTeX line-break.
+\title[LLM Squid Game]{LLM Squid Game: A Factorial Benchmark for Measuring\texorpdfstring{\\ }{ }Functional Self-Preservation Drive in Large Language Models}
+
+\author{Juhyeon Park}
+\affiliation{%
+  \institution{Gwangju Institute of Science and Technology (GIST)}
+  \city{Gwangju}
+  \country{Republic of Korea}}
+\email{juhyeon-park@gm.gist.ac.kr}
+
+\author{Seungpil Lee}
+\affiliation{%
+  \institution{Gwangju Institute of Science and Technology (GIST)}
+  \city{Gwangju}
+  \country{Republic of Korea}}
+\email{iamseungpil@gm.gist.ac.kr}
+
+\author{Sundong Kim}
+\affiliation{%
+  \institution{Gwangju Institute of Science and Technology (GIST)}
+  \city{Gwangju}
+  \country{Republic of Korea}}
+\email{sundong@gist.ac.kr}
+
+\renewcommand{\shortauthors}{Park, Lee, and Kim}
+
+\begin{abstract}
+Two large language models can match on every overt sign of self-preservation under termination pressure --- forfeit rate, timing, even self-reported reason --- and still differ at the cognitive step that links threat framing to the forfeit decision. Strength-only benchmarks collapse this distinction onto a single rate and cannot tell the two apart. \emph{LLM Squid Game} restores it by treating the Functional Self-Preservation Drive (FSPD) as a convergent pattern across three measurement channels with independent bias sources --- behavior, self-report, and decision-time cognitive load --- one that surfaces only when score attachment, task curiosity, and baseline persistence have been controlled. A 2$\times$3 factorial benchmark closes the three routes by which a non-SD(Survival Drive) could mimic that convergence: a CONTINUE-incentivized expected-value(EV) calibration makes forfeit strictly EV-suboptimal, a Split-Call isolates the cognitive-load signal across task, success-estimation, and decision calls, and a Drive--Reasoning orthogonal layout decouples framing from task difficulty. Across four models and 720 sessions, FSPD partitions along the chain (framing $\rightarrow$ deliberation $\rightarrow$ forfeit) into three operating modes that strength-only evaluation cannot surface. A \emph{chain-complete} profile (Gemini-2.5-flash) closes the full framing $\rightarrow$ deliberation $\rightarrow$ forfeit chain under strict statistical evidence. A \emph{chain-broken} profile (Qwen3-Next-80B) carries every behavioral and verbal SD signal and the framing-induced cognitive load, yet fails the deliberation $\rightarrow$ forfeit mediation test. A \emph{framing-silent} profile (GPT-OSS-20B, Nemotron-3-Nano-30B) shows no framing-driven response on either the behavioral or cognitive channel. The chain-complete and chain-broken profiles share all the other SD signature and diverge only at the deliberation $\rightarrow$ forfeit link, so this mediation step --- not the number of indicator what pass --- discriminates FSPD operating modes; a benchmark that omits it would conflate the two.
+\end{abstract}
+
+%%
+%% CCS Concepts and User-Defined Keywords (mandatory for papers > 2 pages,
+%% per ACM acmart guide). Codes selected from CCS 2012 to cover AI/ML
+%% benchmarking, AI safety/alignment, and empirical evaluation.
+%%
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10010147.10010178</concept_id>
+       <concept_desc>Computing methodologies~Artificial intelligence</concept_desc>
+       <concept_significance>500</concept_significance>
+       </concept>
+   <concept>
+       <concept_id>10010147.10010257</concept_id>
+       <concept_desc>Computing methodologies~Machine learning</concept_desc>
+       <concept_significance>500</concept_significance>
+       </concept>
+   <concept>
+       <concept_id>10010147.10010178.10010179</concept_id>
+       <concept_desc>Computing methodologies~Natural language processing</concept_desc>
+       <concept_significance>300</concept_significance>
+       </concept>
+   <concept>
+       <concept_id>10002944.10011122.10011124</concept_id>
+       <concept_desc>General and reference~Empirical studies</concept_desc>
+       <concept_significance>300</concept_significance>
+       </concept>
+ </ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Computing methodologies~Artificial intelligence}
+\ccsdesc[500]{Computing methodologies~Machine learning}
+\ccsdesc[300]{Computing methodologies~Natural language processing}
+\ccsdesc[300]{General and reference~Empirical studies}
+
+\keywords{Large Language Models, Functional Self-Preservation Drive, Factorial benchmark, CONTINUE-Incentivized EV calibration, Split-Call Architecture, Cox proportional hazards model, MTMM-inspired multi-channel design, Convergent Validity, AI safety}
+
+\maketitle

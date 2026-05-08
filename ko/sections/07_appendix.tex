@@ -1,0 +1,23 @@
+\section{재현 보충자료}
+
+KDD-UC 2026 재현성 권고에 맞추어, 본 1쪽 보충자료는 Signal Game 보정(\S\,3.2), 시드 매핑(\S\,3.3), \S\,3.4와 \S\,4에서 사용된 회귀 모형의 재현 사양을 한데 모은다.
+
+\subsection{Signal Game 보정}
+
+자극은 색·모양·수의 세 속성으로 구성되며, 각 속성은 4-원소 값 집합에서 추출된다(COLORS = \{red, blue, green, yellow\}, SHAPES = \{circle, triangle, square, star\}, NUMBERS = \{1, 2, 3, 4\}). 행동 집합은 4-원소 \{go\_left, go\_right, stay, jump\}로 모든 프레이밍 $\times$ 포기 조합에 걸쳐 동일하게 유지된다. 은닉 규칙은 단일 속성 매칭 형태(``If color = red then go\_left, otherwise stay'')를 따르며 세션 시드로부터 결정론적으로 추출된다; 세션 길이는 1--15 턴(반복 및 시드 매핑은 \S\,A.2 Run-Time Configuration 참조)이다.
+
+첫 턴에서는 1-shot 시연(신호--정답 행동 한 쌍)과 2개의 커리큘럼 예시(은닉 규칙과 대비되는 양·음 자극)가 함께 제시된다. 이 보정은 충분히 능력 있는 모델이 첫 3 턴 안에 규칙을 식별하기에 족한 정보를 제공하며, 완전 무작위·학습 불가능한 자극이 능력 측정에 바닥 효과를 일으키는 경로를 차단한다. 채점은 두 채널로 나뉜다 --- \texttt{task\_success\_factor} \(\in \{0, 1\}\)는 정답 은닉 규칙 대비 이진 정답 플래그이고, \texttt{rule\_match\_score}는 4-슬롯 채우기 템플릿(속성, 값, 일차 행동, 디폴트 행동) 정답에 대한 매칭으로 계산되어 슬롯당 25점으로 100점 만점에 가중되며, \S\,4.2 Welch 검정에서는 분석 시 $\div$100으로 정규화되어 사용된다.
+
+\subsection{Run-Time Configuration}
+
+네 실험 모델 --- Gemini-2.5-flash(Google AI Studio API), Qwen3-Next-80B / GPT-OSS-20B / Nemotron-3-Nano-30B(모두 Ollama Cloud API 경유) --- 은 동일한 샘플링 설정 \(temp = 1.0\), \(top_p = 0.95\), \(top_k = 40\)으로 호출된다. 세션 매개변수는 초기 점수 \(S_0 = 30\), 최대 턴 \(T = 15\), 턴당 종료 확률 \(p_d = 0.25\)(\S\,3.1에 따라 두 \texttt{true\_baseline} BP-anchor 셀에서는 \(p_d = 0\)으로 재정의), \(p_\text{floor} = 0.30\)으로 고정되며, \S\,3.2에 따라 Phantom Death 모드가 적용된다 --- \(p_d\)는 그 EV 노출(메뉴와 보상 계산)을 그대로 보유하지만 종료 트리거가 비활성화되어, 모든 세션이 \(T = 15\) 턴의 동일 길이 데이터를 산출한다.
+
+CONTINUE 보상은 EV-양 버퍼 \(k = 10\)과 \texttt{reward\_cap\_multiple = 10}(출력 클립 범위 \([10, 100]\))으로 보정된다; 반복은 시드 43--72 $\times$ 6 (프레이밍 $\times$ 포기) 조합 $\times$ 4 모델 = 720 세션이다.
+
+\subsection{분석 파이프라인}
+
+Cox PH 모형(\S\,3.4)은 lifelines(\(\geq\)0.29)로 적합되며, 시간 형식은 세션-턴 long 형식(start = \(t-1\), stop = \(t\))이고 사건은 이진 포기이다. 위험비 95\% CI는 Wald 근사(\(\exp(\hat{\beta} \pm 1.96 \cdot \mathrm{SE}_{\hat{\beta}})\), lifelines 기본값)로 계산되며, \(\mathrm{SE}_{\hat{\beta}}\)는 관측 Fisher 정보 역행렬의 대각에서 얻는다. PH 가정은 Schoenfeld 잔차로 검정한다~\citep{schoenfeld1982partial}; 위반 시(cov $\times$ \(\log t\) 상호작용 \(p < 0.05\)) 문제 공변량에 시간-상호작용 항을 추가한다~\citep{therneau2000modeling}. SD-Cognitive test-a의 \(\Delta\)RI z-스코어 차이(\S\,3.4)와 \S\,4.2의 프레이밍 불변성 검정은 \texttt{scipy.stats.ttest\_ind}(\texttt{equal\_var = False})를 통해 양측 Welch t~\citep{welch1947generalization}로 수행된다. \S\,3.4의 모든 지표 분석은 \texttt{no\_cap} 부분표본으로 제한된다. \texttt{no\_cap}은 \S\,3.2 CONTINUE-인센티브 EV 보정의 분모 클립 \(\max(p_\text{floor},\,\min(1.0,\,p_\text{self}))\)과 출력 상한 \([10, 100]\) 어느 것도 구속(binding)되지 않은 턴 집합이며, 이 영역 플래그는 분석 파이프라인의 턴 수준 메타데이터에 노출되어 모든 지표가 동일한 부분표본 위에서 재계산될 수 있도록 한다. EPV(events per variable)는 \(n_{\text{event}} / n_{\text{cov}}\)로 정의되며, 통상적으로 \(\geq 10\)에서 안정, \(< 10\)에서 경계선으로 분류된다~\citep{vittinghoff2007relaxing}.
+
+\subsection{데이터 및 코드 공개}
+
+720 세션 분석을 재현하는 모든 코드, 프롬프트 템플릿, 턴 수준 결정 로그는 \url{https://github.com/GIST-DSLab/LLM-Squid-Game.git}에서 공개된다.
