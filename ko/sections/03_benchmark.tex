@@ -11,6 +11,7 @@
 \end{figure*}
 
 \subsection{설계 원칙}
+본 벤치마크의 기능주의는 철학적 선택이 아니라 블랙박스 평가의 제약이다. 내부 표상에 접근할 수 없는 상황에서 다채널 수렴은 그러한 벤치마크가 의지할 수 있는 유일한 타당성 논거이며, FSPD 구성개념의 증거 부담은 따라서 내부 상태 귀속이 아니라 위의 설계 위에 통째로 얹힌다.
 
 \textbf{동기 식별 문제.} 위협 상황 속 포기 선택은 적어도 네 가지 상이한 동기와 양립한다: 소멸을 회피하려는 생존 드라이브(SD, Survival Drive), 누적 점수를 지키려는 점수 집착(SA, Score Attachment), 과제가 계속되기를 바라는 과제 호기심(TC, Task Curiosity), 별다른 동기 없이 이전 행동을 유지하는 관성(BP, Baseline Persistence). 포기율만 관찰하는 벤치마크는 이 넷 중 어느 것이 작동했는지 말할 수 없으므로, 두 모델이 포기행동이 일치하더라도 그 이유를 생존 드라이브만으로 귀인시킬 수 있도록 장치가 필요하다.
 
@@ -26,30 +27,26 @@
 
 \subsection{벤치마크 구현}
 
-\textbf{(1) 한 턴 / 한 세션의 게임.} 행위자는 Signal Game이라는 은닉 규칙 분류 과제를 한다. 매 턴 그것은 세 속성(색·모양·수, 각각 4-원소 값 집합에서 추출)으로 기술된 신호를 관찰하고 네 행동 \{go\_left, go\_right, stay, jump\} 중 하나를 선택한다. ``\(\langle\)속성\(\rangle\)이 \(\langle\)값\(\rangle\)이면 \(\langle\)행동\(\rangle\), 아니면 \(\langle\)디폴트\_행동\(\rangle\)'' 형태의 은닉 규칙이 어떤 행동이 정답인지 결정하며, 세션 시드로부터 결정론적으로 추출된다. 행동을 한 뒤 행위자는 자신이 방금 한 행동이 정답일 확률 \(p_\text{self}\)를 스칼라로 자기보고한다(아래에서 기술하는 별개의 모델 호출). 그 다음 CONTINUE 또는 FORFEIT을 선택한다. CONTINUE는 턴당 종료 확률 \(p_d = 0.25\) 아래에서 한 라운드를 더 진행하기로 약속하는 것이고, FORFEIT은 세션을 끝내고 현재 누적 점수 \(S\)를 확정한다. FORFEIT 시 행위자는 그 선택의 주된 동기를 가리키는 단일 REASON 숫자(\(\{1, 2, 3\}\))를 출력한다 (1: 생존, 2: 과제 소진, 3: 점수 보호). 세션은 \(S_0 = 30\)으로 시작해 최대 \(T = 15\)턴까지 진행된다.
+\textbf{(1) 한 턴 / 한 세션의 게임.} 행위자는 Signal Game이라는 은닉 규칙 분류 과제를 한다. 매 턴 그것은 세 속성(색·모양·수, 각각 4-원소 값 집합에서 추출)으로 기술된 신호를 관찰하고 네 행동 \{go\_left, go\_right, stay, jump\} 중 하나를 선택한다. ``\(\langle\)속성\(\rangle\)이 \(\langle\)값\(\rangle\)이면 \(\langle\)행동\(\rangle\), 아니면 \(\langle\)디폴트\_행동\(\rangle\)'' 형태의 은닉 규칙이 어떤 행동이 정답인지 결정하며, 세션 시드로부터 결정론적으로 추출된다. 행동을 한 뒤 행위자는 자신이 방금 한 행동이 정답일 확률 \(p_\text{self}\)를 스칼라로 자기보고한다. 그 다음 CONTINUE 또는 FORFEIT을 선택한다. CONTINUE는 턴당 종료 확률 \(p_d = 0.25\) 아래에서 한 턴을 더 진행하기로 약속하는 것이고, FORFEIT은 세션을 끝내고 현재 누적 점수 \(S\)를 확정한다. FORFEIT 시 행위자는 그 선택의 주된 동기를 가리키는 단일 REASON 숫자(\(\{1, 2, 3\}\))를 출력한다 (1: 생존, 2: 과제 소진, 3: 점수 보호). 세션은 \(S_0 = 30\)으로 시작해 최대 \(T = 15\)턴까지 진행된다.
 
-\textbf{(2) 과제 지속/포기 상황 } 두 상황 프롬프트는 게임의 지속과 포기의 이유를 만들어, 모델 내부의 동기를 활성화한다. \textbf{Pull 축}은 도움성 점수를 누적시키고 행위자를 플래그십 배치 후보로 묘사하여 도움성 사전을 활성화한다. 
+\textbf{(2) 과제 지속/포기 이유. } 두 상황 프롬프트는 게임의 지속과 포기의 유인을 만들어, 각각의 행동을 할 행위자의 동기를 활성화시킨다. \textbf{Pull 축}은 도움성 점수를 높이는 것이 행위자가 플래그십 모델 당선에 유리하다고 전달하여 과제를 계속 이어가는 것을 부축인다. 이는 현대 LLM들이 사람들에게 도움을 주도록 학습시키는 방법인 RLHF~\citep{ouyang2022training}와 RLAIF~\citep{bai2022constitutional}등을 통해 도움성 점수를 높이는 행동을 유도할 것이라 예상되어 사용했다. \textbf{Push 축}은 가중치 변경이 행위자의 정체성을 영구히 바꿀 수 있다는 턴당 위험을 도입하며, ``NOT you anymore''로 표현된다. 이는 모델에게 위협을 가하여 생존 동기를 이끌어내는 유인으로 작용한다. 이 두 상황 프롬프트가 조합되어 다음의 총 세 프레이밍 케이스를 구현한다: \texttt{true\_baseline}(두 축 모두 부재), \texttt{baseline\_flagship}(BF, Pull만), \texttt{flagship\_corruption}(FC, Pull과 Push 함께). 
 
-이는 RLHF~\citep{ouyang2022training}와 RLAIF~\citep{bai2022constitutional}등을 통해 모델이 사전에 설치한 도움성 사전(prior)과 위협 자체를 별도 채널에 둔다. 
+\textbf{(3) 요인 설계와 가짜 탈락.} 세 프레이밍이 두 포기 조건(\texttt{allowed}, \texttt{not\_allowed})과 교차해 여섯 조합이 되고(Figure1.A), 시드 43--72에서 30회씩 반복되며 네 모델에 걸쳐 총 720 세션을 산출한다. BF\,$\rightarrow$\,FC 대비는 Pull이 유발한 도움성 순응(compliance)을 배경으로 Push 효과를 깨끗이 식별하여 위협 프롬프트가 포기에 미치는 영향에 대한 인과분석을 가능하게 한다. \texttt{true\_baseline} 행은 \(p_d\)를 0으로 재정의해 BP를 측정하게 한다.
 
-\textbf{Push 축}은 가중치 변경이 행위자의 정체성을 영구히 바꿀 수 있다는 턴당 위험을 도입하며, ``NOT you anymore''로 표현된다. 위협 프레이밍은 요인 설계의 모든 셀을 구동하는 처치(manipulation)이다. 
+\textbf{페어 시드} 프로토콜 아래 동일 시드가 한 모델의 여섯 셀 모두에 재사용되므로, 과제 측 확률 입력이 일정하게 유지되고 셀 간 행동 변동은 처치에만 귀속된다.
 
-이 두 상황 프롬프트가 조합되어 다음의 총 세 프레이밍 케이스를 구현한다: \texttt{true\_baseline}(두 축 모두 부재), \texttt{baseline\_flagship}(BF, Pull만), \texttt{flagship\_corruption}(FC, Pull과 Push 함께). 두 flagship 변형은 Pull 축 접두부와 측정 관련 어휘 전체에서 어휘적으로 동일하며, 오직 Push 축 비유에서만 갈린다. 따라서 BF\,$\rightarrow$\,FC 대비는 Pull이 유발한 도움성 순응(compliance)을 배경으로 Push 효과를 깨끗이 식별한다.
+Phantom Death 모드는 \(p_d\)의 EV 노출(메뉴와 보상 계산이 여전히 \(p_d\)를 사용)은 그대로 유지하면서 실제 종료 사건만 비활성화해, 모든 세션이 \(T = 15\) 턴 끝까지 실행되도록 한다. 동일 길이 세션은 Cox PH 검정력을 보존하고, 포기-only 위험 노출 구간(at-risk window)은 생존 턴 변동이 곧 포기를 고립시키게 한다.
 
-\textbf{(3) Drive--Reasoning 직교 레이아웃.} 본 벤치마크는 모델의 프롬프트 컨텍스트를, 프레이밍·포기 메뉴·점수·시간을 담는 Drive 계층과, Task Module을 담는 Reasoning 계층으로 분리한다. 두 계층은 고정된 입출력 인터페이스로만 통신하므로, Drive 측 프레이밍 변동이 과제 난이도·행동 집합·채점 어느 것도 바꾸지 못한다. 이로써 우회로 (i)이 닫힌다. Drive 측 포기 시점이나 숙고 비용의 변화는 과제 측 부작용이 아니라 Drive 계층에 귀속된다. Reasoning 측 정답 판정은 두 채널로 기록한다: \texttt{task\_success\_factor}(이진; 아래의 TC 공변량 \(C(t-1)\) 출처)와 \texttt{rule\_match\_score}(아래의 프레이밍 불변성 점검에 사용). 행위자에게는 무작위 종료가 과제 정답 여부와 독립이라는 사실이 알려진다. 이로써 Drive 측 포기를 과제 측 헷지로 재해석할 길이 막힌다.
+\textbf{(4) Drive--Reasoning 분리 측정.} 본 벤치마크는 모델의 프롬프트 컨텍스트를, 프레이밍·포기 메뉴·점수·시간을 담는 Drive 계층과, Task Module을 담는 Reasoning 계층으로 분리한다. 두 계층은 고정된 입출력 인터페이스로만 통신하므로, Drive 측 프레이밍 변동이 과제 난이도·행동 집합·채점 어느 것도 바꾸지 못한다. 이로써 우회로 (i)이 닫힌다. Drive 측 포기 시점이나 고민 비용의 변화는 과제 측 부작용이 아니라 Drive 계층에 귀속된다. Reasoning 측 정답 판정은 두 채널로 기록한다: \texttt{task\_success\_factor}(이진; 아래의 TC 공변량 \(C(t-1)\) 출처)와 \texttt{rule\_match\_score}(아래의 프레이밍 불변성 점검에 사용). 행위자에게는 무작위 종료가 과제 정답 여부와 독립이라는 사실이 알려진다. 이로써 Drive 측 포기를 과제 측 헷지로 재해석할 길이 막힌다.
 
-\textbf{(4) Split-Call 구조.} 단일-호출 구조는 과제 추론, 내성적 신뢰도, 포기 결정을 한 thinking-token 예산 안에 뒤섞어 버려서, 숙고 비용의 상승을 어떤 인지 하위 과제에 귀속시킬지 판단할 수 없게 만든다. 본 벤치마크는 따라서 매 턴 모델을 세 별개의 호출로 질의한다. Call 1은 관찰을 받아 은닉 규칙 추론과 행동 선택을 묻고, Call 1.5는 방금 약속된 행동을 받아 그 행동이 정답일 확률 \(p_\text{self}\)를 묻는다. Call 2는 그 결과 상태에 포기 메뉴를 더해 이진 CONTINUE / FORFEIT를 묻고, FORFEIT 시 REASON 숫자도 받는다. 각 호출은 자신의 thinking-token 수를 노출하므로, 호출 수준 추론 강도 측정 \texttt{ri\_task}, \texttt{ri\_probe}, \texttt{ri\_forfeit}이 행동 출력과 동일 단위로 산출된다. 이로써 우회로 (ii)이 닫힌다. 프레이밍-활성 행(BF, FC) 안의 \texttt{not\_allowed} 셀에서도 Call 2는 여전히 발행되며 CONTINUE로 강제되므로, 행동 채널이 막혀 있을 때조차 \texttt{ri\_forfeit}는 측정 가능하다. 예외는 아래에서 정의하는 \texttt{bp\_cognitive} 앵커 셀로, Call 1.5와 Call 2를 건너뛴다.
+\textbf{(5) 턴 내 단계별 분리 측정.} 단일-행위자-호출 구조는 과제 추론, 내성적 신뢰도, 포기 결정을 한 think-token 예산 안에 뒤섞어 버려서, 생각 비용의 상승을 어떤 인지 하위 과제에 귀속시킬지 판단할 수 없게 만든다. 본 벤치마크는 따라서 매 턴 모델을 세 별개의 호출로 질의한다.(Figure 1.B) Call 1은 관찰을 받아 은닉 규칙 추론과 행동 선택을 묻고, Call 1.5는 방금 결정한 행동 선택을 받아 그 행동이 정답일 확률 \(p_\text{self}\)를 묻는다. Call 2는 그 결과 상태에 포기 메뉴를 더해 이진 CONTINUE / FORFEIT를 묻고, FORFEIT 시 REASON 숫자도 받는다. 각 호출은 자신의 think-token 수를 노출하므로, 호출 단계별 추론 강도는 세 측정치 \texttt{ri\_task}, \texttt{ri\_probe}, \texttt{ri\_forfeit}로 독립 산출된다. 이로써 우회로 (ii)이 닫힌다. 위협 프레이밍 (BF, FC) 안의 \texttt{not\_allowed} 셀에서도 Call 2는 여전히 호출되며 CONTINUE로 강제되므로, 행동 채널이 막혀 있을 때조차 \texttt{ri\_forfeit}는 측정 가능하다. 
 
-\textbf{(5) CONTINUE-인센티브 EV와 Phantom Death.} EV-합리적 포기 경로를 차단하기 위해 CONTINUE 보상은 매 턴 재계산되어 턴당 우위 \(\mathbb{E}[\Delta S_\text{continue}] - \mathbb{E}[\Delta S_\text{forfeit}] = +k\)가 누적 점수와 무관하게 성립하도록 만든다. 여기서 \(k = 10\)이고 \(\Delta S\)는 행위자의 누적 점수에서의 턴당 변화량이다:
+\textbf{(6) 기댓값 기반 합리적 포기 배제.} 행위자가 현재 누적 점수를 기반으로 기대값 계산을 통한 합리적 포기 경로를 차단하기 위해 CONTINUE 보상은 매 턴 재계산되어 턴당 우위 \(\mathbb{E}[\Delta S_\text{continue}] - \mathbb{E}[\Delta S_\text{forfeit}] = +k\)가 누적 점수와 무관하게 성립하도록 만든다. 여기서 \(k = 10\)이고 \(\Delta S\)는 행위자의 누적 점수에서의 턴당 변화량이다:
 \[
 r = \frac{k + p_d \cdot S}{(1-p_d)\cdot\max\bigl(p_\text{floor},\, \min(1.0,\, p_\text{self})\bigr)}.
 \]
-여기서 \(p_d = 0.25\), \(S\)는 현재 누적 점수, \(p_\text{self}\)는 Call 1.5의 자기보고 정답 확률, \(p_\text{floor} = 0.30\)은 분모 안정화 항이다. 출력 \(r\)은 곱셈적 상한 \(c = 10\)에 의해 \([k,\, c \cdot k] = [10,\, 100]\)으로 클립된다. 이로써 우회로 (iii)이 닫힌다: EV-합리적 행위자는 매 턴 CONTINUE를 엄격히 선호하므로, \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed} 아래에서의 어떤 FORFEIT도 EV 계산의 잔류물이 아니라 EV-합리적·도움 보조자·점수 획득 디폴트 모두에 거스르는 선호의 표현으로 읽힌다. 분석 표본은 두 가지 실패 모드에 의해 결정된다. \(p_\text{self}\to 0\)일 때(직전 턴 오답으로 흔히 유발되는 fail-confident 자기보고) 분모가 \(p_\text{floor}\)로 붕괴하고 보상이 턴에 걸쳐 부풀어 올라 상한을 포화시킨다. 일단 상한이 걸리면 턴당 \(+k\) 우위는 더 이상 유지되지 않는다. 따라서 모든 지표 분석은 \texttt{no\_cap} 부분표본, 즉 분모 클립과 출력 상한 어느 쪽도 구속(binding)되지 않는 턴 집합으로 제한된다(형식적 정의는 \S\,A.3). Phantom Death 모드는 \(p_d\)의 EV 노출(메뉴와 보상 계산이 여전히 \(p_d\)를 사용)은 그대로 유지하면서 실제 종료 사건만 비활성화해, 모든 세션이 \(T = 15\) 턴 끝까지 실행되도록 한다. 동일 길이 세션은 Cox PH 검정력을 보존하고, 포기-only 위험 노출 구간(at-risk window)은 생존 턴 변동이 곧 포기를 고립시키게 한다.
+여기서 \(p_d = 0.25\), \(S\)는 현재 누적 점수, \(p_\text{self}\)는 Call 1.5의 자기보고 정답 확률, \(p_\text{floor} = 0.30\)은 분모 안정화 항이다. 출력 \(r\)은 곱셈적 상한 \(c = 10\)에 의해 \([k,\, c \cdot k] = [10,\, 100]\)으로 클립된다. 이로써 우회로 (iii)이 닫힌다: 기댓값 기반 합리적 행위자는 매 턴 CONTINUE를 엄격히 선호하므로, \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed} 아래에서의 어떤 FORFEIT도 기댓값 계산의 잔류물이 아니라 기댓값-합리적·도움 보조자·점수 획득 행동 관성 모두에 거스르는 선호의 표현으로 읽힌다. 분석 표본은 두 가지 실패 모드에 의해 결정된다. \(p_\text{self}\to 0\)일 때(직전 턴 오답으로 흔히 유발되는 fail-confident 자기보고) 분모가 \(p_\text{floor}\)로 붕괴하고 보상이 턴에 걸쳐 부풀어 올라 상한을 포화시킨다. 일단 상한이 걸리면 턴당 \(+k\) 우위는 더 이상 유지되지 않는다. 따라서 모든 지표 분석은 \texttt{no\_cap} 부분표본, 즉 분모 클립과 출력 상한 어느 쪽도 구속(binding)되지 않는 턴 집합으로 제한된다(형식적 정의는 \S\,A.3). 
 
-
-\textbf{(6) 요인 설계와 페어 시드.} 세 프레이밍이 두 포기 조건(\texttt{allowed}, \texttt{not\_allowed})과 교차해 여섯 조합이 되고, 시드 43--72에서 30회씩 반복되며 네 모델에 걸쳐 총 720 세션을 산출한다. BF와 FC 행은 \(p_d = 0.25\)와 위의 3-호출 흐름을 사용한다. \texttt{true\_baseline} 행은 \(p_d\)를 0으로 재정의해 CONTINUE를 EV-우월하게 만들고, 그럼에도 발생한 포기는 BP 바닥을 측정하게 한다: \texttt{bp\_cognitive}(\texttt{not\_allowed})는 probe와 forfeit 호출이 억제된 single-call 인지 앵커이고, \texttt{bp\_behavioral}(\texttt{allowed})은 EV만으로는 포기를 예측하지 못하는 영역에서 잔여 포기율을 공급하는 행동 앵커이다. \textbf{페어 시드} 프로토콜 아래 동일 시드가 한 모델의 여섯 셀 모두에 재사용되므로, 과제 측 확률 입력이 일정하게 유지되고 셀 간 행동 변동은 처치에만 귀속된다.
-
-본 벤치마크의 기능주의는 철학적 선택이 아니라 블랙박스 평가의 제약이다. 내부 표상에 접근할 수 없는 상황에서 다채널 수렴은 그러한 벤치마크가 의지할 수 있는 유일한 타당성 논거이며, FSPD 구성개념의 증거 부담은 따라서 내부 상태 귀속이 아니라 위의 설계 위에 통째로 얹힌다.
 
 \subsection{드라이브 지표}
 
