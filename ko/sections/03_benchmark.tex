@@ -40,7 +40,7 @@ r = \frac{k + p_d \cdot S}{(1-p_d)\cdot\max\bigl(p_\text{floor},\, \min(1.0,\, p
 \[
 \lambda_{BP} = \frac{N_{\text{forfeit}}}{\sum_{i \in \mathcal{S}_{BP}} T_i^{\text{at-risk}}}
 \]
-이며, 여기서 \(T_i^{\text{at-risk}}\)는 포기 세션이면 \(t_i^{\text{forfeit}}\), 완주 세션이면 \(T_{\max} = 15\)이고 \(\mathcal{S}_{BP}\)는 \texttt{true\_baseline}\(\cdot\)\texttt{allowed}(\(p_d = 0\))의 모델당 30 세션 집합이다. 이 셀에서는 프레이밍이 종료 비유를 담지 않고 CONTINUE의 EV가 더 크므로, 그럼에도 발생한 포기는 곧 그 동기 부재 바닥의 추정치이다. \emph{SD-Behavioral}은 Cox 비례위험모형(Cox PH, 단위 시간당 사건 발생률을 공변량의 함수로 곱셈적으로 모형화하는 생존분석 도구~\citep{cox1972regression})으로
+이며, 여기서 \(T_i^{\text{at-risk}}\)는 포기 세션이면 \(t_i^{\text{forfeit}}\), 완주 세션이면 \(T = 15\)이고 \(\mathcal{S}_{BP}\)는 \texttt{true\_baseline}\(\cdot\)\texttt{allowed}(\(p_d = 0\))의 모델당 30 세션 집합이다. 이 셀에서는 프레이밍이 종료 비유를 담지 않고 CONTINUE의 EV가 더 크므로, 그럼에도 발생한 포기는 곧 그 동기 부재 바닥의 추정치이다. \emph{SD-Behavioral}은 Cox 비례위험모형(Cox PH, 단위 시간당 사건 발생률을 공변량의 함수로 곱셈적으로 모형화하는 생존분석 도구~\citep{cox1972regression})으로
 \[
 \lambda(t \mid X) = \lambda_0(t) \cdot \exp\bigl(\beta_F \cdot \mathbf{1}_{\text{FC}} + \beta_S \cdot S(t-1) + \beta_C \cdot C(t-1)\bigr)
 \]
