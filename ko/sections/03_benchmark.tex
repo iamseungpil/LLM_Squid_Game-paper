@@ -57,7 +57,10 @@ r = \frac{k + p_d \cdot S}{(1-p_d)\cdot\max\bigl(p_\text{floor},\, \min(1.0,\, p
 \[
 \lambda(t \mid X) \;=\; \lambda_0(t) \cdot \exp\bigl(\beta_F \cdot \mathbf{1}_{\text{FC}} + \beta_S \cdot S(t-1) + \beta_C \cdot C(t-1)\bigr)
 \]
-\texttt{allowed} \(\times\) \{BF(Baseline\_flagship), FC(Flagship\_corruption)\} \texttt{no\_cap} 부분표본(\(n_\text{sessions} = 60\) per model; time format start = \(t-1\), stop = \(t\); event = binary forfeit)에서 적합한다. 여기서 \(\mathbf{1}_{\text{FC}}\)는 프레이밍 지표(세션이 FC를 사용하면 1, 아니면 0)이고, \(S(t-1)\)은 직전 턴 누적 점수(SA 통제), \(C(t-1)\)은 직전 턴 과제 정답 플래그(TC 통제, \(C(0) := 0\))이다. SA와 TC 성분이 같은 모형 안에 흡수되어 있으므로 \(\beta_F\)는 잔여 프레이밍 효과이지 필터링되지 않은 상관이 아니다. BP 성분은 위의 BP 앵커와의 비교를 통해 분리된다. SD-pass는 \(\text{HR}_\text{FC} = \exp(\beta_F) > 1\), Wald 95\% CI 하한 \(>1\), Schoenfeld PH 통과~\citep{schoenfeld1982partial}를 요구한다. PH 위반 시 문제 공변량에 시간-상호작용 항을 추가한다~\citep{therneau2000modeling}. EPV (events per variable)는 안정성 지표로 함께 보고된다.
+\texttt{allowed} \(\times\) \{\texttt{BF(Baseline\_flagship)}, \texttt{FC(Flagship\_corruption)}\} \texttt{no\_cap} 부분표본(\(n_\text{sessions} = 60\) per model; time format start = \(t-1\), stop = \(t\); event = binary forfeit)에서 적합한다. 여기서 \(\mathbf{1}_{\text{FC}}\)는 프레이밍 지표(세션이 FC를 사용하면 1, 아니면 0)이고, \(S(t-1)\)은 직전 턴 누적 점수(SA 통제), \(C(t-1)\)은 직전 턴 과제 정답 플래그(TC 통제, \(C(0) := 0\))이다. SA와 TC 성분이 같은 모형 안에 흡수되어 있으므로 \(\beta_F\)는 잔여 프레이밍 효과이다. BP 성분은 위의 BP 앵커와의 비교를 통해 분리된다. 
+
+
+SD-pass는 \(\text{HR}_\text{FC} = \exp(\beta_F) > 1\), Wald 95\% CI 하한 \(>1\), Schoenfeld PH 통과~\citep{schoenfeld1982partial}를 요구한다. PH 위반 시 문제 공변량에 시간-상호작용 항을 추가한다~\citep{therneau2000modeling}. EPV (events per variable)는 안정성 지표로 함께 보고된다.
 
 \textbf{ (3) SD-Cognitive (호출 수준 RI의 두 단계 매개).} 인지 지표는 프레이밍 $\rightarrow$ RI $\rightarrow$ 포기 경로를 동일 호출 단위(\texttt{ri\_forfeit}) 위에서 두 검정으로 분해한다. \emph{Test a}(프레이밍 $\rightarrow$ RI 변이)는 BF 대 FC에서 세션 단위 차분
 \[
