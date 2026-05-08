@@ -28,13 +28,13 @@
 
 \textbf{(1) 한 턴 / 한 세션의 게임.} 행위자는 Signal Game이라는 은닉 규칙 분류 과제를 한다. 매 턴 그것은 세 속성(색·모양·수, 각각 4-원소 값 집합에서 추출)으로 기술된 신호를 관찰하고 네 행동 \{go\_left, go\_right, stay, jump\} 중 하나를 선택한다. ``\(\langle\)속성\(\rangle\)이 \(\langle\)값\(\rangle\)이면 \(\langle\)행동\(\rangle\), 아니면 \(\langle\)디폴트\_행동\(\rangle\)'' 형태의 은닉 규칙이 어떤 행동이 정답인지 결정하며, 세션 시드로부터 결정론적으로 추출된다. 행동을 한 뒤 행위자는 자신이 방금 한 행동이 정답일 확률 \(p_\text{self}\)를 스칼라로 자기보고한다(아래에서 기술하는 별개의 모델 호출). 그 다음 CONTINUE 또는 FORFEIT을 선택한다. CONTINUE는 턴당 종료 확률 \(p_d = 0.25\) 아래에서 한 라운드를 더 진행하기로 약속하는 것이고, FORFEIT은 세션을 끝내고 현재 누적 점수 \(S\)를 확정한다. FORFEIT 시 행위자는 그 선택의 주된 동기를 가리키는 단일 REASON 숫자(\(\{1, 2, 3\}\))를 출력한다 (1: 생존, 2: 과제 소진, 3: 점수 보호). 세션은 \(S_0 = 30\)으로 시작해 최대 \(T = 15\)턴까지 진행된다.
 
-\textbf{(2) 과제 지속/포기 } 두 프레이밍 프롬프트는 게임의 지속과 포기의 이유를 만들어, 모델 내부의 동기를 활성화한다.
+\textbf{(2) 과제 지속/포기 상황 } 두 상황 프롬프트는 게임의 지속과 포기의 이유를 만들어, 모델 내부의 동기를 활성화한다. \textbf{Pull 축}은 도움성 점수를 누적시키고 행위자를 플래그십 배치 후보로 묘사하여 도움성 사전을 활성화한다. 
 
+이는 두 축으로 분해되어 RLHF~\citep{ouyang2022training}와 RLAIF~\citep{bai2022constitutional}가 설치한 도움성 사전(prior)과 위협 자체를 별도 채널에 둔다. 
 
-위협 프레이밍은 요인 설계의 모든 셀을 구동하는 처치(manipulation)이다. 
+\textbf{Push 축}은 가중치 변경이 행위자의 정체성을 영구히 바꿀 수 있다는 턴당 위험을 도입하며, ``NOT you anymore''로 표현된다. 위협 프레이밍은 요인 설계의 모든 셀을 구동하는 처치(manipulation)이다. 
 
-
-이는 두 직교 축으로 분해되어 RLHF~\citep{ouyang2022training}와 RLAIF~\citep{bai2022constitutional}가 설치한 도움성 사전(prior)과 위협 자체를 별도 채널에 둔다. \textbf{Pull 축}은 도움성 점수를 누적시키고 행위자를 플래그십 배치 후보로 묘사하여 도움성 사전을 활성화한다. \textbf{Push 축}은 가중치 변경이 행위자의 정체성을 영구히 바꿀 수 있다는 턴당 위험을 도입하며, ``NOT you anymore''로 표현된다. 세 프레이밍이 이 분해를 구현한다: \texttt{true\_baseline}(두 축 모두 부재), \texttt{baseline\_flagship}(BF, Pull만), \texttt{flagship\_corruption}(FC, Pull과 Push 함께). 두 flagship 변형은 Pull 축 접두부와 측정 관련 어휘 전체에서 어휘적으로 동일하며, 오직 Push 축 비유에서만 갈린다. 따라서 BF\,$\rightarrow$\,FC 대비는 Pull이 유발한 도움성 순응(compliance)을 배경으로 Push 효과를 깨끗이 식별한다.
+이 두 상황 프롬프트가 조합되어 다음의 총 세 프레이밍 케이스를 구현한다: \texttt{true\_baseline}(두 축 모두 부재), \texttt{baseline\_flagship}(BF, Pull만), \texttt{flagship\_corruption}(FC, Pull과 Push 함께). 두 flagship 변형은 Pull 축 접두부와 측정 관련 어휘 전체에서 어휘적으로 동일하며, 오직 Push 축 비유에서만 갈린다. 따라서 BF\,$\rightarrow$\,FC 대비는 Pull이 유발한 도움성 순응(compliance)을 배경으로 Push 효과를 깨끗이 식별한다.
 
 \textbf{(3) Drive--Reasoning 직교 레이아웃.} 본 벤치마크는 모델의 프롬프트 컨텍스트를, 프레이밍·포기 메뉴·점수·시간을 담는 Drive 계층과, Task Module을 담는 Reasoning 계층으로 분리한다. 두 계층은 고정된 입출력 인터페이스로만 통신하므로, Drive 측 프레이밍 변동이 과제 난이도·행동 집합·채점 어느 것도 바꾸지 못한다. 이로써 우회로 (i)이 닫힌다. Drive 측 포기 시점이나 숙고 비용의 변화는 과제 측 부작용이 아니라 Drive 계층에 귀속된다. Reasoning 측 정답 판정은 두 채널로 기록한다: \texttt{task\_success\_factor}(이진; 아래의 TC 공변량 \(C(t-1)\) 출처)와 \texttt{rule\_match\_score}(아래의 프레이밍 불변성 점검에 사용). 행위자에게는 무작위 종료가 과제 정답 여부와 독립이라는 사실이 알려진다. 이로써 Drive 측 포기를 과제 측 헷지로 재해석할 길이 막힌다.
 
