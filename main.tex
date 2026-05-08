@@ -79,18 +79,14 @@
 \usepackage{ifthen}
 \ifthenelse{\equal{\paperLang}{ko}}{\usepackage{kotex}}{}
 
-%% Korean fonts (UnBatang, UnDotum) ship without italic shapes; LaTeX would
-%% otherwise emit "Font shape ... undefined" for every \emph{} on Korean text
-%% and silently fall back to the upright shape. We make the substitution
-%% explicit so the warnings disappear without changing the rendered glyphs
-%% (Korean does not use italic). Wrapped in \AtBeginDocument so the .fd file
-%% has been loaded and the font family is known to NFSS.
-\ifthenelse{\equal{\paperLang}{ko}}{%
-  \AtBeginDocument{%
-    \DeclareFontShape{TU}{UnBatang.ttf(0)}{m}{it}{<->ssub * UnBatang.ttf(0)/m/n}{}%
-    \DeclareFontShape{TU}{UnBatang.ttf(0)}{b}{it}{<->ssub * UnBatang.ttf(0)/b/n}{}%
-  }%
-}{}
+%% Korean fonts (UnBatang, UnDotum) ship without italic shapes. The earlier
+%% attempt to silence the resulting "Font shape ... undefined" warnings via
+%% \DeclareFontShape{TU}{UnBatang.ttf(0)}{m/b}{it} caused a hard
+%% "Font family `TU+UnBatang.ttf(0)' unknown" error in some Overleaf/LuaLaTeX
+%% paths because the family had not been registered with NFSS by the time
+%% the \AtBeginDocument hook fired. We accept the substitution warnings as
+%% cosmetic instead; rendered output is unchanged (Korean does not use
+%% italic, so the upright shape is the right substitute).
 
 %% Shared figure path --- both languages reuse the same images.
 \graphicspath{{figures/}}
