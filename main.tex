@@ -3,6 +3,24 @@
 %% Compile with XeLaTeX:  xelatex main.tex && bibtex main && xelatex main.tex && xelatex main.tex
 %% Switch language by changing the value of \paperLang below.
 
+%% Load mathtools BEFORE acmart's class-time unicode-math autoload to silence
+%% "Package mathtools Warning: For best results, please load mathtools *before*
+%% unicode-math" under XeLaTeX/LuaLaTeX.
+\RequirePackage{mathtools}
+
+%% Known cosmetic warnings that we accept rather than silence:
+%%   - "Package fontspec Warning: OpenType feature 'Numbers=Uppercase' (lnum)
+%%     not available for font 'LinBiolinum_RB' / 'LinLibertine_RZI'." This
+%%     comes from acmart's Linux Libertine font setup; the locally installed
+%%     font files lack the lnum/tnum OpenType features but the rendered
+%%     output is correct (digits fall back to the default numeral set).
+%%     fontspec emits these via a non-standard warning macro that ignores
+%%     the silence package, so we leave them as-is rather than patch
+%%     fontspec internals.
+%%   - "Package unicode-math Warning: \overbracket / \underbracket
+%%     overwritten." A known interaction between unicode-math and amsmath
+%%     under XeLaTeX. Output is unaffected.
+
 \documentclass[sigconf, nonacm]{acmart}
 
 %% ---------------------------------------------------------------------------
@@ -43,7 +61,6 @@
 \usepackage{amsmath}
 \let\Bbbk\relax
 \usepackage{amssymb}
-\usepackage{mathtools}
 \usepackage{xcolor}
 \usepackage{listings}
 \lstset{basicstyle=\ttfamily\small, breaklines=true, columns=fullflexible}
@@ -67,6 +84,12 @@
 
 %% Tables numbered as Table X.Y where X is the parent section number.
 \numberwithin{table}{section}
+
+%% Bibliography compactness --- KDD-UC '26 allots 1 page for references, so we
+%% trim natbib's inter-entry spacing and shrink the bibliography font one
+%% step. Output remains within the ACM Reference Format style.
+\setlength{\bibsep}{0pt plus 0.3ex}
+\renewcommand{\bibfont}{\footnotesize}
 
 \begin{document}
 
