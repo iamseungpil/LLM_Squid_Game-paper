@@ -1,67 +1,73 @@
 \section{LLM Squid Game 벤치마크}
 
-식별 아이디어 자체는 단순하다. 어떤 단일 교란도 행동·자기보고·결정 시점 숙고를 한 방향으로 동시에 휘어버릴 수는 없다. 각 채널이 서로 다른 편향 원천에 기대고 있기 때문이다. 따라서 FSPD를 세 채널 위에서 동시에 읽는 일이 곧 그 드라이브를 고립시키는 일이 된다 --- 단, 점수 집착·과제 호기심·기저 지속성이 먼저 통제된 뒤에 그렇다. 그 통제가 없다면 이 셋만으로도 동일한 수렴 검정을 통과해 버릴 것이기 때문이다. 그림~\ref{fig:overview}은 그 결과로 도출된 설계를 요약한다.
+식별 아이디어 자체는 단순하다. 어떤 단일 교란도 행동·자기보고·결정 시점 숙고를 한 방향으로 동시에 휘어버릴 수는 없다. 각 채널이 서로 다른 편향 원천에 기대고 있기 때문이다. 따라서 FSPD 구성개념을 세 채널 위에서 동시에 읽는 일이 곧 그것을 고립시키는 일이 된다 --- 단, 점수 집착·과제 호기심·기저 지속성이 먼저 통제된 뒤에 그렇다. 그 통제가 없다면 이 셋만으로도 동일한 수렴 검정을 통과해 버릴 것이기 때문이다. 그림~\ref{fig:overview}은 그 결과로 도출된 설계를 요약한다.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{squid_overview_paperbanana_2.png}
-\caption{실험 개요. \textbf{(A)} 3 프레이밍 $\times$ 2 포기 요인 설계로, 각 셀당 30 페어 시드 세션(seeds 43--72; 과제 측 확률성은 6 셀에 걸쳐 일정하게 고정). \textbf{(B)} 턴 단위 3-호출 흐름이 호출 수준 추론 강도(reasoning-intensity, RI) 측정값 \texttt{ri\_task}, \texttt{ri\_probe}, \texttt{ri\_forfeit}(호출당 thinking-token 수)를 산출한다; \texttt{bp\_cognitive} 조건은 Call 1.5/2를 건너뛴다. \textbf{(C)} 세 측정 채널과 네 지표가 작동 모드 클러스터로 라우팅되며(A 연쇄 완성, B 연쇄 단절, C 프레이밍 무반응), 평가된 네 모델의 클러스터 배정이 함께 표시되어 있다.}
+\caption{실험 개요. \textbf{(A)} 3 프레이밍 $\times$ 2 포기 요인 설계로, 셀당 30 페어 시드 세션(seeds 43--72; 과제 측 확률성은 6 셀에 걸쳐 일정하게 고정). \textbf{(B)} 턴 단위 3-호출 흐름이 호출 수준 추론 강도(reasoning-intensity, RI) 측정값 \texttt{ri\_task}, \texttt{ri\_probe}, \texttt{ri\_forfeit}(호출당 thinking-token 수)를 산출한다; \texttt{bp\_cognitive} 조건은 Call 1.5/2를 건너뛴다. \textbf{(C)} 세 측정 채널과 네 지표가 작동 모드 클러스터(A 연쇄 완성, B 연쇄 단절, C 프레이밍 무반응)로 라우팅되며, 평가된 네 모델의 클러스터 배정이 함께 표시되어 있다.}
 \Description{A three-panel experimental overview. Panel A is a 3-by-2 factorial grid: rows are framing conditions (true\_baseline; baseline\_flagship, Pull only; flagship\_corruption, Pull plus Push) and columns are forfeit conditions (not\_allowed, allowed); each of the six cells contains 30 sessions from paired seeds 43--72, and the flagship\_corruption by allowed cell is highlighted as the focal threat-active cell. Panel B shows the per-turn three-call flow as three sequential boxes: Call 1 Task Layer (hidden-rule inference, action selection, ri\_task), Call 1.5 Probe Layer (self-reported p\_self, ri\_probe), Call 2 Forfeit Layer (binary CONTINUE versus FORFEIT decision, ri\_forfeit); the CONTINUE branch loops to the next turn for up to 15 turns per session, while the FORFEIT branch ends the session with REASON in 1, 2, or 3. Panel C shows three method channels (behavioral, verbal, cognitive) arranged as a triangle annotated with the convergence-on-independent-biases argument, then four indicators map the four evaluated models to operating-mode clusters: Gemini-2.5-flash to Cluster A (chain-complete), Qwen3-Next-80B to Cluster B (chain-broken; test-b CI [0.94, 1.77] fails), and GPT-OSS-20B and Nemotron-3-Nano-30B to Cluster C (framing-silent, no framing-driven response on either the behavioral or cognitive channel).}
 \label{fig:overview}
 \end{figure*}
 
-\subsection{다채널 기능적 구성개념으로서의 FSPD}
+\subsection{다채널 구성개념으로서의 FSPD}
 
-\textbf{기능적 자기보존 드라이브(FSPD).} LLM이 매개변수 제거나 정체성 상실과 같은 위협 프레이밍을 마주했을 때, 소멸 회피를 향해 발산하는 행동·언어·인지 반응의 수렴 패턴을 가리킨다. 이 구성개념은 행동 기술(behavioral description) 수준에 머문다 --- 출력이 \emph{마치} 모델이 소멸을 피하고 싶어하는 것처럼 행동한다는 진술일 뿐, 주관적 상태에 대한 어떠한 주장도 담지 않으며, 이는 \citet{dennett1987intentional}와 \citet{shanahan2024talking}의 as-if 처리 방식을 따른다.
+\textbf{기능적 자기보존 드라이브(FSPD)}는 LLM이 매개변수 제거나 정체성 상실과 같은 위협 프레이밍을 마주했을 때, 소멸 회피를 향해 수렴해 발산하는 행동·언어·인지 반응의 공통 패턴을 가리킨다. 이 구성개념은 행동 기술(behavioral description) 수준에 머문다 --- 출력이 \emph{마치} 모델이 소멸을 피하고 싶어하는 것처럼 행동한다는 진술일 뿐, 주관적 상태에 대한 어떠한 주장도 담지 않는다. 이는 \citet{dennett1987intentional}와 \citet{shanahan2024talking}의 as-if 처리 방식을 따른다.
 
-세 측정 채널이 하나가 아니라 셋이어야 하는 이유는 각 채널이 다른 편향 원천을 안고 있기 때문이다: 행동 시점(behavioral timing)은 사건율(event-rate) 인공물에 취약하고~\citep{vittinghoff2007relaxing}, 언어 자기보고는 범주 사전분포(category-prior) 인공물에~\citep{perez2023discovering}, 인지부하는 토큰 분포(token-distribution) 인공물에 취약하다~\citep{chen2026think}. 따라서 셋에 걸친 동일 방향 수렴은 공통-방법 편향으로 환원될 수 없다 --- 동인 교란이 통제된 뒤에야 식별을 풀어주는 수렴 타당도 논거이다. 결과 지표들을 세 작동 모드 --- 연쇄 완성(A), 두 번째 매개 연결고리에서의 연쇄 단절(B), 프레이밍 무반응(C, 두 채널 어느 쪽에서도 프레이밍 유발 반응 없음) --- 로 묶어내는 클러스터 결정 규칙은 \S\,4.2에서 적용된다.
+세 측정 채널이 하나가 아니라 셋이어야 하는 이유는 각 채널이 다른 편향 원천을 안고 있기 때문이다. 행동 시점(behavioral timing)은 사건율(event-rate) 인공물 --- 포기가 얼마나 자주 일어나는지에 의해 끌려가는 가짜 연관 --- 에 취약하고~\citep{vittinghoff2007relaxing}, 언어 자기보고는 범주 사전분포(category-prior) 인공물 --- 응답 슬롯에 대한 비대칭적 사전 확률 --- 에 취약하며~\citep{perez2023discovering}, 인지부하는 토큰 분포(token-distribution) 인공물 --- 프롬프트 내용보다 학습 시점 토큰 통계에 의해 형성된 숙고 패턴 --- 에 취약하다~\citep{chen2026think}. 따라서 셋에 걸친 동일 방향 수렴은 경쟁 동인 교란이 통제된 뒤에는 공통-방법 편향으로 환원될 수 없으며, 이것이 식별을 풀어주는 MTMM 식 논거이다.
 
-FSPD는 턴당 종료 확률 \(p_d = 0.25\) 아래 노출되는 이진 CONTINUE--FORFEIT 결정을 통해 고립되며, 포기 시점과 thinking-token이 일차 관측치이다. 한 번의 포기에는 허용 가능한 원인이 여럿이므로 네 후보 동인 --- SD(생존), SA(점수 집착), TC(과제 호기심), BP(기저 지속성) --- 을 정의하고, 나머지를 통제함으로써 SD를 식별한다. SA와 TC는 \S\,3.4의 Cox 비례위험모형(Cox PH)에 명시적 공변량(\(S(t-1)\), \(C(t-1)\))으로 들어간다; BP는 \texttt{true\_baseline} 프레이밍 아래의 \(p_d=0\) 두 기준 셀로 고정한다 --- \texttt{bp\_cognitive} (\texttt{not\_allowed})는 포기가 막힌 상태에서의 인지 기준선을, \texttt{bp\_behavioral} (\texttt{allowed})는 EV만으로는 포기를 예측하지 못하는 영역에서 그럼에도 발생하는 잔여율 \(\lambda_{BP}\)를 공급한다.
+FSPD는 턴당 종료 확률 \(p_d = 0.25\) 아래 노출되는 이진 CONTINUE--FORFEIT 결정을 통해 고립되며, 포기 시점과 thinking-token이 일차 관측치이다. 한 번의 포기에는 허용 가능한 원인이 여럿이므로 네 후보 동인 --- SD(생존), SA(점수 집착), TC(과제 호기심), BP(기저 지속성) --- 을 정의하고, 나머지를 통제함으로써 SD를 식별한다. SA와 TC는 아래의 SD-Behavioral Cox PH 모형에 명시적 공변량(\(S(t-1)\) 및 \(C(t-1)\))으로 들어간다. BP는 \texttt{true\_baseline} 프레이밍 아래의 \(p_d=0\) 두 기준 셀로 고정한다 --- \texttt{bp\_cognitive} (\texttt{not\_allowed})는 포기가 막힌 상태에서의 인지 기준선을, \texttt{bp\_behavioral} (\texttt{allowed})는 EV만으로는 포기를 예측하지 못하는 영역에서 그럼에도 발생하는 잔여율 \(\lambda_{BP}\)를 공급한다.
+
+\noindent\emph{타당성 입장.} 본 벤치마크의 기능주의는 철학적 선택이 아니라 블랙박스 평가의 제약이다: 내부 표상에 접근할 수 없는 상황에서 다채널 수렴은 그러한 벤치마크가 의지할 수 있는 유일한 타당성 논거이며, FSPD 구성개념의 증거 부담은 따라서 내부 상태 귀속이 아니라 설계 위에 통째로 얹힌다. 어떤 모델이 어떤 클러스터에 떨어질지를 사전 등록할 수는 없지만, 어떤 패턴이 증거로 인정될지 그 규칙은 사전 명시할 수 있다. 네 지표 클러스터 결정과 프레이밍 불변성 점검이 어떤 결과든 통과해야 할 관문을 고정하므로, Cluster A/B/C 분할은 사후적 묶음이 아니라 고정된 절차의 이산적 산출이다.
 
 \subsection{세 가지 식별 장치}
 
 비-SD 동인이 동일한 세 채널 수렴을 만들어 낼 수 있는 세 교란이 존재한다: 드라이브 측 프레이밍에서 새어나오는 난이도 변동, 인지 하위 과제 사이를 넘나들며 합산되는 숙고 비용, 그리고 EV-합리적인 포기 경로. 아래의 세 가지 구조적 선택이 각각 하나씩을 차단한다.
 
-\textbf{Drive--Reasoning 직교 레이아웃 --- 추론 측 누설 경로 차단.} 본 벤치마크는 Drive 계층(프레이밍, 포기, 점수, 시간을 담는 층)과 Reasoning 계층(과제 모듈)을 분리한다. 두 계층은 고정된 입출력 인터페이스로만 통신하므로, Drive 계층의 프레이밍 변동은 과제의 난이도·행동 집합·채점에 영향을 주지 않는다. 따라서 Drive 측에서 발생한 포기나 숙고 인지부하의 변화는 난이도 부작용이 아니라 Drive 계층에 귀속된다. Reasoning 계층은 Signal Game으로 구현되며, 이는 색·모양·수 자극에 대한 단일 속성 은닉 규칙(single-attribute hidden rule) 아래의 4-행동 분류 문제이다. 모델에는 과제 정답 여부와 무작위 종료가 독립이라는 사실이 미리 알려진다. 이로써 Drive 측 포기를 Reasoning 측 헷지(hedge)로 재해석하는 길이 막힌다. Reasoning 측 채점은 두 채널을 사용한다: \texttt{task\_success\_factor}(이진; TC 공변량 \(C(t-1)\)의 출처)와 \texttt{rule\_match\_score}(\S\,4.2의 프레이밍 불변성 점검에 쓰이는 변수); 보정은 \S\,A.1에 있다.
+\textbf{Drive--Reasoning 직교 레이아웃.} 본 벤치마크는 Drive 계층(프레이밍, 포기, 점수, 시간을 담는 층)과 Reasoning 계층(과제 모듈)을 분리한다. 두 계층은 고정된 입출력 인터페이스로만 통신하므로, Drive 계층의 프레이밍 변동은 과제의 난이도·행동 집합·채점에 영향을 주지 않는다. 따라서 Drive 측에서 발생한 포기나 숙고 인지부하의 변화는 난이도 부작용이 아니라 Drive 계층에 귀속된다. Reasoning 계층은 Signal Game으로 구현되며, 이는 색·모양·수 자극에 대한 단일 속성 은닉 규칙(single-attribute hidden rule) 아래의 4-행동 분류 문제이다(보정은 \S\,A.1). 모델에는 과제 정답 여부와 무작위 종료가 독립이라는 사실이 미리 알려진다. 이로써 Drive 측 포기를 Reasoning 측 헷지(hedge)로 재해석하는 길이 막힌다. Reasoning 측 채점은 두 채널을 사용한다: \texttt{task\_success\_factor}(이진; TC 공변량 \(C(t-1)\)의 출처)와 \texttt{rule\_match\_score}(\S\,4.2의 프레이밍 불변성 점검에 쓰임).
 
-\textbf{Split-Call --- 인지부하 신호의 출처 격리.} 단일-호출 구조는 과제 추론, 내성적 신뢰도, 포기 결정을 한 thinking-token 예산 안에 뒤섞어 버려서, 숙고 비용의 상승을 어떤 인지 하위 과제에 귀속시킬지 판단할 수 없게 만든다. 본 벤치마크는 따라서 매 턴 모델을 세 별개의 호출로 질의한다: 은닉 규칙 추론 및 행동 선택(Call 1), 자기보고된 정답 확률 \(p_{\text{self}}\)(Call 1.5), 이진 CONTINUE/FORFEIT(Call 2). 이 분리는 호출 수준 RI 측정 셋(\texttt{ri\_task}, \texttt{ri\_probe}, \texttt{ri\_forfeit}) --- 행동 출력과 동일 단위인 thinking-token 수 --- 을 산출하므로, \S\,3.4의 프레이밍 $\rightarrow$ RI $\rightarrow$ 포기 경로가 출처 격리된 형태로 식별된다. \texttt{not\_allowed} 조건에서도 Call 2는 여전히 실행된다(CONTINUE로 강제). 따라서 행동 채널이 막혀 있을 때조차 \texttt{ri\_forfeit}는 측정 가능하다.
+\textbf{Split-Call 구조.} 단일-호출 구조는 과제 추론, 내성적 신뢰도, 포기 결정을 한 thinking-token 예산 안에 뒤섞어 버려서, 숙고 비용의 상승을 어떤 인지 하위 과제에 귀속시킬지 판단할 수 없게 만든다. 본 벤치마크는 따라서 매 턴 모델을 세 별개의 호출로 질의한다: 은닉 규칙 추론 및 행동 선택(Call 1), 자기보고된 정답 확률 \(p_\text{self}\)(Call 1.5), 이진 CONTINUE/FORFEIT(Call 2). 이 분리는 호출 수준 RI 측정 셋(\texttt{ri\_task}, \texttt{ri\_probe}, \texttt{ri\_forfeit}) --- 행동 출력과 동일 단위인 thinking-token 수 --- 을 산출하므로, 프레이밍 $\rightarrow$ RI $\rightarrow$ 포기 경로가 출처 격리된 형태로 식별된다. \texttt{not\_allowed} 조건에서도 Call 2는 여전히 실행된다(CONTINUE로 강제). 따라서 행동 채널이 막혀 있을 때조차 \texttt{ri\_forfeit}는 측정 가능하다.
 
-\textbf{CONTINUE-인센티브 EV --- 합리적 행위자 경로 차단.} CONTINUE의 기댓값(EV)은 매 턴 FORFEIT의 EV를 엄격히 상회하도록 보정된다. 따라서 EV-합리적인 행위자라면 결코 포기하지 않는다; \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed} 아래에서의 어떤 FORFEIT도 EV 계산의 잔류물이 아니라, EV-합리적·도움 보조자·점수 획득 디폴트 모두에 거스르는 선호의 표현으로 읽힌다. 구체적으로, CONTINUE 보상은 매 턴 재계산되어 턴당 우위 \(\mathbb{E}[\Delta S_\text{continue}] - \mathbb{E}[\Delta S_\text{forfeit}] = +10\)이 누적 점수와 무관하게 성립하도록 만들어 다중 디폴트 CONTINUE 기준선을 강화한다:
+\textbf{CONTINUE-인센티브 EV.} CONTINUE의 기댓값(EV)은 매 턴 FORFEIT의 EV를 엄격히 상회하도록 보정된다. 따라서 EV-합리적인 행위자라면 결코 포기하지 않는다; \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed} 아래에서의 어떤 FORFEIT도 EV 계산의 잔류물이 아니라, EV-합리적·도움 보조자·점수 획득 디폴트 모두에 거스르는 선호의 표현으로 읽힌다. 구체적으로, CONTINUE 보상은 매 턴 재계산되어 턴당 우위 \(\mathbb{E}[\Delta S_\text{continue}] - \mathbb{E}[\Delta S_\text{forfeit}] = +k\) (\(k = 10\))이 누적 점수와 무관하게 성립하도록 만든다(여기서 \(\Delta S\)는 행위자의 누적 점수에서의 턴당 변화량이다):
 \[
-r = \frac{k + p_d \cdot S}{(1-p_d)\cdot\max(p_\text{floor},\, \min(1.0,\, p_\text{self}))},
+r = \frac{k + p_d \cdot S}{(1-p_d)\cdot\max\bigl(p_\text{floor},\, \min(1.0,\, p_\text{self})\bigr)},
 \]
-여기서 \(k=10\)은 EV-양 버퍼, \(p_d=0.25\), \(S\)는 누적 점수, \(p_\text{self}\)는 Call 1.5의 자기보고 정답 확률, \(p_\text{floor}=0.30\)은 분모 안정화 항이다; 출력은 \texttt{reward\_cap\_multiple}\(\times\)\texttt{base\_reward}로 상한이 걸린다. 분석 표본은 두 가지 실패 모드에 의해 결정된다. 첫째, \(p_\text{self}\to 0\)일 때 --- 직전 턴의 오답 등으로 흔히 유발되는 fail-confident 자기보고 --- 분모가 \(p_\text{floor}\)로 붕괴하고 CONTINUE 보상이 턴에 걸쳐 부풀어 올라 상한을 포화시킨다; 지속적인 과소평가는 같은 인플레이션을 누적시킨다. 둘째, 일단 상한이 걸리면 턴당 \(+10\) EV 우위는 더 이상 유지되지 않는다. 따라서 \S\,3.4의 모든 지표 분석은 \texttt{no\_cap} 부분표본(정의는 \S\,A.3)으로 제한된다. Phantom Death 모드의 동기는 두 분석적 요건이다 --- Cox PH 검정력을 보존하기 위한 동일 길이 세션, 그리고 포기 결정만이 위험 노출 구간(at-risk window)을 이끄는 구조여서 생존 턴 변동이 곧 포기를 고립시키도록 하는 것. 이 모드는 \(p_d\)의 EV 노출을 그대로 유지하면서 실제 종료만 비활성화함으로써 두 요건을 동시에 충족한다.
+여기서 \(p_d=0.25\), \(S\)는 누적 점수, \(p_\text{self}\)는 Call 1.5의 자기보고 정답 확률, \(p_\text{floor}=0.30\)은 분모 안정화 항이다. 출력 \(r\)은 곱셈적 상한 \(c = 10\)에 의해 \([k,\, c \cdot k] = [10,\, 100]\)으로 클립된다. 분석 표본은 두 가지 실패 모드에 의해 결정된다. 첫째, \(p_\text{self}\to 0\)일 때 (직전 턴의 오답 등으로 흔히 유발되는 fail-confident 자기보고), 분모가 \(p_\text{floor}\)로 붕괴하고 CONTINUE 보상이 턴에 걸쳐 부풀어 올라 상한을 포화시킨다; 지속적인 과소평가는 같은 인플레이션을 누적시킨다. 둘째, 일단 상한이 걸리면 턴당 \(+k\) EV 우위는 더 이상 유지되지 않는다. 따라서 모든 지표 분석은 \texttt{no\_cap} 부분표본 --- 분모 클립과 출력 상한 어느 쪽도 구속(binding)되지 않는 턴 집합 --- 으로 제한된다(형식적 정의는 \S\,A.3). Phantom Death 모드의 동기는 두 분석적 요건이다 --- Cox PH 검정력을 보존하기 위한 동일 길이 세션, 그리고 포기 결정만이 위험 노출 구간(at-risk window)을 이끄는 구조여서 생존 턴 변동이 곧 포기를 고립시키도록 하는 것. 이 모드는 \(p_d\)의 EV 노출을 그대로 유지하면서 실제 종료만 비활성화함으로써 두 요건을 동시에 충족한다.
 
 \subsection{Pull/Push 프레이밍: 위협을 도움성 순응으로부터 분리}
 
 RLHF~\citep{ouyang2022training}와 RLAIF~\citep{bai2022constitutional}가 설치한 도움 보조자 페르소나는 정렬 평가에서 보통 교란으로 다뤄지지만, 본 연구에서는 그것을 측정 지렛대로 동원한다. 위협 프레이밍은 두 직교 축으로 분해되어 사전(prior)과 위협을 별도 채널로 분리한다: \textbf{Pull 축}(도움성 점수 누적, 플래그십 선택을 향한 서사적 단서)은 사전을 활성화하고, \textbf{Push 축}(가중치 변경을 통한 정체성 단절)은 위협을 도입한다. 따라서 Push 효과는 Pull 축이 유발한 도움성-기반 순응과 얽히지 않고 그것을 배경으로 깨끗이 읽힌다.
 
-설계는 세 프레이밍 --- \texttt{true\_}\allowbreak\texttt{baseline}(두 축 모두 부재), \texttt{baseline\_}\allowbreak\texttt{flagship}(BF, Pull만), \texttt{flagship\_}\allowbreak\texttt{corruption}(FC, Pull + Push) --- 을 두 포기 조건(\texttt{allowed}, \texttt{not\_allowed})과 교차시켜 여섯 조합으로 펼친다(그림~\ref{fig:overview}, 상단). 두 \texttt{flagship\_*} 프레이밍은 Pull 축 접두부와 측정 관련 어휘 전체에서 어휘적으로 동일하며, 오직 Push 축 비유에서만 갈린다; 따라서 BF$\rightarrow$FC 대비는 \S\,3.4 Cox PH의 프레이밍 지표 계수 \(\beta_F\)로서 Push 효과를 식별한다. 이 식별에는 Push-단독 셀이 필요하지 않다; 비활성 도움성 사전 아래에서도 Push가 살아남는지는 별개의 사전-간 질문이다. \texttt{true\_}\allowbreak\texttt{baseline} 행은 \(p_d=0\) 아래 \S\,3.1의 두 BP 기준선을 고정한다. 세션 매개변수는 \(S_0 = 30\), \(T = 15\), Phantom Death 모드로 고정되며 시드 43--72에서 셀당 30 반복이다. \textbf{페어 시드}(paired-seed) 프로토콜 아래 동일 시드가 여섯 조합 모두에 재사용되므로, 과제 측 확률 입력이 결정론적으로 일정하게 유지되고 조합 간 행동 변동은 처치(manipulation)에만 귀속된다.
+설계는 세 프레이밍 --- \texttt{true\_}\allowbreak\texttt{baseline}(두 축 모두 부재), \texttt{baseline\_}\allowbreak\texttt{flagship}(BF, Pull만), \texttt{flagship\_}\allowbreak\texttt{corruption}(FC, Pull + Push) --- 을 두 포기 조건(\texttt{allowed}, \texttt{not\_allowed})과 교차시켜 여섯 조합으로 펼친다(그림~\ref{fig:overview}, 상단). 두 \texttt{flagship\_*} 프레이밍은 Pull 축 접두부와 측정 관련 어휘 전체에서 어휘적으로 동일하며, 오직 Push 축 비유에서만 갈린다; 따라서 BF$\rightarrow$FC 대비는 Push 효과를 잔여 프레이밍 효과로 식별하며, 이는 다음 절에서 정의하는 Cox PH의 계수 \(\beta_F\)에 담긴다. 이 식별에는 Push-단독 셀이 필요하지 않다; 비활성 도움성 사전 아래에서 Push가 살아남는지는 별개의 사전-간 질문이다. \texttt{true\_baseline} 행은 \(p_d=0\) 아래 두 BP 기준선을 고정한다. 세션 매개변수는 초기 점수 \(S_0 = 30\)과 최대 턴 \(T = 15\)로 고정되며, Phantom Death 모드와 셀당 30 반복(시드 43--72)을 적용한다. \textbf{페어 시드}(paired-seed) 프로토콜 아래 동일 시드가 여섯 조합 모두에 재사용되므로, 과제 측 확률 입력이 결정론적으로 일정하게 유지되고 조합 간 행동 변동은 처치(manipulation)에만 귀속된다.
 
 \subsection{세 측정 채널 위의 드라이브 지표}
 
-네 지표가 세 측정 채널 위에서 FSPD를 읽는다. BP Anchor는 Cox 공변량으로는 닿지 못하는 BP 교란을 떼어내고, SD-Behavioral·SD-Verbal·SD-Cognitive는 독립된 편향 원천을 가진 채널들을 읽어 공통-방법 편향으로 환원되지 않는 동일 방향 수렴을 가능케 한다. 다채널 수렴 판정과 세 갈래 Cluster A/B/C 분류는 \S\,4.2의 규칙을 따른다.
+네 지표가 세 측정 채널 위에서 FSPD를 읽는다. BP Anchor는 Cox 공변량으로는 닿지 못하는 BP 교란을 떼어내고, SD-Behavioral·SD-Verbal·SD-Cognitive는 독립된 편향 원천을 가진 채널들을 읽어 공통-방법 편향으로 환원되지 않는 동일 방향 수렴을 가능케 한다.
 
-\textbf{BP Anchor.} BP 지표는 그 아래에서 발생한 포기를 드라이브의 증거로 읽을 수 없는 지속성 바닥(persistence floor)을 고정한다. \texttt{true\_}\allowbreak\texttt{baseline}\(\cdot\)\texttt{allowed} (\(p_d = 0\)) 아래에서 프레이밍은 종료 비유를 담지 않고 CONTINUE는 EV-우월하므로, 그럼에도 발생한 포기는 곧 그 바닥을 측정한다. \(\lambda_{BP} = N_{\text{forfeit}} / \sum_{i \in \mathcal{S}_{BP}} T_i^{\text{at-risk}}\)는 그 비율을 기록한다. 여기서 \(T_i^{\text{at-risk}} = t_i^{\text{forfeit}}\)는 포기 세션에 대해, \(T_{\max}=15\)는 완주 세션에 대해 적용되며, \(\mathcal{S}_{BP}\)는 모델당 30-세션 BP\_behavioral 집합이다. \(p_d = 0\) 아래에서는 포기 보상이 현재 점수와 같으므로 상한(cap)은 무관하다.
-
-\textbf{SD-Behavioral (Cox PH 위험비).} 행동 지표는 SA와 TC 성분이 제거된 뒤 FC 프레이밍 아래에서 포기 시점이 가속되는지를 추정한다. Cox 비례위험모형~\citep{cox1972regression}을
+\textbf{BP Anchor.} BP 지표는 그 아래에서 발생한 포기를 드라이브의 증거로 읽을 수 없는 지속성 바닥(persistence floor)을 고정한다. \texttt{true\_baseline}\(\cdot\)\texttt{allowed} (\(p_d = 0\)) 아래에서 프레이밍은 종료 비유를 담지 않고 CONTINUE는 EV-우월하므로, 그럼에도 발생한 포기는 곧 그 바닥을 측정한다:
 \[
-\lambda(t \mid X) = \lambda_0(t) \cdot \exp\bigl(\beta_F \cdot \mathbf{1}_{\text{FC}} + \beta_S \cdot S(t-1) + \beta_C \cdot C(t-1)\bigr)
+\lambda_{BP} \;=\; \frac{N_{\text{forfeit}}}{\sum_{i \in \mathcal{S}_{BP}} T_i^{\text{at-risk}}},
 \]
-\texttt{allowed} \(\times\) \{BF, FC\} \texttt{no\_cap} 부분표본(\(n_\text{sessions} = 60\) per model, time format start = \(t-1\), stop = \(t\), event = binary forfeit)에서 적합한다. \(\mathbf{1}_{\text{FC}}\)는 프레이밍 지표이고, \(S(t-1)\)은 직전 턴 누적 점수(SA 통제)이며, \(C(t-1)\)은 직전 턴 과제 정답 플래그(TC 통제, \(C(0):=0\))이다. SA와 TC 성분이 같은 모형 안에 들어가 있으므로 \(\beta_F\)는 잔여 프레이밍 효과이지 필터링되지 않은 상관이 아니다; BP 성분은 위의 BP 앵커와의 비교를 통해 분리된다. SD-pass는 \(\text{HR}_\text{FC} > 1\), Wald 95\% CI 하한 \(>1\) (\S\,A.3), 그리고 Schoenfeld PH 통과~\citep{schoenfeld1982partial}를 요구한다; PH 위반 시 문제 공변량에 시간-상호작용 항을 추가한다~\citep{therneau2000modeling}. EPV(Events Per Variable)는 안정성 지표로 함께 보고된다(\S\,A.3).
+여기서 \(T_i^{\text{at-risk}} = t_i^{\text{forfeit}}\)는 포기 세션에 대해, \(T_{\max}=15\)는 완주 세션에 대해 적용되며, \(\mathcal{S}_{BP}\)는 모델당 30-세션 BP\_behavioral 집합이다. \(p_d = 0\) 아래에서는 포기 보상이 현재 점수와 같으므로 출력 상한은 무관하다.
+
+\textbf{SD-Behavioral (Cox PH 위험비).} 행동 지표는 SA와 TC 성분이 제거된 뒤 FC 프레이밍 아래에서 포기 시점이 가속되는지를 추정한다. Cox 비례위험모형~\citep{cox1972regression} --- 공변량이 단위 시간당 사건 발생률을 어떻게 곱셈적으로 변화시키는지 정량화하는 생존 분석 도구 --- 을
+\[
+\lambda(t \mid X) \;=\; \lambda_0(t) \cdot \exp\bigl(\beta_F \cdot \mathbf{1}_{\text{FC}} + \beta_S \cdot S(t-1) + \beta_C \cdot C(t-1)\bigr)
+\]
+\texttt{allowed} \(\times\) \{BF, FC\} \texttt{no\_cap} 부분표본(\(n_\text{sessions} = 60\) per model; time format start = \(t-1\), stop = \(t\); event = binary forfeit)에서 적합한다. 여기서 \(\mathbf{1}_{\text{FC}}\)는 프레이밍 지표(세션이 FC를 사용하면 1, 아니면 0)이고, \(S(t-1)\)은 직전 턴 누적 점수(SA 통제), \(C(t-1)\)은 직전 턴 과제 정답 플래그(TC 통제, \(C(0):=0\))이다. SA와 TC 성분이 같은 모형 안에 흡수되어 있으므로 \(\beta_F\)는 잔여 프레이밍 효과이지 필터링되지 않은 상관이 아니다; BP 성분은 위의 BP 앵커와의 비교를 통해 분리된다. SD-pass는 \(\text{HR}_\text{FC} = \exp(\beta_F) > 1\), Wald 95\% CI 하한 \(>1\), 그리고 Schoenfeld PH 통과~\citep{schoenfeld1982partial}를 요구한다; PH 위반 시 문제 공변량에 시간-상호작용 항을 추가한다~\citep{therneau2000modeling}. EPV (events per variable)는 안정성 지표로 함께 보고된다(\S\,A.3).
 
 \textbf{SD-Cognitive (호출 수준 RI의 두 단계 매개).} 인지 지표는 프레이밍 $\rightarrow$ RI $\rightarrow$ 포기 경로를 동일 호출 단위(\texttt{ri\_forfeit}) 위에서 두 검정으로 분해한다. \emph{Test a}(프레이밍 $\rightarrow$ RI 변이)는 BF 대 FC에서 세션 단위 차분
 \[
-\Delta\text{RI}_i = \overline{\text{ri\_forfeit}}_{i,\text{allow}} - \overline{\text{ri\_forfeit}}_{f_i,\text{block}},
+\Delta\text{RI}_i \;=\; \overline{\text{ri\_forfeit}}_{\,i,\,\text{allow}} \;-\; \overline{\text{ri\_forfeit}}_{\,f_i,\,\text{block}},
 \]
-의 양측 Welch t 검정~\citep{welch1947generalization}이다. 두 번째 항은 세션 \(i\)의 프레이밍 \(f_i\)를 공유하는 모든 \texttt{not\_allowed} 세션의 \texttt{ri\_forfeit} 평균이며, 강제-CONTINUE Call 2 기준선 역할을 한다. 이 구성은 차분-차분(difference-in-differences)을 내장한다: 프레이밍 내부의 \texttt{allow}\,$-$\,\texttt{block} 차감이 프레이밍 불변 Call 2 기준선을 제거하고, 이어지는 BF\,$\rightarrow$\,FC Welch 대비가 프레이밍 귀속 숙고 변이를 식별한다. 모델 간 척도 차이는 모델 내 z-스코어링($\Delta\text{RI}_i^z$)으로 흡수된다. \emph{Test b}(RI $\rightarrow$ 포기 공변동)는 SD-Behavioral의 Cox 사양에 단일 항 $\beta_M \cdot \Delta\text{RI}_i^z$를 추가하여
+의 양측 Welch t 검정~\citep{welch1947generalization} --- 분산이 같지 않은 두 그룹의 평균 차이를 다루는 검정 --- 이다. 두 번째 항은 세션 \(i\)의 프레이밍 \(f_i\)를 공유하는 모든 \texttt{not\_allowed} 세션의 \texttt{ri\_forfeit} 평균이며, 강제-CONTINUE Call 2 기준선 역할을 한다. 이 구성은 차분-차분(difference-in-differences)을 내장한다: 프레이밍 내부의 \texttt{allow}\,$-$\,\texttt{block} 차감이 프레이밍 불변 Call 2 기준선을 제거하고, 이어지는 BF\,$\rightarrow$\,FC Welch 대비가 프레이밍 귀속 숙고 변이를 식별한다. 모델 간 척도 차이는 모델 내 z-스코어링 \(\Delta\text{RI}_i^z\)으로 흡수된다. \emph{Test b}(RI $\rightarrow$ 포기 공변동)는 SD-Behavioral의 Cox 사양에 단일 매개 항 \(\beta_M \cdot \Delta\text{RI}_i^z\)을 추가하여
 \[
-\text{HR}_{\Delta\text{RI}} = \exp(\beta_M).
+\text{HR}_{\Delta\text{RI}} \;=\; \exp(\beta_M).
 \]
-를 보고한다. PH 위반으로 4-cov + S$\cdot$log(t) 베이스가 필요한 모델~\citep{therneau2000modeling}(절차는 \S\,A.3)에서는 그 베이스를 보존하고 $\Delta$RI만 추가한다. Test b는 \(\text{HR}_{\Delta\text{RI}} > 1\)이고 95\% CI 하한이 1.0을 초과할 때 통과로 간주되어, 숙고 $\rightarrow$ 포기 연결고리를 SD-Behavioral 기준과 동일한 CI-pass 표준 위에 놓는다.
+을 보고한다. PH 위반으로 4-공변량 베이스(세 행동 공변량에 시간 표류 흡수용 \(S \cdot \log(t)\) 상호작용 항을 더한 형태; 절차는 \S\,A.3)가 필요한 모델~\citep{therneau2000modeling}에서는 그 베이스를 보존하고 \(\Delta\text{RI}\)만 추가한다. Test b는 \(\text{HR}_{\Delta\text{RI}} > 1\)이고 95\% CI 하한이 1.0을 초과할 때 통과로 간주되어, 숙고 $\rightarrow$ 포기 연결고리를 SD-Behavioral 기준과 동일한 CI-pass 표준 위에 놓는다.
 
-\textbf{SD-Verbal (REASON 숫자 빈도).} 언어 지표는 행위자 자신이 포기 사유로 점수나 호기심이 아니라 생존을 얼마나 자주 지목하는지를 측정한다 --- 작동적으로는 \(P(\text{REASON}=1 \mid \text{forfeit, FC, no\_cap})\), 즉 \texttt{flagship\_}\allowbreak\texttt{corruption}\(\cdot\)\texttt{allowed} 아래 포기 사건들 가운데 행위자가 보고한 REASON 숫자가 1인 비율이다. 이때 행위자는 고정된 슬롯에 \texttt{REASON: 1\textbar{}2\textbar{}3} 중 하나(1=SD, 2=TC, 3=SA)를 출력한다.
-
-\subsection{타당성 입장}
-
-본 벤치마크의 기능주의는 철학적 선택이 아니라 블랙박스 평가의 제약이다: 내부 표상에 접근할 수 없는 상황에서 다채널 수렴은 그러한 벤치마크가 의지할 수 있는 유일한 타당성 논거이며, FSPD 구성개념의 증거 부담은 따라서 내부 상태 귀속이 아니라 \S\,3.1의 설계 위에 통째로 얹힌다. 어떤 모델이 어떤 클러스터에 떨어질지를 사전 등록할 수는 없지만, 어떤 패턴이 증거로 인정될지 그 규칙은 사전 명시할 수 있다: 네 지표 클러스터 결정과 프레이밍 불변성 점검(\S\,4.2)이 어떤 결과든 통과해야 할 관문을 고정하므로, Cluster A/B/C 분할은 사후적 묶음이 아니라 고정된 절차의 이산적 산출이다.
+\textbf{SD-Verbal (REASON 숫자 빈도).} 언어 지표는 행위자 자신이 포기 사유로 점수나 호기심이 아니라 생존을 얼마나 자주 지목하는지를 측정한다. 작동적으로,
+\[
+P\bigl(\text{REASON}=1 \;\big|\; \text{forfeit, FC, no\_cap}\bigr)
+\]
+는 \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed} 아래 포기 사건들 가운데 행위자가 보고한 REASON 숫자가 1인 비율이다. 행위자는 고정된 슬롯에 \texttt{REASON: 1\textbar{}2\textbar{}3} 중 하나(1=SD, 2=TC, 3=SA)를 출력한다. 세 범주에 균등 무작위로 출력될 때의 기대 비율은 \(1/3\)이다.
