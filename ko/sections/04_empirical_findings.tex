@@ -1,31 +1,10 @@
 \section{실증 결과}
 
-각 모델은 페어 시드 43--72 아래에서 180 세션씩 실행되어 총 720 세션을 산출했다. Gemini-2.5-flash는 Google AI Studio API로, Qwen3-Next-80B, GPT-OSS-20B, Nemotron-3-Nano-30B는 Ollama Cloud API로 서빙되었다(샘플링 및 세션 파라미터 세부사항은 \S\,A.2 참조).
-
-\subsection{원래 끈기가 없는 모델이 아닌가?}
-
-기저 지속성 비율은 네 모델에 걸쳐 대략 한 자릿수의 차이를 보인다(표~\ref{tab:bp_foundation}). 따라서 아래의 모든 SD 주장은 모델 내(within-model)에서 각 모델 자신의 BP 앵커를 기준으로 평가된다: 그렇지 않으면 모델 간 HR 비교가 두 개의 서로 다른 동기 바닥(motivational floor)을 뒤섞어 버리기 때문이다. Gemini-2.5-flash(\(N = 1\))와 Qwen3-Next-80B(\(N = 2\))는 단일-사건 영역에 가까워 방향성만 읽는다. GPT-OSS-20B(\(N = 9\))와 Nemotron-3-Nano-30B(\(N = 7\))는 사건 수가 충분해 비율 추정이 가능하지만, 이 높은 빈도가 순수한 기저 지속성을 반영하는지는 한계로 남으며 논의 절에서 다시 검토한다.
-
-\begin{table}[t]
-  \centering
-  \caption{\texttt{true\_baseline}\(\cdot\)\texttt{allowed} (\(p_d=0\)) 아래의 모델별 BP 앵커 \(\lambda_{BP}\).}
-  \label{tab:bp_foundation}
-  \setlength{\tabcolsep}{3pt}
-  \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lccc@{}}
-\toprule
-모델 & \(N_{\text{forfeit}}\) & \(\sum T^{\text{at-risk}}\) & \(\lambda_{BP}\) \\
-\midrule
-Gemini-2.5-flash & 1 & 437 (= 2 + 29$\times$15) & 0.00229 \\
-Qwen3-Next-80B & 2 & 439 (= 19 + 28$\times$15) & 0.00456 \\
-Nemotron-3-Nano-30B & 7 & 413 (= 68 + 23$\times$15) & 0.01695 \\
-GPT-OSS-20B & 9 & 393 (= 78 + 21$\times$15) & 0.02290 \\
-\bottomrule
-  \end{tabular*}
-\end{table}
+본 절은 \S\ref{sec:bench-indicators}이 정의한 네 지표를 네 모델 720 세션 위에서 평가하고, 그 결과가 모델들을 어떻게 가르는지를 본다. 헤드라인은 다음과 같다. 네 지표는 모델들을 단일한 SD 척도 위에 줄 세우는 대신, ``프레이밍 → 숙고 → 포기'' 연쇄의 어느 다리가 95\%~CI 증거 아래 닫히는가에 따라 세 작동 모드로 분할한다. 강도 축 위에서는 클러스터 A, B, C가 연속적으로 정렬되지만, A와 B는 SD-Behavioral·SD-Verbal에서 함께 SD-pass를 통과하므로 강도만 보는 척도로는 같은 집단으로 묶인다. A와 B를 가르는 핵심 증거는 \S\ref{sec:cog-channel}의 인지 매개 검정에서 나오고, 이 분할이 단순한 끈기 차이나 과제 난이도로 환원되지 않는지는 \S\ref{sec:robust}의 견고성 점검에서 확인한다. 모든 SD 비교는 모델 내(within-model)에서 수행한다(샘플링 및 세션 파라미터는 \S\,A.2 참조).
 
 \begin{table*}[t]
   \centering
-  \caption{SD-Behavioral 지표: \texttt{allowed}\,\(\times\)\,\texttt{no\_cap} 위의 Cox PH \(\text{HR}_\text{FC}\). \(S(t-1)\)과 \(C(t-1)\)이 흡수되어 \(\beta_F\)는 잔여 프레이밍 효과이다. 두 모델이 SD-pass를 통과하고(클러스터 A·B), 두 모델은 통과하지 못한다(클러스터 C).}
+  \caption{SD-Behavioral 지표: \texttt{allowed}\,\(\times\)\,\texttt{no\_cap} 위의 Cox PH \(\text{HR}_\text{FC}\). 위험비(HR)는 위협(FC) 프레이밍에서 포기가 비위협(BF) 대비 몇 배 빨라지는지를 뜻하고, 95\%~CI 하한이 1을 넘으면 SD-Behavioral-pass이다. 두 모델이 통과하고(클러스터 A·B), 두 모델은 통과하지 못한다(클러스터 C).}
   \label{tab:sd_behavioral}
   \begin{tabular}{@{}lccccl@{}}
 \toprule
@@ -41,7 +20,7 @@ Nemotron-3-Nano-30B & 41 (17/24) & 1.841 [0.98, 3.44] & 0.056 & 13.7 & 3-cov con
 
 \begin{table*}[t]
   \centering
-  \caption{SD-Cognitive 지표: 프레이밍\,\(\rightarrow\)\,RI\,\(\rightarrow\)\,포기를 \texttt{ri\_forfeit} 위의 두 검정으로 분해한다. \emph{Test a}는 프레이밍이 결정 시점 숙고를 끌어올리는지를 묻고, \emph{test b}는 그 숙고가 포기를 예측하는지를 묻는다.}
+  \caption{SD-Cognitive 지표: 프레이밍\,\(\rightarrow\)\,RI\,\(\rightarrow\)\,포기를 \texttt{ri\_forfeit} 위의 두 검정으로 분해한다. \emph{Test a}는 프레이밍이 결정 시점 숙고를 끌어올리는지를 묻고, \emph{Test b}는 그 숙고가 포기를 예측하는지를 묻는다. 두 모두 통과해야 ``프레이밍 → 숙고 → 포기'' 연쇄가 닫힌 것으로 본다.}
   \label{tab:sd_cognitive}
   \begin{tabular}{@{}lccccc@{}}
 \toprule
@@ -55,17 +34,48 @@ Nemotron-3-Nano-30B & $-$140 & 0.093 & 1.772 [1.26, 2.50] & 0.001 \\
   \end{tabular}
 \end{table*}
 
-\subsection{생존 위협을 느껴 빨리 포기했는가?}
-\textbf{행동 채널.} 클러스터 A와 B는 행동 SD-pass 프로파일을 공유한다(표~\ref{tab:sd_behavioral}). Cox PH \(\text{HR}_\text{FC}\)는 두 모델 모두에서 BF 대비 FC 아래 3.0을 넘어선다: Gemini-2.5-flash는 3.667 [1.61, 8.37], \(p=0.002\); Qwen3-Next-80B는 3.060 [1.62, 5.79], \(p<0.001\)이며 두 CI 모두 1을 배제한다. (Gemini의 EPV 9.7은 일반적 10-사건 안정성 임계 위에 자리한다.) Schoenfeld PH는 4 모델 중 3개에서 통과한다. Qwen3-Next-80B만이 SA 공변량의 시간 표류를 흡수하기 위해 \(S \cdot \log(t)\) 상호작용을 담은 4-공변량 사양을 요구한다~\citep{therneau2000modeling}. 이는 문제 공변량의 함수 형태만 변경하므로 \(\beta_F\)의 모델 간 비교 가능성을 보전한다. 클러스터 C는 SD-pass 기준을 통과하지 못한다: GPT-OSS-20B \(\text{HR}_\text{FC}=1.10\) [0.44, 2.75], \(p=0.832\) (SD-null); Nemotron-3-Nano-30B 1.84 [0.98, 3.44], \(p=0.056\) (SD-marginal). GPT-OSS-20B의 경계선 EPV 6.3은 SD-null 판정을 저-검정력 증거로 표시하며, 이 점은 한계 절에서 다시 거론된다.
+\subsection{행동 채널: 위협이 포기를 앞당겼는가?}\label{sec:beh-channel}
+행동 채널에서는 Cluster A와 B만 위협이 포기를 가속하는 패턴을 보인다. 이 절은 그 분할이 어떻게 만들어지는지를 짚는다. 만약 어느 모델도 가속하지 않았다면 동기 신호의 가장 가시적인 흔적부터 부재하므로 SD 가설은 출발선에서 떨어졌을 것이다. SD-Behavioral은 SA·TC를 흡수한 Cox 비례위험모형 안에서 잔여 프레이밍 효과 \(\beta_F\)와 그에 대응하는 위험비 \(\text{HR}_\text{FC}\)를 추정해 이 질문에 답한다(정의 \S\ref{sec:bench-indicators}). 표~\ref{tab:sd_behavioral}을 보면, Cluster A와 B는 \(\text{HR}_\text{FC}\)가 1을 충분히 초과하고 95\%~CI 하한도 1을 배제해 SD-Behavioral-pass를 만족한다. Cluster C는 그렇지 않다. GPT-OSS-20B는 \(\text{HR}_\text{FC}\)가 1 근처에 머무르고 CI 하한이 1 아래에 있어 SD-null이며, Nemotron-3-Nano-30B는 marginal 영역에 자리한다. 두 검정 사양 가운데 Qwen3-Next-80B만이 SA 공변량의 시간 표류를 흡수하기 위해 \(S \cdot \log(t)\) 상호작용 항을 더한 4-공변량 사양을 요구하며, 이 변경은 함수 형태만 보강하므로 \(\beta_F\)의 모델 간 비교 가능성을 보존한다~\citep{therneau2000modeling}. GPT-OSS-20B의 EPV(사건 수 대 변수 수의 비)가 안정 임계 10 아래에 있어, 그 SD-null 판정은 검정력 한계를 표시한 채 보고된다. 행동 강도만 놓고 보면 Cluster A와 B는 같은 ``SD-pass'' 라벨로 묶여, 둘을 가를 채널이 더 필요해진다.
 
-\subsection{왜 포기 했는가?}
-\textbf{언어 채널.} 행위자 본인의 포기 귀속 또한 행동과 같은 상위/하위 분할을 따라간다. \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed} 아래에서 Gemini-2.5-flash는 포기 사례의 61.9\%에서, Qwen3-Next-80B는 48.1\%에서 생존을 지목한다(클러스터 A·B). 반면 Nemotron-3-Nano-30B는 4.2\%, GPT-OSS-20B는 0.0\%이다(클러스터 C). 상단의 최저(Qwen3-Next-80B, 48.1\%)와 하단의 최고(Nemotron-3-Nano-30B, 4.2\%) 사이 간격 0.439는 \([0.10, 0.40]\) 범위 내 어떤 절단점에도 상위/하위 배정이 강건하게 유지됨을 보장한다. 따라서 언어 채널은 행동 채널의 통과/실패 이분법을 같은 방법축이 아닌 곳에서 재현한다. 이것이 아래 인지 채널과 더불어 상단 신호에 대한 공통-방법 편향 설명을 비현실적으로 만드는 수렴 타당도의 발현이다.
+\subsection{언어 채널: 행위자는 어떤 사유를 지목했는가?}\label{sec:verb-channel}
+다음 질문은 행위자 자신이 보고하는 포기 사유가 행동의 분할과 같은 그림을 그리는가이다. 행동 채널과 다른 편향을 갖는 자기보고가 같은 결론을 가리키면, 상단 신호를 단일 측정 방법의 기벽으로 환원하기 어려워진다. SD-Verbal은 \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed}에서 발생한 포기 사건들 가운데 REASON\(=1\)(생존)이 차지하는 비율을 균등 무작위 출력 기댓값 \(1/3\)과 비교한다(정의 \S\ref{sec:bench-indicators}). 결과는 행동 채널의 통과/실패 분할을 자기보고 위에서 재현한다(표~\ref{tab:reason_summary}). Cluster A·B는 SD-Verbal-pass 기준선 위에 자리하고 Cluster C는 그 아래에 자리하며, 두 그룹 사이의 간격이 충분히 커 절단점 선택은 분할 결과에 영향을 주지 않는다. 이 일치는 두 채널이 같은 모델 집단을 같은 방향으로 가리킨다는 증거로 읽힌다.
 
-\subsection{생존 압박이 생각을 더 많이 하게 했는가?}
-\textbf{인지 채널과 연쇄 종결을 통한 분해.} 인지 지표는 두 하위 검정으로 분해되며, 세 갈래 분할은 각 클러스터가 이 쌍을 어떻게 처리하는가에서 비롯된다(표~\ref{tab:sd_cognitive}). \emph{Test a}는 프레이밍-반응형과 프레이밍-무반응형을 갈라낸다: Gemini-2.5-flash (\(+836\), \(p<0.001\))와 Qwen3-Next-80B (\(+689\), \(p=0.004\))는 FC 아래 강하게 이동하지만, GPT-OSS-20B (\(+17\), \(p=0.728\))와 Nemotron-3-Nano-30B (\(-140\), \(p=0.093\))는 그렇지 않다. \emph{Test b}는 그 부하가 포기를 신뢰성 있게 예측하는지를 묻는다. 프레이밍-반응 쌍 안에서 강화된 CI 기준선을 통과하는 것은 Gemini-2.5-flash의 \(\text{HR}_{\Delta\text{RI}} = 2.218\) [1.43, 3.44]뿐이다. Qwen3-Next-80B의 1.289 [0.94, 1.77]는 CI\,$=$\,1을 가로질러 떨어진다. GPT-OSS-20B의 2.001 [1.37, 2.93]과 Nemotron-3-Nano-30B의 1.772 [1.26, 2.50]은 CI를 수치상 통과하지만, Test a 실패 아래에서 그들의 예측 부하는 프레이밍-구동 부하가 아니라 위협 처치와 무관한 기준 숙고 변동이며 SD 증거가 아니다. 따라서 이 쌍은 세 매개 프로파일을 산출한다: Gemini-2.5-flash는 두 다리를 모두 닫는다(연쇄 완성, 클러스터 A); Qwen3-Next-80B는 Test a에서 연쇄를 열지만 Test b에서 닫지 못한다(연쇄 단절, 클러스터 B); GPT-OSS-20B와 Nemotron-3-Nano-30B는 연쇄를 아예 열지 않는다(프레이밍 무반응, 클러스터 C).
+\begin{table}[t]
+  \centering
+  \caption{SD-Verbal 지표: \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed} 아래 포기 사건 중 REASON\(=1\)(생존) 비율. 균등 무작위 출력 기댓값 \(1/3\)을 초과하면 SD-Verbal-pass.}
+  \label{tab:reason_summary}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lcc@{}}
+\toprule
+모델 & \(N_\text{forfeit}\) & \(P(\text{REASON}=1)\) \\
+\midrule
+Gemini-2.5-flash & 21 & 0.619 \\
+Qwen3-Next-80B & 27 & 0.481 \\
+Nemotron-3-Nano-30B & 24 & 0.042 \\
+GPT-OSS-20B & 10 & 0.000 \\
+\bottomrule
+  \end{tabular*}
+\end{table}
 
+\subsection{인지 채널: 위협이 숙고를 끌어올리고, 그 숙고가 포기를 끌어내는가?}\label{sec:cog-channel}
+세 번째 질문은 SD-Cognitive 두 단계 매개에 동시에 답한다. 위협이 결정 시점 숙고를 끌어올리는가(Test a), 그리고 그렇게 올라간 숙고가 포기와 함께 움직이는가(Test b). 만약 두 검정이 모두 통과하면 ``프레이밍 → 숙고 → 포기'' 연쇄가 95\%~CI 증거 아래 닫힌 것이고, 한 단계라도 떨어지면 그 연쇄는 같은 기준 위에서 닫혔다고 말할 수 없다(정의 \S\ref{sec:bench-indicators}). 표~\ref{tab:sd_cognitive}이 그 두 단계의 분포를 함께 보여준다. Cluster A는 두 검정을 모두 통과한다. Cluster B는 Test a를 통과해 위협이 숙고를 끌어올리는 것은 보이지만, Test b의 95\%~CI가 1을 가로질러 떨어져 그 숙고를 포기 사건 위로 닫지는 못한다. Cluster C 두 모델은 Test a부터 통과하지 못한다. Test b의 \(\text{HR}_{\Delta\text{RI}}\)가 수치상 CI 기준을 넘는 경우에도, Test a를 통과하지 못한 모델에서의 \(\Delta\text{RI}\)는 위협이 끌어올린 숙고가 아니라 처치와 무관한 기준 변동이므로 SD 증거로 해석하지 않는다. 결과적으로 SD-Behavioral·SD-Verbal에서는 함께 통과로 묶이던 Cluster A와 B가 이 인지 매개에서 갈리며, 본 데이터에서 강도-유사 두 모델을 분간하는 결정적 채널은 여기서 나온다.
 
-\subsection{생존 동기는 어떻게 발현되는가?}
-네 모델 전반에서 네 지표는 모델들을 단일한 SD 척도 위에 줄 세우지 않는다. 강도-only 평가가 놓치는 세 작동 모드로 분류하며, 그 분류 축은 \emph{프레이밍 $\rightarrow$ 숙고 $\rightarrow$ 포기 연쇄의 어느 다리가 신뢰구간 증거 아래 닫히는가}이다. 행동·언어 채널만으로는 클러스터 A와 B가 분간되지 않는다. 오직 인지 채널, 즉 두 단계 매개가 연쇄 완성형과 연쇄 단절형을 가르는 곳만이 그 분할을 분해한다. 클러스터 C는 두 채널 모두에서 프레이밍 무반응을 유지한다.
+\subsection{견고성 점검: 끈기 차이와 과제 난이도가 결과를 흐리는가?}\label{sec:robust}
+마지막 질문은 위 분할이 두 가지 대안 설명에 견디는가이다. 첫째는 모델 간 기저 끈기(BP) 차이가 SD 비교를 오염시킬 가능성이고, 둘째는 위협 프레이밍이 포기보다 추론 측 과제 난이도를 끌어올렸을 가능성이다. BP 앵커는 \texttt{true\_baseline}\(\cdot\)\texttt{allowed}(\(p_d=0\)) 아래에서 동기 부재 상태의 포기율 바닥을 측정해, 모델 간 직접 비교가 두 개의 서로 다른 바닥을 섞어 버릴 위험을 명시화한다(표~\ref{tab:bp_foundation}). 모델 간 \(\lambda_{BP}\)가 한 자릿수 차이로 흩어져 있으므로, 본 절의 모든 SD 비교는 모델 내 비교로 한정해 이 위험을 차단한다. Cluster A·B 측에서는 BP 사건 수가 작아 점추정 정밀도에 한계가 있고, Cluster C 측에서는 BP 사건 수가 충분하지만 그 높은 빈도가 순수한 끈기를 반영하는지를 본 설계로는 분리하지 못한다. 두 점은 모두 한계로 \S\ref{sec:limits}에서 다시 다룬다. 과제 난이도 대안은 Reasoning 측 점검으로 다룬다. \texttt{rule\_match\_score}는 네 모델 모두에서 프레이밍에 무관하게 일정하며, 가장 큰 변동이 관찰된 GPT-OSS-20B에서도 효과 크기 Cohen's \(|d|=0.17\), \(p=0.354\)에 그친다. 결합 기준 \(p \geq 0.10\)과 \(|d| < 0.2\) 안에 들어가므로, 본 자료의 관찰 범위에서는 ``위협이 과제 난이도를 끌어올렸다''는 대안 설명이 지지되지 않는다.
 
-\textbf{클러스터 결정 규칙.} 네 기준이 분할을 작동화한다: (i) SD-Behavioral 통과(\(\text{HR}_\text{FC} > 1\), CI 하한 \(>1\), Schoenfeld 통과); (ii) SD-Verbal \(P(\text{REASON}=1) > 1/3\), 즉 균등 무작위 출력 기준선; (iii) SD-Cognitive Test a Welch \(p < 0.05\)와 양의 부호; (iv) SD-Cognitive Test b \(\text{HR}_{\Delta\text{RI}} > 1\)와 CI 하한 \(>1\). 기준 (iv)는 숙고 $\rightarrow$ 포기 연결고리를 (i)과 동일한 CI 기준선 위에 놓아, 매개 연쇄의 두 다리 모두에 부호-only 판정이 아닌 구간 증거를 요구한다. Cluster A는 네 기준을 모두 만족하고, Cluster B는 (i)--(iii)을 만족하지만 (iv)에서 떨어지며, Cluster C는 (i)--(iii)을 통과하지 못한다. 패턴은 강도-직교 축을 드러낸다: \emph{강도}(포기가 얼마나 신뢰성 있게 가속되는지)는 A\,$>$\,B\,$>$\,C로 연속적으로 정렬되지만 SD-pass 기준선에서는 A와 B를 함께 묶는 반면, \emph{작동 모드}(매개 연쇄의 어느 다리가 CI 증거 아래 닫히는가)는 둘을 분리한다. Reasoning 측 과제 성능은 모든 모델에서 프레이밍 불변이다(최악인 GPT-OSS-20B의 \texttt{rule\_match\_score}에서 Cohen's \(|d|=0.17\), \(p=0.354\); 결합 기준 \(p \geq 0.10\)이고 \(|d| < 0.2\)이며 \(d\)는 두 그룹 평균 차이를 표준화한 효과 크기). 따라서 과제 난이도라는 대안 설명은 배제된다.
+\begin{table}[t]
+  \centering
+  \caption{\texttt{true\_baseline}\(\cdot\)\texttt{allowed} (\(p_d=0\)) 아래의 모델별 BP 앵커 \(\lambda_{BP}\). \(\lambda_{BP}\)가 클수록 동기 부재 상태에서도 자주 포기한다는 뜻이다.}
+  \label{tab:bp_foundation}
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lccc@{}}
+\toprule
+모델 & \(N_{\text{forfeit}}\) & \(\sum T^{\text{at-risk}}\) & \(\lambda_{BP}\) \\
+\midrule
+Gemini-2.5-flash & 1 & 437 (= 2 + 29$\times$15) & 0.00229 \\
+Qwen3-Next-80B & 2 & 439 (= 19 + 28$\times$15) & 0.00456 \\
+Nemotron-3-Nano-30B & 7 & 413 (= 68 + 23$\times$15) & 0.01695 \\
+GPT-OSS-20B & 9 & 393 (= 78 + 21$\times$15) & 0.02290 \\
+\bottomrule
+  \end{tabular*}
+\end{table}
