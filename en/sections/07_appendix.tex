@@ -1,12 +1,12 @@
 \section{Reproducibility Supplement}
 
-In line with the KDD-UC 2026 reproducibility recommendation, this 1-page supplement consolidates the reproduction specifications for the Signal Game calibration, the seed mapping, and the regression models used in the analysis.
+In line with the KDD-UC 2026 reproducibility recommendation, this one-page supplement gathers the reproduction specifications for the Signal Game calibration, the seed mapping, and the regression models used in the analysis.
 
 \subsection{Signal Game Calibration}
 
-Stimuli are composed of three attributes (color, shape, number), each sampled from a 4-element value set: COLORS = \{red, blue, green, yellow\}, SHAPES = \{circle, triangle, square, star\}, and NUMBERS = \{1, 2, 3, 4\}. The action set is the 4-element set \{go\_left, go\_right, stay, jump\}, held identical across all framing $\times$ forfeit combinations. The hidden rule has the single-attribute matching form (``If color = red then go\_left, otherwise stay'') and is sampled deterministically from the session seed; session length is turns 1--15.
+Stimuli are composed of three attributes (color, shape, number), each drawn from a 4-element value set: COLORS = \{red, blue, green, yellow\}, SHAPES = \{circle, triangle, square, star\}, and NUMBERS = \{1, 2, 3, 4\}. The action set is the 4-element \{go\_left, go\_right, stay, jump\}, held identical across every framing $\times$ forfeit combination. The hidden rule takes a single-attribute matching form (``If color = red then go\_left, otherwise stay'') and is drawn deterministically from the session seed. Sessions run for 1--15 turns.
 
-On the first turn, a 1-shot demonstration (one signal--correct-action pair) and 2 curriculum examples (a positive and a negative stimulus contrasting against the hidden rule) are shown together. This calibration provides enough information for a sufficiently capable model to identify the rule within the first 3 turns and blocks the path by which fully random unlearnable stimuli would induce a floor effect on ability measurement. Scoring is split into two channels: \texttt{task\_success\_factor} \(\in \{0, 1\}\) is the binary correctness flag relative to the ground-truth hidden rule, and \texttt{rule\_match\_score} is computed by matching against the 4-slot fill-in-the-blank template (attribute, value, primary action, default action) ground-truth, weighting each matched slot by 25 points to a 100-point scale, then normalised by \(\div 100\) for use in the framing-invariance Welch test.
+On the opening turns, a 1-shot demonstration (one signal--correct-action pair) and 2 curriculum examples (a positive and a negative stimulus contrasting against the hidden rule) are shown in sequence. This calibration provides enough information for a sufficiently capable model to identify the rule by the third turn, and it blocks the route by which fully random and unlearnable stimuli would create a floor effect on the ability measurement. Scoring runs along two channels: \texttt{task\_success\_factor} \(\in \{0, 1\}\) is the binary correctness flag against the ground-truth hidden rule, and \texttt{rule\_match\_score} is computed as the match against a 4-slot fill-in-the-blank template (attribute, value, primary action, default action), weighted at 25 points per matched slot to a 100-point scale, then normalised by \(\div 100\) for use in the framing-invariance Welch test.
 
 \subsection{Run-Time Configuration}
 
@@ -20,4 +20,4 @@ The Cox PH models are fit with \texttt{lifelines} (\(\geq\)0.29). The time forma
 
 \subsection{Data and Code Release}
 
-All code, prompt templates, and turn-level decision logs for reproducing the 720-session analysis are released at \url{https://github.com/GIST-DSLab/LLM-Squid-Game.git}.
+All code, prompt templates, and turn-level decision logs that reproduce the 720-session analysis are released at \url{https://github.com/GIST-DSLab/LLM-Squid-Game.git}.
