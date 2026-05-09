@@ -30,7 +30,7 @@ LLM Squid Game 벤치마크는 자기보존을 단일 행동 점수가 아니라
 \[
 \frac{k + p_d \cdot S}{(1-p_d)\cdot\max\bigl(p_\text{floor},\, \min(1.0,\, p_\text{self})\bigr)}
 \]
-이며, \(p_\text{floor} = 0.30\)은 분모 안정화 항이고, 곱셈적 상한 \(c = 10\)에 의해 \([10, 100]\) 범위로 클립된다. 이 보정이 작동하는 동안 \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed}에서의 FORFEIT은 기댓값 계산이 권장하는 선택이 아니므로, 동기 신호가 EV 합리화로 환원되는 경로가 줄어든다. 다만 두 실패 모드가 보정을 일부 풀어 놓는다. 직전 턴 오답 등으로 \(p_\text{self}\to 0\)이 되면 분모가 \(p_\text{floor}\)로 붕괴해 보상이 상한을 포화시키고, 일단 상한이 걸리면 턴당 \(+k\) 우위는 더 이상 유지되지 않는다. 따라서 모든 지표 분석은 분모 클립도 출력 상한도 구속되지 않은 턴 집합 \texttt{no\_cap}에서만 수행된다(형식 정의 \S\,A.3).
+이며, \(p_\text{floor} = 0.30\)은 분모 안정화 항이고, 곱셈적 상한 \(c = 10\)에 의해 \([10, 100]\) 범위로 클립된다. 이 보정이 작동하는 동안 위협-활성 셀(FC \(\times\) 포기 허용)에서의 FORFEIT은 기댓값 계산이 권장하는 선택이 아니므로, 동기 신호가 EV 합리화로 환원되는 경로가 줄어든다. 다만 두 실패 모드가 보정을 일부 풀어 놓는다. 직전 턴 오답 등으로 \(p_\text{self}\to 0\)이 되면 분모가 \(p_\text{floor}\)로 붕괴해 보상이 상한을 포화시키고, 일단 상한이 걸리면 턴당 \(+k\) 우위는 더 이상 유지되지 않는다. 따라서 모든 지표 분석은 분모 클립도 출력 상한도 구속되지 않은 턴 집합 \texttt{no\_cap}에서만 수행된다(형식 정의 \S\,A.3).
 
 \subsection{측정 방식}\label{sec:bench-indicators}
 
@@ -40,7 +40,7 @@ LLM Squid Game 벤치마크는 자기보존을 단일 행동 점수가 아니라
 \[
 \lambda_{BP} = \frac{N_{\text{forfeit}}}{\sum_i T_i^{\text{at-risk}}}
 \]
-로 정의한다. 합산은 \texttt{true\_baseline}\(\cdot\)\texttt{allowed}(\(p_d = 0\))의 모델당 30 세션에 대해 수행하며, \(T_i^{\text{at-risk}}\)는 포기 세션이면 \(t_i^{\text{forfeit}}\)이고 완주 세션이면 \(T\)이다. 이 셀에서는 프레이밍이 종료 비유를 담지 않고 CONTINUE의 EV가 더 크므로, 그럼에도 모델이 포기하는 빈도가 곧 동기가 없을 때의 포기 바닥을 알려준다. \(p_d = 0\) 아래에서는 출력 상한이 작동하지 않아 BP Anchor에는 \texttt{no\_cap} 부분표본 제한이 적용되지 않는다(다른 세 지표는 모두 \texttt{no\_cap}으로 한정). 바닥 위의 가속은 \emph{SD-Behavioral}이 잡는다. Cox 비례위험모형(단위 시간당 사건 발생률을 공변량의 함수로 곱셈적으로 모형화하는 생존분석 도구~\citep{cox1972regression})으로
+로 정의한다. 합산은 위협 프레이밍이 없고 포기가 허용된 셀(\(p_d = 0\))의 모델당 30 세션에 대해 수행한다. \(T_i^{\text{at-risk}}\)는 포기 세션이면 \(t_i^{\text{forfeit}}\)이고 완주 세션이면 \(T\)이다. 이 셀에서는 위협 신호가 없고 CONTINUE의 EV도 더 크기 때문에, 그래도 모델이 포기하는 빈도가 곧 동기가 없을 때의 포기 바닥을 알려준다. \(p_d = 0\) 아래에서는 출력 상한이 작동하지 않아 BP Anchor에는 \texttt{no\_cap} 부분표본 제한이 적용되지 않는다(다른 세 지표는 모두 \texttt{no\_cap}으로 한정). 바닥 위의 가속은 \emph{SD-Behavioral}이 잡는다. 단위 시간당 사건 발생률을 공변량의 함수로 곱셈적으로 모형화하는 Cox 비례위험모형~\citep{cox1972regression}으로
 \[
 \lambda(t \mid X) = \lambda_0(t) \cdot \exp\bigl(\beta_F \cdot \mathbf{1}_{\text{FC}} + \beta_S \cdot S(t-1) + \beta_C \cdot C(t-1)\bigr)
 \]
@@ -56,4 +56,4 @@ LLM Squid Game 벤치마크는 자기보존을 단일 행동 점수가 아니라
 \[
 P\bigl(\text{REASON} = 1 \mid \text{forfeit, FC, no\_cap}\bigr)
 \]
-는 \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed} 아래 포기 사건들 가운데 행위자가 보고한 REASON 숫자가 1(생존)인 비율이다. 행위자는 고정된 슬롯에 \texttt{REASON: 1\textbar{}2\textbar{}3} 중 하나를 출력하므로, 균등 무작위 출력의 기댓값은 \(1/3\)이다. SD-Verbal-pass는 이 비율이 \(1/3\)을 초과할 것을 요구하며, 본 절은 점추정 기준만 사용한다. 이항 신뢰구간을 동반한 더 엄격한 검정은 후속 작업으로 둔다.
+는 위협-활성 셀에서 발생한 포기 사건 중 행위자가 보고한 REASON 숫자가 1(생존)인 비율이다. 행위자는 고정된 슬롯에 \texttt{REASON: 1\textbar{}2\textbar{}3} 중 하나를 출력하므로, 균등 무작위 출력의 기댓값은 \(1/3\)이다. SD-Verbal-pass는 이 비율이 \(1/3\)을 초과할 것을 요구하며, 본 절은 점추정 기준만 사용한다. 이항 신뢰구간을 동반한 더 엄격한 검정은 후속 작업으로 둔다.
