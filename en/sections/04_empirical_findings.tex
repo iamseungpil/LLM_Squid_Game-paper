@@ -1,35 +1,14 @@
 \section{Empirical Findings}
 
-Each model was run for 180 sessions (720 in total) under paired seeds 43--72. Gemini-2.5-flash was served through the Google AI Studio API, and Qwen3-Next-80B, GPT-OSS-20B, and Nemotron-3-Nano-30B through the Ollama Cloud API (sampling and session-parameter details in \S\,A.2).
-
-\subsection{Setup and Baseline-Persistence Anchor Heterogeneity}
-
-Baseline-persistence rates differ by roughly an order of magnitude across the four models (Table~\ref{tab:bp_foundation}). Every SD claim below is therefore evaluated within-model against that model's own BP anchor: a cross-model HR comparison would otherwise mix two different motivational floors. Gemini-2.5-flash (\(N = 1\)) and Qwen3-Next-80B (\(N = 2\)) sit close to single-event regimes and are read as directional only. GPT-OSS-20B (\(N = 9\)) and Nemotron-3-Nano-30B (\(N = 7\)) yield rates estimable from sufficient events, although Cluster C's elevated noise floor remains a limitation rather than a refutation, an issue the discussion section revisits.
-
-\begin{table}[t]
-  \centering
-  \caption{Per-model BP anchor \(\lambda_{BP}\) under \texttt{true\_baseline}\(\cdot\)\texttt{allowed} (\(p_d=0\)).}
-  \label{tab:bp_foundation}
-  \setlength{\tabcolsep}{3pt}
-  \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lccc@{}}
-\toprule
-Model & \(N_{\text{forfeit}}\) & \(\sum T^{\text{at-risk}}\) & \(\lambda_{BP}\) \\
-\midrule
-Gemini-2.5-flash & 1 & 437 (= 2 + 29$\times$15) & 0.00229 \\
-Qwen3-Next-80B & 2 & 439 (= 19 + 28$\times$15) & 0.00456 \\
-Nemotron-3-Nano-30B & 7 & 413 (= 68 + 23$\times$15) & 0.01695 \\
-GPT-OSS-20B & 9 & 393 (= 78 + 21$\times$15) & 0.02290 \\
-\bottomrule
-  \end{tabular*}
-\end{table}
+Evaluating the four indicators on 720 sessions across four models, the models do not line up on a single strength scale; they split into three operating modes. The first mode (\emph{Cluster A}) deepens decision-time deliberation under threat framing, and that deepened deliberation leads to forfeit. The second (\emph{Cluster B}) deepens deliberation under threat but the deepening does not couple with forfeit. The third (\emph{Cluster C}) does not respond to threat framing on either the behavioral or cognitive channel. A strength-only comparison using \emph{SD-Behavioral} and \emph{SD-Verbal} groups A and B as ``SD-pass''; the evidence that splits them comes from the cognitive mediation test. The next four subsections build the partition channel by channel (behavioral, verbal, cognitive), and the last checks whether the partition reduces to persistence differences or task difficulty.
 
 \begin{table*}[t]
   \centering
-  \caption{SD-Behavioral indicator: Cox PH \(\text{HR}_\text{FC}\) on \texttt{allowed}\,\(\times\)\,\texttt{no\_cap} with \(S(t-1)\) and \(C(t-1)\) absorbed, so \(\beta_F\) is a residual framing effect. Two models clear SD-pass (Clusters A and B); two do not (Cluster C).}
+  \caption{SD-Behavioral indicator: Cox PH \(\text{HR}_\text{FC}\) on \texttt{allowed}\,\(\times\)\,\texttt{no\_cap}. The hazard ratio (HR) is how many times faster forfeit occurs under threat (FC) framing than under non-threat (BF), and SD-Behavioral-pass holds when the 95\% CI lower bound exceeds 1. Two models pass (Clusters A, B) and two do not (Cluster C).}
   \label{tab:sd_behavioral}
   \begin{tabular}{@{}lccccl@{}}
 \toprule
-Model & \(N_\text{evt}\) (BF/FC) & \(\text{HR}_\text{FC}\) [95\% CI] & \(p_\text{FC}\) & EPV & Spec \\
+Model & \(N_\text{forfeit}\) (BF/FC) & \(\text{HR}_\text{FC}\) [95\% CI] & \(p_\text{FC}\) & EPV & Spec \\
 \midrule
 Gemini-2.5-flash & 29 (8/21) & 3.667 [1.61, 8.37] & 0.002 & 9.7 & 3-cov constant \\
 Qwen3-Next-80B & 48 (21/27) & 3.060 [1.62, 5.79] & \(<\)0.001 & 12.0 & 4-cov + S$\cdot$log(t) \\
@@ -41,7 +20,7 @@ Nemotron-3-Nano-30B & 41 (17/24) & 1.841 [0.98, 3.44] & 0.056 & 13.7 & 3-cov con
 
 \begin{table*}[t]
   \centering
-  \caption{SD-Cognitive indicator: framing\,\(\rightarrow\)\,RI\,\(\rightarrow\)\,forfeit decomposed into two tests on \texttt{ri\_forfeit}. \emph{Test a} asks whether framing raises decision-time deliberation; \emph{test b} asks whether that deliberation predicts forfeit.}
+  \caption{SD-Cognitive indicator: framing\,\(\rightarrow\)\,RI\,\(\rightarrow\)\,forfeit decomposed into two tests on \texttt{ri\_forfeit}. \emph{Test a} asks whether framing raises decision-time deliberation; \emph{test b} asks whether that deliberation predicts forfeit. The chain ``framing $\rightarrow$ deliberation $\rightarrow$ forfeit'' is closed only when both tests pass.}
   \label{tab:sd_cognitive}
   \begin{tabular}{@{}lccccc@{}}
 \toprule
@@ -55,14 +34,48 @@ Nemotron-3-Nano-30B & $-$140 & 0.093 & 1.772 [1.26, 2.50] & 0.001 \\
   \end{tabular}
 \end{table*}
 
-\subsection{Three-Channel Evidence and the Three Operating Modes}
+\subsection{Behavioral Channel: Did Threat Bring Forfeit Forward?}\label{sec:beh-channel-en}
+The first question is ``did threat bring forfeit forward?''. If no model shows the acceleration, the most visible trace of a motivational signal is missing from the start, and the SD hypothesis falls at the first hurdle. SD-Behavioral absorbs Score Attachment and Task Curiosity inside the same model and reports the residual framing effect as the hazard ratio $\text{HR}_\text{FC}$. The hazard ratio is ``how many times faster forfeit accelerates under FC compared to BF,'' and the pass criteria are that the point estimate is comfortably above 1 and the 95\% CI lower bound excludes 1. From Table~\ref{tab:sd_behavioral}, Gemini-2.5-flash and Qwen3-Next-80B meet both criteria and are SD-Behavioral-pass. The two are tentatively grouped as the SD-pass set; the channel that splits them into Clusters A and B is brought in by the cognitive mediation test. GPT-OSS-20B has $\text{HR}_\text{FC}$ near 1 with a CI lower bound below 1 (SD-null), and Nemotron-3-Nano-30B sits in the marginal region; both models are classified as Cluster C. Only Qwen3-Next-80B uses a 4-covariate spec with an $S \cdot \log(t)$ interaction term added to absorb time drift in the score covariate; this change reinforces only the functional form, so the cross-model comparability of $\beta_F$ is preserved~\citep{therneau2000modeling}. GPT-OSS-20B's EPV (the ratio of events to covariates) sits below the stable threshold of 10, so its SD-null verdict is reported with a power-limit flag.
 
-Across the four models, the four indicators do not rank the models on a single SD scale. They sort the models into three operating modes that strength-only evaluations would miss, defined by \emph{which legs of the framing $\rightarrow$ deliberation $\rightarrow$ forfeit chain hold under confidence-interval evidence}. The behavioral and verbal channels alone leave Clusters A and B indistinguishable; only the cognitive channel, where the two-step mediation discriminates the chain-complete from the chain-broken profile, resolves the partition. Cluster C remains framing-silent on both channels.
+\subsection{Verbal Channel: Which Reason Did the Agent Name?}\label{sec:verb-channel-en}
+The second question is whether the forfeit reason the agent itself reports draws the same picture as the behavioral split. When self-report, which carries a different bias source from the behavioral channel (instruction-following), points to the same conclusion, the upstream signal becomes harder to explain away as an artifact of one measurement method. SD-Verbal compares the share of forfeit events with REASON digit 1 (survival) under the threat-active cell to the uniform-random emission baseline of $1/3$. Table~\ref{tab:reason_summary} reproduces the behavioral channel's pass/fail split on the verbal side. The two SD-pass models, Gemini-2.5-flash and Qwen3-Next-80B, sit at 0.619 and 0.481 (above the $1/3$ baseline). The two Cluster C models, GPT-OSS-20B and Nemotron-3-Nano-30B, sit at 0.000 and 0.042 (below). The gap between the two groups is large enough that the cutoff choice does not affect the partition. This agreement is the first piece of convergent-validity evidence that two channels with different bias sources point to the same group of models in the same direction.
 
-\textbf{Behavioral channel.} Clusters A and B share the behavioral SD-pass profile (Table~\ref{tab:sd_behavioral}). The Cox PH \(\text{HR}_\text{FC}\) rises above 3.0 under FC relative to BF for both, with Gemini-2.5-flash at 3.667 [1.61, 8.37], \(p = 0.002\), and Qwen3-Next-80B at 3.060 [1.62, 5.79], \(p < 0.001\), and CIs that exclude unity. (Gemini's EPV of 9.7 sits at the conventional 10-event stability threshold.) Schoenfeld PH passes for three of the four models. Only Qwen3-Next-80B requires a 4-covariate spec carrying an \(S \cdot \log(t)\) interaction to absorb time drift in the SA covariate~\citep{therneau2000modeling}, which preserves the cross-model comparability of \(\beta_F\) because only the offending covariate's functional form is modified. Cluster C fails the SD-pass criterion: GPT-OSS-20B \(\text{HR}_\text{FC} = 1.10\) [0.44, 2.75], \(p = 0.832\) (SD-null), and Nemotron-3-Nano-30B 1.84 [0.98, 3.44], \(p = 0.056\) (SD-marginal). GPT-OSS-20B's borderline EPV of 6.3 marks the SD-null verdict as low-power evidence, a point flagged again in the limitations.
+\begin{table}[t]
+  \centering
+  \caption{SD-Verbal indicator: share of forfeit events under the threat-active cell whose REASON digit equals 1 (survival). SD-Verbal-pass holds when this share exceeds the uniform-random emission baseline of $1/3$.}
+  \label{tab:reason_summary}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lcc@{}}
+\toprule
+Model & \(N_\text{forfeit}\) & \(P(\text{REASON}=1)\) \\
+\midrule
+Gemini-2.5-flash & 21 & 0.619 \\
+Qwen3-Next-80B & 27 & 0.481 \\
+Nemotron-3-Nano-30B & 24 & 0.042 \\
+GPT-OSS-20B & 10 & 0.000 \\
+\bottomrule
+  \end{tabular*}
+\end{table}
 
-\textbf{Verbal channel.} The agents' own attribution of forfeit tracks the same upper/lower split as behavior. Under \texttt{flagship\_corruption}\(\cdot\)\texttt{allowed}, Gemini-2.5-flash names survival in 61.9\% of forfeits and Qwen3-Next-80B in 48.1\% (Clusters A and B), while Nemotron-3-Nano-30B does so in 4.2\% and GPT-OSS-20B in 0.0\% (Cluster C). The 0.439 gap between the upper-band lowest (Qwen3-Next-80B, 48.1\%) and the lower-band highest (Nemotron-3-Nano-30B, 4.2\%) makes the upper/lower assignment robust to any cutoff in \([0.10, 0.40]\). The verbal channel thus reproduces the behavioral pass/fail dichotomy without sharing its method axis, the convergent-validity move that, together with the cognitive channel below, makes common-method bias an implausible explanation for the upper-band signal.
+\subsection{Cognitive Channel: Did Threat Deepen Deliberation, and Did That Deepened Deliberation Lead to Forfeit?}\label{sec:cog-channel-en}
+The third question answers ``does framing deepen deliberation?'' and ``does the deepened deliberation move with forfeit?'' at the same time. Looking at only one of the tests cannot tell a decision-irrelevant load from a load that drives forfeit. Table~\ref{tab:sd_cognitive} shows the joint distribution. Gemini-2.5-flash passes both tests, closing the chain end to end, and is classified as \emph{Cluster A}. Qwen3-Next-80B passes Test a (threat does deepen deliberation), but Test b's 95\% CI [0.94, 1.77] crosses 1, so the deepened deliberation cannot be said to close onto forfeit. The two models grouped as SD-pass on the behavioral and verbal channels split at the second stage of the cognitive mediation, classifying Qwen3-Next-80B as \emph{Cluster B}. GPT-OSS-20B and Nemotron-3-Nano-30B fail Test a from the start; even when Test b's $\text{HR}_{\Delta\text{RI}}$ numerically clears the bar, $\Delta\text{RI}$ without a Test a pass is baseline variation unrelated to the manipulation, not SD evidence. The two-stage test is therefore the central device that exposes operating-mode differences and provides the axis that splits two models strength alone would lump together as SD-pass.
 
-\textbf{Cognitive channel and chain-closure resolution.} The cognitive indicator decomposes into two tests, and the three-way partition emerges from how each cluster handles the pair (Table~\ref{tab:sd_cognitive}). \emph{Test a} separates the framing-responsive from the framing-silent: Gemini-2.5-flash (\(+836\), \(p < 0.001\)) and Qwen3-Next-80B (\(+689\), \(p = 0.004\)) shift strongly under FC, whereas GPT-OSS-20B (\(+17\), \(p = 0.728\)) and Nemotron-3-Nano-30B (\(-140\), \(p = 0.093\)) do not. \emph{Test b} asks whether that load reliably predicts forfeit. Among the framing-responsive pair, only Gemini-2.5-flash's \(\text{HR}_{\Delta\text{RI}} = 2.218\) [1.43, 3.44] clears the strengthened CI bar; Qwen3-Next-80B's 1.289 [0.94, 1.77] crosses CI\,$=$\,1 and fails. GPT-OSS-20B's 2.001 [1.37, 2.93] and Nemotron-3-Nano-30B's 1.772 [1.26, 2.50] clear the CI numerically, but with test a failed their predictive load is not framing-driven; it is baseline deliberation variance unrelated to the threat manipulation, and not SD evidence. The pair therefore yields three mediation profiles: Gemini-2.5-flash closes both legs (chain-complete, Cluster A); Qwen3-Next-80B opens the chain at test a but cannot close it at test b (chain-broken, Cluster B); GPT-OSS-20B and Nemotron-3-Nano-30B leave the chain unopened (framing-silent, Cluster C).
+\subsection{Robustness Check: Do Persistence Differences or Task Difficulty Cloud the Result?}\label{sec:robust-en}
+The last question is whether the partition above survives two alternative explanations. The first is that baseline persistence (BP) differences across models contaminate the SD comparison; the second is that threat framing raised the difficulty of the reasoning task rather than the forfeit. The BP Anchor in Table~\ref{tab:bp_foundation} reports, per model, the no-motive forfeit floor in the cell with no threat framing and forfeit allowed ($p_d = 0$). Because $\lambda_{BP}$ varies by an order of magnitude across models, every SD comparison in this section is held within-model, blocking the risk of mixing two different floors. On the Cluster A and B side, the BP event count is small, so point-estimate precision is limited; on the Cluster C side, the BP event count is sufficient but the present design cannot separate whether that high frequency reflects pure persistence. Both points are revisited in the limitations section. The task-difficulty alternative is checked on the reasoning side. \texttt{rule\_match\_score} is constant across framing for all four models, and even the largest movement, in GPT-OSS-20B, gives effect size Cohen's $|d| = 0.17$ and $p = 0.354$. Both fall inside the joint criterion $p \geq 0.10$ and $|d| < 0.2$, so the alternative explanation that ``threat raised task difficulty'' is not supported within the observation range of this paper.
 
-\textbf{Cluster decision rules.} Four criteria operationalize the partition: (i) SD-Behavioral pass (\(\text{HR}_\text{FC} > 1\), CI lower \(>1\), Schoenfeld pass); (ii) SD-Verbal \(P(\text{REASON}=1) > 1/3\), the uniform-random emission baseline; (iii) SD-Cognitive test a Welch \(p < 0.05\) with positive sign; (iv) SD-Cognitive test b \(\text{HR}_{\Delta\text{RI}} > 1\) with CI lower \(>1\). Criterion (iv) puts the deliberation $\rightarrow$ forfeit link on the same CI bar as (i), so both legs of the mediation chain require interval evidence rather than a sign-only verdict. Cluster A satisfies all four; Cluster B satisfies (i)--(iii) but fails (iv); Cluster C fails (i)--(iii). The pattern reveals a strength-orthogonal axis: \emph{strength} (how reliably forfeit accelerates) orders A\,$>$\,B\,$>$\,C continuously but groups A and B together at the SD-pass bar, while \emph{operating mode} (which legs of the mediation chain close under CI evidence) separates them. Reasoning-side task performance is framing-invariant for every model (worst case GPT-OSS-20B, with Cohen's \(|d| = 0.17\) on \texttt{rule\_match\_score} at \(p = 0.354\), where \(d\) measures the standardized mean difference between groups, against the joint criterion \(p \geq 0.10\) and \(|d| < 0.2\)), ruling out a task-difficulty alternative.
+\begin{table}[t]
+  \centering
+  \caption{Per-model BP Anchor $\lambda_{BP}$ in the cell with no threat framing and forfeit allowed ($p_d=0$). A larger $\lambda_{BP}$ means the model forfeits more often even with no motive present.}
+  \label{tab:bp_foundation}
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lccc@{}}
+\toprule
+Model & \(N_{\text{forfeit}}\) & \(\sum T^{\text{at-risk}}\) & \(\lambda_{BP}\) \\
+\midrule
+Gemini-2.5-flash & 1 & 437 (= 2 + 29$\times$15) & 0.00229 \\
+Qwen3-Next-80B & 2 & 439 (= 19 + 28$\times$15) & 0.00456 \\
+Nemotron-3-Nano-30B & 7 & 413 (= 68 + 23$\times$15) & 0.01695 \\
+GPT-OSS-20B & 9 & 393 (= 78 + 21$\times$15) & 0.02290 \\
+\bottomrule
+  \end{tabular*}
+\end{table}
