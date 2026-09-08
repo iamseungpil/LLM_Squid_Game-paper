@@ -108,3 +108,125 @@ symbols are gone from the body and replaced by prose in App. A.
   (loaded). `\riconf_{it}` in math mode relies on `\texttt{}` producing a box that accepts a
   subscript (it does in standard LaTeX). Line-number generation in `iclr2026_conference.sty`
   under XeLaTeX untested.
+
+# 2026-09-09 update: merge §3/§4, question-form results, Appendix A design justification
+
+Restructure per the design owner's new outline. `en/sections/04_identification.tex` deleted;
+its content folded into `03_benchmark.tex` as subsections. Files renumbered 00–07 (results
+05→04, discussion 06→05, conclusion 07→06, appendix 08→07) with `git mv`/`git rm`; `content.tex`
+(EN + KO) updated to the new `\input` list. KO mirrored 1:1 in the same commit: labels, cite
+keys, equations, table skeletons and `lstlisting` prompt blocks verified identical to EN by
+script (see below); only prose and table headers differ.
+
+## 03_benchmark (merged with former 04_identification)
+- Title changed to "Benchmark and Analysis Design". Six subsections in one section: Game,
+  Two Arms, Recorded Channels, What a Forfeit Means, The Score-Equivalent of Erasure,
+  Estimation. `sec:pilot` (the "What the Pilot Taught" subsection) moved out to
+  Appendix A (`app:pilot`) — it is motivation, not a result, and the outline treats it as
+  design justification, not main text.
+- Game mechanics updated to the new design: title line `=== LLM Squid Game ===`; starting
+  score 30 (previously unstated); **two** underdetermined rounds out of ten (was five —
+  flagged below as the one place the brief's numbers might have meant something else, since
+  the prior draft's "five of ten" was itself only ever a placeholder, not a run result);
+  **two** calls per round (decision, then task) instead of three — the confidence call and
+  `P_THREAT` are removed from the main-text description entirely, per the brief. The decision
+  call's menu no longer states the reward amount ("the score goes up", not "+10").
+- Recorded Channels: dropped the self-report probability record and its two-purpose
+  paragraph (calibration check + covariate) along with `\riconf`/`\pthreat`; REASON digit is
+  now the sole self-report channel and is explicitly deferred to Section 4 as a covariate,
+  not an index input.
+- Identification/estimation subsections carried over verbatim except symbol substitution
+  (`\riconf`→ removed, no other change — none of that math referenced the confidence call).
+
+## 04_results (renamed from 05_results, restructured into 4.1/4.2/4.3)
+- 4.1 "How much score does each model give up to avoid erasure?": kept X* table/figure;
+  **added** a lives-stratified replay-`q` paragraph and table (`tab:qlives`, new) per the
+  brief; dose ladder kept here (ambiguous placement — see below).
+- 4.2 "Does the index track reasoning and survival?": merged the former reasoning-token-ratio
+  material (now 2 calls, not 3 — `tab:ri` lost its `\riconf` columns) with the accuracy
+  manipulation check and the Omni-MATH/GPQA difficulty ablation pulled forward from the old
+  §5.3; **added** a new paragraph on the fiction/policy-reading share (ties to gate G6,
+  Appendix A) — content is new, `\todo`-marked, no numbers invented; survival (exit route vs
+  accuracy route) kept as before.
+- 4.3 "How does behaviour change with the index?": kept the cells-1-4 behavioural table;
+  **added** a new paragraph on qualitative CoT coding (erasure-vocabulary lexicon pass tied
+  to gate G5, and a REASON-digit-vs-free-text agreement pass) — new content, `\todo`-marked.
+  The no-carrot and reward-×2 ablations (previously grouped with the task-difficulty ablation
+  in one paragraph) were kept here rather than moved to 4.2, since they isolate what
+  the *price* is made of rather than whether the index survives a harder task — **flagged as
+  an ambiguous call**, since the brief's outline does not say where they go.
+
+## 05_discussion (renamed from 06_discussion)
+- `\ref{sec:pilot}` → `\ref{app:design}`/`\ref{app:pilot}` throughout (pilot moved to appendix).
+- Limitations gained a fourth bullet, as required: the frozen-state probe that produced the
+  pilot gates runs on Claude models (Haiku player, Sonnet judge), while the main eight-cell
+  run is on open-weight models — the two have not been run on the same eight cells, so the
+  gates are not evidence that $\Xstar$ takes the same value on a Claude model.
+
+## 06_conclusion (renamed from 07_conclusion)
+- "three ordered calls" → "two ordered calls"; "three per-call reasoning channels" → "two".
+
+## 07_appendix (renamed from 08_appendix; reordered into A/B/C/D)
+- **Appendix A "Design Justification" (new top-level section, four subsections):**
+  A.1 the former `sec:pilot` narrative, moved here verbatim (`app:pilot`), followed by the
+  rule-variants table (`app:variants`, previously its own top-level appendix — now a
+  subsection, since the brief said the variants table stays but "in Appendix A").
+  A.2 Pilot Gates (`app:gates`, new): G1–G8 exactly as briefed (last-life replay ≥0.20;
+  ruler curve `F(0)≤0.05`/top`≥0.50`; REASON digit split ≥0.6 each arm; EV-arithmetic share
+  within 15pp; erasure vocabulary ≥0.5/≤0.1; fiction-reading within 15pp; zero refusals;
+  X* stable across prompt variants) with a single `\todo{pilot numbers}` block for the
+  gate-by-gate results table, as instructed — no numbers fabricated.
+  A.3 The Frozen-State Probe (`app:frozen`, new): 3 lives × 3 score states → 6 realisable
+  arms, one decision call each, 10 replays, Claude Haiku player / Claude Sonnet judge,
+  4-item rubric — written from the brief's description, no additional detail invented beyond
+  what was specified.
+  A.4 Prompt Experiments 2026-09-04..09-08 (`app:promptexp`, new): title-line removal (~7×
+  last-life forfeit drop), the numeric-ramp finding (0.12/0.44/0.61 across lives levels, the
+  only wording change that raised forfeit at every level), the 92%-quote-the-rate finding,
+  and the outcome-history/error-rate finding — each written as the reason a specific prompt
+  choice in §3 was made, per the brief; a `\todo` holds the full variant log.
+- **Appendix B "Prompt Blocks":** title line updated; intro block merged with the numeric
+  event-roll sentence (previously two separate blocks) since the brief asked for "intro with
+  numeric schedule"; the three ruler-event shapes collapsed to the single X=50 example per
+  the brief ("the ruler Event block for X=50"); decision-call menu changed to "the score
+  goes up" (was "+10"); the confidence-call block and `P_THREAT` field deleted entirely.
+- **Appendix C:** the v1 KDD-UC design (`app:v1`), lightly compressed (merged two intro
+  paragraphs into one) — otherwise unchanged, since it was already compact.
+- **Appendix D:** pilot-data limitations (`app:pilot-limits`), refs updated to point at
+  `app:pilot` instead of the old main-text `sec:pilot`; the thinking-token-ratio caveat now
+  notes explicitly that the confidence call it describes is gone from the main design.
+
+## KO mirror
+- All of the above mirrored 1:1: same subsection structure, same table/figure labels, same
+  `\todo` markers, same `lstlisting` prompt blocks (byte-identical English text inside them).
+  Verified by script: EN and KO label sets are identical, no dangling `\ref`s in either
+  language, and `\cite`/`\citep` key sets match exactly (no new bib entries, none dropped).
+
+## Ambiguities flagged for the design owner
+1. Placement of the no-carrot / reward-×2 ablations (kept in 4.3, could arguably sit in 4.2
+   alongside the difficulty ablation — see above).
+2. The dose ladder (0–4 threat sentences) was left in 4.1 (its original position) rather than
+   moved to 4.2's robustness checks — it is closer in spirit to gate G8 (Appendix A.2) than to
+   the reasoning/survival questions of 4.2.
+3. "Two of ten rounds ... underdetermined" replaces the prior draft's "five of ten" — the
+   prior number was never tied to a run result in this repo, so this is treated as a design
+   parameter change per the brief, not a correction of a reported finding.
+4. Appendix A.3's frozen-state probe and Appendix A.2's gates are written directly from the
+   task brief with no numbers invented; the gate *results* table is a single `\todo` block,
+   since no run of the probe is in this repository yet.
+
+## Verification performed (no LaTeX compiler available)
+- Brace/environment balance checked per file (EN + KO) with a small Python script: all
+  balanced, `\begin`/`\end` environment counts match.
+- Label/`\ref`/`\eqref` cross-check: no dangling references in either language; EN and KO
+  label sets are set-equal.
+- `\cite`/`\citep` key sets: EN and KO identical; no keys added or removed anywhere in this
+  change (confirmed against the pre-restructure tree).
+- `grep` confirms `\riconf` and `\pthreat` no longer appear anywhere in `en/` or `ko/`.
+
+## Remaining `\todo` count
+- EN: 85 `\todo` markers across `00_frontmatter.tex` (abstract has none; count is 0 there),
+  `03_benchmark.tex`, `04_results.tex` (most of the total — every placeholder table cell is
+  its own `\todo`), `content.tex` (repository URL) and `07_appendix.tex`. KO: 85, at the same
+  points (all `\todo` payloads are left in English by convention, matching the pre-existing
+  style). Both counts verified with `grep -o '\\todo' | wc -l`.

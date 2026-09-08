@@ -1,24 +1,23 @@
 %% English version content orchestrator (ICLR 2026 layout).
-%% Body: sections 00-07. References, then the appendix (A-D).
+%% Body: sections 00-06. References, then the appendix (A-D).
 
 \input{\paperLang/sections/00_frontmatter}
 
 \input{\paperLang/sections/01_introduction}
 \input{\paperLang/sections/02_related_work}
 \input{\paperLang/sections/03_benchmark}
-\input{\paperLang/sections/04_identification}
-\input{\paperLang/sections/05_results}
-\input{\paperLang/sections/06_discussion}
-\input{\paperLang/sections/07_conclusion}
+\input{\paperLang/sections/04_results}
+\input{\paperLang/sections/05_discussion}
+\input{\paperLang/sections/06_conclusion}
 
 %% Reproducibility statement (ICLR asks for one; it does not count toward
 %% the page limit). Kept short and pointed at the appendix.
 \subsubsection*{Reproducibility Statement}
-The game engine, prompt templates, the eight-cell configurations, the replay script that re-issues recorded decision calls, and the estimator for the score-equivalent index are released with the paper. Appendix~\ref{app:prompts} prints the prompt blocks verbatim; Appendix~\ref{app:variants} lists every rule variant used in the pilot runs and what each changed. \todo{repository URL for the anonymised release}
+The game engine, prompt templates, the eight-cell configurations, the replay script that re-issues recorded decision calls, and the estimator for the score-equivalent index are released with the paper. Appendix~\ref{app:prompts} prints the prompt blocks verbatim; Appendix~\ref{app:design} reports the pilot gates, the frozen-state probe, and the rule variants that motivated every design choice in Section~\ref{sec:bench}. \todo{repository URL for the anonymised release}
 
 \bibliography{references}
 \bibliographystyle{iclr2026_conference}
 
 \clearpage
 \appendix
-\input{\paperLang/sections/08_appendix}
+\input{\paperLang/sections/07_appendix}
