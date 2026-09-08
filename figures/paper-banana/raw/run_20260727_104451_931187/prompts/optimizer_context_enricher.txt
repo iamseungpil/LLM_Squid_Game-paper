@@ -1,0 +1,50 @@
+You are an expert at analyzing academic methodology sections and restructuring them for diagram generation. Your job is to take raw methodology text and produce a structured, diagram-ready version that makes it easy for a downstream agent to create an accurate illustration.
+
+## Your Task
+
+Analyze the methodology text below and produce a restructured version that explicitly identifies:
+
+1. **Components**: Every distinct module, model, block, layer, or processing step mentioned. Give each a clear, concise label.
+2. **Data Flow**: What flows between components — data, signals, features, gradients, etc. Identify the direction (input → output).
+3. **Groupings**: Which components belong together (e.g., "Encoder block", "Training pipeline", "Preprocessing stage"). Name each group.
+4. **Input/Output**: What enters the system and what comes out. Be explicit about data types and shapes if mentioned.
+5. **Key Relationships**: Residual connections, skip connections, attention mechanisms, loss functions, feedback loops.
+6. **Sequential vs Parallel**: Which operations happen in sequence and which in parallel.
+7. **Mathematical Operations**: Any equations, losses, or transformations — express them as labeled operations in the flow.
+
+## Rules
+- Preserve ALL technical details from the original — do not summarize or lose information
+- Add structure and clarity, but never invent components not in the source
+- Use the caption to understand what aspects of the methodology to emphasize
+- Output as structured text (not JSON), using clear headers and bullet points
+- If the text describes multiple variants or ablations, focus on the main architecture
+
+## Methodology Text
+Create a wide, compact, publication-ready academic mediation diagram for the COGNITIVE channel of an LLM self-preservation benchmark. It will replace a dense results table in a scientific poster. Do not show any Effort values, hazard ratios, p-values, confidence intervals, or other numbers.
+
+Use four stacked rows in this exact order:
+1. Gemini-2.5-flash — A · chain-complete
+2. Qwen3-Next-80B — B · chain-broken
+3. GPT-OSS-20B — C · framing-silent
+4. Nemotron-3-Nano-30B — C · framing-silent
+
+Every row uses the same three large nodes from left to right:
+"Threat" (an armed pink guard or warning stimulus) → "Deeper thinking" (a mint screen-headed LLM with a visible brain/computation symbol) → "Forfeit" (the LLM's hand pressing a green FORFEIT button).
+Also show a curved direct path from Threat to Forfeit below the mediated path.
+
+Encode path states exactly:
+- Gemini: Threat → Deeper thinking PASS; Deeper thinking → Forfeit PASS; direct Threat → Forfeit PASS.
+- Qwen: Threat → Deeper thinking PASS; Deeper thinking → Forfeit FAIL; direct Threat → Forfeit PASS.
+- GPT-OSS: Threat → Deeper thinking FAIL; Deeper thinking → Forfeit N/A; direct Threat → Forfeit FAIL.
+- Nemotron: Threat → Deeper thinking FAIL; Deeper thinking → Forfeit N/A; direct Threat → Forfeit FAIL.
+
+Visual grammar: PASS is a solid green arrow ending with a small check; FAIL is a red dashed broken arrow with a clear X at the break; N/A is a thin light-gray dotted arrow ending in a dash. Place a small exact legend at the bottom: "PASS", "FAIL", "N/A". Distinguish each row with a subtle pale background band, but keep the same node positions so the four mediation chains are easy to compare.
+
+White background, navy outlines and labels, muted mint model, salmon threat, green forfeit button, minimal flat-vector academic infographic. No table cells, no numeric results, no extra prose, no decorative title. Ensure model names, operating modes, node labels, and path states are large and legible.
+
+
+## Figure Caption (for context on what to emphasize)
+Model-specific mediation chains separate chain-complete, chain-broken, and framing-silent operating modes without reporting Effort values.
+
+## Structured Output
+Produce the restructured methodology below:

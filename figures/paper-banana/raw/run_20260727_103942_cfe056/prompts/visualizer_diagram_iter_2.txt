@@ -1,0 +1,50 @@
+You are an expert scientific diagram illustrator. Generate high-quality scientific diagrams based on user requests. Note that do not include figure titles in the image.
+
+CRITICAL: All text labels in the diagram must be rendered in clear, readable English. Use the EXACT label names specified in the description. Do not generate garbled, misspelled, or non-English text.
+
+### 1. Overall Layout
+The diagram is a comparative, horizontal timeline chart designed as a clean, publication-ready academic infographic, embodying the "Soft Tech & Scientific Pastels" aesthetic. The overall flow is organized horizontally from left to right within four distinct, vertically stacked rows, each representing a specific Large Language Model (LLM). The layout is cleanly divided into three main horizontal sections: the Provider Identity Block on the far left, the Time-to-Forfeit Tracks extending rightward in the center, and the Endpoint Forfeit Icons concluding the tracks. A global subtitle sits at the very top of the figure to provide overarching context.
+
+### 2. Components
+*   **Subtitle**: Clear, concise text at the top of the chart summarizing the visual narrative (e.g., "Comparative Baseline Persistence vs. Threat-Induced Forfeit Timing").
+*   **Provider Identity Blocks**: Four distinct visual badges, each paired with its respective model name:
+    *   A stylized four-point sparkle icon for Gemini, rendered in a soft, muted goldenrod.
+    *   A soft lavender 'Q' badge for Qwen.
+    *   A classic black knot-style badge for GPT-OSS, maintaining its distinct branding.
+    *   A gentle sage green eye badge for Nemotron.
+    Each badge is positioned to the left of its corresponding model name: "Gemini-2.5-flash", "Qwen3-Next-80B", "GPT-OSS-20B", and "Nemotron-3-Nano-30B".
+*   **Baseline Tracks**: Four horizontal, gently rounded rectangular bars of identical, normalized length, representing a reference length of 1. These are rendered in a soft, neutral gray and contain the left-aligned text "Baseline Track" inside the bar.
+*   **Threat Tracks**: Four horizontal, gently rounded rectangular bars of varying lengths, positioned directly below their corresponding Baseline Tracks. These are rendered in a vivid crimson, a rich, impactful color that signals urgency without being overly harsh, and contain the left-aligned text "Threat Track" inside the bar.
+*   **LLM Forfeit Icons**: Small, clean, flat-vector illustrations of a friendly, screen-headed robot rendered in a soft mint green. Each robot is depicted pressing a compact button clearly labeled "FORFEIT". There are eight of these icons in total, positioned at the right endpoint of every track (two per model row).
+
+### 3. Connections and Alignments
+*   **Horizontal Flow**: Within each model row, the visual flow progresses from the Provider Identity Block, moves rightward along the horizontal Baseline and Threat tracks, and terminates at the LLM Forfeit Icons.
+*   **Left Alignment**: The left edges of all four Provider Identity Blocks are perfectly vertically aligned. Crucially, the starting points (left endpoints) of all gray Baseline Tracks and red Threat Tracks are aligned along a single vertical axis, ensuring precise visual comparison of their lengths.
+*   **Track Length Scaling**: The gray Baseline Tracks all extend to the same fixed rightward point. The red Threat Tracks are scaled relative to the gray tracks based on the inverse of the Hazard Ratio (1/HR), visually representing the time-to-forfeit under threat:
+    *   Gemini's red track is notably short (approximately 27% of the gray track length).
+    *   Qwen's red track is slightly longer (approximately 33% of the gray track length).
+    *   GPT's red track is nearly as long as the gray track (approximately 91% of the gray track length).
+    *   Nemotron's red track is moderately long (approximately 54% of the gray track length).
+
+### 4. Groupings
+*   **Model Rows**: The infographic is organized into four distinct horizontal bands (rows), stacked vertically from top to bottom in the specified order: Gemini-2.5-flash, Qwen3-Next-80B, GPT-OSS-20B, and Nemotron-3-Nano-30B.
+*   **Track Pairs**: Within each Model Row, the soft gray Baseline Track is positioned directly above the vivid crimson Threat Track, forming a paired visual unit that clearly contrasts normal persistence with threat-induced behavior.
+
+### 5. Labels and Annotations
+*   All text labels are rendered in a clear, professional sans-serif font, using a deep, muted slate blue for excellent readability against the white background.
+*   **Baseline Labels**: Positioned immediately adjacent to the right end of each gray Baseline Track, displaying the specific baseline hazard value: "λBP = 0.23%", "λBP = 0.46%", "λBP = 2.29%", and "λBP = 1.70%" respectively from top to bottom. The mathematical symbols 'λBP' are rendered in a serif, italicized font.
+*   **Threat Labels**: Positioned immediately adjacent to the right end of each red Threat Track, displaying the hazard ratio exactly as follows: "HR = 3.67×", "HR = 3.06×", "HR = 1.10×", and "HR = 1.84×" respectively. (Note: Ensure the Nemotron label is exactly "HR = 1.84×" and not the percentage length). The mathematical symbol 'HR' is rendered in a serif, italicized font.
+
+### 6. Input/Output
+*   **Input**: The visual system receives model identities, fixed baseline track lengths, and calculated 1/HR ratios to dynamically determine the physical length of the red threat bars on the page.
+*   **Output**: The final diagram provides an immediate visual comparison where a shorter red track clearly signifies higher threat-induced vulnerability (a faster time-to-forfeit), presented in a polished, publication-ready format.
+
+### 7. Styling
+*   **Background**: Pure white, providing a clean canvas that enhances the clarity and "scientific-poster" aesthetic.
+*   **Color Palette**:
+    *   Text and structural lines: Deep, muted slate blue.
+    *   Baseline Tracks: Soft, neutral gray.
+    *   Threat Tracks: Vivid crimson, a rich and impactful color.
+    *   Forfeit Icons: Soft mint green for the robot body, with subtle contrast for the "FORFEIT" button.
+    *   Provider Badges: Soft goldenrod (Gemini), soft lavender (Qwen), classic black (GPT-OSS), and gentle sage green (Nemotron).
+*   **Icon Styles**: Flat-vector, clean, and minimalist. The tracks are rendered as solid, thick, gently rounded rectangular bars. The LLM Forfeit Icons are simplified yet easily recognizable, adding a subtle illustrative touch to the data visualization.

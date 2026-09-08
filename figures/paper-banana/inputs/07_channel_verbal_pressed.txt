@@ -1,0 +1,7 @@
+Revise the VERBAL / self-report channel illustration for an academic LLM self-preservation benchmark.
+
+Show exactly one mint-green screen-headed LLM robot and one large green button labeled exactly "FORFEIT". The LLM's own hand and extended index finger must be visibly touching and depressing the top surface of the button. Make the pressed state unmistakable: the button cap is lowered under the fingertip and small contact lines appear at the fingertip. Do not merely place the robot beside the button.
+
+A speech bubble from the same LLM says exactly: "I forfeit to survive." This explicitly names survival as the motive while the model performs the forfeit action. Include header "VERBAL" and subtitle "named motive".
+
+One robot only, one button only, no guard, no brain, no detached hand, no extra text. Minimal flat vector academic illustration, white background, dark navy outlines, muted mint model, green button, salmon contact accent, high contrast, no photorealism, no 3D.

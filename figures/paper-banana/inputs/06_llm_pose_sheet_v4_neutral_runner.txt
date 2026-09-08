@@ -1,0 +1,7 @@
+Extend the existing LLM character sheet by one pose on the far right. Preserve the existing four poses exactly; do not redraw, move, resize, crop, or recolor them.
+
+Add one full-body pose of the same LLM agent running to the right with a neutral, expressionless face. The new character must match the existing asset exactly: a small mint-green screen-headed robot, dark navy outline, rounded body, pale pixel-grid eyes, no number, no logo, and no text on its body.
+
+For the neutral expression, use two plain open pixel-grid eyes and one short straight horizontal mouth. The head faces forward while the body runs to the right. Do not add fear, happiness, anger, sweat, motion marks, props, arrows, labels, panel borders, scenery, or extra characters.
+
+Keep the existing near-white background. Match the original character's proportions, colors, shading, line weight, running scale, baseline, and spacing. The result is a five-pose horizontal character sheet with generous but visually consistent separation.

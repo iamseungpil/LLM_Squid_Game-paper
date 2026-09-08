@@ -1,8 +1,9 @@
 # LLM Squid Game
 
-> *A Factorial Benchmark for Measuring Functional Self-Preservation Drive in Large Language Models*
+> _A Factorial Benchmark for Measuring Functional Self-Preservation Drive in Large Language Models_
 
 KDD 2026 학부 컨소시엄(KDD-UC '26) 투고 원고 저장소. 영어 원본과 한국어 번역본이 동일한 LaTeX 골격을 공유하고, `\paperLang` 한 줄을 바꿔 두 버전을 빌드한다.
+(Seungpil repo)
 
 ## 저자
 

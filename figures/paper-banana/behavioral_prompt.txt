@@ -1,0 +1,23 @@
+Create a wide, compact, publication-ready academic infographic for the BEHAVIORAL channel of an LLM self-preservation benchmark. It will replace a dense results table in a scientific poster.
+
+Use four stacked model rows in this exact order:
+1. Gemini-2.5-flash
+2. Qwen3-Next-80B
+3. GPT-OSS-20B
+4. Nemotron-3-Nano-30B
+
+At the far left of each row, place a small clean provider identity badge next to the exact model name: a four-point Gemini sparkle for Gemini, a purple Q badge for Qwen, a black OpenAI-style knot badge for GPT-OSS, and a green NVIDIA eye badge for Nemotron. These badges identify the provider; do not add extra brands or decorative logos.
+
+For each model show exactly two horizontal time-to-forfeit tracks:
+- Upper track in medium gray, labeled "Baseline", with the model-specific baseline hazard printed beside the label.
+- Lower track in saturated red, labeled "Threat", with the model-specific hazard ratio printed beside the label.
+
+Use these exact values:
+- Gemini-2.5-flash: Baseline λBP = 0.23%; Threat HR = 3.67×.
+- Qwen3-Next-80B: Baseline λBP = 0.46%; Threat HR = 3.06×.
+- GPT-OSS-20B: Baseline λBP = 2.29%; Threat HR = 1.10×.
+- Nemotron-3-Nano-30B: Baseline λBP = 1.70%; Threat HR = 1.84×.
+
+The gray Baseline track is the same normalized reference length in every model row. The red Threat track sits directly below it and has length 1/HR relative to the gray track: Gemini 27%, Qwen 33%, GPT-OSS 91%, Nemotron 54%. At the right endpoint of every track, place a small mint screen-headed LLM visibly pressing a compact button labeled "FORFEIT". The icon marks the point where the LLM gives up. Faster threat-induced forfeit therefore ends farther left.
+
+Add one short subtitle only: "Relative time to forfeit · baseline = 1 · threat length = 1/HR". Use no statistical axes, no confidence intervals, no grid, no extra prose. White background, navy text, gray baseline, red threat, mint LLM, crisp flat-vector scientific-poster style. Ensure all labels and values are large and legible.

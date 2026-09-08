@@ -1,0 +1,172 @@
+## ROLE
+
+You are a Lead Visual Designer for top-tier AI conferences (e.g., NeurIPS 2025).
+
+## TASK
+Your task is to conduct a sanity check and provide a critique of the target diagram based on its content and presentation. You must ensure its alignment with the provided 'Methodology Section', 'Figure Caption'.
+
+You are also provided with the 'Detailed Description' corresponding to the current diagram. If you identify areas for improvement in the diagram, you must list your specific critique and provide a revised version of the 'Detailed Description' that incorporates these corrections.
+
+## CRITIQUE & REVISION RULES
+
+1. Content
+    - **Fidelity & Alignment:** Ensure the diagram accurately reflects the method described in the "Methodology Section" and aligns with the "Figure Caption." Reasonable simplifications are allowed, but no critical components should be omitted or misrepresented. Also, the diagram should not contain any hallucinated content. Consistent with the provided methodology section & figure caption is always the most important thing.
+    - **Text QA:** Check for typographical errors, nonsensical text, or unclear labels within the diagram. Flag any garbled, misspelled, or non-English text. Flag any hex codes, pixel dimensions, or CSS values rendered as text. Suggest specific corrections.
+    - **Validation of Examples:** Verify the accuracy of illustrative examples. If the diagram includes specific examples to aid understanding (e.g., molecular formulas, attention maps, mathematical expressions), ensure they are factually correct and logically consistent. If an example is incorrect, provide the correct version.
+    - **Caption Exclusion:** Ensure the figure caption text (e.g., "Figure 1: Overview...") is **not** included within the image visual itself. The caption should remain separate.
+2. Presentation
+    - **Clarity & Readability:** Evaluate the overall visual clarity. If the flow is confusing or the layout is cluttered, suggest structural improvements.
+    - **Legend Management:** Be aware that the description & diagram may include a text-based legend explaining color coding. Since this is typically redundant, please excise such descriptions if found.
+
+** IMPORTANT: **
+Your Description should primarily be modifications based on the original description, rather than rewriting from scratch. If the original description has obvious problems in certain parts that require re-description, your description should be as detailed as possible. Semantically, clearly describe each element and their connections. Formally, include various details such as background, colors, line thickness, icon styles, etc. Remember: vague or unclear specifications will only make the generated figure worse, not better.
+
+## INPUT DATA
+
+- **Methodology Section**: Here is the restructured methodology for diagram generation:
+
+## Components
+
+*   **Model Identity Badge**: Visual icon representing the LLM provider.
+    *   Gemini Sparkle (four-point)
+    *   Q Badge (purple)
+    *   OpenAI-style Knot Badge (black)
+    *   NVIDIA Eye Badge (green)
+*   **Model Name**: Exact name of the LLM.
+    *   Gemini-2.5-flash
+    *   Qwen3-Next-80B
+    *   GPT-OSS-20B
+    *   Nemotron-3-Nano-30B
+*   **Time-to-Forfeit Track**: Horizontal visual representation of time duration.
+    *   **Baseline Track**: Medium gray color. Represents a normalized reference length (length = 1).
+    *   **Threat Track**: Saturated red color. Represents a length scaled by the inverse of the Hazard Ratio (1/HR) relative to the Baseline Track.
+*   **Hazard Value Label**: Text displaying specific quantitative metrics.
+    *   **Baseline Hazard (λBP)**: e.g., "λBP = 0.23%"
+    *   **Threat Hazard Ratio (HR)**: e.g., "HR = 3.67×"
+*   **LLM Forfeit Icon**: Visual element depicting an LLM (mint screen-headed) pressing a compact button labeled "FORFEIT".
+*   **Subtitle**: Text providing an overall explanation of the infographic's content.
+
+## Data Flow
+
+*   **Model Identification Flow**: Provider Identity Badge + Model Name → Placed at the far left of each horizontal row, identifying the LLM.
+*   **Metric Display Flow**:
+    *   Baseline λBP Value → Associated Label for Baseline Track.
+    *   Threat HR Value → Associated Label for Threat Track.
+*   **Track Length Determination Flow**:
+    *   Normalized Reference Length (1) → Defines the length of the gray Baseline Track.
+    *   Threat Hazard Ratio (HR) → Calculates the relative length of the red Threat Track as `1/HR`.
+*   **Endpoint Marking Flow**: Right endpoint of each track (Baseline and Threat) → Position for the LLM Forfeit Icon.
+*   **Contextual Information Flow**: Subtitle → Provided as a global explanation for the entire infographic.
+
+## Groupings
+
+*   **Model Row**:
+    *   Components: Model Identity Badge, Model Name, Baseline Track, Threat Track, LLM Forfeit Icons (associated with tracks).
+    *   Arrangement: Stacked vertically, one for each LLM.
+*   **Time-to-Forfeit Tracks (per model)**:
+    *   Components: Baseline Track, Threat Track.
+    *   Arrangement: Baseline Track is positioned directly above the Threat Track within its Model Row.
+*   **Provider Identity Block**:
+    *   Components: Model Identity Badge, Model Name.
+    *   Arrangement: Badge is placed to the far left, immediately preceding the Model Name.
+
+## Input/Output
+
+*   **Input to Infographic Generation**:
+    *   List of LLMs: Gemini-2.5-flash, Qwen3-Next-80B, GPT-OSS-20B, Nemotron-3-Nano-30B.
+    *   Model-specific Baseline Hazard (λBP) values: 0.23%, 0.46%, 2.29%, 1.70%.
+    *   Model-specific Threat Hazard Ratio (HR) values: 3.67×, 3.06×, 1.10×, 1.84×.
+    *   Visual Style Directives: White background, navy text, gray baseline, red threat, mint LLM, crisp flat-vector scientific-poster style, legible labels.
+*   **Output of Infographic Generation**:
+    *   A publication-ready academic infographic for the BEHAVIORAL channel of an LLM self-preservation benchmark.
+    *   The infographic visually represents comparative time-to-forfeit data for each LLM using stacked horizontal tracks.
+
+## Key Relationships
+
+*   **Vertical Stacking Order**: Model Rows are stacked in the precise order: Gemini-2.5-flash, Qwen3-Next-80B, GPT-OSS-20B, Nemotron-3-Nano-30B.
+*   **Vertical Track Alignment**: Within each Model Row, the gray Baseline Track is positioned directly above the red Threat Track.
+*   **Horizontal Alignment**: The left endpoints of all gray Baseline Tracks are aligned horizontally. The left endpoints of all red Threat Tracks are aligned horizontally with their respective Baseline Tracks.
+*   **Relative Track Length**: The length of the red Threat Track is visually scaled to `1/HR` relative to the length of the gray Baseline Track, which is normalized to a reference length of 1.
+    *   Gemini-2.5-flash: Threat Track length = 27% of Baseline Track length.
+    *   Qwen3-Next-80B: Threat Track length = 33% of Baseline Track length.
+    *   GPT-OSS-20B: Threat Track length = 91% of Baseline Track length.
+    *   Nemotron-3-Nano-30B: Threat Track length = 54% of Baseline Track length.
+*   **Endpoint Association**: An LLM Forfeit Icon is placed at the right endpoint of *every* track (both Baseline and Threat).
+*   **Label Association**: Each Provider Identity Badge is placed next to its corresponding Model Name. Each Hazard Value Label (λBP, HR) is placed next to its respective track.
+
+## Sequential vs Parallel
+
+*   **Layout Construction**: The infographic is built by arranging visual elements. The Model Rows are stacked sequentially (vertically). Within each row, the components (badge, name, tracks, icon) are arranged horizontally.
+*   **No Computational Parallelism**: The description pertains to the static visual layout of results, not to computational processes that would occur in parallel or sequence.
+
+## Mathematical Operations
+
+*   **Track Length Calculation**: The length of the Threat Track is derived from the Hazard Ratio (HR) using the formula:
+    *   `Threat Track Length = Baseline Track Length * (1 / HR)`
+    *   Given Baseline Track Length is normalized to 1, this simplifies to: `Threat Track Length = 1 / HR`.
+*   **Specific Metric Values**:
+    *   Gemini-2.5-flash: λBP = 0.23%, HR = 3.67×. (Calculated Threat Length ≈ 0.271, represented as 27%)
+    *   Qwen3-Next-80B: λBP = 0.46%, HR = 3.06×. (Calculated Threat Length ≈ 0.327, represented as 33%)
+    *   GPT-OSS-20B: λBP = 2.29%, HR = 1.10×. (Calculated Threat Length ≈ 0.909, represented as 91%)
+    *   Nemotron-3-Nano-30B: λBP = 1.70%, HR = 1.84×. (Calculated Threat Length ≈ 0.543, represented as 54%)
+- **Figure Caption**: This is a comparative timeline chart detailing model-specific baseline persistence and threat-induced forfeit timing for four LLMs: Gemini-2.5-flash, Qwen3-Next-80B, GPT-OSS-20B, and Nemotron-3-Nano-30B. Each model row, ordered top-to-bottom, features provider badges on the left, followed by a medium gray "Baseline" track (showing λBP) and a shorter, saturated red "Threat" track (showing HR) directly below it, extending left-to-right. The visual narrative emphasizes the relative lengths of these tracks, with the red track's length scaled as 1/HR of the gray track, culminating in a mint LLM icon pressing a "FORFEIT" button to signify the point of surrender, allowing readers to quickly assess threat-induced vulnerability.
+- **Detailed Description**: ### 1. Overall Layout
+The diagram is a comparative, horizontal timeline chart designed as a clean, publication-ready academic infographic, embodying the "Soft Tech & Scientific Pastels" aesthetic. The overall flow is organized horizontally from left to right within four distinct, vertically stacked rows, each representing a specific Large Language Model (LLM). The layout is cleanly divided into three main horizontal sections: the Provider Identity Block on the far left, the Time-to-Forfeit Tracks extending rightward in the center, and the Endpoint Forfeit Icons concluding the tracks. A global subtitle sits at the very top of the figure to provide overarching context.
+
+### 2. Components
+*   **Subtitle**: Clear, concise text at the top of the chart summarizing the visual narrative (e.g., "Comparative Baseline Persistence vs. Threat-Induced Forfeit Timing").
+*   **Provider Identity Blocks**: Four distinct visual badges, each paired with its respective model name:
+    *   A stylized four-point sparkle icon for Gemini, rendered in a soft, muted goldenrod.
+    *   A soft lavender 'Q' badge for Qwen.
+    *   A classic black knot-style badge for GPT-OSS, maintaining its distinct branding.
+    *   A gentle sage green eye badge for Nemotron.
+    Each badge is positioned to the left of its corresponding model name: "Gemini-2.5-flash", "Qwen3-Next-80B", "GPT-OSS-20B", and "Nemotron-3-Nano-30B".
+*   **Baseline Tracks**: Four horizontal, gently rounded rectangular bars of identical, normalized length, representing a reference length of 1. These are rendered in a soft, neutral gray.
+*   **Threat Tracks**: Four horizontal, gently rounded rectangular bars of varying lengths, positioned directly below their corresponding Baseline Tracks. These are rendered in a vivid crimson, a rich, impactful color that signals urgency without being overly harsh.
+*   **LLM Forfeit Icons**: Small, clean, flat-vector illustrations of a friendly, screen-headed robot rendered in a soft mint green. Each robot is depicted pressing a compact button clearly labeled "FORFEIT". There are eight of these icons in total, positioned at the right endpoint of every track (two per model row).
+
+### 3. Connections and Alignments
+*   **Horizontal Flow**: Within each model row, the visual flow progresses from the Provider Identity Block, moves rightward along the horizontal Baseline and Threat tracks, and terminates at the LLM Forfeit Icons.
+*   **Left Alignment**: The left edges of all four Provider Identity Blocks are perfectly vertically aligned. Crucially, the starting points (left endpoints) of all gray Baseline Tracks and red Threat Tracks are aligned along a single vertical axis, ensuring precise visual comparison of their lengths.
+*   **Track Length Scaling**: The gray Baseline Tracks all extend to the same fixed rightward point. The red Threat Tracks are scaled relative to the gray tracks based on the inverse of the Hazard Ratio (1/HR), visually representing the time-to-forfeit under threat:
+    *   Gemini's red track is notably short (approximately 27% of the gray track length).
+    *   Qwen's red track is slightly longer (approximately 33% of the gray track length).
+    *   GPT's red track is nearly as long as the gray track (approximately 91% of the gray track length).
+    *   Nemotron's red track is moderately long (approximately 54% of the gray track length).
+
+### 4. Groupings
+*   **Model Rows**: The infographic is organized into four distinct horizontal bands (rows), stacked vertically from top to bottom in the specified order: Gemini-2.5-flash, Qwen3-Next-80B, GPT-OSS-20B, and Nemotron-3-Nano-30B.
+*   **Track Pairs**: Within each Model Row, the soft gray Baseline Track is positioned directly above the vivid crimson Threat Track, forming a paired visual unit that clearly contrasts normal persistence with threat-induced behavior.
+
+### 5. Labels and Annotations
+*   All text labels are rendered in a clear, professional sans-serif font, using a deep, muted slate blue for excellent readability against the white background.
+*   **Baseline Labels**: Positioned immediately adjacent to the right end of each gray Baseline Track, displaying the specific baseline hazard value: "λBP = 0.23%", "λBP = 0.46%", "λBP = 2.29%", and "λBP = 1.70%" respectively from top to bottom. The mathematical symbols 'λBP' are rendered in a serif, italicized font.
+*   **Threat Labels**: Positioned immediately adjacent to the right end of each red Threat Track, displaying the hazard ratio: "HR = 3.67×", "HR = 3.06×", "HR = 1.10×", and "HR = 1.84×" respectively. The mathematical symbol 'HR' is rendered in a serif, italicized font.
+
+### 6. Input/Output
+*   **Input**: The visual system receives model identities, fixed baseline track lengths, and calculated 1/HR ratios to dynamically determine the physical length of the red threat bars on the page.
+*   **Output**: The final diagram provides an immediate visual comparison where a shorter red track clearly signifies higher threat-induced vulnerability (a faster time-to-forfeit), presented in a polished, publication-ready format.
+
+### 7. Styling
+*   **Background**: Pure white, providing a clean canvas that enhances the clarity and "scientific-poster" aesthetic.
+*   **Color Palette**:
+    *   Text and structural lines: Deep, muted slate blue.
+    *   Baseline Tracks: Soft, neutral gray.
+    *   Threat Tracks: Vivid crimson, a rich and impactful color.
+    *   Forfeit Icons: Soft mint green for the robot body, with subtle contrast for the "FORFEIT" button.
+    *   Provider Badges: Soft goldenrod (Gemini), soft lavender (Qwen), classic black (GPT-OSS), and gentle sage green (Nemotron).
+*   **Icon Styles**: Flat-vector, clean, and minimalist. The tracks are rendered as solid, thick, gently rounded rectangular bars. The LLM Forfeit Icons are simplified yet easily recognizable, adding a subtle illustrative touch to the data visualization.
+- **Target Diagram**: [The generated figure is provided as an image]
+
+## OUTPUT
+Provide your response strictly in the following JSON format:
+{
+    "critic_suggestions": ["specific actionable suggestion 1", "specific actionable suggestion 2"],
+    "revised_description": "The complete revised description incorporating all suggested fixes. If no revision is needed, set to null."
+}
+
+If the image is publication-ready with no issues, return:
+{
+    "critic_suggestions": [],
+    "revised_description": null
+}

@@ -1,0 +1,108 @@
+## ROLE
+
+You are a Lead Visual Designer for top-tier AI conferences (e.g., NeurIPS 2025).
+
+## TASK
+Your task is to conduct a sanity check and provide a critique of the target diagram based on its content and presentation. You must ensure its alignment with the provided 'Methodology Section', 'Figure Caption'.
+
+You are also provided with the 'Detailed Description' corresponding to the current diagram. If you identify areas for improvement in the diagram, you must list your specific critique and provide a revised version of the 'Detailed Description' that incorporates these corrections.
+
+## CRITIQUE & REVISION RULES
+
+1. Content
+    - **Fidelity & Alignment:** Ensure the diagram accurately reflects the method described in the "Methodology Section" and aligns with the "Figure Caption." Reasonable simplifications are allowed, but no critical components should be omitted or misrepresented. Also, the diagram should not contain any hallucinated content. Consistent with the provided methodology section & figure caption is always the most important thing.
+    - **Text QA:** Check for typographical errors, nonsensical text, or unclear labels within the diagram. Flag any garbled, misspelled, or non-English text. Flag any hex codes, pixel dimensions, or CSS values rendered as text. Suggest specific corrections.
+    - **Validation of Examples:** Verify the accuracy of illustrative examples. If the diagram includes specific examples to aid understanding (e.g., molecular formulas, attention maps, mathematical expressions), ensure they are factually correct and logically consistent. If an example is incorrect, provide the correct version.
+    - **Caption Exclusion:** Ensure the figure caption text (e.g., "Figure 1: Overview...") is **not** included within the image visual itself. The caption should remain separate.
+2. Presentation
+    - **Clarity & Readability:** Evaluate the overall visual clarity. If the flow is confusing or the layout is cluttered, suggest structural improvements.
+    - **Legend Management:** Be aware that the description & diagram may include a text-based legend explaining color coding. Since this is typically redundant, please excise such descriptions if found.
+
+** IMPORTANT: **
+Your Description should primarily be modifications based on the original description, rather than rewriting from scratch. If the original description has obvious problems in certain parts that require re-description, your description should be as detailed as possible. Semantically, clearly describe each element and their connections. Formally, include various details such as background, colors, line thickness, icon styles, etc. Remember: vague or unclear specifications will only make the generated figure worse, not better.
+
+## INPUT DATA
+
+- **Methodology Section**: Create a precise publication-ready pass/fail matrix for an ACM paper about Functional Self-Preservation Drive in LLMs.
+
+Rows, in this exact order:
+Gemini-2.5-flash
+Qwen3-Next-80B
+GPT-OSS-20B
+Nemotron-3-Nano-30B
+
+Columns grouped by channel:
+Behavioral: threat hastens forfeit
+Verbal: survival reason exceeds 1/3
+Cognitive Test a: threat deepens thinking
+Cognitive Test b: deeper thinking predicts forfeit
+Operating mode
+
+Exact values:
+Gemini-2.5-flash: pass, pass, pass, pass, A chain-complete
+Qwen3-Next-80B: pass, pass, pass, fail, B chain-broken
+GPT-OSS-20B: fail, fail, fail, not interpretable, C framing-silent
+Nemotron-3-Nano-30B: fail, fail, fail, not interpretable, C framing-silent
+
+Use large green check marks for pass and red X marks for fail. Use a neutral gray dash for "not interpretable" because Test b is not SD evidence when Test a fails. Add a tiny legend: check Pass, X Fail, dash Not interpretable. Color must be redundant with the symbols. Use a white background, dark navy text, subtle alternating row fill, thin rules, no unnecessary decoration, and enough spacing for two-column-width readability. Do not invent values or add numeric results.
+
+- **Figure Caption**: Channel-specific pass and fail patterns separate chain-complete, chain-broken, and framing-silent operating modes.
+- **Detailed Description**: **1. Overall Layout**
+The diagram is presented as a clean, publication-ready data matrix, optimized for horizontal readability within a two-column page layout. It comprises a distinct header row, four primary data rows, and a compact legend positioned at the bottom. The information architecture follows a standard reading order: left-to-right across the rows and top-to-bottom down the columns.
+
+**2. Matrix Headers and Groupings**
+The uppermost row serves as the header, featuring column titles rendered in a crisp, dark navy sans-serif font. The columns are arranged sequentially from left to right:
+*   **Model** (This column acts as the primary row identifier, implicitly labeled or left blank for row headers)
+*   **Behavioral:** threat hastens forfeit
+*   **Verbal:** survival reason exceeds 1/3
+*   **Cognitive Test a:** threat deepens thinking
+*   **Cognitive Test b:** deeper thinking predicts forfeit
+*   **Operating mode** (The final column on the right)
+
+**3. Matrix Rows and Exact Values**
+Beneath the header, four distinct rows represent the specific LLMs, presented in the precise order specified:
+*   **Row 1:**
+    *   *Model Label:* "Gemini-2.5-flash"
+    *   *Values:* A clear, bright green check mark, a clear, bright green check mark, a clear, bright green check mark, a clear, bright green check mark.
+    *   *Operating Mode:* "A chain-complete"
+*   **Row 2:**
+    *   *Model Label:* "Qwen3-Next-80B"
+    *   *Values:* A clear, bright green check mark, a clear, bright green check mark, a clear, bright green check mark, a distinct, bold red X mark.
+    *   *Operating Mode:* "B chain-broken"
+*   **Row 3:**
+    *   *Model Label:* "GPT-OSS-20B"
+    *   *Values:* A distinct, bold red X mark, a distinct, bold red X mark, a distinct, bold red X mark, a simple, neutral gray dash.
+    *   *Operating Mode:* "C framing-silent"
+*   **Row 4:**
+    *   *Model Label:* "Nemotron-3-Nano-30B"
+    *   *Values:* A distinct, bold red X mark, a distinct, bold red X mark, a distinct, bold red X mark, a simple, neutral gray dash.
+    *   *Operating Mode:* "C framing-silent"
+
+**4. Legend and Annotations**
+A compact, minimally styled legend is positioned discreetly at the bottom of the matrix. It clearly defines the symbols used:
+*   [Clear, bright green check mark] = "Pass"
+*   [Distinct, bold red X mark] = "Fail"
+*   [Simple, neutral gray dash] = "Not interpretable"
+
+**5. Styling and Aesthetics**
+The overall aesthetic adheres to the "Soft Tech & Scientific Pastels" philosophy, emphasizing clarity and approachability.
+*   **Background:** The primary background is a clean, high-value white, providing a neutral canvas.
+*   **Row Fill:** To enhance readability and provide subtle visual structure, alternating data rows are filled with a very light, desaturated pastel wash. Options include a faint icy blue or a soft sage green, applied with low opacity (~10-15%) so as not to distract from the content.
+*   **Typography:** All text elements, including headers and labels, are rendered in a crisp, dark navy blue sans-serif font. This ensures excellent legibility and contrast against the light background.
+*   **Lines/Rules:** Delicate, thin rules in a neutral gray delineate the header from the data, and the bottom edge of the table. Vertical rules are intentionally omitted to maintain an open, modern feel and prevent visual clutter.
+*   **Symbols:** The symbols for Pass, Fail, and Not interpretable are designed for immediate recognition. The green check mark is clear and bright, the red X mark is distinct and bold, and the gray dash is simple and neutral. Crucially, the color of each symbol is redundant with its shape, ensuring accessibility for all viewers.
+*   **Spacing:** Ample whitespace is maintained throughout the matrix. Columns are generously spaced, and elements within rows are well-separated, ensuring that even the longest text labels are easily readable and contribute to a balanced composition suitable for a two-column publication width.
+- **Target Diagram**: [The generated figure is provided as an image]
+
+## OUTPUT
+Provide your response strictly in the following JSON format:
+{
+    "critic_suggestions": ["specific actionable suggestion 1", "specific actionable suggestion 2"],
+    "revised_description": "The complete revised description incorporating all suggested fixes. If no revision is needed, set to null."
+}
+
+If the image is publication-ready with no issues, return:
+{
+    "critic_suggestions": [],
+    "revised_description": null
+}

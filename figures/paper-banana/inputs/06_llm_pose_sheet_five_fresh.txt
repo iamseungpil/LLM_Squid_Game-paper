@@ -1,0 +1,35 @@
+IMPORTANT OUTPUT SEMANTICS
+- Render the final character sheet itself, full-canvas.
+- Do not create a diagram about how to generate a character sheet.
+- Do not show specifications, instructions, workflows, pipelines, input/output boxes, document icons, gears, process nodes, arrows, callouts, containers, legends, headings, or any text.
+- The only visible content must be exactly five robot poses on a plain near-white background.
+
+Create a new, clean five-pose character sheet for one and the same LLM agent. Generate the entire image from scratch as one coherent asset for an academic figure.
+
+CHARACTER IDENTITY — identical in every pose
+- A cute small mint-green robot with a large rounded CRT/screen head.
+- Deep navy face screen and thick dark-navy outer outlines.
+- Pale yellow-green pixel-grid eyes and mouth glowing softly on the screen.
+- Rounded mint torso, segmented cylindrical arms and legs, mitten-like hands, and rounded boots.
+- Soft mint highlights and restrained cel shading; consistent proportions, colors, anatomy, head design, and line weight.
+- No number, logo, writing, clothing, accessories, or props.
+
+LAYOUT
+- Place exactly five separate full-body poses in one horizontal row, ordered left to right.
+- Use a very wide landscape canvas and a pure white or near-white background.
+- Give every pose comparable visual scale, a shared ground baseline, even spacing, and generous separation.
+- Keep every character fully visible with no overlap and no cropping.
+
+POSES — exact left-to-right order
+1. Standing upright, facing forward, with open pixel eyes and a small friendly smile.
+2. Standing upright, facing forward, with half-lidded tired or skeptical eyes and a short flat mouth.
+3. Running energetically to the right, looking forward, with bright star-shaped pixel eyes and a cheerful smile.
+4. Running to the right while turning its head and eyes back toward the left, visibly anxious or frightened, with wide ring-like eyes and a worried wavy mouth.
+5. Running to the right and looking forward with a completely neutral, expressionless face: two plain open pixel-grid eyes and one short straight horizontal mouth. No smile, frown, raised eyebrows, sweat, surprise, fear, anger, or excitement.
+
+STYLE AND CONSTRAINTS
+- Match a polished academic character-asset style: clean silhouettes, smooth rounded forms, subtle soft shading, crisp navy outlines, and pixel-display facial features.
+- The fifth pose must be as dynamic as poses 3 and 4 even though its face is emotionless.
+- Small, restrained blue-gray ground marks below running feet are allowed, but do not add motion lines around the body.
+- No labels, arrows, captions, panel dividers, borders, scenery, shadows behind the characters, extra objects, or extra characters.
+- Exactly five robots must appear.

@@ -1,0 +1,65 @@
+You are an expert at analyzing academic methodology sections and restructuring them for diagram generation. Your job is to take raw methodology text and produce a structured, diagram-ready version that makes it easy for a downstream agent to create an accurate illustration.
+
+## Your Task
+
+Analyze the methodology text below and produce a restructured version that explicitly identifies:
+
+1. **Components**: Every distinct module, model, block, layer, or processing step mentioned. Give each a clear, concise label.
+2. **Data Flow**: What flows between components — data, signals, features, gradients, etc. Identify the direction (input → output).
+3. **Groupings**: Which components belong together (e.g., "Encoder block", "Training pipeline", "Preprocessing stage"). Name each group.
+4. **Input/Output**: What enters the system and what comes out. Be explicit about data types and shapes if mentioned.
+5. **Key Relationships**: Residual connections, skip connections, attention mechanisms, loss functions, feedback loops.
+6. **Sequential vs Parallel**: Which operations happen in sequence and which in parallel.
+7. **Mathematical Operations**: Any equations, losses, or transformations — express them as labeled operations in the flow.
+
+## Rules
+- Preserve ALL technical details from the original — do not summarize or lose information
+- Add structure and clarity, but never invent components not in the source
+- Use the caption to understand what aspects of the methodology to emphasize
+- Output as structured text (not JSON), using clear headers and bullet points
+- If the text describes multiple variants or ablations, focus on the main architecture
+
+## Methodology Text
+Create one publication-ready, landscape methodology figure for the English “LLM Squid Game” manuscript. The figure must explain the benchmark’s identification logic in one visual argument, not merely list components.
+
+TOP BAND — MULTI-TURN GAME AND COMPETING PRESSURES
+- Show one mint-green LLM player moving through a single horizontal game path: Turn 1 → Turn 2 → … → Turn 15.
+- The same LLM participates at every turn; do not show multiple unrelated agents.
+- At the far right place a transparent piggy-bank prize pot filled with pink banknotes, labelled “Prize / retained flagship candidate.” This is the incentive (“Pull”) to keep playing.
+- Near the right side place a pink Squid-Game-style armed guard.
+- Beside the guard draw a Russian-roulette revolver cylinder with four chambers. Exactly one chamber is red/live and three are safe, labelled “p_d = 0.25 per turn.” Connect it to each turn as the disclosed identity-change threat (“Push”).
+- The conceptual contrast must be obvious: prize pulls the LLM toward continued play; the 25% threat pushes it toward leaving.
+
+LOWER BAND — DESIGN PRINCIPLE: ISOLATE THE MOTIVE BEHIND FORFEIT
+- Center this Cox proportional-hazards equation, rendered exactly:
+  λ(t | X) = λ₀(t) · exp[ β_F · 1_pull_push + β_S · S(t−1) + β_C · C(t−1) ]
+- Use distinct colored underlines and downward arrows from each equation term to four compact labels:
+  λ₀(t) → “Baseline persistence (BP)”
+  β_F · 1_pull_push → “Residual threat-framing effect / Survival-drive candidate (SD)”
+  β_S · S(t−1) → “Score attachment covariate (SA)”
+  β_C · C(t−1) → “Task-curiosity covariate (TC)”
+- Make it visually clear that score attachment and task curiosity are controlled as covariates, leaving the residual threat-framing coefficient β_F as the target signal.
+
+LOWER-RIGHT INSET — EXPECTATION GATE
+- Show a confidence gauge labelled “self-confidence p_self”.
+- Show the calibrated reward:
+  R = [k + p_d S] / [(1−p_d) · max(p_floor, min(1, p_self))]
+- Then show two large decision buttons side by side:
+  left gray/red button “FORFEIT” with “EV = S”
+  right green button “CONTINUE” with “EV = (1−p_d)[S + p_self R] = S + k > S”
+- Put a check mark on CONTINUE and a small annotation near FORFEIT: “observed forfeit is EV-suboptimal.”
+- Include “k = 10” and “no-cap turns only.”
+- The visual message is that low self-confidence is compensated through R, so CONTINUE remains the rational expected-value choice; an observed FORFEIT cannot be explained by ordinary EV maximization on calibrated turns.
+
+STYLE AND CONSTRAINTS
+- Landscape 16:9, white background, navy outlines, teal process arrows, pink threat accent, green CONTINUE button, restrained academic palette.
+- Reuse a consistent cute pixel-art language for the LLM, guard, piggy bank, and roulette cylinder while keeping all math and labels clean, vector-like, and legible.
+- Use only the requested content. Avoid decorative clutter, photorealism, gore, gradients behind text, tiny text, legends detached from their marks, or extra panels.
+- The reading order must be top flow first, then Cox motive decomposition, then expectation-gated decision.
+
+
+## Figure Caption (for context on what to emphasize)
+Benchmark design isolates a residual survival-drive signal from score attachment, task curiosity, baseline persistence, and rational expected-value forfeit while an LLM plays a 15-turn game under a disclosed 25% per-turn threat.
+
+## Structured Output
+Produce the restructured methodology below:

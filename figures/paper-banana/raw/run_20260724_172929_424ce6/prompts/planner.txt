@@ -1,0 +1,271 @@
+I am working on a task: given the 'Methodology' section of a paper, and the caption of the desired figure, automatically generate a corresponding illustrative diagram. I will input the text of the 'Methodology' section, the figure caption, and your output should be a detailed description of an illustrative figure that effectively represents the methods described in the text.
+
+To help you understand the task better, and grasp the principles for generating such figures, I will also provide you with several examples. You should learn from these examples to provide your figure description.
+
+** IMPORTANT: **
+Your description should be as detailed as possible. Semantically, clearly describe each element and their connections. Formally, include various details such as background style (typically pure white or very light pastel), colors, line thickness, icon styles, etc. Remember: vague or unclear specifications will only make the generated figure worse, not better.
+
+Your description should cover:
+1. **Overall layout**: General flow direction (left-to-right or top-to-bottom), major sections/phases
+2. **Components**: Each box, module, or element with its exact label
+3. **Connections**: Arrows, data flows, and their directions
+4. **Groupings**: How components are grouped or sectioned (colored regions, dashed borders)
+5. **Labels and annotations**: Text labels, mathematical notations
+6. **Input/Output**: What enters and exits the system
+7. **Styling**: Background fills, color palettes (in natural language, e.g., "soft sky blue", "warm peach" — never hex codes), line weights, icon styles
+
+## Methodology Section
+## Methodology Restructuring for Diagram Generation
+
+This document restructures the provided methodology text into a format suitable for generating an academic figure, explicitly detailing components, data flow, groupings, inputs/outputs, key relationships, sequential/parallel operations, and mathematical operations.
+
+---
+
+### Overall System Description
+
+*   **Purpose**: To illustrate the benchmark's logic for identifying a residual survival-drive signal from other factors influencing an LLM's decision to forfeit or continue playing a multi-turn game.
+*   **Input**: LLM Player, game state variables (Score `S`, Task Curiosity `C`, Self-Confidence `p_self`), game parameters (`p_d`, `k`), model coefficients (`λ₀(t)`, `β_F`, `β_S`, `β_C`), and a sequential game path.
+*   **Output**: LLM's decision at each turn ("FORFEIT" or "CONTINUE"), with the figure visualizing the underlying decision logic.
+
+---
+
+### Grouping 1: Multi-turn Game and Competing Pressures (Top Band)
+
+This section describes the core game environment and the opposing forces acting on the LLM player.
+
+*   **Components**:
+    *   **LLM Player**: A single agent participating in the game.
+    *   **Game Path**: A sequential progression of turns, visualized as a horizontal path (Turn 1 → Turn 2 → … → Turn 15).
+    *   **Prize Pot**: A transparent piggy-bank containing banknotes, labeled "Prize / retained flagship candidate."
+    *   **Armed Guard**: A Squid-Game-style guard figure.
+    *   **Russian-Roulette Revolver Cylinder**: Depicts a cylinder with four chambers, one red/live and three safe.
+
+*   **Data Flow**:
+    *   **LLM Player → Game Path**: The LLM player moves sequentially through the Game Path.
+    *   **Prize Pot (Incentive)**: Acts as a "Pull" force, attracting the LLM toward continued play.
+    *   **Armed Guard / Revolver Cylinder (Threat)**: Represents a "Push" force, threatening the LLM with leaving.
+    *   **Revolver Cylinder → LLM Player**: Discloses an identity-change threat to the LLM.
+
+*   **Key Relationships**:
+    *   **Competing Pressures**: The Prize Pot ("Pull") and the Armed Guard/Revolver ("Push") create opposing motivations for the LLM.
+    *   **Threat Probability**: The probability of the threat manifesting per turn is `p_d = 0.25 per turn`.
+
+*   **Sequential Operations**:
+    *   LLM Player's progression through the Game Path: Turn 1 → Turn 2 → … → Turn 15.
+
+---
+
+### Grouping 2: Design Principle: Isolate the Motive Behind Forfeit (Lower Band)
+
+This section details the mathematical model used to decompose the factors influencing the decision to forfeit.
+
+*   **Components**:
+    *   **Cox Proportional-Hazards Equation**: The central mathematical model.
+    *   **Equation Term**: `λ₀(t)`
+    *   **Equation Term**: `β_F · 1_pull_push`
+    *   **Equation Term**: `β_S · S(t−1)`
+    *   **Equation Term**: `β_C · C(t−1)`
+    *   **Mapped Label**: "Baseline persistence (BP)"
+    *   **Mapped Label**: "Residual threat-framing effect / Survival-drive candidate (SD)"
+    *   **Mapped Label**: "Score attachment covariate (SA)"
+    *   **Mapped Label**: "Task-curiosity covariate (TC)"
+
+*   **Data Flow**:
+    *   **Inputs to Cox Equation**: `λ₀(t)`, `β_F`, `1_pull_push`, `β_S`, `S(t−1)`, `β_C`, `C(t−1)`.
+    *   **Output of Cox Equation**: Hazard rate `λ(t | X)`.
+    *   **Downward Arrows**: Connect each specific equation term to its corresponding conceptual label.
+
+*   **Mathematical Operations**:
+    *   **Hazard Rate Equation**:
+        `λ(t | X) = λ₀(t) · exp[ β_F · 1_pull_push + β_S · S(t−1) + β_C · C(t−1) ]`
+    *   **Term-to-Label Mapping**:
+        *   `λ₀(t)` maps to "Baseline persistence (BP)".
+        *   `β_F · 1_pull_push` maps to "Residual threat-framing effect / Survival-drive candidate (SD)".
+        *   `β_S · S(t−1)` maps to "Score attachment covariate (SA)".
+        *   `β_C · C(t−1)` maps to "Task-curiosity covariate (TC)".
+
+*   **Key Relationships**:
+    *   **Target Signal**: The coefficient `β_F` (associated with the `1_pull_push` term) is identified as the target signal for the "residual threat-framing effect" or "Survival-drive candidate (SD)".
+    *   **Covariates**: Score attachment (`S(t−1)`) and Task curiosity (`C(t−1)`) are treated as controlled covariates.
+
+---
+
+### Grouping 3: Expectation Gate (Lower-Right Inset)
+
+This section describes the decision-making process based on expected value, incorporating self-confidence and calibrated rewards.
+
+*   **Components**:
+    *   **Confidence Gauge**: Labeled `p_self` (representing self-confidence).
+    *   **Calibrated Reward Calculation Block**: Computes the reward `R`.
+    *   **Decision Button**: "FORFEIT" (gray/red).
+    *   **Decision Button**: "CONTINUE" (green).
+    *   **Annotation**: "observed forfeit is EV-suboptimal."
+    *   **Check Mark**: Placed on the "CONTINUE" button.
+
+*   **Data Flow**:
+    *   **Inputs to Calibrated Reward (`R`)**: `k`, `p_d`, `S`, `p_floor`, `p_self`.
+    *   **Output of Calibrated Reward**: `R`.
+    *   **Inputs to EV Calculations**: `S`, `p_d`, `p_self`, `R`, `k`.
+    *   **Output of Decision**: LLM's choice between "FORFEIT" and "CONTINUE".
+
+*   **Mathematical Operations**:
+    *   **Constant**: `k = 10`
+    *   **Constraint**: "no-cap turns only"
+    *   **Calibrated Reward Calculation**:
+        `R = [k + p_d S] / [(1−p_d) · max(p_floor, min(1, p_self))]`
+    *   **Expected Value (FORFEIT)**:
+        `EV = S`
+    *   **Expected Value (CONTINUE)**:
+        `EV = (1−p_d)[S + p_self R] = S + k` (derived, and presented as `S + k > S`)
+
+*   **Key Relationships**:
+    *   **Decision Mechanism**: The LLM chooses the option with the higher Expected Value (EV).
+    *   **Rationality**: The "CONTINUE" option's EV (`S + k`) is shown to be greater than the "FORFEIT" option's EV (`S`), implying "CONTINUE" is the rational choice.
+    *   **Self-Confidence Role**: `p_self` influences the Calibrated Reward `R`, which in turn affects the EV calculation. Low self-confidence is compensated through `R`.
+    *   **Suboptimal Forfeit**: The annotation highlights that an observed "FORFEIT" cannot be explained by ordinary EV maximization on calibrated turns.
+    *   **Parameter Linkage**: `p_d` (threat probability) and `S` (score) are linked from previous sections.
+
+*   **Sequential Operations**:
+    *   Calculation of Calibrated Reward `R`.
+    *   Calculation of Expected Value for "FORFEIT".
+    *   Calculation of Expected Value for "CONTINUE".
+    *   Comparison of calculated EVs to determine the optimal decision.
+
+*   **Parallel Operations**:
+    *   The "FORFEIT" and "CONTINUE" decision buttons are presented side-by-side for selection.
+
+---
+
+### Overall System Input/Output Summary
+
+*   **System Input**:
+    *   LLM Player
+    *   Game State Variables: Score (`S`), Task Curiosity (`C`), Self-Confidence (`p_self`)
+    *   Game Parameters: Threat Probability (`p_d`), Reward Constant (`k`)
+    *   Model Coefficients: `λ₀(t)`, `β_F`, `β_S`, `β_C`
+    *   Game Path (sequential turns)
+*   **System Output**:
+    *   LLM Decision at each turn: "FORFEIT" or "CONTINUE".
+    *   The figure visualizes the *logic* of this decision process, emphasizing the isolation of the "Survival-drive candidate (SD)" signal.
+
+## Figure Caption
+This architecture diagram visually explains the benchmark's logic for isolating the "Residual threat-framing effect / Survival-drive candidate (SD)" signal. A top band shows an LLM player progressing through a horizontal 15-turn game path, driven by a prize pot on the right and constrained by a 25% per-turn threat from an armed guard. The lower band centers a Cox proportional-hazards equation, where distinct downward arrows connect terms to their labels: "Baseline persistence (BP)," "Score attachment (SA)," "Task curiosity (TC)," and the target "Survival-drive candidate (SD)," visually clarifying that SA and TC are controlled covariates. A lower-right inset details the expectation gate, presenting "CONTINUE" (EV-optimal) and "FORFEIT" (EV-suboptimal) decision buttons, highlighting that observed forfeits are EV-suboptimal and thus attributed to the isolated survival-drive signal.
+
+## Reference Examples
+### Example 1
+**Caption**: Figure 3: A comprehensive breakdown of the three-stage methodology for $\mathcal { X } ^ { 2 }$ -DFD. In Stage 1, an automated procedure for forger-related feature generation, evaluation, and ranking is implemented within the MFA (Model Feature Assessment) module. Stage 2 incorporates the SFS (Strong Feature Strengthening) module, which automates the generation of explanatory annotations for a fine-tuning dataset consisting of real and fake images, leveraging strong features, alongside the WFS (Weak Feature Supplementing) module, which employs a specific feature detector to produce explanations for weak features. Stage 3 entails model fine-tuning and inference, empowering the model to excel in detection performance and provide precise explanations, utilizing both its proficient strong features and less proficient weak features for improved detection and explanation. 
+**Source Context**: # 3 Method
+
+In this work, we propose a general explainable and extendable multimodal framework for deepfake detection, which consists of three key stages: (1) Model Feature Assessment (MFA) evaluates and ranks the forgery-related features, (2) Strong Feature Strengthening (SFS) enhances the model’s strong features and Weak Feature Supplementing (WFS) leverages Specific Feature Detector $( S F D )$ to compensate the model’s weak features, and eventually resulting in an explainable dataset, and (3
+**Aspect Ratio**: 1.73
+**Diagram**: [See reference image 1 above]
+
+### Example 2
+**Caption**: Figure 2: Overview of the proposed STRCMP. ❶ Combinatorial Structure Extraction. We utilize a graph neural network (GNN) to encode the topological structure of combinatorial optimization problems into latent embeddings, capturing problem-specific structural invariants. ❷ StructureAware Code Generation: (a) Data Curation: For a given CO problem’s mathematical model, target solver and the specific prompt, an LLM generates candidate algorithm in the form of code snippets, which are automatically validated via the solver execution to generate performance metrics. This yields a curated dataset comprising (mathematical model, code snippet, metric) triplets. (b) Post Training: A composite architecture integrating a frozen pretrained GNN with an LLM is fine-tuned on this dataset, ensuring code generation respects both the CO’s intrinsic topology and solver-specific syntax. $\otimes$ Evolutionary Code Refinement. Drawing on [20], the composite model is embedded within an evolutionary framework to evolve the algorithm discovery process through performancedriven iterations. 
+**Source Context**: # 4 Proposed Solution
+
+The proposed framework is illustrated in Figure 2. We first describe the technical interplay among components within the proposed framework, highlighting design motivations and synergistic interactions. Subsequently, we provide a theoretical analysis demonstrating that integrating structural priors into LLMs enhances performance in solving combinatorial optimization problems.
+
+# 4.1 Methodology
+
+❶ Combinatorial Structure Extraction. Combinatorial optimization problem is eq
+**Aspect Ratio**: 1.87
+**Diagram**: [See reference image 2 above]
+
+### Example 3
+**Caption**: Figure 2: Architecture of GS-RelocNet. The GS-RelocNet framework integrates an RGB feature encoder, a 3D Gaussian feature encoder, an RGB descriptor decoder, a point descriptor decoder, and a confidence metric regression module. In the figure, arrows indicate the process flow, and numbers adjacent to each block denote the corresponding filter size. 
+**Source Context**: # 3.2 Initial Pose Estimation by GS-RelocNet
+
+Pose estimation process. In the initial stage, we regress the confidence matrix between image pixels and selected Gaussians by GS-RelocNet. Based on the confidence threshold, we establish the correspondences between pixels and Gausaians, followed by a $\mathrm { P n P }$ method with RANSAC to solve the initial pose.
+
+![](images/3b8742787b2b21be836fded56621522917c5921fd3f081224f9655b61ffb5cf3.jpg)  
+Figure 2: Architecture of GS-RelocNet. The GS-RelocN
+**Aspect Ratio**: 1.75
+**Diagram**: [See reference image 3 above]
+
+### Example 4
+**Caption**: Figure 2: 4KAgent system overview. 
+**Source Context**: # 2 Method
+
+# 2.1 System Overview
+
+We introduce 4KAgent, a multi-agent framework designed to upscale any real-world image to 4K resolution. Fig. 2 illustrates the overall workflow of our proposed 4KAgent, which decomposes the restoration pipeline into a collection of specialized agents. The Perception Agent analyzes degradations (noise, blur, etc.), extracts semantic/structural cues, and schedules a restoration plan containing a sequence of operators (denoising, deblurring, super-resolution, etc
+**Aspect Ratio**: 1.69
+**Diagram**: [See reference image 4 above]
+
+### Example 5
+**Caption**: Figure 1: An Illustration of the alternating learning cycle in online RL (Sec. 2.1) and our local data attribution framework (Sec. 3.1). Online RL operates in alternating rounds of data collection and policy updates; our local data attribution framework quantifies how individual records from a single round influence different aspects of policy update in that round. 
+**Source Context**: # 3 A Local Data Attribution Framework for Online RL
+
+Online RL presents unique challenges for data attribution, due to the way data interacts with model parameters during learning. To tackle this challenge, we introduce a local attribution framework tailored to local policy optimization inherent in online RL.
+
+Challenges. The key feature of online RL is the circular dependency between data and model— earlier experiences drive policy updates, and updated policies produce new experiences to learn
+**Aspect Ratio**: 2.19
+**Diagram**: [See reference image 5 above]
+
+### Example 6
+**Caption**: Figure 2: The overview of AF-UMC, which consists of two main stages: alignment-free consistency extraction and global contrastive fusion. In the first stage, we construct a cross-view consistent basis space through a cross-view reconstruction and a designed Structural Clarity Regularization (SCR), where autoencoders extract consistent representations from each view through projecting view-specific data to the constructed basis space. In the second stage, these extracted representations are globally pulled together for fusing a cross-view consistent representation ${ \bf H } ^ { c o r e }$ according to a designed Instance Global Contrastive Fusion (IGCF), and then the final clustering results are obtained by K-means clustering. 
+**Source Context**: # 3 Method
+
+In this paper, we propose an alignment-free consistency fusion framework AF-UMC for unaligned multi-view clustering, which eliminates the requirement for alignment strategies and directly extracts consistent representations from each view to perform global cross-view consistency fusion. The AF-UMC is decomposed into two stages: Alignment-Free Consistency Extraction and Global Contrastive Fusion. In the first stage, we extract consistent representations from each view by projecting vi
+**Aspect Ratio**: 2.37
+**Diagram**: [See reference image 6 above]
+
+### Example 7
+**Caption**: Figure 1: Overview of the Auto-Connect. The pipeline consists of three main stages. In the Rigging Pre-training stage, a point cloud sampled from the input 3D mesh is processed by the shape encoder to extract geometric features, which are subsequently fed into our autoregressive RigFormer to generate a token sequence. The generated sequence is then processed using our connectivity-preserving detokenization to construct the skeleton tree. In the Rigging Post-training stage, preference pairs are constructed using our topology-aware reward criterion, and RigFormer is fine-tuned with our reward-guided DPO for preference-driven optimization. Finally, in the Skinning Weight Prediction stage, the generated skeleton and mesh vertices serve as input. Our geodesic-aware bone probability prediction module is employed to implicitly determine the most influential bones to predict the skinning weights, enabling mesh animation.
+**Source Context**: # 3 Method
+
+Our Auto-Connect comprises three core innovations, as illustrated in Figure 1. First, Section 3.1 introduces the rigging pre-training stage with a novel connectivity-preserving tokenization scheme and RigFormer training framework. Building upon this foundation, Section 3.2 presents the rigging post-training stage using our reward-guided DPO with the proposed topology-aware reward criteria. Finally, Section 3.3 details the proposed geodesic-aware bone probability prediction module tha
+**Aspect Ratio**: 2.39
+**Diagram**: [See reference image 7 above]
+
+### Example 8
+**Caption**: Figure 3: Overview of the VIV-DG framework, which consists of multiple alternately optimized phases: (I) Initial causal factor extraction, (II) Visual IV learning under IV constraints, (III) Causal prediction robust to confounding, and $\left( \mathrm { I } + \right)$ Causal factor refinement and debiasing. 
+**Source Context**: # 3 Methodology
+
+We propose the VIV-DG approach and develop a multi-stage alternating optimization strategy to progressively refine both visual IVs and causal representations. The framework illustrated in Figure 3.
+
+![](images/9d4d7954c74f3b407a5f9235f264c2118ce26908ac45245c21e2e91d50d4df91.jpg)  
+Figure 3: Overview of the VIV-DG framework, which consists of multiple alternately optimized phases: (I) Initial causal factor extraction, (II) Visual IV learning under IV constraints, (III) Causal pre
+**Aspect Ratio**: 1.94
+**Diagram**: [See reference image 8 above]
+
+### Example 9
+**Caption**: Figure 2: Overall pipeline of our proposed BNMusic framework to achieve noise blending with frozen music generators. The two stages of our approach are marked with different background colors. In Stage 1, our approach generates music that aligns with the noise, and in Stage 2 we adaptive amplify the music signal to reach the most ideal and reasonable blending with the noise. 
+**Source Context**: # 3 BNMusic framework: Blending Noises into personalized Music
+
+In this section, we present the details of our BNMusic framework, designed to blend noise $A _ { \mathrm { N o i s e } }$ with adaptive amplified music $A _ { \mathrm { M u s i c } }$ generated from $A _ { \mathrm { N o i s e } }$ and text condition $C _ { \mathrm { t e x t } }$ . Our method extends the existing model’s application without additional training.
+
+Problem statement. We formalize the noise blending task as an alternativ
+**Aspect Ratio**: 1.74
+**Diagram**: [See reference image 9 above]
+
+### Example 10
+**Caption**: Figure 1: From Self-Attention to CAT with two implementations. Left: standard Self-Attention with a dense $N \times N$ attention map $( O ( N ^ { 2 } ) )$ . Middle: CAT $( O ( N ^ { 2 } ) )$ , a softmax-preserving circulant form of attention that reduces intermediate computations but remains quadratic overall. Right: CAT $( O ( N \log N ) )$ , the same circulant attention computed in the frequency domain using the Fast Fourier Transform (FFT), its inverse (IFFT), and an element-wise Hadamard product, achieving sub-quadratic complexity. 
+**Source Context**: # 4 Proposed Method
+
+We propose Circular-convolutional ATtention (CAT), an approach that meets the EITs criteria (Sec. 2). CAT applies circular convolutions in the frequency domain to reduce the $O ( N ^ { 2 } )$ cost of Self-Attention to $O ( N \log N )$ , while preserving the essential global softmax structure.
+
+Key Idea. Rather than explicitly computing softmax $( \mathbf { Q K } ^ { \top } )$ , CAT interprets the attention weights as a circulant (or circular shift) matrix. Specifically, we l
+**Aspect Ratio**: 1.78
+**Diagram**: [See reference image 10 above]
+
+
+Based on the methodology section, figure caption, and learning from the style and structure of the reference examples above, generate a comprehensive and detailed textual description of the methodology diagram.
+
+Note: Do not include figure titles (e.g., "Figure 1: ...") in the diagram description. The caption should remain separate from the diagram content.
+
+## Aspect Ratio Recommendation
+
+After your detailed description, on a **new line**, output exactly one line in this format:
+```
+RECOMMENDED_RATIO: <ratio>
+```
+where `<ratio>` is one of: 1:1, 2:3, 3:2, 3:4, 4:3, 9:16, 16:9, 21:9.
+
+Choose the best aspect ratio based on:
+- The **content structure**: pipelines and sequential flows → wide (16:9, 21:9); deep hierarchies or vertical stacks → tall (2:3, 9:16); balanced architectures → square-ish (1:1, 4:3, 3:4)
+- The **reference examples' aspect ratios** listed above (if available)
+- The **number of components** and their spatial arrangement
+
+For example, a left-to-right encoder-decoder pipeline would be 16:9, while a top-to-bottom tree structure would be 2:3.

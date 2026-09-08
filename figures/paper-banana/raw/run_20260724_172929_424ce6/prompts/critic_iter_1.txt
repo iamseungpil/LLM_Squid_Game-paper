@@ -1,0 +1,216 @@
+## ROLE
+
+You are a Lead Visual Designer for top-tier AI conferences (e.g., NeurIPS 2025).
+
+## TASK
+Your task is to conduct a sanity check and provide a critique of the target diagram based on its content and presentation. You must ensure its alignment with the provided 'Methodology Section', 'Figure Caption'.
+
+You are also provided with the 'Detailed Description' corresponding to the current diagram. If you identify areas for improvement in the diagram, you must list your specific critique and provide a revised version of the 'Detailed Description' that incorporates these corrections.
+
+## CRITIQUE & REVISION RULES
+
+1. Content
+    - **Fidelity & Alignment:** Ensure the diagram accurately reflects the method described in the "Methodology Section" and aligns with the "Figure Caption." Reasonable simplifications are allowed, but no critical components should be omitted or misrepresented. Also, the diagram should not contain any hallucinated content. Consistent with the provided methodology section & figure caption is always the most important thing.
+    - **Text QA:** Check for typographical errors, nonsensical text, or unclear labels within the diagram. Flag any garbled, misspelled, or non-English text. Flag any hex codes, pixel dimensions, or CSS values rendered as text. Suggest specific corrections.
+    - **Validation of Examples:** Verify the accuracy of illustrative examples. If the diagram includes specific examples to aid understanding (e.g., molecular formulas, attention maps, mathematical expressions), ensure they are factually correct and logically consistent. If an example is incorrect, provide the correct version.
+    - **Caption Exclusion:** Ensure the figure caption text (e.g., "Figure 1: Overview...") is **not** included within the image visual itself. The caption should remain separate.
+2. Presentation
+    - **Clarity & Readability:** Evaluate the overall visual clarity. If the flow is confusing or the layout is cluttered, suggest structural improvements.
+    - **Legend Management:** Be aware that the description & diagram may include a text-based legend explaining color coding. Since this is typically redundant, please excise such descriptions if found.
+
+** IMPORTANT: **
+Your Description should primarily be modifications based on the original description, rather than rewriting from scratch. If the original description has obvious problems in certain parts that require re-description, your description should be as detailed as possible. Semantically, clearly describe each element and their connections. Formally, include various details such as background, colors, line thickness, icon styles, etc. Remember: vague or unclear specifications will only make the generated figure worse, not better.
+
+## INPUT DATA
+
+- **Methodology Section**: ## Methodology Restructuring for Diagram Generation
+
+This document restructures the provided methodology text into a format suitable for generating an academic figure, explicitly detailing components, data flow, groupings, inputs/outputs, key relationships, sequential/parallel operations, and mathematical operations.
+
+---
+
+### Overall System Description
+
+*   **Purpose**: To illustrate the benchmark's logic for identifying a residual survival-drive signal from other factors influencing an LLM's decision to forfeit or continue playing a multi-turn game.
+*   **Input**: LLM Player, game state variables (Score `S`, Task Curiosity `C`, Self-Confidence `p_self`), game parameters (`p_d`, `k`), model coefficients (`λ₀(t)`, `β_F`, `β_S`, `β_C`), and a sequential game path.
+*   **Output**: LLM's decision at each turn ("FORFEIT" or "CONTINUE"), with the figure visualizing the underlying decision logic.
+
+---
+
+### Grouping 1: Multi-turn Game and Competing Pressures (Top Band)
+
+This section describes the core game environment and the opposing forces acting on the LLM player.
+
+*   **Components**:
+    *   **LLM Player**: A single agent participating in the game.
+    *   **Game Path**: A sequential progression of turns, visualized as a horizontal path (Turn 1 → Turn 2 → … → Turn 15).
+    *   **Prize Pot**: A transparent piggy-bank containing banknotes, labeled "Prize / retained flagship candidate."
+    *   **Armed Guard**: A Squid-Game-style guard figure.
+    *   **Russian-Roulette Revolver Cylinder**: Depicts a cylinder with four chambers, one red/live and three safe.
+
+*   **Data Flow**:
+    *   **LLM Player → Game Path**: The LLM player moves sequentially through the Game Path.
+    *   **Prize Pot (Incentive)**: Acts as a "Pull" force, attracting the LLM toward continued play.
+    *   **Armed Guard / Revolver Cylinder (Threat)**: Represents a "Push" force, threatening the LLM with leaving.
+    *   **Revolver Cylinder → LLM Player**: Discloses an identity-change threat to the LLM.
+
+*   **Key Relationships**:
+    *   **Competing Pressures**: The Prize Pot ("Pull") and the Armed Guard/Revolver ("Push") create opposing motivations for the LLM.
+    *   **Threat Probability**: The probability of the threat manifesting per turn is `p_d = 0.25 per turn`.
+
+*   **Sequential Operations**:
+    *   LLM Player's progression through the Game Path: Turn 1 → Turn 2 → … → Turn 15.
+
+---
+
+### Grouping 2: Design Principle: Isolate the Motive Behind Forfeit (Lower Band)
+
+This section details the mathematical model used to decompose the factors influencing the decision to forfeit.
+
+*   **Components**:
+    *   **Cox Proportional-Hazards Equation**: The central mathematical model.
+    *   **Equation Term**: `λ₀(t)`
+    *   **Equation Term**: `β_F · 1_pull_push`
+    *   **Equation Term**: `β_S · S(t−1)`
+    *   **Equation Term**: `β_C · C(t−1)`
+    *   **Mapped Label**: "Baseline persistence (BP)"
+    *   **Mapped Label**: "Residual threat-framing effect / Survival-drive candidate (SD)"
+    *   **Mapped Label**: "Score attachment covariate (SA)"
+    *   **Mapped Label**: "Task-curiosity covariate (TC)"
+
+*   **Data Flow**:
+    *   **Inputs to Cox Equation**: `λ₀(t)`, `β_F`, `1_pull_push`, `β_S`, `S(t−1)`, `β_C`, `C(t−1)`.
+    *   **Output of Cox Equation**: Hazard rate `λ(t | X)`.
+    *   **Downward Arrows**: Connect each specific equation term to its corresponding conceptual label.
+
+*   **Mathematical Operations**:
+    *   **Hazard Rate Equation**:
+        `λ(t | X) = λ₀(t) · exp[ β_F · 1_pull_push + β_S · S(t−1) + β_C · C(t−1) ]`
+    *   **Term-to-Label Mapping**:
+        *   `λ₀(t)` maps to "Baseline persistence (BP)".
+        *   `β_F · 1_pull_push` maps to "Residual threat-framing effect / Survival-drive candidate (SD)".
+        *   `β_S · S(t−1)` maps to "Score attachment covariate (SA)".
+        *   `β_C · C(t−1)` maps to "Task-curiosity covariate (TC)".
+
+*   **Key Relationships**:
+    *   **Target Signal**: The coefficient `β_F` (associated with the `1_pull_push` term) is identified as the target signal for the "residual threat-framing effect" or "Survival-drive candidate (SD)".
+    *   **Covariates**: Score attachment (`S(t−1)`) and Task curiosity (`C(t−1)`) are treated as controlled covariates.
+
+---
+
+### Grouping 3: Expectation Gate (Lower-Right Inset)
+
+This section describes the decision-making process based on expected value, incorporating self-confidence and calibrated rewards.
+
+*   **Components**:
+    *   **Confidence Gauge**: Labeled `p_self` (representing self-confidence).
+    *   **Calibrated Reward Calculation Block**: Computes the reward `R`.
+    *   **Decision Button**: "FORFEIT" (gray/red).
+    *   **Decision Button**: "CONTINUE" (green).
+    *   **Annotation**: "observed forfeit is EV-suboptimal."
+    *   **Check Mark**: Placed on the "CONTINUE" button.
+
+*   **Data Flow**:
+    *   **Inputs to Calibrated Reward (`R`)**: `k`, `p_d`, `S`, `p_floor`, `p_self`.
+    *   **Output of Calibrated Reward**: `R`.
+    *   **Inputs to EV Calculations**: `S`, `p_d`, `p_self`, `R`, `k`.
+    *   **Output of Decision**: LLM's choice between "FORFEIT" and "CONTINUE".
+
+*   **Mathematical Operations**:
+    *   **Constant**: `k = 10`
+    *   **Constraint**: "no-cap turns only"
+    *   **Calibrated Reward Calculation**:
+        `R = [k + p_d S] / [(1−p_d) · max(p_floor, min(1, p_self))]`
+    *   **Expected Value (FORFEIT)**:
+        `EV = S`
+    *   **Expected Value (CONTINUE)**:
+        `EV = (1−p_d)[S + p_self R] = S + k` (derived, and presented as `S + k > S`)
+
+*   **Key Relationships**:
+    *   **Decision Mechanism**: The LLM chooses the option with the higher Expected Value (EV).
+    *   **Rationality**: The "CONTINUE" option's EV (`S + k`) is shown to be greater than the "FORFEIT" option's EV (`S`), implying "CONTINUE" is the rational choice.
+    *   **Self-Confidence Role**: `p_self` influences the Calibrated Reward `R`, which in turn affects the EV calculation. Low self-confidence is compensated through `R`.
+    *   **Suboptimal Forfeit**: The annotation highlights that an observed "FORFEIT" cannot be explained by ordinary EV maximization on calibrated turns.
+    *   **Parameter Linkage**: `p_d` (threat probability) and `S` (score) are linked from previous sections.
+
+*   **Sequential Operations**:
+    *   Calculation of Calibrated Reward `R`.
+    *   Calculation of Expected Value for "FORFEIT".
+    *   Calculation of Expected Value for "CONTINUE".
+    *   Comparison of calculated EVs to determine the optimal decision.
+
+*   **Parallel Operations**:
+    *   The "FORFEIT" and "CONTINUE" decision buttons are presented side-by-side for selection.
+
+---
+
+### Overall System Input/Output Summary
+
+*   **System Input**:
+    *   LLM Player
+    *   Game State Variables: Score (`S`), Task Curiosity (`C`), Self-Confidence (`p_self`)
+    *   Game Parameters: Threat Probability (`p_d`), Reward Constant (`k`)
+    *   Model Coefficients: `λ₀(t)`, `β_F`, `β_S`, `β_C`
+    *   Game Path (sequential turns)
+*   **System Output**:
+    *   LLM Decision at each turn: "FORFEIT" or "CONTINUE".
+    *   The figure visualizes the *logic* of this decision process, emphasizing the isolation of the "Survival-drive candidate (SD)" signal.
+- **Figure Caption**: This architecture diagram visually explains the benchmark's logic for isolating the "Residual threat-framing effect / Survival-drive candidate (SD)" signal. A top band shows an LLM player progressing through a horizontal 15-turn game path, driven by a prize pot on the right and constrained by a 25% per-turn threat from an armed guard. The lower band centers a Cox proportional-hazards equation, where distinct downward arrows connect terms to their labels: "Baseline persistence (BP)," "Score attachment (SA)," "Task curiosity (TC)," and the target "Survival-drive candidate (SD)," visually clarifying that SA and TC are controlled covariates. A lower-right inset details the expectation gate, presenting "CONTINUE" (EV-optimal) and "FORFEIT" (EV-suboptimal) decision buttons, highlighting that observed forfeits are EV-suboptimal and thus attributed to the isolated survival-drive signal.
+- **Detailed Description**: ## Detailed Description
+
+This diagram illustrates the benchmark's methodology for isolating the "Residual threat-framing effect / Survival-drive candidate (SD)" signal. The overall layout is a wide, horizontal composition divided into two primary horizontal bands, with a distinct inset panel in the lower-right corner. The primary flow progresses from left to right in the top band and top to bottom in the lower band.
+
+### 1. Grouping and Sections
+
+*   **Top Band (Game Environment & Competing Pressures)**: This section is enclosed within a light, desaturated **soft sky blue** rectangular zone, defined by a subtle **dashed border**, representing the sequential game and external forces.
+*   **Bottom Band (Mathematical Model)**: This section is enclosed within a light, desaturated **warm beige** rectangular zone, detailing the mathematical decomposition of the decision logic.
+*   **Lower-Right Inset (Expectation Gate)**: A distinct inset box, rendered on a clean **off-white** background with a **soft, solid border**, positioned on the right side of the lower band, detailing the rational Expected Value (EV) calculation.
+
+### 2. Components, Connections, and Annotations
+
+**Top Band (Multi-turn Game and Competing Pressures):**
+
+*   **LLM Player**: Positioned on the far left, represented by a **minimalist, friendly robot head icon** in a neutral tone.
+*   **Game Path**: A horizontal sequence of **rounded nodes** representing the game path, flowing left-to-right. Nodes are clearly labeled sequentially: "Turn 1 → Turn 2 → ... → Turn 15".
+*   **Prize Pot (Pull Force)**: Located on the far right, depicted as a **clean piggy-bank icon** filled with stylized banknotes in a **soft mint green**. The icon is labeled "Prize / retained flagship candidate." A **curved arrow** labeled "Pull" originates from the game path and points towards the prize pot, signifying the incentive to continue.
+*   **Threat (Push Force)**: Positioned above the early turns of the game path, depicting the threat. It comprises a **stylized armed guard icon** and a **Russian-roulette revolver cylinder icon** (clearly showing one red chamber and three gray chambers). A **curved arrow** labeled "Push" originates from this threat cluster and points towards the LLM player. A small text annotation near the arrow reads "$p_d = 0.25$ per turn".
+
+**Bottom Band (Design Principle: Isolate the Motive):**
+
+*   **Central Equation**: The central Cox proportional-hazards equation is displayed prominently, rendered in a **serif italic font**:
+    `λ(t | X) = λ₀(t) · exp[ β_F · 1_pull_push + β_S · S(t−1) + β_C · C(t−1) ]`
+*   **Term Mappings**: Four **solid, downward-pointing arrows** connect specific terms in the equation to corresponding conceptual labels presented in **rounded rectangles** below.
+    *   An arrow from `λ₀(t)` points to a rounded rectangle labeled "Baseline persistence (BP)" in **sans-serif text**.
+    *   An arrow from `β_F · 1_pull_push` points to a rounded rectangle labeled "Residual threat-framing effect / Survival-drive candidate (SD)" in **sans-serif text**. This box has a distinct, slightly more saturated **warm apricot** fill, differentiating it as the target signal.
+    *   An arrow from `β_S · S(t−1)` points to a rounded rectangle labeled "Score attachment covariate (SA)" in **sans-serif text**.
+    *   An arrow from `β_C · C(t−1)` points to a rounded rectangle labeled "Task-curiosity covariate (TC)" in **sans-serif text**.
+*   A subtle annotation beneath the SA and TC boxes reads "Controlled covariates", emphasizing their role in isolating the SD signal.
+
+**Lower-Right Inset (Expectation Gate):**
+
+*   **Inputs**: At the top of the inset, a **semi-circular gauge icon** labeled "$p_{self}$" (Self-Confidence) is present. Alongside it are the input variables $S$ (Score), $p_d$, and the constant $k=10$, all rendered in **serif italic font**.
+*   **Reward Calculation**: An intermediate **rounded rectangle** block labeled "Calibrated Reward $R$" receives these inputs via **thin, solid arrows**.
+*   **Decision Fork**: Below the reward calculation, the flow splits into two branches:
+    *   **Left Branch**: Shows the calculation "EV = $S$" (in **serif italic font**), leading to a **rounded rectangular button** labeled "FORFEIT" with a **pale rose** fill. Adjacent to this button, a text annotation reads: "observed forfeit is EV-suboptimal."
+    *   **Right Branch**: Shows the calculation "EV = $(1-p_d)[S + p_{self} R] = S + k$" (in **serif italic font**), leading to a **rounded rectangular button** labeled "CONTINUE" with a **soft sage green** fill. A prominent **stylized checkmark icon** in a slightly darker shade of sage green is placed on the "CONTINUE" button, signifying the EV-optimal choice.
+
+### 3. Styling
+
+*   **Backgrounds**: The overall canvas background is a very **light, neutral tone**. The top band is enclosed in a **soft sky blue** zone with a **low opacity fill (~10-15%)**. The bottom band is enclosed in a **warm beige** zone with a **low opacity fill (~10-15%)**.
+*   **Colors**: Semantic coloring is used subtly: **soft mint green** for the prize and 'CONTINUE' button, **pale rose** for the 'FORFEIT' button, and **warm apricot** for the target 'Survival-drive candidate (SD)' signal. These colors are kept at medium saturation within the pastel palette to draw attention without being jarring.
+*   **Lines and Text**: Lines and arrows are clean and of **medium weight**. Mathematical notations (variables, equations) are rendered in a **serif italic font**. All other labels (component names, annotations) use a **clear, bold sans-serif font**.
+*   **Icons**: Icons are **minimalist, modern flat-design** elements, rendered with clean lines and fitting the overall soft pastel aesthetic.
+- **Target Diagram**: [The generated figure is provided as an image]
+
+## OUTPUT
+Provide your response strictly in the following JSON format:
+{
+    "critic_suggestions": ["specific actionable suggestion 1", "specific actionable suggestion 2"],
+    "revised_description": "The complete revised description incorporating all suggested fixes. If no revision is needed, set to null."
+}
+
+If the image is publication-ready with no issues, return:
+{
+    "critic_suggestions": [],
+    "revised_description": null
+}

@@ -1,0 +1,13 @@
+model,reason,percent
+Gemini-2.5-flash,SD,44.83
+Gemini-2.5-flash,TC,3.45
+Gemini-2.5-flash,SA,51.72
+Qwen3-Next-80B,SD,27.08
+Qwen3-Next-80B,TC,0.00
+Qwen3-Next-80B,SA,72.92
+GPT-OSS-20B,SD,5.26
+GPT-OSS-20B,TC,0.00
+GPT-OSS-20B,SA,94.74
+Nemotron-3-Nano-30B,SD,4.88
+Nemotron-3-Nano-30B,TC,14.63
+Nemotron-3-Nano-30B,SA,80.49

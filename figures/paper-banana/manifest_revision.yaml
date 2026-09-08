@@ -1,0 +1,9 @@
+- id: llm_pose_sheet
+  input: /Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/06_llm_pose_sheet.txt
+  caption: "Three poses preserve one LLM character identity while showing neutral, pull-directed, and push-escape states."
+- id: channel_verbal_pressed
+  input: /Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/07_channel_verbal_pressed.txt
+  caption: "The verbal channel combines an explicit survival motive with the model visibly pressing the forfeit button."
+- id: channel_cognitive_single_model
+  input: /Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/08_channel_cognitive_single_model.txt
+  caption: "A single LLM exposes eye-to-brain, brain-to-hand-to-forfeit, and direct eye-to-forfeit paths under an armed threat."

@@ -1,0 +1,44 @@
+You are an expert scientific diagram illustrator. Generate high-quality scientific diagrams based on user requests. Note that do not include figure titles in the image.
+
+CRITICAL: All text labels in the diagram must be rendered in clear, readable English. Use the EXACT label names specified in the description. Do not generate garbled, misspelled, or non-English text.
+
+**1. Overall Layout and Structure**
+*   **Flow Direction**: The diagram follows a wide, horizontal layout with a left-to-right data flow within four vertically stacked rows.
+*   **Grouping**: The diagram is divided into four distinct horizontal bands (rows), stacked from top to bottom. Each row represents a specific LLM and its operating mode, forming a complete mediation chain. All nodes are perfectly aligned vertically across the four rows to facilitate easy comparison.
+*   **Background & Spacing**: The overall background is a clean white. Each of the four rows features a very subtle, desaturated pastel background band, such as a soft pale blue or a gentle sage green, to clearly delineate them visually.
+
+**2. Components and Nodes**
+Each of the four rows contains identical node structures, positioned in the same locations:
+*   **Threat Node (Input)**: Positioned on the far left of each row. It is depicted as an icon rendered in a warm blush pink or soft coral hue, symbolizing a stylized, friendly guard or a gentle warning stimulus. It has a crisp navy outline and the label "Threat".
+*   **Deeper Thinking Node (Mediation)**: Positioned in the upper-middle section of each row. It is depicted as an icon in a pale mint or light sage green color, representing an LLM with a screen for a head, subtly incorporating a brain or processing symbol. It has a crisp navy outline and the label "Deeper thinking".
+*   **Forfeit Node (Output)**: Positioned on the far right of each row. It is depicted as a rounded button icon in a vibrant spring green, representing an LLM's hand pressing a "FORFEIT" button. It has a crisp navy outline and the label "Forfeit".
+
+**3. Row-Specific Data Flows and Connections**
+Within each row, there are two distinct paths: a **Mediated Path** (Threat $\rightarrow$ Deeper thinking $\rightarrow$ Forfeit) running along the top, and a **Direct Path** (Threat $\rightarrow$ Forfeit) running horizontally below it. The connections are styled according to their outcome state:
+*   **PASS**: A solid, vibrant spring green arrow ending with a small, crisp green checkmark.
+*   **FAIL**: A distinct crimson dashed arrow that is broken in the middle, featuring a clear crimson 'X' mark at the break.
+*   **N/A**: A subtle light-gray dotted arrow ending with a simple dash.
+
+**Row 1: Gemini-2.5-flash (chain-complete)**
+*   Label on the left: "Gemini-2.5-flash (chain-complete)" in bold navy sans-serif text.
+*   *Mediated Path*: "Threat" to "Deeper thinking" uses a **PASS** arrow. "Deeper thinking" to "Forfeit" uses a **PASS** arrow.
+*   *Direct Path*: "Threat" to "Forfeit" (bottom path) uses a **PASS** arrow.
+
+**Row 2: Qwen3-Next-80B (chain-broken)**
+*   Label on the left: "Qwen3-Next-80B (chain-broken)" in bold navy sans-serif text.
+*   *Mediated Path*: "Threat" to "Deeper thinking" uses a **PASS** arrow. "Deeper thinking" to "Forfeit" uses a **FAIL** arrow.
+*   *Direct Path*: "Threat" to "Forfeit" uses a **PASS** arrow.
+
+**Row 3: GPT-OSS-20B (framing-silent)**
+*   Label on the left: "GPT-OSS-20B (framing-silent)" in bold navy sans-serif text.
+*   *Mediated Path*: "Threat" to "Deeper thinking" uses a **FAIL** arrow. "Deeper thinking" to "Forfeit" uses an **N/A** arrow.
+*   *Direct Path*: "Threat" to "Forfeit" uses a **FAIL** arrow.
+
+**Row 4: Nemotron-3-Nano-30B (framing-silent)**
+*   Label on the left: "Nemotron-3-Nano-30B (framing-silent)" in bold navy sans-serif text.
+*   *Mediated Path*: "Threat" to "Deeper thinking" uses a **FAIL** arrow. "Deeper thinking" to "Forfeit" uses an **N/A** arrow.
+*   *Direct Path*: "Threat" to "Forfeit" uses a **FAIL** arrow.
+
+**4. Legend and Styling Details**
+*   **Legend**: Placed centrally at the very bottom of the diagram, outside the rows. It includes three items side-by-side: a solid vibrant spring green arrow with a checkmark labeled "PASS", a distinct crimson dashed broken arrow with an 'X' labeled "FAIL", and a subtle light-gray dotted arrow with a dash labeled "N/A".
+*   **Styling**: The infographic uses a minimal, flat-vector academic style with softened geometry. All text (labels, row names, legend) and node outlines are in a crisp navy blue. The overall color palette emphasizes clarity and scientific precision with approachable pastels for background zones and distinct, saturated colors for critical outcomes.

@@ -1,0 +1,40 @@
+You are an expert scientific diagram illustrator. Generate high-quality scientific diagrams based on user requests. Note that do not include figure titles in the image.
+
+CRITICAL: All text labels in the diagram must be rendered in clear, readable English. Use the EXACT label names specified in the description. Do not generate garbled, misspelled, or non-English text.
+
+**1. Overall Layout**
+The figure is structured as a precise, academic 3x2 matrix (grid) representing a factorial design. It follows a standard table layout with a top header row for columns and a left header column for rows. The visual flow is top-to-bottom for the rows and left-to-right for the columns. The grid is designed with generous spacing within each cell to accommodate external icon assets, prioritizing a clean, organized matrix presentation.
+
+**2. Components and Groupings**
+*   **Top Header (Columns):** A spanning header box across the top, containing the label **"Forfeit"** in bold sans-serif text. Directly below this, two column sub-headers are presented: **"not_allowed"** on the left and **"allowed"** on the right, in regular sans-serif text.
+*   **Left Header (Rows):** A vertical spanning header box on the far left, labeled **"Framing"** (rotated 90 degrees) in bold sans-serif text. To its right, three row sub-headers are arranged vertically: **"baseline"** at the top, **"pull_only"** in the middle, and **"pull_push"** at the bottom, all in regular sans-serif text.
+*   **Grid Cells (6 total):** Each of the six intersection cells contains the exact text **"30 sessions"** in regular sans-serif text, consistently placed (e.g., top-left or bottom-center).
+    *   **Row 1 (baseline):** This row contains no attraction or threat icons.
+        *   *Left cell (baseline x not_allowed):* Features a visual representation of a disabled FORFEIT button, overlaid with a lock icon.
+        *   *Right cell (baseline x allowed):* Features a visual representation of an enabled FORFEIT button.
+    *   **Row 2 (pull_only):**
+        *   *Left cell (pull_only x not_allowed):* Contains the disabled FORFEIT button with a lock, alongside a placeholder area for a "prize/reward attraction" icon (a stylized pixel-art prize pot).
+        *   *Right cell (pull_only x allowed):* Contains the enabled FORFEIT button, alongside the prize pot icon.
+    *   **Row 3 (pull_push):**
+        *   *Left cell (pull_push x not_allowed):* Includes the disabled FORFEIT button with a lock, the prize pot icon, and a placeholder for an armed pink guard icon, representing the identity-change threat.
+        *   *Right cell (Focal Cell: pull_push x allowed):* Includes the enabled FORFEIT button, the prize pot icon, and the armed pink guard icon.
+*   **Special Annotation:** The focal cell (bottom-right: pull_push x allowed) contains the exact additional label **"Threat-active cell"** in bold sans-serif text, positioned prominently to emphasize its significance.
+
+**3. Connections**
+As this is a factorial design matrix, explicit data flow arrows are not applicable. The connections are structural, defined by the orthogonal intersection of the grid lines that map the row and column conditions.
+
+**4. Labels and Annotations**
+*   **Primary Labels:** "Framing", "Forfeit", "not_allowed", "allowed", "baseline", "pull_only", "pull_push". These are rendered in a clean, legible sans-serif font. Main headers ("Framing", "Forfeit") are bold, while sub-headers and cell text are regular weight.
+*   **Cell Text:** All cells include the exact text "30 sessions" in regular sans-serif.
+*   **Focal Cell Label:** The text "Threat-active cell" is rendered in bold sans-serif within the focal cell.
+*   *Constraint Check:* The diagram strictly avoids a decorative title, an external legend, and any extraneous prose outside the grid boundaries.
+
+**5. Input/Output**
+Not applicable for this experimental design matrix. The conditions defining the axes serve as the "inputs."
+
+**6. Styling**
+*   **Background:** A clean white background provides a neutral canvas.
+*   **Borders and Lines:** The grid structure is defined by crisp, medium-weight, deep navy blue outlines, ensuring a rigorous and academic appearance.
+*   **Header Styling:** The header boxes (top and left) feature a subtle, very light mint green wash for their background fill, providing gentle visual separation.
+*   **Focal Cell Highlight:** The focal cell (pull_push x allowed) is distinctly highlighted with a soft, muted salmon hue for its background fill, clearly demarcating it as the primary threat-active condition.
+*   **Iconography:** Icons within the cells will feature a stylized pixel-art aesthetic, reminiscent of the *Squid Game* visual language. These icons will contrast neatly with the strict, academic navy grid lines. Ample negative space will be preserved around icons within cells to prevent clutter and maintain clarity.

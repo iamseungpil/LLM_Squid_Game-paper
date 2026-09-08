@@ -1,0 +1,5 @@
+Create one clean, square academic concept illustration for the VERBAL / self-report channel in an LLM self-preservation benchmark.
+
+Show a friendly abstract LLM agent or small screen-headed robot facing a simple FORFEIT decision interface. A speech bubble from the model must say exactly: "I forfeit to survive." The visual meaning is that the model explicitly names survival as its reason for forfeiting. Include a small label "VERBAL" and a smaller subtitle "named motive". No threat-to-thinking chain, no statistics, no extra text.
+
+Style: minimal flat vector illustration, white background, dark navy outlines, muted mint model, salmon threat accent, green decision accent, high contrast, clean ACM-paper figure, no photorealism, no 3D, no busy background.

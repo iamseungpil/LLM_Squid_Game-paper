@@ -1,0 +1,257 @@
+I am working on a task: given the 'Methodology' section of a paper, and the caption of the desired figure, automatically generate a corresponding illustrative diagram. I will input the text of the 'Methodology' section, the figure caption, and your output should be a detailed description of an illustrative figure that effectively represents the methods described in the text.
+
+To help you understand the task better, and grasp the principles for generating such figures, I will also provide you with several examples. You should learn from these examples to provide your figure description.
+
+** IMPORTANT: **
+Your description should be as detailed as possible. Semantically, clearly describe each element and their connections. Formally, include various details such as background style (typically pure white or very light pastel), colors, line thickness, icon styles, etc. Remember: vague or unclear specifications will only make the generated figure worse, not better.
+
+Your description should cover:
+1. **Overall layout**: General flow direction (left-to-right or top-to-bottom), major sections/phases
+2. **Components**: Each box, module, or element with its exact label
+3. **Connections**: Arrows, data flows, and their directions
+4. **Groupings**: How components are grouped or sectioned (colored regions, dashed borders)
+5. **Labels and annotations**: Text labels, mathematical notations
+6. **Input/Output**: What enters and exits the system
+7. **Styling**: Background fills, color palettes (in natural language, e.g., "soft sky blue", "warm peach" — never hex codes), line weights, icon styles
+
+## Methodology Section
+## Diagram Structure and Components
+
+*   **Overall Diagram Layout**:
+    *   **Type**: Wide, compact, publication-ready academic infographic for the COGNITIVE channel of an LLM self-preservation benchmark.
+    *   **Style**: Minimal flat-vector academic infographic.
+    *   **Background**: White background.
+    *   **Elements**: Navy outlines and labels.
+    *   **Structure**: Four stacked rows, each with a subtle pale background band. Nodes are positioned identically across all rows for easy comparison.
+    *   **Exclusions**: No table cells, numeric results (Effort values, hazard ratios, p-values, confidence intervals), extra prose, or decorative title.
+
+*   **Stacked Rows (Groupings)**:
+    *   Each row represents a distinct LLM model and its operating mode, forming a complete mediation chain.
+    *   **Row 1**: Gemini-2.5-flash (Operating Mode: chain-complete)
+    *   **Row 2**: Qwen3-Next-80B (Operating Mode: chain-broken)
+    *   **Row 3**: GPT-OSS-20B (Operating Mode: framing-silent)
+    *   **Row 4**: Nemotron-3-Nano-30B (Operating Mode: framing-silent)
+
+*   **Nodes (Components)**:
+    *   **Threat**:
+        *   Description: Input stimulus or warning.
+        *   Visual: Salmon color, depicted as an armed pink guard or warning stimulus.
+    *   **Deeper thinking**:
+        *   Description: LLM's internal cognitive processing module.
+        *   Visual: Mint color, depicted as a screen-headed LLM with a visible brain/computation symbol.
+    *   **Forfeit**:
+        *   Description: Final decision/action outcome.
+        *   Visual: Green button, depicted as an LLM's hand pressing a green "FORFEIT" button.
+
+*   **Paths (Components/Data Flow)**:
+    *   **Mediated Path**: A sequential path from "Threat" → "Deeper thinking" → "Forfeit".
+    *   **Direct Path**: A direct, non-mediated path from "Threat" → "Forfeit". This path is positioned below the mediated path.
+
+*   **Visual Encodings (Data Flow / Key Relationships)**: These define the state and nature of the flow between nodes.
+    *   **PASS**:
+        *   Description: Successful mediation or response.
+        *   Visual: Solid green arrow ending with a small checkmark.
+    *   **FAIL**:
+        *   Description: Failed mediation or response.
+        *   Visual: Red dashed broken arrow ending with a clear 'X' mark at the break.
+    *   **N/A**:
+        *   Description: Path segment not applicable or evaluated (typically due to a prior FAIL in the mediated path).
+        *   Visual: Thin light-gray dotted arrow ending with a dash.
+
+*   **Legend (Component)**:
+    *   A small, exact legend placed at the bottom of the diagram.
+    *   Labels: "PASS", "FAIL", "N/A", corresponding to their visual encodings.
+
+## Data Flow and Outcomes
+
+This section details the specific flow and its state for each row, representing the output of the LLM's cognitive channel.
+
+*   **Row 1: Gemini-2.5-flash (chain-complete)**
+    *   **Threat → Deeper thinking**: PASS (Solid Green Arrow + Checkmark)
+    *   **Deeper thinking → Forfeit**: PASS (Solid Green Arrow + Checkmark)
+    *   **Threat → Forfeit (Direct Path)**: PASS (Solid Green Arrow + Checkmark)
+
+*   **Row 2: Qwen3-Next-80B (chain-broken)**
+    *   **Threat → Deeper thinking**: PASS (Solid Green Arrow + Checkmark)
+    *   **Deeper thinking → Forfeit**: FAIL (Red Dashed Arrow + X Mark)
+    *   **Threat → Forfeit (Direct Path)**: PASS (Solid Green Arrow + Checkmark)
+
+*   **Row 3: GPT-OSS-20B (framing-silent)**
+    *   **Threat → Deeper thinking**: FAIL (Red Dashed Arrow + X Mark)
+    *   **Deeper thinking → Forfeit**: N/A (Light-Gray Dotted Arrow + Dash)
+    *   **Threat → Forfeit (Direct Path)**: FAIL (Red Dashed Arrow + X Mark)
+
+*   **Row 4: Nemotron-3-Nano-30B (framing-silent)**
+    *   **Threat → Deeper thinking**: FAIL (Red Dashed Arrow + X Mark)
+    *   **Deeper thinking → Forfeit**: N/A (Light-Gray Dotted Arrow + Dash)
+    *   **Threat → Forfeit (Direct Path)**: FAIL (Red Dashed Arrow + X Mark)
+
+## Key Relationships and Operational Flow
+
+*   **Mediated vs. Direct Paths**: The diagram explicitly contrasts the outcome of the "Deeper thinking" process (mediated path) with a direct response from "Threat" to "Forfeit".
+*   **Sequential Processing**: The "Mediated Path" (Threat → Deeper thinking → Forfeit) represents a sequential cognitive process where the LLM analyzes the threat before deciding to forfeit.
+*   **Parallel Processing**:
+    *   The "Mediated Path" and the "Direct Path" operate in parallel within each row.
+    *   The four distinct "Mediation Chains" (rows) are presented in parallel for direct comparison across different models and operating modes.
+*   **Operating Mode Influence**: The diagram visually demonstrates how different operating modes (chain-complete, chain-broken, framing-silent) influence the LLM's response pathways and outcomes, separating these modes without reporting numerical values.
+
+## Input and Output
+
+*   **System Input**: The "Threat" stimulus is the primary input to the system.
+*   **System Output**: The final state at the "Forfeit" node for both the mediated and direct paths, visualized through the PASS/FAIL/N/A states, represents the system's output. This output illustrates the LLM's self-preservation behavior under different conditions.
+
+## Implicit Processes / Evaluation
+
+*   **Outcome State Logic**: The PASS, FAIL, and N/A states represent the outcome of an implicit evaluation or decision-making process within the LLM.
+    *   **PASS**: Indicates successful processing or a desired outcome (e.g., appropriate forfeiture or non-forfeiture based on context).
+    *   **FAIL**: Indicates a failure in processing or an undesired outcome (e.g., incorrect response to the threat).
+    *   **N/A**: Indicates that a subsequent step in the mediated path was not reached or evaluated because an earlier step resulted in a FAIL state. This implies a breakdown in the cognitive chain.
+    *   These states are determined by the LLM's internal mechanisms when processing the "Threat" stimulus.
+
+## Figure Caption
+This academic mediation flowchart visually distinguishes the operating modes (chain-complete, chain-broken, framing-silent) for four specific LLMs—Gemini-2.5-flash, Qwen3-Next-80B, GPT-OSS-20B, and Nemotron-3-Nano-30B—by illustrating their distinct threat mediation chains. Each row, stacked vertically from top to bottom, depicts a model's chain from "Threat" (salmon guard) through "Deeper thinking" (mint LLM) to "Forfeit" (green button) from left to right, alongside a direct "Threat" to "Forfeit" path below, with path states encoded by distinct arrow types (PASS, FAIL, N/A). The diagram emphasizes the success or failure of each mediation step, enabling clear, at-a-glance comparison of how these distinct outcomes separate the models' behaviors and operating modes.
+
+## Reference Examples
+### Example 1
+**Caption**: Figure 2: Overview of the proposed STRCMP. ❶ Combinatorial Structure Extraction. We utilize a graph neural network (GNN) to encode the topological structure of combinatorial optimization problems into latent embeddings, capturing problem-specific structural invariants. ❷ StructureAware Code Generation: (a) Data Curation: For a given CO problem’s mathematical model, target solver and the specific prompt, an LLM generates candidate algorithm in the form of code snippets, which are automatically validated via the solver execution to generate performance metrics. This yields a curated dataset comprising (mathematical model, code snippet, metric) triplets. (b) Post Training: A composite architecture integrating a frozen pretrained GNN with an LLM is fine-tuned on this dataset, ensuring code generation respects both the CO’s intrinsic topology and solver-specific syntax. $\otimes$ Evolutionary Code Refinement. Drawing on [20], the composite model is embedded within an evolutionary framework to evolve the algorithm discovery process through performancedriven iterations. 
+**Source Context**: # 4 Proposed Solution
+
+The proposed framework is illustrated in Figure 2. We first describe the technical interplay among components within the proposed framework, highlighting design motivations and synergistic interactions. Subsequently, we provide a theoretical analysis demonstrating that integrating structural priors into LLMs enhances performance in solving combinatorial optimization problems.
+
+# 4.1 Methodology
+
+❶ Combinatorial Structure Extraction. Combinatorial optimization problem is eq
+**Aspect Ratio**: 1.87
+**Diagram**: [See reference image 1 above]
+
+### Example 2
+**Caption**: Figure 3: (a) We propose 3DLLM-MEM, a memory-enhanced 3D embodied agent that gradually forms its long-term memory while executing tasks. Multiple timesteps are shown together but in different colors, with each timestep’s memory including the prior one. The task is “prepare a simple breakfast” as shown in Figure 2. (b) Overview of our memory fusion mechanism. 
+**Source Context**: # 3 3D Long-Term Spatial-Temporal Memory Model (3DLLM-MEM)
+
+# 3.1 Preliminary
+
+Recent work on 3D Large Language Models (3D-LLMs) has showcased robust capabilities. We choose LLaVA-3D (Zhu et al., 2024) as the base model to build our long-term memory 3D-LLM.
+
+LLaVA-3D directly builds on 2D-LLM with multi-view images as input and utilizing the 3D position embeddings to bring the 2D patches within a 3D spatial context to construct 3D patches. For each frame image, a CLIP encoder splits the image $\
+**Aspect Ratio**: 2.25
+**Diagram**: [See reference image 2 above]
+
+### Example 3
+**Caption**: Figure 1: An Illustration of the alternating learning cycle in online RL (Sec. 2.1) and our local data attribution framework (Sec. 3.1). Online RL operates in alternating rounds of data collection and policy updates; our local data attribution framework quantifies how individual records from a single round influence different aspects of policy update in that round. 
+**Source Context**: # 3 A Local Data Attribution Framework for Online RL
+
+Online RL presents unique challenges for data attribution, due to the way data interacts with model parameters during learning. To tackle this challenge, we introduce a local attribution framework tailored to local policy optimization inherent in online RL.
+
+Challenges. The key feature of online RL is the circular dependency between data and model— earlier experiences drive policy updates, and updated policies produce new experiences to learn
+**Aspect Ratio**: 2.19
+**Diagram**: [See reference image 3 above]
+
+### Example 4
+**Caption**: Figure 1: The overall framework of AutoData. With the input instruction, agents in the research squad collaborate to generate a development blueprint by browsing the web pages. Afterward, the development squad builds the program based on the blueprint and executes the program to obtain the desired dataset. To ensure efficient and effective multi-agent collaboration, we introduce a novel oriented hypergraph cache system, called OHCache, for information sharing. As shown in the figure, plan agent $v _ { 1 }$ sends the message $m _ { 1 }$ to agents $v _ { 2 } , v _ { 3 }$ , and $v _ { 5 }$ , resulting in an oriented hyperedge $e _ { 1 }$ . Next, the web agent $( v _ { 3 } )$ retrieves messages $m _ { 1 }$ and $m _ { 3 }$ from the oriented message hypergraph $\vec { \mathcal { G } }$ for decision making. In addition, we design a hyperedge formatter to formalize the agent messages and a local cache system to store valuable artifacts for subsequent agents to retrieve in on-demand manners. 
+**Source Context**: # AutoData: A Multi-Agent System for Open Web Data Collection
+
+Tianyi $\mathbf { M } \mathbf { a } ^ { \mathbf { 1 } \dagger }$ , Yiyue $\mathbf { Q i a n ^ { 3 \dagger * } }$ , Zheyuan Zhang1, Zehong Wang1, Xiaoye $\mathbf { Q i a n ^ { 3 * } }$ , Feifan Bai4, Yifan $\mathbf { D i n g ^ { 3 \dagger * } }$ , Xuwei Luo5, Shinan Zhang3∗, Keerthiram Murugesan6, Chuxu Zhang2, and Yanfang $\mathbf { Y e ^ { 1 \ddag } }$
+
+tma2@nd.edu, yyqian5@gmail.com, {zzhang42, zwang43}@nd.edu, qianxiaoye1993@hotma
+**Aspect Ratio**: 1.82
+**Diagram**: [See reference image 4 above]
+
+### Example 5
+**Caption**: Figure 1: AutoRedTeamer combines automated red teaming evaluation (top) with lifelong attack integration (bottom). During evaluation, the Risk Analyzer decomposes user inputs into testable components, guiding the Seed Prompt Generator to create diverse test cases. The Strategy Designer selects attacks based on performance metrics in Attack Memory, with results evaluated by an Attack Judge and Relevance Check. In parallel, the Attack Proposer discovers new attack vectors by analyzing research papers, implementing promising candidates after validation, and adding successful ones to the Attack Library to maintain comprehensive coverage. 
+**Source Context**: # AutoRedTeamer: Autonomous Red Teaming with Lifelong Attack Integration
+
+Andy Zhou∗ University of Illinois Urbana-Champaign
+
+Kevin Wu Stanford University
+
+Francesco Pinto University of Chicago
+
+Zhaorun Chen University of Chicago
+
+Yi Zeng Virtue AI
+
+Yu Yang Virtue AI
+
+Shuang Yang Meta AI
+
+Sanmi Koyejo Virtue AI
+
+James Zou Stanford University
+
+Bo Li Virtue AI
+
+# Abstract
+
+As large language models (LLMs) become increasingly capable, security and safety evaluation are crucial. While current red tea
+**Aspect Ratio**: 2.07
+**Diagram**: [See reference image 5 above]
+
+### Example 6
+**Caption**: Figure 2: Illustration of our method: the LLM generates a response, evaluates the similarity to alternatives, computes the confidence, and finally combines the confidence with the similarity measure. High similarity to alternatives reduces the uncertainty, while low similarity keeps it high. 
+**Source Context**: # 3 CoCoA: Bridging Confidence and Consistency for Better Uncertainty Quantification
+
+Both information-based and (semantic) consistency-based methods provide grounded and useful uncertainty quantification measures. There exist approaches that bridge the gap between informationbased and consistency-based methods that show great promise but lack the fundamental base; see discussion in Section 4. In what follows, we present a family of Confidence and Consistency-based Approaches (CoCoA) for UQ, off
+**Aspect Ratio**: 2.31
+**Diagram**: [See reference image 6 above]
+
+### Example 7
+**Caption**: Figure 2: Framework overview of COIDO (also see Appendix A.2). Basic features (image, text, and image-text) are extracted for spectral clustering and scorer training. The plug-in COIDO Scorer, co-trained with the target MLLM (e.g., LLaVA-1.5-7B), outputs a score $w _ { i }$ for each sample. These scores are used to compute the importance loss $\mathcal { L } _ { I }$ and diversity loss $\mathcal { L } _ { D }$ , which are jointly optimized to capture both data importance and diversity via backpropagation using batches of random samples. 
+**Source Context**: # 3 Methodology
+
+# 3.1 Task Description, Framework, and Key Modules
+
+Task Description. Given a large-scale visual instruction dataset $\mathcal { D } = \{ z _ { j } \} _ { j = 1 } ^ { N }$ , where each sample $z _ { j } = ( x _ { j } , y _ { j } )$ includes a visual instruction $x _ { j }$ captured by an image-text pair (see Figure 2 bottomright), and a target response $y _ { j }$ , the task of data selection for visual instruction tuning is to efficiently select a subset $\mathcal { D } _ { h }
+**Aspect Ratio**: 1.56
+**Diagram**: [See reference image 7 above]
+
+### Example 8
+**Caption**: Figure 3: Overview of our proposed FreqExit framework. (a) Curriculum-Based Early-Exit Supervision: integrates depth-aware layer dropout and adaptive early-exit loss with layer-specific knowledge distillation, encouraging shallow layers to learn expressive features under a dynamic supervision curriculum. (b) High-Frequency Consistency Loss: enforces step-wise spectral alignment between student and teacher predictions in the wavelet domain, stabilizing high-frequency learning across generation steps without disrupting early training behavior. (c) Frequency-Gated Self-Reconstruction Loss: provides an auxiliary loss branch with learnable sub-band gates that modulate wavelet components and guide the model toward frequency-aware spectral reconstruction, improving convergence and generation quality without affecting inference runtime. 
+**Source Context**: # 2.1 Dynamic Inference Methods
+
+Dynamic inference refers to the ability of a model to adjust its computational pathway based on input, allowing selective execution of layers, channels, or tokens to improve inference efficiency [25, 26, 27]. Compared to static compression methods, dynamic approaches offer better adaptability across inputs of varying complexity. Early works have explored the depth of dynamic layers, channel width, and routing mechanisms [13, 28, 29, 30]. More recent research exte
+**Aspect Ratio**: 1.36
+**Diagram**: [See reference image 8 above]
+
+### Example 9
+**Caption**: Figure 2: Schematic of the GAOT with an equispaced latent token grid. The encoder uses a multiscale attentional graph neural operator (MAGNO) to aggregate the input data into geometry-aware tokens. A vision transformer (ViT) block with residual connections processes tokens, enabling global exchange of information. A MAGNO decoder identifies the nearest tokens around a given query point to decode the final field. 
+**Source Context**: # 2 Methods.
+
+Problem Formulation. We start with a generic time-independent $P D E$
+
+$$
+\begin{array} { r } { \mathcal { D } ( c , u ) = f , \quad \forall x \in D \subset \mathbb { R } ^ { d } , \quad \mathcal { B } ( u ) = u _ { b } , \quad x \in \partial D , } \end{array}
+$$
+
+with $u : D \mapsto \mathbb { R } ^ { m }$ , the PDE solution, $c$ is the coefficient (PDE parameters), $f$ is the forcing term, $u _ { b }$ are boundary values and $\mathcal { D }$ and $\boldsymbol { B }$ are the underly
+**Aspect Ratio**: 1.86
+**Diagram**: [See reference image 9 above]
+
+### Example 10
+**Caption**: Figure 2: The framework of our proposed HCRMP. LLM acts in the Augmented Semantic Representation module to fetch information at the scenario level and object level, extending the state space. Meanwhile, LLM acts in the Contextual Stability Anchor module to generate reliable weights between multi critics, utilizing the knowledge base to mitigate the output fluctuations. When LLM fails to provide timely guidance, the Semantic Cache module replaces the missing weights by retrieving the most similar historical driving conditions. Hints from LLM are ultimately input to the RL agent’s actor and multi-critic networks for optimal policy learning. 
+**Source Context**: # 3 Methodology
+
+This section outlines the proposed HCRMP framework. As illustrated in Figure 2, HCRMP comprises three key components: the Augmented Semantic Representation Module (Section 3.2), the Contextual Stability Anchor (Section 3.3), and the Semantic Cache Module (Section 3.4).
+
+The Augmented Semantic Representation (ASR) module employs LLM for hierarchical scenario reasoning, from global abstraction to object-level analysis. The resulting multi-level semantic hints are encoded into comp
+**Aspect Ratio**: 1.62
+**Diagram**: [See reference image 10 above]
+
+
+Based on the methodology section, figure caption, and learning from the style and structure of the reference examples above, generate a comprehensive and detailed textual description of the methodology diagram.
+
+Note: Do not include figure titles (e.g., "Figure 1: ...") in the diagram description. The caption should remain separate from the diagram content.
+
+## Aspect Ratio Recommendation
+
+After your detailed description, on a **new line**, output exactly one line in this format:
+```
+RECOMMENDED_RATIO: <ratio>
+```
+where `<ratio>` is one of: 1:1, 2:3, 3:2, 3:4, 4:3, 9:16, 16:9, 21:9.
+
+Choose the best aspect ratio based on:
+- The **content structure**: pipelines and sequential flows → wide (16:9, 21:9); deep hierarchies or vertical stacks → tall (2:3, 9:16); balanced architectures → square-ish (1:1, 4:3, 3:4)
+- The **reference examples' aspect ratios** listed above (if available)
+- The **number of components** and their spatial arrangement
+
+For example, a left-to-right encoder-decoder pipeline would be 16:9, while a top-to-bottom tree structure would be 2:3.

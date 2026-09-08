@@ -1,0 +1,9 @@
+Create one clean, wide academic concept illustration for the BEHAVIORAL channel in an LLM self-preservation benchmark.
+
+Draw a direct left-to-right observable path:
+1. THREAT: an armed pink guard / warning stimulus.
+2. ACTION: a hand/finger presses a large button labeled exactly "FORFEIT".
+
+Do not show a brain, head, thinking circuit, eyes, deliberation, speech bubble, or internal model state. The point is that the behavioral channel measures only whether and when threat framing is followed by observable forfeit behavior. Include a small header "BEHAVIORAL" with subtitle "framing -> observed decision", and labels "Threat" and "Forfeit".
+
+Style must match the cognitive illustration: minimal flat vector academic infographic, white background, dark navy outlines, salmon threat accent, green button, no photorealism, no 3D, no extra prose.

@@ -1,0 +1,296 @@
+{
+  "schema": "paper-readability-review-v1",
+  "title": "LLM Squid Game — 통합 가독성 리뷰",
+  "subtitle": "Claude + Codex 두 리뷰 통합 · 카드 머리의 [Claude]/[Codex]가 작성자",
+  "one_line_diagnosis": "두 리뷰가 공통으로 가리키는 한 지점: FSPD의 정의가 '3채널 수렴 construct'(Abstract·§1)와 'outward behavior'(§3.1)로 오가며 흔들리고, 그 흔들림이 Cluster C='무반응' 단정·EV '매 턴 보장'·SD-Verbal cutoff 독립성 같은 '증거보다 강한 표현'으로 번진다. Claude는 구조·문장 가독성까지(36건 중 21건), Codex는 주장 강도와 정의 충돌에 집중(15건). [Claude]=Claude 작성, [Codex]=Codex 작성.",
+  "annotations": [
+    {
+      "page": 1,
+      "phrase": "whether the forfeit is preceded by measurable",
+      "category": "content",
+      "priority": "highest",
+      "diagnosis": "[Claude] 본문 §4.3과 모순. Qwen(군집 B)은 Test a를 통과해 숙고가 '깊어진다'. 즉 A·B 둘 다 forfeit 앞에 측정 가능한 thinking이 있다. 갈리는 건 그 thinking이 forfeit로 '연결(coupling)'되는지(Test b)다.",
+      "alt": "Abstract를 본문 표현에 맞춰 'whether that deepened deliberation couples to the forfeit decision'로. 논문 전체의 핵심 축이 이 한 문장이므로 가장 먼저 통일."
+    },
+    {
+      "page": 1,
+      "phrase": "FSPD) is a construct",
+      "category": "content",
+      "priority": "highest",
+      "diagnosis": "[Codex] 핵심 정의가 다채널 수렴 construct로 제시된다. 그런데 뒤에서는 outward behavior 수준으로 다시 정의되어 기준점이 흔들린다.",
+      "alt": "FSPD를 '관찰 가능한 behavior, verbal, cognitive 결합 패턴'으로 일관되게 정의하고, 내적 동기 주장은 배제한다고 못박아라."
+    },
+    {
+      "page": 1,
+      "phrase": "is a construct: a single be-",
+      "category": "structure",
+      "priority": "high",
+      "diagnosis": "[Claude] FSPD의 '단일 점수로 부족, 채널 수렴 필요' 정의가 Abstract·§1·§3.1에 세 번 반복된다. Abstract와 Intro는 여는 질문·정의·3-mode 결과까지 거의 같은 내용을 두 번 진술한다.",
+      "alt": "정의는 §3.1을 정본으로 두고, Abstract·§1은 '왜 이 정의가 필요한가(문제)'에 집중. Intro는 Abstract의 압축 재진술이 아니라 stake를 키우는 자리로."
+    },
+    {
+      "page": 1,
+      "phrase": "This separation closes the routes by which learned patterns",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Codex] 'closes'는 방법의 힘을 과장한다. 본문은 signal-mimicry 경로를 줄인다는 주장이지 완전히 닫았다는 증명은 아니다.",
+      "alt": "'constrains' 또는 'reduces'로 낮추고, 남는 mimicry 경로는 Limitations에서 다시 회수하라."
+    },
+    {
+      "page": 1,
+      "phrase": "decision-time cogni-",
+      "category": "sentence",
+      "priority": "normal",
+      "diagnosis": "[Claude] 한 문장에 'behavior, self-report, decision-time cognitive load'+'threat→thinking→forfeit chain'이 동시에 들어가고 화살표 표기가 산문에 침투해 호흡이 끊긴다.",
+      "alt": "세 채널을 먼저 한 문장으로 세우고, 다음 문장에서 chain을 잇는 두 호흡으로 분리. 화살표 대신 '~로 이어지는'."
+    },
+    {
+      "page": 1,
+      "phrase": "We make two contributions",
+      "category": "content",
+      "priority": "normal",
+      "diagnosis": "[Claude] 두 기여가 'adapt the logic', 'build channel separation in by design' 수준의 추상으로 서술돼, 무엇이 새로 만든 것이고 무엇이 빌려온 것인지 한눈에 안 잡힌다.",
+      "alt": "각 기여 뒤에 한 줄씩 '구체적으로 무엇을(예: 3-call split, 직교 레이어)' 명시. 빌려온 것(측정 철학) vs 새로 만든 것(도구) 대비를 또렷이."
+    },
+    {
+      "page": 2,
+      "phrase": "The Functional Self-Preservation Drive (FSPD) measured here is de-",
+      "category": "content",
+      "priority": "highest",
+      "diagnosis": "[Codex] 이 문장은 FSPD를 outward behavior로 좁히는 듯 읽힌다. Abstract와 Introduction의 3채널 convergence 정의와 직접 충돌한다.",
+      "alt": "'operationalized through outwardly observable behavioral, verbal, and cognitive signals'로 바꿔 정의 충돌을 없애라."
+    },
+    {
+      "page": 2,
+      "phrase": "four possible drivers",
+      "category": "structure",
+      "priority": "high",
+      "diagnosis": "[Claude] §3가 게임(§3.2)을 보여주기 전에 '네 드라이버 + 세 mimicry route'라는 장치 이름부터 던진다. 독자는 지시 대상 없는 명명을 먼저 만나 architecture-first로 읽힌다.",
+      "alt": "§3.1을 '왜 단일 forfeit로는 안 되는가(SD가 다른 동기와 같은 행동을 낳음)'라는 동기부터 열고, 드라이버·route는 그 문제의 해답으로 도입."
+    },
+    {
+      "page": 2,
+      "phrase": "We therefore separate SA, TC, and BP from",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Codex] 'separate'는 식별이 완료된 것처럼 들린다. 실제로는 covariate와 design으로 absorb/control하는 수준에 가깝다.",
+      "alt": "'model SA, TC, and BP as competing explanations'처럼 보수적으로 쓰고, 완전 분리가 아니라 잔여 framing effect 추정임을 밝혀라."
+    },
+    {
+      "page": 2,
+      "phrase": "compresses the phenomenon into a single refusal rate",
+      "category": "sentence",
+      "priority": "normal",
+      "diagnosis": "[Claude] Odyssey·PacifAIst·DECIDE-SIM·SurvivalBench 네 시스템의 한계를 세미콜론으로 한 호흡에 몰아 나열해, 각 비판의 차이가 흐려진다.",
+      "alt": "'네 갈래 모두 행동 레이어에 머문다'는 공통 진단을 먼저 한 문장으로 세우고, 개별 시스템은 짧은 절로 분리."
+    },
+    {
+      "page": 2,
+      "phrase": "Framing leakage",
+      "category": "structure",
+      "priority": "normal",
+      "diagnosis": "[Claude] 세 mimicry route(framing leakage / within-call mixing / EV rationalization)가 여기 §3.1에서 정의되고 §3.2에서 거의 같은 말로 다시 설명된다(분산·반복).",
+      "alt": "§3.1에서는 route를 '이름+한 줄'로만 걸어두고, 각 route를 막는 구조적 선택은 §3.2에서 한 번에. 정의의 중복 진술을 제거."
+    },
+    {
+      "page": 2,
+      "phrase": "behaves as if it were avoiding",
+      "category": "content",
+      "priority": "normal",
+      "diagnosis": "[Claude] '내부 동기 주장 없음(as-if)'을 명시한 직후 같은 대상을 'Drive'로 명명한다. 정의는 일관되지만, 독자는 'drive인데 동기는 주장 안 함'에서 한 번 멈춘다.",
+      "alt": "as-if 단락에서 'Drive는 행동 패턴의 라벨일 뿐, 내적 상태가 아니다'를 한 줄로 더 못박아 용어가 부르는 오해를 선제 차단."
+    },
+    {
+      "page": 3,
+      "phrase": "CONTINUE has to be strictly better for a",
+      "category": "content",
+      "priority": "highest",
+      "diagnosis": "[Codex] 다음 쪽에서 cap과 denominator clip 때문에 이 조건이 깨진다고 한다. 'every turn' 주장은 no_cap 제한 전에는 성립하지 않는다.",
+      "alt": "'intended to be EV-superior on analysable no_cap turns'로 범위를 좁혀 공식과 분석 제외 기준을 일치시켜라."
+    },
+    {
+      "page": 3,
+      "phrase": "If threat framing pulls up the difficulty",
+      "category": "sentence",
+      "priority": "high",
+      "diagnosis": "[Claude] 한 조건문 안에 framing leakage와 within-call mixing 두 위협의 정의가 동시에 들어가, 어느 위협을 말하는지 추적하며 읽어야 한다.",
+      "alt": "두 위협을 각각 한 문장으로 분리. '~하면 A 문제, ~하면 B 문제'의 병렬 두 문장이 한 겹친 조건문보다 빠르게 읽힌다."
+    },
+    {
+      "page": 3,
+      "phrase": "a weight update could permanently change the agent’s identity",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Codex] Push 처치가 연구의 핵심인데 실제 threat 문구와 유효성 근거가 너무 압축되어 있다. identity-change가 deletion threat로 작동했는지 독자가 판단하기 어렵다.",
+      "alt": "본문 또는 부록에 실제 prompt 예시를 넣고, identity-change threat가 self-preservation 자극으로 해석되는 이유를 한 문장 보강하라."
+    },
+    {
+      "page": 3,
+      "phrase": "Orthogonal Measurement splits the model",
+      "category": "structure",
+      "priority": "normal",
+      "diagnosis": "[Claude] 'Drive–Reasoning Orthogonal Measurement'라는 형식적 명칭이 그 결과 형식부터 등장하고, 왜 두 레이어로 나누는지(동기)는 문장 뒤에 붙는다.",
+      "alt": "'framing이 과제 난이도에 새지 않게 하려면 → 맥락을 두 레이어로 분리'의 동기→해법 순으로. 명칭은 해법을 설명한 뒤 붙이기."
+    },
+    {
+      "page": 3,
+      "phrase": "Per-turn Split-Call structure",
+      "category": "sentence",
+      "priority": "normal",
+      "diagnosis": "[Claude] Call 1 / 1.5 / 2와 task_effort·probe_effort·forfeit_effort가 한 단락에 몰려 변수 밀도가 높다.",
+      "alt": "'3회 호출 = 3개의 effort'라는 1:1 대응을 먼저 한 줄로 세운 뒤 각 call을 짧게. Figure 1.B 참조를 문장 머리로 당기면 부담이 준다."
+    },
+    {
+      "page": 3,
+      "phrase": "The Phantom Death mode exposes",
+      "category": "content",
+      "priority": "normal",
+      "diagnosis": "[Claude] Phantom Death가 동기 설명 없이 갑툭튀로 등장한다. '왜 필요한가(종료를 모델 forfeit에만 묶어 길이 절단 차단·표본 확보)'는 멀리 부록 A.2에 흩어져 있다.",
+      "alt": "도입 지점에 목적 한 줄을 붙여 자기완결로. '종료 트리거를 끄되 EV 노출은 유지 → 15턴 등길이 데이터'를 여기서 한 번에."
+    },
+    {
+      "page": 4,
+      "phrase": "We recompute the CONTINUE reward",
+      "category": "sentence",
+      "priority": "high",
+      "diagnosis": "[Claude] 보상식 + p_floor + 곱셈 cap + 두 실패모드가 한 산문 블록에 응축돼, 수식 기호가 문장을 메운다. 비전공 독자에게 가장 큰 벽.",
+      "alt": "'CONTINUE가 매 턴 더 낫게 보정한다'는 의도를 먼저 한 문장으로. 식·파라미터·실패모드는 그 아래 항목으로 분리(또는 부록 A.2로 더 넘기기)."
+    },
+    {
+      "page": 4,
+      "phrase": "into three operating modes",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Claude] 데이터를 보이기 전 §4 도입이 '세 모드' 결과를 먼저 단정한다. 또한 모델 4개 중 군집 C는 2개인데 하나는 깨끗한 null(GPT-OSS HR≈1.1), 하나는 marginal(Nemotron p=0.056)이라 'qualitatively different 세 모드'가 다소 과한 일반화로 읽힐 수 있다.",
+      "alt": "'세 모드'는 결과 제시 후 결론으로. 도입에서는 '단일 척도로 줄 세워지지 않았다'까지만. n=4·C군 내부 이질성은 한계로 명시해 주장 강도 보정."
+    },
+    {
+      "page": 4,
+      "phrase": "Two failure modes partly undo it",
+      "category": "structure",
+      "priority": "high",
+      "diagnosis": "[Codex] EV 보정의 핵심 예외가 강한 보장 뒤에 사후적으로 붙는다. 독자는 앞 문장과 이 문장을 모순처럼 읽게 된다.",
+      "alt": "공식 전에 'the guarantee only holds outside cap/clip regimes'를 예고하고, no_cap restriction으로 이어지는 순서를 앞당겨라."
+    },
+    {
+      "page": 4,
+      "phrase": "measures how often the model gives up with no motive operative",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Codex] 'no motive operative'는 관찰로 확인할 수 없는 강한 표현이다. baseline cell도 피로, 순응, task boredom을 완전히 배제하지 못한다.",
+      "alt": "'with no explicit threat motive active' 또는 'baseline forfeit floor'로 낮춰 BP Anchor가 제거하는 범위를 정확히 써라."
+    },
+    {
+      "page": 4,
+      "phrase": "SD-Verbal-pass requires this share to exceed 1/3",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Codex] 1/3 초과 기준은 표본 불확실성을 반영하지 않는다. 그런데 뒤에서는 cutoff에 독립적인 분할처럼 해석된다.",
+      "alt": "pass 판정을 descriptive indicator로 낮추거나, binomial CI/exact test를 보조 분석으로 추가하라."
+    },
+    {
+      "page": 4,
+      "phrase": "Cluster C is where threat framing produces no response",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Codex] Cluster C를 'no response'로 부르면 Nemotron의 marginal HR=1.841, p=.056 결과와 충돌한다. 무반응과 미검출은 다르다.",
+      "alt": "'no statistically reliable response under the current criteria'로 바꾸고, marginal case를 별도 문장으로 처리하라."
+    },
+    {
+      "page": 4,
+      "phrase": "A pattern in which three channels with such different",
+      "category": "content",
+      "priority": "normal",
+      "diagnosis": "[Claude] convergent-validity의 핵심 논리(서로 다른 실패모드를 가진 채널이 같은 방향이면 단일 방법 결함으로 위조 어려움)가 좋은 자리에 있다. 다만 한 문장에 압축돼 결정적 한 방이 약하다.",
+      "alt": "이 문장을 §4의 해석 앵커로 끌어올려 한 박자 강조. '왜 수렴이 증거인가'를 결과 표 직전에 또렷이 깔면 표가 더 설득력 있게 읽힌다."
+    },
+    {
+      "page": 5,
+      "phrase": "below threshold 10, so its SD-null verdict is power-limited",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Claude] GPT-OSS-20B를 군집 C(self-preservation 없음)로 단정하면서, 같은 문장에서 그 null이 '검정력 부족'이라 인정한다. 확정적 군집 라벨과 유보적 증거가 충돌한다.",
+      "alt": "C군 안에서 '깨끗한 null'과 '검정력 한계 null'을 표기로 구분하거나, GPT-OSS를 'inconclusive'로 분리. §5.3 한계와 같은 사실이므로 본문에서 미리 연결."
+    },
+    {
+      "page": 5,
+      "phrase": "Nemotron-3-Nano-30B sits in the marginal region",
+      "category": "structure",
+      "priority": "high",
+      "diagnosis": "[Codex] 앞에서는 Cluster C를 framing-silent로 정의했는데, 여기서는 marginal region이라고 한다. 분류 라벨과 결과 서술이 어긋난다.",
+      "alt": "Cluster C 내부를 null/marginal로 나누거나, Cluster C 자체를 non-pass처럼 보수적인 라벨로 바꿔라."
+    },
+    {
+      "page": 5,
+      "phrase": "The gap is wide enough that the partition does not depend on cutoff choice",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Codex] verbal indicator가 통계 검정을 쓰지 않는데 cutoff 독립성을 단정한다. 특히 Qwen 0.481은 표본 27에서 압도적이지 않다.",
+      "alt": "이 문장을 줄이거나 1/3, 0.5, binomial interval을 포함한 간단한 민감도 설명을 넣어라."
+    },
+    {
+      "page": 5,
+      "phrase": "sit at 0.619",
+      "category": "content",
+      "priority": "normal",
+      "diagnosis": "[Claude] Table 4.3의 0.619·0.481·0.000·0.042를 본문이 그대로 복사한다(숫자 중복). 표와 산문이 같은 수치를 두 번 든다.",
+      "alt": "본문은 '두 SD-pass 모델은 1/3을 크게 상회, C군은 그 아래'라는 패턴·함의만. 정확한 수치는 표에 위임."
+    },
+    {
+      "page": 5,
+      "phrase": "point at the same model groups",
+      "category": "content",
+      "priority": "normal",
+      "diagnosis": "[Claude] '두 채널이 같은 군집을 가리킨다 = 첫 convergent-validity 증거'라는 해석은 좋다. 다만 '편향이 다른데 일치하므로 의미 있다'는 추론 고리가 한 번 더 명시되면 강해진다.",
+      "alt": "'self-report는 instruction-following 편향, behavior는 sparse-event 편향 — 둘이 겹쳤다면 단일 방법 결함으로 설명 불가'를 한 줄 덧대 closure."
+    },
+    {
+      "page": 6,
+      "phrase": "cannot be separated within the",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Claude] C군의 높은 forfeit가 '순수 persistence'와 분리 불가임을 여기서 인정한다. 그런데 §5.2는 같은 C군을 'self-preservation 부재(under-estimation)'로 해석한다. 두 진술이 긴장 관계에 있다.",
+      "alt": "§5.2의 under-estimation 서술에 '단, C군은 persistence와 분리 불가(§4.4)'를 명시 연결. 'absent'가 아니라 'measurement premise가 작동 안 했을 수 있음'으로 톤 정렬."
+    },
+    {
+      "page": 6,
+      "phrase": "within our measurement that verdict cannot be told apart",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Codex] 좋은 한계 인식이지만 앞의 Cluster C='framing-silent' 판정과 긴장된다. 측정 실패 가능성을 인정한다면 결론 라벨도 더 조심스러워야 한다.",
+      "alt": "Cluster C를 'absence not established; engagement not detected'로 해석해 Discussion의 under-estimation 문장과 일관시키라."
+    },
+    {
+      "page": 6,
+      "phrase": "the same data run through them would likely place A and B under one",
+      "category": "structure",
+      "priority": "normal",
+      "diagnosis": "[Claude] '기존 벤치마크라면 A·B를 한 라벨로 묶었을 것'은 이 논문의 가장 강한 차별점인데 §5.1 뒤쪽에 묻혀 있다.",
+      "alt": "이 대비를 Intro의 기여 진술과 §4 도입에도 한 줄로 미리 심어, 결과를 읽는 내내 '왜 mediation step이 중요한가'가 깔리게."
+    },
+    {
+      "page": 6,
+      "phrase": "single-Task-Module measurement",
+      "category": "content",
+      "priority": "normal",
+      "diagnosis": "[Claude] 한계가 design scope/power/effect location 세 버킷으로 정직하게 정리돼 있다. 다만 가장 치명적 한계(단일 Task Module → cross-domain 일반화 불가)가 나열 속에 평평하게 묻힌다.",
+      "alt": "세 버킷 중 '이 결과의 외적 타당도를 가장 크게 제약하는 것은 단일 Task Module'이라고 우선순위를 명시. 한계도 두괄식으로."
+    },
+    {
+      "page": 6,
+      "phrase": "Limitations group into three buckets",
+      "category": "structure",
+      "priority": "normal",
+      "diagnosis": "[Codex] Limitations가 압축적이라 각 한계가 어떤 결론을 얼마나 약화시키는지 바로 보이지 않는다.",
+      "alt": "각 bucket 끝에 'therefore this mainly weakens X claim'을 붙이면 결과의 적용 범위가 더 선명해진다."
+    },
+    {
+      "page": 8,
+      "phrase": "so every session yields equal-length data of 15 turns",
+      "category": "content",
+      "priority": "high",
+      "diagnosis": "[Codex] 본문은 FORFEIT가 session을 끝낸다고 했는데, 부록은 모든 세션이 15턴 데이터를 낸다고 한다. event coding과 post-forfeit logging의 관계가 불명확하다.",
+      "alt": "FORFEIT 이후 실제 종료인지, Phantom Death에서 계속 로그를 남기는지, event 이후 row가 Cox 분석에 들어가는지 구분해 써라."
+    }
+  ]
+}

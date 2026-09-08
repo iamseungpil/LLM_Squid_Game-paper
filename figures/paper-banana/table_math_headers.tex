@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[paperwidth=12in,paperheight=2in,margin=0in]{geometry}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{xcolor}
+\setmainfont{Arial}
+\setmathfont{FiraMath-Regular.otf}
+\definecolor{TableNavy}{HTML}{0B1930}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\newcommand{\FormulaPage}[1]{%
+  \null\vfill
+  \begin{center}
+    {\fontsize{40}{44}\selectfont\color{TableNavy}\(#1\)}
+  \end{center}
+  \vfill\null
+  \newpage
+}
+
+\begin{document}
+\FormulaPage{\begin{gathered}N_{\mathrm{forfeit}}\\[-2pt]\text{(incentive/threat)}\end{gathered}}
+\FormulaPage{\mathrm{HR}_{\mathrm{push}}\ [95\%\ \mathrm{CI}]}
+\FormulaPage{p}
+\FormulaPage{N_{\mathrm{forfeit}}}
+\FormulaPage{\sum T^{\mathrm{at\text{-}risk}}}
+\FormulaPage{\lambda_{\mathrm{BP}}}
+\FormulaPage{\begin{gathered}P(\mathrm{REASON}=1)\\[-2pt][95\%\ \mathrm{CI}]\end{gathered}}
+\FormulaPage{\Delta\mathrm{Effort}_i}
+\null\vfill
+\begin{center}
+  {\fontsize{40}{44}\selectfont\color{TableNavy}\(\begin{gathered}\mathrm{HR}_{\Delta\mathrm{Effort}}\\[-2pt][95\%\ \mathrm{CI}]\end{gathered}\)}
+\end{center}
+\vfill\null
+\end{document}
