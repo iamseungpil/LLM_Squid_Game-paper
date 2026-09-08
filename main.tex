@@ -1,6 +1,8 @@
 %% LLM Squid Game --- KDD 2026 Undergraduate Consortium submission
 %% Shared LaTeX skeleton for English (en/) and Korean (ko/) versions.
-%% Compile with XeLaTeX:  xelatex main.tex && bibtex main && xelatex main.tex && xelatex main.tex
+%% Compile with pdfLaTeX (TeX Live 2025) — Overleaf Settings 와 같은 조합.
+%% Build: bash ~/.claude/skills/latex-publication/scripts/compile.sh main.tex
+%% 엔진은 CLAUDE.md 의 latex-engine / latex-texlive 가 정한다.
 %% Switch language by changing the value of \paperLang below.
 
 %% Load mathtools BEFORE acmart's class-time unicode-math autoload to silence
@@ -27,7 +29,7 @@
 %%   - "Package unicode-math Warning: \overbracket / \underbracket
 %%     overwritten." A known interaction between unicode-math and amsmath
 %%     under XeLaTeX. Output is unaffected.
-
+ 
 \documentclass[sigconf, nonacm]{acmart}
 
 %% ---------------------------------------------------------------------------
@@ -35,7 +37,7 @@
 %%   en  : English (original KDD-UC submission, body in v4-temp/main.tex)
 %%   ko  : Korean translation (body retranslated 2026-05-08, prose only)
 %% ---------------------------------------------------------------------------
-\newcommand{\paperLang}{ko}  % en | ko
+\newcommand{\paperLang}{en}  % en | ko
 
 \AtBeginDocument{%
   \providecommand\BibTeX{{%
@@ -65,6 +67,7 @@
 \usepackage{graphicx}
 \usepackage{array}
 \usepackage{multirow}
+\usepackage{makecell}
 \usepackage{amsmath}
 \let\Bbbk\relax
 \usepackage{amssymb}
@@ -74,10 +77,37 @@
 \usepackage{longtable}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+%% Defers a full-width float by one page. A figure* can only be set at the top
+%% of a page, so its position is not adjustable through the placement
+%% specifier; \afterpage holds the declaration until the current page has been
+%% shipped out, which lands the float one page later than it would otherwise.
+\usepackage{afterpage}
+
+%% Provides the [H] placement specifier used by the Section 4 floats. It was
+%% already reaching the document transitively (acmart -> caption -> float), so
+%% the [H] specifiers worked by accident; declaring it here makes the
+%% dependency explicit and survives an acmart/caption update that drops it.
+\usepackage{float}
+
+%% Check marks for the channel-outcome table. \checkmark is not usable here:
+%% acmart loads unicode-math under XeLaTeX, which remaps \checkmark to
+%% U+2713 in the math font, and LibertinusMath-Regular.otf has no glyph at
+%% that slot, so the mark came out as an empty box ("Missing character:
+%% There is no U+2713"). pifont takes \ding{51} from Zapf Dingbats, which
+%% ships with every TeX distribution, so the glyph is present regardless of
+%% engine or math font.
+\usepackage{pifont}
+
 %% Korean glyph rendering --- only loaded when \paperLang is "ko".
 %% kotex requires XeLaTeX (or LuaLaTeX); pdflatex compilation is unsupported.
 \usepackage{ifthen}
 \ifthenelse{\equal{\paperLang}{ko}}{\usepackage{kotex}}{}
+
+%% One full-width float per page top, English build only. The default of 2
+%% lets Figures 1 and 2 stack on one page, which collapses the one-page gap
+%% their \afterpage deferral in en/sections/02_related_work.tex creates. The
+%% Korean build keeps the default so its layout is untouched.
+\ifthenelse{\equal{\paperLang}{en}}{\setcounter{dbltopnumber}{1}}{}
 
 %% Korean fonts (UnBatang, UnDotum) ship without italic shapes. The earlier
 %% attempt to silence the resulting "Font shape ... undefined" warnings via
