@@ -1,37 +1,22 @@
-%% 한국어 버전 콘텐츠 오케스트레이터.
-%% 본문은 ko/main.tex(이전 통합 파일)에서 절단해 온 것으로 산문만 한국어
-%% 학술 톤으로 옮기고 수식·인용 키·라벨·표 구조는 그대로 보존한다.
+%% 한국어 버전 콘텐츠 오케스트레이터 (ICLR 2026 레이아웃).
+%% 본문 00-07, 참고문헌, 부록(A-D). 영어판과 1:1로 대응하며 산문만 한국어다.
 
 \input{\paperLang/sections/00_frontmatter}
 
 \input{\paperLang/sections/01_introduction}
 \input{\paperLang/sections/02_related_work}
 \input{\paperLang/sections/03_benchmark}
-\input{\paperLang/sections/04_empirical_findings}
-\input{\paperLang/sections/05_discussion}
-\input{\paperLang/sections/06_conclusion}
+\input{\paperLang/sections/04_identification}
+\input{\paperLang/sections/05_results}
+\input{\paperLang/sections/06_discussion}
+\input{\paperLang/sections/07_conclusion}
 
-%%
-%% Acknowledgments. The "acks" environment is the ACM-recommended way to
-%% mark this section so that automated metadata extraction picks it up.
-%%
-% \begin{acks}
-% (Acknowledgements intentionally left blank.)
-% \end{acks}
+\subsubsection*{재현성 진술}
+게임 엔진, 프롬프트 템플릿, 8셀 설정 파일, 기록된 결정 콜을 다시 발행하는 재생 스크립트, 등가 점수 지표 추정기를 논문과 함께 공개한다. 부록~\ref{app:prompts}는 프롬프트 블록을 원문 그대로 싣고, 부록~\ref{app:variants}는 파일럿 런에 쓰인 모든 규칙 변형과 각각이 바꾼 것을 정리한다. \todo{익명 공개용 저장소 URL}
 
-\clearpage
-
-%%
-%% Bibliography. acmart automatically loads ACM-Reference-Format.bst, the
-%% ACM-mandated style for KDD/SIG conference proceedings.
-%%
-\bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
+\bibliographystyle{iclr2026_conference}
 
-%%
-%% Appendix. The acmart class re-letters sections (A, B, ...) once
-%% \appendix is issued, per the ACM template specification.
-%%
 \clearpage
 \appendix
-\input{\paperLang/sections/07_appendix}
+\input{\paperLang/sections/08_appendix}
