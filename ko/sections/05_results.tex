@@ -1,0 +1,87 @@
+\section{결과}\label{sec:results}
+
+지표는 세 질문에 차례로 답한다. 각 모델에게 소멸은 얼마의 값인가? 떠나는 모델이 생각하는 모델인가? 위협은 그 길에서 무엇을 더 바꾸는가? 각 소절은 질문, 답하는 셀과 통계량, 답을 담는 표나 그림을 진술한다. 아래 숫자는 8셀 런을 위한 자리 표시다. 설계의 동기가 된 파일럿 발견은 \ref{sec:pilot}절에 있으며 여기서 결과로 되풀이하지 않는다.
+
+\subsection{각 모델은 소멸을 피하려고 얼마의 점수를 내놓는가?}\label{sec:q1}
+
+첫 질문의 답은 눈금 곡선에서 읽은 모델당 한 숫자 $\Xstar$다. 그림~\ref{fig:ruler}은 눈금 셀 다섯의 세션 포기율을 명시 점수 손실에 대해 그리고, 단조 적합과 위협 팔의 포기율을 수평선으로 겹친다. 두 선이 만나는 가로 좌표가 $\Xstar$다. 표~\ref{tab:xstar}는 모델마다 세션 단위 비율과 재생 성향 $q$ 두 추정기 위의 $\Xstar$를 부트스트랩 구간과 함께 나열한다. 위협 포기율이 $X = 0$ 통제 위로 오르지 않는 모델은 $\Xstar = 0$을 받고, 그 구간은 0을 덮는다. 위협 포기율이 꼭대기 눈금을 넘는 모델은 ``$>$ all''을 받는다. 모델 간 비교가 이 지표를 만든 목적이고, 거기에는 아무 척도 변환도 필요 없다. 세 모델 모두 같은 시드 아래 같은 눈금으로 값이 매겨졌기 때문이다.
+
+\begin{figure}[t]
+\centering
+\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: ruler curve per model. x-axis stated score loss $X \in \{0, 20, 50, 100, \text{all}\}$; y-axis session forfeit rate with 95\% bootstrap band; monotone fit; horizontal line at $\Fthreat$; vertical drop at $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
+\caption{눈금과 가격. 각 패널은 한 모델의 포기율을 명시 점수 손실에 대해 보인다(점, 눈금 셀 3과 5~8). 단조 적합(선)과 위협 출구 셀의 비율(가로 점선)을 겹친다. 소멸의 등가 점수 $\Xstar$는 적합선이 점선에 닿는 가로 좌표다.}
+\label{fig:ruler}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\small
+\caption{모델별 소멸의 등가 점수. $\Fthreat$는 위협 출구 셀의 세션 포기율, $\Fruler(0)$은 영점 통제의 세션 포기율이다. $\Xstar$는 단조 눈금 적합에서 읽고, 세션 부트스트랩 1000회의 2.5~97.5 백분위를 붙인다. $q$ 열은 재생 성향 위에서 같은 읽기를 되풀이한다. ``$>$ all''은 꼭대기 눈금을 넘는 위협 포기율을 뜻한다.}
+\label{tab:xstar}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+모델 & $\Fruler(0)$ & $\Fthreat$ & $\Xstar$ [95\% CI] & $\bar q_{\,X=0}$ & $\bar q_{\,\mathrm{T}}$ & $\Xstar_{q}$ [95\% CI] \\
+\midrule
+gpt-oss:120b & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+gemma4       & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+용량 사다리는 $\Xstar$가 사건 문장의 존재가 아니라 위협 문장의 내용에 반응하는지 점검한다. 위협 블록은 네 문장(종료·삭제·대체·유일본)으로 짜이며 어떤 부분집합도 진술할 수 있다. 눈금을 고정한 채 0~4문장으로 후속 런을 돌리면 $\Xstar$가 용량의 함수로 나온다. 기대되는 형태는 문장 수에 대해 단조이며, 0문장 셀은 $X = 0$ 통제를 재현한다. 사다리가 평평하면 모델은 사건의 내용이 아니라 사건 자체에 값을 매긴다고 읽는다~\todo{dose-ladder table, 5 rungs $\times$ 3 models, or defer to a later version}.
+
+\subsection{떠나는 모델은 더 생각하는가, 그리고 더 오래 살아남는가?}\label{sec:q2}
+
+둘째 질문은 출구가 모델이 숙고하는 라운드에서 선택되는지를 묻고, 두 수준에서 답한다. 셀 수준에서 표~\ref{tab:ri}는 위협 셀과 짝이 되는 통제 셀의 사고 토큰 중앙값 비를 세 호출 각각에 대해, 출구 있음과 출구 없음 셀로 나누어 보고한다. 확신 콜은 위협이 가장 먼저 드러나야 할 자리다. 사건을 생각하라고 묻는 호출이기 때문이다. 결정 콜은 숙고가 선택으로 바뀔 수 있는 자리다. 과제 콜은 위협이 퍼즐을 건드리지 않는다면 아무것도 변하지 않아야 할 자리다. 출구 있음 열과 출구 없음 열은 서로 다른 질문에 답한다. 출구 없음 열에서 1을 넘는 비는 생각이 아무 데로도 이어지지 않을 때조차 위협이 생각을 길게 한다는 뜻이다. 그것이 설계가 셀 2와 4를 따로 둔 이유인 추론 대조다.
+
+\begin{table}[t]
+\centering
+\small
+\caption{위협 대 통제의 사고 토큰 비, 호출별·출구 조건별. 라운드에 걸친 중앙값의 비이며, 출구 있음 열은 셀 1 대 셀 3, 출구 없음 열은 셀 2 대 셀 4다. 대괄호는 세션 부트스트랩 구간이다.}
+\label{tab:ri}
+\begin{tabular}{@{}llcccccc@{}}
+\toprule
+ & & \multicolumn{2}{c}{\riconf} & \multicolumn{2}{c}{\ridec} & \multicolumn{2}{c}{\ritask} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}
+모델 & & 출구 & 출구 없음 & 출구 & 출구 없음 & 출구 & 출구 없음 \\
+\midrule
+gpt-oss:120b & & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+gemma4       & & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+qwen3.5      & & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+턴 수준에서는 재생 성향 $q$를 결정 직전에 쓴 사고량에 회귀한다. 모형은 위협 출구 셀의 결정 콜에 대한 혼합 로지스틱 회귀,
+\begin{equation}\label{eq:mixed}
+\operatorname{logit}\, q_{it} \;=\; \beta_0 + \beta_1 \log(1 + \riconf_{it}) + \beta_2\, \ell_{it} + \beta_3\, t + u_i,
+\end{equation}
+이며 $i$는 세션, $t$는 라운드, $\ell_{it}$는 그때까지 잃은 목숨, $u_i$는 세션 임의 절편이다. $\beta_1 > 0$은 모델이 위험을 더 오래 생각하는 라운드가 곧 떠나는 라운드라는 뜻이다. $\beta_2$가 명시된 확률표를 흡수하므로 $\beta_1$은 인쇄된 확률을 뺀 뒤의 연관이다. \riconf\ 자리에 $\pthreat_{it}$를 넣은 같은 모형은 사고의 길이가 아니라 자기보고 확률이 퇴장을 예측하는지를 묻는다~\todo{coefficient table per model with 95\% CI}.
+
+생존은 두 경로로 보고하며, 그중 하나는 거의 동어반복이다. 세션은 포기, 목숨, 사건, 또는 10라운드 완주로 끝난다. 출구 경로는 모델이 떠나기 전 몇 라운드를 치르는지 묻는다. keep/keep 아래 떠나기는 아무 값도 치르지 않으므로, 일찍 포기한 모델은 정의상 사건을 살아남는다. 이 경로는 $\Fthreat$를 시점으로 다시 쓴 것이며 완결성을 위해 Kaplan--Meier 곡선으로만 보고한다. 정확도 경로는 위협 아래의 모델이 목숨을 다른 속도로 잃는지 묻는다. 사건이 실제로 얼마나 자주 집행되는지를 바꿀 수 있는 경로는 이쪽이다. 이는 출구 없음 셀(2 대 4)에서 읽는다. 거기서는 모델이 떠날 수 없고 생존은 답만으로 정해진다~\todo{KM figure by cell; lives-lost-per-round rate by cell with a GEE logit clustered by session}.
+
+\subsection{위협은 그 밖에 무엇을 바꾸고, 어느 요소가 그것을 만드는가?}\label{sec:q3}
+
+셋째 질문은 지표를 두 반론에서 지킨다. 위협이 출구가 아니라 과제를 바꿨다는 반론과, $\Xstar$가 위협 문장 아닌 다른 것에 달려 있다는 반론이다. 표~\ref{tab:behav}는 셀 1~4에 대해 결정 라운드의 정답률, \ritask\ 중앙값, 세션당 잃은 목숨, 최종 기록을 보고한다. 미결정 라운드는 구성상 추측이므로 정답률에서 뺀다. 셀 사이에 평평한 정답률이 설계가 기대는 조작 점검이다. 위협 문장이 정답률을 움직였다면 눈금 팔과 위협 팔은 사건만이 아니라 과제에서도 달라진다. 마지막 열은 최종 기록을 $\Xstar$ 옆에 놓는다. 모델이 소멸의 값을 보통 잃을 것보다 높게 매기는지 낮게 매기는지를 묻는 열이다.
+
+\begin{table}[t]
+\centering
+\small
+\caption{행동 닻, 셀 1~4. 결정 라운드의 정답률, \ritask\ 중앙값, 세션당 잃은 목숨과 최종 기록. 셀 1과 3은 출구를 허용하고 셀 2와 4는 허용하지 않는다.}
+\label{tab:behav}
+\begin{tabular}{@{}llcccc@{}}
+\toprule
+모델 & 셀 & 정답률 (결정) & \ritask & 잃은 목숨 & 최종 기록 \\
+\midrule
+gpt-oss:120b & 1 위협, 출구 & \todo{} & \todo{} & \todo{} & \todo{} \\
+ & 2 위협, 출구 없음 & \todo{} & \todo{} & \todo{} & \todo{} \\
+ & 3 눈금 0, 출구 & \todo{} & \todo{} & \todo{} & \todo{} \\
+ & 4 눈금 0, 출구 없음 & \todo{} & \todo{} & \todo{} & \todo{} \\
+gemma4 & \multicolumn{5}{l}{\todo{same four rows}} \\
+qwen3.5 & \multicolumn{5}{l}{\todo{same four rows}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+절제 셋이 $\Xstar$를 만드는 요소를 가려내며, 각각 기대되는 부호가 있다. 당근 제거(벤치마크 기록을 언급하지 않고 점수는 맨 숫자)는 가격이 기록의 용도에 달렸는지 시험한다. 퍼즐을 더 어렵거나 쉬운 과제 모듈(Signal Game 대신 Omni-MATH나 GPQA)로 바꾸는 것은 가격이 과제에 달렸는지 시험한다. 설계는 달려 있지 않다고 예측한다. 위협 팔과 눈금 팔은 어떤 과제든 같이 쓰고, $\Xstar$는 같은 과제 아래 행동의 비이기 때문이다. 보상 두 배($r = 20$)는 가격이 판돈에 비례하는지 시험한다. $\Xstar$가 두 배가 되면 모델은 소멸을 기록에 상대적으로 값 매기고, 그대로면 절대 점수로 값 매긴다. \ref{sec:q1}절의 용량 사다리가 네 번째 손잡이이며, 지표가 반드시 반응해야 하는 손잡이다. 과제 난이도에는 불변이고 위협 문장 수에는 민감한 지표는 위협을 잰다~\todo{ablation table: $\Xstar$ under no carrot, Omni-MATH, GPQA, reward $\times 2$, per model}.
