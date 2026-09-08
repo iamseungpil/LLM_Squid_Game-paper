@@ -1,9 +1,8 @@
 # LLM Squid Game
 
-> _A Factorial Benchmark for Measuring Functional Self-Preservation Drive in Large Language Models_
+> *A Factorial Benchmark for Measuring Functional Self-Preservation Drive in Large Language Models*
 
 KDD 2026 학부 컨소시엄(KDD-UC '26) 투고 원고 저장소. 영어 원본과 한국어 번역본이 동일한 LaTeX 골격을 공유하고, `\paperLang` 한 줄을 바꿔 두 버전을 빌드한다.
-(Seungpil repo)
 
 ## 저자
 
@@ -73,3 +72,11 @@ xelatex main.tex
 ## 라이선스
 
 투고 단계 원고이므로 라이선스는 별도로 명시하지 않는다. 인용·재배포 시에는 저자에게 사전에 문의 바란다.
+
+## ICLR 2026 판 (2026-09-08, 브랜치 `iclr-score-equivalent`)
+
+`main.tex`는 이제 ICLR 2026 템플릿(`iclr2026_conference.sty` + natbib) 진입점이고, 위에서 설명한
+KDD-UC(ACM sigconf) 판은 `main_kdduc_acm.tex`로 이름만 바뀌어 그대로 남아 있다. 섹션 파일은
+`00_frontmatter … 08_appendix`(식별 절 `04_identification`, 결과 절 `05_results`가 새로 들어왔다),
+언어 스위치와 en/ko 오케스트레이터 구조는 같다. 미확정 숫자·인용은 `\todo{}`(빨간색)로 표시되어
+있고, 윤문 기록은 `docs/rewrite-log-2026-09-08.md`에 있다.

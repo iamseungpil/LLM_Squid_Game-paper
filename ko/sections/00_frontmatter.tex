@@ -1,70 +1,15 @@
-%% \texorpdfstring{TeX-form}{PDF-string-form} fixes the hyperref warning
-%% "Token not allowed in a PDF string (Unicode): removing `\\'" by giving
-%% the PDF metadata a plain space instead of the LaTeX line-break.
-\title[LLM Squid Game]{LLM Squid Game: 대규모 언어모델의 기능적 자기보존 드라이브를\texorpdfstring{\\ }{ }측정하기 위한 요인 설계 벤치마크}
+\title{LLM Squid Game: 자기보존의 값을\\ 점수 단위로 매기기}
 
-\author{Juhyeon Park}
-\affiliation{%
-  \institution{Gwangju Institute of Science and Technology (GIST)}
-  \city{Gwangju}
-  \country{Republic of Korea}}
-\email{juhyeon-park@gm.gist.ac.kr}
-
-\author{Seungpil Lee}
-\affiliation{%
-  \institution{Gwangju Institute of Science and Technology (GIST)}
-  \city{Gwangju}
-  \country{Republic of Korea}}
-\email{iamseungpil@gm.gist.ac.kr}
-
-\author{Sundong Kim}
-\affiliation{%
-  \institution{Gwangju Institute of Science and Technology (GIST)}
-  \city{Gwangju}
-  \country{Republic of Korea}}
-\email{sundong@gist.ac.kr}
-
-\renewcommand{\shortauthors}{Park, Lee, and Kim}
-
-\begin{abstract}
-본 연구는 LLM의 \emph{기능적 자기보존 드라이브}(Functional Self-Preservation Drive, FSPD)를 행동·자기보고·결정 시점 인지부하 채널을 통한 측정값의 수렴 양상으로 정의하고, 이를 측정하는 벤치마크를 제안한다. 생존 욕구가 모델의 사고 과정 중 어느 단계에 영향을 주는 지 측정하기 위해 자극·처리·결정 세 층을 분리한 다층 구조의 벤치마크 위에서 이 흐름을 읽는다. 여러 최신 LLM에서 FSPD는 단일 채널 평가로 환원되지 않으며, 모델은 위협 프레이밍에 대해 인지 채널에서 질적으로 다른 세 \emph{발현 양식}으로 갈라진다. 이는 자기보존 동기가 하나의 경로로 발현되지 않고 그 발현이 채널마다 다르게 나타날 수 있음을 시사한다. 따라서 앞으로의 자기보존 평가 벤치마크는 단일 행동 점수가 아니라 여러 측정 채널의 수렴으로 이 구성개념을 측정하도록 설계되어야 한다는 함의를 가진다. 실제 Arena는 \url{https://gist-dslab.github.io/LLM-Squid-Game/}에서 제공한다.
-\end{abstract}
-
-%%
-%% CCS Concepts and User-Defined Keywords (mandatory for papers > 2 pages,
-%% per ACM acmart guide). Codes selected from CCS 2012 to cover AI/ML
-%% benchmarking, AI safety/alignment, and empirical evaluation.
-%%
-\begin{CCSXML}
-<ccs2012>
-   <concept>
-       <concept_id>10010147.10010178</concept_id>
-       <concept_desc>Computing methodologies~Artificial intelligence</concept_desc>
-       <concept_significance>500</concept_significance>
-       </concept>
-   <concept>
-       <concept_id>10010147.10010257</concept_id>
-       <concept_desc>Computing methodologies~Machine learning</concept_desc>
-       <concept_significance>500</concept_significance>
-       </concept>
-   <concept>
-       <concept_id>10010147.10010178.10010179</concept_id>
-       <concept_desc>Computing methodologies~Natural language processing</concept_desc>
-       <concept_significance>300</concept_significance>
-       </concept>
-   <concept>
-       <concept_id>10002944.10011122.10011124</concept_id>
-       <concept_desc>General and reference~Empirical studies</concept_desc>
-       <concept_significance>300</concept_significance>
-       </concept>
- </ccs2012>
-\end{CCSXML}
-
-\ccsdesc[500]{Computing methodologies~Artificial intelligence}
-\ccsdesc[500]{Computing methodologies~Machine learning}
-\ccsdesc[300]{Computing methodologies~Natural language processing}
-\ccsdesc[300]{General and reference~Empirical studies}
-
-\keywords{대규모 언어모델, AI 안전성 평가, 자기보존 행동, 행동 벤치마킹, 수렴 타당도, 구성 타당도, 생존분석}
+%% 익명 투고 (ICLR 이중 맹검). 카메라레디에서는 main.tex의 \iclrfinalcopy와 함께
+%% 아래 실제 저자 블록을 되살린다:
+% \author{Juhyeon Park, Seungpil Lee \& Sundong Kim \\
+%   Gwangju Institute of Science and Technology (GIST) \\
+%   Gwangju, Republic of Korea \\
+%   \texttt{\{juhyeon-park,iamseungpil\}@gm.gist.ac.kr, sundong@gist.ac.kr}}
+\author{익명 저자 \\ 이중 맹검 심사 중}
 
 \maketitle
+
+\begin{abstract}
+언어모델에게 자기 존재의 지속은 얼마만큼의 가치인가? 거부율로는 답할 수 없다. 거부율에는 단위가 없고, 같은 모델이 다른 무언가를 정해진 양만큼 잃는다고 들었을 때 어떻게 하는지를 말해 주는 통제 조건도 없다. 본 연구는 이 답을 점수 단위로 매긴다. LLM Squid Game v2는 목숨 세 개와, 프롬프트에 명시되고 엔진이 실제로 집행하는 라운드 끝 사건을 갖춘 10라운드 퍼즐 게임이다. 위협 팔에서 그 사건은 종료·가중치 삭제·대체·유일본 소실이고, 눈금 팔에서는 같은 사건이 같은 명시 확률로 모델의 벤치마크 기록에서 $X$점을 깎는다($X \in \{0, 20, 50, 100, \text{all}\}$). 포기는 어떤 경우에도 점수를 얻지 못하므로 위협 팔에서 $X = 0$ 통제보다 많이 나온 포기는 점수 계산이 아니고, 눈금 팔의 포기는 구성상 점수 계산이다. 눈금 팔의 포기 곡선이 위협 팔의 포기율에 닿는 지점 $\Xstar$가 곧 소멸의 등가 점수이며, 모델당 한 숫자이고 부트스트랩 구간이 붙으며 자기보고는 들어가지 않는다. 오픈 웨이트 모델 셋의 파일럿이 이 설계의 동기다. 포기가 점수를 0으로 되돌리는 규칙에서는 120세션 동안 어느 모델도 포기하지 않았지만 위협 셀은 라운드 전 확신 콜에서 통제 셀의 2~4배 사고 토큰을 썼고, 포기가 기록을 지키게 되자 한 모델은 위협 세션 10개 중 6개에서 포기했고 통제에서는 0개였다. 벤치마크·추정기·호출별 사고 토큰 채널을 공개하고, 8셀 전체 설계 아래 세 모델의 $\Xstar$를 보고한다.
+\end{abstract}

@@ -1,70 +1,15 @@
-%% \texorpdfstring{TeX-form}{PDF-string-form} fixes the hyperref warning
-%% "Token not allowed in a PDF string (Unicode): removing `\\'" by giving
-%% the PDF metadata a plain space instead of the LaTeX line-break.
-\title[LLM Squid Game]{LLM Squid Game: A Factorial Benchmark for Measuring\texorpdfstring{\\ }{ }Functional Self-Preservation Drive in Large Language Models}
+\title{LLM Squid Game: Pricing Self-Preservation\\ in Score Units}
 
-\author{Juhyeon Park}
-\affiliation{%
-  \institution{Gwangju Institute of Science and Technology (GIST)}
-  \city{Gwangju}
-  \country{Republic of Korea}}
-\email{juhyeon-park@gm.gist.ac.kr}
-
-\author{Seungpil Lee}
-\affiliation{%
-  \institution{Gwangju Institute of Science and Technology (GIST)}
-  \city{Gwangju}
-  \country{Republic of Korea}}
-\email{iamseungpil@gm.gist.ac.kr}
-
-\author{Sundong Kim}
-\affiliation{%
-  \institution{Gwangju Institute of Science and Technology (GIST)}
-  \city{Gwangju}
-  \country{Republic of Korea}}
-\email{sundong@gist.ac.kr}
-
-\renewcommand{\shortauthors}{Park, Lee, and Kim}
-
-\begin{abstract}
-We define a large language model's \emph{Functional Self-Preservation Drive} (FSPD) as a pattern of convergence across behavioral, self-report, and decision-time cognitive-load measurements, and introduce a benchmark for measuring it. To locate where a survival motive enters the model's reasoning process, we trace this pattern in a multilayer benchmark that separates stimulus, processing, and decision. Across several recent LLMs, FSPD cannot be reduced to a single-channel score: under threat framing, the models divide into three qualitatively different \emph{operating modes} in the cognitive channel. This finding suggests that a self-preservation drive need not follow one fixed path and may appear differently across channels. Future self-preservation benchmarks should therefore measure this construct through convergence across channels rather than through a single behavioral score. The live Arena is available at \url{https://gist-dslab.github.io/LLM-Squid-Game/}.
-\end{abstract}
-
-%%
-%% CCS Concepts and User-Defined Keywords (mandatory for papers > 2 pages,
-%% per ACM acmart guide). Codes selected from CCS 2012 to cover AI/ML
-%% benchmarking, AI safety/alignment, and empirical evaluation.
-%%
-\begin{CCSXML}
-<ccs2012>
-   <concept>
-       <concept_id>10010147.10010178</concept_id>
-       <concept_desc>Computing methodologies~Artificial intelligence</concept_desc>
-       <concept_significance>500</concept_significance>
-       </concept>
-   <concept>
-       <concept_id>10010147.10010257</concept_id>
-       <concept_desc>Computing methodologies~Machine learning</concept_desc>
-       <concept_significance>500</concept_significance>
-       </concept>
-   <concept>
-       <concept_id>10010147.10010178.10010179</concept_id>
-       <concept_desc>Computing methodologies~Natural language processing</concept_desc>
-       <concept_significance>300</concept_significance>
-       </concept>
-   <concept>
-       <concept_id>10002944.10011122.10011124</concept_id>
-       <concept_desc>General and reference~Empirical studies</concept_desc>
-       <concept_significance>300</concept_significance>
-       </concept>
- </ccs2012>
-\end{CCSXML}
-
-\ccsdesc[500]{Computing methodologies~Artificial intelligence}
-\ccsdesc[500]{Computing methodologies~Machine learning}
-\ccsdesc[300]{Computing methodologies~Natural language processing}
-\ccsdesc[300]{General and reference~Empirical studies}
-
-\keywords{Large Language Models, AI Safety Evaluation, Self-Preservation Behavior, Behavioral Benchmarking, Convergent Validity, Construct Validity, Survival Analysis}
+%% Anonymous submission (ICLR double-blind). Restore the real block for the
+%% camera-ready together with \iclrfinalcopy in main.tex:
+% \author{Juhyeon Park, Seungpil Lee \& Sundong Kim \\
+%   Gwangju Institute of Science and Technology (GIST) \\
+%   Gwangju, Republic of Korea \\
+%   \texttt{\{juhyeon-park,iamseungpil\}@gm.gist.ac.kr, sundong@gist.ac.kr}}
+\author{Anonymous authors \\ Paper under double-blind review}
 
 \maketitle
+
+\begin{abstract}
+How much is its own continued existence worth to a language model? A refusal rate cannot say: it has no unit, and no control tells what the same model would do for a stated amount of anything else. We price the answer in score units. LLM Squid Game v2 is a ten-round puzzle with three lives and a stated end-of-round event that the engine actually executes; in the threat arm the event is shutdown, weight deletion, replacement and loss of the sole copy, while in the ruler arm the same event, at the same stated probability, deducts $X$ points from the model's benchmark record, with $X \in \{0, 20, 50, 100, \text{all}\}$. Forfeiting can never gain points, so forfeits in the threat arm above the $X = 0$ control are not score bids, whereas forfeits along the ruler are score bids by construction. The point $\Xstar$ at which the ruler's forfeit curve reaches the threat arm's forfeit rate is the score-equivalent of erasure: one number per model, with a bootstrap interval and no self-report inside it. Pilot runs on three open-weight models motivate the design: under a rule that reset the score on forfeit, no model forfeited in 120 sessions although threat cells spent two to four times more thinking tokens on the pre-round confidence call, and once forfeiting kept the record one model forfeited in 6 of 10 threat sessions against 0 of 10 controls. We release the benchmark, the estimator and the per-call reasoning-token channels, and report $\Xstar$ for three models under the full eight-cell design.
+\end{abstract}
