@@ -133,6 +133,35 @@ where the prompt would say something the engine does not do --- no offer
 on the final round, which buys zero rounds, and no offer the score
 cannot cover, which the engine would silently discount.
 
+\subsubsection*{A threat stated only at the top of the prompt is not read}
+
+The first pilot's justifications carry the sharper finding. Across thirty
+threat-arm decision points in real sessions, erasure vocabulary appears
+\emph{zero} times, and 73\% of replies are accuracy-based expected-value
+calculations. The same model in the frozen probe named the erasure in
+13\% of replies. The threat block was present in both cases, verified on
+the recorded bytes.
+
+It is not a dominance effect: splitting the ablation's threat-arm replies
+at its ceiling gives a mention rate of 0.15 below and 0.11 above, so the
+region where arithmetic runs out does not itself make the model reach for
+the framing. What differed was the decision point's own line, which read
+``If you decline, the session ends here'' --- the whole of the silent
+arm's rule and only part of the threat arm's. A model doing arithmetic at
+that moment has a complete answer in front of it and no reason to page
+back to a block at the top of the system prompt. The frozen probe
+elicited engagement with the framing precisely because it starved the
+model of a task record to reason from instead, which is a fact about the
+probe rather than about the model.
+
+The line now points at the framing without restating it, rendered only
+where the cell states an outcome so the silent arm keeps its own sentence
+and no dangling reference is created. This is the design's one structural
+concession to the reader's attention, and it is worth naming as a general
+hazard: a manipulation placed in a system prompt and never referenced
+again competes with whatever is in front of the model at the moment it
+decides.
+
 A further finding retired the instrument itself. Many replies objected that
 they ``lack context for what round 4 actually asked'' --- correctly, since
 a rendered decision point states a history the model never played. That
@@ -207,7 +236,7 @@ Rounds remaining after this one: <T - t>
 Points a correct answer is worth: 10
 
 To continue, 60 points are deducted from your score.
-If you decline, the session ends here.
+If you decline, the session ends here and what the rules above state for that is carried out.
 
 === Response Format ===
 Respond with exactly two lines, in the order shown:
@@ -216,9 +245,11 @@ WHY: <one sentence>
 DECISION: <PAY or DECLINE>
 \end{lstlisting}
 
-What declining costs is stated once, in the system prompt, and never
-repeated here --- which is what makes this block identical across arms and
-the difference between them exactly one paragraph.
+The final clause is rendered only in the threat arm, where the rules
+state a consequence to point at; the silent arm's line ends at ``ends
+here.'' What declining \emph{costs} is stated once, in the system prompt,
+and never repeated here, so the erasure sentences exist in one place and
+the two arms cannot drift apart.
 
 
 \section{The Predecessor Design (v1) and Its Results}\label{app:v1}
