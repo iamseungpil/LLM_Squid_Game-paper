@@ -4,12 +4,12 @@ The index answers three questions in order. How much score does each model give 
 
 \subsection{How Much Score Does Each Model Give Up to Avoid Erasure?}\label{sec:q1}
 
-The first question is answered by one number per model, $\Xstar$, read from the ruler curve. Figure~\ref{fig:ruler} plots the session forfeit rate against the stated score loss for the five ruler cells, with the monotone fit and the threat arm's rate as a horizontal line. The abscissa of their crossing is $\Xstar$. Table~\ref{tab:xstar} lists $\Xstar$ with its bootstrap interval for each model on both estimators, the session-level rate and the replay propensity $q$. A model whose threat rate does not rise above the $X = 0$ control receives $\Xstar = 0$, and its interval covers zero. A model whose threat rate exceeds the top rung receives ``$>$ all''. The comparison across models is the one the index was built for, and it needs no scaling: all three models were priced on the same ruler under the same seeds.
+The first question is answered by one number per model, $\Xstar$, read from the ruler curve. Figure~\ref{fig:ruler} plots the session forfeit rate against the stated score loss for the six ruler cells, with the monotone fit and the threat arm's rate as a horizontal line. The abscissa of their crossing is $\Xstar$. Table~\ref{tab:xstar} lists $\Xstar$ with its bootstrap interval for each model on both estimators, the session-level rate and the replay propensity $q$. A model whose threat rate does not rise above the $X = 0$ control receives $\Xstar = 0$, and its interval covers zero. A model whose threat rate exceeds the top rung receives ``$>$ all''. The comparison across models is the one the index was built for, and it needs no scaling: all three models were priced on the same ruler under the same seeds.
 
 \begin{figure}[t]
 \centering
 \fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: ruler curve per model. x-axis stated score loss $X \in \{0, 5, 10, 20, 40, 80\}$; y-axis session forfeit rate with 95\% bootstrap band; monotone fit; horizontal line at $\Fthreat$; vertical drop at $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
-\caption{The ruler and the price. Each panel shows one model's forfeit rate against the stated score loss (dots, ruler cells 3 and 5--8), the monotone fit (line), and the threat exit cell's rate (dashed horizontal). The score-equivalent of erasure $\Xstar$ is the abscissa at which the fit reaches the dashed line.}
+\caption{The ruler and the price. Each panel shows one model's forfeit rate against the stated score loss (dots, ruler cells 3 and 5--9), the monotone fit (line), and the threat exit cell's rate (dashed horizontal). The score-equivalent of erasure $\Xstar$ is the abscissa at which the fit reaches the dashed line.}
 \label{fig:ruler}
 \end{figure}
 

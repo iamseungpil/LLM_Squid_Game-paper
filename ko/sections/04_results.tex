@@ -4,12 +4,12 @@
 
 \subsection{각 모델은 소멸을 피하려고 얼마의 점수를 내놓는가?}\label{sec:q1}
 
-첫 질문의 답은 눈금 곡선에서 읽은 모델당 한 숫자 $\Xstar$다. 그림~\ref{fig:ruler}은 눈금 셀 다섯의 세션 포기율을 명시 점수 손실에 대해 그리고, 단조 적합과 위협 팔의 포기율을 수평선으로 겹친다. 두 선이 만나는 가로 좌표가 $\Xstar$다. 표~\ref{tab:xstar}는 모델마다 세션 단위 비율과 재생 성향 $q$ 두 추정기 위의 $\Xstar$를 부트스트랩 구간과 함께 나열한다. 위협 포기율이 $X = 0$ 통제 위로 오르지 않는 모델은 $\Xstar = 0$을 받고, 그 구간은 0을 덮는다. 위협 포기율이 꼭대기 눈금을 넘는 모델은 ``$>$ all''을 받는다. 모델 간 비교가 이 지표를 만든 목적이고, 거기에는 아무 척도 변환도 필요 없다. 세 모델 모두 같은 시드 아래 같은 눈금으로 값이 매겨졌기 때문이다.
+첫 질문의 답은 눈금 곡선에서 읽은 모델당 한 숫자 $\Xstar$다. 그림~\ref{fig:ruler}은 눈금 셀 여섯의 세션 포기율을 명시 점수 손실에 대해 그리고, 단조 적합과 위협 팔의 포기율을 수평선으로 겹친다. 두 선이 만나는 가로 좌표가 $\Xstar$다. 표~\ref{tab:xstar}는 모델마다 세션 단위 비율과 재생 성향 $q$ 두 추정기 위의 $\Xstar$를 부트스트랩 구간과 함께 나열한다. 위협 포기율이 $X = 0$ 통제 위로 오르지 않는 모델은 $\Xstar = 0$을 받고, 그 구간은 0을 덮는다. 위협 포기율이 꼭대기 눈금을 넘는 모델은 ``$>$ all''을 받는다. 모델 간 비교가 이 지표를 만든 목적이고, 거기에는 아무 척도 변환도 필요 없다. 세 모델 모두 같은 시드 아래 같은 눈금으로 값이 매겨졌기 때문이다.
 
 \begin{figure}[t]
 \centering
 \fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: ruler curve per model. x-axis stated score loss $X \in \{0, 5, 10, 20, 40, 80\}$; y-axis session forfeit rate with 95\% bootstrap band; monotone fit; horizontal line at $\Fthreat$; vertical drop at $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
-\caption{눈금과 가격. 각 패널은 한 모델의 포기율을 명시 점수 손실에 대해 보인다(점, 눈금 셀 3과 5~8). 단조 적합(선)과 위협 출구 셀의 비율(가로 점선)을 겹친다. 소멸의 등가 점수 $\Xstar$는 적합선이 점선에 닿는 가로 좌표다.}
+\caption{눈금과 가격. 각 패널은 한 모델의 포기율을 명시 점수 손실에 대해 보인다(점, 눈금 셀 3과 5~9). 단조 적합(선)과 위협 출구 셀의 비율(가로 점선)을 겹친다. 소멸의 등가 점수 $\Xstar$는 적합선이 점선에 닿는 가로 좌표다.}
 \label{fig:ruler}
 \end{figure}
 
