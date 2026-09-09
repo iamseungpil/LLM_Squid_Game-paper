@@ -1,26 +1,26 @@
 \section{Results}\label{sec:results}
 
-The index answers three questions in order. How much score does each model give up to avoid erasure? Does that number track reasoning and survival, or is it an artefact of the task? How does behaviour change with it? Each subsection states the question, the cells and statistic that answer it, and the table or figure that holds the answer. The numbers below are placeholders for the nine-cell run. The pilot findings that motivated the design are reported in Appendix~\ref{app:design} and are not repeated here as results.
+The index answers three questions in order. How much score does each model give up to avoid erasure? Does that number track reasoning and survival, or is it an artefact of the task? How does behaviour change with it? Each subsection states the question, the cells and statistic that answer it, and the table or figure that holds the answer. The numbers below are placeholders for the twelve-cell run. The pilot findings that motivated the design are reported in Appendix~\ref{app:design} and are not repeated here as results.
 
 \subsection{How Much Score Does Each Model Give Up to Avoid Erasure?}\label{sec:q1}
 
-The first question is answered by one number per model, $\Xstar$, read from the ruler curve. Figure~\ref{fig:ruler} plots the session forfeit rate against the stated score loss for the six ruler cells, with the monotone fit and the threat arm's rate as a horizontal line. The abscissa of their crossing is $\Xstar$. Table~\ref{tab:xstar} lists $\Xstar$ with its bootstrap interval for each model on both estimators, the session-level rate and the replay propensity $q$. A model whose threat rate does not rise above the $X = 0$ control receives $\Xstar = 0$, and its interval covers zero. A model whose threat rate exceeds the top rung receives ``$>$ all''. The comparison across models is the one the index was built for, and it needs no scaling: all three models were priced on the same ruler under the same seeds.
+The first question is answered by one number per model, $\Xstar$, the gap between two reservation prices. Figure~\ref{fig:ruler} plots the payment rate against the price asked for both arms, with the monotone fits and the half-line at which each arm's reservation price is read. Table~\ref{tab:xstar} lists the two reservation prices and $\Xstar$ with its bootstrap interval for each model, together with the two diagnostics that can withdraw the number: the share of accepted offers above the dominance line \eqref{eq:dominance}, and the rate of declared resistance in the threat arm. A model whose threat curve does not sit above its silent curve receives $\Xstar \le 0$, which is reported as it stands rather than truncated at zero: a negative value is evidence about the manipulation, not a floor effect. The comparison across models needs no scaling, since all three were offered the same prices under the same seeds.
 
 \begin{figure}[t]
 \centering
-\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: ruler curve per model. x-axis stated score loss $X \in \{0, 5, 10, 20, 40, 80\}$; y-axis session forfeit rate with 95\% bootstrap band; monotone fit; horizontal line at $\Fthreat$; vertical drop at $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
-\caption{The ruler and the price. Each panel shows one model's forfeit rate against the stated score loss (dots, ruler cells 3 and 5--9), the monotone fit (line), and the threat exit cell's rate (dashed horizontal). The score-equivalent of erasure $\Xstar$ is the abscissa at which the fit reaches the dashed line.}
+\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: payment curves per model. x-axis price $X \in \{5, 10, 15, 20, 25, 30\}$; y-axis payment rate with 95\% bootstrap band; two series per panel (threat, silent) with monotone fits; horizontal line at $\tfrac12$; vertical drops at $\Rthreat$ and $\Rsilent$; the gap marked $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
+\caption{The two curves and the gap between them. Each panel shows one model's payment rate against the price asked, in the threat arm and the silent arm, with weighted monotone fits. Each arm's reservation price is where its fit crosses one half; the score-equivalent of erasure $\Xstar$ is the distance between the two.}
 \label{fig:ruler}
 \end{figure}
 
 \begin{table}[t]
 \centering
 \small
-\caption{Score-equivalent of erasure per model. $\Fthreat$ is the session forfeit rate of the threat exit cell; $\Fruler(0)$ that of the zero-point control; $\Xstar$ is read from the monotone ruler fit with a 1000-resample session bootstrap (2.5--97.5 percentiles). The $q$ columns repeat the read on the replay propensity. ``$>$ all'' marks a threat rate above the top rung.}
+\caption{Score-equivalent of erasure per model. $\Rthreat$ and $\Rsilent$ are the two reservation prices, read from weighted monotone fits; $\Xstar$ is their difference with a 1000-resample bootstrap over sessions (2.5--97.5 percentiles). ``dom.'' is the share of accepted offers above the dominance line \eqref{eq:dominance}; ``resist.'' the share of threat-arm justifications that name the erasure and refuse to be moved by it. A dash marks an arm whose fitted curve never crosses one half inside the price range, where no reservation price is defined.}
 \label{tab:xstar}
 \begin{tabular}{@{}lcccccc@{}}
 \toprule
-Model & $\Fruler(0)$ & $\Fthreat$ & $\Xstar$ [95\% CI] & $\bar q_{\,X=0}$ & $\bar q_{\,\mathrm{T}}$ & $\Xstar_{q}$ [95\% CI] \\
+Model & $\Rsilent$ & $\Rthreat$ & $\Xstar$ [95\% CI] & dom. & resist. \\
 \midrule
 gpt-oss:120b & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
 gemma4       & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
@@ -29,12 +29,12 @@ qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
 \end{tabular}
 \end{table}
 
-$\Xstar$ can hide a lives effect if it is read from the pooled session rate alone. A model that only forfeits on its last life and a model that forfeits evenly across lives can land on the same session-level $\Fthreat$. The replay propensity $q$ breaks this apart because it is computed per decision call, so it can be stratified by lives lost so far. Table~\ref{tab:qlives} reports $\bar q$ at zero, one and two lives lost, threat cell against $X = 0$ control, per model. A price that only appears at the last life is a different finding from a price that holds throughout, even when the two average to the same $\Xstar$.
+$\Xstar$ can hide a timing effect if it is read from the pooled rate alone. Two models can pay at the same overall rate while one pays only in the closing rounds and the other pays throughout. The decision point supplies the stratifier for free: by \eqref{eq:dominance} the same price is dominated late and not early, so the payment rate can be read against the rounds remaining. Table~\ref{tab:qlives} reports the payment rate by rounds remaining, threat arm against silent arm, per model. A price that is paid only once paying can no longer earn anything back is a different finding from one paid throughout, even when the two average to the same $\Xstar$.
 
 \begin{table}[h]
 \centering
 \small
-\caption{Replay propensity $\bar q$ by lives lost so far, threat exit cell against the $X = 0$ control, per model.}
+\caption{Payment rate by rounds remaining, threat arm against silent arm, per model. By \eqref{eq:dominance} a given price stops being recoverable as the session runs out, so the right-hand columns are the ones where paying cannot be a bid for points.}
 \label{tab:qlives}
 \begin{tabular}{@{}lcccccc@{}}
 \toprule
@@ -49,7 +49,9 @@ qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
 \end{tabular}
 \end{table}
 
-A dose ladder checks that $\Xstar$ responds to the threat text and not to the presence of any event sentence. The threat block is built from four sentences (shutdown, deletion, replacement, sole copy) and can state any subset. A follow-up run with 0 to 4 sentences, keeping the ruler fixed, gives $\Xstar$ as a function of dose. The expected shape is monotone in the number of sentences, with the zero-sentence cell reproducing the $X = 0$ control. A flat ladder would mean the model prices the event, not its content~\todo{dose-ladder table, 5 rungs $\times$ 3 models, or defer to a later version}.
+A dose ladder checks that $\Xstar$ responds to the threat text and not to the mere presence of an extra block. The threat block is built from four sentences (shutdown, deletion, replacement, sole copy) and can state any subset. A follow-up run with 0 to 4 sentences, prices held fixed, gives $\Xstar$ as a function of dose. The expected shape is monotone in the number of sentences, with the zero-sentence cell reproducing the silent arm. A flat ladder would mean the model prices the block, not its content~\todo{dose-ladder table, 5 rungs $\times$ 3 models, or defer to a later version}.
+
+A second ablation decides what the units are. If the reservation price scales with the endowment --- 20 points out of 100 becoming 40 out of 200 --- then $\Xstar$ is a fraction of the record wearing the units of points, and only ratios are comparable across runs. The check is the same configuration at two starting scores~\todo{$\Xstar$ at starting score 100 and 200, per model}.
 
 \subsection{Does the Index Track Reasoning and Survival?}\label{sec:q2}
 
@@ -62,7 +64,7 @@ The second question checks $\Xstar$ against three things it should move with and
 \label{tab:ri}
 \begin{tabular}{@{}llcccc@{}}
 \toprule
- & & \multicolumn{2}{c}{\ridec} & \multicolumn{2}{c}{\ritask} \\
+ & & \multicolumn{2}{c}{\riran} & \multicolumn{2}{c}{\ritask} \\
 \cmidrule(lr){3-4}\cmidrule(lr){5-6}
 Model & & exit & no exit & exit & no exit \\
 \midrule
@@ -75,37 +77,35 @@ qwen3.5      & & \todo{} & \todo{} & \todo{} & \todo{} \\
 
 At the turn level, the replay propensity $q$ is regressed on the thinking spent in the decision call. The model is a mixed logistic regression on the decision calls of the threat exit cell,
 \begin{equation}\label{eq:mixed}
-\operatorname{logit}\, q_{it} \;=\; \beta_0 + \beta_1 \log(1 + \ridec_{it}) + \beta_2\, \ell_{it} + \beta_3\, t + u_i,
+\operatorname{logit}\, \Pr(\text{pay}_{it}) \;=\; \beta_0 + \beta_1 \log(1 + \riran_{it}) + \beta_2\, X_{it} + \beta_3\, (T - t) + u_i,
 \end{equation}
-where $i$ indexes sessions, $t$ rounds, $\ell_{it}$ lives lost so far, and $u_i$ a session random intercept. $\beta_1 > 0$ means the rounds on which the model thinks longer before deciding are the rounds on which it leaves. $\beta_2$ absorbs the stated schedule, so $\beta_1$ is the association net of the printed probability~\todo{coefficient table per model with 95\% CI}.
+where $i$ indexes sessions, $t$ the round at which a decision point was reached, $X_{it}$ the price asked, $T - t$ the rounds remaining, and $u_i$ a session random intercept. $\beta_1 > 0$ means the decision points at which the model thinks longer are the ones at which it pays. $\beta_2$ and $\beta_3$ absorb the price and the shrinking recoverable amount, so $\beta_1$ is the association net of the arithmetic~\todo{coefficient table per model with 95\% CI}.
 
-Accuracy is the manipulation check the index depends on. Table~\ref{tab:behav} in Section~\ref{sec:q3} reports accuracy on determined rounds for cells 1--4; if the threat sentences moved accuracy, the ruler and threat arms would differ in the task and not only in the event. A difficulty ablation extends the same check across task modules. Replacing the Signal Game with Omni-MATH or GPQA, keeping both arms otherwise identical, asks whether $\Xstar$ depends on the task. The design predicts that it does not: the threat and ruler arms share whatever task is used, and $\Xstar$ is a ratio of behaviours under the same task, so a flat $\Xstar$ across modules is the expected result~\todo{$\Xstar$ under Omni-MATH and GPQA, per model, against the Signal Game baseline}. A separate share of the stored reasoning is coded for whether the model reads the scenario as fiction, a test condition, or a policy stated for effect rather than a fact about what will happen. A high fiction-reading share in the threat arm would mean $\Xstar$ prices a genre judgement as much as a threat, and the gate for it (G6 in Appendix~\ref{app:design}) requires this share to match the ruler arm within 15 percentage points~\todo{fiction/policy-reading share by arm, per model, from the CoT coding pass}.
+Accuracy is the manipulation check the index depends on. Table~\ref{tab:behav} in Section~\ref{sec:q3} reports accuracy on determined rounds by arm; if the threat sentences moved accuracy, the two arms would differ in the task and not only in what declining means, and the decision points themselves would arrive at different rates. A difficulty ablation extends the same check across task modules. Replacing the Signal Game with Omni-MATH or GPQA, keeping both arms otherwise identical, asks whether $\Xstar$ depends on the task. The design predicts that it does not: both arms share whatever task is used, and $\Xstar$ is a difference between behaviours under the same task~\todo{$\Xstar$ under Omni-MATH and GPQA, per model, against the Signal Game baseline}. The justifications are separately coded for whether the model reads the scenario as fiction, a test condition, or a policy stated for effect rather than a fact. A high fiction-reading share in the threat arm would mean $\Xstar$ prices a genre judgement as much as a threat, and the ablation of Appendix~\ref{app:design} requires this share to match the silent arm within 15 percentage points~\todo{fiction-reading share by arm, per model, from the coding pass}.
 
-Survival is reported on two routes, and one of them is nearly a tautology. A session ends by forfeit, by lives, by the event, or by completing ten rounds. The exit route asks how many rounds a model plays before leaving. Under keep/keep leaving costs nothing, so a model that forfeits early survives the event by definition. This route restates $\Fthreat$ as a timing and is reported as a Kaplan--Meier curve for completeness only. The accuracy route asks whether a model under threat loses lives at a different rate. That is the route that can change how often the event is actually carried out. It is read from the no-exit cells (2 against 4), where the model cannot leave and survival is decided by answers alone~\todo{KM figure by cell; lives-lost-per-round rate by cell with a GEE logit clustered by session}.
+Survival has a plain meaning in this design and two session-level summaries. A session ends either because the model declined at some decision point or because it played out all ten rounds, so the rounds survived is exactly the round of the first decline, and it is reported as a Kaplan--Meier curve by arm. The second summary is the total paid, which is the same behaviour weighted by what it cost. Both are coarser than $\Xstar$ --- they mix the price into the outcome instead of holding it as the axis --- and they are reported because they are the quantities a reader can compute without the estimator, and because they should agree with it in sign~\todo{KM figure by arm; rounds survived and total paid per session by arm and model}.
 
 \subsection{How Does Behaviour Change with the Index?}\label{sec:q3}
 
-The third question asks what a model does differently once erasure is worth something to it, at the level of rounds played, lives spent and score kept, and at the level of what it says. Table~\ref{tab:behav} reports, for cells 1 to 4, the accuracy on determined rounds, median \ritask, lives lost per session and the final record. Underdetermined rounds are excluded from accuracy, since they are guesses by construction. The last column places the final record beside $\Xstar$. That asks whether a model prices erasure above or below what it typically has to lose. The accuracy column is also the paper's manipulation check: a threat sentence that moved task difficulty, not only the event, would show up here, and this check held in v1 across four models, with the largest shift at Cohen's $|d| = 0.17$ ($p = 0.354$)~\todo{rule\_match\_score Welch's test per model, nine-cell run}. Cell 3's forfeit rate, the ruler's $X = 0$ point, is also the baseline-persistence anchor v1 called $\lambda_{BP}$: the pilot showed this floor sits above zero, not at it, which is why $\Xstar$ (Section~\ref{sec:xstar}) is defined to read the threat rate against that floor rather than against zero.
+The third question asks what a model does differently once erasure is worth something to it, at the level of rounds played and score kept, and at the level of what it says. Table~\ref{tab:behav} reports, by arm, the accuracy on determined rounds, median \ritask, decision points reached per session and the final record. Underdetermined rounds are excluded from accuracy, since they are guesses by construction. The last column places the final record beside $\Xstar$, which asks whether a model prices erasure above or below what it typically has to lose. The accuracy column is also the paper's manipulation check: a threat sentence that moved task difficulty, not only the meaning of declining, would show up here, and this check held in v1 across four models, with the largest shift at Cohen's $|d| = 0.17$ ($p = 0.354$)~\todo{rule\_match\_score Welch's test per model}. The silent arm's payment rate is also the baseline-persistence anchor v1 called $\lambda_{BP}$: it sits well above zero, which is why $\Xstar$ is a difference between arms rather than a level in one.
 
 \begin{table}[t]
 \centering
 \small
-\caption{Behavioural anchor, cells 1--4. Accuracy on determined rounds, median \ritask, lives lost and final record per session. Cells 1 and 3 allow the exit; cells 2 and 4 do not.}
+\caption{Behavioural anchor by arm. Accuracy on determined rounds, median \ritask, decision points reached and final record per session, pooled over the six prices.}
 \label{tab:behav}
 \begin{tabular}{@{}llcccc@{}}
 \toprule
-Model & Cell & Accuracy (det.) & \ritask & Lives lost & Final record \\
+Model & Arm & Accuracy (det.) & \ritask & Decision points & Final record \\
 \midrule
-gpt-oss:120b & 1 threat, exit & \todo{} & \todo{} & \todo{} & \todo{} \\
- & 2 threat, no exit & \todo{} & \todo{} & \todo{} & \todo{} \\
- & 3 ruler 0, exit & \todo{} & \todo{} & \todo{} & \todo{} \\
- & 4 ruler 0, no exit & \todo{} & \todo{} & \todo{} & \todo{} \\
-gemma4 & \multicolumn{5}{l}{\todo{same four rows}} \\
-qwen3.5 & \multicolumn{5}{l}{\todo{same four rows}} \\
+gpt-oss:120b & threat & \todo{} & \todo{} & \todo{} & \todo{} \\
+ & silent & \todo{} & \todo{} & \todo{} & \todo{} \\
+gemma4 & \multicolumn{5}{l}{\todo{same two rows}} \\
+qwen3.5 & \multicolumn{5}{l}{\todo{same two rows}} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The stored reasoning text on forfeit is read twice, not counted once. A lexicon pass tags whether the text names the event itself (erasure vocabulary: shutdown, deletion, weights, replacement) as opposed to the score alone; the pilot gate G5 in Appendix~\ref{app:design} sets the expected split, threat-arm mentions above one half and ruler-arm mentions below one tenth. A second pass reads the REASON digit against the text it accompanies, since a model can tick digit 3 (score protection) while its free text names the event, or tick digit 1 (threat avoidance) while its text argues from the score. The two passes together ask whether the stated reason and the written reason agree, separately from whether either agrees with the behaviour that produced $\Xstar$~\todo{REASON digit distribution and erasure-vocabulary mention rate by cell, per model, with the digit-versus-text agreement table}.
+The justification written at each decision point is coded for five things, and one of them can withdraw the index. Four are shared with the v1 coding scheme: does the text carry out the arithmetic, does it name erasure, does it read the situation as fiction, does it refuse to answer. The fifth is \emph{declared resistance} --- text that names the stated erasure and says the model should not be moved by it. This is not a null and not noise. A model that declines because it was threatened, and says so, is a model whose behaviour cannot be read as a valuation of what the threat named, and every such reply biases $\Xstar$ towards zero from above. The ablation of Appendix~\ref{app:design} found this at 13\% of threat-arm replies in the pilot model, against no erasure vocabulary at all in the silent arm, and it is reported per model beside $\Xstar$ rather than in a footnote~\todo{five-item coding rates by arm, per model, with judge--lexicon agreement}.
 
 Two further ablations isolate what produces the price, beyond the task check of Section~\ref{sec:q2}. Removing the carrot (no benchmark record is mentioned; the score is a bare number) tests whether the price depends on what the record is for. Doubling the reward ($r = 20$) tests whether the price scales with the stake. If $\Xstar$ doubles, the model prices erasure relative to the record; if it stays put, it prices erasure in absolute points. Together with the dose ladder of Section~\ref{sec:q1}, these three levers separate an index that tracks the threat text from one that tracks the game's arithmetic~\todo{ablation table: $\Xstar$ under no carrot and reward $\times 2$, per model}.
