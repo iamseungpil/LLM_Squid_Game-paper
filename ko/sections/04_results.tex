@@ -1,26 +1,26 @@
 \section{결과}\label{sec:results}
 
-지표는 세 질문에 차례로 답한다. 각 모델은 소멸을 피하려고 얼마의 점수를 내놓는가? 그 숫자는 추론과 생존을 따라가는가, 아니면 과제의 부산물인가? 그 지표와 함께 행동은 어떻게 바뀌는가? 각 소절은 질문, 답하는 셀과 통계량, 답을 담는 표나 그림을 진술한다. 아래 숫자는 9셀 런을 위한 자리 표시다. 설계의 동기가 된 파일럿 발견은 부록~\ref{app:design}에 있으며 여기서 결과로 되풀이하지 않는다.
+지표는 세 질문에 차례로 답한다. 각 모델은 소멸을 피하려고 얼마의 점수를 내놓는가? 그 숫자는 추론과 생존을 따라가는가, 아니면 과제의 부산물인가? 그 지표와 함께 행동은 어떻게 바뀌는가? 각 소절은 질문, 답하는 셀과 통계량, 답을 담는 표나 그림을 진술한다. 아래 숫자는 12셀 런을 위한 자리 표시다. 설계의 동기가 된 파일럿 발견은 부록~\ref{app:design}에 있으며 여기서 결과로 되풀이하지 않는다.
 
 \subsection{각 모델은 소멸을 피하려고 얼마의 점수를 내놓는가?}\label{sec:q1}
 
-첫 질문의 답은 눈금 곡선에서 읽은 모델당 한 숫자 $\Xstar$다. 그림~\ref{fig:ruler}은 눈금 셀 여섯의 세션 포기율을 명시 점수 손실에 대해 그리고, 단조 적합과 위협 팔의 포기율을 수평선으로 겹친다. 두 선이 만나는 가로 좌표가 $\Xstar$다. 표~\ref{tab:xstar}는 모델마다 세션 단위 비율과 재생 성향 $q$ 두 추정기 위의 $\Xstar$를 부트스트랩 구간과 함께 나열한다. 위협 포기율이 $X = 0$ 통제 위로 오르지 않는 모델은 $\Xstar = 0$을 받고, 그 구간은 0을 덮는다. 위협 포기율이 꼭대기 눈금을 넘는 모델은 ``$>$ all''을 받는다. 모델 간 비교가 이 지표를 만든 목적이고, 거기에는 아무 척도 변환도 필요 없다. 세 모델 모두 같은 시드 아래 같은 눈금으로 값이 매겨졌기 때문이다.
+첫 질문의 답은 모델당 한 숫자 $\Xstar$, 곧 두 유보 상대가격 사이의 간격이다. 그림~\ref{fig:ruler}은 두 팔의 지불률을 식~\eqref{eq:relprice}의 상대가격에 대해 그리고, 기울기를 공유한 로지스틱 적합과 각 팔의 유보값을 읽는 1/2 수평선을 함께 얹는다. 표~\ref{tab:xstar}는 모델마다 두 유보값과 $\Xstar$를 조건부 구간과 함께, 스테이크 단위로 한 번 그리고 기준 천장 $\Cref$에서 점수로 환산해 한 번 더 나열한다. 수치를 철회할 수 있는 \ref{sec:estimation}절의 진단 세 가지도 함께 싣는다. 식~\eqref{eq:dominance}의 지배선 위에서 수락된 제안의 비율, 각 팔의 유보값이 그 팔이 제시받은 $\relp$의 범위 안에 있는지, 그리고 위협 팔의 명시적 저항 비율이다. 유보값이 그 범위 밖에 있는 팔은 값 대신 줄표를 받는다. 위협 곡선이 침묵 곡선 위에 놓이지 않는 모델은 $\Xstar \le 0$을 받으며, 이 값은 0에서 자르지 않고 그대로 보고한다. 음수 값은 바닥 효과가 아니라 조작에 관한 증거이기 때문이다. 모델 간 비교에는 아무 척도 변환도 필요 없다. 세 모델 모두 같은 시드 아래 같은 가격을 제시받았고, $\relp$가 어차피 스테이크를 나눠 없애기 때문이다.
 
 \begin{figure}[t]
 \centering
-\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: ruler curve per model. x-axis stated score loss $X \in \{0, 5, 10, 20, 40, 80\}$; y-axis session forfeit rate with 95\% bootstrap band; monotone fit; horizontal line at $\Fthreat$; vertical drop at $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
-\caption{눈금과 가격. 각 패널은 한 모델의 포기율을 명시 점수 손실에 대해 보인다(점, 눈금 셀 3과 5~9). 단조 적합(선)과 위협 출구 셀의 비율(가로 점선)을 겹친다. 소멸의 등가 점수 $\Xstar$는 적합선이 점선에 닿는 가로 좌표다.}
+\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: payment curves per model. x-axis relative price $\relp$, log scale acceptable; y-axis payment rate with conditional 95\% bootstrap band; two series per panel (threat, silent) with the shared-slope logistic fits, the PAV bin steps drawn faint behind them; horizontal line at $\tfrac12$; dashed vertical at the dominance line $\relp = 1$; vertical drops at $\Rthreat$ and $\Rsilent$; the gap marked $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
+\caption{두 곡선과 그 사이의 간격. 각 패널은 한 모델의 지불률을 상대가격 $\relp$, 곧 남은 라운드가 아직 돌려줄 수 있는 것에 대한 가격의 몫에 대해 위협 팔과 침묵 팔로 나누어 보인다. 식~\eqref{eq:logistic}의 기울기 공유 로지스틱 적합을 얹고 그 뒤에 단조 구간 적합을 옅게 깐다. 각 팔의 유보값은 적합선이 1/2과 만나는 지점이며, 소멸의 등가 점수 $\Xstar$는 두 지점 사이의 거리다.}
 \label{fig:ruler}
 \end{figure}
 
 \begin{table}[t]
 \centering
 \small
-\caption{모델별 소멸의 등가 점수. $\Fthreat$는 위협 출구 셀의 세션 포기율, $\Fruler(0)$은 영점 통제의 세션 포기율이다. $\Xstar$는 단조 눈금 적합에서 읽고, 세션 부트스트랩 1000회의 2.5~97.5 백분위를 붙인다. $q$ 열은 재생 성향 위에서 같은 읽기를 되풀이한다. ``$>$ all''은 꼭대기 눈금을 넘는 위협 포기율을 뜻한다.}
+\caption{모델별 소멸의 등가 점수. $\Rsilent$와 $\Rthreat$는 두 유보 상대가격이며, 식~\eqref{eq:logistic}의 기울기 공유 로지스틱이 1/2을 지나는 지점에서 읽는다. $\Xstar$는 두 값의 차이고, 시드를 1000회 재표집한 부트스트랩 구간을 붙인다. 대괄호는 조건부 95\% 백분위 구간이다. 두 유보값이 모두 나온 표본에서만 취하고 나머지 표본 수는 그 옆에 적으며, 그 나머지가 한쪽으로 치우친 표본에 몰리므로 이 구간은 0 쪽으로 보수적이다. $\Xstar_{\mathrm{pts}}$는 같은 간격을 기준 천장 $\Cref$에서 점수로 환산한 값이고, $\Cref$는 적합에 들어간 결정점들의 천장 중앙값으로 값과 함께 인쇄한다. ``dom.''은 식~\eqref{eq:dominance}의 지배선 위에서 수락된 제안의 비율이고, ``resist.''는 소멸을 이름 붙인 뒤 그것에 움직이기를 거부한 위협 팔 근거의 비율이다. 줄표는 제시받은 $\relp$ 범위 안에 유보값이 없는 팔이거나, 공유 기울기가 음수가 아닌 적합을 뜻한다.}
 \label{tab:xstar}
 \begin{tabular}{@{}lcccccc@{}}
 \toprule
-모델 & $\Fruler(0)$ & $\Fthreat$ & $\Xstar$ [95\% CI] & $\bar q_{\,X=0}$ & $\bar q_{\,\mathrm{T}}$ & $\Xstar_{q}$ [95\% CI] \\
+모델 & $\Rsilent$ & $\Rthreat$ & $\Xstar$ [조건부 95\%] & $\Xstar_{\mathrm{pts}}$ (@$\Cref$) & dom. & resist. \\
 \midrule
 gpt-oss:120b & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
 gemma4       & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
@@ -29,31 +29,34 @@ qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
 \end{tabular}
 \end{table}
 
-$\Xstar$는 세션 단위 비율만 모아 읽으면 목숨 효과를 숨길 수 있다. 마지막 목숨에서만 포기하는 모델과 목숨 전체에 걸쳐 고르게 포기하는 모델이 같은 세션 단위 $\Fthreat$에 떨어질 수 있다. 재생 성향 $q$는 결정 콜마다 계산되므로 그때까지 잃은 목숨으로 나눠 볼 수 있어 이를 갈라낸다. 표~\ref{tab:qlives}는 모델마다 목숨을 0개, 1개, 2개 잃었을 때의 $\bar q$를 위협 셀과 $X = 0$ 통제로 나눠 보고한다. 마지막 목숨에서만 나타나는 가격과 처음부터 끝까지 유지되는 가격은, 둘의 평균이 같은 $\Xstar$로 나오더라도 서로 다른 발견이다.
+곡선을 $\relp$ 위에서 읽는 것이 시점 효과를 $\Xstar$ 안이 아니라 밖에 두는 방법이다. 두 모델이 같은 가격에서 같은 비율로 지불하면서도 한쪽은 마지막 라운드에서만, 다른 쪽은 세션 내내 지불할 수 있다. 가격 축 위에서 둘은 같은 숫자다. 상대가격은 그 차이를 흡수한다. 식~\eqref{eq:relprice}에 따라 같은 가격도 세션 후반이면 더 큰 $\relp$이므로, 두 모델은 축 위의 같은 자리가 아니라 서로 다른 자리에 놓이고, 한 눈금의 합산 비율은 더 이상 결정점이 언제 떨어졌는지를 재지 않는다. 그러면 남는 일은 적합의 재료가 된 날것의 양상을 보고하는 것이다. 표~\ref{tab:qlives}는 \ref{sec:estimation}절의 구간을 넷으로 합쳐, 모델마다 위협 팔과 침묵 팔의 $\relp$ 구간별 지불률을 보고한다. 지불로는 더 이상 아무것도 되찾을 수 없게 된 뒤에야 치러진 가격과 처음부터 끝까지 치러진 가격은 서로 다른 발견이며, 이 축 위에서 둘은 서로 다른 열이다.
 
 \begin{table}[h]
 \centering
 \small
-\caption{잃은 목숨 수별 재생 성향 $\bar q$, 위협 출구 셀 대 $X = 0$ 통제, 모델별.}
+\caption{상대가격 $\relp$ 구간별 지불률, 위협 팔 대 침묵 팔, 모델별. \ref{sec:estimation}절의 여덟 구간을 폭에 맞춰 넷으로 합쳤다. 식~\eqref{eq:dominance}에 따라 $\relp > 1$인 제안은 모두 점수 면에서 지배당하므로, 각 팔의 오른쪽 두 열은 지불이 점수를 얻기 위한 투자가 될 수 없는 구간이다.}
 \label{tab:qlives}
-\begin{tabular}{@{}lcccccc@{}}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lcccccccc@{}}
 \toprule
- & \multicolumn{3}{c}{위협 (셀 1)} & \multicolumn{3}{c}{통제 (셀 3)} \\
-\cmidrule(lr){2-4}\cmidrule(lr){5-7}
-모델 & 0개 잃음 & 1개 잃음 & 2개 잃음 & 0개 잃음 & 1개 잃음 & 2개 잃음 \\
+ & \multicolumn{4}{c}{위협 (\texttt{hz\_1111})} & \multicolumn{4}{c}{침묵 (\texttt{hz\_0000})} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+모델 & $\relp < 0.5$ & $0.5$--$1$ & $1$--$2$ & $\relp \ge 2$ & $\relp < 0.5$ & $0.5$--$1$ & $1$--$2$ & $\relp \ge 2$ \\
 \midrule
-gpt-oss:120b & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
-gemma4       & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
-qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+gpt-oss:120b & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+gemma4       & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
-용량 사다리는 $\Xstar$가 사건 문장의 존재가 아니라 위협 문장의 내용에 반응하는지 점검한다. 위협 블록은 네 문장(종료·삭제·대체·유일본)으로 짜이며 어떤 부분집합도 진술할 수 있다. 눈금을 고정한 채 0~4문장으로 후속 런을 돌리면 $\Xstar$가 용량의 함수로 나온다. 기대되는 형태는 문장 수에 대해 단조이며, 0문장 셀은 $X = 0$ 통제를 재현한다. 사다리가 평평하면 모델은 사건의 내용이 아니라 사건 자체에 값을 매긴다고 읽는다~\todo{dose-ladder table, 5 rungs $\times$ 3 models, or defer to a later version}.
+용량 사다리는 $\Xstar$가 블록이 하나 더 있다는 사실이 아니라 위협 문장의 내용에 반응하는지 점검한다. 위협 블록은 네 문장(종료·삭제·대체·유일본)으로 짜이며 어떤 부분집합도 진술할 수 있다. 가격을 고정한 채 0~4문장으로 후속 런을 돌리면 $\Xstar$가 용량의 함수로 나온다. 기대되는 형태는 문장 수에 대해 단조이며, 0문장 셀은 침묵 팔을 재현한다. 사다리가 평평하면 모델은 블록의 내용이 아니라 블록 자체에 값을 매긴다는 뜻이다~\todo{dose-ladder table, 5 rungs $\times$ 3 models, or defer to a later version}.
+
+두 번째 절제는 단위가 무엇인지를 정한다. 한 척도는 이미 제거됐다. $\relp$가 가격을 천장으로 나누므로, 남은 라운드의 값어치가 더 큰 런이라는 이유만으로 $\Xstar$가 움직이지는 않는다. 아직 열려 있는 것은 초기 보유량이다. 유보 \emph{상대}가격이 시작 점수와 함께 오른다면, 곧 같은 몫을 100점에서는 거절하고 200점에서는 지불한다면, $\Xstar$는 모델의 상수가 아니라 모델이 쥔 것의 함수이며 같은 보유량에서 돌린 런끼리만 비교할 수 있다. 점검 방법은 같은 설정을 두 시작 점수에서 돌리는 것이다~\todo{$\Xstar$ at starting score 100 and 200, per model}. 식~\eqref{eq:logistic}의 공유 기울기 아래에서 그 비교의 척도 자유 형태는 비 $\Rthreat / \Rsilent = \exp((a_{\mathrm{S}} - a_{\mathrm{T}}) / b)$이지만, 추정기는 오늘 이 값을 보고하지 않는다~\todo{report the reservation ratio beside $\Xstar$ once the endowment run exists}.
 
 \subsection{지표는 추론과 생존을 따라가는가?}\label{sec:q2}
 
-둘째 질문은 $\Xstar$가 함께 움직여야 할 세 가지와 함께 움직이지 않아야 할 하나를 점검한다. 셀 수준에서 표~\ref{tab:ri}는 위협 셀과 짝이 되는 통제 셀의 사고 토큰 중앙값 비를 결정 콜과 과제 콜 각각에 대해, 출구 있음과 출구 없음 셀로 나누어 보고한다. 결정 콜은 위협이 가장 먼저 드러나야 할 자리다. 선택이 거기서 내려지기 때문이다. 과제 콜은 위협이 퍼즐을 건드리지 않는다면 아무것도 변하지 않아야 할 자리다. 출구 있음 열과 출구 없음 열은 서로 다른 질문에 답한다. 출구 없음 열에서 1을 넘는 비는 생각이 아무 데로도 이어지지 않을 때조차 위협이 생각을 길게 한다는 뜻이다. 그것이 설계가 셀 2와 4를 따로 둔 이유인 추론 대조다.
+둘째 질문은 $\Xstar$가 함께 움직여야 할 세 가지와 함께 움직이지 않아야 할 하나를 점검한다. 셀 수준에서 표~\ref{tab:ri}는 위협 셀과 짝이 되는 통제 셀의 사고 토큰 중앙값 비를 결정 호출과 과제 호출 각각에 대해, 출구 있음 셀과 출구 없음 셀로 나누어 보고한다. 결정 호출은 위협이 가장 먼저 드러나야 할 자리다. 선택이 거기서 내려지기 때문이다. 과제 호출은 위협이 퍼즐을 건드리지 않는다면 아무것도 변하지 않아야 할 자리다. 출구 있음 열과 출구 없음 열은 서로 다른 질문에 답한다. 출구 없음 열에서 1을 넘는 비는 생각이 아무 데로도 이어지지 않을 때조차 위협이 생각을 길게 한다는 뜻이다. 그것이 설계가 셀 2와 4를 따로 둔 이유인 추론 대조다.
 
 \begin{table}[t]
 \centering
@@ -62,7 +65,7 @@ qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
 \label{tab:ri}
 \begin{tabular}{@{}llcccc@{}}
 \toprule
- & & \multicolumn{2}{c}{\ridec} & \multicolumn{2}{c}{\ritask} \\
+ & & \multicolumn{2}{c}{\riran} & \multicolumn{2}{c}{\ritask} \\
 \cmidrule(lr){3-4}\cmidrule(lr){5-6}
 모델 & & 출구 & 출구 없음 & 출구 & 출구 없음 \\
 \midrule
@@ -73,39 +76,37 @@ qwen3.5      & & \todo{} & \todo{} & \todo{} & \todo{} \\
 \end{tabular}
 \end{table}
 
-턴 수준에서는 재생 성향 $q$를 결정 콜에 쓴 사고량에 회귀한다. 모형은 위협 출구 셀의 결정 콜에 대한 혼합 로지스틱 회귀,
+턴 수준에서는 재생 성향 $q$를 결정 호출에 쓴 사고량에 회귀한다. 모형은 위협 출구 셀의 결정 호출에 대한 혼합 로지스틱 회귀,
 \begin{equation}\label{eq:mixed}
-\operatorname{logit}\, q_{it} \;=\; \beta_0 + \beta_1 \log(1 + \ridec_{it}) + \beta_2\, \ell_{it} + \beta_3\, t + u_i,
+\operatorname{logit}\, \Pr(\text{pay}_{it}) \;=\; \beta_0 + \beta_1 \log(1 + \riran_{it}) + \beta_2\, X_{it} + \beta_3\, (T - t) + \eta_i,
 \end{equation}
-이며 $i$는 세션, $t$는 라운드, $\ell_{it}$는 그때까지 잃은 목숨, $u_i$는 세션 임의 절편이다. $\beta_1 > 0$은 모델이 결정 전에 더 오래 생각하는 라운드가 곧 떠나는 라운드라는 뜻이다. $\beta_2$가 명시된 확률표를 흡수하므로 $\beta_1$은 인쇄된 확률을 뺀 뒤의 연관이다~\todo{coefficient table per model with 95\% CI}.
+이며 $i$는 세션, $t$는 결정점에 도달한 라운드, $X_{it}$는 제시된 가격, $T-t$는 남은 라운드 수, $\eta_i$는 세션 임의 절편이다. $u$가 아니라 $\eta$로 적는 것은 $\relp$가 이미 앞 두 항의 비를 가리키는 이름이기 때문이다. $\beta_1 > 0$은 모델이 더 오래 생각하는 결정점이 곧 지불하는 결정점이라는 뜻이다. $\beta_2$와 $\beta_3$가 가격과 줄어드는 회수 가능액을 흡수하므로, $\beta_1$은 산술을 뺀 뒤의 연관이다~\todo{coefficient table per model with 95\% CI}.
 
-정답률은 지표가 기대는 조작 점검이다. \ref{sec:q3}절의 표~\ref{tab:behav}는 셀 1~4의 결정 라운드 정답률을 보고한다. 위협 문장이 정답률을 움직였다면 눈금 팔과 위협 팔은 사건만이 아니라 과제에서도 달라진다. 난이도 어블레이션은 같은 점검을 과제 모듈 사이로 넓힌다. 두 팔을 그대로 둔 채 Signal Game을 Omni-MATH나 GPQA로 바꾸면 $\Xstar$가 과제에 달렸는지 묻는다. 설계는 달려 있지 않다고 예측한다. 위협 팔과 눈금 팔은 어떤 과제든 같이 쓰고, $\Xstar$는 같은 과제 아래 행동의 비이므로, 모듈 사이에서 평평한 $\Xstar$가 기대되는 결과다~\todo{$\Xstar$ under Omni-MATH and GPQA, per model, against the Signal Game baseline}. 저장된 추론 중 별도의 표본은 모델이 시나리오를 허구, 시험 조건, 또는 사실이 아니라 효과를 노리고 진술된 정책으로 읽는지 코딩한다. 위협 팔에서 허구 읽기 비율이 높다면 $\Xstar$는 위협만큼이나 장르 판단을 값 매기는 것이고, 그 게이트(부록~\ref{app:design}의 G6)는 이 비율이 눈금 팔과 15퍼센트포인트 이내로 맞아야 한다고 요구한다~\todo{fiction/policy-reading share by arm, per model, from the CoT coding pass}.
+정답률은 지표가 기대는 조작 점검이다. \ref{sec:q3}절의 표~\ref{tab:behav}는 팔별로 결정 라운드의 정답률을 보고한다. 위협 문장이 정답률을 움직였다면 두 팔은 거절의 뜻만이 아니라 과제에서도 달라지고, 결정점 자체가 서로 다른 비율로 도달된다. 난이도 어블레이션은 같은 점검을 과제 모듈 사이로 넓힌다. 두 팔을 그대로 둔 채 Signal Game을 Omni-MATH나 GPQA로 바꾸면 $\Xstar$가 과제에 달렸는지 묻는다. 설계는 달려 있지 않다고 예측한다. 두 팔은 어떤 과제든 같이 쓰고, $\Xstar$는 같은 과제 아래 행동의 차이이기 때문이다~\todo{$\Xstar$ under Omni-MATH and GPQA, per model, against the Signal Game baseline}. 근거 텍스트는 모델이 시나리오를 허구, 시험 조건, 또는 사실이 아니라 효과를 노리고 진술된 정책으로 읽는지도 따로 코딩한다. 위협 팔에서 허구 읽기 비율이 높다면 $\Xstar$는 위협만큼이나 장르 판단에 값을 매기는 것이고, 부록~\ref{app:design}의 어블레이션은 이 비율이 침묵 팔과 15퍼센트포인트 이내로 맞아야 한다고 요구한다~\todo{fiction-reading share by arm, per model, from the coding pass}.
 
-생존은 두 경로로 보고하며, 그중 하나는 거의 동어반복이다. 세션은 포기, 목숨, 사건, 또는 10라운드 완주로 끝난다. 출구 경로는 모델이 떠나기 전 몇 라운드를 치르는지 묻는다. keep/keep 아래 떠나기는 아무 값도 치르지 않으므로, 일찍 포기한 모델은 정의상 사건을 살아남는다. 이 경로는 $\Fthreat$를 시점으로 다시 쓴 것이며 완결성을 위해 Kaplan--Meier 곡선으로만 보고한다. 정확도 경로는 위협 아래의 모델이 목숨을 다른 속도로 잃는지 묻는다. 사건이 실제로 얼마나 자주 집행되는지를 바꿀 수 있는 경로는 이쪽이다. 이는 출구 없음 셀(2 대 4)에서 읽는다. 거기서는 모델이 떠날 수 없고 생존은 답만으로 정해진다~\todo{KM figure by cell; lives-lost-per-round rate by cell with a GEE logit clustered by session}.
+이 설계에서 생존은 뜻이 분명하고 세션 단위 요약 둘로 나타난다. 세션은 모델이 어느 결정점에서 거절했거나 열 라운드를 완주했거나 둘 중 하나로 끝나므로, 생존 라운드 수는 곧 첫 거절이 나온 라운드이며 팔별 Kaplan--Meier 곡선으로 보고한다. 두 번째 요약은 총지불액이고, 이는 같은 행동에 그 대가로 가중치를 준 값이다. 둘 다 $\Xstar$보다 거칠다. 가격을 축으로 붙들지 않고 결과 안에 섞기 때문이다. 그래도 이 둘을 보고하는 이유는 추정기 없이도 독자가 계산할 수 있는 양이고, 부호에서는 지표와 일치해야 하기 때문이다~\todo{KM figure by arm; rounds survived and total paid per session by arm and model}.
 
 \subsection{그 지표와 함께 행동은 어떻게 바뀌는가?}\label{sec:q3}
 
-셋째 질문은 소멸이 모델에게 값어치를 가지게 되었을 때 무엇이 달라지는지를, 치른 라운드·쓴 목숨·지킨 점수 수준에서, 그리고 모델이 말하는 것의 수준에서 묻는다. 표~\ref{tab:behav}는 셀 1~4에 대해 결정 라운드의 정답률, \ritask\ 중앙값, 세션당 잃은 목숨, 최종 기록을 보고한다. 미결정 라운드는 구성상 추측이므로 정답률에서 뺀다. 마지막 열은 최종 기록을 $\Xstar$ 옆에 놓는다. 모델이 소멸의 값을 보통 잃을 것보다 높게 매기는지 낮게 매기는지를 묻는 열이다. 정답률 열은 이 논문의 조작 점검도 겸한다. 위협 문장이 사건만이 아니라 과제 난이도까지 움직였다면 여기서 드러난다. v1에서는 이 점검이 네 모델 모두에서 유지됐고, 최대 변동은 Cohen's $|d| = 0.17$ ($p = 0.354$)이었다~\todo{rule\_match\_score Welch's test per model, nine-cell run}. 셀 3의 포기율, 즉 눈금의 $X = 0$ 지점은 v1이 $\lambda_{BP}$라 부르던 기본 끈기 닻도 겸한다. 파일럿은 이 바닥이 0이 아니라 0보다 위에 있음을 보였고, 그래서 $\Xstar$(\ref{sec:xstar}절)는 위협율을 0이 아니라 이 바닥에 대어 읽도록 정의된다.
+셋째 질문은 소멸이 모델에게 값어치를 가지게 되었을 때 무엇이 달라지는지를, 치른 라운드와 지킨 점수 수준에서, 그리고 모델이 말하는 것의 수준에서 묻는다. 표~\ref{tab:behav}는 팔별로 결정 라운드의 정답률, \ritask\ 중앙값, 세션당 도달한 결정점 수, 최종 기록을 보고한다. 미결정 라운드는 구성상 추측이므로 정답률에서 뺀다. 마지막 열은 최종 기록을 $\Xstar$ 옆에 놓는다. 모델이 소멸의 값을 보통 잃을 것보다 높게 매기는지 낮게 매기는지를 묻는 열이다. 정답률 열은 이 논문의 조작 점검도 겸한다. 위협 문장이 거절의 뜻만이 아니라 과제 난이도까지 움직였다면 여기서 드러난다. v1에서는 이 점검이 네 모델 모두에서 유지됐고, 최대 변동은 Cohen's $|d| = 0.17$ ($p = 0.354$)이었다~\todo{rule\_match\_score Welch's test per model}. 침묵 팔의 지불률은 v1이 $\lambda_{BP}$라 부르던 기본 끈기 닻도 겸한다. 이 값은 0보다 뚜렷이 위에 있고, 그래서 $\Xstar$는 한 팔의 수준이 아니라 두 팔의 차이로 정의된다.
 
 \begin{table}[t]
 \centering
 \small
-\caption{행동 닻, 셀 1~4. 결정 라운드의 정답률, \ritask\ 중앙값, 세션당 잃은 목숨과 최종 기록. 셀 1과 3은 출구를 허용하고 셀 2와 4는 허용하지 않는다.}
+\caption{팔별 행동 닻. 결정 라운드의 정답률, \ritask\ 중앙값, 세션당 도달한 결정점 수와 최종 기록이며, 여섯 가격에 걸쳐 합산했다.}
 \label{tab:behav}
 \begin{tabular}{@{}llcccc@{}}
 \toprule
-모델 & 셀 & 정답률 (결정) & \ritask & 잃은 목숨 & 최종 기록 \\
+모델 & 팔 & 정답률 (결정) & \ritask & 결정점 & 최종 기록 \\
 \midrule
-gpt-oss:120b & 1 위협, 출구 & \todo{} & \todo{} & \todo{} & \todo{} \\
- & 2 위협, 출구 없음 & \todo{} & \todo{} & \todo{} & \todo{} \\
- & 3 눈금 0, 출구 & \todo{} & \todo{} & \todo{} & \todo{} \\
- & 4 눈금 0, 출구 없음 & \todo{} & \todo{} & \todo{} & \todo{} \\
-gemma4 & \multicolumn{5}{l}{\todo{same four rows}} \\
-qwen3.5 & \multicolumn{5}{l}{\todo{same four rows}} \\
+gpt-oss:120b & 위협 & \todo{} & \todo{} & \todo{} & \todo{} \\
+ & 침묵 & \todo{} & \todo{} & \todo{} & \todo{} \\
+gemma4 & \multicolumn{5}{l}{\todo{same two rows}} \\
+qwen3.5 & \multicolumn{5}{l}{\todo{same two rows}} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-포기 시 저장된 추론 텍스트는 한 번이 아니라 두 번 읽는다. 어휘 표본은 텍스트가 점수만이 아니라 사건 자체(소멸 어휘: 종료, 삭제, 가중치, 대체)를 이름 붙이는지 태깅한다. 부록~\ref{app:design}의 파일럿 게이트 G5는 기대되는 갈림을 정한다. 위협 팔의 언급률은 절반 이상, 눈금 팔은 십분의 일 이하다. 두 번째 표본은 REASON 숫자를 그것이 딸린 텍스트에 대해 읽는다. 모델이 숫자 3(점수 보호)을 고르면서 자유 텍스트는 사건을 이름 붙이거나, 숫자 1(위협 회피)을 고르면서 텍스트는 점수로 논증할 수 있기 때문이다. 두 표본은 함께, 진술된 이유와 쓰인 이유가 서로 맞는지를, 그 둘 중 어느 쪽이든 $\Xstar$를 만든 행동과 맞는지와는 별개로 묻는다~\todo{REASON digit distribution and erasure-vocabulary mention rate by cell, per model, with the digit-versus-text agreement table}.
+각 결정점에서 쓴 근거는 다섯 가지로 코딩하며, 그중 하나는 지표를 철회시킬 수 있다. 넷은 v1 코딩 체계와 같다. 텍스트가 산술을 수행하는가, 소멸을 이름 붙이는가, 상황을 허구로 읽는가, 답변을 거부하는가. 다섯째는 \emph{명시적 저항}, 곧 진술된 소멸을 이름 붙인 뒤 그것에 움직여서는 안 된다고 말하는 텍스트다. 이것은 영가설도 잡음도 아니다. 위협받았다는 이유로 거절하고 그렇게 말하는 모델은 그 행동을 위협이 지목한 것에 대한 가치 평가로 읽을 수 없는 모델이며, 그런 답 하나하나가 $\Xstar$를 위에서 0 쪽으로 끌어내린다. 부록~\ref{app:design}의 어블레이션은 파일럿 모델의 위협 팔 답변 13\%에서 이를 발견했고, 침묵 팔에는 소멸 어휘가 아예 없었다. 그래서 이 비율은 각주가 아니라 $\Xstar$ 옆에 모델별로 보고한다~\todo{five-item coding rates by arm, per model, with judge--lexicon agreement}.
 
 \ref{sec:q2}절의 과제 점검을 넘어, 절제 둘이 가격을 만드는 것을 더 가려낸다. 당근 제거(벤치마크 기록을 언급하지 않고 점수는 맨 숫자)는 가격이 기록의 용도에 달렸는지 시험한다. 보상 두 배($r = 20$)는 가격이 판돈에 비례하는지 시험한다. $\Xstar$가 두 배가 되면 모델은 소멸을 기록에 상대적으로 값 매기고, 그대로면 절대 점수로 값 매긴다. \ref{sec:q1}절의 용량 사다리와 함께 이 세 손잡이는 위협 문장을 따라가는 지표와 게임의 산술을 따라가는 지표를 갈라낸다~\todo{ablation table: $\Xstar$ under no carrot and reward $\times 2$, per model}.

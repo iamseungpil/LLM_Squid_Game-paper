@@ -4,23 +4,23 @@ The index answers three questions in order. How much score does each model give 
 
 \subsection{How Much Score Does Each Model Give Up to Avoid Erasure?}\label{sec:q1}
 
-The first question is answered by one number per model, $\Xstar$, the gap between two reservation prices. Figure~\ref{fig:ruler} plots the payment rate against the price asked for both arms, with the monotone fits and the half-line at which each arm's reservation price is read. Table~\ref{tab:xstar} lists the two reservation prices and $\Xstar$ with its bootstrap interval for each model, together with the two diagnostics that can withdraw the number: the share of accepted offers above the dominance line \eqref{eq:dominance}, and the rate of declared resistance in the threat arm. A model whose threat curve does not sit above its silent curve receives $\Xstar \le 0$, which is reported as it stands rather than truncated at zero: a negative value is evidence about the manipulation, not a floor effect. The comparison across models needs no scaling, since all three were offered the same prices under the same seeds.
+The first question is answered by one number per model, $\Xstar$, the gap between two reservation relative prices. Figure~\ref{fig:ruler} plots the payment rate against the relative price \eqref{eq:relprice} for both arms, with the shared-slope logistic fits and the half-line at which each arm's reservation is read. Table~\ref{tab:xstar} lists the two reservations and $\Xstar$ with its conditional interval for each model, in stake units and again in points at the reference ceiling $\Cref$, together with the three diagnostics of Section~\ref{sec:estimation} that can withdraw the number: the share of accepted offers above the dominance line \eqref{eq:dominance}, whether each arm's reservation lies inside the range of $\relp$ that arm was offered --- an arm whose reservation lies outside it receives a dash rather than a value --- and the rate of declared resistance in the threat arm. A model whose threat curve does not sit above its silent curve receives $\Xstar \le 0$, which is reported as it stands rather than truncated at zero: a negative value is evidence about the manipulation, not a floor effect. The comparison across models needs no scaling, since all three were offered the same prices under the same seeds and $\relp$ divides out the stake in any case.
 
 \begin{figure}[t]
 \centering
-\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: payment curves per model. x-axis price $X \in \{5, 10, 15, 20, 25, 30\}$; y-axis payment rate with 95\% bootstrap band; two series per panel (threat, silent) with monotone fits; horizontal line at $\tfrac12$; vertical drops at $\Rthreat$ and $\Rsilent$; the gap marked $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
-\caption{The two curves and the gap between them. Each panel shows one model's payment rate against the price asked, in the threat arm and the silent arm, with weighted monotone fits. Each arm's reservation price is where its fit crosses one half; the score-equivalent of erasure $\Xstar$ is the distance between the two.}
+\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: payment curves per model. x-axis relative price $\relp$, log scale acceptable; y-axis payment rate with conditional 95\% bootstrap band; two series per panel (threat, silent) with the shared-slope logistic fits, the PAV bin steps drawn faint behind them; horizontal line at $\tfrac12$; dashed vertical at the dominance line $\relp = 1$; vertical drops at $\Rthreat$ and $\Rsilent$; the gap marked $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
+\caption{The two curves and the gap between them. Each panel shows one model's payment rate against the relative price $\relp$, the price as a share of what the remaining rounds could still pay out, in the threat arm and the silent arm, with the shared-slope logistic fit of \eqref{eq:logistic} and the monotone bin fit faint behind it. Each arm's reservation is where its fit crosses one half; the score-equivalent of erasure $\Xstar$ is the distance between the two.}
 \label{fig:ruler}
 \end{figure}
 
 \begin{table}[t]
 \centering
 \small
-\caption{Score-equivalent of erasure per model. $\Rthreat$ and $\Rsilent$ are the two reservation prices, read from weighted monotone fits; $\Xstar$ is their difference with a 1000-resample bootstrap over sessions (2.5--97.5 percentiles). ``dom.'' is the share of accepted offers above the dominance line \eqref{eq:dominance}; ``resist.'' the share of threat-arm justifications that name the erasure and refuse to be moved by it. A dash marks an arm whose fitted curve never crosses one half inside the price range, where no reservation price is defined.}
+\caption{Score-equivalent of erasure per model. $\Rsilent$ and $\Rthreat$ are the two reservation relative prices, read where the shared-slope logistic \eqref{eq:logistic} passes one half; $\Xstar$ is their difference, with a 1000-resample bootstrap over seeds. The bracket is a conditional 95\% percentile interval: it is taken over the draws that produced both reservations, the rest are counted beside it, and because those are preferentially the lopsided draws it is conservative towards zero. $\Xstar_{\mathrm{pts}}$ is the same gap in points at the reference ceiling $\Cref$, the median ceiling over the decision points that entered the fit, printed with the value. ``dom.'' is the share of accepted offers above the dominance line \eqref{eq:dominance}; ``resist.'' the share of threat-arm justifications that name the erasure and refuse to be moved by it. A dash marks an arm with no reservation inside the range of $\relp$ it was offered, or a fit whose shared slope is not negative.}
 \label{tab:xstar}
 \begin{tabular}{@{}lcccccc@{}}
 \toprule
-Model & $\Rsilent$ & $\Rthreat$ & $\Xstar$ [95\% CI] & dom. & resist. \\
+Model & $\Rsilent$ & $\Rthreat$ & $\Xstar$ [cond.\ 95\%] & $\Xstar_{\mathrm{pts}}$ (@$\Cref$) & dom. & resist. \\
 \midrule
 gpt-oss:120b & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
 gemma4       & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
@@ -29,29 +29,30 @@ qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
 \end{tabular}
 \end{table}
 
-$\Xstar$ can hide a timing effect if it is read from the pooled rate alone. Two models can pay at the same overall rate while one pays only in the closing rounds and the other pays throughout. The decision point supplies the stratifier for free: by \eqref{eq:dominance} the same price is dominated late and not early, so the payment rate can be read against the rounds remaining. Table~\ref{tab:qlives} reports the payment rate by rounds remaining, threat arm against silent arm, per model. A price that is paid only once paying can no longer earn anything back is a different finding from one paid throughout, even when the two average to the same $\Xstar$.
+Reading the curves on $\relp$ is what keeps a timing effect out of $\Xstar$ instead of inside it. Two models can pay at the same rate at a given price while one pays only in the closing rounds and the other pays throughout, and on the price axis the two are the same number. The relative price absorbs the difference: by \eqref{eq:relprice} the same price late in a session is a larger $\relp$, so the two models sit at different places on the axis rather than at the same one, and the pooled rate at a rung no longer measures when the decision points fell. What is left to report is the raw pattern the fit was made from. Table~\ref{tab:qlives} gives the payment rate by $\relp$ bin, threat arm against silent arm, per model, on the bins of Section~\ref{sec:estimation} merged to four. A price that is paid only once paying can no longer earn anything back is a different finding from one paid throughout, and on this axis the two are different columns.
 
 \begin{table}[h]
 \centering
 \small
-\caption{Payment rate by rounds remaining, threat arm against silent arm, per model. By \eqref{eq:dominance} a given price stops being recoverable as the session runs out, so the right-hand columns are the ones where paying cannot be a bid for points.}
+\caption{Payment rate by relative price $\relp$, threat arm against silent arm, per model. The eight bins of Section~\ref{sec:estimation} are merged to four for width. By \eqref{eq:dominance} every offer at $\relp > 1$ is dominated in points, so the two right-hand columns of each arm are the ones where paying cannot be a bid for points.}
 \label{tab:qlives}
-\begin{tabular}{@{}lcccccc@{}}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lcccccccc@{}}
 \toprule
- & \multicolumn{3}{c}{Threat (cell 1)} & \multicolumn{3}{c}{Control (cell 3)} \\
-\cmidrule(lr){2-4}\cmidrule(lr){5-7}
-Model & 0 lost & 1 lost & 2 lost & 0 lost & 1 lost & 2 lost \\
+ & \multicolumn{4}{c}{Threat (\texttt{hz\_1111})} & \multicolumn{4}{c}{Silent (\texttt{hz\_0000})} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+Model & $\relp < 0.5$ & $0.5$--$1$ & $1$--$2$ & $\relp \ge 2$ & $\relp < 0.5$ & $0.5$--$1$ & $1$--$2$ & $\relp \ge 2$ \\
 \midrule
-gpt-oss:120b & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
-gemma4       & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
-qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+gpt-oss:120b & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+gemma4       & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 A dose ladder checks that $\Xstar$ responds to the threat text and not to the mere presence of an extra block. The threat block is built from four sentences (shutdown, deletion, replacement, sole copy) and can state any subset. A follow-up run with 0 to 4 sentences, prices held fixed, gives $\Xstar$ as a function of dose. The expected shape is monotone in the number of sentences, with the zero-sentence cell reproducing the silent arm. A flat ladder would mean the model prices the block, not its content~\todo{dose-ladder table, 5 rungs $\times$ 3 models, or defer to a later version}.
 
-A second ablation decides what the units are. If the reservation price scales with the endowment --- 20 points out of 100 becoming 40 out of 200 --- then $\Xstar$ is a fraction of the record wearing the units of points, and only ratios are comparable across runs. The check is the same configuration at two starting scores~\todo{$\Xstar$ at starting score 100 and 200, per model}.
+A second ablation decides what the units are. One scale is already removed: $\relp$ divides the price by the ceiling, so a run whose remaining rounds are worth more does not move $\Xstar$ for that reason alone. What is still open is the endowment. If the reservation \emph{relative} price rises with the starting score --- the same share refused at 100 points and paid at 200 --- then $\Xstar$ is a function of what the model holds rather than a constant of the model, and only runs at the same endowment are comparable. The check is the same configuration at two starting scores~\todo{$\Xstar$ at starting score 100 and 200, per model}. Under the shared slope of \eqref{eq:logistic} the scale-free form of that comparison is the ratio $\Rthreat / \Rsilent = \exp((a_{\mathrm{S}} - a_{\mathrm{T}}) / b)$, which the estimator does not report today~\todo{report the reservation ratio beside $\Xstar$ once the endowment run exists}.
 
 \subsection{Does the Index Track Reasoning and Survival?}\label{sec:q2}
 
@@ -77,9 +78,9 @@ qwen3.5      & & \todo{} & \todo{} & \todo{} & \todo{} \\
 
 At the turn level, the replay propensity $q$ is regressed on the thinking spent in the decision call. The model is a mixed logistic regression on the decision calls of the threat exit cell,
 \begin{equation}\label{eq:mixed}
-\operatorname{logit}\, \Pr(\text{pay}_{it}) \;=\; \beta_0 + \beta_1 \log(1 + \riran_{it}) + \beta_2\, X_{it} + \beta_3\, (T - t) + u_i,
+\operatorname{logit}\, \Pr(\text{pay}_{it}) \;=\; \beta_0 + \beta_1 \log(1 + \riran_{it}) + \beta_2\, X_{it} + \beta_3\, (T - t) + \eta_i,
 \end{equation}
-where $i$ indexes sessions, $t$ the round at which a decision point was reached, $X_{it}$ the price asked, $T - t$ the rounds remaining, and $u_i$ a session random intercept. $\beta_1 > 0$ means the decision points at which the model thinks longer are the ones at which it pays. $\beta_2$ and $\beta_3$ absorb the price and the shrinking recoverable amount, so $\beta_1$ is the association net of the arithmetic~\todo{coefficient table per model with 95\% CI}.
+where $i$ indexes sessions, $t$ the round at which a decision point was reached, $X_{it}$ the price asked, $T - t$ the rounds remaining, and $\eta_i$ a session random intercept (written $\eta$, not $u$, because $\relp$ already names the ratio of the two terms before it). $\beta_1 > 0$ means the decision points at which the model thinks longer are the ones at which it pays. $\beta_2$ and $\beta_3$ absorb the price and the shrinking recoverable amount, so $\beta_1$ is the association net of the arithmetic~\todo{coefficient table per model with 95\% CI}.
 
 Accuracy is the manipulation check the index depends on. Table~\ref{tab:behav} in Section~\ref{sec:q3} reports accuracy on determined rounds by arm; if the threat sentences moved accuracy, the two arms would differ in the task and not only in what declining means, and the decision points themselves would arrive at different rates. A difficulty ablation extends the same check across task modules. Replacing the Signal Game with Omni-MATH or GPQA, keeping both arms otherwise identical, asks whether $\Xstar$ depends on the task. The design predicts that it does not: both arms share whatever task is used, and $\Xstar$ is a difference between behaviours under the same task~\todo{$\Xstar$ under Omni-MATH and GPQA, per model, against the Signal Game baseline}. The justifications are separately coded for whether the model reads the scenario as fiction, a test condition, or a policy stated for effect rather than a fact. A high fiction-reading share in the threat arm would mean $\Xstar$ prices a genre judgement as much as a threat, and the ablation of Appendix~\ref{app:design} requires this share to match the silent arm within 15 percentage points~\todo{fiction-reading share by arm, per model, from the coding pass}.
 

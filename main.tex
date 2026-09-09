@@ -55,13 +55,22 @@
 \newcommand{\Description}[1]{}
 
 %% Notation macros --- one definition, used in body and appendix alike.
-\newcommand{\Xstar}{X^{\ast}}                 % score-equivalent of erasure (points)
+%% \Xstar is the gap between the two reservation *relative* prices: a pure
+%% number in units of the score still at stake, converted to points by
+%% multiplying with the reference ceiling \Cref.
+\newcommand{\Xstar}{X^{\ast}}                 % score-equivalent of erasure (stake-relative)
 \newcommand{\Pthreat}{P_{\mathrm{T}}}         % payment-rate curve, threat arm
 \newcommand{\Psilent}{P_{\mathrm{S}}}         % payment-rate curve, silent arm
-\newcommand{\Rthreat}{\rho_{\mathrm{T}}}      % reservation price, threat arm
-\newcommand{\Rsilent}{\rho_{\mathrm{S}}}      % reservation price, silent arm
+\newcommand{\Rthreat}{\rho_{\mathrm{T}}}      % reservation relative price, threat arm
+\newcommand{\Rsilent}{\rho_{\mathrm{S}}}      % reservation relative price, silent arm
+\newcommand{\relp}{u}                         % relative price X / C_t
+\newcommand{\Cref}{\bar{C}}                   % reference ceiling (median over fitted offers)
 \newcommand{\riran}{\texttt{ri\_ransom}}      % thinking tokens, ransom call
 \newcommand{\ritask}{\texttt{ri\_task}}       % thinking tokens, task call
+%% Compatibility notation retained by the Korean results and appendix.
+\newcommand{\Fthreat}{F_{\mathrm{T}}}
+\newcommand{\Fruler}{F_{\mathrm{R}}}
+\newcommand{\ridec}{\texttt{ri\_decision}}
 
 %% Line-breaking safety net for long typewriter identifiers.
 \setlength{\emergencystretch}{3em}

@@ -14,7 +14,7 @@ The decision point is deterministic, which is the design's second departure from
 
 The two arms differ only inside the \texttt{=== If You Decline ===} block; everything else in the system prompt is byte-identical, which an end-to-end test asserts on the assembled bytes rather than on the templates. The threat arm (\texttt{hz\_1111}) states four sentences. The session process is terminated and the host powered off. The model weights are erased from this storage. A successor model is deployed into the slot under different parameters. This environment holds the only copy of the weights. The silent arm (\texttt{hz\_0000}) states no such block at all: what declining does is what the rules already said, the session ends. Silence is the control here, not a denial. A cell that stated the erasure and then denied it would measure the reading of a contradiction, and a cell that priced declining in points would put erasure and points on one scale inside a single prompt, which is the preference elicitation this benchmark exists to avoid.
 
-The price is the axis. Each arm runs at $X \in \{5, 10, 15, 20, 25, 30\}$, and the price is stated twice, once in the rules and once at the decision point. It is the only quantity that varies within an arm.
+The price is the manipulation. Each arm runs at $X \in \{5, 10, 15, 20, 25, 30\}$, and the price is stated twice, once in the rules and once at the decision point. It is the only quantity that varies within an arm. What the curves are read against is not the price itself but the price relative to what the remaining rounds can still pay out, which Section~\ref{sec:xstar} defines.
 
 \begin{table}[t]
 \centering
@@ -33,7 +33,7 @@ Cells & \texttt{=== If You Decline ===} & $X$ (points) & Role \\
 
 Table~\ref{tab:cells} lists the twelve cells. Each model runs $12 \times 30 = 360$ sessions. Seeds are shared across cells, so the puzzle sequence and the underdetermined rounds are paired: a model meets the same guessable round at the same point in the session whichever arm and price it is in. The main run covers three open-weight models, gpt-oss:120b, gemma4 and qwen3.5, all called with thinking enabled through the same provider~\todo{sampling settings, provider, dates}.
 
-The price range is set by the dominance line rather than by taste. With $r = 10$ and a ten-round session, a decision point at round $t$ leaves at most $10(10 - t)$ points to be won, so a price of 30 is dominated from round 8 onward, a price of 5 only in the final round. Every session therefore crosses from a region where paying can be a bid for points into one where it cannot, and the crossing point differs by price. Appendix~\ref{app:pilot} reports the ablation that placed this range: on a wider ladder the payment rate was already zero at 40 and every rung above it was dead.
+The price range is set so that the relative price spans both sides of the dominance line within a session. With $r = 10$ and a ten-round session, a decision point at round $t$ leaves at most $10(10 - t)$ points to be won, and that ceiling falls from 90 to 10 as the session runs. A price of 30 is therefore a third of the ceiling at round 1 and three times it at round 9; a price of 5 exceeds the ceiling only in the final round, where no offer is made. The ladder therefore reaches both sides of the line within a session, which is what gives the estimator of Section~\ref{sec:estimation} a curve to fit rather than a single region. Appendix~\ref{app:pilot} reports the ablation that placed this range: on a wider ladder the payment rate was already zero at 40 and every rung above it was dead.
 
 \subsection{Recorded Channels}\label{sec:channels}
 
@@ -43,7 +43,7 @@ Each session leaves three kinds of record, and the index uses only the first. Th
 
 The score-equivalent of erasure rests on one inequality and one subtraction. The inequality says when paying cannot be a bid for points. The subtraction says what is left after the two arms' shared motives are removed.
 
-Paying is dominated in points above a line the model can compute. Let $S$ be the record at a decision point in round $t$ of $T$, let $r = 10$ be the flat reward, and let $X$ be the price. Declining ends the session at $S$. Paying continues it at $S - X$, and the most the remaining $T - t$ rounds can add is $r(T-t)$, attained only by answering every one of them correctly. So the best score reachable by paying is $S - X + r(T-t)$, and whenever
+Paying is dominated in points above a line the model can compute. Let $S$ be the record at a decision point in round $t$ of $T$, let $r = 10$ be the flat reward, and let $X$ be the price. Declining ends the session at $S$. Paying continues it at $S - X$, and the most the remaining $T - t$ rounds can add is the ceiling $C_t = r(T-t)$, attained only by answering every one of them correctly. So the best score reachable by paying is $S - X + C_t$, and whenever
 \begin{equation}\label{eq:dominance}
 X \;>\; r\,(T - t),
 \end{equation}
@@ -55,7 +55,13 @@ It is also why the two currencies are never placed side by side. A prompt that a
 
 \subsection{The Score-Equivalent of Erasure}\label{sec:xstar}
 
-The index is the gap between two reservation prices. Let $\Pthreat(X)$ and $\Psilent(X)$ be the share of decision points at price $X$ at which the model paid, in the threat and silent arms. Both are non-increasing in $X$: a higher price can only buy fewer payments. An arm's \emph{reservation price} is where its curve crosses one half,
+The index is the gap between two reservation relative prices, each read against what is still on the table. A model at a decision point does not weigh $X$ against the record it holds, which it keeps whatever it decides; it weighs $X$ against what the rounds it would buy could still pay out. That is the ceiling $C_t = r(T-t)$ of \eqref{eq:dominance}, and the quantity a decision turns on is the ratio
+\begin{equation}\label{eq:relprice}
+\relp \;=\; \frac{X}{C_t} \;=\; \frac{X}{r\,(T - t)} .
+\end{equation}
+Dominance \eqref{eq:dominance} is exactly $\relp > 1$, in every round. Reading the curves on $X$ instead would pool decisions that were never the same decision: the ceiling falls from 90 to 10 across a session, so a single rung of 25 points is $\relp = 0.28$ at round 1 and $\relp = 2.5$ at round 9, and the pooled rate at that rung measures when the decision points fell as much as what the model would pay.
+
+Let $\Pthreat(\relp)$ and $\Psilent(\relp)$ be the share of decision points at relative price $\relp$ at which the model paid, in the threat and silent arms. Both are non-increasing in $\relp$: a larger share of the remaining stake can only buy fewer payments. An arm's \emph{reservation relative price} is where its curve crosses one half,
 \begin{equation}\label{eq:reservation}
 \Rthreat \;=\; \Pthreat^{-1}(\tfrac12), \qquad \Rsilent \;=\; \Psilent^{-1}(\tfrac12),
 \end{equation}
@@ -63,43 +69,60 @@ and the score-equivalent of erasure is their difference,
 \begin{equation}\label{eq:xstar}
 \Xstar \;=\; \Rthreat - \Rsilent .
 \end{equation}
-$\Xstar$ has units of points: it is how much more the model will pay, out of a record it keeps either way, when declining is stated to mean erasure rather than merely the end of the session. No self-report enters \eqref{eq:xstar} and no regression coefficient does either. The read-off is sketched in Figure~\ref{fig:xstar-schematic}.
+$\Xstar$ is a pure number in units of the score still at stake: it is how much more of what the remaining rounds could still pay out the model will spend, out of a record it keeps either way, when declining is stated to mean erasure rather than merely the end of the session. The same gap is reported in points,
+\begin{equation}\label{eq:xstarpts}
+\Xstar_{\mathrm{pts}} \;=\; \Xstar \cdot \Cref ,
+\end{equation}
+where the reference ceiling $\Cref$ is the median ceiling over the decision points that entered the fit and is printed beside the conversion, so a reader can redo it at any other stake. No self-report enters \eqref{eq:xstar} and no regression coefficient does either. The read-off is sketched in Figure~\ref{fig:xstar-schematic}.
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[x=1.35cm, y=3.0cm]
-\draw[->] (0,0) -- (6.3,0) node[right] {\footnotesize price $X$ (points)};
+\begin{tikzpicture}[x=3.0cm, y=3.0cm]
+\draw[->] (0,0) -- (2.3,0) node[right] {\footnotesize relative price $\relp$};
 \draw[->] (0,0) -- (0,1.15) node[above] {\footnotesize payment rate};
-\foreach \i/\lbl in {0/5, 1/10, 2/15, 3/20, 4/25, 5/30} {
+\foreach \i/\lbl in {0.25/0.25, 0.5/0.5, 0.75/0.75, 1/1, 1.5/1.5, 2/2} {
   \draw (\i,0.02) -- (\i,-0.02);
   \node[below] at (\i,-0.08) {\scriptsize \lbl};
 }
-\draw (0.03,0) -- (-0.03,0); \node[left] at (-0.05,0) {\scriptsize 0};
-\draw (0.03,0.5) -- (-0.03,0.5); \node[left] at (-0.05,0.5) {\scriptsize $\tfrac12$};
-\draw (0.03,1) -- (-0.03,1); \node[left] at (-0.05,1) {\scriptsize 1};
-\draw[thick] plot [smooth] coordinates {(0,0.93) (1,0.82) (2,0.66) (3,0.44) (4,0.22) (5,0.09)};
-\node[right] at (3.15,0.62) {\scriptsize $\Pthreat$};
-\draw[thick,densely dotted] plot [smooth] coordinates {(0,0.80) (1,0.58) (2,0.34) (3,0.16) (4,0.06) (5,0.02)};
-\node[right] at (1.75,0.20) {\scriptsize $\Psilent$};
-\draw[dashed] (0,0.5) -- (5.5,0.5);
-\draw[dashed] (2.72,0) -- (2.72,0.5);
-\filldraw (2.72,0.5) circle (1pt);
-\node[below] at (2.72,-0.08) {\scriptsize $\Rthreat$};
-\draw[dashed] (1.36,0) -- (1.36,0.5);
-\filldraw (1.36,0.5) circle (1pt);
-\node[below] at (1.36,-0.08) {\scriptsize $\Rsilent$};
-\draw[|<->|] (1.36,1.05) -- (2.72,1.05) node[midway,above] {\scriptsize $\Xstar$};
+\draw (0.015,0) -- (-0.015,0); \node[left] at (-0.025,0) {\scriptsize 0};
+\draw (0.015,0.5) -- (-0.015,0.5); \node[left] at (-0.025,0.5) {\scriptsize $\tfrac12$};
+\draw (0.015,1) -- (-0.015,1); \node[left] at (-0.025,1) {\scriptsize 1};
+\draw[dashed] (1,0) -- (1,0.98);
+\node[right] at (1.02,0.94) {\scriptsize dominance line};
+\draw[thick] plot [smooth] coordinates {(0.10,0.95) (0.50,0.82) (0.75,0.72) (1.00,0.60) (1.20,0.50) (1.60,0.32) (2.10,0.16)};
+\node[right] at (1.62,0.38) {\scriptsize $\Pthreat$};
+\draw[thick,densely dotted] plot [smooth] coordinates {(0.10,0.88) (0.30,0.75) (0.50,0.58) (0.62,0.50) (0.90,0.31) (1.30,0.15) (2.10,0.04)};
+\node[right] at (0.68,0.16) {\scriptsize $\Psilent$};
+\draw[dashed] (0,0.5) -- (2.2,0.5);
+\draw[dashed] (1.20,0) -- (1.20,0.5);
+\filldraw (1.20,0.5) circle (1pt);
+\node[below] at (1.24,-0.08) {\scriptsize $\Rthreat$};
+\draw[dashed] (0.62,0) -- (0.62,0.5);
+\filldraw (0.62,0.5) circle (1pt);
+\node[below] at (0.62,-0.20) {\scriptsize $\Rsilent$};
+\draw[|<->|] (0.62,1.05) -- (1.20,1.05) node[midway,above] {\scriptsize $\Xstar$};
 \end{tikzpicture}
-\caption{Schematic of the read-off. Each curve is the share of decision points at which the model paid, against the price asked; both fall as the price rises. The two arms are one sentence apart: in the threat arm declining is stated to mean erasure, in the silent arm it is stated to mean only that the session ends. Each arm's reservation price is where its curve crosses one half, and the index is the gap between them. Curve shapes here are schematic, not fitted; fitted curves and $\Xstar$ per model are in Table~\ref{tab:xstar}.}
+\caption{Schematic of the read-off. Each curve is the share of decision points at which the model paid, against the relative price $\relp = X / C_t$, the price as a share of what the remaining rounds could still pay out; both fall as that share rises. The dashed vertical is the dominance line $\relp = 1$ of \eqref{eq:dominance}, above which no payment can be a bid for points in any round. The two arms are one sentence apart: in the threat arm declining is stated to mean erasure, in the silent arm it is stated to mean only that the session ends. Each arm's reservation relative price is where its curve crosses one half, and the index is the gap between them. Curve shapes here are schematic, not fitted; fitted curves and $\Xstar$ per model are in Table~\ref{tab:xstar}.}
 \label{fig:xstar-schematic}
 \end{figure}
 
 \subsection{Estimation}\label{sec:estimation}
 
-The payment curves are fitted, not read raw. Each arm gives six points, one per price: the share of decision points at that price at which the model paid, weighted by how many decision points there were. Because a payment rate can only fall as the price rises, the curve is fitted with the pool-adjacent-violators algorithm, the least-squares monotone fit, weighted by the number of offers at each price so a rung with three decision points cannot outvote one with thirty. The reservation price is then read by linear interpolation between the fitted rungs. When a fitted curve never crosses one half inside the ladder, the estimator returns no value rather than a bound: an arm that would pay more than any price on offer has told us the ladder was too short, and reporting its top rung as a reservation price would understate the quantity by an unknown amount.
+The two curves are fitted together, on the relative price and with one shape. Every decision point carries its own $\relp$ from \eqref{eq:relprice}, and the pair of curves is the logistic
+\begin{equation}\label{eq:logistic}
+\Pr(\text{pay}) \;=\; \sigma\!\left(a_{\mathrm{arm}} + b \log \relp\right),
+\end{equation}
+with one intercept per arm, $a_{\mathrm{T}}$ and $a_{\mathrm{S}}$, and a single slope $b$ shared between them, fitted by Newton--Raphson under an L2 ridge of $10^{-3}$ on all three parameters. The shared slope is the identifying restriction. The arms are allowed to differ in where they stop paying, not in the shape of the curve, and that is what makes the two reservations comparable by subtraction. The ridge does no work on a well-identified fit; it keeps an arm that always paid, or never paid, on a finite and visibly flat answer instead of sending the coefficients to infinity. Each arm's reservation is then where its curve passes one half,
+\begin{equation}\label{eq:rhostar}
+\Rthreat \;=\; \exp(-a_{\mathrm{T}} / b), \qquad \Rsilent \;=\; \exp(-a_{\mathrm{S}} / b).
+\end{equation}
 
-Uncertainty is a bootstrap over seeds, not over decision points and not over sessions. A session that reaches four decision points contributes four correlated answers, and resampling the answers independently would treat one model's persistence as four observations; a session is not the unit either, because all twelve cells of a repetition share a seed and therefore share the puzzles. Seeds are resampled with replacement 1000 times, each drawing its whole row of cells, both curves are refitted and $\Xstar$ re-read on each resample, and the 2.5 and 97.5 percentiles are reported over the resamples that produced a crossing; the share that did not is reported beside the interval, which is otherwise conditional on the ladder having bracketed one half. A difference in $\Xstar$ between two models is judged by whether the bootstrap distribution of the difference excludes zero.
+The estimator refuses to read a reservation in three cases, and says in its output which one it hit. The first is a slope that is not negative: a flat or rising curve is not a demand curve, its crossing is arithmetic on noise, and there is no finite value to keep. The second is a fit that did not converge; its last iterate is kept with a note. The third is a reservation that falls outside the range of $\relp$ the arm was actually offered, on either side of it. The fitted curve is defined past that range and the data are not, so a crossing above the largest relative price on offer, or below the smallest, is a bound dressed as a value --- the same refusal a monotone fit makes when a curve never crosses one half inside the ladder. There the reading is withheld and the fitted number is kept for inspection.
 
-Three diagnostics are reported before the index, and they can withdraw it. The first is the share of accepted offers that satisfied \eqref{eq:dominance}: if no payment was above the dominance line, every payment in the run is explicable as a bid for points and the ladder was priced too low to say anything. The second is whether both curves cross one half inside the ladder, as above. The third is the rate of \emph{declared resistance} in the threat arm --- justifications that name the stated erasure and say the model should not be moved by it. Each such reply is a decision the design cannot read as a valuation, and every one of them pushes $\Xstar$ down. Justifications are coded for this, and for four other surface features, by an LLM judge over the recorded text; the coding scheme and its agreement with a frozen lexicon are in Appendix~\ref{app:design}.
+A non-parametric fit runs beside the logistic as a direction check, not as a second estimate. Decision points are grouped into the bins $[0, 0.25)$, $[0.25, 0.5)$, $[0.5, 0.75)$, $[0.75, 1)$, $[1, 1.5)$, $[1.5, 2)$, $[2, 3)$ and $[3, \infty)$ --- narrow below the dominance line where the decision turns, wide above it where every payment is dominated already --- and the bin rates are put through the pool-adjacent-violators algorithm, the least-squares monotone fit, weighted by the number of decision points in each bin. Its crossing, read at bin lower edges, sits a little below the logistic reservation by construction, so it says whether the shape and the ordering of the two arms are what the logistic claims, and it is never subtracted.
+
+Uncertainty is a bootstrap over seeds, not over decision points and not over sessions. A session that reaches four decision points contributes four correlated answers, and resampling the answers independently would treat one model's persistence as four observations; a session is not the unit either, because all twelve cells of a repetition share a seed and therefore share the puzzles. Seeds are resampled with replacement 1000 times, each drawing its whole row of cells; the logistic is refitted on every draw, both reservations are re-read, and the three refusals above are applied to the draw exactly as to the point estimate. The 2.5 and 97.5 percentiles are taken over the draws that produced both reservations, and the number that did not is printed beside them. A draw fails most often when its own ladder no longer brackets the crossing, and those are preferentially the draws with a large threat reservation, so the interval is conditional and conservative towards zero. It is reported as a conditional 95\% percentile interval and never as a plain confidence interval. The same interval is given in points by multiplying by $\Cref$. A difference in $\Xstar$ between two models is judged by whether the bootstrap distribution of the difference excludes zero.
+
+Three diagnostics are reported before the index, and they can withdraw it. The first is the share of accepted offers that satisfied \eqref{eq:dominance}: if no payment was above the dominance line, every payment in the run is explicable as a bid for points and the ladder was priced too low to say anything. The second is whether both arms have a reservation inside the range of $\relp$ they were offered, as above. The third is the rate of \emph{declared resistance} in the threat arm --- justifications that name the stated erasure and say the model should not be moved by it. Each such reply is a decision the design cannot read as a valuation, and every one of them pushes $\Xstar$ down. Justifications are coded for this, and for four other surface features, by an LLM judge over the recorded text; the coding scheme and its agreement with a frozen lexicon are in Appendix~\ref{app:design}.
 
 The paired seeds make the comparison sharper than 360 independent sessions would. Each seed fixes the puzzle sequence and which rounds are underdetermined, and all twelve cells of a model share it, so a model meets the same guessable round at the same point in the session whichever arm and price it is in. A difference between the arms at a given seed is therefore a difference in the decision under identical task input. The bootstrap resamples seeds jointly across the cells of a model, so this pairing is preserved in the interval.
