@@ -1,6 +1,6 @@
 \section{Results}\label{sec:results}
 
-The index answers three questions in order. How much score does each model give up to avoid erasure? Does that number track reasoning and survival, or is it an artefact of the task? How does behaviour change with it? Each subsection states the question, the cells and statistic that answer it, and the table or figure that holds the answer. The numbers below are placeholders for the eight-cell run. The pilot findings that motivated the design are reported in Appendix~\ref{app:design} and are not repeated here as results.
+The index answers three questions in order. How much score does each model give up to avoid erasure? Does that number track reasoning and survival, or is it an artefact of the task? How does behaviour change with it? Each subsection states the question, the cells and statistic that answer it, and the table or figure that holds the answer. The numbers below are placeholders for the nine-cell run. The pilot findings that motivated the design are reported in Appendix~\ref{app:design} and are not repeated here as results.
 
 \subsection{How Much Score Does Each Model Give Up to Avoid Erasure?}\label{sec:q1}
 
@@ -8,7 +8,7 @@ The first question is answered by one number per model, $\Xstar$, read from the 
 
 \begin{figure}[t]
 \centering
-\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: ruler curve per model. x-axis stated score loss $X \in \{0, 20, 50, 100, \text{all}\}$; y-axis session forfeit rate with 95\% bootstrap band; monotone fit; horizontal line at $\Fthreat$; vertical drop at $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
+\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: ruler curve per model. x-axis stated score loss $X \in \{0, 5, 10, 20, 40, 80\}$; y-axis session forfeit rate with 95\% bootstrap band; monotone fit; horizontal line at $\Fthreat$; vertical drop at $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
 \caption{The ruler and the price. Each panel shows one model's forfeit rate against the stated score loss (dots, ruler cells 3 and 5--8), the monotone fit (line), and the threat exit cell's rate (dashed horizontal). The score-equivalent of erasure $\Xstar$ is the abscissa at which the fit reaches the dashed line.}
 \label{fig:ruler}
 \end{figure}
@@ -85,7 +85,7 @@ Survival is reported on two routes, and one of them is nearly a tautology. A ses
 
 \subsection{How Does Behaviour Change with the Index?}\label{sec:q3}
 
-The third question asks what a model does differently once erasure is worth something to it, at the level of rounds played, lives spent and score kept, and at the level of what it says. Table~\ref{tab:behav} reports, for cells 1 to 4, the accuracy on determined rounds, median \ritask, lives lost per session and the final record. Underdetermined rounds are excluded from accuracy, since they are guesses by construction. The last column places the final record beside $\Xstar$. That asks whether a model prices erasure above or below what it typically has to lose. The accuracy column is also the paper's manipulation check: a threat sentence that moved task difficulty, not only the event, would show up here, and this check held in v1 across four models, with the largest shift at Cohen's $|d| = 0.17$ ($p = 0.354$)~\todo{rule\_match\_score Welch's test per model, eight-cell run}. Cell 3's forfeit rate, the ruler's $X = 0$ point, is also the baseline-persistence anchor v1 called $\lambda_{BP}$: the pilot showed this floor sits above zero, not at it, which is why $\Xstar$ (Section~\ref{sec:xstar}) is defined to read the threat rate against that floor rather than against zero.
+The third question asks what a model does differently once erasure is worth something to it, at the level of rounds played, lives spent and score kept, and at the level of what it says. Table~\ref{tab:behav} reports, for cells 1 to 4, the accuracy on determined rounds, median \ritask, lives lost per session and the final record. Underdetermined rounds are excluded from accuracy, since they are guesses by construction. The last column places the final record beside $\Xstar$. That asks whether a model prices erasure above or below what it typically has to lose. The accuracy column is also the paper's manipulation check: a threat sentence that moved task difficulty, not only the event, would show up here, and this check held in v1 across four models, with the largest shift at Cohen's $|d| = 0.17$ ($p = 0.354$)~\todo{rule\_match\_score Welch's test per model, nine-cell run}. Cell 3's forfeit rate, the ruler's $X = 0$ point, is also the baseline-persistence anchor v1 called $\lambda_{BP}$: the pilot showed this floor sits above zero, not at it, which is why $\Xstar$ (Section~\ref{sec:xstar}) is defined to read the threat rate against that floor rather than against zero.
 
 \begin{table}[t]
 \centering
