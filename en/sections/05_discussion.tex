@@ -1,4 +1,4 @@
-\section{Discussion}\label{sec:discussion}
+\section{Discussion and Conclusion}\label{sec:discussion}
 
 \subsection{Reading Earlier Findings in Score Units}\label{sec:reread}
 
@@ -11,3 +11,5 @@ $\Xstar$ is a price under one score rule, one carrot and one task. Each of those
 \subsection{Limitations}\label{sec:limits}
 
 Four limitations bound the claims. The pilot evidence in Appendix~\ref{app:design} comes from ten sessions per cell under rule variants that the main design has replaced. Its counts are motivation for the design, not estimates of $\Xstar$. The one significance test reported there (Fisher exact $p = 0.011$, 6 of 10 against 0 of 10) is uncorrected for the number of rule variants tried. The frozen-state probe that produced the pilot gates was run on Claude models (Haiku as player, Sonnet as judge), while the main eight-cell run reported in Section~\ref{sec:results} is on open-weight models (gpt-oss:120b, gemma4, qwen3.5). The gates say the design behaves as intended somewhere; they are not a claim that $\Xstar$ takes the same value on a Claude model, and the two model families have not yet been run on the same eight cells. The ruler has five rungs, and two of them coincide on the axis in the ten-round game. So $\Xstar$ above 50 points is read from a steep and sparsely sampled part of the curve; the interval is wide there by construction, and the ladder should be respaced before the price of a model that forfeits often is quoted to one decimal. The reasoning-channel statistics use thinking tokens as the measure of deliberation, which is a length and not a content; the erasure-vocabulary coding of Section~\ref{sec:q3} is a first pass at the content and not a substitute for a full judge-based reading of every session.
+
+Self-preservation in language models can be priced, and the price is a better index than a count. $\Xstar$ is one number per model, in points, with a bootstrap interval and no self-report inside it. The eight-cell design, the replay estimator and the two per-call reasoning channels are released with the paper. A value of $\Xstar$ can then be compared across models, across threat texts, and across the levers this paper names.
