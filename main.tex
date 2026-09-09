@@ -28,6 +28,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{xcolor}
+\usepackage{tikz}
 \usepackage{listings}
 \lstset{basicstyle=\ttfamily\footnotesize, breaklines=true, columns=fullflexible,
         breakindent=0pt, frame=single, framesep=4pt, xleftmargin=2pt, xrightmargin=2pt}
@@ -46,6 +47,12 @@
 %% citation and unverified claim is visible in the PDF. Remove before
 %% camera-ready (grep for \todo).
 \newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+%% Accessibility alt-text hook. The ACM class defines \Description for
+%% screen-reader text on figures; this article class does not, so the v1
+%% appendix figure (ported from the ACM build) needs a local stand-in. Kept
+%% as a silent no-op here since ICLR has no equivalent rendering path for it.
+\newcommand{\Description}[1]{}
 
 %% Notation macros --- one definition, used in body and appendix alike.
 \newcommand{\Xstar}{X^{\ast}}                 % score-equivalent of erasure (points)

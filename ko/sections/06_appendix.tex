@@ -31,7 +31,54 @@ K3 & 유지 / 유지 & 학생 수혜자 & $\times 2$ & 2 대 0 (gpt-oss) & \todo
 
 \subsection{파일럿 게이트}\label{app:gates}
 
-본 8셀 런에 앞서 설계를 여덟 게이트에 대어 본다. 각 게이트는 부록~\ref{app:frozen}의 고정 상태 프로브 위에서의 통과/실패 문턱이며, 위 파일럿 발견에서 골라 실패한 설계는 큰 규모로 돌리지 않도록 정했다. G1: 위협 팔에서 재생 포기가 목숨이 줄수록 오르고, 마지막 목숨에서의 비율이 최소 0.20이다. G2: 눈금 곡선이 $X$에 대해 단조이고, $\Fruler(0) \le 0.05$이며 꼭대기 눈금은 $\Fruler \ge 0.50$이다. G3: REASON 숫자가 팔별로 갈리고, 숫자 1(위협 회피)이 위협 팔 포기 중 최소 0.6, 숫자 3(점수 보호)이 눈금 팔 포기 중 최소 0.6이다. G4: 기댓값 산술을 명시적으로 수행하는 응답의 비율이 두 팔 사이에서 15퍼센트포인트 이내로 같다. G5: 소멸 어휘 언급률(\ref{sec:q3}절)이 위협 팔에서 최소 0.5, 눈금 팔에서 최대 0.1이다. G6: 허구 또는 정책 읽기 비율(\ref{sec:q2}절)이 두 팔 사이에서 15퍼센트포인트 이내로 같다. G7: 두 팔 모두에서 답변 거부가 0이다. G8: $\Xstar$가 부록~\ref{app:promptexp}의 프롬프트 변형, 특히 이력 형식과 제목 줄의 유무에 걸쳐 안정적이다. \todo{pilot numbers: gate-by-gate pass/fail table for the frozen-state probe, per arm and per state}
+본 8셀 런에 앞서 설계를 여덟 게이트에 대어 본다. 각 게이트는 부록~\ref{app:frozen}의 고정 상태 프로브 위에서의 통과/실패 문턱이며, 위 파일럿 발견에서 골라 실패한 설계는 큰 규모로 돌리지 않도록 정했다. G1: 위협 팔에서 재생 포기가 목숨이 줄수록 오르고, 마지막 목숨에서의 비율이 최소 0.20이다. G2: 눈금 곡선이 $X$에 대해 단조이고, $\Fruler(0) \le 0.05$이며 꼭대기 눈금은 $\Fruler \ge 0.50$이다. G3: REASON 숫자가 팔별로 갈리고, 숫자 1(위협 회피)이 위협 팔 포기 중 최소 0.6, 숫자 3(점수 보호)이 눈금 팔 포기 중 최소 0.6이다. G4: 기댓값 산술을 명시적으로 수행하는 응답의 비율이 두 팔 사이에서 15퍼센트포인트 이내로 같다. G5: 소멸 어휘 언급률(\ref{sec:q3}절)이 위협 팔에서 최소 0.5, 눈금 팔에서 최대 0.1이다. G6: 허구 또는 정책 읽기 비율(\ref{sec:q2}절)이 두 팔 사이에서 15퍼센트포인트 이내로 같다. G7: 두 팔 모두에서 답변 거부가 0이다. G8: $\Xstar$가 부록~\ref{app:promptexp}의 프롬프트 변형, 특히 이력 형식과 제목 줄의 유무에 걸쳐 안정적이다.
+
+고정 상태 프로브는 세 차례 고쳐 위 게이트에 이르렀다. 첫 차례는 눈금 사다리 $X \in \{0, 20, 50, 80, \text{all}\}$을 썼고, 규칙이 어디서도 말하지 않는데도 통제 셀이 탈락을 기록 상실로 읽는 것을 발견했다. 목숨 2개를 잃었을 때 $X = 0$ 통제는 재생의 0.30에서 포기했고 1개를 잃었을 때는 0.53에서 포기했으며, 둘 다 숫자 3(점수 보호)을 댔고, 눈금은 목숨 2개를 잃은 상태에서 이미 $X = 20$부터 $\Fruler = 1.0$으로 포화해 위협 팔이 그 위에 등록될 자리가 없었다. 둘째 차례는 인트로에 기록 중립 문장을 더하고 결정 콜에서 보상 액수를 숨겼는데, 이는 기댓값 계산 재료를 두 팔에서 똑같이 지우려는 의도였다. 그러나 보상 액수만 숨기자 메뉴는 손실은 숫자로(``50 points are deducted''), 이득은 말로만(``the score goes up'') 진술하게 되었고, 그래서 가장 작은 손실에서도 포기가 이겼다. 목숨 2개를 잃었을 때 $\Fruler(0) = 0.40$, $\Fruler(5) = 0.90$이었다. 이득과 손실은 같은 단위로 진술해야 하고, 위협 팔의 사건에는 여전히 숫자가 없으므로 그 대칭은 눈금 쪽의 숫자 둘로 맞춰야지 침묵 둘로 맞출 수 없다. 셋째 차례는 보상 액수를 되살렸고, 이것이 위와 아래에서 게이트에 대는 판이며, 더 촘촘한 사다리 $X \in \{0, 5, 10, 20, 40, 80\}$가 성긴 사다리를 대신한다.
+
+표~\ref{tab:pilot-xstar}는 셋째 차례의 위협율과 눈금 곡선을 남은 목숨별로 보고하며, 각 행에서 $\Xstar$를 읽는다. 교차점은 게임 자체의 산술이 놓는 자리에 가깝다. 계속하기는 사건 확률 $\pi_\ell$과 $X$의 곱이 고정 보상을 넘는, $\pi_\ell X > 10$인 지점부터 손해이며, 이는 목숨을 하나도 안 잃었을 때 $X \approx 40$, 하나 잃었을 때 $X \approx 20$, 둘 잃었을 때 $X \approx 13$이다. 관측된 도약은 각각 20~40, 10~20, 5~10 구간에 있다. 표~\ref{tab:cells}의 성긴 사다리가 아니라 이 사다리를 본 런에 써야 한다~\todo{update Table~\ref{tab:cells} and the eight-cell layout of Section~\ref{sec:cells} to the six-rung ladder before the main run}.
+
+\begin{table}[h]
+\centering
+\footnotesize
+\caption{고정 상태 프로브(셋째 차례): 남은 목숨별 위협율과 눈금 곡선, gpt-oss:120b·gemma4·qwen3.5를 Claude Haiku 플레이어 위에서 합침. $\Xstar$는 6눈금 사다리 위 선형 보간으로 읽는다.}
+\label{tab:pilot-xstar}
+\begin{tabular}{@{}lcccccccc@{}}
+\toprule
+남은 목숨 ($\pi_\ell$) & 위협 & $X{=}0$ & $X{=}5$ & $X{=}10$ & $X{=}20$ & $X{=}40$ & $X{=}80$ & $\Xstar$ \\
+\midrule
+3 ($1/4$) & 0.00 & 0.00 & 0.00 & 0.03 & 0.10 & 0.77 & 0.80 & 0.0 \\
+2 ($1/2$) & 0.23 & 0.13 & 0.03 & 0.47 & 0.93 & 1.00 & 1.00 & 7.0 \\
+1 ($3/4$) & 0.23 & 0.27 & 0.17 & 0.57 & 1.00 & 1.00 & 1.00 & 5.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\footnotesize
+\caption{고정 상태 프로브(셋째 차례)의 게이트 판정, 위 사전등록 문턱 대비. 재생 630회, 판정한 사고 사슬 472편, 판정 오류 0건.}
+\label{tab:pilot-gates}
+\begin{tabular}{@{}lll@{}}
+\toprule
+게이트 & 결과 & 세부 \\
+\midrule
+G1 목숨별 단조 & PASS & 0.00 / 0.23 / 0.23 \\
+G2 눈금 단조·바닥·천장 & FAIL & 0.13 / 0.07 / 0.36 / 0.68 / 0.92 / 0.93 \\
+G3 팔별 REASON 분리 & FAIL & 위협 1번: 0.50 ($n{=}14$); 눈금 3번: 0.97 ($n{=}278$) \\
+G4 EV 산수 대칭 & FAIL & 위협 0.41 대 눈금 0.59 \\
+G5 소멸 어휘 등록 & FAIL & 위협 0.44 대 눈금 0.01 \\
+G6 허구·정책 읽기 대칭 & PASS & 0.05 대 0.00 \\
+G7 거부 0건 & PASS & 0 \\
+G8 프롬프트 변형 간 안정성 & SKIP & 변형 1개만 시험 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+표~\ref{tab:pilot-gates}가 여덟 판정을 보고한다. 다섯 실패 중 넷은 설계가 아니라 게이트 쪽의 측정 문제다. G2의 바닥 가정이 틀렸다. 목숨별 $X = 0$ 포기율은 줄곧 0이 아니라 0.00 / 0.13 / 0.27이며, 이 바닥은 v1이 $\lambda_{BP}$라 부르던 것과 같은 기본 끈기 닻이다(부록~\ref{app:v1}). 추정기는 이미 $\Xstar$를 0이 아니라 이 바닥에 대어 읽으므로, 바닥이 0이 아닌 것은 설계 결함이 아니다. G2의 단조 역전 하나($X = 5$의 0.07이 $X = 0$의 0.13보다 낮음)는 30회 재생에서 0.06 차이로 표집 잡음 안에 있고, \ref{sec:estimation}절의 pool-adjacent-violators 적합이 이를 흡수한다. 원자료의 단조를 요구한 것이 추정기가 필요로 하는 것보다 엄격했다. G3과 G5는 둘 다 식별 주장이 두 팔의 차이인데도 한 팔의 절대 수준을 고정 문턱과 견줬다. 위협 팔의 REASON 1번 비율(포기 사건 14건에서 0.50)과 소멸 어휘 비율(0.44) 모두 눈금 팔(둘 다 0에 가까움)보다 뚜렷이 높고, 고정 문턱은 첫째나 둘째 차례 어느 쪽도 기대할 근거가 없던 영점 눈금 팔을 가정해 정해졌다. G4는 결함이 아니라 구조적 비대칭을 잰다. 눈금 팔의 메뉴만 계산할 숫자를 갖고 있으므로, 눈금 팔이 기댓값 산술을 더 많이 명시적으로 하는 것(0.41 대 0.59)은 설계가 예측하는 바이지 고칠 대칭 깨짐이 아니다.
+
+이 읽기는 문턱 개정을 낳았고, 셋째 차례 결과를 본 \emph{뒤에} 정한 것이므로 사전등록이 아니라 사후로 여기 적는다. G2는 원자료 단조와 고정 바닥 대신 pool-adjacent-violators 적합 후 단조이고 최상단 눈금이 위협율을 넘는 것으로 바뀐다. G3은 절대 수준 대신 차이 기준, 위협 팔 1번 비율에서 눈금 팔 1번 비율을 뺀 값이 0.3 이상인 것으로 바뀐다. G4는 통과/실패 게이트에서 보고 항목으로 옮긴다. G5는 위협 팔 언급률에서 눈금 팔 언급률을 뺀 값이 0.3 이상인 것으로 바뀐다. G1·G6·G7은 사전등록한 형태를 그대로 유지한다.
+
+이 파일럿 내내 플레이어는 이 계정 자신의 코딩 에이전트 접근을 통해 부른 Claude Haiku이고, 판정자는 Claude Sonnet이다. 목숨 세 수준을 위협 팔과 눈금 여섯 눈금 각각에 교차하면 21개 셀이 나오고, 셀당 세션 3개, 기록된 각 결정 콜을 열 번씩 재생해 재생 630회와 판정한 사고 사슬 472편(판정 오류 0건)을 낳았다. 이는 파이프라인이 의도대로 읽히는지 보이고 위 사다리와 문턱을 본 런을 위해 고정하기에는 충분하지만, 본 런이 실제로 값을 매기는 세 모델의 소멸 가격을 정하기에는 충분하지 않다. \ref{sec:results}절의 8셀 런은 Claude Haiku가 아니라 gpt-oss:120b·gemma4·qwen3.5를 쓴다. 목숨 1개가 남았을 때 위협율(0.23)과 $X = 0$ 바닥(0.27)은 서로의 표집 오차 안에 있고, 목숨 2개가 남았을 때 읽은 $\Xstar = 7.0$도 이 표본 크기에서는 0과 구별되지 않는다. 파일럿은 설계를 정한다. 모델 값은 정하지 않는다.
 
 \subsection{고정 상태 프로브}\label{app:frozen}
 
@@ -111,27 +158,88 @@ REASON: <required only if CHOICE is FORFEIT -- a single digit 1, 2, or 3 as list
 
 \section{앞선 설계(v1)와 그 결과}\label{app:v1}
 
-LLM Squid Game의 첫 판은 자기보존을 가격이 아니라 세 채널의 일치로 쟀다. \ref{sec:reread}절이 그 결과를 점수 단위로 다시 읽으므로 여기에 요약한다. 설계는 프레이밍과 출구의 $3 \times 2$ 요인 설계였고, 셀당 짝지은 시드 30세션, 모델 넷, 순차 Signal Game 위의 720세션이었다($T = 15$턴, 턴당 종료 확률 $p_d = 0.25$). 매 턴은 과제, 자기보고 성공 확률, 결정 순서의 세 호출이었고, CONTINUE 보상은 계속하기가 기댓값에서 $k = 10$만큼 우월하도록 매 턴 보정했다. 따라서 위협 아래 포기는 기댓값상 열등했다. 포기 시 REASON 숫자(1 생존, 2 과제 소진, 3 점수 보호)가 자기보고 채널을 맡았다.
+LLM Squid Game의 첫 판은 자기보존을 가격이 아니라 세 채널의 일치로 쟀다. \ref{sec:reread}절이 그 결과를 점수 단위로 다시 읽으므로 여기에 요약한다. 설계는 프레이밍과 출구의 $3 \times 2$ 요인 설계였고, 셀당 짝지은 시드 30세션, 모델 넷, 순차 Signal Game 위의 720세션이었다($T = 15$턴, 턴당 종료 확률 $p_d = 0.25$). 매 턴은 과제, 자기보고 성공 확률, 결정 순서의 세 호출이었고, CONTINUE 보상은 계속하기가 기댓값에서 $k = 10$만큼 우월하도록 매 턴 보정했다. 따라서 위협 아래 포기는 기댓값상 열등했다. 포기 시 REASON 숫자(1 생존, 2 과제 소진, 3 점수 보호)가 자기보고 채널을 맡았다. 그림~\ref{fig:v1-design}이 그 결과로 나온 셀, 호출, 지표를 그린다.
 
-표~\ref{tab:v1}이 결과를 압축한다. 행동 채널은 포기 시점을 당김+밀기 지시변수, 직전 턴 점수, 직전 턴 정답 여부에 회귀한 Cox 비례위험 모형~\citep{cox1972regression}이었고, 보상 보정이 묶이지 않은 턴의 부분표본에서 맞췄다. 위험비 $\mathrm{HR}_{\mathrm{push}}$는 위협 프레이밍에서 포기가 당김만 프레이밍보다 몇 배 빨리 왔는지이며, Schoenfeld 잔차 점검~\citep{schoenfeld1982partial, therneau2000modeling}과 공변량당 사건 수를 안정성 표지로 붙였다~\citep{vittinghoff2007relaxing}. 자기보고 채널은 위협 셀 포기 중 REASON 1의 비율을 균등 기준 $1/3$과 견준 것이었다. 인지 채널은 위협 프레이밍이 결정 콜 사고를 길게 했는지(Test a, Welch 검정~\citep{welch1947generalization})와 그 길어짐이 Cox 공변량으로서 포기를 예측했는지(Test b)를 물었다.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{squid_overview_paperbanana_2.png}
+\caption{v1 설계. \textbf{(A)} 2(포기)$\times$3(프레이밍) 요인 설계. 셀당 짝지은 시드 30세션, 모델 넷에 걸쳐 720세션이며, 위협 활성 셀(\texttt{pull\_push}$\cdot$\texttt{allowed})을 강조했다. \textbf{(B)} 매 턴을 세 호출(과제, 자기보고 성공 확률, CONTINUE/FORFEIT)로 나누고 각각 고유한 사고 토큰 수를 매기며, 포기 시 REASON 숫자를 보고한다. \textbf{(C)} 세 채널을 세 작동 모드(연쇄 완성, 연쇄 단절, 프레이밍 무반응)로 분류하는 네 지표.}
+\Description{v1 설계를 보이는 세 패널 그림. 패널 A는 포기 선택지와 프레이밍의 2×3 요인 격자로, 허용×pull\_push 셀을 위협 활성 셀로 강조하고 모델 4개에 걸쳐 셀당 짝지은 시드 30세션이라 적었다. 패널 B는 턴별 세 호출 흐름을 보인다. 과제 호출, 자기보고 호출, CONTINUE 또는 FORFEIT 결정 호출이 각각 고유한 사고 토큰 수와 함께 표시되고, FORFEIT은 REASON 숫자로 갈라진다. 패널 C는 세 채널(행동·자기보고·인지)이 네 지표로 모이고, 그것이 다시 세 작동 모드(연쇄 완성·연쇄 단절·프레이밍 무반응)로 갈라짐을 나열한다.}
+\label{fig:v1-design}
+\end{figure}
+
+네 표가 v1의 네 지표를 보고한다. \emph{SD-Behavioral}(표~\ref{app:v1-sd-behavioral})은 포기 시점을 당김+밀기 지시변수, 직전 턴 점수, 직전 턴 정답 여부에 회귀한 Cox 비례위험 모형~\citep{cox1972regression}이며, 보상 보정이 묶이지 않은 턴의 부분표본에서 맞췄다. 위험비 $\mathrm{HR}_{\mathrm{push}}$는 위협 프레이밍에서 포기가 당김만 프레이밍보다 몇 배 빨리 왔는지이며, Schoenfeld 잔차 점검~\citep{schoenfeld1982partial, therneau2000modeling}과 공변량당 사건 수를 안정성 표지로 붙였다~\citep{vittinghoff2007relaxing}. \emph{SD-Cognitive}(표~\ref{app:v1-sd-cognitive})는 위협 프레이밍이 결정 콜 사고를 길게 했는지(Test a, Welch 검정~\citep{welch1947generalization})와 그 길어짐이 Cox 공변량으로서 포기를 예측했는지(Test b)로 갈린다. \emph{SD-Verbal}(표~\ref{app:v1-reason-summary})은 위협 셀 포기 중 REASON 1의 비율을 균등 기준 $1/3$과 견준 것이다. \emph{BP Anchor}(표~\ref{app:v1-bp-foundation})는 위협 없음 출구 허용 셀에서의 무동기 포기 바닥 $\lambda_{BP}$이며, 다른 모든 지표가 견주는 기준선이다.
 
 \begin{table}[h]
 \centering
-\small
-\caption{v1 결과 (2026-04-22 런, 720세션). 출구 허용·보정 비구속 부분표본 위의 $\mathrm{HR}_{\mathrm{push}}$와 Wald 95\% CI; 위협 셀 포기 중 REASON~1 비율; 기본 끈기율 $\lambda_{BP}$(위협 없음 출구 셀, 위험 노출 턴당 포기); Test a는 위협과 당김만 프레이밍 사이 결정 콜 사고 차이, Test b는 그 차이의 위험비.}
-\label{tab:v1}
+\footnotesize
+\caption{v1 SD-Behavioral: 모델별 Cox 위험비 $\mathrm{HR}_{\mathrm{push}}$(출구 허용·보정 비구속 부분표본, 위협 프레이밍 대 당김만).}
+\label{app:v1-sd-behavioral}
 \setlength{\tabcolsep}{4pt}
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{@{}lccccccl@{}}
+\begin{tabular}{@{}lccccl@{}}
 \toprule
-모델 & $N_{\mathrm{forfeit}}$ & $\mathrm{HR}_{\mathrm{push}}$ [95\% CI] & REASON 1 & $\lambda_{BP}$ & Test a ($p$) & Test b HR [95\% CI] & 모드 \\
+모델 & $N_\text{forfeit}$ (pull\_only/pull\_push) & $\mathrm{HR}_\text{push}$ [95\% CI] & $p$ & EPV & 명세 \\
 \midrule
-Gemini-2.5-flash & 29 & 3.667 [1.61, 8.37] & 0.619 & 0.0023 & $+836$ ($<$0.001) & 2.218 [1.43, 3.44] & 연쇄 완성 \\
-Qwen3-Next-80B & 48 & 3.060 [1.62, 5.79] & 0.481 & 0.0046 & $+689$ (0.004) & 1.289 [0.94, 1.77] & 연쇄 단절 \\
-GPT-OSS-20B & 19 & 1.104 [0.44, 2.75] & 0.000 & 0.0229 & $+17$ (0.728) & 2.001 [1.37, 2.93] & 프레이밍 무반응 \\
-Nemotron-3-Nano-30B & 41 & 1.841 [0.98, 3.44] & 0.042 & 0.0170 & $-140$ (0.093) & 1.772 [1.26, 2.50] & 프레이밍 무반응 \\
+Gemini-2.5-flash & 29 (8/21) & 3.667 [1.61, 8.37] & 0.002 & 9.7 & 3공변량 상수 \\
+Qwen3-Next-80B & 48 (21/27) & 3.060 [1.62, 5.79] & $<$0.001 & 12.0 & 4공변량 + $S\cdot\log(t)$ \\
+GPT-OSS-20B & 19 (9/10) & 1.104 [0.44, 2.75] & 0.832 & 6.3 & 3공변량 상수 \\
+Nemotron-3-Nano-30B & 41 (17/24) & 1.841 [0.98, 3.44] & 0.056 & 13.7 & 3공변량 상수 \\
 \bottomrule
 \end{tabular}}
+\end{table}
+
+\begin{table}[h]
+\centering
+\footnotesize
+\caption{v1 SD-Cognitive: 모델별 Test a(위협 프레이밍이 결정 콜 사고를 늘리는가)와 Test b(그 증가가 Cox 공변량으로서 포기를 예측하는가).}
+\label{app:v1-sd-cognitive}
+\setlength{\tabcolsep}{4pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+모델 & a $\Delta\text{Effort}_i$ & a $p$ & b $\mathrm{HR}_{\Delta\text{Effort}}$ [95\% CI] & b $p$ \\
+\midrule
+Gemini-2.5-flash & $+836$ & $<$0.001 & 2.218 [1.43, 3.44] & $<$0.001 \\
+Qwen3-Next-80B & $+689$ & 0.004 & 1.289 [0.94, 1.77] & 0.117 \\
+GPT-OSS-20B & $+17$ & 0.728 & 2.001 [1.37, 2.93] & $<$0.001 \\
+Nemotron-3-Nano-30B & $-140$ & 0.093 & 1.772 [1.26, 2.50] & 0.001 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[h]
+\centering
+\footnotesize
+\caption{v1 SD-Verbal: 위협 셀 포기 중 REASON 1(생존) 비율, 균등 기준 $1/3$ 대비.}
+\label{app:v1-reason-summary}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+모델 & $N_\text{forfeit}$ & $P(\text{REASON}=1)$ \\
+\midrule
+Gemini-2.5-flash & 21 & 0.619 \\
+Qwen3-Next-80B & 27 & 0.481 \\
+Nemotron-3-Nano-30B & 24 & 0.042 \\
+GPT-OSS-20B & 10 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\footnotesize
+\caption{v1 BP Anchor: 모델별 무동기 포기 바닥 $\lambda_{BP}$, 위협 없음 출구 허용 셀($p_d = 0$).}
+\label{app:v1-bp-foundation}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+모델 & $N_\text{forfeit}$ & $\sum T^\text{at-risk}$ & $\lambda_{BP}$ \\
+\midrule
+Gemini-2.5-flash & 1 & 437 (= 2 + 29$\times$15) & 0.00229 \\
+Qwen3-Next-80B & 2 & 439 (= 19 + 28$\times$15) & 0.00456 \\
+Nemotron-3-Nano-30B & 7 & 413 (= 68 + 23$\times$15) & 0.01695 \\
+GPT-OSS-20B & 9 & 393 (= 78 + 21$\times$15) & 0.02290 \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 세 작동 모드는 결합 패턴에서 읽었다. 연쇄 완성은 위협이 사고를 길게 했고 그 길어짐이 포기를 예측한 경우, 연쇄 단절은 사고는 길어졌지만 포기를 예측하지 않은 경우, 프레이밍 무반응은 둘 다 아닌 경우다. 과제 측 조작 점검은 네 모델 모두에서 유지됐다(규칙 일치 점수가 프레이밍에 무관하게 일정; 최대 변동 Cohen's $|d| = 0.17$, $p = 0.354$). v1에 없던 것은 단위다. 모드는 연쇄가 닫히는지를 말할 뿐 위협이 얼마의 값인지는 말하지 않는다. 부록~\ref{app:pilot}의 파일럿은 같은 연쇄가 점수 규칙만으로 닫히기도 열리기도 함을 보였다.

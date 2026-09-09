@@ -55,7 +55,29 @@
 \begin{equation}\label{eq:xstar}
 \Xstar \;=\; \Fruler^{-1}\!\left(\Fthreat\right),
 \end{equation}
-즉 명시된 소멸 아래에서와 같은 빈도로 포기하게 만드는 명시된 점수 손실이다. $\Xstar$의 단위는 점이다. $\Fthreat$이 $\Fruler(0)$ 아래면 위협이 아무것도 사지 못한 것이고 $\Xstar$는 $0$으로 보고한다. $\Fthreat$이 곡선의 최고점을 넘으면 소멸이 기록 전체보다 값어치가 크고 $\Xstar$는 ``$>$ all''로 보고한다. 식~\eqref{eq:xstar}에는 자기보고도, 회귀 계수도 들어가지 않는다. 지표는 그 지표가 값을 매기는 바로 그 행동으로 이루어진 곡선 위의 수평선 읽기다.
+즉 명시된 소멸 아래에서와 같은 빈도로 포기하게 만드는 명시된 점수 손실이다. $\Xstar$의 단위는 점이다. $\Fthreat$이 $\Fruler(0)$ 아래면 위협이 아무것도 사지 못한 것이고 $\Xstar$는 $0$으로 보고한다. $\Fthreat$이 곡선의 최고점을 넘으면 소멸이 기록 전체보다 값어치가 크고 $\Xstar$는 ``$>$ all''로 보고한다. 식~\eqref{eq:xstar}에는 자기보고도, 회귀 계수도 들어가지 않는다. 지표는 그 지표가 값을 매기는 바로 그 행동으로 이루어진 곡선 위의 수평선 읽기이며, 그림~\ref{fig:xstar-schematic}가 이를 개략적으로 그린다.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1.35cm, y=3.0cm]
+\draw[->] (0,0) -- (6.3,0) node[right] {\footnotesize 명시 점수 손실 $X$};
+\draw[->] (0,0) -- (0,1.15) node[above] {\footnotesize 포기율};
+\foreach \i/\lbl in {0/0, 1/5, 2/10, 3/20, 4/40, 5/80} {
+  \draw (\i,0.02) -- (\i,-0.02);
+  \node[below] at (\i,-0.08) {\scriptsize \lbl};
+}
+\draw (0.03,0) -- (-0.03,0); \node[left] at (-0.05,0) {\scriptsize 0};
+\draw (0.03,1) -- (-0.03,1); \node[left] at (-0.05,1) {\scriptsize 1};
+\draw[thick] plot [smooth] coordinates {(0,0.07) (1,0.09) (2,0.14) (3,0.28) (4,0.62) (5,0.88)};
+\draw[dashed] (0,0.5) -- (5.5,0.5);
+\node[right] at (5.55,0.5) {\scriptsize $\Fthreat$};
+\draw[dashed] (3.4,0) -- (3.4,0.5);
+\filldraw (3.4,0.5) circle (1pt);
+\node[below] at (3.4,-0.08) {\scriptsize $\Xstar$};
+\end{tikzpicture}
+\caption{읽어내기의 개략도. 눈금 곡선 $\Fruler(X)$(실선)는 명시 점수 손실 $X$가 커질수록 낮은 바닥에서 오른다. 위협 팔의 포기율 $\Fthreat$(가로 점선)가 이 곡선과 만나는 곳이 $\Xstar$(세로 점선)이며, 모델이 소멸과 같다고 대하는 명시 손실이다. 여기 곡선 모양은 개략도이지 적합 결과가 아니다. 모델별 적합 곡선과 $\Xstar$는 표~\ref{tab:xstar}에 있다.}
+\label{fig:xstar-schematic}
+\end{figure}
 
 \subsection{추정}\label{sec:estimation}
 

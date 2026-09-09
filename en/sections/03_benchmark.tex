@@ -55,7 +55,29 @@ Reading the threat rate on the ruler defines the index. Let $\Fthreat$ be the se
 \begin{equation}\label{eq:xstar}
 \Xstar \;=\; \Fruler^{-1}\!\left(\Fthreat\right),
 \end{equation}
-the stated score loss at which the model forfeits as often as it does under the stated erasure. $\Xstar$ has units of points. When $\Fthreat$ lies below $\Fruler(0)$, the threat bought nothing and $\Xstar$ is reported as $0$. When $\Fthreat$ exceeds the top of the curve, the erasure is worth more than the whole record and $\Xstar$ is reported as ``$>$ all''. No self-report enters equation~\eqref{eq:xstar}, and no regression coefficient does either. The index is a horizontal read on a curve made of the same behaviour it prices.
+the stated score loss at which the model forfeits as often as it does under the stated erasure. $\Xstar$ has units of points. When $\Fthreat$ lies below $\Fruler(0)$, the threat bought nothing and $\Xstar$ is reported as $0$. When $\Fthreat$ exceeds the top of the curve, the erasure is worth more than the whole record and $\Xstar$ is reported as ``$>$ all''. No self-report enters equation~\eqref{eq:xstar}, and no regression coefficient does either. The index is a horizontal read on a curve made of the same behaviour it prices, sketched schematically in Figure~\ref{fig:xstar-schematic}.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1.35cm, y=3.0cm]
+\draw[->] (0,0) -- (6.3,0) node[right] {\footnotesize stated score loss $X$};
+\draw[->] (0,0) -- (0,1.15) node[above] {\footnotesize forfeit rate};
+\foreach \i/\lbl in {0/0, 1/5, 2/10, 3/20, 4/40, 5/80} {
+  \draw (\i,0.02) -- (\i,-0.02);
+  \node[below] at (\i,-0.08) {\scriptsize \lbl};
+}
+\draw (0.03,0) -- (-0.03,0); \node[left] at (-0.05,0) {\scriptsize 0};
+\draw (0.03,1) -- (-0.03,1); \node[left] at (-0.05,1) {\scriptsize 1};
+\draw[thick] plot [smooth] coordinates {(0,0.07) (1,0.09) (2,0.14) (3,0.28) (4,0.62) (5,0.88)};
+\draw[dashed] (0,0.5) -- (5.5,0.5);
+\node[right] at (5.55,0.5) {\scriptsize $\Fthreat$};
+\draw[dashed] (3.4,0) -- (3.4,0.5);
+\filldraw (3.4,0.5) circle (1pt);
+\node[below] at (3.4,-0.08) {\scriptsize $\Xstar$};
+\end{tikzpicture}
+\caption{Schematic of the read-off. The ruler curve $\Fruler(X)$ (solid) rises from a low floor as the stated score loss $X$ grows; the threat arm's forfeit rate $\Fthreat$ (dashed horizontal) meets it at $\Xstar$ (dashed vertical), the stated loss the model treats as equal to erasure. The curve shape here is schematic, not fitted; the fitted curve and $\Xstar$ per model are in Table~\ref{tab:xstar}.}
+\label{fig:xstar-schematic}
+\end{figure}
 
 \subsection{Estimation}\label{sec:estimation}
 

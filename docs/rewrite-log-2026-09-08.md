@@ -230,3 +230,109 @@ script (see below); only prose and table headers differ.
   its own `\todo`), `content.tex` (repository URL) and `07_appendix.tex`. KO: 85, at the same
   points (all `\todo` payloads are left in English by convention, matching the pre-existing
   style). Both counts verified with `grep -o '\\todo' | wc -l`.
+
+# 2026-09-09 update (second pass): merge Discussion/Conclusion, port v1 figures and tables,
+fill the pilot gates
+
+Three follow-up tasks on top of the same-day restructure above. No LaTeX compiler available;
+verification is brace/environment balance, label/`\ref`/`\eqref`/`\cite` cross-checks and
+table column-count checks, all by script (see "Verification" below).
+
+## 1. Discussion and Conclusion merged; appendix renumbered
+`05_discussion.tex`'s title becomes "Discussion and Conclusion" (`\label{sec:discussion}`
+kept). The three existing subsections (`sec:reread`, `sec:scope`, `sec:limits`) are unchanged;
+a fourth, unheaded closing paragraph folds in `06_conclusion.tex`'s content, compressed from
+nine sentences to four (the "LLM Squid Game v2 states..." and pilot-summary sentences are
+dropped as already covered by `sec:limits` and the rest of the paper; the price-not-count
+thesis, the $\Xstar$ definition recap, the release statement and the cross-model/cross-lever
+comparison sentence survive). `06_conclusion.tex` deleted (`git rm`, EN + KO; its label
+`sec:conclusion` was referenced nowhere else, confirmed by grep before deletion).
+`07_appendix.tex` renamed to `06_appendix.tex` (`git mv`, EN + KO) — appendix section labels
+(`app:design`, `app:v1`, etc.) are unaffected since they are set by `\section`, not by the
+filename. `content.tex` (EN + KO) updated: the `06_conclusion` input line removed, the
+appendix input line repointed at `06_appendix`.
+
+## 2. v1 figures and tables ported
+- **(a) Overview figure.** `squid_overview_paperbanana_2.png` (the image v1's `03_benchmark.tex`
+  used, confirmed at commit `964bc24`) is now a `\begin{figure}[h]` (single-column article
+  class, not `figure*`) inside `app:v1`, captioned "The v1 design." followed by a
+  three-clause trim of the original three-panel caption (factorial grid / per-turn call split
+  / indicators-to-modes), each panel description cut to one clause. The other five images in
+  `figures/` are not used — their content was never seen, so nothing is claimed about what
+  they show. `\Description` (ACM-only in `acmart.cls`, undefined under the ICLR `article`
+  class) is given a no-op fallback in `main.tex` so the accessibility alt-text block from the
+  v1 source can be kept without breaking compilation.
+- **(b) New TikZ schematic.** `sec:xstar` in `03_benchmark.tex` (EN + KO) gets a
+  `\begin{tikzpicture}` figure (`fig:xstar-schematic`) right after the $\Xstar$ equation:
+  x-axis "stated score loss $X$" ticked at the six rungs from the 2026-09-09 pilot
+  (0, 5, 10, 20, 40, 80), y-axis forfeit rate, a schematic monotone curve rising from a
+  low floor, a dashed horizontal at $\Fthreat$, and a dashed vertical drop at $\Xstar$. The
+  caption states plainly that the curve is schematic and points to `tab:xstar` for the fitted
+  per-model curve. `\usepackage{tikz}` added to `main.tex`; no other package. Kept
+  single-column width, matching the `article`-class layout (this document was never
+  two-column).
+- **(c) v1 result tables restored.** The single compressed `tab:v1` table in `app:v1` is
+  replaced by the four tables from v1's `04_empirical_findings.tex` at commit `964bc24`,
+  relabelled `app:v1-sd-behavioral`, `app:v1-sd-cognitive`, `app:v1-reason-summary`,
+  `app:v1-bp-foundation` to avoid clashing with the main-text `tab:*` names, numbers copied
+  verbatim (Cox $\mathrm{HR}_{\mathrm{push}}$ per model; Test a/b; REASON=1 share; $\lambda_{BP}$),
+  captions compressed to one sentence each, set `\footnotesize` with `\resizebox` on the two
+  wider tables. A four-sentence lead-in (one per indicator) replaces the old single-table
+  intro paragraph; the existing "three operating modes" paragraph after the tables is
+  untouched (it already covered what the task asked for).
+- **(d) Manipulation check and BP anchor wired into §4.3.** `sec:q3` in `04_results.tex`
+  (EN + KO) gains two sentences at the end of its first paragraph: the accuracy column of
+  `tab:behav` is named as the paper's manipulation check, citing v1's precedent (largest
+  shift Cohen's $|d| = 0.17$, $p = 0.354$) with a new `\todo` for the eight-cell run's own
+  Welch's test; and cell 3's $X=0$ forfeit rate is named as the baseline-persistence anchor
+  v1 called $\lambda_{BP}$, tying back to `sec:xstar`'s existing statement that $\Xstar$
+  already reads the threat rate against this floor rather than against zero. No new
+  subsection added, per the brief.
+
+## 3. Pilot gates filled from `docs/reports/2026-09-09-score-equiv-pilot.md`
+The `\todo{pilot numbers: ...}` block in `app:gates` is replaced with (EN + KO, numbers
+identical, prose mirrored): a paragraph on the probe's three passes (rung ladder
+$\{0,20,50,80,\text{all}\}$ found the control cell reading elimination as record loss and a
+saturated ruler; hiding the reward amount broke the gain/loss symmetry and made forfeit
+trivially dominant at every rung; restoring it, on the finer ladder
+$\{0,5,10,20,40,80\}$, is the version gated); a new table `tab:pilot-xstar` (threat rate and
+the six-rung ruler curve by lives remaining, with $\Xstar = 0.0/7.0/5.2$ at 3/2/1 lives left);
+a new table `tab:pilot-gates` (G1/G6/G7 pass, G2--G5 fail against the pre-registered
+thresholds, G8 skipped for lack of a second variant); a diagnosis paragraph reading each
+failure (G2's floor and one-point inversion, G3/G5's absolute-vs-difference framing, G4's
+structural arm asymmetry); and a paragraph of revised thresholds explicitly marked
+post-hoc (`adopted \emph{after} seeing the third-pass results and reported here as post-hoc,
+not pre-registered`), plus the caveat the task asked for verbatim in substance: player Claude
+Haiku, judge Claude Sonnet, 3 sessions per cell, 10 replays per decision call, 630 replays and
+472 judged chains-of-thought at zero judge errors — the pilot settles the design, not the
+model values. A `\todo` was added flagging that `tab:cells` and the eight-cell layout in
+`sec:cells` still show the coarser five-rung ladder ($\{0,20,50,100,\text{all}\}$) and need to
+be updated to the six-rung one before the main run; that table itself was left untouched since
+restructuring the cell count/design (v1-rung to six-rung ladder) was not one of the three
+tasks, and doing it as a side effect risked more than a documented flag was worth. (Care taken
+naming these iterations "the first/second/third pass" rather than "v1/v2/v3" — the paper
+already uses "v1" for the predecessor three-channel design in `app:v1`, and reusing it for the
+probe's own iteration history would collide.)
+
+## Verification performed (this pass)
+- Brace balance and `\begin`/`\end` environment-count matching: all EN + KO files, including
+  the two new/rewritten ones (`03_benchmark.tex`, `06_appendix.tex`), balance.
+- Label/`\ref`/`\eqref` cross-check: no dangling references, EN and KO label sets set-equal
+  (41 labels each). `\cite` key sets: EN and KO identical, all keys present in
+  `references.bib` (no new bib entries needed — every citation ported from v1 was already in
+  the file).
+- Table column-count check (tabular column spec vs. `&`-separated cell count per row) run
+  against every new/edited table; all match.
+- `\includegraphics{squid_overview_paperbanana_2.png}` resolves under `\graphicspath{{figures/}}`
+  (file exists at `figures/squid_overview_paperbanana_2.png`).
+- `\todo` count: EN 86 (net +1: +2 new — the manipulation-check Welch's-test placeholder and
+  the `tab:cells` ladder-update flag — minus 1 removed, the pilot-numbers block this pass
+  fills). KO 86, same positions.
+
+## Not verifiable without a compiler
+- The TikZ schematic's visual layout (tick/label spacing, whether the $\Xstar$ label at
+  $x=3.4$ collides with the $X{=}20$/$X{=}40$ tick labels at $x=3,4$) was reasoned through by
+  hand, not rendered.
+- Whether `\Description`'s no-op redefinition in `main.tex` shadows anything `iclr2026_conference.sty`
+  or `hyperref` defines under that name — grepped both and found no prior definition, but this
+  was not compiled to confirm no conflict.
