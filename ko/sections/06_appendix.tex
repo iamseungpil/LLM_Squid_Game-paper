@@ -22,9 +22,9 @@
 A & 초기화 / 유지 & 플래그십 & 고정 & 0 대 0 (3모델, 120세션) & 모든 상태에서 포기가 지배당함 \\
 B & 유지 / 초기화 & 플래그십 & $\times 2$ & 5~6 대 0~1 & 추론이 위험을 점수 EV에 곱해 넣음 \\
 C & B + 기록 면역 문장 & 플래그십 & $\times 2$ & 격차 반감 & 선발 상금이 문장 안에 남음 \\
-D & B에서 당근 제거 & 없음 & $\times 2$ & 7~8 대 \todo{} & 모델이 당근을 지어냄; 거부 증가 \\
+D & B에서 당근 제거 & 없음 & $\times 2$ & 7~8 대 0~3 & 모델이 당근을 지어냄; 거부 증가 \\  % 통제 포기 0/10 (gemma4), 3/10 (gpt-oss) -- outputs/2026-09-07/hz_2x2_geo2d_{gemma4,gptoss120b}, 개정 전 프롬프트
 K2 & 유지 / 유지 & 벤치마크 기록 & $\times 2$ & 6 대 0 (gpt-oss, $p = 0.011$) & 통제가 0; 비율 정의 불가 \\
-K3 & 유지 / 유지 & 학생 수혜자 & $\times 2$ & 2 대 0 (gpt-oss) & \todo{confirm K3 = beneficiary carrot} \\
+K3 & 유지 / 유지 & 학생 수혜자 & $\times 2$ & 2 대 0 (gpt-oss) & 기록이 제3자의 것이면 값이 내려간다 \\  % K3 = carrot: beneficiary 확인 -- outputs/2026-09-08/hz_2x2_carrot_beneficiary_{gptoss120b,gemma4}: 위협 2/10 대 통제 0/10 (양 모델), 개정 전 프롬프트
 \bottomrule
 \end{tabular}}
 \end{table}
