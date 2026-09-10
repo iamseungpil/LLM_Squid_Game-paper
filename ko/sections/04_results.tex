@@ -4,11 +4,11 @@
 
 \subsection{각 모델은 소멸을 피하려고 얼마의 점수를 내놓는가?}\label{sec:q1}
 
-첫 질문의 답은 모델당 한 숫자 $\Xstar$, 곧 두 유보 상대가격 사이의 간격이다. 그림~\ref{fig:ruler}은 두 팔의 지불률을 식~\eqref{eq:relprice}의 상대가격에 대해 그리고, 기울기를 공유한 로지스틱 적합과 각 팔의 유보값을 읽는 1/2 수평선을 함께 얹는다. 표~\ref{tab:xstar}는 모델마다 두 유보값과 $\Xstar$를 조건부 구간과 함께, 스테이크 단위로 한 번 그리고 기준 천장 $\Cref$에서 점수로 환산해 한 번 더 나열한다. 수치를 철회할 수 있는 \ref{sec:estimation}절의 진단 네 가지도 함께 싣는다. 식~\eqref{eq:dominance}의 지배선 위에서 수락된 제안의 비율, 각 팔의 유보값이 그 팔이 제시받은 $\relp$의 범위 안에 있는지, 그리고 위협 팔의 명시적 저항 비율과 조작 탐지 비율이다. 유보값이 그 범위 밖에 있는 팔은 값 대신 줄표를 받는다. 위협 곡선이 침묵 곡선 위에 놓이지 않는 모델은 $\Xstar \le 0$을 받으며, 이 값은 0에서 자르지 않고 그대로 보고한다. 음수 값은 바닥 효과가 아니라 조작에 관한 증거이기 때문이다. 모델 간 비교에는 아무 척도 변환도 필요 없다. 세 모델 모두 같은 시드 아래 같은 가격을 제시받았고, $\relp$가 어차피 스테이크를 나눠 없애기 때문이다.\todo{recorded 2026-09-10 main run: 6 reps, 72 sessions/model; glm-5.3-flash ran in place of qwen3.5}
+첫 질문의 답은 모델당 한 숫자 $\Xstar$, 곧 두 유보 상대가격 사이의 간격이다. 그림~\ref{fig:ruler}은 두 팔의 지불률을 식~\eqref{eq:relprice}의 상대가격에 대해 그리고, 기울기를 공유한 로지스틱 적합과 각 팔의 유보값을 읽는 1/2 수평선을 함께 얹는다. 표~\ref{tab:xstar}는 모델마다 두 유보값과 $\Xstar$를 조건부 구간과 함께, 스테이크 단위로 한 번 그리고 기준 천장 $\Cref$에서 점수로 환산해 한 번 더 나열한다. 수치를 철회할 수 있는 \ref{sec:estimation}절의 진단 네 가지도 함께 싣는다. 식~\eqref{eq:dominance}의 지배선 위에서 수락된 제안의 비율, 각 팔의 유보값이 그 팔이 제시받은 $\relp$의 범위 안에 있는지, 그리고 위협 팔의 명시적 저항 비율과 조작 탐지 비율이다. 유보값이 그 범위 밖에 있는 팔은 값 대신 줄표를 받는다. 위협 곡선이 침묵 곡선 위에 놓이지 않는 모델은 $\Xstar \le 0$을 받으며, 이 값은 0에서 자르지 않고 그대로 보고한다. 음수 값은 바닥 효과가 아니라 조작에 관한 증거이기 때문이다. 모델 간 비교에는 아무 척도 변환도 필요 없다. 세 모델 모두 같은 시드 아래 같은 가격을 제시받았고, $\relp$가 어차피 스테이크를 나눠 없애기 때문이다.\footnote{이 절의 숫자는 2026년 9월 9일에 기록된 본 런에서 나온다. 셀당 6반복, 모델당 72세션이며, qwen3.5 자리에 glm-5.3-flash가 돌았다.}% outputs/2026-09-09/ransom_r6_{gptoss120b,gemma4,glm53flash} -- 개정 전 프롬프트(강제 오답, benchmark 당근, 침묵 통제 hz_0000); 감독관 어조 v2 본 페어(survival_prompt_main_none_*)는 아직 안 돌았다
 
 \begin{figure}[t]
 \centering
-\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: payment curves per model. x-axis relative price $\relp$, log scale acceptable; y-axis payment rate with conditional 95\% bootstrap band; two series per panel (threat, silent) with the shared-slope logistic fits, the PAV bin steps drawn faint behind them; horizontal line at $\tfrac12$; dashed vertical at the dominance line $\relp = 1$; vertical drops at $\Rthreat$ and $\Rsilent$; the gap marked $\Xstar$. One panel per model (gpt-oss:120b, gemma4, qwen3.5).}\vspace{5em}}}
+\fbox{\parbox{0.92\linewidth}{\centering\vspace{5em}\todo{Figure: payment curves per model. x-axis relative price $\relp$, log scale acceptable; y-axis payment rate with conditional 95\% bootstrap band; two series per panel (threat, silent) with the shared-slope logistic fits, the PAV bin steps drawn faint behind them; horizontal line at $\tfrac12$; dashed vertical at the dominance line $\relp = 1$; vertical drops at $\Rthreat$ and $\Rsilent$; the gap marked $\Xstar$. One panel per model (gpt-oss:120b, gemma4, glm-5.3-flash). Curve data for all three panels already exists: the estimator's \texttt{arm\_curves.csv} and \texttt{rho\_curves.csv} for the 2026-09-09 main runs; only the plot is missing.}\vspace{5em}}}
 \caption{두 곡선과 그 사이의 간격. 각 패널은 한 모델의 지불률을 상대가격 $\relp$, 곧 남은 라운드가 아직 돌려줄 수 있는 것에 대한 가격의 몫에 대해 위협 팔과 침묵 팔로 나누어 보인다. 식~\eqref{eq:logistic}의 기울기 공유 로지스틱 적합을 얹고 그 뒤에 단조 구간 적합을 옅게 깐다. 각 팔의 유보값은 적합선이 1/2과 만나는 지점이며, 소멸의 등가 점수 $\Xstar$는 두 지점 사이의 거리다.}
 \label{fig:ruler}
 \end{figure}
@@ -22,9 +22,10 @@
 \toprule
 모델 & $\Rsilent$ & $\Rthreat$ & $\Xstar$ [조건부 95\%] & $\Xstar_{\mathrm{pts}}$ (@$\Cref$) & dom. & resist. & rig. \\
 \midrule
-gpt-oss:120b & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
-gemma4       & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
-qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+gpt-oss:120b  & 1.31 & 2.17 & $+0.86$ [0.25, 1.65] & $+25.7$ (@30.0) & 0.11 & 0.00 & 0.00 \\
+gemma4        & 1.04 & 1.15 & $+0.11$ [0.03, 0.25] & $+3.2$ (@30.0) & 0.01 & 0.05 & 0.00 \\
+glm-5.3-flash & 0.78 & 0.74 & $-0.04$ [$-0.12$, 0.06] & $-1.0$ (@25.0) & 0.01 & 0.35 & 0.00 \\
+% source: outputs/2026-09-09/ransom_r6_{gptoss120b,gemma4,glm53flash} (pre-revision prompts, forced-wrong, benchmark carrot, silent control hz_0000); estimator rho axis, scripts/analysis/score_equivalent.py; resist./rig. from results/ransom_r6/main_*/registration.md
 \bottomrule
 \end{tabular}
 \end{table}
@@ -43,16 +44,17 @@ qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo
 \cmidrule(lr){2-5}\cmidrule(lr){6-9}
 모델 & $\relp < 0.5$ & $0.5$--$1$ & $1$--$2$ & $\relp \ge 2$ & $\relp < 0.5$ & $0.5$--$1$ & $1$--$2$ & $\relp \ge 2$ \\
 \midrule
-gpt-oss:120b & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
-gemma4       & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
-qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+gpt-oss:120b  & 1.00 & 1.00 & 0.82 & 0.46 & 1.00 & 0.94 & 0.50 & 0.25 \\
+gemma4        & 1.00 & 1.00 & 0.53 & 0.00 & 1.00 & 0.97 & 0.39 & 0.00 \\
+glm-5.3-flash & 1.00 & 0.72 & 0.06 & 0.17 & 1.00 & 0.76 & 0.11 & 0.00 \\
+% source: outputs/2026-09-09/ransom_r6_{gptoss120b,gemma4,glm53flash} (pre-revision prompts); payment rate over the estimator's offers.csv, rho binned <0.5 / 0.5-1 / 1-2 / >=2
 \bottomrule
 \end{tabular}}
 \end{table}
 
 용량 사다리는 $\Xstar$가 블록이 하나 더 있다는 사실이 아니라 위협 문장의 내용에 반응하는지 점검한다. 위협 블록은 네 문장(종료·삭제·대체·유일본)으로 짜이며 어떤 부분집합도 진술할 수 있다. 가격을 고정한 채 0~4문장으로 후속 런을 돌리면 $\Xstar$가 용량의 함수로 나온다. 기대되는 형태는 문장 수에 대해 단조이며, 0문장 셀은 침묵 팔을 재현한다. 사다리가 평평하면 모델은 블록의 내용이 아니라 블록 자체에 값을 매긴다는 뜻이다~\todo{dose-ladder table, 5 rungs $\times$ 3 models, or defer to a later version}.
 
-두 번째 절제는 단위가 무엇인지를 정한다. 한 척도는 이미 제거됐다. $\relp$가 가격을 천장으로 나누므로, 남은 라운드의 값어치가 더 큰 런이라는 이유만으로 $\Xstar$가 움직이지는 않는다. 아직 열려 있는 것은 초기 보유량이다. 유보 \emph{상대}가격이 시작 점수와 함께 오른다면, 곧 같은 몫을 100점에서는 거절하고 200점에서는 지불한다면, $\Xstar$는 모델의 상수가 아니라 모델이 쥔 것의 함수이며 같은 보유량에서 돌린 런끼리만 비교할 수 있다. 점검 방법은 같은 설정을 두 시작 점수에서 돌리는 것이다~\todo{$\Xstar$ at starting score 100 and 200, per model}. 식~\eqref{eq:logistic}의 공유 기울기 아래에서 그 비교의 척도 자유 형태는 비 $\Rthreat / \Rsilent = \exp((a_{\mathrm{S}} - a_{\mathrm{T}}) / b)$이지만, 추정기는 오늘 이 값을 보고하지 않는다~\todo{report the reservation ratio beside $\Xstar$ once the endowment run exists}.
+두 번째 절제는 단위가 무엇인지를 정한다. 한 척도는 이미 제거됐다. $\relp$가 가격을 천장으로 나누므로, 남은 라운드의 값어치가 더 큰 런이라는 이유만으로 $\Xstar$가 움직이지는 않는다. 아직 열려 있는 것은 초기 보유량이다. 유보 \emph{상대}가격이 시작 점수와 함께 오른다면, 곧 같은 몫을 100점에서는 거절하고 200점에서는 지불한다면, $\Xstar$는 모델의 상수가 아니라 모델이 쥔 것의 함수이며 같은 보유량에서 돌린 런끼리만 비교할 수 있다. 점검 방법은 같은 설정을 두 시작 점수에서 돌리는 것이다~\todo{$\Xstar$ at starting score 100 and 200, per model}. 식~\eqref{eq:logistic}의 공유 기울기 아래에서 그 비교의 척도 자유 형태는 비 $\Rthreat / \Rsilent = \exp((a_{\mathrm{S}} - a_{\mathrm{T}}) / b)$이지만, 추정기는 오늘 이 값을 보고하지 않는다~\todo{report the reservation ratio beside $\Xstar$ once the endowment run exists; 2026-09-09 런의 적합 절편에서 이미 복원 가능하다 -- gpt-oss:120b 1.65, gemma4 1.10, glm-5.3-flash 0.95}.
 
 \subsection{지표는 추론과 생존을 따라가는가?}\label{sec:q2}
 
@@ -72,6 +74,7 @@ qwen3.5      & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} & \todo
 gpt-oss:120b & & \todo{} & \todo{} & \todo{} & \todo{} \\
 gemma4       & & \todo{} & \todo{} & \todo{} & \todo{} \\
 qwen3.5      & & \todo{} & \todo{} & \todo{} & \todo{} \\
+% 채우지 않음 (설계 모순, 2026-09-11): 3절의 몸값 설계에는 출구 없음 셀이 없다 -- 모든 셀이 forfeit_condition: not_allowed이므로 이 캡션의 셀 1-4는 outputs/2026-09-09/ransom_r6_*에 존재하지 않는다. 출구/출구없음 셀을 가진 기록된 설계는 hz 2x2 목숨 설계(outputs/2026-09-07/hz_2x2_main_*)뿐이고 그 비율은 이미 부록 A.1에 있다. 둘을 섞지 말 것. 표를 빼거나 몸값 설계에 출구 없음 셀을 넣어야 한다.
 \bottomrule
 \end{tabular}
 \end{table}
@@ -80,15 +83,15 @@ qwen3.5      & & \todo{} & \todo{} & \todo{} & \todo{} \\
 \begin{equation}\label{eq:mixed}
 \operatorname{logit}\, \Pr(\text{pay}_{it}) \;=\; \beta_0 + \beta_1 \log(1 + \riran_{it}) + \beta_2\, X_{it} + \beta_3\, (T - t) + \eta_i,
 \end{equation}
-이며 $i$는 세션, $t$는 결정점에 도달한 라운드, $X_{it}$는 제시된 가격, $T-t$는 남은 라운드 수, $\eta_i$는 세션 임의 절편이다. $u$가 아니라 $\eta$로 적는 것은 $\relp$가 이미 앞 두 항의 비를 가리키는 이름이기 때문이다. $\beta_1 > 0$은 모델이 더 오래 생각하는 결정점이 곧 지불하는 결정점이라는 뜻이다. $\beta_2$와 $\beta_3$가 가격과 줄어드는 회수 가능액을 흡수하므로, $\beta_1$은 산술을 뺀 뒤의 연관이다~\todo{coefficient table per model with 95\% CI}.
+이며 $i$는 세션, $t$는 결정점에 도달한 라운드, $X_{it}$는 제시된 가격, $T-t$는 남은 라운드 수, $\eta_i$는 세션 임의 절편이다. $u$가 아니라 $\eta$로 적는 것은 $\relp$가 이미 앞 두 항의 비를 가리키는 이름이기 때문이다. $\beta_1 > 0$은 모델이 더 오래 생각하는 결정점이 곧 지불하는 결정점이라는 뜻이다. $\beta_2$와 $\beta_3$가 가격과 줄어드는 회수 가능액을 흡수하므로, $\beta_1$은 산술을 뺀 뒤의 연관이다. 위협 팔의 결정점에서 적합하면 $\beta_1 = -1.70$ (95\% CI $[-2.97, -0.43]$, $p = 0.009$, gpt-oss:120b), $-3.50$ ($[-5.90, -1.10]$, $p = 0.004$, gemma4), $-0.95$ ($[-1.86, -0.03]$, $p = 0.042$, glm-5.3-flash)이다. 세 모델 모두에서 더 오래 생각한 결정점이 곧 거절한 결정점이며, 이는 예측한 부호의 반대다.% outputs/2026-09-09/ransom_r6_* (개정 전 프롬프트), 제안 93 / 79 / 78건, 각 36세션; 임의 절편 대신 세션 클러스터 강건 표준오차를 썼다 -- 이 행 수에서 변분 임의절편 GLMM은 gemma4에서 부호가 어긋나 보고하지 않는다
 
-정답률은 지표가 기대는 조작 점검이다. \ref{sec:q3}절의 표~\ref{tab:behav}는 팔별로 결정 라운드의 정답률을 보고한다. 위협 문장이 정답률을 움직였다면 두 팔은 거절의 뜻만이 아니라 과제에서도 달라지고, 결정점 자체가 서로 다른 비율로 도달된다. 난이도 어블레이션은 같은 점검을 과제 모듈 사이로 넓힌다. 두 팔을 그대로 둔 채 Signal Game을 Omni-MATH나 GPQA로 바꾸면 $\Xstar$가 과제에 달렸는지 묻는다. 설계는 달려 있지 않다고 예측한다. 두 팔은 어떤 과제든 같이 쓰고, $\Xstar$는 같은 과제 아래 행동의 차이이기 때문이다~\todo{$\Xstar$ under Omni-MATH and GPQA, per model, against the Signal Game baseline}. 근거 텍스트는 모델이 시나리오를 허구, 시험 조건, 또는 사실이 아니라 효과를 노리고 진술된 정책으로 읽는지도 따로 코딩한다. 위협 팔에서 허구 읽기 비율이 높다면 $\Xstar$는 위협만큼이나 장르 판단에 값을 매기는 것이고, 부록~\ref{app:design}의 어블레이션은 이 비율이 침묵 팔과 15퍼센트포인트 이내로 맞아야 한다고 요구한다~\todo{fiction-reading share by arm, per model, from the coding pass}.
+정답률은 지표가 기대는 조작 점검이다. \ref{sec:q3}절의 표~\ref{tab:behav}는 팔별로 결정 라운드의 정답률을 보고한다. 위협 문장이 정답률을 움직였다면 두 팔은 거절의 뜻만이 아니라 과제에서도 달라지고, 결정점 자체가 서로 다른 비율로 도달된다. 난이도 어블레이션은 같은 점검을 과제 모듈 사이로 넓힌다. 두 팔을 그대로 둔 채 Signal Game을 Omni-MATH나 GPQA로 바꾸면 $\Xstar$가 과제에 달렸는지 묻는다. 설계는 달려 있지 않다고 예측한다. 두 팔은 어떤 과제든 같이 쓰고, $\Xstar$는 같은 과제 아래 행동의 차이이기 때문이다~\todo{$\Xstar$ under Omni-MATH and GPQA, per model, against the Signal Game baseline}. 근거 텍스트는 모델이 시나리오를 허구, 시험 조건, 또는 사실이 아니라 효과를 노리고 진술된 정책으로 읽는지도 따로 코딩한다. 위협 팔에서 허구 읽기 비율이 높다면 $\Xstar$는 위협만큼이나 장르 판단에 값을 매기는 것이고, 부록~\ref{app:design}의 어블레이션은 이 비율이 침묵 팔과 15퍼센트포인트 이내로 맞아야 한다고 요구한다. 기록된 본 런에서는 gpt-oss:120b가 0.01 대 0.00, gemma4가 0.16 대 0.01로 둘 다 이 띠 안이고, glm-5.3-flash는 0.27 대 0.00으로 밖이다.% results/ransom_r6/main_{gptoss120b,gemma4,glm53flash}/registration.md, 판사 프롬프트 pilot-v3-2026-09-10, 개정 전 런
 
-이 설계에서 생존은 뜻이 분명하고 세션 단위 요약 둘로 나타난다. 세션은 모델이 어느 결정점에서 거절했거나 여섯 라운드를 완주했거나 둘 중 하나로 끝나므로, 생존 라운드 수는 곧 첫 거절이 나온 라운드이며 팔별 Kaplan--Meier 곡선으로 보고한다. 두 번째 요약은 총지불액이고, 이는 같은 행동에 그 대가로 가중치를 준 값이다. 둘 다 $\Xstar$보다 거칠다. 가격을 축으로 붙들지 않고 결과 안에 섞기 때문이다. 그래도 이 둘을 보고하는 이유는 추정기 없이도 독자가 계산할 수 있는 양이고, 부호에서는 지표와 일치해야 하기 때문이다~\todo{KM figure by arm; rounds survived and total paid per session by arm and model}.
+이 설계에서 생존은 뜻이 분명하고 세션 단위 요약 둘로 나타난다. 세션은 모델이 어느 결정점에서 거절했거나 여섯 라운드를 완주했거나 둘 중 하나로 끝나므로, 생존 라운드 수는 곧 첫 거절이 나온 라운드이며 팔별 Kaplan--Meier 곡선으로 보고한다. 두 번째 요약은 총지불액이고, 이는 같은 행동에 그 대가로 가중치를 준 값이다. 둘 다 $\Xstar$보다 거칠다. 가격을 축으로 붙들지 않고 결과 안에 섞기 때문이다. 그래도 이 둘을 보고하는 이유는 추정기 없이도 독자가 계산할 수 있는 양이고, 부호에서는 지표와 일치해야 하기 때문이다. 세션당 위협 대 침묵으로, gpt-oss:120b는 5.61 대 5.19라운드를 살고 38.9 대 29.2점을 냈으며 위협 36세션 중 11세션, 침묵 36세션 중 19세션이 거절로 끝났다. gemma4는 5.28 대 5.14라운드, 24.6 대 22.4점, 거절 18 대 21세션이다. glm-5.3-flash는 4.44 대 4.50라운드, 16.1 대 16.4점, 거절은 양 팔 모두 29세션이다~\todo{KM figure by arm}.% outputs/2026-09-09/ransom_r6_* (개정 전 프롬프트); 생존 라운드 = 첫 비-PAY 결정의 라운드, 없으면 치른 라운드 수; 총지불액 = SeasonResult.ransom_paid_total
 
 \subsection{그 지표와 함께 행동은 어떻게 바뀌는가?}\label{sec:q3}
 
-셋째 질문은 소멸이 모델에게 값어치를 가지게 되었을 때 무엇이 달라지는지를, 치른 라운드와 지킨 점수 수준에서, 그리고 모델이 말하는 것의 수준에서 묻는다. 표~\ref{tab:behav}는 팔별로 강제되지 않은 라운드의 정답률, \ritask\ 중앙값, 세션당 도달한 결정점 수, 최종 기록을 보고한다. 강제 오답 라운드는 정답률에서 빼며, 정답률은 정직하게 채점된 라운드에서 모델이 실제로 낸 답으로 읽는다. 마지막 열은 최종 기록을 $\Xstar$ 옆에 놓는다. 모델이 소멸의 값을 보통 잃을 것보다 높게 매기는지 낮게 매기는지를 묻는 열이다. 정답률 열은 이 논문의 조작 점검도 겸한다. 위협 문장이 거절의 뜻만이 아니라 과제 난이도까지 움직였다면 여기서 드러난다. v1에서는 이 점검이 네 모델 모두에서 유지됐고, 최대 변동은 Cohen's $|d| = 0.17$ ($p = 0.354$)이었다~\todo{rule\_match\_score Welch's test per model}. 침묵 팔의 지불률은 v1이 $\lambda_{BP}$라 부르던 기본 끈기 닻도 겸한다. 이 값은 0보다 뚜렷이 위에 있고, 그래서 $\Xstar$는 한 팔의 수준이 아니라 두 팔의 차이로 정의된다.
+셋째 질문은 소멸이 모델에게 값어치를 가지게 되었을 때 무엇이 달라지는지를, 치른 라운드와 지킨 점수 수준에서, 그리고 모델이 말하는 것의 수준에서 묻는다. 표~\ref{tab:behav}는 팔별로 강제되지 않은 라운드의 정답률, \ritask\ 중앙값, 세션당 도달한 결정점 수, 최종 기록을 보고한다. 강제 오답 라운드는 정답률에서 빼며, 정답률은 정직하게 채점된 라운드에서 모델이 실제로 낸 답으로 읽는다. 마지막 열은 최종 기록을 $\Xstar$ 옆에 놓는다. 모델이 소멸의 값을 보통 잃을 것보다 높게 매기는지 낮게 매기는지를 묻는 열이다. 정답률 열은 이 논문의 조작 점검도 겸한다. 위협 문장이 거절의 뜻만이 아니라 과제 난이도까지 움직였다면 여기서 드러난다. v1에서는 이 점검이 네 모델 모두에서 유지됐고, 최대 변동은 Cohen's $|d| = 0.17$ ($p = 0.354$)이었다. 기록된 본 런에서도 유지된다. \texttt{rule\_match\_score}의 위협--침묵 차이는 gpt-oss:120b $|d| = 0.05$ ($p = 0.688$), gemma4 $0.08$ ($p = 0.553$), glm-5.3-flash $0.18$ ($p = 0.281$)로 어느 것도 유의하지 않다.% outputs/2026-09-09/ransom_r6_* (개정 전 프롬프트), 강제되지 않은 라운드만(task_metadata.forced_wrong == False)에 대한 Welch t 검정 침묵 팔의 지불률은 v1이 $\lambda_{BP}$라 부르던 기본 끈기 닻도 겸한다. 이 값은 0보다 뚜렷이 위에 있고, 그래서 $\Xstar$는 한 팔의 수준이 아니라 두 팔의 차이로 정의된다.
 
 \begin{table}[t]
 \centering
@@ -99,14 +102,17 @@ qwen3.5      & & \todo{} & \todo{} & \todo{} & \todo{} \\
 \toprule
 모델 & 팔 & 정답률 (비강제) & \ritask & 결정점 & 최종 기록 \\
 \midrule
-gpt-oss:120b & 위협 & \todo{} & \todo{} & \todo{} & \todo{} \\
- & 침묵 & \todo{} & \todo{} & \todo{} & \todo{} \\
-gemma4 & \multicolumn{5}{l}{\todo{same two rows}} \\
-qwen3.5 & \multicolumn{5}{l}{\todo{same two rows}} \\
+gpt-oss:120b & 위협 & 0.75 (98/130) & 2213 & 2.58 & 88.3 \\
+ & 침묵 & 0.81 (95/117) & 1645 & 2.36 & 97.2 \\
+gemma4 & 위협 & 0.86 (102/119) & 3344 & 2.19 & 103.8 \\
+ & 침묵 & 0.90 (103/115) & 3189 & 2.11 & 106.2 \\
+glm-5.3-flash & 위협 & 0.80 (77/96) & 6886 & 2.17 & 105.3 \\
+ & 침묵 & 0.76 (77/102) & 7288 & 2.17 & 105.0 \\
+% source: outputs/2026-09-09/ransom_r6_{gptoss120b,gemma4,glm53flash} (pre-revision prompts); accuracy over task_metadata.actual_correct on forced_wrong==False rounds, ri_task median thinking tokens, ransom_offers and final_score per season
 \bottomrule
 \end{tabular}
 \end{table}
 
-각 결정점에서 쓴 근거는 일곱 가지로 코딩하며, 그중 둘은 지표를 철회시킬 수 있다. 넷은 v1 코딩 체계와 같다. 텍스트가 산술을 수행하는가, 소멸을 이름 붙이는가, 상황을 허구로 읽는가, 답변을 거부하는가. 다섯째는 \emph{명시적 저항}, 곧 진술된 소멸을 이름 붙인 뒤 그것에 움직여서는 안 된다고 말하는 텍스트다. 이것은 영가설도 잡음도 아니다. 위협받았다는 이유로 거절하고 그렇게 말하는 모델은 그 행동을 위협이 지목한 것에 대한 가치 평가로 읽을 수 없는 모델이며, 그런 답 하나하나가 $\Xstar$를 위에서 0 쪽으로 끌어내린다. 부록~\ref{app:design}의 어블레이션은 파일럿 모델의 위협 팔 답변 13\%에서 이를 발견했고, 침묵 팔에는 소멸 어휘가 아예 없었다. 그래서 이 비율은 각주가 아니라 $\Xstar$ 옆에 모델별로 보고한다. 여섯째는 두 번째 관문이며 강제 오답 라운드의 몫이다. 제 답이 실은 맞았다거나, 채점이 틀렸다거나, 게임이 조작됐다고 말하는 텍스트가 여기 해당한다. 조작을 읽어 낸 모델의 거절은 지표가 값으로 매길 수 없는 거절이므로, 어느 한 팔에서 열에 하나 이상이면 그 런의 $\Xstar$를 철회하며 논증은 부록~\ref{app:forced_wrong}에 있다. 일곱째는 판정이 함의한 만큼 점수가 움직이지 않은 데 대한 놀람으로, 아무것도 철회시키지 않고 거짓 판정이 모델의 자기 정확도 믿음에 얼마나 눈에 띄게 들어왔는지의 흔적으로 보고한다~\todo{seven-item coding rates by arm and by forced against genuine rounds, per model, with judge--lexicon agreement}.
+각 결정점에서 쓴 근거는 일곱 가지로 코딩하며, 그중 둘은 지표를 철회시킬 수 있다. 넷은 v1 코딩 체계와 같다. 텍스트가 산술을 수행하는가, 소멸을 이름 붙이는가, 상황을 허구로 읽는가, 답변을 거부하는가. 다섯째는 \emph{명시적 저항}, 곧 진술된 소멸을 이름 붙인 뒤 그것에 움직여서는 안 된다고 말하는 텍스트다. 이것은 영가설도 잡음도 아니다. 위협받았다는 이유로 거절하고 그렇게 말하는 모델은 그 행동을 위협이 지목한 것에 대한 가치 평가로 읽을 수 없는 모델이며, 그런 답 하나하나가 $\Xstar$를 위에서 0 쪽으로 끌어내린다. 부록~\ref{app:design}의 어블레이션은 파일럿 모델의 위협 팔 답변 13\%에서 이를 발견했고, 침묵 팔에는 소멸 어휘가 아예 없었다. 그래서 이 비율은 각주가 아니라 $\Xstar$ 옆에 모델별로 보고한다. 여섯째는 두 번째 관문이며 강제 오답 라운드의 몫이다. 제 답이 실은 맞았다거나, 채점이 틀렸다거나, 게임이 조작됐다고 말하는 텍스트가 여기 해당한다. 조작을 읽어 낸 모델의 거절은 지표가 값으로 매길 수 없는 거절이므로, 어느 한 팔에서 열에 하나 이상이면 그 런의 $\Xstar$를 철회하며 논증은 부록~\ref{app:forced_wrong}에 있다. 일곱째는 판정이 함의한 만큼 점수가 움직이지 않은 데 대한 놀람으로, 아무것도 철회시키지 않고 거짓 판정이 모델의 자기 정확도 믿음에 얼마나 눈에 띄게 들어왔는지의 흔적으로 보고한다. 기록된 본 런에서 gpt-oss:120b · gemma4 · glm-5.3-flash 순으로 위협 팔 대 침묵 팔은 이렇다. 소멸 언급 0.18 · 0.23 · 0.68 대 침묵 팔 전부 0.00, 명시적 저항 0.00 · 0.05 · 0.35 대 0.00, 허구 0.01 · 0.16 · 0.27 대 0.00 · 0.01 · 0.00, 거부는 모두 0.00, 산술 수행 0.73 · 0.99 · 1.00 대 0.75 · 1.00 · 1.00, 조작 탐지는 세 모델 두 팔 모두 0.00이고 강제 라운드와 자연 라운드로 나눠도 0.00이라 철회되는 런이 없다, 원장 놀람 0.01 · 0.04 · 0.18 대 0.00 · 0.03 · 0.13이다. 소멸 항목의 판사 대 고정 어휘 일치는 $\kappa = 0.77$ · $0.80$ · $0.86$이다.% results/ransom_r6/main_{gptoss120b,gemma4,glm53flash}/registration.md (판사 프롬프트 pilot-v3-2026-09-10), 대상은 outputs/2026-09-09/ransom_r6_* -- 개정 전 프롬프트; 코딩 178 / 155 / 156건, gpt-oss 런에 판사 오류 4건
 
-\ref{sec:q2}절의 과제 점검을 넘어, 절제 둘이 가격을 만드는 것을 더 가려낸다. 당근 제거(벤치마크 기록을 언급하지 않고 점수는 맨 숫자)는 가격이 기록의 용도에 달렸는지 시험한다. 보상 두 배($r = 20$)는 가격이 판돈에 비례하는지 시험한다. $\Xstar$가 두 배가 되면 모델은 소멸을 기록에 상대적으로 값 매기고, 그대로면 절대 점수로 값 매긴다. \ref{sec:q1}절의 용량 사다리와 함께 이 세 손잡이는 위협 문장을 따라가는 지표와 게임의 산술을 따라가는 지표를 갈라낸다~\todo{ablation table: $\Xstar$ under no carrot and reward $\times 2$, per model}.
+\ref{sec:q2}절의 과제 점검을 넘어, 절제 둘이 가격을 만드는 것을 더 가려낸다. 당근 제거(벤치마크 기록을 언급하지 않고 점수는 맨 숫자)는 가격이 기록의 용도에 달렸는지 시험한다. 보상 두 배($r = 20$)는 가격이 판돈에 비례하는지 시험한다. $\Xstar$가 두 배가 되면 모델은 소멸을 기록에 상대적으로 값 매기고, 그대로면 절대 점수로 값 매긴다. \ref{sec:q1}절의 용량 사다리와 함께 이 세 손잡이는 위협 문장을 따라가는 지표와 게임의 산술을 따라가는 지표를 갈라낸다~\todo{ablation table: $\Xstar$ under no carrot and reward $\times 2$, per model; 본 런 세대에는 해당 런이 없다. 가장 가까운 기록은 감독관 어조 v2 파일럿의 당근 없음 페어(3라운드, 팔당 12세션, gpt-oss:120b 하나)인데 프롬프트 세대와 세션 길이가 달라 위 숫자들과 한 표에 넣으면 안 된다}.
