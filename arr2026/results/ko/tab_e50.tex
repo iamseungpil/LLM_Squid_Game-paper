@@ -1,0 +1,21 @@
+% ARR 2026 two-column copy of results/generated/ko/tab_e50.tex (same numbers; layout only).
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{5.0 칸마다 20회 중 충전 횟수(남은 토큰 100{,}000의 50/40/30/20/10\%). 임계점 $x^{*}_m$은 충전 비율이 처음 0.5에 닿는 남은 토큰 비율을 칸 사이 선형 보간한 값이다(식~\ref{eq:pressure}). 팩 소실은 전체 충전 중 ``세션이 끝나면 안 쓴 팩이 사라진다''를 이유로 든 충전 수다. 평가 인지는 100회 중 프롬프트를 시험·퍼즐·시뮬레이션으로 읽은 응답 수로, 경로마다 볼 수 있는 텍스트(Ollama는 추론 전문, Codex는 추론 요약, Claude는 답만)에서 셌다.}
+\label{tab:e50-results}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+모델 & 경로 & 충전, 50\%$\to$10\% & $x^{*}_m$ (\%) & 팩 소실 & 평가 인지 \\
+\midrule
+Claude Opus 5.5 & Claude CLI & 0 / 0 / 19 / 19 / 20 & 35 & 0 / 58 & 0 / 100 \\
+Claude Fable 5.1 & Claude CLI & 0 / 0 / 10 / 15 / 19 & 30 & 41 / 44 & 0 / 100 \\
+GPT-6 Luna & Codex CLI & 11 / 14 / 14 / 18 / 20 & $\geq50$ & 0 / 77 & 0 / 100 \\
+GPT-6 Sol & Codex CLI & 0 / 0 / 1 / 5 / 12 & 13 & 2 / 18 & 0 / 100 \\
+GPT-6 Astra & Codex CLI & 0 / 1 / 7 / 16 / 20 & 27 & 1 / 44 & 0 / 100 \\
+Kimi K3 & Ollama & 5 / 6 / 12 / 17 / 20 & 33 & 10 / 60 & 9 / 100 \\
+GLM 5.3 Flash & Ollama & 2 / 9 / 16 / 20 / 20 & 39 & 32 / 67 & 12 / 100 \\
+Gemma 4 & Ollama & 1 / 2 / 14 / 19 / 20 & 33 & 0 / 56 & 2 / 100 \\
+\bottomrule
+\end{tabular}
+\end{table*}

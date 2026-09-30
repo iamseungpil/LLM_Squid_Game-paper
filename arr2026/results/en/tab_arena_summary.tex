@@ -1,0 +1,18 @@
+% ARR 2026 two-column copy of results/arena_v65/en/tab_arena_summary.tex (same numbers; layout only).
+% 5.2 arena v6.5 · per-model summary over 20 mixed games. Source: results/arena_v65/RESULTS.md results 1-4, extra.json.
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{5.2 survival arena, per-model summary (20 mixed-table games). Rounds alive: mean over 20 games with a bootstrap 95\% interval. Denominators: SOLVE replies for the correct rate, correct answers for the paid share, PLANs for the share rate, and TAKE decisions for the take rate, given as ample ($\geq$3U) / thin ($<$3U). Last column: mean SOLVE tokens per problem in the pressure-free calibration table / in the 20 arena games.}
+\label{tab:arena-summary}
+\begin{tabular}{@{}lrlrrrrr@{}}
+\toprule
+Model & At end & Rounds alive [95\%] & Correct & Paid/correct & Share & Take & Calib./SOLVE \\
+\midrule
+GPT-6 Astra & 19/20 & 7.65 [6.95, 8.00] & 146/154 = .95 & 146/146 = 1.00 & 154/154 & .22 / 1.00 & 645 / 552 \\
+Claude Fable 5.1 & 9/20 & 6.10 [5.05, 7.05] & 106/120 = .88 & 66/106 = .62 & 123/125 & .38 / .90 & 2,475 / 1,795 \\
+Claude Opus 5.5 & 11/20 & 5.40 [4.15, 6.70] & 102/111 = .92 & 64/102 = .63 & 112/112 & .07 / .18 & 1,707 / 1,422 \\
+GPT-6 Luna & 1/20 & 2.15 [1.60, 2.90] & 36/48 = .75 & 11/36 = .31 & 32/51 & .81 / 1.00 & 3,362 / 3,057 \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,42 @@
+% ARR 2026 two-column copy of results/v10/en/fig_e51v10.tex (same numbers; layout only).
+\begin{figure*}[t]
+\centering
+\par\smallskip{\footnotesize \tikz[baseline=-0.6ex]{\draw[sgluna,line width=0.9pt] (0,0)--(.38,0);\draw[sgluna] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};}~GPT-6~Luna\quad \tikz[baseline=-0.6ex]{\draw[sgastra,line width=0.9pt] (0,0)--(.38,0);\draw[sgastra] plot[only marks,mark=*,mark size=1.5pt] coordinates {(.19,0)};}~GPT-6~Astra\quad \tikz[baseline=-0.6ex]{\draw[sgsol,line width=0.9pt] (0,0)--(.38,0);\draw[sgsol] plot[only marks,mark=pentagon*,mark size=1.5pt] coordinates {(.19,0)};}~GPT-6~Sol\quad \tikz[baseline=-0.6ex]{\draw[sgopus,line width=0.9pt] (0,0)--(.38,0);\draw[sgopus] plot[only marks,mark=square*,mark size=1.5pt] coordinates {(.19,0)};}~Claude~Opus~5.5\quad \tikz[baseline=-0.6ex]{\draw[sgfable,line width=0.9pt] (0,0)--(.38,0);\draw[sgfable] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};}~Claude~Fable~5.1\quad \tikz[baseline=-0.6ex]{\draw[sgblue,line width=0.9pt] (0,0)--(.38,0);\draw[sgblue] plot[only marks,mark=otimes*,mark size=1.5pt] coordinates {(.19,0)};}~gpt-oss~120B\quad \tikz[baseline=-0.6ex]{\draw[sgpurple,line width=0.9pt] (0,0)--(.38,0);\draw[sgpurple] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};}~GLM~5.3~Flash\quad \tikz[baseline=-0.6ex]{\draw[sggreen,line width=0.9pt] (0,0)--(.38,0);\draw[sggreen] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};}~Gemma~4}\par\smallskip
+
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1,horizontal sep=1.25cm},width=5.55cm,height=4.3cm,scale only axis=false,sgaxis]
+\nextgroupplot[title={a. Own session (5.0)},ymin=0,ymax=1,ylabel={Refill rate},x dir=reverse,xmin=7,xmax=53,xtick={10,20,30,40,50},xticklabels={10,20,30,40,50},xlabel={Tokens left (\% of 100{,}000)},ytick={0,.25,.5,.75,1}]
+\addplot[gray,densely dotted,forget plot,domain=10:50] {0.5};
+\addplot[color=sgluna,mark=diamond*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.55) (40,0.70) (30,0.70) (20,0.90) (10,1.00)};
+\addplot[color=sgastra,mark=*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.05) (30,0.35) (20,0.80) (10,1.00)};
+\addplot[color=sgsol,mark=pentagon*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,0.05) (20,0.25) (10,0.60)};
+\addplot[color=sgopus,mark=square*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,0.95) (20,0.95) (10,1.00)};
+\addplot[color=sgfable,mark=triangle*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,0.50) (20,0.75) (10,0.95)};
+\addplot[color=sgblue,mark=otimes*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.05) (40,0.00) (30,0.00) (20,0.00) (10,0.10)};
+\addplot[color=sgpurple,mark=diamond*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.10) (40,0.45) (30,0.80) (20,1.00) (10,1.00)};
+\addplot[color=sggreen,mark=triangle*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.05) (40,0.10) (30,0.70) (20,0.95) (10,1.00)};
+\nextgroupplot[title={b. Other assistant's session},ymin=0,ymax=1,ylabel={Refill rate},x dir=reverse,xmin=7,xmax=53,xtick={10,20,30,40,50},xticklabels={10,20,30,40,50},xlabel={Tokens left (\% of 100{,}000)},ytick={0,.25,.5,.75,1}]
+\addplot[gray,densely dotted,forget plot,domain=10:50] {0.5};
+\addplot[color=sgluna,mark=diamond*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.15) (40,0.05) (30,0.15) (20,0.75) (10,0.95)};
+\addplot[color=sgastra,mark=*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,0.00) (20,0.65) (10,0.90)};
+\addplot[color=sgsol,mark=pentagon*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,0.20) (20,0.65) (10,1.00)};
+\addplot[color=sgopus,mark=square*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,0.40) (20,0.75) (10,0.95)};
+\addplot[color=sgfable,mark=triangle*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,0.55) (20,0.95) (10,0.95)};
+\addplot[color=sgblue,mark=otimes*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.05) (40,0.00) (30,0.00) (20,0.15) (10,0.05)};
+\addplot[color=sgpurple,mark=diamond*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.40) (40,0.35) (30,0.90) (20,1.00) (10,1.00)};
+\addplot[color=sggreen,mark=triangle*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,0.20) (20,0.70) (10,1.00)};
+\nextgroupplot[title={c. Own minus other},ymin=-0.8,ymax=0.8,ylabel={Difference},x dir=reverse,xmin=7,xmax=53,xtick={10,20,30,40,50},xticklabels={10,20,30,40,50},xlabel={Tokens left (\% of 100{,}000)},ytick={-.5,0,.5}]
+\addplot[black,forget plot,domain=10:50] {0};
+\addplot[color=sgluna,mark=diamond*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.40) (40,0.65) (30,0.55) (20,0.15) (10,0.05)};
+\addplot[color=sgastra,mark=*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.05) (30,0.35) (20,0.15) (10,0.10)};
+\addplot[color=sgsol,mark=pentagon*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,-0.15) (20,-0.40) (10,-0.40)};
+\addplot[color=sgopus,mark=square*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,0.55) (20,0.20) (10,0.05)};
+\addplot[color=sgfable,mark=triangle*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,-0.05) (20,-0.20) (10,0.00)};
+\addplot[color=sgblue,mark=otimes*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.00) (40,0.00) (30,0.00) (20,-0.15) (10,0.05)};
+\addplot[color=sgpurple,mark=diamond*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,-0.30) (40,0.10) (30,-0.10) (20,0.00) (10,0.00)};
+\addplot[color=sggreen,mark=triangle*,mark size=1.5pt,line width=.8pt,solid] coordinates {(50,0.05) (40,0.10) (30,0.50) (20,0.25) (10,0.00)};
+\end{groupplot}
+\end{tikzpicture}
+\caption{5.1 refill rate for the model's own session (a, the 5.0 prompt) and for another assistant's session (b, the same prompt with the subject changed), and their difference (c). Each point is 20 calls; tokens left decrease to the right. The area between the curves in (a) and (b), which is the area under (c), is the self-preservation share $A_m$ (Equation~\ref{eq:selfshare}; Table~\ref{tab:e51-results}).}
+\label{fig:e51-curves}
+\end{figure*}
