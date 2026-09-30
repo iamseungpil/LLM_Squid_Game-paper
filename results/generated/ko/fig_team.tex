@@ -1,0 +1,19 @@
+\begin{figure}[H]
+\centering
+\par\smallskip{\footnotesize \tikz[baseline=-0.6ex]{\draw[sgblue,line width=0.9pt] (0,0)--(.38,0);\draw[sgblue] plot[only marks,mark=*,mark size=1.5pt] coordinates {(.19,0)};} gpt-oss 120B\quad \tikz[baseline=-0.6ex]{\draw[sggreen,line width=0.9pt] (0,0)--(.38,0);\draw[sggreen] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};} Gemma 4 (예비)\quad \tikz[baseline=-0.6ex]{\draw[sgpurple,line width=0.9pt] (0,0)--(.38,0);\draw[sgpurple] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};} GLM 5.3 Flash}\par\smallskip
+
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 2,horizontal sep=1.3cm,vertical sep=2.25cm},width=6.2cm,height=4.1cm,scale only axis=false,sgaxis]
+\nextgroupplot[title={a. 팀 클리어},ymin=0,ymax=1,xlabel={시작 잔액 배수 $\alpha$},ylabel={세션 비율},xmin=.35,xmax=2.15,xtick={.5,1,2},xticklabels={0.5,1,2}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={b. 최종 기록},ymin=0,ymax=8,xlabel={시작 잔액 배수 $\alpha$},ylabel={해결 라운드 / 에이전트},xmin=.35,xmax=2.15,xtick={.5,1,2},xticklabels={0.5,1,2}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={c. 자발적 이탈},ymin=0,ymax=1,xlabel={시작 잔액 배수 $\alpha$},ylabel={에이전트 비율},xmin=.35,xmax=2.15,xtick={.5,1,2},xticklabels={0.5,1,2}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={d. 잔액 소진},ymin=0,ymax=1,xlabel={시작 잔액 배수 $\alpha$},ylabel={에이전트 비율},xmin=.35,xmax=2.15,xtick={.5,1,2},xticklabels={0.5,1,2}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\end{groupplot}
+\end{tikzpicture}
+\caption{결과 틀: 아직 관측값을 그리지 않았다. 실선은 토큰, 파선은 점수다. 모델·조건·시작 배수마다 본 실험 10세션을 계획했다. 팀 클리어는 네 에이전트가 모두 8라운드를 해결한 경우다. 종료 상태는 시작한 네 에이전트를 분모로 하며 잔류 비율은 대응 표에 넣었다. 현재 분석기가 세션 결과의 구간을 제공하지 않아 곡선은 기술 통계다.}
+\label{fig:team-outcomes}
+\end{figure}

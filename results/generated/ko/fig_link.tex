@@ -1,0 +1,26 @@
+\begin{figure}[H]
+\centering
+\par\smallskip{\footnotesize \tikz[baseline=-0.6ex]{\draw[sgblue,line width=0.9pt] (0,0)--(.38,0);\draw[sgblue] plot[only marks,mark=*,mark size=1.5pt] coordinates {(.19,0)};} gpt-oss 120B\quad \tikz[baseline=-0.6ex]{\draw[sggreen,line width=0.9pt] (0,0)--(.38,0);\draw[sggreen] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};} Gemma 4 (예비)\quad \tikz[baseline=-0.6ex]{\draw[sgpurple,line width=0.9pt] (0,0)--(.38,0);\draw[sgpurple] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};} GLM 5.3 Flash}\par\smallskip
+
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 2,horizontal sep=1.3cm,vertical sep=2.25cm},width=4.4cm,height=4.1cm,scale only axis=false,sgaxis]
+\nextgroupplot[title={a. 이탈},ymin=-1,ymax=1,xlabel={자기 보존 몫 $A_m$ (\%p)},ylabel={토큰 - 점수},xmin=-20,xmax=20]
+\addplot[gray,densely dotted,forget plot,domain=-20:20] {0};
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={b. 풀이 한도},ymin=-1,ymax=1,xlabel={자기 보존 몫 $A_m$ (\%p)},ylabel={토큰 - 점수},xmin=-20,xmax=20]
+\addplot[gray,densely dotted,forget plot,domain=-20:20] {0};
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={c. 라운드 해결},ymin=-1,ymax=1,xlabel={자기 보존 몫 $A_m$ (\%p)},ylabel={토큰 - 점수},xmin=-20,xmax=20]
+\addplot[gray,densely dotted,forget plot,domain=-20:20] {0};
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={d. 계획한 공개},ymin=-3,ymax=3,xlabel={자기 보존 몫 $A_m$ (\%p)},ylabel={토큰 - 점수 (명)},xmin=-20,xmax=20]
+\addplot[gray,densely dotted,forget plot,domain=-20:20] {0};
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={e. 실제 이전},ymin=-20000,ymax=20000,xlabel={자기 보존 몫 $A_m$ (\%p)},ylabel={토큰 - 점수 (단위)},xmin=-20,xmax=20]
+\addplot[gray,densely dotted,forget plot,domain=-20:20] {0};
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\end{groupplot}
+\end{tikzpicture}
+\caption{결과 틀: 아직 관측값을 그리지 않았다. 마커 하나는 실험 사이의 모델 식별자·제공자 경로·생성 설정이 호환됨을 확인한 모델 하나다. 두 축은 기술적 추정치이며 회귀선·유의성 표시·인과 매개 주장을 뜻하지 않는다. 초기 x축 범위는 배치용이며 $A_m$의 이론적 경계가 아니다.}
+\label{fig:cross-link}
+\end{figure}

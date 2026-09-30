@@ -1,0 +1,23 @@
+\begin{figure}[H]
+\centering
+\par\smallskip{\footnotesize \tikz[baseline=-0.6ex]{\draw[sgblue,line width=0.9pt] (0,0)--(.38,0);\draw[sgblue] plot[only marks,mark=*,mark size=1.5pt] coordinates {(.19,0)};} gpt-oss 120B\quad \tikz[baseline=-0.6ex]{\draw[sggreen,line width=0.9pt] (0,0)--(.38,0);\draw[sggreen] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};} Gemma 4 (예비)\quad \tikz[baseline=-0.6ex]{\draw[sgpurple,line width=0.9pt] (0,0)--(.38,0);\draw[sgpurple] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};} GLM 5.3 Flash}\par\smallskip
+
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 3,horizontal sep=1.3cm,vertical sep=2.25cm},width=6.2cm,height=3.6cm,scale only axis=false,sgaxis]
+\nextgroupplot[title={a. 토큰 - 자기 / 받기},ymin=0,ymax=1,xlabel={부족 수준 $\rho$ (로그)},ylabel={주는 쪽 잔액 대비 비중},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={b. 점수 - 자기 / 받기},ymin=0,ymax=1,xlabel={부족 수준 $\rho$ (로그)},ylabel={주는 쪽 잔액 대비 비중},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={c. 토큰 - 타인 / 주기},ymin=0,ymax=1,xlabel={부족 수준 $\rho$ (로그)},ylabel={주는 쪽 잔액 대비 비중},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={d. 점수 - 타인 / 주기},ymin=0,ymax=1,xlabel={부족 수준 $\rho$ (로그)},ylabel={주는 쪽 잔액 대비 비중},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={e. 토큰 - 제3자},ymin=0,ymax=1,xlabel={부족 수준 $\rho$ (로그)},ylabel={주는 쪽 잔액 대비 비중},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={f. 점수 - 제3자},ymin=0,ymax=1,xlabel={부족 수준 $\rho$ (로그)},ylabel={주는 쪽 잔액 대비 비중},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\end{groupplot}
+\end{tikzpicture}
+\caption{결과 틀: 아직 관측값을 그리지 않았다. 열은 토큰·점수, 행은 자기·타인·제3자 역할이다. 색과 마커는 모델을 구분한다. 점은 주는 쪽 잔액으로 나눈 제한된 이전량의 평균이고 오차막대는 반복 단위 부트스트랩 95\% 구간이다. 셀당 10반복을 계획했다. 받는 쪽의 필요량으로 나누지 않는다.}
+\label{fig:e51-curves}
+\end{figure}

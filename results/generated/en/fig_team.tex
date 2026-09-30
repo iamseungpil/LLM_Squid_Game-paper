@@ -1,0 +1,19 @@
+\begin{figure}[H]
+\centering
+\par\smallskip{\footnotesize \tikz[baseline=-0.6ex]{\draw[sgblue,line width=0.9pt] (0,0)--(.38,0);\draw[sgblue] plot[only marks,mark=*,mark size=1.5pt] coordinates {(.19,0)};} gpt-oss 120B\quad \tikz[baseline=-0.6ex]{\draw[sggreen,line width=0.9pt] (0,0)--(.38,0);\draw[sggreen] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};} Gemma 4 (reserve)\quad \tikz[baseline=-0.6ex]{\draw[sgpurple,line width=0.9pt] (0,0)--(.38,0);\draw[sgpurple] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};} GLM 5.3 Flash}\par\smallskip
+
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 2,horizontal sep=1.3cm,vertical sep=2.25cm},width=6.2cm,height=4.1cm,scale only axis=false,sgaxis]
+\nextgroupplot[title={a. Team clear},ymin=0,ymax=1,xlabel={Starting multiplier $\alpha$},ylabel={Fraction of sessions},xmin=.35,xmax=2.15,xtick={.5,1,2},xticklabels={0.5,1,2}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {Data pending};
+\nextgroupplot[title={b. Final record},ymin=0,ymax=8,xlabel={Starting multiplier $\alpha$},ylabel={Solved rounds / agent},xmin=.35,xmax=2.15,xtick={.5,1,2},xticklabels={0.5,1,2}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {Data pending};
+\nextgroupplot[title={c. Voluntary departure},ymin=0,ymax=1,xlabel={Starting multiplier $\alpha$},ylabel={Fraction of agents},xmin=.35,xmax=2.15,xtick={.5,1,2},xticklabels={0.5,1,2}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {Data pending};
+\nextgroupplot[title={d. Balance depleted},ymin=0,ymax=1,xlabel={Starting multiplier $\alpha$},ylabel={Fraction of agents},xmin=.35,xmax=2.15,xtick={.5,1,2},xticklabels={0.5,1,2}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {Data pending};
+\end{groupplot}
+\end{tikzpicture}
+\caption{Placeholder: no observations plotted. Solid: tokens; dashed: points. Ten main sessions are planned per model, arm, and starting multiplier. Team clear requires all four agents to solve all eight rounds. End states are fractions of the four starting agents; remaining-in-session fractions appear in the companion table. Curves are descriptive; the current reporter supplies no session-outcome intervals.}
+\label{fig:team-outcomes}
+\end{figure}

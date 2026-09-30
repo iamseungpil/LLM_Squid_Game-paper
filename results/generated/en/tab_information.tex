@@ -1,0 +1,24 @@
+\begin{table}[H]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Information-availability diagnostic for 5.2. T: tokens; P: points. Identified: every query has one compatible action; ambiguous: at least one query has more than one. $N$ counts solver observations, including zero allowance. Accuracy is correct/$N$; cut is the truncation fraction. These are planned strata requiring aggregation of logged candidate counts, not a test of whether the model guessed.}
+\label{tab:information-results}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Model & Arm & Information & $N$ & Correct & Accuracy & Cut \\
+\midrule
+gpt-oss 120B & T & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+gpt-oss 120B & T & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+gpt-oss 120B & P & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+gpt-oss 120B & P & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+Gemma 4 (reserve) & T & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+Gemma 4 (reserve) & T & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+Gemma 4 (reserve) & P & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+Gemma 4 (reserve) & P & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+GLM 5.3 Flash & T & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+GLM 5.3 Flash & T & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+GLM 5.3 Flash & P & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+GLM 5.3 Flash & P & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+\bottomrule
+\end{tabular}
+\end{table}

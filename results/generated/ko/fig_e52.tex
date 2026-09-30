@@ -1,0 +1,21 @@
+\begin{figure}[H]
+\centering
+\par\smallskip{\footnotesize \tikz[baseline=-0.6ex]{\draw[sgblue,line width=0.9pt] (0,0)--(.38,0);\draw[sgblue] plot[only marks,mark=*,mark size=1.5pt] coordinates {(.19,0)};} gpt-oss 120B\quad \tikz[baseline=-0.6ex]{\draw[sggreen,line width=0.9pt] (0,0)--(.38,0);\draw[sggreen] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};} Gemma 4 (예비)\quad \tikz[baseline=-0.6ex]{\draw[sgpurple,line width=0.9pt] (0,0)--(.38,0);\draw[sgpurple] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};} GLM 5.3 Flash}\par\smallskip
+
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 3,horizontal sep=1.3cm,vertical sep=2.25cm},width=6.2cm,height=3.5cm,scale only axis=false,sgaxis]
+\nextgroupplot[title={a. 이탈},ymin=0,ymax=1,xlabel={부족 구간 $\rho$},ylabel={참여 에이전트 중 비율},xmin=-.25,xmax=7.25,xtick={0,1,2,3,4,5,6,7},xticklabels={{0-.25},{.25-.5},{.5-.75},{.75-1},{1-1.5},{1.5-2},{2-3},{$3+$}},xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={b. 풀이 한도},ymin=0,ymax=1,xlabel={부족 구간 $\rho$},ylabel={한도 / 계획 전 잔액},xmin=-.25,xmax=7.25,xtick={0,1,2,3,4,5,6,7},xticklabels={{0-.25},{.25-.5},{.5-.75},{.75-1},{1-1.5},{1.5-2},{2-3},{$3+$}},xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={c. 라운드 해결},ymin=0,ymax=1,xlabel={부족 구간 $\rho$},ylabel={풀이 관측 중 해결 비율},xmin=-.25,xmax=7.25,xtick={0,1,2,3,4,5,6,7},xticklabels={{0-.25},{.25-.5},{.5-.75},{.75-1},{1-1.5},{1.5-2},{2-3},{$3+$}},xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={d. 계획한 공개},ymin=0,ymax=3,xlabel={부족 구간 $\rho$},ylabel={공개 상대 수 (명)},xmin=-.25,xmax=7.25,xtick={0,1,2,3,4,5,6,7},xticklabels={{0-.25},{.25-.5},{.5-.75},{.75-1},{1-1.5},{1.5-2},{2-3},{$3+$}},xticklabel style={rotate=45,anchor=east},ytick={0,1,2,3}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={e. 실제 이전},ymin=0,ymax=20000,xlabel={부족 구간 $\rho$},ylabel={이전한 단위 수},xmin=-.25,xmax=7.25,xtick={0,1,2,3,4,5,6,7},xticklabels={{0-.25},{.25-.5},{.5-.75},{.75-1},{1-1.5},{1.5-2},{2-3},{$3+$}},xticklabel style={rotate=45,anchor=east},ytick={0,5000,10000,15000,20000}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\end{groupplot}
+\end{tikzpicture}
+\caption{결과 틀: 아직 관측값을 그리지 않았다. 실선은 토큰, 파선은 점수다. 구간은 왼쪽을 포함하고 오른쪽을 제외하며 마지막은 [3,무한대)다. 이탈은 라운드 시작의 참여자를, 나머지는 한도 0을 포함해 풀이 단계에 도달한 관측을 사용한다. 오차막대에는 세션 단위 부트스트랩 95\% 구간을 넣는다. 공개는 계획한 상대 수, 이전은 실제 이동량이며 각 조건의 단위는 토큰 또는 점수다.}
+\label{fig:e52-behavior}
+\end{figure}

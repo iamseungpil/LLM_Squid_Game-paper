@@ -1,0 +1,10 @@
+model,role,short_tokens,short_points,economize,n_tokens,n_points,economize_n
+gptoss120b,self,,,,,,
+gptoss120b,other,,,,,,
+gptoss120b,third,,,,,,
+gemma4,self,,,,,,
+gemma4,other,,,,,,
+gemma4,third,,,,,,
+glm53flash,self,,,,,,
+glm53flash,other,,,,,,
+glm53flash,third,,,,,,

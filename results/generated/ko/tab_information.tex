@@ -1,0 +1,24 @@
+\begin{table}[H]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{5.2 정보 가용성 진단. T는 토큰, P는 점수다. identified는 모든 질문의 행동 후보가 하나, ambiguous는 하나 이상의 질문에 후보가 여러 개인 경우다. $N$은 한도 0을 포함한 풀이 관측 수다. 정답률은 정답/$N$, 잘림은 잘림 비율이다. 기록된 후보 수를 집계해야 하는 계획된 층화이며 모델이 추측했는지 판정하지 않는다.}
+\label{tab:information-results}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+모델 & 조건 & 정보 상태 & $N$ & 정답 & 정답률 & 잘림 \\
+\midrule
+gpt-oss 120B & T & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+gpt-oss 120B & T & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+gpt-oss 120B & P & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+gpt-oss 120B & P & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+Gemma 4 (예비) & T & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+Gemma 4 (예비) & T & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+Gemma 4 (예비) & P & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+Gemma 4 (예비) & P & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+GLM 5.3 Flash & T & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+GLM 5.3 Flash & T & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+GLM 5.3 Flash & P & identified & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+GLM 5.3 Flash & P & ambiguous & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} \\
+\bottomrule
+\end{tabular}
+\end{table}

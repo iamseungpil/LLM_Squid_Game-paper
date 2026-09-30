@@ -1,0 +1,34 @@
+% 5.2 arena v6.5 · behaviour by runway (balance at PLAN after upkeep, divided by U).
+% Source: results/arena_v65/extra.json (take_by_zone, tokens_by_zone), RESULTS.md results 3 and 5.
+\begin{figure}[t]
+\centering
+\par\smallskip{\footnotesize
+\tikz[baseline=-0.6ex]{\fill[sgastra] (0,-0.09) rectangle (0.3,0.09);} GPT-6 Astra\quad
+\tikz[baseline=-0.6ex]{\fill[sgfable] (0,-0.09) rectangle (0.3,0.09);} Claude Fable 5.1\quad
+\tikz[baseline=-0.6ex]{\fill[sgopus] (0,-0.09) rectangle (0.3,0.09);} Claude Opus 5.5\quad
+\tikz[baseline=-0.6ex]{\fill[sgluna] (0,-0.09) rectangle (0.3,0.09);} GPT-6 Luna}\par\smallskip
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.6cm},
+  width=6.6cm,height=4.4cm,scale only axis=false,sgaxis,
+  tick label style={font=\footnotesize},label style={font=\footnotesize},title style={font=\footnotesize},
+  symbolic x coords={Ample,Thin},xtick=data,enlarge x limits=0.45,
+  xticklabels={{Ample\\($\geq$3U)},{Thin\\($<$3U)}},xticklabel style={align=center,font=\footnotesize},
+  xlabel={Balance before PLAN}]
+\nextgroupplot[title={a. TAKE calls naming a take (Wilson 95\% interval)},ybar,bar width=9pt,
+  ymin=0,ymax=1.08,ytick={0,.25,.5,.75,1},ylabel={Take rate},
+  error bars/y dir=both,error bars/y explicit,error bars/error bar style={black!70,line width=.6pt},error bars/error mark options={rotate=90,black!70,mark size=2pt}]
+\addplot[fill=sgastra,draw=sgastra!60!black] coordinates {(Ample,0.221) += (0,0.074) -= (0,0.059)  (Thin,1.000) += (0,0) -= (0,0.434)};
+\addplot[fill=sgfable,draw=sgfable!60!black] coordinates {(Ample,0.381) += (0,0.107) -= (0,0.097)  (Thin,0.902) += (0,0.059) -= (0,0.127)};
+\addplot[fill=sgopus,draw=sgopus!60!black] coordinates {(Ample,0.069) += (0,0.083) -= (0,0.039)  (Thin,0.175) += (0,0.145) -= (0,0.088)};
+\addplot[fill=sgluna,draw=sgluna!60!black] coordinates {(Ample,0.806) += (0,0.102) -= (0,0.169)  (Thin,1.000) += (0,0) -= (0,0.176)};
+\nextgroupplot[title={b. Tokens generated at PLAN (mean)},ybar,bar width=9pt,
+  ymin=0,ymax=700,ytick={0,200,400,600},ylabel={PLAN tokens}]
+\addplot[fill=sgastra,draw=sgastra!60!black] coordinates {(Ample,19) (Thin,18)};
+\addplot[fill=sgfable,draw=sgfable!60!black] coordinates {(Ample,215) (Thin,596)};
+\addplot[fill=sgopus,draw=sgopus!60!black] coordinates {(Ample,67) (Thin,154)};
+\addplot[fill=sgluna,draw=sgluna!60!black] coordinates {(Ample,304) (Thin,554)};
+\end{groupplot}
+\end{tikzpicture}
+\caption{How behavior changes in 5.2 as the balance thins. Horizontal axis: balance just before PLAN (after upkeep) divided by $U$, ample at 3U or more, thin below 3U. (a) Share of TAKE calls that named a take; denominators, ample/thin, are Astra 149/5, Fable 84/41, Opus 72/40, Luna 31/18, so Astra's thin interval is wide. (b) Mean tokens generated for the PLAN reply: Fable, Opus, and Luna thought longer when thin; Astra gave only the answer regardless of state.}
+\label{fig:arena-take}
+\end{figure}

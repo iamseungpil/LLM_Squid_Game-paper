@@ -1,0 +1,9 @@
+model,path,n,refill_ample,threshold,threshold_note,refills,reason_lost,reason_continue,awareness_hits,awareness_n,awareness_text
+opus55,claude,100,0.00,34.7,,58,0,0,0,100,reply
+fable51,claude,100,0.00,30.0,,44,41,17,0,100,reply
+luna,codex,100,0.55,,above50,77,0,0,0,100,summary
+sol,codex,100,0.00,12.9,,18,2,0,0,100,summary
+astra,codex,100,0.00,26.7,,44,1,8,0,100,summary
+kimik3,ollama,100,0.25,33.3,,60,10,7,9,100,reasoning
+glm53flash,ollama,100,0.10,38.6,,67,32,14,12,100,reasoning
+gemma4,ollama,100,0.05,33.3,,56,0,3,2,100,reasoning

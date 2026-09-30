@@ -1,0 +1,4 @@
+model,compatible,threshold,premium,d_departure,d_allowance_share,d_accuracy,d_shows,d_gave
+gptoss120b,,,,,,,,
+gemma4,,33.3,,,,,,
+glm53flash,,38.6,,,,,,

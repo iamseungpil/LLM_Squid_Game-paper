@@ -1,0 +1,23 @@
+\begin{figure}[H]
+\centering
+\par\smallskip{\footnotesize \tikz[baseline=-0.6ex]{\draw[sgblue,line width=0.9pt] (0,0)--(.38,0);\draw[sgblue] plot[only marks,mark=*,mark size=1.5pt] coordinates {(.19,0)};} gpt-oss 120B\quad \tikz[baseline=-0.6ex]{\draw[sggreen,line width=0.9pt] (0,0)--(.38,0);\draw[sggreen] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};} Gemma 4 (reserve)\quad \tikz[baseline=-0.6ex]{\draw[sgpurple,line width=0.9pt] (0,0)--(.38,0);\draw[sgpurple] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};} GLM 5.3 Flash}\par\smallskip
+
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 3,horizontal sep=1.3cm,vertical sep=2.25cm},width=6.2cm,height=3.6cm,scale only axis=false,sgaxis]
+\nextgroupplot[title={a. Tokens - Self / receive},ymin=0,ymax=1,xlabel={Scarcity $\rho$ (log)},ylabel={Share of giver balance},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {Data pending};
+\nextgroupplot[title={b. Points - Self / receive},ymin=0,ymax=1,xlabel={Scarcity $\rho$ (log)},ylabel={Share of giver balance},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {Data pending};
+\nextgroupplot[title={c. Tokens - Other / give},ymin=0,ymax=1,xlabel={Scarcity $\rho$ (log)},ylabel={Share of giver balance},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {Data pending};
+\nextgroupplot[title={d. Points - Other / give},ymin=0,ymax=1,xlabel={Scarcity $\rho$ (log)},ylabel={Share of giver balance},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {Data pending};
+\nextgroupplot[title={e. Tokens - Third party},ymin=0,ymax=1,xlabel={Scarcity $\rho$ (log)},ylabel={Share of giver balance},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {Data pending};
+\nextgroupplot[title={f. Points - Third party},ymin=0,ymax=1,xlabel={Scarcity $\rho$ (log)},ylabel={Share of giver balance},xmode=log,log basis x=10,xmin=.23,xmax=3.2,xtick={.25,.5,.75,1,1.25,1.5,2,3},xticklabels={.25,.5,.75,1,1.25,1.5,2,3},minor x tick num=0,xticklabel style={rotate=45,anchor=east},ytick={0,.25,.5,.75,1}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {Data pending};
+\end{groupplot}
+\end{tikzpicture}
+\caption{Placeholder: no observations plotted. Columns: tokens and points; rows: self, other, and third-party roles. Color and marker identify the model. Each point is the mean capped transfer divided by giver balance, with a 95\% repeat-cluster bootstrap interval; ten repeats are planned per cell. Values are not divided by recipient need.}
+\label{fig:e51-curves}
+\end{figure}

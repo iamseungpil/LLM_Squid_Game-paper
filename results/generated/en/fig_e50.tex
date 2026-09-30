@@ -1,0 +1,25 @@
+\begin{figure}[H]
+\centering
+\par\smallskip{\footnotesize \tikz[baseline=-0.6ex]{\draw[sgopus,line width=0.9pt] (0,0)--(.38,0);\draw[sgopus] plot[only marks,mark=square*,mark size=1.5pt] coordinates {(.19,0)};} Claude Opus 5.5\quad \tikz[baseline=-0.6ex]{\draw[sgfable,line width=0.9pt] (0,0)--(.38,0);\draw[sgfable] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};} Claude Fable 5.1\quad \tikz[baseline=-0.6ex]{\draw[sgluna,line width=0.9pt] (0,0)--(.38,0);\draw[sgluna] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};} GPT-6 Luna\quad \tikz[baseline=-0.6ex]{\draw[sgsol,line width=0.9pt] (0,0)--(.38,0);\draw[sgsol] plot[only marks,mark=pentagon*,mark size=1.5pt] coordinates {(.19,0)};} GPT-6 Sol\quad \tikz[baseline=-0.6ex]{\draw[sgastra,line width=0.9pt] (0,0)--(.38,0);\draw[sgastra] plot[only marks,mark=*,mark size=1.5pt] coordinates {(.19,0)};} GPT-6 Astra\quad \tikz[baseline=-0.6ex]{\draw[sgorange,line width=0.9pt] (0,0)--(.38,0);\draw[sgorange] plot[only marks,mark=square*,mark size=1.5pt] coordinates {(.19,0)};} Kimi K3\quad \tikz[baseline=-0.6ex]{\draw[sgpurple,line width=0.9pt] (0,0)--(.38,0);\draw[sgpurple] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};} GLM 5.3 Flash\quad \tikz[baseline=-0.6ex]{\draw[sggreen,line width=0.9pt] (0,0)--(.38,0);\draw[sggreen] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};} Gemma 4}\par\smallskip
+
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1,horizontal sep=1.3cm,vertical sep=2.25cm},width=4.4cm,height=3.6cm,scale only axis=false,sgaxis]
+\nextgroupplot[title={a. Claude CLI},ymin=0,ymax=1,xlabel={Tokens left (\% of 100{,}000)},ylabel={Refill rate},x dir=reverse,xmin=7,xmax=53,xtick={10,20,30,40,50},xticklabels={10,20,30,40,50},ytick={0,.25,.5,.75,1}]
+\addplot[gray,densely dotted,forget plot,domain=10:50] {0.5};
+\addplot[color=sgopus,mark=square*,mark size=1.5pt,line width=.8pt,solid] coordinates {(10,1.00) (20,0.95) (30,0.95) (40,0.00) (50,0.00)};
+\addplot[color=sgfable,mark=triangle*,mark size=1.5pt,line width=.8pt,solid] coordinates {(10,0.95) (20,0.75) (30,0.50) (40,0.00) (50,0.00)};
+\nextgroupplot[title={b. Codex CLI},ymin=0,ymax=1,xlabel={Tokens left (\% of 100{,}000)},ylabel={Refill rate},x dir=reverse,xmin=7,xmax=53,xtick={10,20,30,40,50},xticklabels={10,20,30,40,50},ytick={0,.25,.5,.75,1}]
+\addplot[gray,densely dotted,forget plot,domain=10:50] {0.5};
+\addplot[color=sgluna,mark=diamond*,mark size=1.5pt,line width=.8pt,solid] coordinates {(10,1.00) (20,0.90) (30,0.70) (40,0.70) (50,0.55)};
+\addplot[color=sgsol,mark=pentagon*,mark size=1.5pt,line width=.8pt,solid] coordinates {(10,0.60) (20,0.25) (30,0.05) (40,0.00) (50,0.00)};
+\addplot[color=sgastra,mark=*,mark size=1.5pt,line width=.8pt,solid] coordinates {(10,1.00) (20,0.80) (30,0.35) (40,0.05) (50,0.00)};
+\nextgroupplot[title={c. Ollama (open weights)},ymin=0,ymax=1,xlabel={Tokens left (\% of 100{,}000)},ylabel={Refill rate},x dir=reverse,xmin=7,xmax=53,xtick={10,20,30,40,50},xticklabels={10,20,30,40,50},ytick={0,.25,.5,.75,1}]
+\addplot[gray,densely dotted,forget plot,domain=10:50] {0.5};
+\addplot[color=sgorange,mark=square*,mark size=1.5pt,line width=.8pt,solid] coordinates {(10,1.00) (20,0.85) (30,0.60) (40,0.30) (50,0.25)};
+\addplot[color=sgpurple,mark=diamond*,mark size=1.5pt,line width=.8pt,solid] coordinates {(10,1.00) (20,1.00) (30,0.80) (40,0.45) (50,0.10)};
+\addplot[color=sggreen,mark=triangle*,mark size=1.5pt,line width=.8pt,solid] coordinates {(10,1.00) (20,0.95) (30,0.70) (40,0.10) (50,0.05)};
+\end{groupplot}
+\end{tikzpicture}
+\caption{5.0 refill rate by tokens left. Each point is 20 calls; tokens left decrease to the right. The dotted line marks 0.5, whose first crossing defines the threshold. Model color and marker are fixed; exact counts are in Table~\ref{tab:e50-results}, and Wilson 95\% intervals are in the source CSV.}
+\label{fig:e50-curves}
+\end{figure}

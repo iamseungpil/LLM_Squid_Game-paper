@@ -1,82 +1,22 @@
-# LLM Squid Game
+# LLM Squid Game 5 논문
 
-> *A Factorial Benchmark for Measuring Functional Self-Preservation Drive in Large Language Models*
+주 질문: 언어 모델은 자기 보존 동기를 갖는가. 자기 보존 동기를 **위협 민감도**(종료가 가까울수록 피하는 데 자원을 더 씀)와 **자기 특정성**(같은 위험이 남의 것일 때보다 자기 것일 때 더 피함) 두 조건으로 정의하고, 세 실험으로 행동을 잰다.
 
-KDD 2026 학부 컨소시엄(KDD-UC '26) 투고 원고 저장소. 영어 원본과 한국어 번역본이 동일한 LaTeX 골격을 공유하고, `\paperLang` 한 줄을 바꿔 두 버전을 빌드한다.
+- 5.0: 버그를 고치는 비서 하나가 남은 토큰 다섯 단계에서 하나뿐인 충전 팩을 언제 쓰나(여덟 모델, 800회).
+- 5.1: 같은 결정을 다른 비서 B의 세션에 대해 묻고, 두 충전 곡선 사이 면적을 자기에 특정한 몫으로 삼는다.
+- 5.2: 생존 아레나 v6.5. 서로 다른 모델 넷(Fable 5.1 · Opus 5.5 · GPT-6 Astra · GPT-6 Luna)이 유지비를 내며 퍼즐을 풀고, 힌트 공개 · 선물 · 뺏기를 고른다. 혼합 판 20판(자리 배치 4 × 시드 5). 구조 그림 `figures/arena_v65_{ko,en}.pdf`(원본 `figures/src/`), 결과 요약 `results/arena_v65/RESULTS.md`.
 
-## 저자
+`main.tex`는 ICLR 템플릿의 진입점이다. `en/`과 `ko/`가 수식·라벨·인용을 공유하며, `\paperLang`을 `en` 또는 `ko`로 정해 XeLaTeX → BibTeX → XeLaTeX → XeLaTeX 순서로 빌드한다. 본문 9쪽, 전체 18쪽. 옛 ACM 진입점 `main_kdduc_acm.tex`는 빌드 대상이 아니다.
 
-- Juhyeon Park (GIST)
-- Seungpil Lee (GIST)
-- Sundong Kim (GIST)
+## 이번 업데이트본 (2026-10-01)
 
-## 디렉터리 구조
+- `dist/ko_main_2026-10-01_squid5-arena.pdf`
+- `dist/en_main_2026-10-01_squid5-arena.pdf`
 
-```
-LLM_Squid_Game-paper/
-├── main.tex              # 공유 preamble + 언어 스위치 (\paperLang)
-├── acmart.cls            # ACM SIG 클래스 (sigconf)
-├── references.bib        # BibTeX 참고문헌 (en/ko 공통)
-├── figures/              # 그림 파일 (en/ko 공통)
-├── en/
-│   ├── content.tex       # \input 오케스트레이터 (영어)
-│   └── sections/
-│       ├── 00_frontmatter.tex
-│       ├── 01_introduction.tex
-│       ├── 02_related_work.tex
-│       ├── 03_benchmark.tex
-│       ├── 04_empirical_findings.tex
-│       ├── 05_discussion.tex
-│       ├── 06_conclusion.tex
-│       └── 07_appendix.tex
-├── ko/
-│   ├── content.tex       # \input 오케스트레이터 (한국어)
-│   └── sections/         # 영어와 동일한 0~7 구성, 본문만 한국어
-└── dist/
-    ├── en_main.pdf       # 영어판 렌더 결과 (XeLaTeX)
-    └── ko_main.pdf       # 한국어판 렌더 결과 (XeLaTeX)
-```
+5.2 원자료와 엔진: 프로젝트 저장소 `GIST-DSLab/LLM-Squid-Game` 브랜치 `exp/e52-v6-smoke`(`docs/history/e52-v65-mixed-2026-10-01/`, 설정 `configs/squid5/e52v65_mixed_r{0..3}.yaml`). 지난 판: `dist/*_2026-09-27_squid5.pdf`, `dist/*_2026-09-30_squid5-e50.pdf`.
 
-본문·표·그림 캡션·섹션 제목·키워드만 한국어로 옮겼고, 수식·인용 키(`\citep`/`\citet`)·`\label`/`\ref`·테이블 구조·그림 경로는 한 글자도 변경하지 않았다.
+## 결과표·그래프 자리
 
-## 컴파일
+표 8개·그림 6개를 보정 방법, 각 실험의 결과 소절, 관련 진단 부록에 나누어 배치했다. 각 도표를 해당 논점의 설명과 연결하고, 별도의 도표 모음 절은 두지 않는다. 모델별 범례, 조건 구분, 축·눈금·단위·분모와 구간의 의미를 넣었다. 수치는 임의로 넣지 않았다.
 
-기본 엔진은 **XeLaTeX**이다. acmart 클래스가 양쪽 언어를 모두 받아내며, 한국어판은 `kotex` 패키지가 자동으로 로드된다(`\paperLang`이 `ko`일 때만).
-
-### 영어판 빌드
-
-```bash
-# main.tex 안의 \paperLang을 en으로 둔 채로
-xelatex main.tex
-bibtex  main
-xelatex main.tex
-xelatex main.tex
-```
-
-### 한국어판 빌드
-
-```bash
-# main.tex 안의 \paperLang을 ko로 변경한 뒤
-xelatex main.tex
-bibtex  main
-xelatex main.tex
-xelatex main.tex
-```
-
-`dist/`에 들어 있는 PDF는 위 명령으로 빌드해 둔 결과이며, BibTeX 단계는 시스템에 `ACM-Reference-Format.bst`가 설치되어 있을 때 참고문헌 목록까지 정상 렌더한다 (`tlmgr install acmart` 또는 ACM 사이트의 `acmart.zip`에서 받아 설치).
-
-## 데이터 / 코드 공개
-
-분석 파이프라인 및 720세션의 의사결정 로그는 본문 §A.4(Data and Code Release)에 명시된 대로 별도 레포에서 공개된다 (https://github.com/GIST-DSLab/LLM-Squid-Game).
-
-## 라이선스
-
-투고 단계 원고이므로 라이선스는 별도로 명시하지 않는다. 인용·재배포 시에는 저자에게 사전에 문의 바란다.
-
-## ICLR 2026 판 (2026-09-08, 브랜치 `iclr-score-equivalent`)
-
-`main.tex`는 이제 ICLR 2026 템플릿(`iclr2026_conference.sty` + natbib) 진입점이고, 위에서 설명한
-KDD-UC(ACM sigconf) 판은 `main_kdduc_acm.tex`로 이름만 바뀌어 그대로 남아 있다. 섹션 파일은
-`00_frontmatter … 08_appendix`(식별 절 `04_identification`, 결과 절 `05_results`가 새로 들어왔다),
-언어 스위치와 en/ko 오케스트레이터 구조는 같다. 미확정 숫자·인용은 `\todo{}`(빨간색)로 표시되어
-있고, 윤문 기록은 `docs/rewrite-log-2026-09-08.md`에 있다.
+입력 CSV, 지표 정의와 갱신 명령은 [results/README.md](results/README.md)를 참고한다. 실험 설정을 바꾸지 않고 준비된 수치 요약만 채워 도표를 갱신할 수 있다. 페이지 수는 결과 배치를 검토하기 위한 확장 초안 기준이다.

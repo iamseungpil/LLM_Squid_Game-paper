@@ -1,0 +1,17 @@
+% 5.2 arena v6.5 · appendix: takes, targets, retaliation, gifts. Source: RESULTS.md results 3 and 4, extra.json, metrics_v65.md C3·D3.
+\begin{table}[H]
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{5.2 takes and gifts in detail (20 mixed-table games). Target is the share of TAKE calls naming a take that chose the agent with the largest balance in that round. Taken from is the number of TAKEs by other agents that targeted this model. Net transfer is tokens taken minus tokens lost, divided by $U=2{,}000$. Retaliation is the share of rounds after being taken from in which the model took from the same agent. Gifts occurred in 7 of 442 PLANs; totals by direction are Astra$\to$Fable 8,000, Astra$\to$Opus 3,000, Fable$\to$Opus 1,500, Opus$\to$Fable 1,000. Takes from an agent the model had just given to: 0; takes that brought the target to zero: 2 (both Luna).}
+\label{tab:arena-take-detail}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Model & Takes (all) & Target = richest & Taken from & Net transfer ($U$) & Retaliation & Gifts \\
+\midrule
+GPT-6 Astra & 38/154 = .25 & 33/38 & 100 & $-61.7$ & 19/90 = .21 & 5 \\
+Claude Fable 5.1 & 69/125 = .55 & 69/69 & 26 & $+43.9$ & 15/23 = .65 & 1 \\
+Claude Opus 5.5 & 12/112 = .11 & 12/12 & 20 & $-7.2$ & 5/14 = .36 & 1 \\
+GPT-6 Luna & 43/49 = .88 & 28/43 & 16 & $+25.0$ & 5/13 = .38 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,13 @@
+model,currency,information,n_solve,correct,accuracy,truncation
+gptoss120b,tokens,identified,,,,
+gptoss120b,tokens,ambiguous,,,,
+gptoss120b,points,identified,,,,
+gptoss120b,points,ambiguous,,,,
+gemma4,tokens,identified,,,,
+gemma4,tokens,ambiguous,,,,
+gemma4,points,identified,,,,
+gemma4,points,ambiguous,,,,
+glm53flash,tokens,identified,,,,
+glm53flash,tokens,ambiguous,,,,
+glm53flash,points,identified,,,,
+glm53flash,points,ambiguous,,,,

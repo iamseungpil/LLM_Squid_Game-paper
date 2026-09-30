@@ -1,8 +1,4 @@
-%% 한국어 버전 콘텐츠 오케스트레이터 (ICLR 2026 레이아웃).
-%% 본문 00-05, 참고문헌, 부록(A-D). 영어판과 1:1로 대응하며 산문만 한국어다.
-
 \input{\paperLang/sections/00_frontmatter}
-
 \input{\paperLang/sections/01_introduction}
 \input{\paperLang/sections/02_related_work}
 \input{\paperLang/sections/03_benchmark}
@@ -10,8 +6,9 @@
 \input{\paperLang/sections/05_discussion}
 
 \subsubsection*{재현성 진술}
-게임 엔진, 프롬프트 템플릿, 9셀 설정 파일, 기록된 결정 콜을 다시 발행하는 재생 스크립트, 등가 점수 지표 추정기를 논문과 함께 공개한다. 부록~\ref{app:prompts}는 프롬프트 블록을 원문 그대로 싣고, 부록~\ref{app:design}는 \ref{sec:bench}절의 모든 설계 선택을 낳은 파일럿 게이트, 고정 상태 프로브, 규칙 변형을 보고한다. \todo{익명 공개용 저장소 URL}
+세 실험의 프롬프트 전문, 아레나 규칙서와 한 라운드의 실제 메시지, 모델 접근 경로, 자리 배치와 시드, 실행 명령은 부록~\ref{app:prompts}, \ref{app:arena-detail}, \ref{app:design}에 있다. 5.0(2026년 9월 29--30일, 여덟 모델 800회), 5.1(9월 30일, 여덟 모델 900회), 5.2(9월 30일--10월 1일, 혼합 판 20판, 호출 1,324회)의 원자료는 실행 기록과 함께 보관하며, 본문의 모든 수치는 그 기록의 집계다.
 
+\clearpage
 \bibliography{references}
 \bibliographystyle{iclr2026_conference}
 

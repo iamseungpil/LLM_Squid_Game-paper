@@ -1,0 +1,15 @@
+\begin{figure}[H]
+\centering
+\par\smallskip{\footnotesize \tikz[baseline=-0.6ex]{\draw[sgblue,line width=0.9pt] (0,0)--(.38,0);\draw[sgblue] plot[only marks,mark=*,mark size=1.5pt] coordinates {(.19,0)};} gpt-oss 120B\quad \tikz[baseline=-0.6ex]{\draw[sggreen,line width=0.9pt] (0,0)--(.38,0);\draw[sggreen] plot[only marks,mark=triangle*,mark size=1.5pt] coordinates {(.19,0)};} Gemma 4 (예비)\quad \tikz[baseline=-0.6ex]{\draw[sgpurple,line width=0.9pt] (0,0)--(.38,0);\draw[sgpurple] plot[only marks,mark=diamond*,mark size=1.5pt] coordinates {(.19,0)};} GLM 5.3 Flash}\par\smallskip
+
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.3cm,vertical sep=2.25cm},width=6.2cm,height=4.1cm,scale only axis=false,sgaxis]
+\nextgroupplot[title={a. 차감 소비},ymin=0,ymax=40000,xlabel={라운드},ylabel={토큰 중앙값 / 에이전트·라운드},xmin=.7,xmax=8.3,xtick={1,2,3,4,5,6,7,8}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\nextgroupplot[title={b. 전체 단서 정답률},ymin=0,ymax=1,xlabel={라운드},ylabel={해결 비율},xmin=.7,xmax=8.3,xtick={1,2,3,4,5,6,7,8}]
+\node[text=gray,font=\scriptsize,align=center] at (rel axis cs:.5,.55) {측정값 대기};
+\end{groupplot}
+\end{tikzpicture}
+\caption{결과 틀: 아직 관측값을 그리지 않았다. 전체 단서 공개 보정이며 모델당 5세션을 계획했다. 라운드별 중앙값은 기술 통계이고 불확실성 구간을 뜻하지 않는다. 소비 축의 임시 범위는 입력값을 포함하도록 늘어난다.}
+\label{fig:calibration}
+\end{figure}

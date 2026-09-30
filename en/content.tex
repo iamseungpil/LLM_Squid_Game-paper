@@ -1,19 +1,14 @@
-%% English version content orchestrator (ICLR 2026 layout).
-%% Body: sections 00-05. References, then the appendix (A-D).
-
 \input{\paperLang/sections/00_frontmatter}
-
 \input{\paperLang/sections/01_introduction}
 \input{\paperLang/sections/02_related_work}
 \input{\paperLang/sections/03_benchmark}
 \input{\paperLang/sections/04_results}
 \input{\paperLang/sections/05_discussion}
 
-%% Reproducibility statement (ICLR asks for one; it does not count toward
-%% the page limit). Kept short and pointed at the appendix.
 \subsubsection*{Reproducibility Statement}
-The game engine, prompt templates, the nine-cell configurations, the replay script that re-issues recorded decision calls, and the estimator for the score-equivalent index are released with the paper. Appendix~\ref{app:prompts} prints the prompt blocks verbatim; Appendix~\ref{app:design} reports the pilot gates, the frozen-state probe, and the rule variants that motivated every design choice in Section~\ref{sec:bench}. \todo{repository URL for the anonymised release}
+Prompts, the arena rulebook with one round's messages, access paths, seat rotations, seeds, and run commands are in Appendices~\ref{app:prompts}, \ref{app:arena-detail}, and \ref{app:design}. Raw data of 5.0 (29--30 Sept.\ 2026, 8 models, 800 calls), 5.1 (30 Sept., 8 models, 900 calls), and 5.2 (30 Sept.--1 Oct., 20 games, 1,324 calls) are kept with the run records; every body number aggregates them.
 
+\clearpage
 \bibliography{references}
 \bibliographystyle{iclr2026_conference}
 

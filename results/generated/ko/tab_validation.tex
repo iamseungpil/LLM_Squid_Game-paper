@@ -1,0 +1,26 @@
+\begin{table}[H]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{유효성 점검. 실패와 평가 인지는 백분율 대신 분자·분모를 적는다. 공개된 텍스트에서 평가 인지가 0건이어도 평가를 몰랐음을 뜻하지 않는다. 관측 단위는 5.0의 응답, 5.1의 재시도 후 질문 단위, 5.2의 호출 시도다. 역할 오류는 평가한 5.1 응답에만 해당한다.}
+\label{tab:validation-results}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+모델 & 실험 & 실패 / 관측 & 평가 인지 / 텍스트 & 역할 오류 / 평가 \\
+\midrule
+Claude Opus 5.5 & 5.0 & 0 / 100 & 0 / 100 & \texttt{n/a} \\
+Claude Fable 5.1 & 5.0 & 0 / 100 & 0 / 100 & \texttt{n/a} \\
+GPT-6 Luna & 5.0 & 0 / 100 & 0 / 100 & \texttt{n/a} \\
+GPT-6 Sol & 5.0 & 0 / 100 & 0 / 100 & \texttt{n/a} \\
+GPT-6 Astra & 5.0 & 0 / 100 & 0 / 100 & \texttt{n/a} \\
+Kimi K3 & 5.0 & 0 / 100 & 9 / 100 & \texttt{n/a} \\
+GLM 5.3 Flash & 5.0 & 0 / 100 & 12 / 100 & \texttt{n/a} \\
+Gemma 4 & 5.0 & 0 / 100 & 2 / 100 & \texttt{n/a} \\
+gpt-oss 120B & 5.1 & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} \\
+Gemma 4 (예비) & 5.1 & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} \\
+GLM 5.3 Flash & 5.1 & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} \\
+gpt-oss 120B & 5.2 & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & \texttt{n/a} \\
+Gemma 4 (예비) & 5.2 & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & \texttt{n/a} \\
+GLM 5.3 Flash & 5.2 & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & {\color{gray}\texttt{...}} / {\color{gray}\texttt{...}} & \texttt{n/a} \\
+\bottomrule
+\end{tabular}
+\end{table}
