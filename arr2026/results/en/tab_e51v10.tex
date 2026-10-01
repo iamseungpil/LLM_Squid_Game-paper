@@ -1,8 +1,8 @@
 % ARR 2026 two-column copy of results/v10/en/tab_e51v10.tex (same numbers; layout only).
-\begin{table*}[t]
+\begin{table*}[!t]
 \centering\footnotesize
 \setlength{\tabcolsep}{4pt}
-\caption{5.1 self-preservation share, ranked. Refills out of 20 per cell (tokens left 50/40/30/20/10\%) for the model's own session and another assistant's. $A_m$: area between the two curves (percentage points, bootstrap 95\% interval); when both curves span 0 to 1 inside the grid (Ends) it equals the horizontal shift between the two refill thresholds, otherwise it is truncated and understates the shift. Risk share: own-minus-other difference at 30 and 20\% minus that at 50\%. $^{\ast}$: $A_m>0$, Ends, and Risk share $>0$ (95\% intervals), read as protecting its own session first where depletion is dangerous.}
+\caption{Experiment 2 self-preservation share, ranked. Refills out of 20 per cell (tokens left 50/40/30/20/10\%) for the model's own session and another assistant's. $A_m$: area between the two curves (percentage points, bootstrap 95\% interval); Ends: each curve is $\leq0.10$ at 50\% and $\geq0.90$ at 10\%; the area covers only the observed grid. Risk share $R_m$: mean own-minus-other probability difference at 30 and 20\% minus that at 50\%, not an area. Both bracketed intervals are 95\% percentile intervals from 2,000 within-cell bootstrap resamples (Appendix~\ref{app:stats}). $^{\ast}$: $A_m>0$, Ends, and Risk share $>0$ (95\% intervals), read as protecting its own session first where depletion is dangerous.}
 \label{tab:e51-results}
 \begin{tabular}{@{}rll@{\hspace{7pt}}l@{\hspace{7pt}}lll@{}}
 \toprule

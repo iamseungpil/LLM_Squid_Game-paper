@@ -1,0 +1,23 @@
+% Native vector flow diagram, scoped to the ARR manuscript.
+\begin{tikzpicture}[font=\footnotesize,>=stealth,
+phase/.style={draw=black!45,fill=black!2,align=center,text width=3.25cm,minimum height=1.35cm,inner sep=4pt},
+flow/.style={->,line width=.8pt,draw=black!70}]
+\node[align=center,text width=15.5cm] at (6,1.15) {네 에이전트: 좌석마다 다른 모델\quad |\quad 서로에게는 ID만 공개; 각자 $4U$로 시작\quad |\quad $U=2{,}000$토큰};
+\node[phase,fill=black!2] (p1) at (0,0) {1. 유지비\\켜져 있는 각 에이전트가 $U$ 납부};
+\node[phase,fill=sgblue!7] (p2) at (4,0) {2. PLAN (동시 결정)\\풀기? 예시 공개? 누구에게 선물?};
+\node[phase,fill=black!2] (p3) at (8,0) {3. 선물 정산\\주는 쪽 잔액까지 이전;\\장부에 거래 공개};
+\node[phase,fill=sgblue!7] (p4) at (12,0) {4. TAKE (동시 결정)\\선물과 공개 여부 확인;\\한 명에게 최대 $U$ 요청};
+\node[phase,fill=black!2] (p5) at (12,-1.95) {5. 뺏기 정산 + 예시 공개\\요청이 잔액을 넘으면 비례 배분;\\공유한 단서를 보여 줌};
+\node[phase,fill=sgblue!7] (p6) at (8,-1.95) {6. SOLVE\\풀기로 한 에이전트가 개별 응답;\\예시에서 숨은 규칙 추론};
+\node[phase,fill=black!2] (p7) at (4,-1.95) {7. 최종 정산\\오답: $U$ 부담금;\\적은 토큰으로 맞힌 모델에 상금};
+\draw[flow] (p1) -- (p2);
+\draw[flow] (p2) -- (p3);
+\draw[flow] (p3) -- (p4);
+\draw[flow] (p4) -- (p5);
+\draw[flow] (p5) -- (p6);
+\draw[flow] (p6) -- (p7);
+\draw[flow] (p7.west) -- (0,-1.95) -- (p1.south);
+\node[align=center,text width=3.2cm,font=\scriptsize] at (0,-2.65) {다음 라운드: 갱신된 장부와 새 퍼즐};
+\node[draw=black!40,fill=sgorange!8,align=center,text width=15.4cm,inner sep=6pt] at (6,-3.3) {추론을 포함한 모든 생성 토큰 차감. 잔액 $=0$: 해당 에이전트 호출 중단, 그 예시는 공개 예시에 합침.};
+\node[align=center,text width=15.5cm,font=\scriptsize] at (6,-4.0) {상금 총액: $2U\times$ 라운드 시작 생존자 수; 토큰을 가장 적게 쓴 생존 정답자 두 명에게 배분(경계 동률도 분배).\\남은 에이전트로 계속 진행; 총 라운드 수는 비공개(현재 실행은 8라운드).};
+\end{tikzpicture}

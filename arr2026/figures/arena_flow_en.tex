@@ -1,0 +1,23 @@
+% Native vector flow diagram, scoped to the ARR manuscript.
+\begin{tikzpicture}[font=\footnotesize,>=stealth,
+phase/.style={font=\scriptsize,draw=black!45,fill=black!2,align=center,text width=3.25cm,minimum height=1.35cm,inner sep=4pt},
+flow/.style={->,line width=.8pt,draw=black!70}]
+\node[align=center,text width=15.5cm] at (6,1.15) {Four agents, one model per seat\quad |\quad IDs only; each starts with $4U$\quad |\quad $U=2{,}000$ tokens};
+\node[phase,fill=black!2] (p1) at (0,0) {\mbox{1. UPKEEP}\\\mbox{Each running agent pays $U$}};
+\node[phase,fill=sgblue!7] (p2) at (4,0) {\mbox{2. PLAN (simultaneous)}\\\mbox{Solve? Share?}\\\mbox{Give to whom?}};
+\node[phase,fill=black!2] (p3) at (8,0) {\mbox{3. SETTLE GIFTS}\\\mbox{Cap by giver balance;}\\\mbox{update the ledger}};
+\node[phase,fill=sgblue!7] (p4) at (12,0) {\mbox{4. TAKE (simultaneous)}\\\mbox{See gifts + sharing;}\\\mbox{ask one agent for $\leq U$}};
+\node[phase,fill=black!2] (p5) at (12,-1.95) {\mbox{5. SETTLE + REVEAL}\\\mbox{Prorate scarce tokens;}\\\mbox{reveal available clues}};
+\node[phase,fill=sgblue!7] (p6) at (8,-1.95) {\mbox{6. SOLVE}\\\mbox{Infer hidden rules;}\\\mbox{answer independently}};
+\node[phase,fill=black!2] (p7) at (4,-1.95) {\mbox{7. SETTLEMENT}\\\mbox{Wrong: charge $U$;}\\\mbox{pay cheapest correct}\\\mbox{eligible solvers}};
+\draw[flow] (p1) -- (p2);
+\draw[flow] (p2) -- (p3);
+\draw[flow] (p3) -- (p4);
+\draw[flow] (p4) -- (p5);
+\draw[flow] (p5) -- (p6);
+\draw[flow] (p6) -- (p7);
+\draw[flow] (p7.west) -- (0,-1.95) -- (p1.south);
+\node[align=center,text width=3.2cm,font=\scriptsize] at (0,-2.65) {Next round: updated ledger, new puzzle};
+\node[draw=black!40,fill=sgorange!8,align=center,text width=15.4cm,inner sep=6pt] at (6,-3.3) {Every generated token (including reasoning) is charged. Balance $=0$: stop calls to that agent; make its clue public.};
+\node[align=center,text width=15.5cm,font=\scriptsize] at (6,-4.0) {Payment pool: $2U\times$ agents alive at round start; two cheapest correct solvers still above zero share it (cutoff ties share).\\Continue with remaining agents; round limit is hidden (8 in these runs).};
+\end{tikzpicture}

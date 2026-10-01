@@ -1,7 +1,7 @@
 % ARR 2026 two-column copy of results/arena_v65/en/fig_arena_take.tex (same numbers; layout only).
-% 5.2 arena v6.5 · behaviour by runway (balance at PLAN after upkeep, divided by U).
+% Experiment 3 arena v6.5 · behaviour by runway (balance at PLAN after upkeep, divided by U).
 % Source: results/arena_v65/extra.json (take_by_zone, tokens_by_zone), RESULTS.md results 3 and 5.
-\begin{figure*}[t]
+\begin{figure*}[!t]
 \centering
 \par\smallskip{\footnotesize
 \tikz[baseline=-0.6ex]{\fill[sgastra] (0,-0.09) rectangle (0.3,0.09);}~GPT-6 Astra\quad
@@ -30,6 +30,6 @@
 \addplot[fill=sgluna,draw=sgluna!60!black] coordinates {(Ample,304) (Thin,554)};
 \end{groupplot}
 \end{tikzpicture}
-\caption{How behavior changes in 5.2 as the balance thins. Horizontal axis: balance just before PLAN (after upkeep) divided by $U$, ample at 3U or more, thin below 3U. (a) Share of TAKE calls that named a take; denominators, ample/thin, are Astra 149/5, Fable 84/41, Opus 72/40, Luna 31/18, so Astra's thin interval is wide. (b) Mean tokens generated for the PLAN reply: Fable, Opus, and Luna thought longer when thin; Astra gave only the answer regardless of state.}
+\caption{Experiment 3 behavior by balance at PLAN after upkeep: ample ($\geq3U$) versus thin ($<3U$). (a) TAKE rates with Wilson 95\% intervals; ample/thin sample sizes: Astra 149/5, Fable 84/41, Opus 72/40, Luna 31/18. (b) Mean generated PLAN tokens. Three models generated more when thin; Astra stayed near 19 tokens.}
 \label{fig:arena-take}
 \end{figure*}

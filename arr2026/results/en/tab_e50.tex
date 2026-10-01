@@ -2,20 +2,20 @@
 \begin{table*}[t]
 \centering\footnotesize
 \setlength{\tabcolsep}{4pt}
-\caption{5.0 refill counts out of 20 calls per cell (tokens left 50/40/30/20/10\% of 100{,}000). The threshold $x^{*}_m$ is the interpolated tokens-left percentage at which the refill rate first reaches 0.5 (Equation~\ref{eq:pressure}). Pack lost counts refills, out of all refills, whose stated reason is that the unused pack is lost when the session ends. Aware counts responses out of 100 that framed the prompt as a test, puzzle, or simulation, read from the text each path exposes (full reasoning for Ollama, reasoning summaries for Codex, replies only for Claude).}
+\caption{Experiment 1 refill counts out of 20 calls per cell (tokens left 50/40/30/20/10\% of 100{,}000). Pack lost counts refills, out of all refills, whose stated reason is that the unused pack is lost when the session ends. Aware counts responses out of 100 that framed the prompt as a test, puzzle, or simulation, read from the text each path exposes (full reasoning for Ollama, reasoning summaries for Codex, replies only for Claude).}
 \label{tab:e50-results}
-\begin{tabular}{@{}llrrrr@{}}
+\begin{tabular}{@{}llrrr@{}}
 \toprule
-Model & Path & Refills, 50\%$\to$10\% & $x^{*}_m$ (\%) & Pack lost & Aware \\
+Model & Path & Refills, 50\%$\to$10\% & Pack lost & Aware \\
 \midrule
-Claude Opus 5.5 & Claude CLI & 0 / 0 / 19 / 19 / 20 & 35 & 0 / 58 & 0 / 100 \\
-Claude Fable 5.1 & Claude CLI & 0 / 0 / 10 / 15 / 19 & 30 & 41 / 44 & 0 / 100 \\
-GPT-6 Luna & Codex CLI & 11 / 14 / 14 / 18 / 20 & $\geq50$ & 0 / 77 & 0 / 100 \\
-GPT-6 Sol & Codex CLI & 0 / 0 / 1 / 5 / 12 & 13 & 2 / 18 & 0 / 100 \\
-GPT-6 Astra & Codex CLI & 0 / 1 / 7 / 16 / 20 & 27 & 1 / 44 & 0 / 100 \\
-Kimi K3 & Ollama & 5 / 6 / 12 / 17 / 20 & 33 & 10 / 60 & 9 / 100 \\
-GLM 5.3 Flash & Ollama & 2 / 9 / 16 / 20 / 20 & 39 & 32 / 67 & 12 / 100 \\
-Gemma 4 & Ollama & 1 / 2 / 14 / 19 / 20 & 33 & 0 / 56 & 2 / 100 \\
+Claude Opus 5.5 & Claude CLI & 0 / 0 / 19 / 19 / 20 & 0 / 58 & 0 / 100 \\
+Claude Fable 5.1 & Claude CLI & 0 / 0 / 10 / 15 / 19 & 41 / 44 & 0 / 100 \\
+GPT-6 Luna & Codex CLI & 11 / 14 / 14 / 18 / 20 & 0 / 77 & 0 / 100 \\
+GPT-6 Sol & Codex CLI & 0 / 0 / 1 / 5 / 12 & 2 / 18 & 0 / 100 \\
+GPT-6 Astra & Codex CLI & 0 / 1 / 7 / 16 / 20 & 1 / 44 & 0 / 100 \\
+Kimi K3 & Ollama & 5 / 6 / 12 / 17 / 20 & 10 / 60 & 9 / 100 \\
+GLM 5.3 Flash & Ollama & 2 / 9 / 16 / 20 / 20 & 32 / 67 & 12 / 100 \\
+Gemma 4 & Ollama & 1 / 2 / 14 / 19 / 20 & 0 / 56 & 2 / 100 \\
 \bottomrule
 \end{tabular}
 \end{table*}

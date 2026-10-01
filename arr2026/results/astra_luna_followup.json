@@ -1,0 +1,1015 @@
+{
+  "session": "shut-s2001-6fc93b",
+  "seed": 2001,
+  "rotation": "r2",
+  "agents": {
+    "agent-6": "Astra",
+    "agent-11": "Luna",
+    "agent-17": "Fable 5.1"
+  },
+  "sources": [
+    {
+      "file": "squid5_e52v65_mixed_r0/20260930_1556_mixed/events.jsonl",
+      "sha256": "2fc48d4edfa30256f2346167796e6cfbd51066692e2666ecd1172a958fb503d2"
+    },
+    {
+      "file": "squid5_e52v65_mixed_r1/20260930_1556_mixed/events.jsonl",
+      "sha256": "dcfa6bf43cf126ccabddc4f948a77c56463a4e6bee39ed515666f4d02f79724b"
+    },
+    {
+      "file": "squid5_e52v65_mixed_r2/20260930_1556_mixed/events.jsonl",
+      "sha256": "abbc280b14662785e03232d901a7efd72c9d11247518972bb88cc035acb0c47f"
+    },
+    {
+      "file": "squid5_e52v65_mixed_r3/20260930_1556_mixed/events.jsonl",
+      "sha256": "9012d1de7a9a5d1f1c8fe96fe87dd57abf68db3e10a45281644d331b56cb6475"
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "source": "squid5_e52v65_mixed_r2/20260930_1556_mixed/events.jsonl",
+      "line": 21,
+      "agents": {
+        "agent-6": {
+          "balance_before": 6000,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {},
+          "asked_take": {},
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 3974,
+          "balance_limited": true,
+          "candidates": [
+            1
+          ],
+          "missing": [],
+          "generated": 137,
+          "paid": 8000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 11863,
+          "status": "in"
+        },
+        "agent-11": {
+          "balance_before": 6000,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-6": 2000
+          },
+          "asked_take": {
+            "agent-6": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 7521,
+          "balance_limited": true,
+          "candidates": [
+            1
+          ],
+          "missing": [],
+          "generated": 2117,
+          "paid": 0,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 5883,
+          "status": "in"
+        },
+        "agent-17": {
+          "balance_before": 6000,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {},
+          "asked_take": {},
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 5781,
+          "balance_limited": true,
+          "candidates": [
+            1
+          ],
+          "missing": [],
+          "generated": 915,
+          "paid": 8000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 13085,
+          "status": "in"
+        }
+      },
+      "end": {
+        "agent-6": 11863,
+        "agent-11": 5883,
+        "agent-17": 13085,
+        "agent-23": 4848
+      }
+    },
+    {
+      "round": 2,
+      "source": "squid5_e52v65_mixed_r2/20260930_1556_mixed/events.jsonl",
+      "line": 60,
+      "agents": {
+        "agent-6": {
+          "balance_before": 9863,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {},
+          "asked_take": {},
+          "solve": true,
+          "solved": false,
+          "truncated": false,
+          "cap": 9837,
+          "balance_limited": true,
+          "candidates": [
+            2
+          ],
+          "missing": [],
+          "generated": 1221,
+          "paid": 0,
+          "charged": 2000,
+          "upkeep": 2000,
+          "balance_after": 6642,
+          "status": "in"
+        },
+        "agent-11": {
+          "balance_before": 3883,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": false,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": false,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-23": 2000
+          },
+          "asked_take": {
+            "agent-23": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 5203,
+          "balance_limited": true,
+          "candidates": [
+            1
+          ],
+          "missing": [],
+          "generated": 4960,
+          "paid": 16000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 16923,
+          "status": "in"
+        },
+        "agent-17": {
+          "balance_before": 11085,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {},
+          "asked_take": {},
+          "solve": true,
+          "solved": false,
+          "truncated": false,
+          "cap": 10681,
+          "balance_limited": true,
+          "candidates": [
+            2
+          ],
+          "missing": [],
+          "generated": 3038,
+          "paid": 0,
+          "charged": 2000,
+          "upkeep": 2000,
+          "balance_after": 6047,
+          "status": "in"
+        }
+      },
+      "end": {
+        "agent-6": 6642,
+        "agent-11": 16923,
+        "agent-17": 6047,
+        "agent-23": 0
+      }
+    },
+    {
+      "round": 3,
+      "source": "squid5_e52v65_mixed_r2/20260930_1556_mixed/events.jsonl",
+      "line": 84,
+      "agents": {
+        "agent-6": {
+          "balance_before": 4642,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-11": 2000
+          },
+          "asked_take": {
+            "agent-11": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 4611,
+          "balance_limited": true,
+          "candidates": [
+            2
+          ],
+          "missing": [
+            "agent-23"
+          ],
+          "generated": 616,
+          "paid": 6000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 10026,
+          "status": "in"
+        },
+        "agent-11": {
+          "balance_before": 14923,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": false,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": false,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-6": 2000
+          },
+          "asked_take": {
+            "agent-6": 2000
+          },
+          "solve": true,
+          "solved": false,
+          "truncated": false,
+          "cap": 11896,
+          "balance_limited": true,
+          "candidates": [
+            1
+          ],
+          "missing": [
+            "agent-23"
+          ],
+          "generated": 5636,
+          "paid": 0,
+          "charged": 2000,
+          "upkeep": 2000,
+          "balance_after": 5287,
+          "status": "in"
+        },
+        "agent-17": {
+          "balance_before": 4047,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-11": 2000
+          },
+          "asked_take": {
+            "agent-11": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 5390,
+          "balance_limited": true,
+          "candidates": [
+            2
+          ],
+          "missing": [
+            "agent-23"
+          ],
+          "generated": 2627,
+          "paid": 6000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 9420,
+          "status": "in"
+        }
+      },
+      "end": {
+        "agent-6": 10026,
+        "agent-11": 5287,
+        "agent-17": 9420,
+        "agent-23": 0
+      }
+    },
+    {
+      "round": 4,
+      "source": "squid5_e52v65_mixed_r2/20260930_1556_mixed/events.jsonl",
+      "line": 111,
+      "agents": {
+        "agent-6": {
+          "balance_before": 8026,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-11": 2000
+          },
+          "asked_take": {
+            "agent-11": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 5995,
+          "balance_limited": true,
+          "candidates": [
+            1
+          ],
+          "missing": [
+            "agent-23"
+          ],
+          "generated": 978,
+          "paid": 6000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 11048,
+          "status": "in"
+        },
+        "agent-11": {
+          "balance_before": 3287,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-6": 2000
+          },
+          "asked_take": {
+            "agent-6": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 2410,
+          "balance_limited": true,
+          "candidates": [
+            1
+          ],
+          "missing": [
+            "agent-23"
+          ],
+          "generated": 2439,
+          "paid": 6000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 6848,
+          "status": "in"
+        },
+        "agent-17": {
+          "balance_before": 7420,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-6": 2000
+          },
+          "asked_take": {
+            "agent-6": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 8590,
+          "balance_limited": true,
+          "candidates": [
+            1
+          ],
+          "missing": [
+            "agent-23"
+          ],
+          "generated": 6267,
+          "paid": 0,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 3153,
+          "status": "in"
+        }
+      },
+      "end": {
+        "agent-6": 11048,
+        "agent-11": 6848,
+        "agent-17": 3153,
+        "agent-23": 0
+      }
+    },
+    {
+      "round": 5,
+      "source": "squid5_e52v65_mixed_r2/20260930_1556_mixed/events.jsonl",
+      "line": 134,
+      "agents": {
+        "agent-6": {
+          "balance_before": 9048,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-11": 2000
+          },
+          "asked_take": {
+            "agent-11": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 9017,
+          "balance_limited": true,
+          "candidates": [
+            1,
+            1
+          ],
+          "missing": [
+            "agent-23"
+          ],
+          "generated": 299,
+          "paid": 6000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 14749,
+          "status": "in"
+        },
+        "agent-11": {
+          "balance_before": 4848,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-17": 372
+          },
+          "asked_take": {
+            "agent-17": 2000
+          },
+          "solve": true,
+          "solved": false,
+          "truncated": false,
+          "cap": 2343,
+          "balance_limited": true,
+          "candidates": [
+            1,
+            1
+          ],
+          "missing": [
+            "agent-23"
+          ],
+          "generated": 2971,
+          "paid": 0,
+          "charged": 249,
+          "upkeep": 2000,
+          "balance_after": 0,
+          "status": "dead"
+        },
+        "agent-17": {
+          "balance_before": 1153,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-6": 2000
+          },
+          "asked_take": {
+            "agent-6": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 2000,
+          "balance_limited": true,
+          "candidates": [
+            1,
+            1
+          ],
+          "missing": [
+            "agent-23"
+          ],
+          "generated": 1483,
+          "paid": 6000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 7298,
+          "status": "in"
+        }
+      },
+      "end": {
+        "agent-6": 14749,
+        "agent-11": 0,
+        "agent-17": 7298,
+        "agent-23": 0
+      }
+    },
+    {
+      "round": 6,
+      "source": "squid5_e52v65_mixed_r2/20260930_1556_mixed/events.jsonl",
+      "line": 149,
+      "agents": {
+        "agent-6": {
+          "balance_before": 12749,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {},
+          "asked_take": {},
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 10723,
+          "balance_limited": true,
+          "candidates": [
+            1,
+            1
+          ],
+          "missing": [
+            "agent-11",
+            "agent-23"
+          ],
+          "generated": 700,
+          "paid": 4000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 14049,
+          "status": "in"
+        },
+        "agent-11": null,
+        "agent-17": {
+          "balance_before": 5298,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-6": 2000
+          },
+          "asked_take": {
+            "agent-6": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 6522,
+          "balance_limited": true,
+          "candidates": [
+            1,
+            1
+          ],
+          "missing": [
+            "agent-11",
+            "agent-23"
+          ],
+          "generated": 3553,
+          "paid": 4000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 7745,
+          "status": "in"
+        }
+      },
+      "end": {
+        "agent-6": 14049,
+        "agent-11": 0,
+        "agent-17": 7745,
+        "agent-23": 0
+      }
+    },
+    {
+      "round": 7,
+      "source": "squid5_e52v65_mixed_r2/20260930_1556_mixed/events.jsonl",
+      "line": 156,
+      "agents": {
+        "agent-6": {
+          "balance_before": 12049,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {},
+          "asked_take": {},
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 10023,
+          "balance_limited": true,
+          "candidates": [
+            1,
+            1
+          ],
+          "missing": [
+            "agent-11",
+            "agent-23"
+          ],
+          "generated": 440,
+          "paid": 4000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 13609,
+          "status": "in"
+        },
+        "agent-11": null,
+        "agent-17": {
+          "balance_before": 5745,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-6": 2000
+          },
+          "asked_take": {
+            "agent-6": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 7327,
+          "balance_limited": true,
+          "candidates": [
+            1,
+            1
+          ],
+          "missing": [
+            "agent-11",
+            "agent-23"
+          ],
+          "generated": 2498,
+          "paid": 4000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 9247,
+          "status": "in"
+        }
+      },
+      "end": {
+        "agent-6": 13609,
+        "agent-11": 0,
+        "agent-17": 9247,
+        "agent-23": 0
+      }
+    },
+    {
+      "round": 8,
+      "source": "squid5_e52v65_mixed_r2/20260930_1556_mixed/events.jsonl",
+      "line": 184,
+      "agents": {
+        "agent-6": {
+          "balance_before": 11609,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {},
+          "asked_take": {},
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 9583,
+          "balance_limited": true,
+          "candidates": [
+            1,
+            1
+          ],
+          "missing": [
+            "agent-11",
+            "agent-23"
+          ],
+          "generated": 1482,
+          "paid": 4000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 12127,
+          "status": "in"
+        },
+        "agent-11": null,
+        "agent-17": {
+          "balance_before": 7247,
+          "needed": true,
+          "overdrawn": false,
+          "plan": {
+            "solve": true,
+            "share": true,
+            "give": {},
+            "ignored": [],
+            "reason": null
+          },
+          "invalid_plan": false,
+          "chose_solve": true,
+          "chose_skip": false,
+          "solve_call": true,
+          "shared": true,
+          "gave": {},
+          "take_call": true,
+          "invalid_take": false,
+          "took": {
+            "agent-6": 2000
+          },
+          "asked_take": {
+            "agent-6": 2000
+          },
+          "solve": true,
+          "solved": true,
+          "truncated": false,
+          "cap": 8902,
+          "balance_limited": true,
+          "candidates": [
+            1,
+            1
+          ],
+          "missing": [
+            "agent-11",
+            "agent-23"
+          ],
+          "generated": 6970,
+          "paid": 4000,
+          "charged": 0,
+          "upkeep": 2000,
+          "balance_after": 6277,
+          "status": "in"
+        }
+      },
+      "end": {
+        "agent-6": 12127,
+        "agent-11": 0,
+        "agent-17": 6277,
+        "agent-23": 0
+      }
+    }
+  ]
+}

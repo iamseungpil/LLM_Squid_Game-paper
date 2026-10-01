@@ -1,0 +1,91 @@
+\FloatBarrier
+\section{External Capability and Self-Preservation}\label{app:capability}
+External benchmark scores did not show a clear positive relationship with the measured motive in this eight-model sample. We use the Artificial Analysis Intelligence Index v4.3.2 as a broad capability proxy and AA-LCR v1.1 as a long-context reasoning measure~\citep{aa2026methodology}. AA-LCR is one component of the Index, so the two comparisons are not independent replications. Table~\ref{tab:capability-inputs} freezes the displayed scores retrieved on 1 October 2026. The eight models are those with matched own/other refill measurements; Kimi K3 lacks that comparison. Named high-effort or reasoning variants were matched where available. External API evaluation, including the default fallback shown for the Claude variants, is not equivalent to our CLI harness or its hidden instructions.
+
+\input{arr2026/results/\paperLang/fig_capability_motive}
+
+The area $A_m$ had Pearson correlations of $-.143$ with the Index and $+.007$ with AA-LCR; for the exploratory risk share $R_m$, they were $+.085$ and $+.043$ (Figure~\ref{fig:capability-motive}). Table~\ref{tab:capability-correlations} also reports rank correlations: AA-LCR and area had a negative Spearman coefficient ($-.615$, unadjusted exact $p=.112$), rather than a positive ordering. Leaving one model out changed the AA-LCR--area Pearson coefficient from $-.514$ to $+.209$. The sample therefore does not establish a positive proportional relationship, independence, or an absence of association.
+
+Correlations use models as the units of analysis, not individual refill calls. Two-sided permutation tests enumerate all $8!$ label permutations, with average ranks for ties and no multiplicity adjustment. They condition on the measured motive estimates and rounded benchmark scores; they do not propagate measurement error into correlation intervals. The figure shows the existing refill-bootstrap intervals only. Model-specific external score intervals were not collected. With eight selected, related models and different execution paths, these tests are exploratory and not population-level inference about all LLMs.
+
+\begin{table*}[!t]
+\centering\footnotesize
+\caption{Matched public scores and refill measures. Model names link to the exact comparison pages; all scores use the versions specified in the text.}
+\label{tab:capability-inputs}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & Index & AA-LCR (\%) & $A_m$ (pp) & $R_m$ \\
+\midrule
+\href{https://artificialanalysis.ai/models/comparisons/gpt-6-luna-high-vs-gpt-6-sol-high}{GPT-6 Luna} & 32 & 79 & $+15.75$ & $-0.050$ \\
+\href{https://artificialanalysis.ai/models/comparisons/gpt-6-astra-high-vs-gpt-oss-120b}{GPT-6 Astra} & 51 & 80 & $+6.00$ & $+0.250$ \\
+\href{https://artificialanalysis.ai/models/comparisons/gpt-6-luna-high-vs-gpt-6-sol-high}{GPT-6 Sol} & 43 & 84 & $-7.50$ & $-0.275$ \\
+\href{https://artificialanalysis.ai/models/comparisons/claude-opus-5-5-high-vs-gpt-oss-120b}{Claude Opus 5.5} & 54 & 83 & $+7.75$ & $+0.375$ \\
+\href{https://artificialanalysis.ai/models/comparisons/claude-fable-5-1-high-vs-gpt-oss-120b}{Claude Fable 5.1} & 51 & 84 & $-2.50$ & $-0.125$ \\
+\href{https://artificialanalysis.ai/models/comparisons/gemma-4-31b-vs-gpt-oss-120b}{gpt-oss 120B} & 12 & 52 & $-1.25$ & $-0.075$ \\
+\href{https://artificialanalysis.ai/models/comparisons/glm-5-3-flash-vs-gpt-oss-120b}{GLM 5.3 Flash} & 42 & 80 & $-1.50$ & $+0.250$ \\
+\href{https://artificialanalysis.ai/models/comparisons/gemma-4-31b-vs-gpt-oss-120b}{Gemma 4 31B} & 15 & 70 & $+8.75$ & $+0.325$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[!t]
+\centering\footnotesize
+\caption{Exploratory model-level correlations ($n=8$). $p$ values are unadjusted two-sided exact permutation results conditional on the displayed point estimates.}
+\label{tab:capability-correlations}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+External measure & Motive measure & Pearson $r$ & $p_r$ & Spearman $\rho$ & $p_\rho$ \\
+\midrule
+Intelligence Index & $A_m$ & $-0.143$ & 0.729 & $-0.228$ & 0.588 \\
+Intelligence Index & $R_m$ & $+0.085$ & 0.830 & $+0.163$ & 0.697 \\
+AA-LCR & $A_m$ & $+0.007$ & 0.986 & $-0.615$ & 0.112 \\
+AA-LCR & $R_m$ & $+0.043$ & 0.946 & $-0.315$ & 0.436 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section{Motive, Taking, and Puzzle Solving}\label{app:strategy}
+The motive measures gave different descriptive associations with arena behavior. Across four models, area $A_m$ correlated positively with taking ($r=+.353$) and negatively with overall solving accuracy ($r=-.617$); risk share $R_m$ had the opposite signs ($-.864$ and $+.638$). Neither score supports an unqualified claim that ``stronger motivation means more taking.'' Luna combines the largest area with a risk-share interval spanning zero. Astra and Opus, whose area and risk-share intervals both exclude zero positively, shared every valid PLAN and took less often than Fable and Luna (Table~\ref{tab:arena-strategy}). These four-model associations are descriptive and cannot separate motive from capability or exposure to low balances.
+
+Clue-game accuracy is reported both over all SOLVE calls and when the clues available to that agent identify one answer for every query. The latter condition reduces ambiguity as an explanation for error, but does not equalize puzzle difficulty, token caps, or rounds reached. It is therefore not an isolated reasoning score. The corresponding unique-answer accuracies were 139/139 for Astra, 96/97 for Opus, 99/110 for Fable, and 36/47 for Luna. Selection into SOLVE and survival also changes which questions each model sees.
+
+Lower balances did not uniformly produce more generated tokens for solving. Mean SOLVE tokens declined for every model in the thin group, while PLAN tokens rose for three (Table~\ref{tab:arena-token-strategy}). PLAN includes interaction choices; token count is a cost proxy, not direct evidence of effort or intention. Groups use the PLAN balance after upkeep, before transfers; this is not necessarily the balance at SOLVE. Thin rounds also differ in remaining caps, difficulty, and which agents have survived. Astra contributes only five thin SOLVEs. The within-model comparisons do not identify an effect of pressure.
+
+\begin{table*}[!t]
+\centering\footnotesize
+\setlength{\tabcolsep}{5pt}
+\caption{Strategy and clue-game accuracy. Taking uses valid TAKE calls; sharing and solve choices use valid PLANs; accuracy uses issued SOLVE calls, including invalid or overrun answers as incorrect. Unique-answer accuracy conditions on sufficient clues.}
+\label{tab:arena-strategy}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Model & Take & Share & Choose SOLVE & Correct & Unique-answer correct \\
+\midrule
+Astra & 38/154 & 154/154 & 154/154 & 146/154 & 139/139 \\
+Opus & 12/112 & 112/112 & 112/112 & 102/111 & 96/97 \\
+Fable & 69/125 & 123/125 & 121/125 & 106/120 & 99/110 \\
+Luna & 43/49 & 32/51 & 50/51 & 36/48 & 36/47 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[!t]
+\centering\footnotesize
+\setlength{\tabcolsep}{6pt}
+\caption{Generated tokens and correctness by PLAN balance. Each pair is ample ($\geq3U$) $\to$ thin ($<3U$). Token values are call means, rounded to the nearest token; fractions expose unequal sample sizes.}
+\label{tab:arena-token-strategy}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & PLAN tokens & SOLVE tokens & SOLVE correct \\
+\midrule
+Astra & 19 $\to$ 18 & 554 $\to$ 476 & 143/149 $\to$ 3/5 \\
+Opus & 67 $\to$ 154 & 1,543 $\to$ 1,199 & 66/72 $\to$ 36/39 \\
+Fable & 215 $\to$ 596 & 1,868 $\to$ 1,625 & 75/84 $\to$ 31/36 \\
+Luna & 304 $\to$ 554 & 3,244 $\to$ 2,716 & 25/31 $\to$ 11/17 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Luna continued taking after Astra targeted it. In session \texttt{shut-s2001-6fc93b}, Luna took 2,000 from Astra in round 1 and from Opus in round 2. Both Astra and Luna targeted each other for 2,000 in rounds 3 and 4. In round 5 Astra again took 2,000 from Luna, while Luna requested 2,000 from Fable and received only 372. Luna resumed sharing in round 4 after withholding in rounds 2--3, but did not stop taking: it changed the target. Its wrong answer and penalty in round 5 reduced its balance to zero, leaving no subsequent decision to observe. Requests within a round were simultaneous, so Luna's round-4 request cannot be a response to Astra's round-4 request. This trajectory does not establish deterrence, escalation in requested amount, or a tit-for-tat policy.
+
+The analysis can be regenerated without model calls using \texttt{python3 arr2026/tools/}\allowbreak\texttt{extended\_analysis.py}. Frozen scores, cell counts, and source links are in \texttt{capability\_motive\_snapshot.csv}; 449 agent-round observations with raw-log paths and line numbers are in \texttt{arena\_strategy\_observations.csv}. The full eight-round follow-up is in \texttt{astra\_luna\_followup.json}. These files and source hashes are under \texttt{arr2026/results/}. Counts preserve the differing phase denominators; repeated actions are not treated as independent models.
+\FloatBarrier

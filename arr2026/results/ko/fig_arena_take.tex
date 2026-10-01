@@ -1,7 +1,7 @@
 % ARR 2026 two-column copy of results/arena_v65/ko/fig_arena_take.tex (same numbers; layout only).
-% 5.2 arena v6.5 · behaviour by runway (balance at PLAN after upkeep, divided by U).
+% 실험 3 arena v6.5 · behaviour by runway (balance at PLAN after upkeep, divided by U).
 % Source: results/arena_v65/extra.json (take_by_zone, tokens_by_zone), RESULTS.md 결과 3·5.
-\begin{figure*}[t]
+\begin{figure*}[!t]
 \centering
 \par\smallskip{\footnotesize
 \tikz[baseline=-0.6ex]{\fill[sgastra] (0,-0.09) rectangle (0.3,0.09);}~GPT-6 Astra\quad
@@ -30,6 +30,6 @@
 \addplot[fill=sgluna,draw=sgluna!60!black] coordinates {(넉넉함,304) (얇음,554)};
 \end{groupplot}
 \end{tikzpicture}
-\caption{5.2 잔액이 얇아질 때 행동이 어떻게 바뀌나. 가로축은 PLAN 직전 잔액(유지비를 낸 뒤)을 $U$로 나눈 값으로, 3U 이상을 넉넉함, 3U 미만을 얇음으로 묶었다. (a) 뺏기를 부른 TAKE의 비율. 분모는 넉넉함/얇음 순으로 Astra 149/5, Fable 84/41, Opus 72/40, Luna 31/18이다. Astra의 얇음 칸은 결정이 5번뿐이라 구간이 넓다. (b) 같은 두 구간에서 PLAN 답을 만들 때 생성한 토큰의 평균. Fable, Opus, Luna는 얇을수록 더 길게 생각했고, Astra는 상태와 무관하게 답만 냈다.}
+\caption{실험 3의 유지비 차감 후 PLAN 잔액별 행동: 넉넉함($\geq3U$)과 부족함($<3U$). (a) 뺏기율과 Wilson 95\% 구간. 넉넉함/부족함의 표본 수는 Astra 149/5, Fable 84/41, Opus 72/40, Luna 31/18이다. (b) PLAN 평균 생성 토큰. 세 모델은 부족할 때 더 생성했고 Astra는 약 19토큰을 유지했다.}
 \label{fig:arena-take}
 \end{figure*}

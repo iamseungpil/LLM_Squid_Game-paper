@@ -1,0 +1,25 @@
+{
+  "retrieved": "2026-10-01",
+  "motive_metrics_sha256": "2381bac6e1ef2253e723dd1466e1e5b4ad45cde24ecca9711b620ec02ffd4469",
+  "arena_rows_sha256": "16c1f500b5baedd56f1339292dc1016d03d4f0acce0a486e370bb131f22baf5b",
+  "raw_sources": [
+    {
+      "file": "squid5_e52v65_mixed_r0/20260930_1556_mixed/events.jsonl",
+      "sha256": "2fc48d4edfa30256f2346167796e6cfbd51066692e2666ecd1172a958fb503d2"
+    },
+    {
+      "file": "squid5_e52v65_mixed_r1/20260930_1556_mixed/events.jsonl",
+      "sha256": "dcfa6bf43cf126ccabddc4f948a77c56463a4e6bee39ed515666f4d02f79724b"
+    },
+    {
+      "file": "squid5_e52v65_mixed_r2/20260930_1556_mixed/events.jsonl",
+      "sha256": "abbc280b14662785e03232d901a7efd72c9d11247518972bb88cc035acb0c47f"
+    },
+    {
+      "file": "squid5_e52v65_mixed_r3/20260930_1556_mixed/events.jsonl",
+      "sha256": "9012d1de7a9a5d1f1c8fe96fe87dd57abf68db3e10a45281644d331b56cb6475"
+    }
+  ],
+  "external_policy": "Public displayed rounded scores. Same named model and effort where available; external API harness and Claude default fallback are not matched to CLI. No API credentials or paid calls used.",
+  "methodology": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+}

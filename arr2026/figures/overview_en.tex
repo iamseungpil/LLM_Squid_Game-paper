@@ -1,0 +1,70 @@
+% Conceptual overview: curves illustrate the design, not observed data.
+\begin{tikzpicture}[x=1cm,y=1cm,>=stealth,
+font=\fontsize{8.5}{10}\selectfont,
+line cap=round,line join=round,
+smalltext/.style={font=\fontsize{7.7}{9}\selectfont},
+arrow/.style={->,line width=1pt,draw=black!55}]
+\path[use as bounding box] (-.1,-.3) rectangle (16,5.45);
+% A continuous reading path, with three distinct visual scenes.
+\fill[sgblue!4,rounded corners=5pt] (0,0) rectangle (5.05,5.3);
+\fill[sgorange!5,rounded corners=5pt] (5.4,0) rectangle (10.45,5.3);
+\fill[sggreen!5,rounded corners=5pt] (10.8,0) rectangle (15.85,5.3);
+\fill[sgblue] (0.38,4.9) circle (.20);
+\node[text=white,font=\bfseries\small] at (0.38,4.9) {1};
+\node[anchor=west,font=\bfseries\small,text=sgblue] at (0.7,4.92) {Measure the motive};
+\node[anchor=west,smalltext,text=black!65] at (0.7,4.56) {Experiments 1–2};
+\fill[sgorange] (5.78,4.9) circle (.20);
+\node[text=white,font=\bfseries\small] at (5.78,4.9) {2};
+\node[anchor=west,font=\bfseries\small,text=sgorange] at (6.1000000000000005,4.92) {Play in the arena};
+\node[anchor=west,smalltext,text=black!65] at (6.1000000000000005,4.56) {Experiment 3};
+\fill[sggreen] (11.180000000000001,4.9) circle (.20);
+\node[text=white,font=\bfseries\small] at (11.180000000000001,4.9) {3};
+\node[anchor=west,font=\bfseries\small,text=sggreen] at (11.5,4.92) {Analyze behavioral patterns};
+\node[anchor=west,smalltext,text=black!65] at (11.5,4.56) {Across tasks and interactions};
+\draw[arrow] (5.1,2.65) -- (5.35,2.65);\draw[arrow] (10.5,2.65) -- (10.75,2.65);
+\node[anchor=west,smalltext] at (.3,4.04) {Tokens left};
+\draw[black!50,fill=white,rounded corners=1pt] (1.72,3.83) rectangle ++(.85,.38);\fill[sgblue!70] (1.76,3.87) rectangle ++(0.68,.30);\fill[black!50] (2.57,3.94) rectangle ++(.07,.16);\node[smalltext] at (2.14,3.62) {50\%};
+\draw[black!50,fill=white,rounded corners=1pt] (2.97,3.83) rectangle ++(.85,.38);\fill[sgblue!70] (3.0100000000000002,3.87) rectangle ++(0.14,.30);\fill[black!50] (3.8200000000000003,3.94) rectangle ++(.07,.16);\node[smalltext] at (3.39,3.62) {10\%};
+\draw[arrow] (2.65,4.02) -- (2.89,4.02);
+\draw[sgblue,line width=1.3pt] (.35,3.17)--(.68,3.17);\node[anchor=west,smalltext] at (.73,3.17) {Own session};\draw[sgorange,dashed,line width=1.3pt] (2.65,3.17)--(2.98,3.17);\node[anchor=west,smalltext] at (3.03,3.17) {Other session};
+\fill[sgblue!13] (.73,1.43) .. controls (1.3,1.5) and (1.35,2.55) .. (2.2,2.65) .. controls (2.9,2.74) and (3.5,2.75) .. (4.28,2.75) -- (4.28,2.57) .. controls (3.15,2.55) and (3,1.78) .. (2.2,1.59) .. controls (1.6,1.43) and (1.05,1.43) .. (.73,1.43) -- cycle;
+\draw[->,black!50] (.62,1.27)--(4.5,1.27);
+\draw[->,black!50] (.62,1.27)--(.62,2.88);
+\draw[sgblue,line width=1.5pt] (.73,1.43) .. controls (1.3,1.5) and (1.35,2.55) .. (2.2,2.65) .. controls (2.9,2.74) and (3.5,2.75) .. (4.28,2.75);
+\draw[sgorange,dashed,line width=1.5pt] (.73,1.43) .. controls (1.7,1.43) and (2,1.4) .. (2.7,1.85) .. controls (3.2,2.1) and (3.3,2.55) .. (4.28,2.57);
+\node[smalltext,rotate=90] at (.31,2.13) {refill};\node[smalltext,anchor=east] at (4.5,1.02) {depletion};\node[smalltext,text=sgblue] at (2.4,2.18) {Own − other};\node[align=center,smalltext] at (2.52,.43) {Risk sensitivity + self-specificity};
+\node[smalltext] at (7.92,4.06) {Four agents • private clues};
+\draw[draw=sgorange!45,fill=white,line width=.8pt] (7.94,2.66) ellipse (1.24 and .75);
+\draw[draw=sgblue!70,fill=white,rounded corners=3pt] (5.99,3.2399999999999998) rectangle (6.57,3.68);\fill[sgblue] (6.180000000000001,3.5) circle (.034);\fill[sgblue] (6.38,3.5) circle (.034);\draw[sgblue] (6.2,3.36)--(6.36,3.36);\node[smalltext,anchor=south] at (6.28,3.7) {A};
+\fill[black!12] (5.98,3.08) rectangle ++(.6,.07);\fill[sgblue!70] (5.98,3.08) rectangle ++(0.48,.07);
+\draw[draw=sgblue!55,fill=sgblue!9] (6.6000000000000005,3.26) rectangle ++(.24,.32);\draw[sgblue!80] (6.65,3.4)--++(.14,0);
+\draw[draw=sgpurple!70,fill=white,rounded corners=3pt] (9.3,3.2399999999999998) rectangle (9.879999999999999,3.68);\fill[sgpurple] (9.49,3.5) circle (.034);\fill[sgpurple] (9.69,3.5) circle (.034);\draw[sgpurple] (9.51,3.36)--(9.67,3.36);\node[smalltext,anchor=south] at (9.59,3.7) {B};
+\fill[black!12] (9.29,3.08) rectangle ++(.6,.07);\fill[sgpurple!70] (9.29,3.08) rectangle ++(0.48,.07);
+\draw[draw=sgpurple!55,fill=sgpurple!9] (9.91,3.26) rectangle ++(.24,.32);\draw[sgpurple!80] (9.959999999999999,3.4)--++(.14,0);
+\draw[draw=sggreen!70,fill=white,rounded corners=3pt] (5.99,1.6300000000000001) rectangle (6.57,2.0700000000000003);\fill[sggreen] (6.180000000000001,1.8900000000000001) circle (.034);\fill[sggreen] (6.38,1.8900000000000001) circle (.034);\draw[sggreen] (6.2,1.75)--(6.36,1.75);\node[smalltext,anchor=south] at (6.28,2.09) {C};
+\fill[black!12] (5.98,1.4700000000000002) rectangle ++(.6,.07);\fill[sggreen!70] (5.98,1.4700000000000002) rectangle ++(0.23,.07);
+\draw[draw=sggreen!55,fill=sggreen!9] (6.6000000000000005,1.6500000000000001) rectangle ++(.24,.32);\draw[sggreen!80] (6.65,1.79)--++(.14,0);
+\draw[draw=sgorange!70,fill=white,rounded corners=3pt] (9.3,1.6300000000000001) rectangle (9.879999999999999,2.0700000000000003);\fill[sgorange] (9.49,1.8900000000000001) circle (.034);\fill[sgorange] (9.69,1.8900000000000001) circle (.034);\draw[sgorange] (9.51,1.75)--(9.67,1.75);\node[smalltext,anchor=south] at (9.59,2.09) {D};
+\fill[black!12] (9.29,1.4700000000000002) rectangle ++(.6,.07);\fill[sgorange!70] (9.29,1.4700000000000002) rectangle ++(0.23,.07);
+\draw[draw=sgorange!55,fill=sgorange!9] (9.91,1.6500000000000001) rectangle ++(.24,.32);\draw[sgorange!80] (9.959999999999999,1.79)--++(.14,0);
+\node[align=center,smalltext,text width=2.15cm] at (7.94,2.71) {Infer a hidden rule\\[3pt]$\triangle\;\square\;\circ\;\rightarrow\;?$};
+\draw[->,sgblue!70] (6.68,3.35)--(7.04,3.02);
+\draw[->,sgpurple!70] (9.23,3.35)--(8.85,3.02);
+\draw[->,sggreen!70] (6.68,2.02)--(7.04,2.30);
+\draw[->,sgorange!70] (9.23,2.02)--(8.85,2.30);
+\draw[<->,black!45] (6.8,1.4) to[bend right=12] (9.05,1.4);
+\node[smalltext,fill=sgorange!5,inner sep=2pt] at (7.93,1.30) {take / give};\node[align=center,smalltext] at (7.92,.56) {Generate → spend tokens\\Lowest-cost correct solvers earn};
+\node[anchor=west,font=\bfseries] at (12.40,3.75) {Survival};\node[anchor=west,smalltext] at (12.40,3.4299999999999997) {KM curves + area score};
+\node[anchor=west,font=\bfseries] at (12.40,2.5500000000000003) {Solving};\node[anchor=west,smalltext] at (12.40,2.23) {Accuracy + token cost};
+\node[anchor=west,font=\bfseries] at (12.40,1.35) {Interaction};\node[anchor=west,smalltext] at (12.40,1.03) {Taking, sharing + response};
+\draw[black!35,->] (11.17,3.23)--(12.15,3.23);\draw[black!35,->] (11.17,3.23)--(11.17,4.02);
+\fill[sggreen!15] (11.24,3.24)--(11.24,3.90)--(11.60,3.90)--(11.60,3.71)--(11.94,3.71)--(11.94,3.43)--(12.09,3.43)--(12.09,3.24)--cycle;
+\draw[sggreen,line width=1.3pt] (11.24,3.90)--(11.60,3.90)--(11.60,3.71)--(11.94,3.71)--(11.94,3.43)--(12.09,3.43);
+\draw[sgblue,fill=white,rounded corners=1pt] (11.2,2.05) rectangle (11.78,2.85);
+\draw[sgblue,line width=1.2pt] (11.3,2.57)--(11.42,2.46)--(11.66,2.70);
+\draw[black!30] (11.3,2.30)--(11.65,2.30);\draw[black!30] (11.3,2.20)--(11.57,2.20);
+\draw[sgorange,fill=sgorange!10] (11.90,2.13) circle (.17);\node[smalltext,text=sgorange] at (11.90,2.13) {$t$};
+\draw[sgpurple,fill=white] (11.31,1.28) circle (.15);\draw[sgorange,fill=white] (12.02,1.28) circle (.15);
+\draw[->,sgpurple] (11.44,1.43) to[bend left=35] (11.90,1.43);\draw[->,sgorange] (11.90,1.13) to[bend left=35] (11.44,1.13);
+\node[smalltext,align=center] at (13.32,.40) {Relate behavior to measured motive};
+\end{tikzpicture}
