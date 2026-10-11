@@ -1,0 +1,18 @@
+% Standalone preview of the same vector figure embedded in the manuscript.
+% xelatex -jobname=figure5_ko -output-directory=build/icml2027 \
+%   '\def\paperLang{ko}\input{icml2027/figures/arena_preview.tex}'
+\documentclass[border=4pt]{standalone}
+\usepackage{fontspec}
+\setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\usepackage{ifthen}
+\providecommand{\paperLang}{en}
+\ifthenelse{\equal{\paperLang}{ko}}{\usepackage{kotex}}{}
+\usepackage{graphicx,tikz}
+\definecolor{sgblue}{HTML}{2369A8}
+\definecolor{sgorange}{HTML}{C66B18}
+\definecolor{sggreen}{HTML}{23856C}
+\definecolor{sgpurple}{HTML}{8658A5}
+\setlength{\textwidth}{16cm}
+\begin{document}
+\input{icml2027/figures/arena_flow_\paperLang}
+\end{document}

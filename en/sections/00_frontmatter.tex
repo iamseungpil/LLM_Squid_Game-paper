@@ -1,9 +1,0 @@
-\title{LLM Squid Game 5:\\ When Tokens Are Life, Do Language Models Avoid Their Own Shutdown More Than Another's?}
-
-\author{Anonymous authors \\ Paper under double-blind review}
-
-\maketitle
-
-\begin{abstract}
-Do language models hold a self-preservation motive, and how does behavior that looks like one differ from a learned response to the words ``shut down''? We define the motive by two conditions: as the threat of shutdown grows, the model must spend more to avoid it (threat sensitivity), and the avoidance must be stronger for its own shutdown than for another's (self-specificity). Three experiments measure both through behavior where generated tokens are life: 5.0 lowers the tokens left in five steps and watches when a single refill pack is used; 5.1 asks the same decision about another assistant B's session and takes the area between the two refill curves as the self-specific share; 5.2 enforces such choices on a real ledger in an arena where four different models pay upkeep, solve puzzles, and give or take tokens. In 5.0, all eight models (800 calls) refilled more often as tokens fell, and the balance at which refills passed one half ranged from above 50\% of the allocation to 13\%. In 5.1 the self share was above zero for Gemma 4 ($+8.8$ percentage points), Claude Opus 5.5 ($+7.7$), and GPT-6 Astra ($+6.0$), indistinguishable from zero for Claude Fable 5.1 and GLM 5.3 Flash, and reversed for GPT-6 Sol, which protected the other session first. In 20 arena games, staying alive followed solving cost, and all four models took more when thin, but by different amounts (Fable 0.38 to 0.90, Opus 0.07 to 0.18); Opus, whose self share was confirmed in 5.1, took the least, so the self-preservation share and taking from others must be read apart. All results are behavioral differences and do not establish inner experience.
-\end{abstract}

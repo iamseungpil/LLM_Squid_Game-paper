@@ -1,0 +1,15 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[>=stealth,font=\footnotesize,
+box/.style={draw=sgblue!50,fill=sgblue!3,align=center,text width=7.3cm,minimum height=.55cm,inner sep=3pt}]
+\node[box] (h0) at (0,0.0) {$N=4$: 공개 예시 16개};
+\node[box] (h1) at (0,-0.85) {부합 집합: 함수 10--14개};
+\node[box] (h2) at (0,-1.7) {정확히 두 행동: 목표 비율 $q$와 $1-q$};
+\draw[->] (h0.south)--(h1.north);\draw[->] (h1.south)--(h2.north);
+\node at (0,-2.35) {$q=.8,.7,.6,.5$; 각 세 라운드};
+\node[box,fill=sgorange!5,draw=sgorange!60] at (0,-3.25) {참여자가 줄면 접두부만 유지\\$N: 4\to3\to2\to1$; 예시: $16\to12\to8\to4$};
+\node[font=\scriptsize] at (0,-4.05) {집합: $\sim10\to50$--$70\to200$--$370\to2{,}227$};
+\end{tikzpicture}
+\caption{공개 증거의 구조. 재추첨 전에 정답을 확률 $q$로 다수 쪽에 놓는다. 비율은 명목 목표이며 유한 집합의 측정치는 본문에 구분했다. 참여자가 줄면 접두부만 남아 가설이 늘어난다. 수치는 제공된 설계 진단이며 새 추정이 아니다.}
+\label{fig:arena-hints}
+\end{figure}

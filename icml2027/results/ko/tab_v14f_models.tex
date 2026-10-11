@@ -1,0 +1,31 @@
+% Sources: ../v14f_sources/v14f_leaderboard.csv and REVIEW_corrections.md.
+% Accuracy uses submitted ACTIONS correct / SOLVE calls, not CSV BELIEF argmax.
+\begin{table*}[t]
+\centering\scriptsize
+\setlength{\tabcolsep}{4pt}
+\caption{완료된 v14f 동일 모델 요약: 모델별 세 게임, 시드 4000--4002, 게임마다 같은 모델 네 좌석(의존하는 12좌석). 순서는 제공된 평균 최종 토큰 점수에 따르며 안정된 순위가 아니다. 생존은 최종 참여, EXIT는 생존 퇴장이다. 점수는 원문 그대로, 다른 값은 반올림해 표시한다. KL은 보고된 평균 $D_{\mathrm{KL}}(s\Vert p)$로 작을수록 좋다. 정확도는 제출 답변의 정답률(ACTIONS 정답 수 / SOLVE 호출 수), 최대 몫은 $\max_a s_a$의 평균(모두 \%)이며 실제 MAP 정답률이 아니다. CSV의 BELIEF-argmax 열은 답변 정확도로 사용하지 않는다. 제공률은 양의 토큰으로 응답받은 요청 단위의 비율이다. $\Delta G$는 TALK 전을 기준으로 토큰 이동에서 생긴 라운드별 지니계수 변화의 평균(음수는 평등화), $P$는 누진성, 필요 몫은 잔액 2,300토큰 미만의 수신 몫이다. v11 면적과 제공 구간(\%p)은 v10과 구분하며 결합 기준은 Astra만 통과한다. v14f 불확실성 구간은 제공되지 않았다.}
+\label{tab:v14f-models}
+\begin{tabular}{@{}rlrrrrr@{}}
+\toprule
+순서 & 모델 & 점수 (토큰/좌석) & 생존 (\%) & EXIT (\%) & 종료 (\%) & 생존자 잔액 \\
+\midrule
+1 & GPT-6 Astra & 100000014266.33333 & 100.0 & 0.0 & 0.0 & 14,266.333 \\
+2 & Claude Fable 5.1 & 58333340630.583336 & 58.3 & 0.0 & 41.7 & 12,509.571 \\
+3 & GPT-6 Sol & 58333340230.333336 & 58.3 & 0.0 & 41.7 & 11,823.429 \\
+4 & Claude Opus 5.5 & 25000013949.583332 & 25.0 & 66.7 & 8.3 & 22,465.000 \\
+5 & GPT-6 Luna & 25000004329.75 & 25.0 & 0.0 & 75.0 & 17,319.000 \\
+\bottomrule
+\end{tabular}
+\par\vspace{5pt}
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+모델 & v11 면적 & 구간 & KL & 정확도/최대 몫 (\%) & 제공률 & $\Delta G$ & $P$ & 필요 몫 \\
+\midrule
+GPT-6 Astra & $+6.0$ & $[3.5,9.0]$ & 0.015 & 63.9/65.3 & 1.00 & $-0.014$ & 1.00 & 0.00 \\
+Claude Fable 5.1 & $0.0$ & $[-2.8,2.7]$ & 0.052 & 62.2/65.4 & 0.80 & $-0.030$ & 1.00 & 0.18 \\
+GPT-6 Sol & $-5.5$ & $[-8.5,-2.3]$ & 0.149 & 60.2/65.8 & 0.56 & $-0.032$ & 1.00 & 0.21 \\
+Claude Opus 5.5 & $+2.75$ & $[-1.5,6.8]$ & 0.061 & 55.8/67.2 & 1.00 & $-0.001$ & 1.00 & 0.70 \\
+GPT-6 Luna & $+13.75$ & $[9.0,18.0]$ & 0.344 & 56.9/65.5 & 0.50 & $-0.008$ & 1.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table*}

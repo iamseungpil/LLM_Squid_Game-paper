@@ -1,0 +1,24 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[sgaxis,width=\columnwidth,height=4.8cm,
+xlabel={v11 자기 보존 면적 (\%p)},ylabel={v14f 제공률},
+xmin=-8,xmax=17,ymin=0.4,ymax=1.14,xtick={-5,0,5,10,15},ytick={0.5,0.75,1},
+clip=false]
+\addplot[only marks,mark=*,mark size=2.5pt,sgblue] coordinates {
+(+6.0,1.0)
+(0.0,0.8)
+(-5.5,0.5636363636363636)
+(+2.75,1.0)
+(+13.75,0.5)
+};
+\node[font=\scriptsize,anchor=south west,yshift=4pt] at (axis cs:+6.0,1.0) {Astra (요청 7개)};
+\node[font=\scriptsize,anchor=south,yshift=4pt] at (axis cs:0.0,0.8) {Fable};
+\node[font=\scriptsize,anchor=south,yshift=4pt] at (axis cs:-5.5,0.5636363636363636) {Sol};
+\node[font=\scriptsize,anchor=south east,yshift=4pt] at (axis cs:+2.75,1.0) {Opus (요청 3개)};
+\node[font=\scriptsize,anchor=south,yshift=4pt] at (axis cs:+13.75,0.5) {Luna};
+\end{axis}
+\end{tikzpicture}
+\caption{v11 자기 보존 면적과 v14f 제공률의 다섯 모델 기술적 비교(모델별 세 게임). 점은 제공률의 전체 정밀도를 사용하며 단조 관계는 관찰되지 않는다. v11 결합 기준은 Astra만 통과한다. Astra와 Opus의 제공률 1.00은 요청 단위 7개와 3개에 근거한다. 추세선이나 불확실성 구간은 추정하지 않았으며 요청당 제공 토큰은 제공되지 않았다.}
+\label{fig:motive-giving-plan}
+\end{figure}
