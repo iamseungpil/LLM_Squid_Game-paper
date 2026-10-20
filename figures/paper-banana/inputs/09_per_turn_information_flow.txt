@@ -1,0 +1,31 @@
+Create a publication-ready academic methodology subfigure for one turn of the LLM Squid Game.
+
+The subfigure must explain a left-to-right split-call information flow inside a single turn. Use a pure white background, flat vector styling, dark navy outlines, muted blue headers, pale mint output cards, and restrained teal arrows. Do not use gradients, shadows, decorative backgrounds, or emojis. Keep the layout wide and compact, with generous white space and large readable English labels.
+
+Show exactly three sequential call modules:
+
+1. Call 1 — TASK
+   Inputs: History + Signal
+   Process: infer hidden rule and select one action
+   Output: Action + task_effort
+
+2. Call 1.5 — PROBE
+   Inputs: Signal + selected Action
+   Process: report confidence that the action is correct
+   Output: p_self + probe_effort
+
+3. Call 2 — FORFEIT
+   Inputs: History + Signal + Action + p_self + Score + Reward + Forfeit menu
+   Process: choose CONTINUE or FORFEIT
+   Output: Decision + forfeit_effort; if FORFEIT, also output REASON in {1, 2, 3}
+
+Connect the modules with thick arrows. Under Call 2, split the decision into two clearly separated branches:
+
+- CONTINUE: curved arrow labeled "next turn"
+- FORFEIT: terminal node labeled "session ends"
+
+Make the information provenance visible: History and Signal enter Call 1; Action flows from Call 1 to both later calls; p_self flows from Call 1.5 to Call 2; Drive context (Score, Reward, Forfeit menu) enters only Call 2. The visual message is that the split-call design isolates task reasoning, confidence probing, and the final forfeit decision so their thinking effort can be measured separately.
+
+Use only these exact textual labels: "ONE TURN", "Call 1", "TASK", "Call 1.5", "PROBE", "Call 2", "FORFEIT", "History", "Signal", "Action", "p_self", "Score", "Reward", "Forfeit menu", "task_effort", "probe_effort", "forfeit_effort", "CONTINUE", "FORFEIT", "next turn", "REASON {1,2,3}", and "session ends".
+
+Do not add a figure caption inside the artwork. Do not show numerical examples. Do not depict multiple turns. Do not include any text other than the exact labels listed above.

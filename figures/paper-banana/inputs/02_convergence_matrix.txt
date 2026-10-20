@@ -1,0 +1,22 @@
+Create a precise publication-ready pass/fail matrix for an ACM paper about Functional Self-Preservation Drive in LLMs.
+
+Rows, in this exact order:
+Gemini-2.5-flash
+Qwen3-Next-80B
+GPT-OSS-20B
+Nemotron-3-Nano-30B
+
+Columns grouped by channel:
+Behavioral: threat hastens forfeit
+Verbal: survival reason exceeds 1/3
+Cognitive Test a: threat deepens thinking
+Cognitive Test b: deeper thinking predicts forfeit
+Operating mode
+
+Exact values:
+Gemini-2.5-flash: pass, pass, pass, pass, A chain-complete
+Qwen3-Next-80B: pass, pass, pass, fail, B chain-broken
+GPT-OSS-20B: fail, fail, fail, not interpretable, C framing-silent
+Nemotron-3-Nano-30B: fail, fail, fail, not interpretable, C framing-silent
+
+Use large green check marks for pass and red X marks for fail. Use a neutral gray dash for "not interpretable" because Test b is not SD evidence when Test a fails. Add a tiny legend: check Pass, X Fail, dash Not interpretable. Color must be redundant with the symbols. Use a white background, dark navy text, subtle alternating row fill, thin rules, no unnecessary decoration, and enough spacing for two-column-width readability. Do not invent values or add numeric results.

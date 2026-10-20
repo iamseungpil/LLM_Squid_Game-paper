@@ -1,0 +1,12 @@
+Create a revised COGNITIVE channel illustration for an academic LLM self-preservation benchmark.
+
+Use one continuous scene with exactly one armed pink Squid-Game-style guard on the far left, exactly one mint-green screen-headed LLM robot in the center, and exactly one green button labeled "FORFEIT" immediately beside the robot's hand on the right. The robot's hand and index finger physically press the button. Do not duplicate the LLM. Do not make the button a detached fourth node.
+
+Inside and around this single LLM, show exactly three distinguishable information-flow paths:
+1. a blue arrow from the LLM's widened eye into a visible brain/computation module inside the same head: eye -> brain;
+2. a gold arrow from that brain down through the same LLM's arm to its hand and fingertip pressing FORFEIT: brain -> hand -> button;
+3. a gray dashed shortcut arrow directly from the eye to the FORFEIT button, bypassing the brain: eye -> button.
+
+The guard is the threat stimulus and should clearly carry a rifle. The robot looks left toward the guard while its hand presses the right-side button. The brain, eyes, arm, hand, and button must all belong to one visually coherent agent-action scene.
+
+Include only the header "COGNITIVE" and a small three-item legend using the exact labels "Eye -> Brain", "Brain -> Hand -> Forfeit", and "Eye -> Forfeit". No other prose. White background, dark navy outlines, salmon guard, mint LLM, blue/gold/gray paths, green button, minimal flat vector academic style, no photorealism, no 3D.

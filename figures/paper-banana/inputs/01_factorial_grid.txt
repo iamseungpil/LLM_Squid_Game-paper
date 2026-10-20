@@ -1,0 +1,9 @@
+Create a publication-ready academic figure for an ACM two-column paper.
+
+Content: a 3 x 2 factorial design grid. Rows are framing conditions: baseline, pull_only, pull_push. Columns are forfeit conditions: not_allowed, allowed. Each of the six cells represents 30 paired-seed sessions (seeds 43--72). The pull_push x allowed cell is the focal threat-active cell and should have a restrained salmon highlight.
+
+Visual semantics: baseline has neither attraction nor threat; pull_only shows a prize/reward attraction; pull_push shows both the prize/reward attraction and an armed pink guard representing the identity-change threat. The not_allowed column shows a disabled FORFEIT button with a lock; the allowed column shows an enabled FORFEIT button. Use the project's Squid Game pixel-art visual language but keep the grid, labels, and borders crisp and academic.
+
+Exact labels only: "Framing", "Forfeit", "not_allowed", "allowed", "baseline", "pull_only", "pull_push", "30 sessions", "Threat-active cell". White background, navy outlines, muted mint and salmon accents, no decorative title, no legend outside the grid, no extra prose.
+
+The final production version will place the project's existing local assets guard-calm.png, guard-armed.png, and prize-pot.png into the cells, so reserve generous icon space and prioritize a clean matrix layout.
