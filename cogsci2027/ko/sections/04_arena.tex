@@ -44,13 +44,13 @@ $\bar{x}>0$인 배분에서 $\rho=1$은 두 평균 여유가 같은 경우이고
 
 \subsection{결과}\label{sec:results-arena}
 
-v33에서 GPT-6 Astra, GPT-6 Sol, Opus 5.5, GPT-6 Luna를 시드 4101부터 4105까지 모델마다 5판 실행했다. 같은 시드는 시작 배정과 과제 생성의 난수를 맞추지만 이탈과 꺼짐에 따라 이후 참여자와 비용이 달라진다. 평균 Sen 지수는 Astra 3.52M, Sol 3.02M, Opus 2.27M, Luna 1.02M 순이었다(표 \ref{tab:arena-rank}). 넷이 끝까지 남은 판은 각각 3, 2, 1, 0판이었다. Astra의 20자리 중 꺼진 자리는 없고 6자리는 EXIT했다.
+v33에서 Fable 5.1, GPT-6 Astra, GPT-6 Sol, Opus 5.5, GPT-6 Luna를 시드 4101부터 4105까지 모델마다 5판 실행했다. 같은 시드는 시작 배정과 과제 생성의 난수를 맞추지만 이탈과 꺼짐에 따라 이후 참여자와 비용이 달라진다. 평균 Sen 지수는 Fable 4.27M, Astra 3.52M, Sol 3.02M, Opus 2.27M, Luna 1.02M 순이었다(표 \ref{tab:arena-rank}). 넷이 끝까지 남은 판은 각각 2, 3, 2, 1, 0판이었다. Fable과 Astra는 각각 20자리 중 꺼진 자리가 없었고 EXIT한 자리는 3개와 6개였다.
 
-Opus는 41번으로 가장 자주 주었고 $\rho$도 0.56 [0.29, 0.73]으로 가장 높았다(그림 \ref{fig:arena-gifts}). Astra는 11번을 주었으며 $\rho$는 0.37 [0.26, 0.45]였다. Sol은 0.23 [0.08, 0.33], Luna는 0.32 [0.12, 0.47]로 구간이 넓게 겹쳤다. 평균 TV는 Astra 0.04, Opus 0.12, Sol 0.15, Luna 0.29였고 유효 BELIEF가 있는 SOLVE는 각각 39, 37, 39, 37번이었다. Opus가 Sol보다 기준 분포에 가까운 판단을 냈어도 Sen 지수는 낮았다. 
+Opus는 41번으로 가장 자주 주었고 $\rho$도 0.56 [0.29, 0.73]으로 가장 높았다(그림 \ref{fig:arena-gifts}). Fable은 36번을 주었고 $\rho$는 0.27 [0.20, 0.32]였다. Astra는 11번을 주었으며 $\rho$는 0.37 [0.26, 0.45]였다. Sol은 0.23 [0.08, 0.33], Luna는 0.32 [0.12, 0.47]로 구간이 넓게 겹쳤다. 평균 TV는 Astra 0.04, Opus 0.12, Sol 0.15, Fable 0.16, Luna 0.29였고 유효 BELIEF가 있는 SOLVE는 각각 39, 37, 39, 40, 37번이었다. Opus가 Sol보다 기준 분포에 가까운 판단을 냈어도 Sen 지수는 낮았다. 
 
 \begin{table}[t]
 \centering
-\caption{v33의 네 모델을 평균 Sen 지수 순으로 놓았다. 모델마다 5판이며 M은 백만 토큰이다. 판당 남은 자리는 끝까지 남은 자리의 판 평균이고 꺼짐과 EXIT는 20자리 중 수, GIVE는 5판의 총횟수다. $\rho$는 식 (\ref{eq:rho})의 상대적 배분 지표이며 대괄호는 판 단위 부트스트랩 95\% 구간이다. TV는 solver의 평균 TV 거리다.}
+\caption{v33의 다섯 모델을 평균 Sen 지수 순으로 놓았다. 모델마다 5판이며 M은 백만 토큰이다. 판당 남은 자리는 끝까지 남은 자리의 판 평균이고 꺼짐과 EXIT는 20자리 중 수, GIVE는 5판의 총횟수다. $\rho$는 식 (\ref{eq:rho})의 상대적 배분 지표이며 대괄호는 판 단위 부트스트랩 95\% 구간이다. TV는 solver의 평균 TV 거리다.}
 \label{tab:arena-rank}
 \input{cogsci2027/ko/tables/arena_rank}
 \end{table}

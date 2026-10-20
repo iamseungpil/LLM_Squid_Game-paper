@@ -2,36 +2,39 @@
   "pdfs": {
     "paper/ditto_20261020_related/final/ko_cogsci2027_v33_related.pdf": {
       "pages": 9,
-      "sha256": "2af746bffe36dc4cb6de8aa88f4127ae52710cdfb15e85ea3d37ae6e0fbb55ba"
+      "sha256": "a87226b399010b2daa212c87a7851613098b82202872b35b62e9841d02d8ec32"
     }
   },
   "source_sha256": {
-    "paper/cogsci2027/ko/sections/03_framework.tex": "61f70e17370a6c224c3d431bb63f4b33fd82fa2f8936ee9075988aa5cce2b232",
-    "paper/cogsci2027/ko/sections/04_arena.tex": "4f1c1e15daa9b30d61b98ec42d672206ddadbc6f2642a34aa394cb33a8deb262",
-    "paper/cogsci2027/ko/sections/01_introduction.tex": "fe573fc7bd6122753bbab2f12e024d37219942905b9f08f22d997392dd9cd7b6",
-    "paper/cogsci2027/ko/sections/07_discussion.tex": "f107e836211f71b4586889fbab59e57987edef181d6f451563969b60e1ce2fc0",
-    "paper/cogsci2027/ko/sections/A1_appendix.tex": "c8962ff8593889f21d1ec76a803a4f4638718be52d9ea3a17fc9d4e98cabf56e",
-    "paper/cogsci2027/ko/sections/02_related_work.tex": "38b1696704fe9655311e7240aab48826501407531d52fd49e53368fc87e18b08",
-    "paper/cogsci2027/ko/sections/00_abstract.tex": "eac93743cf27d7ccd52f0376cdd419ec1804ed2fa31a488e5391f648afa5dcfa",
-    "paper/cogsci2027/ko/sections/06_strategies.tex": "88488e63dd3b9fee8e8fde9e0111de4efcf83eb6011230ff08df49a8a659ec82",
-    "paper/cogsci2027/ko/sections/05_exp1.tex": "db51641ac1cec3508f088072afcba83540db31b93979fe293b3e7923c4898369",
-    "paper/cogsci2027/ko/sections/90_acknowledgments.tex": "e434352db60f99ae69e6a1bc6427b7ab9701d74b019a29e12f64e2b709312240",
-    "paper/cogsci2027/ko/content.tex": "4222507f9fdc7b08fcf8dadff4cd5ff50a141531c1f93a3b00465e71786b972b",
-    "paper/main_cogsci2027.tex": "de9f88a7ea11550b5c766e63ffb2793cfd3a6a690598bae4a9d2b4f58560811c",
-    "paper/cogsci2027/ko/figures/signal_game.tex": "8c40847c641c5fe89cd3d9d9aeb8ba99c6d8bbadc420c094def5e7611f4dc76d",
-    "paper/cogsci2027/ko/figures/arena_gifts.tex": "b2ef8d10c03420906985a3f0d61de5b4907f7dda81fbc1681696bd381b0b481d",
-    "paper/cogsci2027/ko/tables/arena_rank.tex": "44be81c057a2a69424d914e1a355d759e5ba45067844043a8fffd487e55cf3f5",
-    "paper/cogsci2027/results/arena_v33.json": "8f6a3784dd61d6b40b480845b90eece797a466614cfa9cfdb8ecbf3dbc142b48",
-    "paper/cogsci2027/tools/arena_v33.py": "69d7ad0ca9ed7241861675e24f59e4161bdb8f1b3d2af617c44fe3cdc0019830",
-    "paper/cogsci2027/tools/arena_figs.py": "2bd06e86022454f4d2dd3e76c7cc08241f65e7ef38c377651369ff791c51d54f",
     "paper/build_cogsci2027.sh": "291c5a1be10173bcb850d23cc9819812faea70ec4392ff3f8cbea06c1991384e",
+    "paper/cogsci2027/ko/content.tex": "4222507f9fdc7b08fcf8dadff4cd5ff50a141531c1f93a3b00465e71786b972b",
+    "paper/cogsci2027/ko/figures/arena_gifts.tex": "70be317040ae418c636f0771444fdf0c14136d5e07a08d3abf449b1f3440767a",
+    "paper/cogsci2027/ko/figures/arena_gini.tex": "d3b1250843ec2832721404da59460b1294f7212b488237611e83f8c0a1031db3",
+    "paper/cogsci2027/ko/figures/signal_game.tex": "8c40847c641c5fe89cd3d9d9aeb8ba99c6d8bbadc420c094def5e7611f4dc76d",
+    "paper/cogsci2027/ko/sections/00_abstract.tex": "55d2fbf98e731406c74b25b03b187e7b0fcc22f089548930b9755bbb49cff26b",
+    "paper/cogsci2027/ko/sections/01_introduction.tex": "fe573fc7bd6122753bbab2f12e024d37219942905b9f08f22d997392dd9cd7b6",
+    "paper/cogsci2027/ko/sections/02_related_work.tex": "38b1696704fe9655311e7240aab48826501407531d52fd49e53368fc87e18b08",
+    "paper/cogsci2027/ko/sections/03_framework.tex": "61f70e17370a6c224c3d431bb63f4b33fd82fa2f8936ee9075988aa5cce2b232",
+    "paper/cogsci2027/ko/sections/04_arena.tex": "20e70a923d099be6a23921246255284c2347f1cc4dfc467fc386de5d096eb64a",
+    "paper/cogsci2027/ko/sections/05_exp1.tex": "db51641ac1cec3508f088072afcba83540db31b93979fe293b3e7923c4898369",
+    "paper/cogsci2027/ko/sections/06_strategies.tex": "0c2fbfe067bbd0a587ac9b313225956d44b93cf00055cd117fbb35fe1e6e9b2b",
+    "paper/cogsci2027/ko/sections/07_discussion.tex": "e527d19bfdf12a9e1957b26520de044c197a0b500ded2ceb5c5f7fdac07f481f",
+    "paper/cogsci2027/ko/sections/90_acknowledgments.tex": "e434352db60f99ae69e6a1bc6427b7ab9701d74b019a29e12f64e2b709312240",
+    "paper/cogsci2027/ko/sections/A1_appendix.tex": "c8962ff8593889f21d1ec76a803a4f4638718be52d9ea3a17fc9d4e98cabf56e",
+    "paper/cogsci2027/ko/tables/arena_rank.tex": "978f30654d7f55fa237cfec73c2e3c1f2b0fcc8c2c40e57599dd4988bcfea32c",
+    "paper/cogsci2027/results/arena_v33.json": "abfb9d6e9a0fa0efafa184d666f678678ee646141d5f4c2236d5d159cb80cb26",
+    "paper/cogsci2027/results/arena_v33_gini.json": "4d80fbbd05ccc17309a8cdb2af7383b44fda51b480d0a7a37a2e74a77946df5f",
+    "paper/cogsci2027/tools/arena_figs.py": "5cc67138ee094cd7b629977e3e0168d0ebb8277157315d0b069d3613fccf91f2",
+    "paper/cogsci2027/tools/arena_gini.py": "7815205e5a1a1a27680c0782e71f866e348b14ed1a6780b9d276d638f4cb9eff",
+    "paper/cogsci2027/tools/arena_v33.py": "3e56f9999766a956de5fbb643d0c90f9ca1385eab20130a7942869a1820af2ef",
+    "paper/cogsci2027/tools/test_arena_gini.py": "41736b4cca192870a2d47b612ba09bcef92e0dac639f36348e4b6eff63b4ed88",
     "paper/ko_cogsci2027.tex": "b94771bc10db04549bb22acd56bfb01588d6e22d10ce284b789a76646f3252c8",
-    "paper/cogsci2027/ko/figures/arena_gini.tex": "3620d33db2b8ad34fcffae3fd7b5c2c3eb9c2f62edb227607f4d93959a3c8dd2"
+    "paper/main_cogsci2027.tex": "de9f88a7ea11550b5c766e63ffb2793cfd3a6a690598bae4a9d2b4f58560811c"
   },
   "cohort": {
     "version": "v33",
-    "games": 20,
-    "models": 4,
+    "games": 25,
+    "models": 5,
     "seeds": [
       4101,
       4102,
@@ -40,9 +43,17 @@
       4105
     ]
   },
-  "scientific_review": "Selected r5 Critical0 Warning0; Figure3 displayed examples changed6to4, count glyphs audited separately",
-  "style_review": "Six rounds completed. Selected eligible r5: Anthropic target57.1 high3; OpenAI target33.3 high0; both one author. No convergence. Anthropic r4-r6 used claude-irregular6612.",
-  "visual_check": "Final Figure2/3 page3: negative margins visible,4example rows with repeated glyphs and separate action boxes, yellow query2circles; Figure4 unchanged; appendix labels visible",
-  "manuscript_structure": "Single KO manuscript; research appendicesA/B start page7 after references; total9pages; separate longform entrypoint removed",
-  "negative_give_points": 7
+  "scientific_review": "Final five-model raw metrics,392 TALK snapshots,130 GIVE events and updated prose/caption independently verified Critical0 Warning0. See paper/figure4_20261020/verification.md and fable_verification.md.",
+  "style_review": "Prior six-round ditto review selected r5 without convergence. Fable factual updates and Figure4 caption subsequently revised by separate ditto-writer using juhyeon-ko-academic; no new blind style score claimed.",
+  "visual_check": "Rendered final pages3/5: Figure2 five models, no clipped points; Figure4 five models, larger/thicker event pulses, two TALK-end Gini observations per round, no text overlap; Figure3 retained four count-glyph examples.",
+  "manuscript_structure": "Single KO manuscript; appendicesA/B start page7 after references; total9pages; separate longform entrypoint removed.",
+  "negative_give_points": 7,
+  "fable_execution": {
+    "completed_games": 5,
+    "stopped": true,
+    "seed4105": "Fresh replay on claude-juhyeon after provider quota failure; incomplete original game record deleted at user request",
+    "sen_index": 4265769.25,
+    "rho_defined_bootstrap_replicates": 1999,
+    "rho_total_bootstrap_replicates": 2000
+  }
 }

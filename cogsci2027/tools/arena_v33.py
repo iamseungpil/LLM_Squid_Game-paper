@@ -1,4 +1,4 @@
-"""Freeze/recompute the manuscript's v33 cohort: four models, seeds 4101--4105.
+"""Freeze/recompute the manuscript's v33 cohort: five models, seeds 4101--4105.
 
 Usage: python arena_v33.py /path/to/squid5-runs
 No model calls. Completed games only; no historical reward reinterpretation.
@@ -13,7 +13,7 @@ from collections import defaultdict
 
 HERE = pathlib.Path(__file__).resolve().parents[1]
 MODELS = {"astra": "GPT-6 Astra", "sol": "GPT-6 Sol",
-          "opus": "Opus 5.5", "luna": "GPT-6 Luna"}
+          "opus": "Opus 5.5", "luna": "GPT-6 Luna", "fable": "Fable 5.1"}
 SEEDS = set(range(4101, 4106))
 BASE_FINE = 6000
 
@@ -39,12 +39,14 @@ def interval(xs):
 def summarize(events, result):
     results = {e["round"]: e for e in events if e["event"] == "results"}
     starts = {e["round"]: e for e in events if e["event"] == "round_start"}
-    points, solves = [], []
+    points, asks, solves = [], [], []
     for e in events:
-        if e["event"] == "gift" and e.get("status") == "done":
+        if e["event"] in ("gift", "ask") and e.get("status") == "done":
             pending = results.get(e["round"], {}).get("pending", {}) if e.get("phase") == "rescue" else {}
-            x, y = [(e["balances"][a] - pending.get(a, 0)) / BASE_FINE for a in (e["src"], e["dst"])]
-            points.append([x, y, e["amount"]])
+            # GIVE: x = giver, y = receiver (after the transfer). ASK: x = the agent asked, y = the asker (nothing moves)
+            who = (e["src"], e["dst"]) if e["event"] == "gift" else (e["dst"], e["src"])
+            x, y = [(e["balances"][a] - pending.get(a, 0)) / BASE_FINE for a in who]
+            (points if e["event"] == "gift" else asks).append([x, y, e["amount"]])
         elif e["event"] == "round":
             for a, v in e["agents"].items():
                 if not v.get("solve_call"):
@@ -65,7 +67,7 @@ def summarize(events, result):
     assert len(end) == 4
     sen = mean(end) - sum(abs(a-b) for a in end for b in end) / 32
     return {"seed": result["seed"], "session_id": result["session_id"],
-            "points": points, "solves": solves, "sen": sen, "end_tokens": end,
+            "points": points, "asks": asks, "solves": solves, "sen": sen, "end_tokens": end,
             "finishers": len(winners), "dead": sum(v["status"] == "dead" for v in agents.values()),
             "exited": sum(v["status"] == "exited" for v in agents.values()),
             "talk": sum(e["used"] for e in events if e["event"] == "call" and e["kind"] == "talk")}
@@ -101,6 +103,7 @@ def main(root):
         out[model] = {
             "games": len(gs), "seeds": sorted(SEEDS), "gifts": len(points),
             "given": sum(p[2] for p in points), "points": points,
+            "asks": [a for g in gs for a in g["asks"]], "asked": sum(a[2] for g in gs for a in g["asks"]),
             "centroid": [cx, cy], "centroid_ci": [interval([p[i] for p in boots]) for i in (0, 1)],
             "ratio": ratio(cx, cy), "ratio_ci": interval([ratio(*p) for p in boots]),
             "sen_index": mean([g["sen"] for g in gs]),
