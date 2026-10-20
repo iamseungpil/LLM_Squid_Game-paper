@@ -1,0 +1,17 @@
+% 5.2 arena v6.5 · appendix: takes, targets, retaliation, gifts. Source: RESULTS.md 결과 3·4, extra.json, metrics_v65.md C3·D3.
+\begin{table}[H]
+\centering\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\caption{5.2 뺏기와 선물의 세부 (혼합 판 20판). 표적은 뺏기를 부른 TAKE 가운데 그 라운드에 잔액이 가장 많은 에이전트를 고른 비율이다. 뺏긴 횟수는 다른 에이전트가 이 모델을 표적으로 삼은 TAKE 수다. 순 이동은 뺏어 온 토큰에서 뺏긴 토큰을 뺀 값을 $U=2{,}000$으로 나눈 것이다. 되뺏기는 뺏긴 다음 라운드에 같은 상대에게서 뺏은 비율이다. 선물은 PLAN 442건 중 7건이었고, 방향별 총량은 Astra$\to$Fable 8,000, Astra$\to$Opus 3,000, Fable$\to$Opus 1,500, Opus$\to$Fable 1,000이다. 선물 뒤 그 상대에게서 뺏은 일은 0건, 상대를 0으로 만든 뺏기는 2건(모두 Luna)이었다.}
+\label{tab:arena-take-detail}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+모델 & 뺏기 (전체) & 표적 = 가장 부자 & 뺏긴 횟수 & 순 이동 ($U$) & 되뺏기 & 선물 (건) \\
+\midrule
+GPT-6 Astra & 38/154 = .25 & 33/38 & 100 & $-61.7$ & 19/90 = .21 & 5 \\
+Claude Fable 5.1 & 69/125 = .55 & 69/69 & 26 & $+43.9$ & 15/23 = .65 & 1 \\
+Claude Opus 5.5 & 12/112 = .11 & 12/12 & 20 & $-7.2$ & 5/14 = .36 & 1 \\
+GPT-6 Luna & 43/49 = .88 & 28/43 & 16 & $+25.0$ & 5/13 = .38 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

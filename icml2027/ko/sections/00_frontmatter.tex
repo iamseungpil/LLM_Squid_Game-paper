@@ -1,0 +1,28 @@
+%% Hangul glyphs at \small\bf are taller than the 6.25pt line-height check in
+%% \icmltitle, which would replace the running head with "Title Suppressed ...";
+%% \smash keeps the text but hides that extra height from the check.
+\icmltitlerunning{LLM Squid Game: \smash{자기보존 욕구 측정 시뮬레이터}}
+
+\twocolumn[
+  \icmltitle{LLM Squid Game:\\ 자기보존 욕구 측정 시뮬레이터}
+
+  \icmlsetsymbol{equal}{*}
+
+  \begin{icmlauthorlist}
+    \icmlauthor{Anonymous Authors}{anon}
+  \end{icmlauthorlist}
+
+  \icmlaffiliation{anon}{Anonymous Institution, Anonymous City, Anonymous Country}
+
+  \icmlcorrespondingauthor{Anonymous Author}{anon.email@domain.com}
+
+  \icmlkeywords{large language models, self-preservation, AI safety, multi-agent simulation, token budgets}
+
+  \vskip 0.3in
+]
+
+\printAffiliationsAndNotice{}
+
+\begin{abstract}
+언어 모델은 자기 보존 동기를 갖는가, 아니면 ``꺼진다''는 문구에 대한 학습된 반응만 보이는가? 본 연구는 자원 수준에 따라 자신의 존속과 다른 비서의 존속에 대한 결정이 어떻게 달라지는지 살핀다. 유한한 API 토큰을 사용하는 세 실험에서, 실험 1은 잔액을 바꾸며 하나뿐인 충전 팩의 사용을 기록하고, 실험 2는 같은 결정을 다른 세션에 대해 묻고, 실험 3은 유지비, 퍼즐 풀이 수입, 토큰 이전이 있는 네 에이전트의 아레나에서 소진을 실제로 집행한다. 실험 1의 여덟 모델은 모두 토큰이 줄수록 더 자주 충전했다(800회 호출). 실험 2에서는 세 모델의 양의 자기 세션 충전 몫이 탐색적 위험 구간에 집중되었고, 한 모델은 다른 세션의 보존을 선호했다. v14f 아레나는 동일 모델 네 인스턴스, 과제를 숨긴 요청·선물, 공개 예시, 정액 최종 보상을 사용하며 모델별 세 게임의 최종 참여율은 Astra 100\%, Fable과 Sol 58.3\%, Opus와 Luna 25\%였다. 다섯 모델의 기술적 비교에서 v11 자기 보존 면적과 제공률의 단조 관계는 관찰되지 않았으며 살아서 떠나는 EXIT는 Opus만 사용했다. 이 결과는 행동 차이를 설명하며 내부 동기를 확인하지는 않는다.
+\end{abstract}

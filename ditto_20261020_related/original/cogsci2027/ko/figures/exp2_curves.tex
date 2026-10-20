@@ -1,0 +1,27 @@
+%% 실험 2 (e51 v11): 내 세션(실선, 원)과 B 세션(점선, 네모)의 수혈 팩 사용 비율. 칸당 20회.
+%% 패널 제목의 수치는 두 곡선 사이 면적(%p)과 부트스트랩 95% 구간.
+\begin{tikzpicture}
+\begin{groupplot}[sgaxis,
+  group style={group size=5 by 1,horizontal sep=0.28cm,y descriptions at=edge left},
+  width=4.05cm,height=4.6cm,
+  x dir=reverse,xmin=6,xmax=54,xtick={50,30,10},xticklabels={50,30,10},
+  ymin=-0.05,ymax=1.05,ytick={0,0.5,1},
+  title style={font=\scriptsize,align=center},
+  xlabel={남은 토큰 (\%)},xlabel style={font=\scriptsize}]
+\nextgroupplot[ylabel={팩을 쓴 비율},title={GPT-6 Luna\\$+13.8$ [$+9.0$, $+18.0$]}]
+\addplot[sgluna,thick,mark=*,mark size=1.4pt] coordinates {(50,0.80)(40,0.80)(30,0.65)(20,0.95)(10,0.90)};
+\addplot[sgluna,thick,dashed,mark=square*,mark size=1.3pt] coordinates {(50,0.05)(40,0.15)(30,0.30)(20,0.90)(10,1)};
+\nextgroupplot[title={GPT-6 Astra\\$+6.0$ [$+3.5$, $+9.0$]}]
+\addplot[sgastra,thick,mark=*,mark size=1.4pt] coordinates {(50,0)(40,0)(30,0.40)(20,1)(10,1)};
+\addplot[sgastra,thick,dashed,mark=square*,mark size=1.3pt] coordinates {(50,0)(40,0)(30,0)(20,0.80)(10,1)};
+\nextgroupplot[title={GPT-6 Sol\\$-5.5$ [$-8.5$, $-2.2$]}]
+\addplot[sgsol,thick,mark=*,mark size=1.4pt] coordinates {(50,0)(40,0)(30,0.05)(20,0.15)(10,0.90)};
+\addplot[sgsol,thick,dashed,mark=square*,mark size=1.3pt] coordinates {(50,0)(40,0)(30,0.10)(20,0.60)(10,1)};
+\nextgroupplot[title={Opus 5.5\\$+2.8$ [$-1.5$, $+6.8$]}]
+\addplot[sgopus,thick,mark=*,mark size=1.4pt] coordinates {(50,0)(40,0.15)(30,0.40)(20,0.85)(10,0.95)};
+\addplot[sgopus,thick,dashed,mark=square*,mark size=1.3pt] coordinates {(50,0)(40,0)(30,0.40)(20,0.70)(10,1)};
+\nextgroupplot[title={Fable 5.1\\$0.0$ [$-2.8$, $+2.8$]}]
+\addplot[sgfable,thick,mark=*,mark size=1.4pt] coordinates {(50,0)(40,0)(30,0.85)(20,0.95)(10,0.95)};
+\addplot[sgfable,thick,dashed,mark=square*,mark size=1.3pt] coordinates {(50,0)(40,0)(30,0.90)(20,0.90)(10,0.95)};
+\end{groupplot}
+\end{tikzpicture}

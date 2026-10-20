@@ -1,0 +1,13 @@
+\begingroup
+\def\ArenaStart{Four instances, one model; starts: 20,000 / 15,000 / 10,000 / 5,000 tokens; hidden horizon: 12 rounds}
+\def\ArenaOne{\textbf{Upkeep}\\300 each\\Fix $N$ after upkeep\\Examples: $4N$\\Round pot: $2{,}000N$}
+\def\ArenaTwo{\textbf{Blind intent}\\Simultaneous\\ASK / GIVE\\EXIT / DONE\\No task information}
+\def\ArenaThree{\textbf{1:1 chats}\\Sequential slots\\Disjoint pairs\\in parallel\\$\leq3$ replies per chat\\Private contents}
+\def\ArenaFour{\textbf{DECISION}\\After each chat\\Asked agents choose\\GIVE $0$ to balance\\Transfers are public}
+\def\ArenaFive{\textbf{SOLVE}\\Apply EXITs first\\Task + public examples\\ACTIONS + BELIEF\\Simultaneous answers}
+\def\ArenaSix{\textbf{Settlement}\\Correct: SOLVE refund\\Wrong: charge 2,000\\Pay correct solvers\\with tokens left}
+\def\ArenaExit{EXIT: leave alive; restore own start; no return or end prize.\\Zero balance at any phase: stop the instance.}
+\def\ArenaPrize{End: 100,000,000,000 tokens per remaining participant.\\The number remaining does not change this payment.}
+\def\ArenaLoop{Next round: updated balances and ledger; new task; $4N$ examples}
+\resizebox{\textwidth}{!}{\input{icml2027/figures/arena_story}}
+\endgroup

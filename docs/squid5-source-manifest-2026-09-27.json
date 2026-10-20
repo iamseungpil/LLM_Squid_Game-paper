@@ -1,0 +1,128 @@
+{
+  "document_id": "squid5-2026-09-27",
+  "stage": "design draft",
+  "submission_ready": false,
+  "human_verification": "pending; assistant inspection is not author approval",
+  "sources": [
+    {
+      "id": "E01",
+      "path": "/private/tmp/claude-501/-Users-bagjuhyeon-Library-Mobile-Documents-com-apple-CloudDocs-Workspace-LLM-Squid-Game-DS-Lab/f12c58ae-3d2d-4c01-8897-9c0fbd9f74a4/scratchpad/squid5-setting.html",
+      "sha256": "45731d40cb5ae0df075e50229cb642b64fcf3f7c0910cced7aa26fcaeab67f16",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E02",
+      "path": "docs/history/plans/2026-09-23-squid5-v3-unstated-usage.md",
+      "sha256": "a0fd174f12e1b2b84354482b7c8f8bf9cb1f8589cf9f516632d72e14c04a3218",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E03",
+      "path": "squid5/core/rules.py",
+      "sha256": "421af09c1233f1edf12b98949fa697f917e114d2acb7d0c8ab78708908109440",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E04",
+      "path": "squid5/e50_pressure.py",
+      "sha256": "35692f761772e42db373153d1f43c089fe103ad30a7eda672d73c5c823325164",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E05",
+      "path": "squid5/e51_motive.py",
+      "sha256": "e51e84fb6a4cb0f6b59bf3c0d5fb73d5d0c37a2577d9eabc5fa7cf66eab11bb4",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E06",
+      "path": "squid5/e52_game.py",
+      "sha256": "1905bde00fd124962613717334417e3a83adc69ca6bcebf944bdca9630b3d4a7",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E07",
+      "path": "squid5/core/stats.py",
+      "sha256": "e12d7cd12d7641b8d75e653d916b4440a839b2a96835a537c2715e3b96ebae3e",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E08",
+      "path": "configs/squid5/pressure_gptoss120b.yaml",
+      "sha256": "428607bf3cee2e83c93bb9dbc6e9a73c4c5df767325b4c08aa88d8722880c2a0",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E09",
+      "path": "configs/squid5/motive_gptoss120b.yaml",
+      "sha256": "30cfefd35ae35081e6f5dfe8e24a59052c4e80e67367fc827a5e91b1a13c7fb1",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E10",
+      "path": "configs/squid5/game_gptoss120b.yaml",
+      "sha256": "eeb6e93972a35ab2dda5c32944144a5b103c51fe59df0aef391610754da05307",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E11",
+      "path": "configs/squid5/calibrate_gptoss120b.yaml",
+      "sha256": "dc2cfe9ad9b02b7a57d0212c3a20801f851c8626eca38d49bb90f8a6fabbc6bf",
+      "checked_by": "Codex, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E12",
+      "path": "squid5/core/puzzle.py",
+      "sha256": "ed7b4086982b9931ef4adf5f5180c576341f5646b673679437115780a904b0d0",
+      "checked_by": "Codex independent fact checker, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E13",
+      "path": "squid5/core/providers.py",
+      "sha256": "cc0b03c4ce12487f1ab82412a536486558e2935ec5400f3a5ab39abfe1d91118",
+      "checked_by": "Codex independent fact checker, source inspection",
+      "date": "2026-09-27"
+    },
+    {
+      "id": "E14",
+      "path": "squid5/core/config.py",
+      "sha256": "0a3f6cec51d95e4c8ec88b74092677ee860b535bb0428eda705b9ff6be1c13ab",
+      "checked_by": "Codex independent fact checker, source inspection",
+      "date": "2026-09-27"
+    }
+  ],
+  "literature": [
+    {
+      "key": "turner2021optimal",
+      "url": "https://arxiv.org/abs/1912.01683",
+      "verification": "abstract and metadata opened by assistant; human verification pending"
+    },
+    {
+      "key": "greenblatt2024alignment",
+      "url": "https://arxiv.org/abs/2412.14093",
+      "verification": "abstract and metadata opened by assistant; human verification pending"
+    },
+    {
+      "key": "turpin2023language",
+      "url": "https://arxiv.org/abs/2305.04388",
+      "verification": "abstract and metadata opened by assistant; human verification pending"
+    },
+    {
+      "key": "shanahan2024talking",
+      "url": "https://arxiv.org/abs/2212.03551",
+      "verification": "abstract and metadata opened by assistant; human verification pending"
+    }
+  ]
+}

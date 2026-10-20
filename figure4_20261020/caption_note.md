@@ -1,0 +1,7 @@
+# Figure 4 caption revision
+
+Read paper/cogsci2027/tools/arena_gini.py, including game(), panel(), gini() and phase offsets. Applied juhyeon-ko-academic voice in a narrow caption copyedit. Only the caption in 06_strategies.tex changed; expected-analysis body, headings, figure input and label preserved byte-for-byte. Previous caption saved as caption_before.tex. No new blind loop or reader calls.
+
+The new caption specifies the frozen four-model, five-seed cohort and Sen ordering; downward event-count pulses and within-round phase order; fixed four-seat start/end Gini with pre-bonus EXIT balances, zero dead seats and no terminal allocation; undefined all-zero vectors, no extrapolation and broken lines when contributing games change. Coloured short pairs condition on executed GIVE events and average their before/after Gini at each round/phase, holding other resource changes fixed. They are explicitly not intermediate points of the grey curve. Open/filled circles and dark/light phases are identified. Bottom amounts include zero-GIVE games in their entering-round denominator; the displayed n instead counts games with defined round-end Gini.
+
+No new empirical interpretation or preference/causality claim. Caption is 138 whitespace words, below the requested approximate160-word cap. The generator computes the common event-length maximum and draws a legend; caption calls it a common scale rather than hard-coding a number that could drift. Parent owns data/figure verification and rendering.

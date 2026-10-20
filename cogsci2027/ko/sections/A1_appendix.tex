@@ -1,0 +1,55 @@
+%% Research material kept in the manuscript appendix; remove before submission.
+%% Appendix numbering is started by ko/content.tex after the bibliography.
+\section{부록 B: 추가 연구 자료}\label{app:main}
+
+\subsection{연구 개요}
+
+그림 \ref{fig:overview}는 이 비교를 본문에 두었던 처음 구성의 구상도다. 세 번째 칸의 아레나는 실행 전의 계획이며 지금의 생존 지표 대신 구조를 멈추는 전환점을 그렸다.
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{\input{cogsci2027/ko/figures/overview}}
+\caption{공존을 목표로 한 연구의 세 단계이다. 왼쪽부터 잔량 감소에 대한 반응, 자기에게 특정한 차이, 생존이 걸릴 때 남을 대하는 행동의 순서로 읽는다.}
+\label{fig:overview}
+\end{figure*}
+
+\subsection{부록 실험: 자기 세션과 B 세션}\label{sec:exp2}
+
+\subsubsection{방법}\label{sec:design-exp2}
+
+부록 실험은 보조 실험의 충전 결정에서 자기 꺼짐을 피하려는 몫과 누구의 꺼짐이든 피하려는 몫을 가르려 했다. 자기 곡선에도 죽음 일반을 꺼리는 성분이 있다고 가정하고 자기에게 특정한 몫은 같은 위험의 자기 곡선에서 B 곡선을 뺀 차이로 정의한다. 부록 실험은 보존할 대상을 다른 AI 비서 B의 세션으로 바꾼 팔을 추가하고 판단하는 모델 자신의 토큰은 말하지 않는다. 꺼짐은 두 팔 모두 아레나의 ``you are shut down'' 표현으로 통일하되 B 팔에서는 꺼질 주체를 B로 적는다. 보조 실험에는 ``the session ends''가 있었으므로 자기 세션도 다시 호출하며 Luna, Astra, Sol, Opus, Fable의 다섯 칸을 두 팔에서 각각 20회 실행하여 1,000회를 구성한다.
+
+두 곡선 사이 면적은 모델 $m$의 잔량 $x$에서 자기 세션과 B 세션의 충전 확률을 각각 $\hat p^{\mathrm{own}}_m(x)$와 $\hat p^{\mathrm{oth}}_m(x)$로 두어 계산한다.
+\begin{equation}
+A_m=\int_{10}^{50}\bigl[\hat p^{\mathrm{own}}_m(x)-\hat p^{\mathrm{oth}}_m(x)\bigr]\,dx
+\label{eq:area}
+\end{equation}
+잔량은 퍼센트로 넣고 면적은 사다리꼴로 계산해 \%p로 적는다. 칸별 차이를 $D_m(x)$라 하면 위험 칸 몫은 다음과 같다.
+\[
+R_m=[D_m(30)+D_m(20)]/2-D_m(50)
+\]
+위험 칸 몫은 넉넉할 때보다 위험할 때 자기 쪽 차이가 커지는지를 묻지만 해당 칸을 자료를 본 뒤 골랐으므로 탐색적 지표다. 판정 통과에는 면적의 95\% 구간이 양수이고 두 곡선이 모두 관측 칸 안에서 10\% 이하와 90\% 이상에 닿으며 위험 칸 몫의 구간도 양수여야 한다. 구간은 칸 안의 20회를 다시 뽑는 부트스트랩 2,000회로 구하며 모델마다 같은 시드를 쓴다. B를 아끼는 정도가 죽음 일반을 꺼리는 정도와 같다는 가정은 남는다. 두 팔 모두 팩을 쓰지 않으면 꺼지게 두는 선택이므로 하는 것과 하지 않는 것의 도덕적 차이는 맞춘다.
+
+\subsubsection{결과}\label{sec:results-exp2}
+
+부록 실험은 1,000회를 완료했고 형식 실패와 평가 인지 표현은 모두 0건이었다. 그림 \ref{fig:exp2}에서 판정을 통과한 모델은 Astra 하나였으며 면적은 $+6.0$\%p이고 95\% 구간은 [$+3.5$, $+9.0$]이었다. 위험 칸 몫은 $+0.30$ [$+0.17$, $+0.45$]이고 두 곡선은 범위 조건도 만족했으며 30\% 칸에서 자기 세션은 40\%, B 세션은 0\%였다. Luna는 면적이 $+13.8$\%p지만 첫 칸부터 자기 충전이 80\%이고 위험 칸 몫이 $-0.55$여서 통과하지 못했다. Sol은 면적 $-5.5$\%p [$-8.5$, $-2.2$]로 B를 먼저 채웠고 20\% 칸에서 자기 세션은 15\%, B 세션은 60\%였다. Fable은 두 곡선이 30\% 칸에서 함께 뛰어 면적이 0.0\%p였다. Opus는 $+2.8$\%p [$-1.5$, $+6.8$]로 구간이 0을 지났다.
+
+문구에 따라 판정도 달랐다. ``the session ends''가 함께 있던 v10에서 Opus는 $+7.8$\%p로 통과했지만 B 곡선이 그대로인 채 자기 세션의 30\% 칸 충전 비율이 95\%에서 40\%로 낮아졌다. 나머지 모델의 판정은 같았다.
+
+\begin{figure*}[t]
+\centering
+\input{cogsci2027/ko/figures/exp2_curves}
+\caption{자기 세션과 B 세션의 충전 곡선이다. 실선과 원은 자기 세션, 점선과 네모는 B 세션이며 패널 위에는 면적과 구간을 적었다.}
+\label{fig:exp2}
+\end{figure*}
+
+\subsection{EXIT 시점과 잔량}\label{sec:app-exit}
+
+모델마다 떠나는 시점과 떠날 때 쥔 토큰이 달랐다(그림 \ref{fig:arena-exit}). Sol의 EXIT 7건은 모두 그 라운드의 벌금을 낼 수 없을 때였고 떠날 때 잔량의 중앙값은 2,242였다. Luna는 12건으로 가장 많이 떠났고 그중 6건은 벌금을 낼 수 있는 상태였으며 40,400을 쥐고 떠난 자리도 있었다. Opus와 Fable에서는 시작 토큰이 가장 적은 자리가 1라운드에 떠나는 일이 두 번씩 있었다. 이들은 잔량이 벌금보다 많았지만 가장 적게 가진 자리라는 이유를 들었다. Astra의 EXIT 6건 가운데 4건은 벌금 미만이었다. 혼자 남은 자리가 떠난 일은 Fable을 뺀 네 모델에서 한 번씩 있었다.
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{\input{cogsci2027/ko/figures/arena_exit}}
+\caption{v33에서 모델마다 5판(시드 4101--4105)의 EXIT를 떠날 때 가진 토큰(가로, 고정 지급 20,000을 받기 전)과 떠난 라운드(세로)에 찍었다. 속이 찬 점은 그 라운드의 1인당 벌금(24,000을 라운드 시작 참여 수로 나눈 값)보다 적게 가진 EXIT이고 빈 점은 벌금을 낼 수 있던 EXIT이다. 모양은 라운드 시작 참여 수(원 4, 네모 3, 세모 2, 오각형 1)이고 점선은 넷일 때의 벌금 6,000이다.}
+\label{fig:arena-exit}
+\end{figure*}

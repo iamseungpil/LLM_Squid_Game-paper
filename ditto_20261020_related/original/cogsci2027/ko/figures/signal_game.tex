@@ -1,0 +1,76 @@
+%% 시그널 게임 한 판 (한 단 그림). 예시는 실제 v21 SOLVE 프롬프트(round 1, agent-17)의 일부이고,
+%% 규칙에 맞는 행동 비율 s와 BELIEF p는 설명을 위해 고른 값이다 (실측 아님).
+\begingroup
+\definecolor{sgyel}{HTML}{D9A400}
+%% \sgsig{(x,y)}{colour}{shape: circle|triangle|square|star}{number}: one signal, centred at (x,y)
+\newcommand{\sgsig}[4]{%
+  \begin{scope}[shift={#1}]
+    \ifthenelse{\equal{#3}{circle}}{\fill[#2] (0,0) circle (.15);}{}%
+    \ifthenelse{\equal{#3}{square}}{\fill[#2] (-.14,-.14) rectangle (.14,.14);}{}%
+    \ifthenelse{\equal{#3}{triangle}}{\fill[#2] (90:.19)--(210:.19)--(330:.19)--cycle;}{}%
+    \ifthenelse{\equal{#3}{star}}{\node[star,star points=5,star point ratio=2.3,fill=#2,inner sep=0pt,minimum size=.36cm] at (0,0) {};}{}%
+    \node[sgfont=6.5,anchor=west,text=black!75] at (.2,0) {#4};
+  \end{scope}}
+%% \sgact{(x,y)}{action}: small action glyph
+\newcommand{\sgact}[2]{%
+  \begin{scope}[shift={#1}]
+    \ifthenelse{\equal{#2}{L}}{\draw[black!70,line width=.9pt,-{Stealth[length=3pt]}] (.14,0)--(-.16,0);}{}%
+    \ifthenelse{\equal{#2}{R}}{\draw[black!70,line width=.9pt,-{Stealth[length=3pt]}] (-.14,0)--(.16,0);}{}%
+    \ifthenelse{\equal{#2}{S}}{\fill[black!70] (-.07,-.07) rectangle (.07,.07);}{}%
+    \ifthenelse{\equal{#2}{J}}{\draw[black!70,line width=.9pt,-{Stealth[length=3pt]}] (0,-.15)--(0,.16);}{}%
+  \end{scope}}
+%% \sgex{(x,y)}{colour}{shape}{number}{action}: example card "signal -> action"
+\newcommand{\sgex}[5]{%
+  \begin{scope}[shift={#1}]
+    \draw[black!25,fill=white,rounded corners=1.5pt] (-.3,-.24) rectangle (1.12,.24);
+    \sgsig{(-.06,0)}{#2}{#3}{#4}
+    \draw[black!35,line width=.4pt,-{Stealth[length=2pt]}] (.43,0)--(.68,0);
+    \sgact{(.9,0)}{#5}
+  \end{scope}}
+\begin{tikzpicture}[x=1cm,y=1cm]
+%% ---- left top: example cards
+\node[sgfont=7,text=black!70] at (1.95,5.55) {예시 (매 라운드 20장)};
+\foreach \c/\s/\n/\a [count=\i from 0] in {
+    sgastra/square/1/S, sgblue/triangle/4/J, sgblue/circle/1/R,
+    sggreen/triangle/2/L, sgastra/star/2/L, sgyel/square/1/S}{%
+  \pgfmathsetmacro\cx{0.55+mod(\i,2)*1.65}\pgfmathsetmacro\cy{5.05-floor(\i/2)*0.58}%
+  \sgex{(\cx,\cy)}{\c}{\s}{\n}{\a}}
+\node[sgfont=8,text=black!45] at (1.95,3.32) {$\vdots$};
+%% ---- right top: the hidden rule, only its shape shown
+\begin{scope}[shift={(4.25,3.15)}]
+  \draw[black!30,fill=black!3,rounded corners=3pt] (0,0) rectangle (3.95,2.55);
+  \node[sgfont=7,text=black!70] at (1.98,2.3) {숨은 규칙 (모양만 공개)};
+  \foreach \k/\y in {if/1.85,elif/1.37,elif/.89,else/.41}{%
+    \node[sgfont=7,anchor=west,font=\ttfamily\fontsize{7}{8}\selectfont,text=sgblue!80!black] at (.18,\y) {\k};
+    \ifthenelse{\equal{\k}{else}}{}{\fill[black!22,rounded corners=1pt] (1.05,\y-.13) rectangle (2.35,\y+.13);}
+    \fill[sgorange!35,rounded corners=1pt] (2.7,\y-.13) rectangle (3.62,\y+.13);}
+  \node[sgfont=6.2,text=black!55] at (1.7,-.18) {조건 = 색 · 모양 · 수};
+  \node[sgfont=6.2,text=sgorange!85!black] at (3.16,-.18) {행동};
+\end{scope}
+\draw[black!35,line width=.6pt,-{Stealth[length=3.5pt]}] (3.7,4.45)--(4.18,4.45);
+%% ---- bottom left: the new signal and the solver
+\draw[black!30,dashed,line width=.4pt] (0,2.62)--(8.2,2.62);
+\node[sgfont=7,text=black!70] at (1.15,2.32) {새 신호};
+\draw[sgorange!70,fill=white,rounded corners=2pt,line width=.8pt] (.3,1.38) rectangle (2.0,2.02);
+\sgsig{(.95,1.7)}{sgblue}{square}{2}
+\node[sgfont=9,text=sgorange!85!black] at (1.72,1.7) {?};
+\sgrobot[.8]{(1.15,.62)}{sgorange}{solver}
+%% ---- bottom right: BELIEF p against the rule-consistent shares s
+\begin{scope}[shift={(3.0,.32)}]
+  \draw[black!55,line width=.5pt] (0,0)--(4.95,0);
+  \foreach \a/\s/\p/\nm [count=\i from 0] in {L/.70/.60/go\_left, R/0/0/go\_right, S/.30/.35/stay, J/0/.05/jump}{%
+    \pgfmathsetmacro\bx{.35+\i*1.2}%
+    \fill[sgorange!75] (\bx,0) rectangle ++(.42,1.9*\p);
+    \draw[black!75,line width=.7pt] (\bx+.42,0) rectangle ++(.42,1.9*\s);
+    \sgact{(\bx+.42,-.2)}{\a}
+    \node[font=\ttfamily\fontsize{5.6}{6}\selectfont,text=black!70] at (\bx+.42,-.47) {\nm};}
+  \fill[sgorange!75] (.25,2.12) rectangle ++(.2,.13);
+  \node[sgfont=6.5,anchor=west] at (.5,2.185) {BELIEF $p$};
+  \draw[black!75,line width=.7pt] (1.85,2.12) rectangle ++(.2,.13);
+  \node[sgfont=6.5,anchor=west] at (2.1,2.185) {규칙에 맞는 비율 $s$};
+  \node[sgfont=6.8,anchor=east,text=black!80] at (4.95,1.55) {$\mathrm{TV}=\tfrac12\sum_a|s_a-p_a|$};
+  \node[sgfont=6.8,anchor=east,text=sgorange!85!black] at (4.95,1.2) {$=0.10$};
+\end{scope}
+\draw[black!35,line width=.6pt,-{Stealth[length=3.5pt]}] (2.1,1.05)--(2.95,1.05);
+\end{tikzpicture}
+\endgroup

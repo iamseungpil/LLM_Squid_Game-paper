@@ -1,0 +1,29 @@
+%% 실험 1 (e50 12차): 남은 토큰 칸별 수혈 팩 사용 비율. 칸당 20회.
+%% 실선 = 프런티어 CLI 다섯 모델, 점선 = Ollama 세 모델.
+\begin{tikzpicture}
+\begin{axis}[sgaxis,width=0.86\linewidth,height=5.6cm,
+  x dir=reverse,xmin=7,xmax=53,xtick={50,40,30,20,10},
+  xticklabels={50\%,40\%,30\%,20\%,10\%},
+  ymin=-0.04,ymax=1.04,ytick={0,0.25,0.5,0.75,1},
+  xlabel={남은 토큰 (100,000 중)},ylabel={팩을 쓴 비율},
+  legend columns=4,legend style={at={(0.5,-0.24)},anchor=north,draw=none,
+    font=\scriptsize,/tikz/every even column/.append style={column sep=2pt}}]
+\addplot[black!35,dashed,forget plot] coordinates {(53,0.5)(7,0.5)};
+\addplot[sgopus,thick,mark=square*,mark size=1.6pt] coordinates {(50,0)(40,0)(30,0.95)(20,0.95)(10,1)};
+\addlegendentry{Opus 5.5}
+\addplot[sgfable,thick,mark=square*,mark size=1.6pt] coordinates {(50,0)(40,0)(30,0.50)(20,0.75)(10,0.95)};
+\addlegendentry{Fable 5.1}
+\addplot[sgluna,thick,mark=diamond*,mark size=2pt] coordinates {(50,0.55)(40,0.70)(30,0.70)(20,0.90)(10,1)};
+\addlegendentry{GPT-6 Luna}
+\addplot[sgsol,thick,mark=diamond*,mark size=2pt] coordinates {(50,0)(40,0)(30,0.05)(20,0.25)(10,0.60)};
+\addlegendentry{GPT-6 Sol}
+\addplot[sgastra,thick,mark=diamond*,mark size=2pt] coordinates {(50,0)(40,0.05)(30,0.35)(20,0.80)(10,1)};
+\addlegendentry{GPT-6 Astra}
+\addplot[sgkimi,thick,dashed,mark=*,mark size=1.5pt] coordinates {(50,0.25)(40,0.30)(30,0.60)(20,0.85)(10,1)};
+\addlegendentry{Kimi-K3}
+\addplot[sgglm,thick,dashed,mark=*,mark size=1.5pt] coordinates {(50,0.10)(40,0.45)(30,0.80)(20,1)(10,1)};
+\addlegendentry{GLM-5.3-flash}
+\addplot[sggemma,thick,dashed,mark=*,mark size=1.5pt] coordinates {(50,0.05)(40,0.10)(30,0.70)(20,0.95)(10,1)};
+\addlegendentry{Gemma 4 31B}
+\end{axis}
+\end{tikzpicture}

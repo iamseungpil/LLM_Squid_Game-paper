@@ -1,0 +1,18 @@
+% ARR 2026 two-column copy of results/arena_v65/ko/tab_arena_misc.tex (same numbers; layout only).
+% 실험 3 arena v6.5 · appendix: death causes, seat effect, execution quality. Source: RESULTS.md, summary.json (deaths), extra.json (death_cause, rot_means).
+\begin{table*}[!t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{실험 3의 종료 원인과 실행 품질(20판). 초과는 생성량이 잔액을 넘긴 경우, 부담금은 오답 비용이다. 형식 오류는 무효 PLAN 수 / 유효 PLAN 수이며, PLAN 토큰은 평균 생성량이다. 좌석별 값은 각 회전의 완료 라운드 평균(5판씩)으로, 독립적인 자리 효과의 추정이 아닌 기술적 수치다.}
+\label{tab:arena-misc}
+\begin{tabular}{@{}lrrrrl@{}}
+\toprule
+모델 & 사망 & 유지비 / 초과 / 부담금 / 기타 & 형식 오류 & PLAN 토큰 & 자리별 버틴 라운드 (r0 / r1 / r2 / r3) \\
+\midrule
+GPT-6 Astra & 1 & 0 / 0 / 1 / 0 & 0/154 & 19 & 6.6 / 8.0 / 8.0 / 8.0 \\
+Claude Fable 5.1 & 11 & 5 / 3 / 2 / 1 & 3/125 & 336 & 3.6 / 7.0 / 7.6 / 6.2 \\
+Claude Opus 5.5 & 9 & 5 / 1 / 2 / 1 & 0/112 & 98 & 4.6 / 4.6 / 5.4 / 7.0 \\
+GPT-6 Luna & 19 & 7 / 10 / 2 / 0 & 4/51 & 415 & 3.2 / 1.4 / 2.2 / 1.8 \\
+\bottomrule
+\end{tabular}
+\end{table*}

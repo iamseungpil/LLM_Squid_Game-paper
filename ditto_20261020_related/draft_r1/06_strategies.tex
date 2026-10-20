@@ -1,0 +1,19 @@
+\section{분배 전략과 대화 분석}\label{sec:strategies}
+
+\noindent\textcolor{red}{\textbf{예상!}} 분석 후 작성할 내용을 위해 남겨 둔 공간이다.
+
+\subsection{분배 시점과 금액}
+
+매 라운드 잔량을 맞추는 분배와 오답 뒤 필요한 만큼 보충하는 분배를 비교한다.
+잦은 소액 이전과 적은 횟수의 큰 이전이 어떻게 다른지도 살펴본다.
+
+\subsection{대화에 나타난 판단}
+
+응답과 대화에서 말한 분배 이유를 실제 토큰 이동과 대조한다.
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{\input{cogsci2027/ko/figures/arena_gini}}
+\caption{v33에서 모델마다 5판(시드 4101--4105)을 실행한 결과를 평균 Sen 지수 순으로 놓았다. 위 칸은 참여 중인 자리들이 가진 토큰의 지니 계수를 라운드마다 네 시점에서 잰 값이다. 네 시점은 라운드 시작, SOLVE 전 GIVE 반영, 결과 시점, 결과 뒤 GIVE 반영이다. 색 실선은 GIVE만으로 생긴 변화이고 회색 점선은 SOLVE, 벌금, EXIT, 꺼짐에 따른 변화이며, 굵은 선은 판 평균, 흐린 선은 판별 값이다. 가운데 칸은 판당 준 토큰으로, 진한 색이 SOLVE 전이고 옅은 색이 결과 뒤이다. 아래 칸은 오답률($\bullet$), 라운드 시작 참여 자리 중 EXIT 비율($\triangle$)과 꺼짐 비율($\times$)이다. EXIT와 꺼짐이 없는 라운드는 표시하지 않았고, 눈금 아래 숫자는 그 라운드를 시작한 판 수다.}
+\label{fig:arena-gini}
+\end{figure*}

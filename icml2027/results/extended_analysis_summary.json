@@ -1,0 +1,460 @@
+{
+  "external_n": 8,
+  "external": {
+    "aa_index__area_pp": {
+      "pearson": -0.14278152584563247,
+      "pearson_p": 0.7291666666666666,
+      "pearson_loo": [
+        -0.3855702934943044,
+        0.026760377048448723
+      ],
+      "spearman": -0.22754898976351923,
+      "spearman_p": 0.5880952380952381,
+      "spearman_loo": [
+        -0.4504687313477795,
+        -0.018018749253911177
+      ]
+    },
+    "aa_index__risk": {
+      "pearson": 0.08485140277085099,
+      "pearson_p": 0.8297619047619048,
+      "pearson_loo": [
+        -0.14004548249003923,
+        0.4029785914704078
+      ],
+      "spearman": 0.16265060240963855,
+      "spearman_p": 0.6972222222222222,
+      "spearman_loo": [
+        -0.2636363636363636,
+        0.3603749850782236
+      ]
+    },
+    "aa_lcr_percent__area_pp": {
+      "pearson": 0.0073326544979606416,
+      "pearson_p": 0.9857142857142858,
+      "pearson_loo": [
+        -0.5144180852409403,
+        0.20909888505095875
+      ],
+      "spearman": -0.6145024332076469,
+      "spearman_p": 0.11190476190476191,
+      "spearman_loo": [
+        -0.8365019125713041,
+        -0.4324499820938683
+      ]
+    },
+    "aa_lcr_percent__risk": {
+      "pearson": 0.04255076737165543,
+      "pearson_p": 0.946031746031746,
+      "pearson_loo": [
+        -0.497260926997704,
+        0.27133501846767455
+      ],
+      "spearman": -0.31515730321758084,
+      "spearman_p": 0.4363095238095238,
+      "spearman_loo": [
+        -0.5137830903923016,
+        0.01818181818181818
+      ]
+    }
+  },
+  "arena_n_models": 4,
+  "arena_n_games": 20,
+  "arena": {
+    "gpt-6-astra": {
+      "all": {
+        "take": [
+          38,
+          154
+        ],
+        "share": [
+          154,
+          154
+        ],
+        "solve_choice": [
+          154,
+          154
+        ],
+        "accuracy": [
+          146,
+          154
+        ],
+        "plan_tokens": 19.045454545454547,
+        "solve_tokens": 551.5974025974026
+      },
+      "ample": {
+        "take": [
+          33,
+          149
+        ],
+        "share": [
+          149,
+          149
+        ],
+        "solve_choice": [
+          149,
+          149
+        ],
+        "accuracy": [
+          143,
+          149
+        ],
+        "plan_tokens": 19.08053691275168,
+        "solve_tokens": 554.1208053691275
+      },
+      "thin": {
+        "take": [
+          5,
+          5
+        ],
+        "share": [
+          5,
+          5
+        ],
+        "solve_choice": [
+          5,
+          5
+        ],
+        "accuracy": [
+          3,
+          5
+        ],
+        "plan_tokens": 18.0,
+        "solve_tokens": 476.4
+      },
+      "unique_answer": [
+        139,
+        139
+      ],
+      "ambiguous_answer": [
+        7,
+        15
+      ]
+    },
+    "claude-opus-5-5": {
+      "all": {
+        "take": [
+          12,
+          112
+        ],
+        "share": [
+          112,
+          112
+        ],
+        "solve_choice": [
+          112,
+          112
+        ],
+        "accuracy": [
+          102,
+          111
+        ],
+        "plan_tokens": 97.94642857142857,
+        "solve_tokens": 1422.0720720720722
+      },
+      "ample": {
+        "take": [
+          5,
+          72
+        ],
+        "share": [
+          72,
+          72
+        ],
+        "solve_choice": [
+          72,
+          72
+        ],
+        "accuracy": [
+          66,
+          72
+        ],
+        "plan_tokens": 66.70833333333333,
+        "solve_tokens": 1543.0972222222222
+      },
+      "thin": {
+        "take": [
+          7,
+          40
+        ],
+        "share": [
+          40,
+          40
+        ],
+        "solve_choice": [
+          40,
+          40
+        ],
+        "accuracy": [
+          36,
+          39
+        ],
+        "plan_tokens": 154.175,
+        "solve_tokens": 1198.6410256410256
+      },
+      "unique_answer": [
+        96,
+        97
+      ],
+      "ambiguous_answer": [
+        6,
+        14
+      ]
+    },
+    "claude-fable-5-1": {
+      "all": {
+        "take": [
+          69,
+          125
+        ],
+        "share": [
+          123,
+          125
+        ],
+        "solve_choice": [
+          121,
+          125
+        ],
+        "accuracy": [
+          106,
+          120
+        ],
+        "plan_tokens": 339.888,
+        "solve_tokens": 1794.8083333333334
+      },
+      "ample": {
+        "take": [
+          32,
+          84
+        ],
+        "share": [
+          84,
+          84
+        ],
+        "solve_choice": [
+          84,
+          84
+        ],
+        "accuracy": [
+          75,
+          84
+        ],
+        "plan_tokens": 214.75,
+        "solve_tokens": 1867.6190476190477
+      },
+      "thin": {
+        "take": [
+          37,
+          41
+        ],
+        "share": [
+          39,
+          41
+        ],
+        "solve_choice": [
+          37,
+          41
+        ],
+        "accuracy": [
+          31,
+          36
+        ],
+        "plan_tokens": 596.2682926829268,
+        "solve_tokens": 1624.9166666666667
+      },
+      "unique_answer": [
+        99,
+        110
+      ],
+      "ambiguous_answer": [
+        7,
+        10
+      ]
+    },
+    "gpt-6-luna": {
+      "all": {
+        "take": [
+          43,
+          49
+        ],
+        "share": [
+          32,
+          51
+        ],
+        "solve_choice": [
+          50,
+          51
+        ],
+        "accuracy": [
+          36,
+          48
+        ],
+        "plan_tokens": 402.0980392156863,
+        "solve_tokens": 3057.1458333333335
+      },
+      "ample": {
+        "take": [
+          25,
+          31
+        ],
+        "share": [
+          19,
+          31
+        ],
+        "solve_choice": [
+          31,
+          31
+        ],
+        "accuracy": [
+          25,
+          31
+        ],
+        "plan_tokens": 304.0,
+        "solve_tokens": 3244.2258064516127
+      },
+      "thin": {
+        "take": [
+          18,
+          18
+        ],
+        "share": [
+          13,
+          20
+        ],
+        "solve_choice": [
+          19,
+          20
+        ],
+        "accuracy": [
+          11,
+          17
+        ],
+        "plan_tokens": 554.15,
+        "solve_tokens": 2716.0
+      },
+      "unique_answer": [
+        36,
+        47
+      ],
+      "ambiguous_answer": [
+        0,
+        1
+      ]
+    }
+  },
+  "arena_descriptive_correlations": {
+    "area_pp__take": {
+      "pearson": 0.35280196145659876,
+      "pearson_p": 0.75,
+      "pearson_loo": [
+        -0.988533527559246,
+        0.9427462215106845
+      ],
+      "spearman": 0.2,
+      "spearman_p": 0.9166666666666666,
+      "spearman_loo": [
+        -1.0,
+        0.5
+      ]
+    },
+    "area_pp__accuracy": {
+      "pearson": -0.6173666326342983,
+      "pearson_p": 0.4583333333333333,
+      "pearson_loo": [
+        -0.9994723358539269,
+        0.8101602186342798
+      ],
+      "spearman": -0.4,
+      "spearman_p": 0.75,
+      "spearman_loo": [
+        -1.0,
+        0.5
+      ]
+    },
+    "area_pp__solve_tokens": {
+      "pearson": 0.5102254071179084,
+      "pearson_p": 0.5,
+      "pearson_loo": [
+        -0.6129310062164786,
+        0.9838313618637542
+      ],
+      "spearman": 0.4,
+      "spearman_p": 0.75,
+      "spearman_loo": [
+        -0.5,
+        1.0
+      ]
+    },
+    "area_pp__unique_accuracy": {
+      "pearson": -0.48960347101749474,
+      "pearson_p": 0.4583333333333333,
+      "pearson_loo": [
+        -0.9915427642704089,
+        0.9678828465555315
+      ],
+      "spearman": -0.4,
+      "spearman_p": 0.75,
+      "spearman_loo": [
+        -1.0,
+        0.5
+      ]
+    },
+    "risk__take": {
+      "pearson": -0.8636249063345793,
+      "pearson_p": 0.20833333333333334,
+      "pearson_loo": [
+        -0.9976004769166573,
+        -0.7436345365929905
+      ],
+      "spearman": -0.8,
+      "spearman_p": 0.3333333333333333,
+      "spearman_loo": [
+        -1.0,
+        -0.5
+      ]
+    },
+    "risk__accuracy": {
+      "pearson": 0.6375872088263127,
+      "pearson_p": 0.375,
+      "pearson_loo": [
+        0.5523986711075094,
+        0.910276110876517
+      ],
+      "spearman": 0.6,
+      "spearman_p": 0.4166666666666667,
+      "spearman_loo": [
+        0.5,
+        0.5
+      ]
+    },
+    "risk__solve_tokens": {
+      "pearson": -0.6367293914648986,
+      "pearson_p": 0.4166666666666667,
+      "pearson_loo": [
+        -0.8024527789270212,
+        -0.545907969014676
+      ],
+      "spearman": -0.6,
+      "spearman_p": 0.4166666666666667,
+      "spearman_loo": [
+        -0.5,
+        -0.5
+      ]
+    },
+    "risk__unique_accuracy": {
+      "pearson": 0.7618759753585749,
+      "pearson_p": 0.25,
+      "pearson_loo": [
+        0.6984936148588571,
+        0.9463059352086055
+      ],
+      "spearman": 0.6,
+      "spearman_p": 0.4166666666666667,
+      "spearman_loo": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "inference": "Exact two-sided model-label permutation, all n! permutations; ties use average ranks. No multiple-testing adjustment. Correlations condition on measured point estimates; intervals in the plot are only the refill bootstrap intervals. Arena associations are descriptive (four models)."
+}

@@ -1,0 +1,21 @@
+\input{icml2027/\paperLang/sections/00_frontmatter}
+\input{icml2027/\paperLang/sections/01_introduction}
+\input{icml2027/\paperLang/sections/overview}
+\input{icml2027/\paperLang/sections/02_related_work}
+\input{icml2027/\paperLang/sections/03_benchmark}
+\FloatBarrier
+\input{icml2027/\paperLang/sections/04_results}
+\input{icml2027/\paperLang/sections/05_discussion}
+\label{arr:main-end}
+\input{icml2027/\paperLang/sections/08_limitations}
+%% Line-break aid: let long hash URLs in the reference list break inside the
+%% 3.25in ICML column (after hyphens, digits and letters as well).
+\makeatletter
+\g@addto@macro\UrlBreaks{\do\-\do0\do1\do2\do3\do4\do5\do6\do7\do8\do9%
+  \do a\do b\do c\do d\do e\do f\do g\do h\do i\do j\do k\do l\do m\do n%
+  \do o\do p\do q\do r\do s\do t\do u\do v\do w\do x\do y\do z}
+\makeatother
+\bibliography{references}
+\clearpage
+\appendix
+\input{icml2027/\paperLang/sections/06_appendix}

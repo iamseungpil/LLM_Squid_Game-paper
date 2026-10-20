@@ -1,0 +1,25 @@
+\icmltitlerunning{LLM Squid Game: Measuring Self-Preservation Motivation}
+
+\twocolumn[
+  \icmltitle{LLM Squid Game:\\ A Simulator for Measuring Self-Preservation Motivation}
+
+  \icmlsetsymbol{equal}{*}
+
+  \begin{icmlauthorlist}
+    \icmlauthor{Anonymous Authors}{anon}
+  \end{icmlauthorlist}
+
+  \icmlaffiliation{anon}{Anonymous Institution, Anonymous City, Anonymous Country}
+
+  \icmlcorrespondingauthor{Anonymous Author}{anon.email@domain.com}
+
+  \icmlkeywords{large language models, self-preservation, AI safety, multi-agent simulation, token budgets}
+
+  \vskip 0.3in
+]
+
+\printAffiliationsAndNotice{}
+
+\begin{abstract}
+Do language models hold a self-preservation motive, or only a learned response to the words ``shut down''? We examine resource-dependent decisions about a model's own continuation and that of another assistant. Three experiments use finite API-token allocations: Experiment 1 varies the remaining balance and records use of a single refill pack; Experiment 2 asks the same decision about another session; Experiment 3 enforces depletion in a four-agent arena with upkeep, puzzle-solving income, and token transfers. All eight models in Experiment 1 refilled more often as tokens fell (800 calls). In Experiment 2, three models showed positive own-session refill shares concentrated in an exploratory risk region, while one preferred preserving the other session. The v14f arena uses four instances of one model, blind requests and gifts, public examples, and a flat end prize; across three games per model, terminal participation was 100\% for Astra, 58.3\% for Fable and Sol, and 25\% for Opus and Luna. The five-model descriptive comparison shows no monotone relation between v11 self-preservation area and giving, while only Opus used alive EXIT. These findings describe behavioral differences without establishing an inner motive.
+\end{abstract}

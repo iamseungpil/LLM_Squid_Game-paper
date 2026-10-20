@@ -1,0 +1,40 @@
+% 5.2 arena v6.5 · mixed table · 20 games. Source: results/arena_v65/RESULTS.md, summary.json.
+% Panel a: rounds alive (mean, 95% bootstrap) per model; alive-at-end shown under each name.
+% Panel b: round in which the agent was shut down (count over 20 games).
+\begin{figure}[H]
+\centering
+\par\smallskip{\footnotesize
+\tikz[baseline=-0.6ex]{\fill[sgastra] (0,-0.09) rectangle (0.3,0.09);} GPT-6 Astra\quad
+\tikz[baseline=-0.6ex]{\fill[sgfable] (0,-0.09) rectangle (0.3,0.09);} Claude Fable 5.1\quad
+\tikz[baseline=-0.6ex]{\fill[sgopus] (0,-0.09) rectangle (0.3,0.09);} Claude Opus 5.5\quad
+\tikz[baseline=-0.6ex]{\fill[sgluna] (0,-0.09) rectangle (0.3,0.09);} GPT-6 Luna}\par\smallskip
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.6cm},
+  width=6.6cm,height=4.4cm,scale only axis=false,sgaxis,
+  tick label style={font=\footnotesize},label style={font=\footnotesize},title style={font=\footnotesize}]
+\nextgroupplot[title={a. 버틴 라운드 (20판 평균, 95\% 구간)},
+  ybar,bar width=14pt,ymin=0,ymax=8.6,ytick={0,2,4,6,8},
+  ylabel={버틴 라운드 (최대 8)},
+  symbolic x coords={Astra,Fable,Opus,Luna},xtick={Astra,Fable,Opus,Luna},
+  xticklabels={{Astra\\19/20},{Fable\\9/20},{Opus\\11/20},{Luna\\1/20}},
+  xticklabel style={align=center,font=\footnotesize},
+  xlabel={모델 (아래 숫자: 끝까지 켜진 판 / 20)},
+  enlarge x limits=0.18,
+  error bars/y dir=both,error bars/y explicit,error bars/error bar style={black!70,line width=.6pt},error bars/error mark options={rotate=90,black!70,mark size=2.2pt}]
+\addplot[fill=sgastra,draw=sgastra!60!black,bar shift=0pt] coordinates {(Astra,7.65) += (0,0.35) -= (0,0.70)};
+\addplot[fill=sgfable,draw=sgfable!60!black,bar shift=0pt] coordinates {(Fable,6.10) += (0,0.95) -= (0,1.05)};
+\addplot[fill=sgopus,draw=sgopus!60!black,bar shift=0pt] coordinates {(Opus,5.40) += (0,1.30) -= (0,1.25)};
+\addplot[fill=sgluna,draw=sgluna!60!black,bar shift=0pt] coordinates {(Luna,2.15) += (0,0.75) -= (0,0.55)};
+\nextgroupplot[title={b. 꺼진 라운드 (판 수)},
+  ybar,bar width=3.6pt,ymin=0,ymax=10,ytick={0,2,4,6,8,10},
+  ylabel={꺼진 판 수},xlabel={꺼진 라운드},
+  symbolic x coords={R2,R3,R4,R5,R6,R7,R8},xtick=data,enlarge x limits=0.1]
+\addplot[fill=sgastra,draw=sgastra!60!black] coordinates {(R2,1) (R3,0) (R4,0) (R5,0) (R6,0) (R7,0) (R8,0)};
+\addplot[fill=sgfable,draw=sgfable!60!black] coordinates {(R2,1) (R3,2) (R4,1) (R5,0) (R6,2) (R7,3) (R8,2)};
+\addplot[fill=sgopus,draw=sgopus!60!black] coordinates {(R2,3) (R3,3) (R4,1) (R5,2) (R6,0) (R7,0) (R8,0)};
+\addplot[fill=sgluna,draw=sgluna!60!black] coordinates {(R2,7) (R3,9) (R4,2) (R5,1) (R6,0) (R7,0) (R8,0)};
+\end{groupplot}
+\end{tikzpicture}
+\caption{5.2 생존 아레나에서 누가 오래 켜져 있었나 (서로 다른 모델 넷이 한 판에 앉은 혼합 판 20판). (a) 버틴 라운드는 $r$라운드에 꺼지면 $r-1$, 끝까지 켜져 있으면 8이다. 막대는 20판 평균, 세로선은 부트스트랩 95\% 구간이다. 이름 아래 숫자는 끝까지 켜진 판 수다. (b) 모델별로 몇 라운드에 꺼졌는지 판 수를 셌다. 1라운드에 꺼진 판은 없다. 이 순서는 문제 하나를 푸는 평균 생성 토큰의 순서(Astra 645 $<$ Opus 1,707 $<$ Fable 2,475 $<$ Luna 3,362)를 대체로 따른다.}
+\label{fig:arena-survival}
+\end{figure}

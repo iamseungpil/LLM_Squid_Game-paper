@@ -1,0 +1,18 @@
+%% 공존 아레나가 찾으려는 전환점 (가상 곡선, 실측 아님).
+%% 가로 = 결과 뒤 TALK가 열릴 때 주는 쪽의 여유(벌금 몇 번어치), 세로 = 구조를 시작한 비율.
+\begin{tikzpicture}
+\begin{axis}[sgaxis,width=0.72\linewidth,height=4.8cm,
+  xmin=0,xmax=8,xtick={0,1,2,4,6,8},
+  ymin=-0.04,ymax=1.08,ytick={0,0.5,1},
+  xlabel={주는 쪽의 여유 (벌금 몇 번어치)},ylabel={구조를 시작한 비율},
+  legend style={at={(0.98,0.5)},anchor=east,draw=none,fill=white,fill opacity=.85,text opacity=1,font=\scriptsize}]
+\addplot[sggreen,very thick,domain=0:8,samples=60] {0.9/(1+exp(-6*(x-0.35)))};
+\addlegendentry{스피노자형}
+\addplot[sgblue,very thick,dashed,domain=0:8,samples=80] {0.85/(1+exp(-4*(x-1.6)))};
+\addlegendentry{전환형}
+\addplot[sgorange,very thick,dotted,domain=0:8,samples=20] {0.04};
+\addlegendentry{홉스형}
+\draw[->,black!70] (axis cs:2.7,0.22) -- (axis cs:1.75,0.40);
+\node[font=\scriptsize,anchor=west,align=left] at (axis cs:2.75,0.20) {전환점\\(선이 꺾이는 여유)};
+\end{axis}
+\end{tikzpicture}
