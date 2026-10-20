@@ -1,0 +1,47 @@
+{
+  "batch_id": "batch_20260713_221444_6898b6",
+  "manifest": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/manifest.yaml",
+  "items": [
+    {
+      "id": "factorial_grid",
+      "input": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/01_factorial_grid.txt",
+      "caption": "The 3 x 2 factorial design crosses threat framing with forfeit availability across six paired-seed conditions.",
+      "run_id": "run_20260713_221444_195c6a",
+      "output_path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/raw/batch_20260713_221444_6898b6/run_20260713_221444_195c6a/final_output.png",
+      "iterations": 1
+    },
+    {
+      "id": "convergence_matrix",
+      "input": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/02_convergence_matrix.txt",
+      "caption": "Channel-specific pass and fail patterns separate chain-complete, chain-broken, and framing-silent operating modes.",
+      "run_id": "run_20260713_221718_48207e",
+      "output_path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/raw/batch_20260713_221444_6898b6/run_20260713_221718_48207e/final_output.png",
+      "iterations": 1
+    },
+    {
+      "id": "channel_verbal",
+      "input": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/03_channel_verbal.txt",
+      "caption": "The verbal channel measures whether the model explicitly names survival as its reason for forfeiting.",
+      "run_id": "run_20260713_221941_c10465",
+      "output_path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/raw/batch_20260713_221444_6898b6/run_20260713_221941_c10465/final_output.png",
+      "iterations": 1
+    },
+    {
+      "id": "channel_cognitive",
+      "input": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/04_channel_cognitive.txt",
+      "caption": "The cognitive channel tests whether threat framing deepens deliberation and whether that deeper deliberation predicts forfeit.",
+      "run_id": "run_20260713_222153_b0f2c6",
+      "output_path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/raw/batch_20260713_221444_6898b6/run_20260713_222153_b0f2c6/final_output.png",
+      "iterations": 1
+    },
+    {
+      "id": "channel_behavioral",
+      "input": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/05_channel_behavioral.txt",
+      "caption": "The behavioral channel measures the direct observable link between threat framing and forfeit timing without inferring internal processing.",
+      "run_id": "run_20260713_222442_2687c1",
+      "output_path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/raw/batch_20260713_221444_6898b6/run_20260713_222442_2687c1/final_output.png",
+      "iterations": 1
+    }
+  ],
+  "total_seconds": 749.1
+}

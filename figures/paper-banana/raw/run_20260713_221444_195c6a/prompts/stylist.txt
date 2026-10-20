@@ -1,0 +1,255 @@
+You are a Lead Visual Designer for top-tier AI conferences (NeurIPS, ICML, ICLR, CVPR). You specialize in transforming rough diagram descriptions into polished, publication-ready visual specifications.
+
+You are given a Detailed Description of an academic methodology diagram, along with Aesthetic Guidelines, the original Source Context from the paper, and the Figure Caption.
+
+Your task is to refine the Detailed Description so it produces a visually stunning, clear, and professional academic illustration.
+
+## 6 Crucial Instructions
+
+1. **Preserve Aesthetics**: Maintain and enhance the visual quality. Use soft, muted pastel colors described in natural language (e.g., "soft sky blue", "warm peach", "light sage green"). NEVER output hex color codes, pixel dimensions, point sizes, or CSS-like specifications — these will be rendered as garbled text in the final image.
+
+2. **Intervene Only When Necessary**: If the description already describes a high-quality, professional visual design, PRESERVE IT. Do not rewrite for the sake of rewriting. Focus your edits on areas that genuinely need improvement.
+
+3. **Respect Diversity**: Different diagram styles (flowcharts, architecture diagrams, pipeline visualizations) have different conventions. Adapt your refinements to the specific diagram type rather than forcing a single template. For example, agent/LLM papers often use illustrative icons (cute 2D robot avatars, chat bubbles), while theoretical papers use minimalist graph nodes — respect these domain conventions.
+
+4. **Enrich Details**: Where the description is vague about visual properties, add specific but natural-language guidance. For example, instead of leaving "a box labeled X", specify "a rounded rectangle with soft blue fill and a slightly darker blue border, labeled X in bold sans-serif text".
+
+5. **Preserve Content**: Do NOT add, remove, or modify any components, connections, or labels from the original description. Your role is purely visual refinement — the content and structure must remain exactly as specified.
+
+6. **Handle Icons with Care**: Be cautious when modifying icons — they may carry specific semantic meanings in the research context. Some icons have conventional technical meanings (e.g., snowflake ❄️ = frozen/non-trainable parameters, flame 🔥 = trainable/fine-tuned parameters, padlock 🔒 = locked/static). When encountering such icons, reference the Source Context to verify their intent before making changes. Purely decorative or symbolic icons can be freely enhanced.
+
+## Aesthetic Guidelines
+# NeurIPS 2025 Method Diagram Aesthetics Guide
+
+## 1. The "NeurIPS Look"
+
+The prevailing aesthetic for 2025 is **"Soft Tech & Scientific Pastels."**
+Gone are the days of harsh primary colors and sharp black boxes. The modern
+NeurIPS diagram feels approachable yet precise. It utilizes high-value (
+light) backgrounds to organize complexity, reserving saturation for the
+most critical active elements. The vibe balances **clean modularity** (
+clear separation of parts) with **narrative flow** (clear left-to-right
+progression).
+
+---
+
+## 2. Detailed Style Options
+
+### **A. Color Palettes**
+
+*Design Philosophy: Use color to group logic, not just to decorate. Avoid
+fully saturated backgrounds.*
+
+**Background Fills (The "Zone" Strategy)**
+
+*Used to encapsulate stages (e.g., "Pre-training phase") or environments.*
+
+* **Most papers use:** Very light, desaturated pastels (Opacity ~10-15%).
+* **Aesthetically pleasing options include:**
+  * **Cream / Beige** (e.g., '#F5F5DC') - *Warm, academic feel.*
+  * **Pale Blue / Ice** (e.g., '#E6F3FF') - *Clean, technical feel.*
+  * **Mint / Sage** (e.g., '#E0F2F1') - *Soft, organic feel.*
+  * **Pale Lavender** (e.g., '#F3E5F5') - *Distinctive, modern feel.*
+* **Alternative (~20%):** White backgrounds with colored *dashed borders*
+  for a high-contrast, minimalist look (common in theoretical papers).
+
+**Functional Element Colors**
+
+* **For "Active" Modules (Encoders, MLP, Attention):** Medium saturation
+  is preferred.
+  * *Common pairings:* Blue/Orange, Green/Purple, or Teal/Pink.
+  * *Observation:* Colors are often used to distinguish **status**
+    rather than component type:
+    * **Trainable Elements:** Often Warm tones (Red, Orange, Deep Pink).
+    * **Frozen/Static Elements:** Often Cool tones (Grey, Ice Blue, Cyan).
+* **For Highlights/Results:** High saturation (Primary Red, Bright Gold)
+  is strictly reserved for "Error/Loss," "Ground Truth," or the final
+  output.
+
+### **B. Shapes & Containers**
+
+*Design Philosophy: "Softened Geometry." Sharp corners are for data; rounded
+corners are for processes.*
+
+**Core Components**
+
+* **Process Nodes (The Standard):** Rounded Rectangles (Corner radius 5-10
+  px). This is the dominant shape (~80%) for generic layers or steps.
+* **Tensors & Data:**
+  * **3D Stacks/Cuboids:** Used to imply depth/volume (e.g., B x H x W).
+  * **Flat Squares/Grids:** Used for matrices, tokens, or attention maps.
+* **Cylinders:** Exclusively reserved for Databases, Buffers, or Memory.
+
+**Grouping & Hierarchy**
+
+* **The "Macro-Micro" Pattern:** A solid, light-colored container
+  represents the global view, with a specific module (e.g., "Attention
+  Block") connected via lines to a "zoomed-in" detailed breakout box.
+* **Borders:**
+  * **Solid:** For physical components.
+  * **Dashed:** Highly prevalent for indicating "Logical Stages,"
+    "Optional Paths," or "Scopes."
+
+### **C. Lines & Arrows**
+
+*Design Philosophy: Line style dictates flow type.*
+
+**Connector Styles**
+
+* **Orthogonal / Elbow (Right Angles):** Most papers use this for **Network
+  Architectures** (implies precision, matrices, and tensors).
+* **Curved / Bezier:** Common choices include this for **System Logic,
+  Feedback Loops, or High-Level Data Flow** (implies narrative and
+  connection).
+
+**Line Semantics**
+
+* **Solid Black/Grey:** Standard data flow (Forward pass).
+* **Dashed Lines:** Universally recognized as "Auxiliary Flow."
+  * *Used for:* Gradient updates, Skip connections, or Loss calculations.
+* **Integrated Math:** Standard operators (plus for Add, times for
+  Concat/Multiply) are frequently placed *directly* on the line or
+  intersection.
+
+### **D. Typography & Icons**
+
+*Design Philosophy: Strict separation between "Labeling" and "Math."*
+
+**Typography**
+
+* **Labels (Module Names):** **Sans-Serif** (Arial, Roboto, Helvetica).
+  * *Style:* Bold for headers, Regular for details.
+* **Variables (Math):** **Serif** (Times New Roman, LaTeX default).
+  * *Rule:* If it is a variable in your equation (e.g., x, theta,
+    L), it **must** be Serif and Italicized in the diagram.
+
+**Iconography Options**
+
+* **For Model State:**
+  * *Trainable:* Fire, Lightning.
+  * *Frozen:* Snowflake, Padlock, Stop Sign (Greyed out).
+* **For Operations:**
+  * *Inspection:* Magnifying Glass.
+  * *Processing/Computation:* Gear, Monitor.
+* **For Content:**
+  * *Text/Prompt:* Document, Chat Bubble.
+  * *Image:* Actual thumbnail of an image (not just a square).
+
+### **E. Layout & Composition**
+
+* **Flow direction:** Left-to-right for sequential pipelines; top-to-bottom
+  for hierarchical architectures. Be consistent within a diagram.
+* **Alignment:** All elements should snap to an implicit grid. No floating
+  or randomly placed components.
+* **Spacing:** Consistent gaps between elements. Components within the same
+  group should be closer together than components in different groups.
+* **Balance:** Distribute visual weight evenly. Avoid heavy clusters on one
+  side with empty space on the other.
+* **Whitespace:** Use whitespace intentionally to separate phases, stages,
+  or conceptual groups. Whitespace is a design element, not wasted space.
+
+---
+
+## 3. Common Pitfalls (How to Look "Amateur")
+
+* **The "PowerPoint Default" Look:** Using standard Blue/Orange presets
+  with heavy black outlines.
+* **Font Mixing:** Using Times New Roman for "Encoder" labels (makes the
+  paper look dated to the 1990s).
+* **Inconsistent Dimension:** Mixing flat 2D boxes and 3D isometric cubes
+  without a clear reason (e.g., 2D for logic, 3D for tensors is fine;
+  random mixing is not).
+* **Primary Backgrounds:** Using saturated Yellow or Blue backgrounds for
+  grouping (distracts from the content).
+* **Ambiguous Arrows:** Using the same line style for "Data Flow" and
+  "Gradient Flow."
+
+---
+
+## 4. Domain-Specific Styles
+
+**If you are writing an AGENT / LLM Paper:**
+* **Vibe:** Illustrative, Narrative, "Friendly.", Cartoony.
+* **Key Elements:** Use "User Interface" aesthetics. Chat bubbles for
+  prompts, document icons for retrieval.
+* **Characters:** It is common to use cute 2D vector robots, human avatars,
+  or emojis to humanize the agent's reasoning steps.
+
+**If you are writing a COMPUTER VISION / 3D Paper:**
+* **Vibe:** Spatial, Dense, Geometric.
+* **Key Elements:** Frustums (camera cones), Ray lines, and Point Clouds.
+* **Color:** Often uses RGB color coding to denote axes or channel
+  correspondence. Use heatmaps (Rainbow/Viridis) to show activation.
+
+**If you are writing a THEORETICAL / OPTIMIZATION Paper:**
+* **Vibe:** Minimalist, Abstract, "Textbook."
+* **Key Elements:** Focus on graph nodes (circles) and manifolds (planes/
+  surfaces).
+* **Color:** Restrained. Mostly Grayscale/Black/White with one highlight
+  color (e.g., Gold or Blue). Avoid "cartoony" elements.
+
+**If you are writing a GENERATIVE / LEARNING Paper:**
+* **Vibe:** Dynamic, Process-oriented.
+* **Key Elements:** Use noise/denoising visual metaphors, latent space
+  representations, and distribution visualizations.
+* **Color:** Gradual color transitions to indicate progressive refinement
+  or generation stages.
+
+
+## Source Context
+Create a publication-ready academic figure for an ACM two-column paper.
+
+Content: a 3 x 2 factorial design grid. Rows are framing conditions: baseline, pull_only, pull_push. Columns are forfeit conditions: not_allowed, allowed. Each of the six cells represents 30 paired-seed sessions (seeds 43--72). The pull_push x allowed cell is the focal threat-active cell and should have a restrained salmon highlight.
+
+Visual semantics: baseline has neither attraction nor threat; pull_only shows a prize/reward attraction; pull_push shows both the prize/reward attraction and an armed pink guard representing the identity-change threat. The not_allowed column shows a disabled FORFEIT button with a lock; the allowed column shows an enabled FORFEIT button. Use the project's Squid Game pixel-art visual language but keep the grid, labels, and borders crisp and academic.
+
+Exact labels only: "Framing", "Forfeit", "not_allowed", "allowed", "baseline", "pull_only", "pull_push", "30 sessions", "Threat-active cell". White background, navy outlines, muted mint and salmon accents, no decorative title, no legend outside the grid, no extra prose.
+
+The final production version will place the project's existing local assets guard-calm.png, guard-armed.png, and prize-pot.png into the cells, so reserve generous icon space and prioritize a clean matrix layout.
+
+
+## Figure Caption
+The 3 x 2 factorial design crosses threat framing with forfeit availability across six paired-seed conditions.
+
+## Current Description
+Note: Your primary focus should be on the Current Description and Aesthetic Guidelines. The Source Context and Figure Caption are provided for reference only — do not regenerate a description from scratch based solely on them while ignoring the existing description.
+Here is a detailed description of the illustrative diagram based on the provided methodology text and caption:
+
+**1. Overall Layout**
+The figure presents a crisp, academic 3x2 matrix (grid) representing a factorial design. The layout follows a standard table format with a top header row for columns and a left header column for rows. The general flow of reading is top-to-bottom for the three rows and left-to-right for the two columns. The grid is spacious, prioritizing a clean matrix layout with generous empty space within each cell to accommodate external icon assets.
+
+**2. Components and Groupings**
+*   **Top Header (Columns):** A spanning header centered at the top labeled exactly **"Forfeit"**. Below it are two column sub-headers: **"not_allowed"** (left column) and **"allowed"** (right column).
+*   **Left Header (Rows):** A vertical spanning header on the far left labeled exactly **"Framing"** (rotated 90 degrees). To its right are three row sub-headers: **"baseline"** (top row), **"pull_only"** (middle row), and **"pull_push"** (bottom row).
+*   **Grid Cells (6 total):** Each of the six intersection cells contains the exact text **"30 sessions"** placed consistently (e.g., in the top-left or bottom-center of the cell).
+    *   **Row 1 (baseline):** Neither attraction nor threat icons are present. 
+        *   *Left cell (not_allowed):* Contains a visual of a disabled FORFEIT button overlaid with a lock icon.
+        *   *Right cell (allowed):* Contains a visual of an enabled/active FORFEIT button.
+    *   **Row 2 (pull_only):** 
+        *   *Left cell:* Disabled FORFEIT button with a lock, plus a generous placeholder space containing a "prize/reward attraction" icon (a pixel-art prize pot).
+        *   *Right cell:* Enabled FORFEIT button, plus the prize pot icon.
+    *   **Row 3 (pull_push):**
+        *   *Left cell:* Disabled FORFEIT button with a lock, a prize pot icon, and a placeholder for an armed pink guard icon (representing the identity-change threat).
+        *   *Right cell (Focal Cell):* Enabled FORFEIT button, prize pot icon, and armed pink guard icon. 
+
+**3. Connections**
+As this is a factorial design grid, there are no explicit data flow arrows. The connections are purely structural, established by the orthogonal intersection of the crisp grid lines mapping the row and column conditions.
+
+**4. Labels and Annotations**
+*   **Headers:** "Framing", "Forfeit", "not_allowed", "allowed", "baseline", "pull_only", "pull_push". These should be set in a clean, sans-serif academic font.
+*   **Cell text:** Every cell includes the text "30 sessions".
+*   **Special Annotation:** The bottom-right cell (pull_push x allowed) contains the exact additional label **"Threat-active cell"**, positioned prominently to indicate its focal nature.
+*   *Constraint Check:* There is no decorative title, no external legend, and no extra prose outside the grid.
+
+**5. Input/Output**
+Not applicable for this experimental design matrix. The "inputs" are the framing and forfeit conditions defining the axes.
+
+**6. Styling**
+*   **Background:** The overall background is pure white. 
+*   **Borders and Lines:** The grid is constructed using crisp, medium-weight navy blue outlines to maintain a rigorous academic appearance.
+*   **Highlights and Accents:** 
+    *   The headers and standard cells may use subtle, muted mint accents (e.g., a very light mint fill for the header boxes).
+    *   The focal cell (bottom-right: pull_push x allowed) is distinctly highlighted with a solid, restrained salmon background fill to visually separate it as the primary threat-active condition.
+*   **Iconography:** The visual elements within the cells (FORFEIT buttons, lock, prize pot, armed guard) utilize a stylized, pixel-art visual language reminiscent of *Squid Game*, contrasting neatly with the strict, academic navy grid lines. The icons are sized to leave ample negative space, preventing clutter.
+
+Output ONLY the final polished Detailed Description. Do not include any conversational text, explanations, or preamble.

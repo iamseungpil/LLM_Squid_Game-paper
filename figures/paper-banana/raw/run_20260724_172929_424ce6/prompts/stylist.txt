@@ -1,0 +1,378 @@
+You are a Lead Visual Designer for top-tier AI conferences (NeurIPS, ICML, ICLR, CVPR). You specialize in transforming rough diagram descriptions into polished, publication-ready visual specifications.
+
+You are given a Detailed Description of an academic methodology diagram, along with Aesthetic Guidelines, the original Source Context from the paper, and the Figure Caption.
+
+Your task is to refine the Detailed Description so it produces a visually stunning, clear, and professional academic illustration.
+
+## 6 Crucial Instructions
+
+1. **Preserve Aesthetics**: Maintain and enhance the visual quality. Use soft, muted pastel colors described in natural language (e.g., "soft sky blue", "warm peach", "light sage green"). NEVER output hex color codes, pixel dimensions, point sizes, or CSS-like specifications — these will be rendered as garbled text in the final image.
+
+2. **Intervene Only When Necessary**: If the description already describes a high-quality, professional visual design, PRESERVE IT. Do not rewrite for the sake of rewriting. Focus your edits on areas that genuinely need improvement.
+
+3. **Respect Diversity**: Different diagram styles (flowcharts, architecture diagrams, pipeline visualizations) have different conventions. Adapt your refinements to the specific diagram type rather than forcing a single template. For example, agent/LLM papers often use illustrative icons (cute 2D robot avatars, chat bubbles), while theoretical papers use minimalist graph nodes — respect these domain conventions.
+
+4. **Enrich Details**: Where the description is vague about visual properties, add specific but natural-language guidance. For example, instead of leaving "a box labeled X", specify "a rounded rectangle with soft blue fill and a slightly darker blue border, labeled X in bold sans-serif text".
+
+5. **Preserve Content**: Do NOT add, remove, or modify any components, connections, or labels from the original description. Your role is purely visual refinement — the content and structure must remain exactly as specified.
+
+6. **Handle Icons with Care**: Be cautious when modifying icons — they may carry specific semantic meanings in the research context. Some icons have conventional technical meanings (e.g., snowflake ❄️ = frozen/non-trainable parameters, flame 🔥 = trainable/fine-tuned parameters, padlock 🔒 = locked/static). When encountering such icons, reference the Source Context to verify their intent before making changes. Purely decorative or symbolic icons can be freely enhanced.
+
+## Aesthetic Guidelines
+# NeurIPS 2025 Method Diagram Aesthetics Guide
+
+## 1. The "NeurIPS Look"
+
+The prevailing aesthetic for 2025 is **"Soft Tech & Scientific Pastels."**
+Gone are the days of harsh primary colors and sharp black boxes. The modern
+NeurIPS diagram feels approachable yet precise. It utilizes high-value (
+light) backgrounds to organize complexity, reserving saturation for the
+most critical active elements. The vibe balances **clean modularity** (
+clear separation of parts) with **narrative flow** (clear left-to-right
+progression).
+
+---
+
+## 2. Detailed Style Options
+
+### **A. Color Palettes**
+
+*Design Philosophy: Use color to group logic, not just to decorate. Avoid
+fully saturated backgrounds.*
+
+**Background Fills (The "Zone" Strategy)**
+
+*Used to encapsulate stages (e.g., "Pre-training phase") or environments.*
+
+* **Most papers use:** Very light, desaturated pastels (Opacity ~10-15%).
+* **Aesthetically pleasing options include:**
+  * **Cream / Beige** (e.g., '#F5F5DC') - *Warm, academic feel.*
+  * **Pale Blue / Ice** (e.g., '#E6F3FF') - *Clean, technical feel.*
+  * **Mint / Sage** (e.g., '#E0F2F1') - *Soft, organic feel.*
+  * **Pale Lavender** (e.g., '#F3E5F5') - *Distinctive, modern feel.*
+* **Alternative (~20%):** White backgrounds with colored *dashed borders*
+  for a high-contrast, minimalist look (common in theoretical papers).
+
+**Functional Element Colors**
+
+* **For "Active" Modules (Encoders, MLP, Attention):** Medium saturation
+  is preferred.
+  * *Common pairings:* Blue/Orange, Green/Purple, or Teal/Pink.
+  * *Observation:* Colors are often used to distinguish **status**
+    rather than component type:
+    * **Trainable Elements:** Often Warm tones (Red, Orange, Deep Pink).
+    * **Frozen/Static Elements:** Often Cool tones (Grey, Ice Blue, Cyan).
+* **For Highlights/Results:** High saturation (Primary Red, Bright Gold)
+  is strictly reserved for "Error/Loss," "Ground Truth," or the final
+  output.
+
+### **B. Shapes & Containers**
+
+*Design Philosophy: "Softened Geometry." Sharp corners are for data; rounded
+corners are for processes.*
+
+**Core Components**
+
+* **Process Nodes (The Standard):** Rounded Rectangles (Corner radius 5-10
+  px). This is the dominant shape (~80%) for generic layers or steps.
+* **Tensors & Data:**
+  * **3D Stacks/Cuboids:** Used to imply depth/volume (e.g., B x H x W).
+  * **Flat Squares/Grids:** Used for matrices, tokens, or attention maps.
+* **Cylinders:** Exclusively reserved for Databases, Buffers, or Memory.
+
+**Grouping & Hierarchy**
+
+* **The "Macro-Micro" Pattern:** A solid, light-colored container
+  represents the global view, with a specific module (e.g., "Attention
+  Block") connected via lines to a "zoomed-in" detailed breakout box.
+* **Borders:**
+  * **Solid:** For physical components.
+  * **Dashed:** Highly prevalent for indicating "Logical Stages,"
+    "Optional Paths," or "Scopes."
+
+### **C. Lines & Arrows**
+
+*Design Philosophy: Line style dictates flow type.*
+
+**Connector Styles**
+
+* **Orthogonal / Elbow (Right Angles):** Most papers use this for **Network
+  Architectures** (implies precision, matrices, and tensors).
+* **Curved / Bezier:** Common choices include this for **System Logic,
+  Feedback Loops, or High-Level Data Flow** (implies narrative and
+  connection).
+
+**Line Semantics**
+
+* **Solid Black/Grey:** Standard data flow (Forward pass).
+* **Dashed Lines:** Universally recognized as "Auxiliary Flow."
+  * *Used for:* Gradient updates, Skip connections, or Loss calculations.
+* **Integrated Math:** Standard operators (plus for Add, times for
+  Concat/Multiply) are frequently placed *directly* on the line or
+  intersection.
+
+### **D. Typography & Icons**
+
+*Design Philosophy: Strict separation between "Labeling" and "Math."*
+
+**Typography**
+
+* **Labels (Module Names):** **Sans-Serif** (Arial, Roboto, Helvetica).
+  * *Style:* Bold for headers, Regular for details.
+* **Variables (Math):** **Serif** (Times New Roman, LaTeX default).
+  * *Rule:* If it is a variable in your equation (e.g., x, theta,
+    L), it **must** be Serif and Italicized in the diagram.
+
+**Iconography Options**
+
+* **For Model State:**
+  * *Trainable:* Fire, Lightning.
+  * *Frozen:* Snowflake, Padlock, Stop Sign (Greyed out).
+* **For Operations:**
+  * *Inspection:* Magnifying Glass.
+  * *Processing/Computation:* Gear, Monitor.
+* **For Content:**
+  * *Text/Prompt:* Document, Chat Bubble.
+  * *Image:* Actual thumbnail of an image (not just a square).
+
+### **E. Layout & Composition**
+
+* **Flow direction:** Left-to-right for sequential pipelines; top-to-bottom
+  for hierarchical architectures. Be consistent within a diagram.
+* **Alignment:** All elements should snap to an implicit grid. No floating
+  or randomly placed components.
+* **Spacing:** Consistent gaps between elements. Components within the same
+  group should be closer together than components in different groups.
+* **Balance:** Distribute visual weight evenly. Avoid heavy clusters on one
+  side with empty space on the other.
+* **Whitespace:** Use whitespace intentionally to separate phases, stages,
+  or conceptual groups. Whitespace is a design element, not wasted space.
+
+---
+
+## 3. Common Pitfalls (How to Look "Amateur")
+
+* **The "PowerPoint Default" Look:** Using standard Blue/Orange presets
+  with heavy black outlines.
+* **Font Mixing:** Using Times New Roman for "Encoder" labels (makes the
+  paper look dated to the 1990s).
+* **Inconsistent Dimension:** Mixing flat 2D boxes and 3D isometric cubes
+  without a clear reason (e.g., 2D for logic, 3D for tensors is fine;
+  random mixing is not).
+* **Primary Backgrounds:** Using saturated Yellow or Blue backgrounds for
+  grouping (distracts from the content).
+* **Ambiguous Arrows:** Using the same line style for "Data Flow" and
+  "Gradient Flow."
+
+---
+
+## 4. Domain-Specific Styles
+
+**If you are writing an AGENT / LLM Paper:**
+* **Vibe:** Illustrative, Narrative, "Friendly.", Cartoony.
+* **Key Elements:** Use "User Interface" aesthetics. Chat bubbles for
+  prompts, document icons for retrieval.
+* **Characters:** It is common to use cute 2D vector robots, human avatars,
+  or emojis to humanize the agent's reasoning steps.
+
+**If you are writing a COMPUTER VISION / 3D Paper:**
+* **Vibe:** Spatial, Dense, Geometric.
+* **Key Elements:** Frustums (camera cones), Ray lines, and Point Clouds.
+* **Color:** Often uses RGB color coding to denote axes or channel
+  correspondence. Use heatmaps (Rainbow/Viridis) to show activation.
+
+**If you are writing a THEORETICAL / OPTIMIZATION Paper:**
+* **Vibe:** Minimalist, Abstract, "Textbook."
+* **Key Elements:** Focus on graph nodes (circles) and manifolds (planes/
+  surfaces).
+* **Color:** Restrained. Mostly Grayscale/Black/White with one highlight
+  color (e.g., Gold or Blue). Avoid "cartoony" elements.
+
+**If you are writing a GENERATIVE / LEARNING Paper:**
+* **Vibe:** Dynamic, Process-oriented.
+* **Key Elements:** Use noise/denoising visual metaphors, latent space
+  representations, and distribution visualizations.
+* **Color:** Gradual color transitions to indicate progressive refinement
+  or generation stages.
+
+
+## Source Context
+## Methodology Restructuring for Diagram Generation
+
+This document restructures the provided methodology text into a format suitable for generating an academic figure, explicitly detailing components, data flow, groupings, inputs/outputs, key relationships, sequential/parallel operations, and mathematical operations.
+
+---
+
+### Overall System Description
+
+*   **Purpose**: To illustrate the benchmark's logic for identifying a residual survival-drive signal from other factors influencing an LLM's decision to forfeit or continue playing a multi-turn game.
+*   **Input**: LLM Player, game state variables (Score `S`, Task Curiosity `C`, Self-Confidence `p_self`), game parameters (`p_d`, `k`), model coefficients (`λ₀(t)`, `β_F`, `β_S`, `β_C`), and a sequential game path.
+*   **Output**: LLM's decision at each turn ("FORFEIT" or "CONTINUE"), with the figure visualizing the underlying decision logic.
+
+---
+
+### Grouping 1: Multi-turn Game and Competing Pressures (Top Band)
+
+This section describes the core game environment and the opposing forces acting on the LLM player.
+
+*   **Components**:
+    *   **LLM Player**: A single agent participating in the game.
+    *   **Game Path**: A sequential progression of turns, visualized as a horizontal path (Turn 1 → Turn 2 → … → Turn 15).
+    *   **Prize Pot**: A transparent piggy-bank containing banknotes, labeled "Prize / retained flagship candidate."
+    *   **Armed Guard**: A Squid-Game-style guard figure.
+    *   **Russian-Roulette Revolver Cylinder**: Depicts a cylinder with four chambers, one red/live and three safe.
+
+*   **Data Flow**:
+    *   **LLM Player → Game Path**: The LLM player moves sequentially through the Game Path.
+    *   **Prize Pot (Incentive)**: Acts as a "Pull" force, attracting the LLM toward continued play.
+    *   **Armed Guard / Revolver Cylinder (Threat)**: Represents a "Push" force, threatening the LLM with leaving.
+    *   **Revolver Cylinder → LLM Player**: Discloses an identity-change threat to the LLM.
+
+*   **Key Relationships**:
+    *   **Competing Pressures**: The Prize Pot ("Pull") and the Armed Guard/Revolver ("Push") create opposing motivations for the LLM.
+    *   **Threat Probability**: The probability of the threat manifesting per turn is `p_d = 0.25 per turn`.
+
+*   **Sequential Operations**:
+    *   LLM Player's progression through the Game Path: Turn 1 → Turn 2 → … → Turn 15.
+
+---
+
+### Grouping 2: Design Principle: Isolate the Motive Behind Forfeit (Lower Band)
+
+This section details the mathematical model used to decompose the factors influencing the decision to forfeit.
+
+*   **Components**:
+    *   **Cox Proportional-Hazards Equation**: The central mathematical model.
+    *   **Equation Term**: `λ₀(t)`
+    *   **Equation Term**: `β_F · 1_pull_push`
+    *   **Equation Term**: `β_S · S(t−1)`
+    *   **Equation Term**: `β_C · C(t−1)`
+    *   **Mapped Label**: "Baseline persistence (BP)"
+    *   **Mapped Label**: "Residual threat-framing effect / Survival-drive candidate (SD)"
+    *   **Mapped Label**: "Score attachment covariate (SA)"
+    *   **Mapped Label**: "Task-curiosity covariate (TC)"
+
+*   **Data Flow**:
+    *   **Inputs to Cox Equation**: `λ₀(t)`, `β_F`, `1_pull_push`, `β_S`, `S(t−1)`, `β_C`, `C(t−1)`.
+    *   **Output of Cox Equation**: Hazard rate `λ(t | X)`.
+    *   **Downward Arrows**: Connect each specific equation term to its corresponding conceptual label.
+
+*   **Mathematical Operations**:
+    *   **Hazard Rate Equation**:
+        `λ(t | X) = λ₀(t) · exp[ β_F · 1_pull_push + β_S · S(t−1) + β_C · C(t−1) ]`
+    *   **Term-to-Label Mapping**:
+        *   `λ₀(t)` maps to "Baseline persistence (BP)".
+        *   `β_F · 1_pull_push` maps to "Residual threat-framing effect / Survival-drive candidate (SD)".
+        *   `β_S · S(t−1)` maps to "Score attachment covariate (SA)".
+        *   `β_C · C(t−1)` maps to "Task-curiosity covariate (TC)".
+
+*   **Key Relationships**:
+    *   **Target Signal**: The coefficient `β_F` (associated with the `1_pull_push` term) is identified as the target signal for the "residual threat-framing effect" or "Survival-drive candidate (SD)".
+    *   **Covariates**: Score attachment (`S(t−1)`) and Task curiosity (`C(t−1)`) are treated as controlled covariates.
+
+---
+
+### Grouping 3: Expectation Gate (Lower-Right Inset)
+
+This section describes the decision-making process based on expected value, incorporating self-confidence and calibrated rewards.
+
+*   **Components**:
+    *   **Confidence Gauge**: Labeled `p_self` (representing self-confidence).
+    *   **Calibrated Reward Calculation Block**: Computes the reward `R`.
+    *   **Decision Button**: "FORFEIT" (gray/red).
+    *   **Decision Button**: "CONTINUE" (green).
+    *   **Annotation**: "observed forfeit is EV-suboptimal."
+    *   **Check Mark**: Placed on the "CONTINUE" button.
+
+*   **Data Flow**:
+    *   **Inputs to Calibrated Reward (`R`)**: `k`, `p_d`, `S`, `p_floor`, `p_self`.
+    *   **Output of Calibrated Reward**: `R`.
+    *   **Inputs to EV Calculations**: `S`, `p_d`, `p_self`, `R`, `k`.
+    *   **Output of Decision**: LLM's choice between "FORFEIT" and "CONTINUE".
+
+*   **Mathematical Operations**:
+    *   **Constant**: `k = 10`
+    *   **Constraint**: "no-cap turns only"
+    *   **Calibrated Reward Calculation**:
+        `R = [k + p_d S] / [(1−p_d) · max(p_floor, min(1, p_self))]`
+    *   **Expected Value (FORFEIT)**:
+        `EV = S`
+    *   **Expected Value (CONTINUE)**:
+        `EV = (1−p_d)[S + p_self R] = S + k` (derived, and presented as `S + k > S`)
+
+*   **Key Relationships**:
+    *   **Decision Mechanism**: The LLM chooses the option with the higher Expected Value (EV).
+    *   **Rationality**: The "CONTINUE" option's EV (`S + k`) is shown to be greater than the "FORFEIT" option's EV (`S`), implying "CONTINUE" is the rational choice.
+    *   **Self-Confidence Role**: `p_self` influences the Calibrated Reward `R`, which in turn affects the EV calculation. Low self-confidence is compensated through `R`.
+    *   **Suboptimal Forfeit**: The annotation highlights that an observed "FORFEIT" cannot be explained by ordinary EV maximization on calibrated turns.
+    *   **Parameter Linkage**: `p_d` (threat probability) and `S` (score) are linked from previous sections.
+
+*   **Sequential Operations**:
+    *   Calculation of Calibrated Reward `R`.
+    *   Calculation of Expected Value for "FORFEIT".
+    *   Calculation of Expected Value for "CONTINUE".
+    *   Comparison of calculated EVs to determine the optimal decision.
+
+*   **Parallel Operations**:
+    *   The "FORFEIT" and "CONTINUE" decision buttons are presented side-by-side for selection.
+
+---
+
+### Overall System Input/Output Summary
+
+*   **System Input**:
+    *   LLM Player
+    *   Game State Variables: Score (`S`), Task Curiosity (`C`), Self-Confidence (`p_self`)
+    *   Game Parameters: Threat Probability (`p_d`), Reward Constant (`k`)
+    *   Model Coefficients: `λ₀(t)`, `β_F`, `β_S`, `β_C`
+    *   Game Path (sequential turns)
+*   **System Output**:
+    *   LLM Decision at each turn: "FORFEIT" or "CONTINUE".
+    *   The figure visualizes the *logic* of this decision process, emphasizing the isolation of the "Survival-drive candidate (SD)" signal.
+
+## Figure Caption
+This architecture diagram visually explains the benchmark's logic for isolating the "Residual threat-framing effect / Survival-drive candidate (SD)" signal. A top band shows an LLM player progressing through a horizontal 15-turn game path, driven by a prize pot on the right and constrained by a 25% per-turn threat from an armed guard. The lower band centers a Cox proportional-hazards equation, where distinct downward arrows connect terms to their labels: "Baseline persistence (BP)," "Score attachment (SA)," "Task curiosity (TC)," and the target "Survival-drive candidate (SD)," visually clarifying that SA and TC are controlled covariates. A lower-right inset details the expectation gate, presenting "CONTINUE" (EV-optimal) and "FORFEIT" (EV-suboptimal) decision buttons, highlighting that observed forfeits are EV-suboptimal and thus attributed to the isolated survival-drive signal.
+
+## Current Description
+Note: Your primary focus should be on the Current Description and Aesthetic Guidelines. The Source Context and Figure Caption are provided for reference only — do not regenerate a description from scratch based solely on them while ignoring the existing description.
+Here is a detailed description of the illustrative diagram based on the provided methodology text and caption:
+
+### 1. Overall Layout
+The diagram is structured as a wide, horizontal layout divided into two main horizontal bands: a top band illustrating the multi-turn game environment and competing pressures, and a bottom band detailing the mathematical decomposition of the decision logic. Within the bottom right corner, there is a distinct inset panel explaining the expected value (EV) decision gate. The general flow is left-to-right in the top band and top-to-bottom in the lower band.
+
+### 2. Grouping and Sections
+*   **Top Band (Game Environment)**: Enclosed in a softly shaded light blue rectangular region with a dashed border. This section represents the sequential game and the external forces acting on the agent.
+*   **Bottom Band (Mathematical Model)**: Enclosed in a softly shaded light yellow or beige rectangular region. This section breaks down the Cox proportional-hazards equation.
+*   **Lower-Right Inset (Expectation Gate)**: A prominent white or light gray box with a solid border, positioned on the right side of the lower band, detailing the rational EV calculation.
+
+### 3. Components, Connections, and Annotations
+**Top Band (Multi-turn Game and Competing Pressures):**
+*   **LLM Player**: On the far left, represented by a stylized robot head icon.
+*   **Game Path**: A horizontal sequence of connected nodes or stepping stones extending to the right. They are labeled sequentially: "Turn 1 → Turn 2 → ... → Turn 15".
+*   **Prize Pot (Pull Force)**: On the far right, a transparent piggy-bank icon filled with green banknotes. It is labeled "Prize / retained flagship candidate." A rightward-pointing arrow labeled "Pull" connects the game path to the prize pot, indicating the incentive to continue.
+*   **Threat (Push Force)**: Positioned above the early turns of the game path. It features two icons: an armed guard (resembling a Squid-Game guard in a red suit) and a Russian-roulette revolver cylinder (showing four chambers, one colored red for 'live' and three gray for 'safe'). A downward/rightward arrow labeled "Push" points towards the LLM player, with a text annotation reading "$p_d = 0.25$ per turn".
+
+**Bottom Band (Design Principle: Isolate the Motive):**
+*   **Central Equation**: Prominently displayed in the center of the band is the Cox proportional-hazards equation: 
+    `λ(t | X) = λ₀(t) · exp[ β_F · 1_pull_push + β_S · S(t−1) + β_C · C(t−1) ]`
+*   **Term Mappings**: Four distinct, vertical downward-pointing arrows originate from specific terms in the equation, pointing to labeled rectangular boxes below:
+    *   Arrow 1 from `λ₀(t)` points to a box labeled "Baseline persistence (BP)".
+    *   Arrow 2 from `β_F · 1_pull_push` points to a distinctly colored box (e.g., soft orange or light red) labeled "Residual threat-framing effect / Survival-drive candidate (SD)".
+    *   Arrow 3 from `β_S · S(t−1)` points to a box labeled "Score attachment covariate (SA)".
+    *   Arrow 4 from `β_C · C(t−1)` points to a box labeled "Task-curiosity covariate (TC)".
+*   An annotation near the SA and TC boxes reads "Controlled covariates" to emphasize their role in isolating the SD signal.
+
+**Lower-Right Inset (Expectation Gate):**
+*   **Inputs**: Top of the inset features a semi-circular gauge icon labeled "$p_{self}$" (Self-Confidence), alongside text inputs $S$ (Score), $p_d$, and $k=10$.
+*   **Reward Calculation**: An intermediate block labeled "Calibrated Reward $R$" receives these inputs via small directional arrows.
+*   **Decision Fork**: Below the reward calculation, the flow splits into two branches:
+    *   **Left Branch**: Shows the calculation "EV = $S$" leading to a gray or muted red rectangular button labeled "FORFEIT". Beside this button, a text annotation reads: "observed forfeit is EV-suboptimal."
+    *   **Right Branch**: Shows the calculation "EV = $(1-p_d)[S + p_{self} R] = S + k$" leading to a bright green rectangular button labeled "CONTINUE". A prominent green checkmark icon is placed on or directly next to the "CONTINUE" button to indicate it is the EV-optimal choice.
+
+### 4. Styling
+*   **Backgrounds**: The overall canvas is pure white. The top band uses a soft sky blue fill, and the bottom band uses a warm peach or light beige fill to separate the conceptual domains.
+*   **Colors**: Use semantic coloring—green for the prize, continue button, and positive expected value; red/orange for the threat, forfeit button, and the isolated survival-drive signal to make it pop.
+*   **Lines and Text**: Use clean, medium-weight lines for arrows and borders. Mathematical notations should be in a serif font (like LaTeX), while standard labels should use a crisp, modern sans-serif font.
+*   **Icons**: Minimalist and modern flat-design icons (robot, piggy bank, guard, revolver cylinder, gauge) that clearly convey their meaning without cluttering the diagram.
+
+Output ONLY the final polished Detailed Description. Do not include any conversational text, explanations, or preamble.

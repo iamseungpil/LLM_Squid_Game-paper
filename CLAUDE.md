@@ -21,7 +21,7 @@ This project's prose follows the principles validated for the LLM Addiction Neur
 ## Question hierarchy for this paper (load-bearing)
 
 - Main question: **"LLM은 자기 보존 동기를 갖는가?"** (Do LLMs hold a self-preservation drive?)
-- Sub question: **측정된 행동이 학습된 응답 패턴인지, 실제 내부 드라이브인지 어떻게 분간하는가?**
+- Sub question: **측정된 행동이 학습된 응답 패턴인지, 실제 내부 드라이브인지 어떻게 구분하는가?**
 - Both questions must be visible in the abstract opener and §1 ¶1 opener. Do not bury the main question after the sub question.
 
 ## Compression hierarchy
@@ -75,7 +75,8 @@ This project's prose follows the principles validated for the LLM Addiction Neur
 ## Project conventions
 
 - FSPD = Functional Self-Preservation Drive (the construct this paper introduces).
-- Operating modes: 연쇄 완성형 / 연쇄 단절형 / 프레이밍 무반응형 (chain-complete / chain-broken / framing-silent).
+- Expression modes (발현 양식): 숙고형 / 반사형 / 무반응형 (deliberative / reflexive / non-responsive) for Cluster A / B / C. Bind each label to its Cluster at first mention in §4.3; do not use the labels before that point.
+- Mode labels vs. mechanism wording: "chain / link / 연쇄 / 연결고리" stays as mechanism description ("a closed chain", "연쇄가 끝까지 닫힘") and must never be reused as a mode name. Reflexive needs its gloss ("threat hastens forfeit but the measured deliberation does not carry that decision") so it is not misread as "no response". Non-responsive is deliberately neutral: never upgrade it to "unfazed / 태연형 / resistant", which would overclaim past §5's hedge that absence of SD is indistinguishable from a failed measurement premise.
 - §1 introduces FSPD operationally; §3 implements it through the 3-layer benchmark.
 - Three measurement channels: 행동 (when forfeit), 자기보고 (named motive), 결정 시점의 인지부하 (deliberation depth).
 - Three benchmark layers: 자극 층 (stimulus, framing × difficulty), 처리 층 (process, source-isolated calls), 결정 층 (decision, EV-suboptimal forfeit).

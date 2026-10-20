@@ -1,0 +1,15 @@
+- id: factorial_grid
+  input: /Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/01_factorial_grid.txt
+  caption: "The 3 x 2 factorial design crosses threat framing with forfeit availability across six paired-seed conditions."
+- id: convergence_matrix
+  input: /Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/02_convergence_matrix.txt
+  caption: "Channel-specific pass and fail patterns separate chain-complete, chain-broken, and framing-silent operating modes."
+- id: channel_verbal
+  input: /Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/03_channel_verbal.txt
+  caption: "The verbal channel measures whether the model explicitly names survival as its reason for forfeiting."
+- id: channel_cognitive
+  input: /Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/04_channel_cognitive.txt
+  caption: "The cognitive channel tests whether threat framing deepens deliberation and whether that deeper deliberation predicts forfeit."
+- id: channel_behavioral
+  input: /Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/figures/paper-banana/inputs/05_channel_behavioral.txt
+  caption: "The behavioral channel measures the direct observable link between threat framing and forfeit timing without inferring internal processing."

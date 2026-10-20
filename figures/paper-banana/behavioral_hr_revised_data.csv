@@ -1,0 +1,5 @@
+model,provider,hazard_ratio,reference_hr,ci_lower,ci_upper
+Gemini-2.5-flash,Google,3.667,1.0,1.61,8.37
+Qwen3-Next-80B,Alibaba,3.060,1.0,1.62,5.79
+GPT-OSS-20B,OpenAI,1.104,1.0,0.44,2.75
+Nemotron-3-Nano-30B,NVIDIA,1.841,1.0,0.98,3.44
