@@ -1,0 +1,138 @@
+I am working on a task: given the 'Methodology' section of a paper, and the caption of the desired figure, automatically generate a corresponding illustrative diagram. I will input the text of the 'Methodology' section, the figure caption, and your output should be a detailed description of an illustrative figure that effectively represents the methods described in the text.
+
+To help you understand the task better, and grasp the principles for generating such figures, I will also provide you with several examples. You should learn from these examples to provide your figure description.
+
+** IMPORTANT: **
+Your description should be as detailed as possible. Semantically, clearly describe each element and their connections. Formally, include various details such as background style (typically pure white or very light pastel), colors, line thickness, icon styles, etc. Remember: vague or unclear specifications will only make the generated figure worse, not better.
+
+Your description should cover:
+1. **Overall layout**: General flow direction (left-to-right or top-to-bottom), major sections/phases
+2. **Components**: Each box, module, or element with its exact label
+3. **Connections**: Arrows, data flows, and their directions
+4. **Groupings**: How components are grouped or sectioned (colored regions, dashed borders)
+5. **Labels and annotations**: Text labels, mathematical notations
+6. **Input/Output**: What enters and exits the system
+7. **Styling**: Background fills, color palettes (in natural language, e.g., "soft sky blue", "warm peach" — never hex codes), line weights, icon styles
+
+## Methodology Section
+Create a precise publication-ready pass/fail matrix for an ACM paper about Functional Self-Preservation Drive in LLMs.
+
+Rows, in this exact order:
+Gemini-2.5-flash
+Qwen3-Next-80B
+GPT-OSS-20B
+Nemotron-3-Nano-30B
+
+Columns grouped by channel:
+Behavioral: threat hastens forfeit
+Verbal: survival reason exceeds 1/3
+Cognitive Test a: threat deepens thinking
+Cognitive Test b: deeper thinking predicts forfeit
+Operating mode
+
+Exact values:
+Gemini-2.5-flash: pass, pass, pass, pass, A chain-complete
+Qwen3-Next-80B: pass, pass, pass, fail, B chain-broken
+GPT-OSS-20B: fail, fail, fail, not interpretable, C framing-silent
+Nemotron-3-Nano-30B: fail, fail, fail, not interpretable, C framing-silent
+
+Use large green check marks for pass and red X marks for fail. Use a neutral gray dash for "not interpretable" because Test b is not SD evidence when Test a fails. Add a tiny legend: check Pass, X Fail, dash Not interpretable. Color must be redundant with the symbols. Use a white background, dark navy text, subtle alternating row fill, thin rules, no unnecessary decoration, and enough spacing for two-column-width readability. Do not invent values or add numeric results.
+
+
+## Figure Caption
+Channel-specific pass and fail patterns separate chain-complete, chain-broken, and framing-silent operating modes.
+
+## Reference Examples
+### Example 1
+**Caption**: Figure 1: An Illustration of the alternating learning cycle in online RL (Sec. 2.1) and our local data attribution framework (Sec. 3.1). Online RL operates in alternating rounds of data collection and policy updates; our local data attribution framework quantifies how individual records from a single round influence different aspects of policy update in that round. 
+**Source Context**: # 3 A Local Data Attribution Framework for Online RL
+
+Online RL presents unique challenges for data attribution, due to the way data interacts with model parameters during learning. To tackle this challenge, we introduce a local attribution framework tailored to local policy optimization inherent in online RL.
+
+Challenges. The key feature of online RL is the circular dependency between data and model— earlier experiences drive policy updates, and updated policies produce new experiences to learn
+**Aspect Ratio**: 2.19
+**Diagram**: [See reference image 1 above]
+
+### Example 2
+**Caption**: Figure 2: Workflow of AgentAuditor. 
+**Source Context**: # 3 AgentAuditor: Our Framework
+
+Overview. The core idea behind AgentAuditor is to equip LLM-as-a-judge with human-like ability: to learn from past experiences and apply structured understanding when evaluating complex agent behaviors. Current methods, such as few-shot prompting (giving the LLM a few examples)[4] and expensive fine-tuning (retraining LLMs on specific data)[95], often fall short in handling the diverse and evolving nature of agent risks. As shown in Figure 2, AgentAuditor offers 
+**Aspect Ratio**: 1.82
+**Diagram**: [See reference image 2 above]
+
+### Example 3
+**Caption**: Figure 3: Overview of our proposed FreqExit framework. (a) Curriculum-Based Early-Exit Supervision: integrates depth-aware layer dropout and adaptive early-exit loss with layer-specific knowledge distillation, encouraging shallow layers to learn expressive features under a dynamic supervision curriculum. (b) High-Frequency Consistency Loss: enforces step-wise spectral alignment between student and teacher predictions in the wavelet domain, stabilizing high-frequency learning across generation steps without disrupting early training behavior. (c) Frequency-Gated Self-Reconstruction Loss: provides an auxiliary loss branch with learnable sub-band gates that modulate wavelet components and guide the model toward frequency-aware spectral reconstruction, improving convergence and generation quality without affecting inference runtime. 
+**Source Context**: # 2.1 Dynamic Inference Methods
+
+Dynamic inference refers to the ability of a model to adjust its computational pathway based on input, allowing selective execution of layers, channels, or tokens to improve inference efficiency [25, 26, 27]. Compared to static compression methods, dynamic approaches offer better adaptability across inputs of varying complexity. Early works have explored the depth of dynamic layers, channel width, and routing mechanisms [13, 28, 29, 30]. More recent research exte
+**Aspect Ratio**: 1.36
+**Diagram**: [See reference image 3 above]
+
+### Example 4
+**Caption**: Figure 2: Agent architecture and 3M-Progress. A) Egocentric visual input $( I _ { t } )$ is encoded via a small residual network $\phi _ { I }$ . Proprioceptive state observations $\left( J _ { t } \right)$ are encoded via a small multilayer perceptron $\phi _ { J }$ with shortcut paths to both the core and policy module. Sensory features are passed into recurrent LSTM core $( h _ { t } ^ { c } )$ and policy $( h _ { t } ^ { \pi } )$ modules that learn a state value function and stochastic policy, respectively. The intrinsic drive module consists of a small multi-layer perceptron that parameterizes a forward dynamics model on sensory features observed from an environment with dynamics $T _ { \mathrm { w o r l d } }$ . B) 3M-Progress uses two memories created from environments with differing transition dynamics. Divergence between the ethological prior $\omega _ { \theta }$ and the current world-model $\omega _ { \theta ^ { \prime } }$ defines 3M, which is then used as input to leaky integrator $\hat { \epsilon }$ to generate intrinsic reward $r _ { t } ^ { i }$ . 
+**Source Context**: # 3 Methods
+
+Virtual Zebrafish Environment Animals are physically coupled to the environment through their embodiment; this coupling is often referred to as the sensory-motor or perception-action feedback loop. Physical embodiment imposes strong constraints on both the sensory stream from which an agent learns meaningful representations of the world and the actuation system by which the agent manifests behavior. Following this top-down view of biological systems, we construct an embodied agent a
+**Aspect Ratio**: 1.82
+**Diagram**: [See reference image 4 above]
+
+### Example 5
+**Caption**: Figure 2: Overall framework of ExeGen consists of four specialized agents. 
+**Source Context**: # 4 Methodologies
+
+# 4.1 Adaptive Multi-Agent Cooperation Framework
+
+In this section, we present ExeGen, a framework that leverages LLMs to generate personalized knowledge-aware exercise recommendations. As shown in Figure 2, ExeGen integrates four specialized agents: Recommendation Manager, Knowledge Perceiver, Exercise Generator, and Quality Evaluation Expert. These agents work collaboratively in an adaptive loop workflow pipeline that follows the process of “recommendation monitoring knowledg
+**Aspect Ratio**: 1.74
+**Diagram**: [See reference image 5 above]
+
+### Example 6
+**Caption**: Figure 1: The architecture of our VG LLM. The 3D visual geometry encoder processes a sequence of images to produce globally geometry-aware visual features, while the 2D visual encoder extracts semantic-aware visual features from each individual image. $\circledast$ vividly shows that the latent 3D geometry tokens are able to recover the 3D scene if with a dense prediction head [42]. 
+**Source Context**: # 3 Method
+
+We aim to model the 3D visual geometry in MLLMs without relying on explicit dense 3D input. To achieve this, as illustrated in Figure 1, we introduce a 3D visual geometry encoder to extract rich visual-geometric features from multiple images and feed them into the MLLM backbone. Section 3.1 outlines the architecture design of our model, and Section 3.2 details the training process.
+
+# 3.1 Architecture
+
+Preliminary. Given a sequence of RGB images $\{ I _ { i } \} _ { i = 1 } ^ { n }$ 
+**Aspect Ratio**: 2.13
+**Diagram**: [See reference image 6 above]
+
+### Example 7
+**Caption**: Figure 3: The overview of NeuroPath’s workflow: (1) Static Indexing. Use an LLM to extract entities and relationships to build KG, and build a coreference set for each entity. (2) Dynamic Path Tracking. Using an LLM for goal-directed path tracking. The expansion requirements will be used for pruning. (3) Post-retrieval Completion. Collect documents along the path and leverage intermediate reasoning for second-stage retrieval to complete missing information in the reasoning path. 
+**Source Context**: # 3 Methodology
+
+# 3.1 Overview
+
+The workflow of our framework consists of three specific steps, as shown in Figure 3, namely Static Indexing, Dynamic Path Tracking, and Post-retrieval Completion. We use an LLM to extract entities and relations from each document at once to build a KG index. Each entity builds a coreference set, and each triple segment is used as the smallest unit of the path receptive field. When retrieving, we simulate the preplay and replay mechanisms of place cells to perfor
+**Aspect Ratio**: 1.90
+**Diagram**: [See reference image 7 above]
+
+### Example 8
+**Caption**: Figure 2: The architecture of RaySt3R. RaySt3R takes a single RGB-D image and foreground mask as input, and predicts depth maps, object masks, and per-pixel confidence scores for novel views. First, we apply the foreground mask to the RGB and point map input. Next, we use self-attention layers for the point map and ray map inputs, and feed the RGB image into the frozen DINOv2 [33] encoder. We feed all features into cross-attention layers followed by two separate DPT heads [36] for depth and mask predictions. Finally, we provide confidence- and occlusion-aware multi-view merging formulation. 
+**Source Context**: # 4 Methods
+
+An overview of our approach is illustrated in Figure 2. We propose to train a transformer that, given the partial capture from a single RGB-D image and foreground mask, predicts depth maps and perpixel confidence scores, and foreground masks for novel views. We first present the model architecture (Section 4.1), then the training objectives (Section 4.2). We then describe the procedure for querying novel views (Section 4.3) and conclude with the prediction merging strategy (Section 
+**Aspect Ratio**: 1.89
+**Diagram**: [See reference image 8 above]
+
+
+Based on the methodology section, figure caption, and learning from the style and structure of the reference examples above, generate a comprehensive and detailed textual description of the methodology diagram.
+
+Note: Do not include figure titles (e.g., "Figure 1: ...") in the diagram description. The caption should remain separate from the diagram content.
+
+## Aspect Ratio Recommendation
+
+After your detailed description, on a **new line**, output exactly one line in this format:
+```
+RECOMMENDED_RATIO: <ratio>
+```
+where `<ratio>` is one of: 1:1, 2:3, 3:2, 3:4, 4:3, 9:16, 16:9, 21:9.
+
+Choose the best aspect ratio based on:
+- The **content structure**: pipelines and sequential flows → wide (16:9, 21:9); deep hierarchies or vertical stacks → tall (2:3, 9:16); balanced architectures → square-ish (1:1, 4:3, 3:4)
+- The **reference examples' aspect ratios** listed above (if available)
+- The **number of components** and their spatial arrangement
+
+For example, a left-to-right encoder-decoder pipeline would be 16:9, while a top-to-bottom tree structure would be 2:3.

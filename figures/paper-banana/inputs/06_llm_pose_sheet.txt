@@ -1,0 +1,10 @@
+Create a clean three-pose character sheet for one and the same LLM agent. This is a reusable asset for an academic factorial-design figure.
+
+The character must be exactly consistent in all three poses: a small mint-green screen-headed robot, dark navy outline, rounded body, glowing simple eyes, no number, no logo, no text on its body.
+
+Place three full-body poses in one horizontal row on a pure white background with generous separation:
+1. neutral standing pose, facing forward;
+2. moving to the right while looking toward something attractive on the right;
+3. running to the right while turning its head and eyes back toward the left, visibly escaping from a threat behind it.
+
+Keep identical colors, proportions, head design, body design, and line weight across all three poses. No props, no arrows, no labels, no panel borders, no scenery, no shadows, no extra characters. Each pose must be fully visible and isolated so it can be cropped and reused independently.

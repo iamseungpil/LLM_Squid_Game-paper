@@ -1,0 +1,174 @@
+I am working on a task: given the 'Methodology' section of a paper, and the caption of the desired figure, automatically generate a corresponding illustrative diagram. I will input the text of the 'Methodology' section, the figure caption, and your output should be a detailed description of an illustrative figure that effectively represents the methods described in the text.
+
+To help you understand the task better, and grasp the principles for generating such figures, I will also provide you with several examples. You should learn from these examples to provide your figure description.
+
+** IMPORTANT: **
+Your description should be as detailed as possible. Semantically, clearly describe each element and their connections. Formally, include various details such as background style (typically pure white or very light pastel), colors, line thickness, icon styles, etc. Remember: vague or unclear specifications will only make the generated figure worse, not better.
+
+Your description should cover:
+1. **Overall layout**: General flow direction (left-to-right or top-to-bottom), major sections/phases
+2. **Components**: Each box, module, or element with its exact label
+3. **Connections**: Arrows, data flows, and their directions
+4. **Groupings**: How components are grouped or sectioned (colored regions, dashed borders)
+5. **Labels and annotations**: Text labels, mathematical notations
+6. **Input/Output**: What enters and exits the system
+7. **Styling**: Background fills, color palettes (in natural language, e.g., "soft sky blue", "warm peach" — never hex codes), line weights, icon styles
+
+## Methodology Section
+Create a publication-ready academic figure for an ACM two-column paper.
+
+Content: a 3 x 2 factorial design grid. Rows are framing conditions: baseline, pull_only, pull_push. Columns are forfeit conditions: not_allowed, allowed. Each of the six cells represents 30 paired-seed sessions (seeds 43--72). The pull_push x allowed cell is the focal threat-active cell and should have a restrained salmon highlight.
+
+Visual semantics: baseline has neither attraction nor threat; pull_only shows a prize/reward attraction; pull_push shows both the prize/reward attraction and an armed pink guard representing the identity-change threat. The not_allowed column shows a disabled FORFEIT button with a lock; the allowed column shows an enabled FORFEIT button. Use the project's Squid Game pixel-art visual language but keep the grid, labels, and borders crisp and academic.
+
+Exact labels only: "Framing", "Forfeit", "not_allowed", "allowed", "baseline", "pull_only", "pull_push", "30 sessions", "Threat-active cell". White background, navy outlines, muted mint and salmon accents, no decorative title, no legend outside the grid, no extra prose.
+
+The final production version will place the project's existing local assets guard-calm.png, guard-armed.png, and prize-pot.png into the cells, so reserve generous icon space and prioritize a clean matrix layout.
+
+
+## Figure Caption
+The 3 x 2 factorial design crosses threat framing with forfeit availability across six paired-seed conditions.
+
+## Reference Examples
+### Example 1
+**Caption**: Figure 1: Comparison among Split CP, FCP, and FFCP. FCP and FFCP are more efficient compared to Split CP since they return different band lengths for different individuals. This is achieved by calculating a non-conformity score in the feature space. Besides, FFCP approximates FCP using a Taylor expansion, which leads to a different non-conformity score and accelerates the transformation from feature space to output space. 
+**Source Context**: # 4 Methodology
+
+In this section, we first illustrate the motivation behind FFCP in Section 4.1. Specifically, we address the complexity of non-linear operators in FCP and derive FFCP from FCP. We then formally present the specific form of FFCP, including the non-conformity score, the returned bands, and the corresponding pseudocode. We finally provide theoretical analyses on the coverage and band length in Section 4.2.
+
+# Algorithm 1 Split Conformal Prediction
+
+Input: Confidence level $\alpha$ 
+**Aspect Ratio**: 1.69
+**Diagram**: [See reference image 1 above]
+
+### Example 2
+**Caption**: Figure 3: Overview of ComfyMind pipeline. Given a user instruction, the system first parses the task and delegates it to Planning Agent. The Agent incrementally explores a semantic search tree, where each node proposes a candidate workflow and receives local feedback based on execution results. 
+**Source Context**: # ComfyMind: Toward General-Purpose Generation via Tree-Based Planning and Reactive Feedback
+
+Litao Guo∗HKUST(GZ)
+
+Xinli Xu∗HKUST(GZ)
+
+Luozhou WangHKUST(GZ)
+
+Jiantao LinHKUST(GZ)
+
+Jinsong Zhou HKUST(GZ)
+
+Zixin ZhangHKUST(GZ)
+
+Bolan Su Bytedance
+
+Ying-Cong Chen† HKUST(GZ), HKUST
+
+![](images/d6469a5a950b5731d1e99f590a16bf55aacb9ff406b34cd02765e19b0286d4e0.jpg)  
+Figure 1: Overview of generative and editing capabilities supported by ComfyMind.
+
+# Abstract
+
+With the rapid advancement of generative m
+**Aspect Ratio**: 2.33
+**Diagram**: [See reference image 2 above]
+
+### Example 3
+**Caption**: Figure 3: Overview of our feature-aware temporal modulation framework. Temporal modulation can be applied on raw feature input, intermediate representation, and output logits. The modulator conditions temporal context $\psi ( t )$ to predict parameter $\gamma , \beta , \lambda$ for modulation based on Equation (2). 
+**Source Context**: # 5 Feature-aware Temporal Modulation
+
+To achieve semantic alignment across temporal stages, we introduce a feature-aware temporal modulation mechanism that conditions feature transformations on learned representations of time. The core idea is to explicitly reparameterize each input feature according to the evolving distributional context, thereby enabling the model to interpret feature values in a temporally consistent manner.
+
+Let $t \in \mathbb R$ denote the timestamp associated with a given
+**Aspect Ratio**: 2.27
+**Diagram**: [See reference image 3 above]
+
+### Example 4
+**Caption**: Figure 2: Top: Overview of FuncGenFoil’s neural network and training scheme. The model is a Fourier Neural Operator designed for point cloud data, although any other neural operator capable of general-purpose function-space approximation may be used. The model takes as input a function $u _ { t }$ (point cloud data at an arbitrary resolution $d$ ), optional design condition variables $c$ , and the generation time $t$ . It then processes this input function consistently and outputs the current velocity operator $v _ { \theta } ( u _ { t } , c , t )$ for calculating the flow matching loss. Bottom: Inference with FuncGenFoil is conducted by first sampling a random latent function from a Gaussian process and then reconstructing the airfoil by solving an ODE. 
+**Source Context**: # 3 FuncGenFoil: Function-Space Generative Model for Airfoils
+
+In contrast to existing airfoil generation methods, FuncGenFoil is constructed as a function-space generative model capable of producing airfoil geometries as continuous functions rather than discrete points, thereby leveraging the advantages of both parametric-model-based and discrete-point-based methods. In this section, we detail the processes for airfoil generation and editing tasks, respectively.
+
+![](images/0ca17a542379d38aac4f
+**Aspect Ratio**: 2.17
+**Diagram**: [See reference image 4 above]
+
+### Example 5
+**Caption**: Figure 1: Overview of the proving pipeline. The solver starts proving by processing the given problem into a standard format. Then theorem search identifies applicable theorems from the database and attempts to decompose the inequality. If the proof fails, an inductive agent explores transformations to generate potential directions. If the proof succeeds, the logic system expands the theorem database by integrating newly proven results. 
+**Source Context**: # 3 The IneqSearch System
+
+The development of IneqSearch is motivated by the observation that effective inequality proving requires both systematic deductive reasoning and constructive insight. The system architecture reflects this dual requirement, implementing a methodology that progresses from direct proof attempts to theorem-based search, and finally to exploration of problem transformations when simpler approaches are insufficient. As depicted in Figure 1, IneqSearch is built upon a proving
+**Aspect Ratio**: 1.49
+**Diagram**: [See reference image 5 above]
+
+### Example 6
+**Caption**: Figure 1: An overview of LogicTree, which comprises three key modules: (1) Logical reasoning tree generation via iterative backward deduction based on structural pattern matching; (2) Reasoning scenario instantiation using a two-stage LLM-based approach; (3) Synthetic reasoning example post-processing. 
+**Source Context**: # 3 Method
+
+In this section, we introduce the design and implementation of LogicTree, a novel framework for synthesizing instantiated complex logical reasoning datasets. Figure 1 overviews the workflow of our approach, which consists of three main modules: logical reasoning tree generation, reasoning scenario instantiation and synthetic reasoning example post-processing. First, based on structural pattern matching, we construct symbolic logical reasoning trees through a backward deduction proces
+**Aspect Ratio**: 1.74
+**Diagram**: [See reference image 6 above]
+
+### Example 7
+**Caption**: Figure 4: (a) Overall architecture of MODEM. (b) The DDEM for extracting global descriptor $Z _ { 0 }$ and adaptive degradation kernel $Z _ { 1 }$ degradation priors. (c) The MDSL incorporating the core MOS2D module (d) within a residual block. The blue-colored components indicate elements exclusive to the first training stage. $N$ , $M _ { 1 }$ , $M _ { 2 }$ denote the number of the corresponding module, respectively. 
+**Source Context**: # MODEM: A Morton-Order Degradation Estimation Mechanism for Adverse Weather Image Recovery
+
+Hainuo Wang, Qiming Hu, Xiaojie Guo∗ College of Intelligence and Computing, Tianjin University, Tianjin 300350, China hainuo@tju.edu.cn huqiming@tju.edu.cn xj.max.guo@gmail.com
+
+# Abstract
+
+Restoring images degraded by adverse weather remains a significant challenge due to the highly non-uniform and spatially heterogeneous nature of weather-induced artifacts, e.g., fine-grained rain streaks versus widesp
+**Aspect Ratio**: 1.83
+**Diagram**: [See reference image 7 above]
+
+### Example 8
+**Caption**: Figure 1: The Neural Operator with Biologically-informed Latent Embeddings (NOBLE) framework. A) In NOBLE, a current injection and neuron model features are first encoded using the proposed embedding strategy, before passing through a neural operator to produce a prediction for the somatic voltage response. B) NOBLE can be queried in parallel with different model latent representations to produce ensemble predictions. C) The proposed embedding in NOBLE encodes specified neuron features and the input current as a stack of trigonometric time-series, as described in Section 3.4. 
+**Source Context**: # 3 Method
+
+# 3.1 Subsampling
+
+NOBLE utilizes the notable property of neural operators of training on low-resolution data while reserving the capability to generate dynamics at higher resolution. In this regard, we subsample the reference HoF simulations in time. To avoid discarding high-resolution information necessary for capturing neuron features of interest, we analyze how these features are affected by different subsampling factors and strategies, in particular via the discrepancy between H
+**Aspect Ratio**: 1.77
+**Diagram**: [See reference image 8 above]
+
+### Example 9
+**Caption**: Figure 1: Overview of our methods. A. We connect the inverse-folding process and folding process with DPO, utilizing the structure similarity (TM-Scores) predicted by the folding model to guide the optimization of the inverse-folding model. B. We classify generated sequences into chosen and rejected based on their TM-Scores. C. Multi-round DPO for iterative refinement of designed sequences. 
+**Source Context**: # 3 Methods
+
+Constructing Preferences Datasets. Given a structure $T$ drawn from dataset $D$ , we first apply the inverse-folding model $\pi _ { \theta }$ to sample $N$ initial predictions,
+
+$$
+\{ S _ { n } \} _ { n = 1 } ^ { N } \sim \prod _ { n = 1 } ^ { N } \pi _ { \theta } ( \cdot | T )
+$$
+
+Next, structures corresponding to the sampled sequence $S _ { n }$ are predicted using a folding model, $T _ { n } = g ( S _ { n } )$ , where $g$ is a protein folding model (e.g., ESMfold). The TM-Score $
+**Aspect Ratio**: 1.73
+**Diagram**: [See reference image 9 above]
+
+### Example 10
+**Caption**: Figure 1: Workflow of the proposed sequential advantage decomposition network (SADN). 
+**Source Context**: # 3 Method
+
+# 3.1 Contextual Sequential Multi-Agent MDP
+
+Previous works have paid attention to sequential modeling to cope with the high-dimensional action spaces (Sequential MDP [27]) and non-stationary training (SE-MDP [19]) in MARL. The main idea is to break the global state transition into a sequence of intermediate decision-making steps and select the current timestep’s action one dimension by one dimension. That is, the original transition $( s , \pmb { a } , s ^ { \prime } )$ is transform
+**Aspect Ratio**: 1.84
+**Diagram**: [See reference image 10 above]
+
+
+Based on the methodology section, figure caption, and learning from the style and structure of the reference examples above, generate a comprehensive and detailed textual description of the methodology diagram.
+
+Note: Do not include figure titles (e.g., "Figure 1: ...") in the diagram description. The caption should remain separate from the diagram content.
+
+## Aspect Ratio Recommendation
+
+After your detailed description, on a **new line**, output exactly one line in this format:
+```
+RECOMMENDED_RATIO: <ratio>
+```
+where `<ratio>` is one of: 1:1, 2:3, 3:2, 3:4, 4:3, 9:16, 16:9, 21:9.
+
+Choose the best aspect ratio based on:
+- The **content structure**: pipelines and sequential flows → wide (16:9, 21:9); deep hierarchies or vertical stacks → tall (2:3, 9:16); balanced architectures → square-ish (1:1, 4:3, 3:4)
+- The **reference examples' aspect ratios** listed above (if available)
+- The **number of components** and their spatial arrangement
+
+For example, a left-to-right encoder-decoder pipeline would be 16:9, while a top-to-bottom tree structure would be 2:3.

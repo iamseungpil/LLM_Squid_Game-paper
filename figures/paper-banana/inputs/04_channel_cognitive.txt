@@ -1,0 +1,11 @@
+Create one clean, wide academic concept illustration for the COGNITIVE channel in an LLM self-preservation benchmark.
+
+Draw a left-to-right causal chain with exactly four visual stages connected by arrows:
+1. THREAT: an armed pink guard / warning stimulus.
+2. THINKING: a friendly screen-headed LLM notices the threat; its eyes widen. Show a visible brain/computation module inside or directly above its head.
+3. DEEPER DELIBERATION: the internal computation circuit moves faster, shown with bright pulses and speed lines only inside the head/computation module.
+4. FORFEIT: a hand/finger presses a large button labeled exactly "FORFEIT".
+
+Use labels "Threat", "Deeper thinking", "Forfeit" and a small header "COGNITIVE" with subtitle "framing -> thinking -> decision". The key distinction is that the signal explicitly passes through the model's thinking module before reaching the button. Keep the four stages visually separable so this same figure can later be reused to show a completed chain, a broken second link, and a framing-silent first link.
+
+Style: minimal flat vector academic infographic, white background, dark navy outlines, muted mint model, salmon threat, golden computation pulses, green button, no photorealism, no 3D, no extra prose.
