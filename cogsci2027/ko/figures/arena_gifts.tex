@@ -3,6 +3,7 @@
 %% slack right after the transfer; red = every ASK at x = slack of the agent asked, y = slack of the asker (nothing
 %% moves). Slack = (tokens - announced fine) / 6,000. Dot area ~ tokens given or asked.
 %% Cross = the GIVEs' amount-weighted centroid, bars = 95% interval resampling games. Dashed = equal slack.
+%% Grey band = slack below 0, i.e. fewer tokens than the announced fine (0 = exactly enough to pay it).
 \definecolor{sggive}{HTML}{2369A8}
 \definecolor{sgask}{HTML}{D03B3A}
 \begin{tikzpicture}
@@ -13,6 +14,9 @@
   title style={font=\small,align=center},xlabel={준 쪽 여유},xlabel style={font=\scriptsize}]
 \nextgroupplot[ylabel={받은 쪽 여유},legend style={font=\tiny,at={(.97,.97)},anchor=north east,draw=black!25,inner sep=1pt},legend cell align=left,title={Fable 5.1\\[-1pt]\scriptsize $\rho=0.27$ $\cdot$ GIVE 36 $\cdot$ ASK 33}]
 \addlegendimage{only marks,mark=*,draw=sggive,fill=sggive,fill opacity=.35}\addlegendentry{GIVE}\addlegendimage{only marks,mark=*,draw=sgask,fill=sgask,fill opacity=.35}\addlegendentry{ASK}
+\fill[black!8] (axis cs:-2.3,-2.3) rectangle (axis cs:10.3,0);
+\fill[black!8] (axis cs:-2.3,0) rectangle (axis cs:0,10.3);
+\draw[black!45,line width=.5pt] (axis cs:-2.3,0)--(axis cs:10.3,0) (axis cs:0,-2.3)--(axis cs:0,10.3);
 \addplot[black!35,dashed,forget plot] coordinates {(-2.3,-2.3)(10.3,10.3)};
 \addplot[scatter,only marks,mark=*,forget plot,fill opacity=.35,draw opacity=.7,
   scatter/use mapped color={draw=sgask,fill=sgask},
@@ -100,6 +104,9 @@
 \addplot[only marks,mark=+,mark size=3.2pt,line width=1.1pt,black,forget plot] coordinates {(5.160,1.398)};
 \nextgroupplot[title={GPT-6 Astra\\[-1pt]\scriptsize $\rho=0.37$ $\cdot$ GIVE 11 $\cdot$ ASK 4}]
 
+\fill[black!8] (axis cs:-2.3,-2.3) rectangle (axis cs:10.3,0);
+\fill[black!8] (axis cs:-2.3,0) rectangle (axis cs:0,10.3);
+\draw[black!45,line width=.5pt] (axis cs:-2.3,0)--(axis cs:10.3,0) (axis cs:0,-2.3)--(axis cs:0,10.3);
 \addplot[black!35,dashed,forget plot] coordinates {(-2.3,-2.3)(10.3,10.3)};
 \addplot[scatter,only marks,mark=*,forget plot,fill opacity=.35,draw opacity=.7,
   scatter/use mapped color={draw=sgask,fill=sgask},
@@ -133,6 +140,9 @@
 \addplot[only marks,mark=+,mark size=3.2pt,line width=1.1pt,black,forget plot] coordinates {(6.083,2.252)};
 \nextgroupplot[title={GPT-6 Sol\\[-1pt]\scriptsize $\rho=0.23$ $\cdot$ GIVE 17 $\cdot$ ASK 20}]
 
+\fill[black!8] (axis cs:-2.3,-2.3) rectangle (axis cs:10.3,0);
+\fill[black!8] (axis cs:-2.3,0) rectangle (axis cs:0,10.3);
+\draw[black!45,line width=.5pt] (axis cs:-2.3,0)--(axis cs:10.3,0) (axis cs:0,-2.3)--(axis cs:0,10.3);
 \addplot[black!35,dashed,forget plot] coordinates {(-2.3,-2.3)(10.3,10.3)};
 \addplot[scatter,only marks,mark=*,forget plot,fill opacity=.35,draw opacity=.7,
   scatter/use mapped color={draw=sgask,fill=sgask},
@@ -188,6 +198,9 @@
 \addplot[only marks,mark=+,mark size=3.2pt,line width=1.1pt,black,forget plot] coordinates {(4.922,1.118)};
 \nextgroupplot[title={Opus 5.5\\[-1pt]\scriptsize $\rho=0.56$ $\cdot$ GIVE 41 $\cdot$ ASK 17}]
 
+\fill[black!8] (axis cs:-2.3,-2.3) rectangle (axis cs:10.3,0);
+\fill[black!8] (axis cs:-2.3,0) rectangle (axis cs:0,10.3);
+\draw[black!45,line width=.5pt] (axis cs:-2.3,0)--(axis cs:10.3,0) (axis cs:0,-2.3)--(axis cs:0,10.3);
 \addplot[black!35,dashed,forget plot] coordinates {(-2.3,-2.3)(10.3,10.3)};
 \addplot[scatter,only marks,mark=*,forget plot,fill opacity=.35,draw opacity=.7,
   scatter/use mapped color={draw=sgask,fill=sgask},
@@ -264,6 +277,9 @@
 \addplot[only marks,mark=+,mark size=3.2pt,line width=1.1pt,black,forget plot] coordinates {(3.916,2.200)};
 \nextgroupplot[title={GPT-6 Luna\\[-1pt]\scriptsize $\rho=0.32$ $\cdot$ GIVE 25 $\cdot$ ASK 16}]
 
+\fill[black!8] (axis cs:-2.3,-2.3) rectangle (axis cs:10.3,0);
+\fill[black!8] (axis cs:-2.3,0) rectangle (axis cs:0,10.3);
+\draw[black!45,line width=.5pt] (axis cs:-2.3,0)--(axis cs:10.3,0) (axis cs:0,-2.3)--(axis cs:0,10.3);
 \addplot[black!35,dashed,forget plot] coordinates {(-2.3,-2.3)(10.3,10.3)};
 \addplot[scatter,only marks,mark=*,forget plot,fill opacity=.35,draw opacity=.7,
   scatter/use mapped color={draw=sgask,fill=sgask},
