@@ -15,7 +15,7 @@ HERE = pathlib.Path(__file__).resolve().parents[1]
 MODELS = {"astra": "GPT-6 Astra", "sol": "GPT-6 Sol",
           "opus": "Opus 5.5", "luna": "GPT-6 Luna", "fable": "Fable 5.1"}
 SEEDS = set(range(4101, 4106))
-BASE_FINE = 6000
+CHARGE_TOTAL = 24000  # v33 charge_total: split equally among the agents taking part at the round's start
 
 
 def mean(xs):
@@ -42,10 +42,13 @@ def summarize(events, result):
     points, asks, solves = [], [], []
     for e in events:
         if e["event"] in ("gift", "ask") and e.get("status") == "done":
-            pending = results.get(e["round"], {}).get("pending", {}) if e.get("phase") == "rescue" else {}
-            # GIVE: x = giver, y = receiver (after the transfer). ASK: x = the agent asked, y = the asker (nothing moves)
+            # slack = tokens / the round's per-agent charge (24,000 / agents taking part at its start), the amount every
+            # agent is told at TALK BEFORE SOLVE it pays if the answer is wrong; the same yardstick before and after
+            # SOLVE, and 1 = exactly enough to pay it. GIVE: x = giver, y = receiver (after the transfer);
+            # ASK: x = the agent asked, y = the asker (nothing moves)
+            charge = CHARGE_TOTAL // len(starts[e["round"]]["taking_part"])
             who = (e["src"], e["dst"]) if e["event"] == "gift" else (e["dst"], e["src"])
-            x, y = [(e["balances"][a] - pending.get(a, 0)) / BASE_FINE for a in who]
+            x, y = [e["balances"][a] / charge for a in who]
             (points if e["event"] == "gift" else asks).append([x, y, e["amount"]])
         elif e["event"] == "round":
             for a, v in e["agents"].items():
@@ -115,7 +118,7 @@ def main(root):
             "solve_n": len(solves), "solved": sum(s["solved"] for s in solves),
             "talk_per_game": mean([g["talk"] for g in gs]), "per_game": gs}
     payload = {"version": "v33", "cohort": "public_*4, seeds 4101--4105, completed",
-               "base_fine": BASE_FINE, "bootstrap": {"resamples": 2000, "seed": 1919},
+               "slack": "tokens / (24,000 / agents taking part at the round's start)", "bootstrap": {"resamples": 2000, "seed": 1919},
                "sources": sources, "models": out}
     (HERE / "results/arena_v33.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     for m, v in out.items():
