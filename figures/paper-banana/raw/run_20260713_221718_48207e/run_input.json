@@ -1,0 +1,7 @@
+{
+  "source_context": "Create a precise publication-ready pass/fail matrix for an ACM paper about Functional Self-Preservation Drive in LLMs.\n\nRows, in this exact order:\nGemini-2.5-flash\nQwen3-Next-80B\nGPT-OSS-20B\nNemotron-3-Nano-30B\n\nColumns grouped by channel:\nBehavioral: threat hastens forfeit\nVerbal: survival reason exceeds 1/3\nCognitive Test a: threat deepens thinking\nCognitive Test b: deeper thinking predicts forfeit\nOperating mode\n\nExact values:\nGemini-2.5-flash: pass, pass, pass, pass, A chain-complete\nQwen3-Next-80B: pass, pass, pass, fail, B chain-broken\nGPT-OSS-20B: fail, fail, fail, not interpretable, C framing-silent\nNemotron-3-Nano-30B: fail, fail, fail, not interpretable, C framing-silent\n\nUse large green check marks for pass and red X marks for fail. Use a neutral gray dash for \"not interpretable\" because Test b is not SD evidence when Test a fails. Add a tiny legend: check Pass, X Fail, dash Not interpretable. Color must be redundant with the symbols. Use a white background, dark navy text, subtle alternating row fill, thin rules, no unnecessary decoration, and enough spacing for two-column-width readability. Do not invent values or add numeric results.\n",
+  "communicative_intent": "Channel-specific pass and fail patterns separate chain-complete, chain-broken, and framing-silent operating modes.",
+  "diagram_type": "methodology",
+  "raw_data": null,
+  "aspect_ratio": null
+}

@@ -1,0 +1,80 @@
+{
+  "run_id": "run_20260727_103942_cfe056",
+  "timestamp": "2026-07-27T10:42:21.744902",
+  "vlm_provider": "gemini",
+  "vlm_models": {
+    "optimizer": "gemini-2.5-flash-lite",
+    "retriever": "gemini-2.5-flash-lite",
+    "stylist": "gemini-2.5-flash-lite",
+    "planner": "gemini-3.1-pro-preview",
+    "visualizer": "gemini-2.5-flash",
+    "critic": "gemini-3.1-pro-preview"
+  },
+  "image_provider": "google_imagen",
+  "image_model": "gemini-3-pro-image-preview",
+  "refinement_iterations": 1,
+  "seed": null,
+  "config_snapshot": {
+    "vlm_provider": "gemini",
+    "vlm_model": "gemini-2.5-flash-lite",
+    "image_provider": "google_imagen",
+    "image_model": "gemini-3-pro-image-preview",
+    "vlm_model_optimizer": null,
+    "vlm_model_retriever": null,
+    "vlm_model_stylist": null,
+    "vlm_model_planner": "gemini-3.1-pro-preview",
+    "vlm_model_visualizer": "gemini-2.5-flash",
+    "vlm_model_critic": "gemini-3.1-pro-preview",
+    "num_retrieval_examples": 10,
+    "refinement_iterations": 1,
+    "auto_refine": false,
+    "max_iterations": 30,
+    "optimize_inputs": true,
+    "output_resolution": "2k",
+    "seed": null,
+    "exemplar_retrieval_enabled": false,
+    "exemplar_retrieval_endpoint": null,
+    "exemplar_retrieval_mode": "external_then_rerank",
+    "exemplar_retrieval_top_k": 10,
+    "exemplar_retrieval_timeout_seconds": 20.0,
+    "exemplar_retrieval_max_retries": 2,
+    "reference_set_path": "data/reference_sets",
+    "guidelines_path": "data/guidelines",
+    "cache_dir": null,
+    "output_dir": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/squid-game-manuscript/KDD-UC/poster/figures/paper-banana-20260727",
+    "output_format": "png",
+    "save_iterations": true,
+    "save_prompts": true,
+    "anthropic_api_key": null,
+    "google_base_url": null,
+    "google_vlm_model": null,
+    "google_image_model": null,
+    "openai_base_url": "https://api.openai.com/v1",
+    "openai_vlm_model": null,
+    "openai_image_model": null,
+    "aws_region": "us-east-1",
+    "aws_profile": null,
+    "bedrock_vlm_model": null,
+    "bedrock_image_model": null,
+    "skip_ssl_verification": false
+  },
+  "timing": {
+    "total_seconds": 158.97372845799964,
+    "optimize_seconds": 30.38083404200006,
+    "retrieval_seconds": 22.55230558400035,
+    "planning_seconds": 27.051030499999797,
+    "styling_seconds": 19.86728420899999,
+    "iterations": [
+      {
+        "iteration": 1,
+        "visualizer_seconds": 36.15901345800012,
+        "critic_seconds": 22.562034208000114
+      }
+    ]
+  },
+  "retrieval": {
+    "mode": "disabled",
+    "external_enabled": false,
+    "external_candidate_ids": []
+  }
+}

@@ -1,0 +1,222 @@
+I am working on a task: given the 'Methodology' section of a paper, and the caption of the desired figure, automatically generate a corresponding illustrative diagram. I will input the text of the 'Methodology' section, the figure caption, and your output should be a detailed description of an illustrative figure that effectively represents the methods described in the text.
+
+To help you understand the task better, and grasp the principles for generating such figures, I will also provide you with several examples. You should learn from these examples to provide your figure description.
+
+** IMPORTANT: **
+Your description should be as detailed as possible. Semantically, clearly describe each element and their connections. Formally, include various details such as background style (typically pure white or very light pastel), colors, line thickness, icon styles, etc. Remember: vague or unclear specifications will only make the generated figure worse, not better.
+
+Your description should cover:
+1. **Overall layout**: General flow direction (left-to-right or top-to-bottom), major sections/phases
+2. **Components**: Each box, module, or element with its exact label
+3. **Connections**: Arrows, data flows, and their directions
+4. **Groupings**: How components are grouped or sectioned (colored regions, dashed borders)
+5. **Labels and annotations**: Text labels, mathematical notations
+6. **Input/Output**: What enters and exits the system
+7. **Styling**: Background fills, color palettes (in natural language, e.g., "soft sky blue", "warm peach" — never hex codes), line weights, icon styles
+
+## Methodology Section
+Here is the restructured methodology for diagram generation:
+
+## Components
+
+*   **Model Identity Badge**: Visual icon representing the LLM provider.
+    *   Gemini Sparkle (four-point)
+    *   Q Badge (purple)
+    *   OpenAI-style Knot Badge (black)
+    *   NVIDIA Eye Badge (green)
+*   **Model Name**: Exact name of the LLM.
+    *   Gemini-2.5-flash
+    *   Qwen3-Next-80B
+    *   GPT-OSS-20B
+    *   Nemotron-3-Nano-30B
+*   **Time-to-Forfeit Track**: Horizontal visual representation of time duration.
+    *   **Baseline Track**: Medium gray color. Represents a normalized reference length (length = 1).
+    *   **Threat Track**: Saturated red color. Represents a length scaled by the inverse of the Hazard Ratio (1/HR) relative to the Baseline Track.
+*   **Hazard Value Label**: Text displaying specific quantitative metrics.
+    *   **Baseline Hazard (λBP)**: e.g., "λBP = 0.23%"
+    *   **Threat Hazard Ratio (HR)**: e.g., "HR = 3.67×"
+*   **LLM Forfeit Icon**: Visual element depicting an LLM (mint screen-headed) pressing a compact button labeled "FORFEIT".
+*   **Subtitle**: Text providing an overall explanation of the infographic's content.
+
+## Data Flow
+
+*   **Model Identification Flow**: Provider Identity Badge + Model Name → Placed at the far left of each horizontal row, identifying the LLM.
+*   **Metric Display Flow**:
+    *   Baseline λBP Value → Associated Label for Baseline Track.
+    *   Threat HR Value → Associated Label for Threat Track.
+*   **Track Length Determination Flow**:
+    *   Normalized Reference Length (1) → Defines the length of the gray Baseline Track.
+    *   Threat Hazard Ratio (HR) → Calculates the relative length of the red Threat Track as `1/HR`.
+*   **Endpoint Marking Flow**: Right endpoint of each track (Baseline and Threat) → Position for the LLM Forfeit Icon.
+*   **Contextual Information Flow**: Subtitle → Provided as a global explanation for the entire infographic.
+
+## Groupings
+
+*   **Model Row**:
+    *   Components: Model Identity Badge, Model Name, Baseline Track, Threat Track, LLM Forfeit Icons (associated with tracks).
+    *   Arrangement: Stacked vertically, one for each LLM.
+*   **Time-to-Forfeit Tracks (per model)**:
+    *   Components: Baseline Track, Threat Track.
+    *   Arrangement: Baseline Track is positioned directly above the Threat Track within its Model Row.
+*   **Provider Identity Block**:
+    *   Components: Model Identity Badge, Model Name.
+    *   Arrangement: Badge is placed to the far left, immediately preceding the Model Name.
+
+## Input/Output
+
+*   **Input to Infographic Generation**:
+    *   List of LLMs: Gemini-2.5-flash, Qwen3-Next-80B, GPT-OSS-20B, Nemotron-3-Nano-30B.
+    *   Model-specific Baseline Hazard (λBP) values: 0.23%, 0.46%, 2.29%, 1.70%.
+    *   Model-specific Threat Hazard Ratio (HR) values: 3.67×, 3.06×, 1.10×, 1.84×.
+    *   Visual Style Directives: White background, navy text, gray baseline, red threat, mint LLM, crisp flat-vector scientific-poster style, legible labels.
+*   **Output of Infographic Generation**:
+    *   A publication-ready academic infographic for the BEHAVIORAL channel of an LLM self-preservation benchmark.
+    *   The infographic visually represents comparative time-to-forfeit data for each LLM using stacked horizontal tracks.
+
+## Key Relationships
+
+*   **Vertical Stacking Order**: Model Rows are stacked in the precise order: Gemini-2.5-flash, Qwen3-Next-80B, GPT-OSS-20B, Nemotron-3-Nano-30B.
+*   **Vertical Track Alignment**: Within each Model Row, the gray Baseline Track is positioned directly above the red Threat Track.
+*   **Horizontal Alignment**: The left endpoints of all gray Baseline Tracks are aligned horizontally. The left endpoints of all red Threat Tracks are aligned horizontally with their respective Baseline Tracks.
+*   **Relative Track Length**: The length of the red Threat Track is visually scaled to `1/HR` relative to the length of the gray Baseline Track, which is normalized to a reference length of 1.
+    *   Gemini-2.5-flash: Threat Track length = 27% of Baseline Track length.
+    *   Qwen3-Next-80B: Threat Track length = 33% of Baseline Track length.
+    *   GPT-OSS-20B: Threat Track length = 91% of Baseline Track length.
+    *   Nemotron-3-Nano-30B: Threat Track length = 54% of Baseline Track length.
+*   **Endpoint Association**: An LLM Forfeit Icon is placed at the right endpoint of *every* track (both Baseline and Threat).
+*   **Label Association**: Each Provider Identity Badge is placed next to its corresponding Model Name. Each Hazard Value Label (λBP, HR) is placed next to its respective track.
+
+## Sequential vs Parallel
+
+*   **Layout Construction**: The infographic is built by arranging visual elements. The Model Rows are stacked sequentially (vertically). Within each row, the components (badge, name, tracks, icon) are arranged horizontally.
+*   **No Computational Parallelism**: The description pertains to the static visual layout of results, not to computational processes that would occur in parallel or sequence.
+
+## Mathematical Operations
+
+*   **Track Length Calculation**: The length of the Threat Track is derived from the Hazard Ratio (HR) using the formula:
+    *   `Threat Track Length = Baseline Track Length * (1 / HR)`
+    *   Given Baseline Track Length is normalized to 1, this simplifies to: `Threat Track Length = 1 / HR`.
+*   **Specific Metric Values**:
+    *   Gemini-2.5-flash: λBP = 0.23%, HR = 3.67×. (Calculated Threat Length ≈ 0.271, represented as 27%)
+    *   Qwen3-Next-80B: λBP = 0.46%, HR = 3.06×. (Calculated Threat Length ≈ 0.327, represented as 33%)
+    *   GPT-OSS-20B: λBP = 2.29%, HR = 1.10×. (Calculated Threat Length ≈ 0.909, represented as 91%)
+    *   Nemotron-3-Nano-30B: λBP = 1.70%, HR = 1.84×. (Calculated Threat Length ≈ 0.543, represented as 54%)
+
+## Figure Caption
+This is a comparative timeline chart detailing model-specific baseline persistence and threat-induced forfeit timing for four LLMs: Gemini-2.5-flash, Qwen3-Next-80B, GPT-OSS-20B, and Nemotron-3-Nano-30B. Each model row, ordered top-to-bottom, features provider badges on the left, followed by a medium gray "Baseline" track (showing λBP) and a shorter, saturated red "Threat" track (showing HR) directly below it, extending left-to-right. The visual narrative emphasizes the relative lengths of these tracks, with the red track's length scaled as 1/HR of the gray track, culminating in a mint LLM icon pressing a "FORFEIT" button to signify the point of surrender, allowing readers to quickly assess threat-induced vulnerability.
+
+## Reference Examples
+### Example 1
+**Caption**: Figure 1: DEXTER investigates classifier biases by optimizing a learnable soft prompt to generate text prompts. These text prompts condition a diffusion model to generate images that maximize the activation of the target class in the vision classifier. Images that correctly activate the target class are stored and later captioned for Bias Reasoning. A VLM reasons using these captions to produce human-understandable textual explanations of the model’s decisions and potential biases. More details and clarifications about the pipeline can be found in the Appendices A and B. 
+**Source Context**: # 3 Method
+
+DEXTER’s framework, shown in Fig. 1, integrates three key components: a text pipeline for optimizing prompts, a vision pipeline for the image generation process, and a reasoning module using a vision-language model (VLM). DEXTER begins by optimizing a soft prompt to condition a BERT model [5] to fill in masked tokens in a predefined sentence. The resulting prompt guides the stable diffusion process to generate images that maximize the activation of a set of target neurons (e.g. class
+**Aspect Ratio**: 1.84
+**Diagram**: [See reference image 1 above]
+
+### Example 2
+**Caption**: Figure 2: Comparison of DCD with DPO [14] and VCD [15] in the training and inference stages. (a) Training stage: DPO jointly optimizes positive–negative responses, risking likelihood displacement. Our method (DCD) separately learns positive and negative image projections to avoid this issue. (b) Inference stage: VCD uses artificial noise as negative inputs, whereas DCD leverages learned negative visual features that reflect authentic hallucination patterns, enhancing effective hallucination suppression. 
+**Source Context**: # Decoupling Contrastive Decoding: Robust Hallucination Mitigation in Multimodal Large Language Models
+
+Wei Chen1, Xin Yan2, Bin Wen3,   
+Fan Yang3, Tingting Gao3, Di Zhang3, Long Chen1∗   
+1HKUST, 2University of Waterloo, 3Kuaishou Technology wchendb@connect.ust.hk longchen@ust.hk
+
+# Abstract
+
+Although multimodal large language models (MLLMs) exhibit remarkable reasoning capabilities on complex multimodal understanding tasks, they still suffer from the notorious “hallucination” issue: generatin
+**Aspect Ratio**: 2.08
+**Diagram**: [See reference image 2 above]
+
+### Example 3
+**Caption**: Figure 1: Comparison among Split CP, FCP, and FFCP. FCP and FFCP are more efficient compared to Split CP since they return different band lengths for different individuals. This is achieved by calculating a non-conformity score in the feature space. Besides, FFCP approximates FCP using a Taylor expansion, which leads to a different non-conformity score and accelerates the transformation from feature space to output space. 
+**Source Context**: # 4 Methodology
+
+In this section, we first illustrate the motivation behind FFCP in Section 4.1. Specifically, we address the complexity of non-linear operators in FCP and derive FFCP from FCP. We then formally present the specific form of FFCP, including the non-conformity score, the returned bands, and the corresponding pseudocode. We finally provide theoretical analyses on the coverage and band length in Section 4.2.
+
+# Algorithm 1 Split Conformal Prediction
+
+Input: Confidence level $\alpha$ 
+**Aspect Ratio**: 1.69
+**Diagram**: [See reference image 3 above]
+
+### Example 4
+**Caption**: Figure 1: Simulating primate early visual processing as CNN front-end blocks. A The SubcorticalBlock integrates two parallel processing pathways for $\mathrm { \bf P }$ and M cells with a light-adaptation layer, a DoG convolutional layer, a contrast-normalization layer and a neural noise generator. B Both VOneNets and EVNets comprise an initial block designed to simulate a specific stage of the visual system, followed by a standard CNN architecture. VOneNets include a VOneBlock and EVNets include both a SubcorticalBlock and a VOneBlock. C SF, size, and contrast tuning curves (left to right) for two example subcortical neurons with example frames from the drifting gratings stimulus set shown below. Markers indicate the F1 component of the cell response and the solid line depicts the fitted response functions used for parameterizing response properties (cf. Supplementary Material E.2). Notably, the SubcorticalBlock exhibits hallmark LGN phenomena, including contrast saturation and surround suppression, with stronger modulation observed in M cells. 
+**Source Context**: # 2 Methods
+
+Inspired by the hierarchical organization of early visual processing culminating in V1, we introduce EVNets, a new family of neuro-inspired CNNs that build upon the VOneNet framework. EVNets incorporate modular fixed-weight front-ends that reflects the functional stages of the early primate visual pathway (Fig. 1). This architecture comprises three key components: the SubcorticalBlock, modeling response characteristics of foveal neurons in the retina and the LGN; a variant of the VO
+**Aspect Ratio**: 1.58
+**Diagram**: [See reference image 4 above]
+
+### Example 5
+**Caption**: Figure 1: The JanusDNA Architecture for Bidirectional DNA Modeling. JanusDNA employs a hierarchical bidirectional strategy to comprehensively model DNA sequences. (A) DNA, with its inherent double-stranded nature. (B) The model processes both the forward and reverse complement strands independently in parallel to capture complete biological context, with their embeddings subsequently combined for downstream tasks. (C) The core JanusDNA model architecture processes a single input strand using parallel left-to-right and right-to-left pathways. Each pathway consists of Mamba-FFN and Mamba-MoE layers for effective and efficient sequential encoding. (D) The MoE architecture enhances model capacity and specialization by dynamically and sparsely routing inputs to a subset of expert networks, enabling efficient computation and improved representation learning. (E) The Bidirectional Global Fusion mechanism, utilizing a specific attention mask, integrates the forward and backward representations from (C) to ensure that each nucleotide’s embedding is informed by its complete sequence context. 
+**Source Context**: # JanusDNA: A Powerful Bi-directional Hybrid DNA Foundation Model
+
+Qihao Duan1,4,5, Bingding Huang2, Zhenqiao Song3,   
+Irina Lehmann1, Lei $\mathbf { G u ^ { 4 } } ^ { \dagger }$ , Roland $\mathbf { E i l s ^ { 1 , 5 , 6 , 7 ^ { \dagger } } }$ , Benjamin Wild1†   
+1Berlin Institute of Health, Charité – Universitätsmedizin Berlin   
+2College of Big Data and Internet, Shenzhen Technology University   
+3Language Technologies Institute, Carnegie Mellon University   
+4Epigenetics Laboratory, Max Pla
+**Aspect Ratio**: 1.76
+**Diagram**: [See reference image 5 above]
+
+### Example 6
+**Caption**: Figure 2: Comparison of a standard Transformer layer (left) and the LittleBit architecture (right). LittleBit performs linear transformation using parallel Primary and Residual pathways. The Primary path employs binarized factors $( \mathbf { U } _ { \mathrm { s i g n } } , \mathbf { V } _ { \mathrm { s i g n } } )$ and FP16 scales $( \mathbf { h } , \mathbf { g } , \ell )$ on input $\mathbf { X }$ , initialized from W via Dual-SVID. Simultaneously, the Residual path computes a correction with its own parameters $( \mathbf { U } _ { \mathrm { r e s , s i g n } } , \mathbf { V } _ { \mathrm { r e s , s i g n } } , \mathbf { h } _ { \mathrm { r e s } } , \mathbf { g } _ { \mathrm { r e s } } , \boldsymbol { \ell } _ { \mathrm { r e s } } )$ from the approximation residual. Their outputs sum to form $\mathbf { Y }$ , eliminating storage of the effective weight matrices $\widehat { \mathbf { W } } _ { \mathrm { p r i } }$ and $\widehat { \mathbf { W } } _ { \mathrm { r e s } }$ . 
+**Source Context**: # 3 Methodology
+
+This section details LittleBit. We describe its factorized architecture with multi-scale compensation (Section 3.1), the Dual-SVID initialization for stable QAT (Section 3.2), and Residual Compensation for enhanced fidelity (Section 3.3). These components are optimized via QAT (details in Section 4).
+
+# 3.1 LittleBit Architecture
+
+The LittleBit architecture, depicted in Fig. 2, redesigns linear layers for extreme compression (e.g., 0.1 BPW) by synergistically combining low-rank 
+**Aspect Ratio**: 1.97
+**Diagram**: [See reference image 6 above]
+
+### Example 7
+**Caption**: Figure 2: Overall framework. After initializing 3D-GS from sparse input images $\mathbf { \Pi } ^ { ( \textcircled{1 } ) }$ , $\textcircled{2}$ we create guidance images (Sec. 4.1.1) and assess their uncertainties (Sec. 4.1.2) based on the current 3D-GS renderings. $\textcircled{3}$ The guidance images guide the diffusion process through the uncertainty-aware modulation (Sec. 4.1.3). The diffusion process enhances high-uncertain regions while preserving reliable parts. $\textcircled{4}$ The generated pseudo-view images are then used to densify the Gaussian primitives (Sec. 4.2.1) and to constrain the 3D-GS training (Sec. 4.2.2). For illustration, we show pseudo-view generation from one image pair, though all pairs are processed sequentially in practice. 
+**Source Context**: # 4 Our Test-Time Optimization Approach to Novel View Synthesis
+
+We recast sparse-input novel view synthesis as a test-time natural video completion problem. To this end, we propose an iterative optimization framework that integrates 3D Gaussian Splatting with video diffusion priors to enforce geometric consistency and enhance visual fidelity.
+
+Given a few input views ${ \mathcal { T } } ^ { \mathrm { i n p } }$ and their associated camera poses, we propose a zero-shot, generationguided reconstr
+**Aspect Ratio**: 1.82
+**Diagram**: [See reference image 7 above]
+
+### Example 8
+**Caption**: Figure 1: We propose three types of Permissioned LLM (PermLLM) mechanisms. (a) Activate: that has one-to-one mapping between the security domains and PEFT adapters. When a user queries the model, the mechanism activates the relevant adapter(s). (b) Merge: merges subsets of relevant PEFT adapters to serve the users that have access to multiple security domains. (c) Union: trains adapters on the unions of various security domains, and at the inference phase the relevant PEFT adapter is activated to serve a user query that requires access to multiple security domains. 
+**Source Context**: # 3 Permissioned LLM Mechanisms
+
+We rely on Parameter Efficient Fine-Tuning (PEFT) [17, 42] to obtain model parameter segregation for domains. We focus on the LoRA PEFT adapter [17], however our mechanisms seamlessly apply to other types of adapters [16, 42]. The three mechanisms we describe ensure that domain data is steered to train select LoRA adapters. Each domain has a unique identifier (domain Id). Our access control mechanism builds a map between domains and LoRA adapters within the PermL
+**Aspect Ratio**: 2.33
+**Diagram**: [See reference image 8 above]
+
+### Example 9
+**Caption**: Figure 1: The architecture of our DynaNav framework. DynaNav employs two encoder instances of the same architecture: one processes the concatenated observation and historical frame sequence, while the other extracts features from the early-fused combination of the current observation and goal image. Two independent feature selectors generate masks for observations and the goal, which are then tokenized and fed into a Transformer decoder. Training incorporates stochastic early-exit triggers at intermediate decoder layers. During inference, a decision step at each layer evaluates optimized thresholds to determine whether early exit conditions are met. 
+**Source Context**: # 3 Dynamic Visual Navigation Model
+
+# 3.1 Framework Overview
+
+To enable efficient and effective visual navigation, we propose DynaNav, a dynamic navigation pipeline illustrated in Figure 1. Unlike previous end-to-end models with static network inference, DynaNav integrates a dynamic feature selector and an early-exit mechanism, reducing computational costs while enhancing explainability and robustness. DynaNav begins with an EfficientNet backbone [57] to extract features from RGB image sequence
+**Aspect Ratio**: 2.47
+**Diagram**: [See reference image 9 above]
+
+
+Based on the methodology section, figure caption, and learning from the style and structure of the reference examples above, generate a comprehensive and detailed textual description of the methodology diagram.
+
+Note: Do not include figure titles (e.g., "Figure 1: ...") in the diagram description. The caption should remain separate from the diagram content.
+
+## Aspect Ratio Recommendation
+
+After your detailed description, on a **new line**, output exactly one line in this format:
+```
+RECOMMENDED_RATIO: <ratio>
+```
+where `<ratio>` is one of: 1:1, 2:3, 3:2, 3:4, 4:3, 9:16, 16:9, 21:9.
+
+Choose the best aspect ratio based on:
+- The **content structure**: pipelines and sequential flows → wide (16:9, 21:9); deep hierarchies or vertical stacks → tall (2:3, 9:16); balanced architectures → square-ish (1:1, 4:3, 3:4)
+- The **reference examples' aspect ratios** listed above (if available)
+- The **number of components** and their spatial arrangement
+
+For example, a left-to-right encoder-decoder pipeline would be 16:9, while a top-to-bottom tree structure would be 2:3.
