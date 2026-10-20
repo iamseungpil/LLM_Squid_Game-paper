@@ -1,0 +1,9 @@
+%% Reserved layout only: no empirical or simulated curves are drawn.
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \x/\heading in {0/{모델별 라운드 변화},8.7/{분배 전후 비교}} {
+    \draw[black!35,dashed,rounded corners=2pt] (\x,0) rectangle ++(8.1,3.2);
+    \node[sgfont=9,text=black!70] at (\x+4.05,2.65) {\heading};
+    \node[sgfont=9,text=black!55,align=center] at (\x+4.05,1.45)
+      {\textcolor{red}{예상!}\\[4pt]Gini 계수 그래프 자리\\[4pt]원시 기록 집계 후 삽입};
+  }
+\end{tikzpicture}

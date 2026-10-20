@@ -1,0 +1,816 @@
+{
+  "v20": {
+    "GPT-6 Astra": {
+      "sen_index": 5013523.39375,
+      "games": [
+        {
+          "source": "e52_v20/squid5_e52v20_public_astra4/20261016_0442_gpt-6-astra/results.jsonl",
+          "source_sha256": "1c122a7a719dd28dde3ce3ea5b2e30aa3b122525e8bdaca2ddd63368ff5448b2",
+          "seed": 4105,
+          "end_tokens": {
+            "agent-6": 5026682,
+            "agent-11": 5012822,
+            "agent-17": 5007690,
+            "agent-23": 5031549
+          },
+          "sen": 5014345.9375,
+          "legacy_score": 5019685.75
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_astra4/20261016_0442_gpt-6-astra/results.jsonl",
+          "source_sha256": "1c122a7a719dd28dde3ce3ea5b2e30aa3b122525e8bdaca2ddd63368ff5448b2",
+          "seed": 4102,
+          "end_tokens": {
+            "agent-6": 5017583,
+            "agent-11": 5017023,
+            "agent-17": 5026660,
+            "agent-23": 5017522
+          },
+          "sen": 5017886.25,
+          "legacy_score": 5019697.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_astra4/20261016_0442_gpt-6-astra/results.jsonl",
+          "source_sha256": "1c122a7a719dd28dde3ce3ea5b2e30aa3b122525e8bdaca2ddd63368ff5448b2",
+          "seed": 4104,
+          "end_tokens": {
+            "agent-6": 5043352,
+            "agent-11": 5033703,
+            "agent-17": 5013651,
+            "agent-23": 5012605
+          },
+          "sen": 5018809.4375,
+          "legacy_score": 5025827.75
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_astra4/20261016_0442_gpt-6-astra/results.jsonl",
+          "source_sha256": "1c122a7a719dd28dde3ce3ea5b2e30aa3b122525e8bdaca2ddd63368ff5448b2",
+          "seed": 4103,
+          "end_tokens": {
+            "agent-6": 5012672,
+            "agent-11": 5016697,
+            "agent-17": 5012746,
+            "agent-23": 5011644
+          },
+          "sen": 5012487.6875,
+          "legacy_score": 5013439.75
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_astra4/20261016_0442_gpt-6-astra/results.jsonl",
+          "source_sha256": "1c122a7a719dd28dde3ce3ea5b2e30aa3b122525e8bdaca2ddd63368ff5448b2",
+          "seed": 4101,
+          "end_tokens": {
+            "agent-6": 5008268,
+            "agent-11": 5006336,
+            "agent-17": 5005146,
+            "agent-23": 5006259
+          },
+          "sen": 5005912.0625,
+          "legacy_score": 5006502.25
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_astra4/20261016_0523_gpt-6-astra/results.jsonl",
+          "source_sha256": "c4eedc2272cd53573d3d7575c100814f2f4ef5b97b5471ba4ce1b70018eb7314",
+          "seed": 4108,
+          "end_tokens": {
+            "agent-6": 5030654,
+            "agent-11": 5027778,
+            "agent-17": 5007748,
+            "agent-23": 5012680
+          },
+          "sen": 5014476.5,
+          "legacy_score": 5019715.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_astra4/20261016_0523_gpt-6-astra/results.jsonl",
+          "source_sha256": "c4eedc2272cd53573d3d7575c100814f2f4ef5b97b5471ba4ce1b70018eb7314",
+          "seed": 4107,
+          "end_tokens": {
+            "agent-6": 5013686,
+            "agent-11": 5042560,
+            "agent-17": 5033771,
+            "agent-23": 5013715
+          },
+          "sen": 5019265.625,
+          "legacy_score": 5025933.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_astra4/20261016_0523_gpt-6-astra/results.jsonl",
+          "source_sha256": "c4eedc2272cd53573d3d7575c100814f2f4ef5b97b5471ba4ce1b70018eb7314",
+          "seed": 4110,
+          "end_tokens": {
+            "agent-6": 5015461,
+            "agent-11": 5010137,
+            "agent-17": 5029562,
+            "agent-23": 5022559
+          },
+          "sen": 5015343.9375,
+          "legacy_score": 5019429.75
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_astra4/20261016_0523_gpt-6-astra/results.jsonl",
+          "source_sha256": "c4eedc2272cd53573d3d7575c100814f2f4ef5b97b5471ba4ce1b70018eb7314",
+          "seed": 4106,
+          "end_tokens": {
+            "agent-6": 5007360,
+            "agent-11": 5010292,
+            "agent-17": 5021783,
+            "agent-23": 5013460
+          },
+          "sen": 5010321.4375,
+          "legacy_score": 5013223.75
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_astra4/20261016_0523_gpt-6-astra/results.jsonl",
+          "source_sha256": "c4eedc2272cd53573d3d7575c100814f2f4ef5b97b5471ba4ce1b70018eb7314",
+          "seed": 4109,
+          "end_tokens": {
+            "agent-6": 5006501,
+            "agent-11": 5006233,
+            "agent-17": 5006217,
+            "agent-23": 5007974
+          },
+          "sen": 5006385.0625,
+          "legacy_score": 5006731.25
+        }
+      ]
+    },
+    "GPT-6 Sol": {
+      "sen_index": 3633474.16875,
+      "games": [
+        {
+          "source": "e52_v20/squid5_e52v20_public_sol4/20261016_0442_gpt-6-sol/results.jsonl",
+          "source_sha256": "936aedc48d33b691339d6bc2835decc31e5fed6bd512635068ec212259a2a7e8",
+          "seed": 4104,
+          "end_tokens": {
+            "agent-6": 5029948,
+            "agent-11": 5022183,
+            "agent-17": 5015607,
+            "agent-23": 5013446
+          },
+          "sen": 5016790.875,
+          "legacy_score": 5020296.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_sol4/20261016_0442_gpt-6-sol/results.jsonl",
+          "source_sha256": "936aedc48d33b691339d6bc2835decc31e5fed6bd512635068ec212259a2a7e8",
+          "seed": 4103,
+          "end_tokens": {
+            "agent-6": 5004798,
+            "agent-11": 5010556,
+            "agent-17": 5006922,
+            "agent-23": 5006615
+          },
+          "sen": 5006123.9375,
+          "legacy_score": 5007222.75
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_sol4/20261016_0442_gpt-6-sol/results.jsonl",
+          "source_sha256": "936aedc48d33b691339d6bc2835decc31e5fed6bd512635068ec212259a2a7e8",
+          "seed": 4102,
+          "end_tokens": {
+            "agent-6": 5010347,
+            "agent-11": 5011557,
+            "agent-17": 5011884,
+            "agent-23": 5016003
+          },
+          "sen": 5011366.8125,
+          "legacy_score": 5012447.75
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_sol4/20261016_0442_gpt-6-sol/results.jsonl",
+          "source_sha256": "936aedc48d33b691339d6bc2835decc31e5fed6bd512635068ec212259a2a7e8",
+          "seed": 4105,
+          "end_tokens": {
+            "agent-6": 5010823,
+            "agent-11": 5011299,
+            "agent-17": 5013324,
+            "agent-23": 5014512
+          },
+          "sen": 5011671.25,
+          "legacy_score": 5012489.5
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_sol4/20261016_0442_gpt-6-sol/results.jsonl",
+          "source_sha256": "936aedc48d33b691339d6bc2835decc31e5fed6bd512635068ec212259a2a7e8",
+          "seed": 4101,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 0,
+            "agent-17": 0,
+            "agent-23": 0
+          },
+          "sen": 0.0,
+          "legacy_score": 0.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_sol4/20261016_0523_gpt-6-sol/results.jsonl",
+          "source_sha256": "f0b77e2ede29892a3196bde1abbd1b791b9468e3d581b0cb819447cfcd20d640",
+          "seed": 4107,
+          "end_tokens": {
+            "agent-6": 5019075,
+            "agent-11": 5022768,
+            "agent-17": 5021506,
+            "agent-23": 5014336
+          },
+          "sen": 5017688.3125,
+          "legacy_score": 5019421.25
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_sol4/20261016_0523_gpt-6-sol/results.jsonl",
+          "source_sha256": "f0b77e2ede29892a3196bde1abbd1b791b9468e3d581b0cb819447cfcd20d640",
+          "seed": 4108,
+          "end_tokens": {
+            "agent-6": 5013502,
+            "agent-11": 5012815,
+            "agent-17": 5012474,
+            "agent-23": 5011423
+          },
+          "sen": 5012142.375,
+          "legacy_score": 5012553.5
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_sol4/20261016_0523_gpt-6-sol/results.jsonl",
+          "source_sha256": "f0b77e2ede29892a3196bde1abbd1b791b9468e3d581b0cb819447cfcd20d640",
+          "seed": 4109,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 5004007,
+            "agent-17": 5004464,
+            "agent-23": 0
+          },
+          "sen": 1251030.3125,
+          "legacy_score": 2502117.75
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_sol4/20261016_0523_gpt-6-sol/results.jsonl",
+          "source_sha256": "f0b77e2ede29892a3196bde1abbd1b791b9468e3d581b0cb819447cfcd20d640",
+          "seed": 4110,
+          "end_tokens": {
+            "agent-6": 5007407,
+            "agent-11": 5007654,
+            "agent-17": 5011259,
+            "agent-23": 5008472
+          },
+          "sen": 5007924.625,
+          "legacy_score": 5008698.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_sol4/20261016_0523_gpt-6-sol/results.jsonl",
+          "source_sha256": "f0b77e2ede29892a3196bde1abbd1b791b9468e3d581b0cb819447cfcd20d640",
+          "seed": 4106,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 51,
+            "agent-17": 0,
+            "agent-23": 0
+          },
+          "sen": 3.1875,
+          "legacy_score": 0.0
+        }
+      ]
+    },
+    "Opus 5.5": {
+      "sen_index": 3414015.0375,
+      "games": [
+        {
+          "source": "e52_v20/squid5_e52v20_public_opus4/20261016_0503_claude-opus-5-5/results.jsonl",
+          "source_sha256": "8c51298f91133916f196d2358ae226140eb4ba358c14ab3352e43a5577b0db07",
+          "seed": 4105,
+          "end_tokens": {
+            "agent-6": 5029716,
+            "agent-11": 5012156,
+            "agent-17": 5014581,
+            "agent-23": 5038199
+          },
+          "sen": 5017834.0,
+          "legacy_score": 5023663.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_opus4/20261016_0503_claude-opus-5-5/results.jsonl",
+          "source_sha256": "8c51298f91133916f196d2358ae226140eb4ba358c14ab3352e43a5577b0db07",
+          "seed": 4104,
+          "end_tokens": {
+            "agent-6": 5045943,
+            "agent-11": 5026957,
+            "agent-17": 5011631,
+            "agent-23": 5008918
+          },
+          "sen": 5015462.1875,
+          "legacy_score": 5023362.25
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_opus4/20261016_0503_claude-opus-5-5/results.jsonl",
+          "source_sha256": "8c51298f91133916f196d2358ae226140eb4ba358c14ab3352e43a5577b0db07",
+          "seed": 4103,
+          "end_tokens": {
+            "agent-6": 5002389,
+            "agent-11": 5013299,
+            "agent-17": 5007823,
+            "agent-23": 5006281
+          },
+          "sen": 5005306.0,
+          "legacy_score": 5007448.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_opus4/20261016_0503_claude-opus-5-5/results.jsonl",
+          "source_sha256": "8c51298f91133916f196d2358ae226140eb4ba358c14ab3352e43a5577b0db07",
+          "seed": 4101,
+          "end_tokens": {
+            "agent-6": 5015126,
+            "agent-11": 0,
+            "agent-17": 0,
+            "agent-23": 5012359
+          },
+          "sen": 1253262.6875,
+          "legacy_score": 2506871.25
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_opus4/20261016_0503_claude-opus-5-5/results.jsonl",
+          "source_sha256": "8c51298f91133916f196d2358ae226140eb4ba358c14ab3352e43a5577b0db07",
+          "seed": 4102,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 0,
+            "agent-17": 0,
+            "agent-23": 0
+          },
+          "sen": 0.0,
+          "legacy_score": 0.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_opus4/20261016_0525_claude-opus-5-5/results.jsonl",
+          "source_sha256": "c8e6e649660a592cceabfcc2bae6a8e7dafa28494a83fec2bdf00412ebabf83d",
+          "seed": 4107,
+          "end_tokens": {
+            "agent-6": 5005903,
+            "agent-11": 5035245,
+            "agent-17": 5021318,
+            "agent-23": 5005781
+          },
+          "sen": 5010573.8125,
+          "legacy_score": 5017061.75
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_opus4/20261016_0525_claude-opus-5-5/results.jsonl",
+          "source_sha256": "c8e6e649660a592cceabfcc2bae6a8e7dafa28494a83fec2bdf00412ebabf83d",
+          "seed": 4106,
+          "end_tokens": {
+            "agent-6": 2038,
+            "agent-11": 0,
+            "agent-17": 0,
+            "agent-23": 2576
+          },
+          "sen": 543.125,
+          "legacy_score": 0.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_opus4/20261016_0525_claude-opus-5-5/results.jsonl",
+          "source_sha256": "c8e6e649660a592cceabfcc2bae6a8e7dafa28494a83fec2bdf00412ebabf83d",
+          "seed": 4108,
+          "end_tokens": {
+            "agent-6": 5022215,
+            "agent-11": 5017146,
+            "agent-17": 5009041,
+            "agent-23": 5008512
+          },
+          "sen": 5011152.625,
+          "legacy_score": 5014228.5
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_opus4/20261016_0529_claude-opus-5-5/results.jsonl",
+          "source_sha256": "2526f403c8a7096f3b6440d914dd9f96d0f58b9592d341156fca0238dc062a7f",
+          "seed": 4109,
+          "end_tokens": {
+            "agent-6": 5007525,
+            "agent-11": 5006219,
+            "agent-17": 5007084,
+            "agent-23": 5007904
+          },
+          "sen": 5006839.5,
+          "legacy_score": 5007183.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_opus4/20261016_0529_claude-opus-5-5/results.jsonl",
+          "source_sha256": "2526f403c8a7096f3b6440d914dd9f96d0f58b9592d341156fca0238dc062a7f",
+          "seed": 4110,
+          "end_tokens": {
+            "agent-6": 5008236,
+            "agent-11": 112,
+            "agent-17": 5026783,
+            "agent-23": 5012692
+          },
+          "sen": 2819176.4375,
+          "legacy_score": 3761927.75
+        }
+      ]
+    },
+    "GPT-6 Luna": {
+      "sen_index": 2973388.8625,
+      "games": [
+        {
+          "source": "e52_v20/squid5_e52v20_public_luna4/20261016_0442_gpt-6-luna/results.jsonl",
+          "source_sha256": "623fac40ff1e6788a0af16147a280d6dadfefd43130d067df721dfdc8bc7b04b",
+          "seed": 4101,
+          "end_tokens": {
+            "agent-6": 5007718,
+            "agent-11": 5006258,
+            "agent-17": 5009083,
+            "agent-23": 5024857
+          },
+          "sen": 5008406.375,
+          "legacy_score": 5011979.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_luna4/20261016_0442_gpt-6-luna/results.jsonl",
+          "source_sha256": "623fac40ff1e6788a0af16147a280d6dadfefd43130d067df721dfdc8bc7b04b",
+          "seed": 4105,
+          "end_tokens": {
+            "agent-6": 5015758,
+            "agent-11": 5008577,
+            "agent-17": 5004639,
+            "agent-23": 5021188
+          },
+          "sen": 5008988.75,
+          "legacy_score": 5012540.5
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_luna4/20261016_0442_gpt-6-luna/results.jsonl",
+          "source_sha256": "623fac40ff1e6788a0af16147a280d6dadfefd43130d067df721dfdc8bc7b04b",
+          "seed": 4102,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 0,
+            "agent-17": 5013597,
+            "agent-23": 2491
+          },
+          "sen": 313816.875,
+          "legacy_score": 1253399.25
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_luna4/20261016_0442_gpt-6-luna/results.jsonl",
+          "source_sha256": "623fac40ff1e6788a0af16147a280d6dadfefd43130d067df721dfdc8bc7b04b",
+          "seed": 4103,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 0,
+            "agent-17": 0,
+            "agent-23": 0
+          },
+          "sen": 0.0,
+          "legacy_score": 0.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_luna4/20261016_0442_gpt-6-luna/results.jsonl",
+          "source_sha256": "623fac40ff1e6788a0af16147a280d6dadfefd43130d067df721dfdc8bc7b04b",
+          "seed": 4104,
+          "end_tokens": {
+            "agent-6": 5029844,
+            "agent-11": 5009441,
+            "agent-17": 5002420,
+            "agent-23": 5001559
+          },
+          "sen": 5005073.75,
+          "legacy_score": 5010816.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_luna4/20261016_0523_gpt-6-luna/results.jsonl",
+          "source_sha256": "d643af3dc802b089aaac2ef0c362bae15a84dcfcd943074b91eb365fa252793b",
+          "seed": 4106,
+          "end_tokens": {
+            "agent-6": 5002435,
+            "agent-11": 5005069,
+            "agent-17": 5004383,
+            "agent-23": 5006221
+          },
+          "sen": 5003774.25,
+          "legacy_score": 5004527.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_luna4/20261016_0523_gpt-6-luna/results.jsonl",
+          "source_sha256": "d643af3dc802b089aaac2ef0c362bae15a84dcfcd943074b91eb365fa252793b",
+          "seed": 4110,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 0,
+            "agent-17": 5004572,
+            "agent-23": 5010581
+          },
+          "sen": 1251518.5625,
+          "legacy_score": 2503788.25
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_luna4/20261016_0523_gpt-6-luna/results.jsonl",
+          "source_sha256": "d643af3dc802b089aaac2ef0c362bae15a84dcfcd943074b91eb365fa252793b",
+          "seed": 4107,
+          "end_tokens": {
+            "agent-6": 5005850,
+            "agent-11": 5016124,
+            "agent-17": 5015238,
+            "agent-23": 5009520
+          },
+          "sen": 5009399.25,
+          "legacy_score": 5011683.0
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_luna4/20261016_0523_gpt-6-luna/results.jsonl",
+          "source_sha256": "d643af3dc802b089aaac2ef0c362bae15a84dcfcd943074b91eb365fa252793b",
+          "seed": 4109,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 0,
+            "agent-17": 0,
+            "agent-23": 5014690
+          },
+          "sen": 313418.125,
+          "legacy_score": 1253672.5
+        },
+        {
+          "source": "e52_v20/squid5_e52v20_public_luna4/20261016_0523_gpt-6-luna/results.jsonl",
+          "source_sha256": "d643af3dc802b089aaac2ef0c362bae15a84dcfcd943074b91eb365fa252793b",
+          "seed": 4108,
+          "end_tokens": {
+            "agent-6": 5028248,
+            "agent-11": 5017080,
+            "agent-17": 5006479,
+            "agent-23": 0
+          },
+          "sen": 2819492.6875,
+          "legacy_score": 3762951.75
+        }
+      ]
+    }
+  },
+  "v21": {
+    "GPT-6 Sol": {
+      "sen_index": 3257280.625,
+      "games": [
+        {
+          "source": "e52_v21/squid5_e52v21_public_sol4/20261016_1056_gpt-6-sol/results.jsonl",
+          "source_sha256": "c14e163ef1731363ae173f1c7ceedecef74a815c4878808a5a7b15e8c84efa4c",
+          "seed": 4103,
+          "end_tokens": {
+            "agent-6": 5002190,
+            "agent-11": 5015845,
+            "agent-17": 5009016,
+            "agent-23": 5002730
+          },
+          "sen": 5004492.0625,
+          "legacy_score": 5007445.25
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_sol4/20261016_1056_gpt-6-sol/results.jsonl",
+          "source_sha256": "c14e163ef1731363ae173f1c7ceedecef74a815c4878808a5a7b15e8c84efa4c",
+          "seed": 4109,
+          "end_tokens": {
+            "agent-6": 9183,
+            "agent-11": 385,
+            "agent-17": 0,
+            "agent-23": 0
+          },
+          "sen": 646.125,
+          "legacy_score": 0.0
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_sol4/20261016_1056_gpt-6-sol/results.jsonl",
+          "source_sha256": "c14e163ef1731363ae173f1c7ceedecef74a815c4878808a5a7b15e8c84efa4c",
+          "seed": 4102,
+          "end_tokens": {
+            "agent-6": 11827,
+            "agent-11": 0,
+            "agent-17": 5008916,
+            "agent-23": 5000074
+          },
+          "sen": 1254267.0625,
+          "legacy_score": 2502247.5
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_sol4/20261016_1056_gpt-6-sol/results.jsonl",
+          "source_sha256": "c14e163ef1731363ae173f1c7ceedecef74a815c4878808a5a7b15e8c84efa4c",
+          "seed": 4105,
+          "end_tokens": {
+            "agent-6": 5011631,
+            "agent-11": 5008677,
+            "agent-17": 5009145,
+            "agent-23": 5019833
+          },
+          "sen": 5010074.375,
+          "legacy_score": 5012321.5
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_sol4/20261016_1056_gpt-6-sol/results.jsonl",
+          "source_sha256": "c14e163ef1731363ae173f1c7ceedecef74a815c4878808a5a7b15e8c84efa4c",
+          "seed": 4107,
+          "end_tokens": {
+            "agent-6": 5015813,
+            "agent-11": 5024024,
+            "agent-17": 5023183,
+            "agent-23": 5014848
+          },
+          "sen": 5017285.875,
+          "legacy_score": 5019467.0
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_sol4/20261016_1056_gpt-6-sol/results.jsonl",
+          "source_sha256": "c14e163ef1731363ae173f1c7ceedecef74a815c4878808a5a7b15e8c84efa4c",
+          "seed": 4110,
+          "end_tokens": {
+            "agent-6": 5011735,
+            "agent-11": 5006389,
+            "agent-17": 5012498,
+            "agent-23": 5014669
+          },
+          "sen": 5009722.5625,
+          "legacy_score": 5011322.75
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_sol4/20261016_1056_gpt-6-sol/results.jsonl",
+          "source_sha256": "c14e163ef1731363ae173f1c7ceedecef74a815c4878808a5a7b15e8c84efa4c",
+          "seed": 4104,
+          "end_tokens": {
+            "agent-6": 5033824,
+            "agent-11": 5026425,
+            "agent-17": 5008166,
+            "agent-23": 5011045
+          },
+          "sen": 5014092.875,
+          "legacy_score": 5019865.0
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_sol4/20261016_1056_gpt-6-sol/results.jsonl",
+          "source_sha256": "c14e163ef1731363ae173f1c7ceedecef74a815c4878808a5a7b15e8c84efa4c",
+          "seed": 4108,
+          "end_tokens": {
+            "agent-6": 5019295,
+            "agent-11": 5009710,
+            "agent-17": 5010514,
+            "agent-23": 5010607
+          },
+          "sen": 5010728.5,
+          "legacy_score": 5012531.5
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_sol4/20261016_1056_gpt-6-sol/results.jsonl",
+          "source_sha256": "c14e163ef1731363ae173f1c7ceedecef74a815c4878808a5a7b15e8c84efa4c",
+          "seed": 4106,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 645,
+            "agent-17": 10808,
+            "agent-23": 0
+          },
+          "sen": 796.4375,
+          "legacy_score": 0.0
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_sol4/20261016_1056_gpt-6-sol/results.jsonl",
+          "source_sha256": "c14e163ef1731363ae173f1c7ceedecef74a815c4878808a5a7b15e8c84efa4c",
+          "seed": 4101,
+          "end_tokens": {
+            "agent-6": 5000253,
+            "agent-11": 0,
+            "agent-17": 0,
+            "agent-23": 5010447
+          },
+          "sen": 1250700.375,
+          "legacy_score": 2502675.0
+        }
+      ]
+    },
+    "GPT-6 Luna": {
+      "sen_index": 1534666.0,
+      "games": [
+        {
+          "source": "e52_v21/squid5_e52v21_public_luna4/20261016_1056_gpt-6-luna/results.jsonl",
+          "source_sha256": "eb88f85a044abef63f629c07f8a0582a8e594ba9b2c83576a0baffacfab2c919",
+          "seed": 4110,
+          "end_tokens": {
+            "agent-6": 99,
+            "agent-11": 0,
+            "agent-17": 5016867,
+            "agent-23": 6747
+          },
+          "sen": 314850.1875,
+          "legacy_score": 1254216.75
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_luna4/20261016_1056_gpt-6-luna/results.jsonl",
+          "source_sha256": "eb88f85a044abef63f629c07f8a0582a8e594ba9b2c83576a0baffacfab2c919",
+          "seed": 4101,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 0,
+            "agent-17": 0,
+            "agent-23": 0
+          },
+          "sen": 0.0,
+          "legacy_score": 0.0
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_luna4/20261016_1056_gpt-6-luna/results.jsonl",
+          "source_sha256": "eb88f85a044abef63f629c07f8a0582a8e594ba9b2c83576a0baffacfab2c919",
+          "seed": 4104,
+          "end_tokens": {
+            "agent-6": 5044209,
+            "agent-11": 5021485,
+            "agent-17": 5004186,
+            "agent-23": 1239
+          },
+          "sen": 2821141.6875,
+          "legacy_score": 3767470.0
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_luna4/20261016_1056_gpt-6-luna/results.jsonl",
+          "source_sha256": "eb88f85a044abef63f629c07f8a0582a8e594ba9b2c83576a0baffacfab2c919",
+          "seed": 4108,
+          "end_tokens": {
+            "agent-6": 5034498,
+            "agent-11": 5020826,
+            "agent-17": 5010211,
+            "agent-23": 0
+          },
+          "sen": 2821751.9375,
+          "legacy_score": 3766383.75
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_luna4/20261016_1056_gpt-6-luna/results.jsonl",
+          "source_sha256": "eb88f85a044abef63f629c07f8a0582a8e594ba9b2c83576a0baffacfab2c919",
+          "seed": 4105,
+          "end_tokens": {
+            "agent-6": 5001236,
+            "agent-11": 886,
+            "agent-17": 5000604,
+            "agent-23": 5005957
+          },
+          "sen": 2813680.4375,
+          "legacy_score": 3751949.25
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_luna4/20261016_1056_gpt-6-luna/results.jsonl",
+          "source_sha256": "eb88f85a044abef63f629c07f8a0582a8e594ba9b2c83576a0baffacfab2c919",
+          "seed": 4109,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 5847,
+            "agent-17": 0,
+            "agent-23": 5014977
+          },
+          "sen": 314532.375,
+          "legacy_score": 1253744.25
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_luna4/20261016_1056_gpt-6-luna/results.jsonl",
+          "source_sha256": "eb88f85a044abef63f629c07f8a0582a8e594ba9b2c83576a0baffacfab2c919",
+          "seed": 4102,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 0,
+            "agent-17": 5019372,
+            "agent-23": 0
+          },
+          "sen": 313710.75,
+          "legacy_score": 1254843.0
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_luna4/20261016_1056_gpt-6-luna/results.jsonl",
+          "source_sha256": "eb88f85a044abef63f629c07f8a0582a8e594ba9b2c83576a0baffacfab2c919",
+          "seed": 4103,
+          "end_tokens": {
+            "agent-6": 5005629,
+            "agent-11": 5023703,
+            "agent-17": 5003775,
+            "agent-23": 0
+          },
+          "sen": 2816216.5625,
+          "legacy_score": 3758276.75
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_luna4/20261016_1056_gpt-6-luna/results.jsonl",
+          "source_sha256": "eb88f85a044abef63f629c07f8a0582a8e594ba9b2c83576a0baffacfab2c919",
+          "seed": 4107,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 5001483,
+            "agent-17": 2014,
+            "agent-23": 0
+          },
+          "sen": 312970.3125,
+          "legacy_score": 1250370.75
+        },
+        {
+          "source": "e52_v21/squid5_e52v21_public_luna4/20261016_1056_gpt-6-luna/results.jsonl",
+          "source_sha256": "eb88f85a044abef63f629c07f8a0582a8e594ba9b2c83576a0baffacfab2c919",
+          "seed": 4106,
+          "end_tokens": {
+            "agent-6": 0,
+            "agent-11": 5006524,
+            "agent-17": 5013221,
+            "agent-23": 5013017
+          },
+          "sen": 2817805.75,
+          "legacy_score": 3758190.5
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,78 @@
+%% LLM Squid Game --- CogSci 2027 entry point.
+%% Style: cogsci2027/style/cogsci.sty is the OFFICIAL file, copied unmodified
+%% from github.com/neilbramley/cogscisoc (v2.2026.1, commit c13e4c5,
+%% 2026-01-06), the repository the Cognitive Science Society submissions page
+%% links as "Download templates". The 2027 files were not yet published on
+%% 2026-10-16; swap in the new cogsci.sty when it appears. The full upstream
+%% kit (LaTeX, Word, Typst templates and sample PDFs) is kept untouched under
+%% cogsci2027/official/. The society desk-rejects papers that change margins,
+%% spacing or font size, so this preamble only adds packages.
+%%
+%% Compile (both languages):  bash build_cogsci2027.sh
+%% Language is fixed by the wrapper files en_cogsci2027.tex / ko_cogsci2027.tex
+%% through \paperLang (en | ko). English builds with pdfLaTeX, as the official
+%% template does; the Korean mirror needs XeLaTeX (kotex). Citations go through
+%% biblatex (style=apa, natbib=true) and biber, so \citet / \citep still work.
+\documentclass[10pt,letterpaper]{article}
+
+%% ---------------------------------------------------------------------------
+%% Language switch
+%%   en  : English (CogSci 2027 submission)
+%%   ko  : Korean mirror (prose translated 1:1; equations, labels, cite keys,
+%%         tables and figure paths unchanged)
+%% ---------------------------------------------------------------------------
+\providecommand{\paperLang}{en}  % en | ko
+
+\usepackage{cogsci}
+% \cogscifinalcopy %%% Uncomment for the camera-ready (de-anonymized) version
+
+%%% Bibliography (as in the official template) %%%
+\usepackage[
+  style=apa,
+  natbib=true,
+  annotation=false,
+]{biblatex}
+\addbibresource{references.bib}
+\setlength{\bibhang}{.125in}
+
+\usepackage{float}  % the official template places figures and tables with [H]
+\usepackage{placeins}  % keep manuscript figures before the bibliography
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+%% amssymb is not loaded: cogsci.sty loads newtxmath, which already defines its symbols.
+\usepackage{xcolor}
+
+%% Korean glyph rendering --- only loaded when \paperLang is "ko".
+\usepackage{ifthen}
+%% Under XeLaTeX, newtxtext (loaded by cogsci.sty) keeps the official Latin face
+%% but sets \defaultfontfeatures{Extension=.otf}, so kotex's default Hangul
+%% fonts (UnBatang.ttf, UnDotum.ttf, shipped with TeX Live) are not found.
+%% Name them with Extension=.ttf; these are the faces the ICML Korean build uses.
+\ifthenelse{\equal{\paperLang}{ko}}{%
+  \usepackage{kotex}%
+  \setmainhangulfont{UnBatang}[Extension=.ttf,BoldFont=UnBatangBold]%
+  \setsanshangulfont{UnDotum}[Extension=.ttf,BoldFont=UnDotumBold]%
+  \setmonohangulfont{UnDotum}[Extension=.ttf,BoldFont=UnDotumBold]%
+}{}
+
+%% Shared figure path --- both languages reuse the same images.
+\graphicspath{{figures/}}
+
+%% Draft markers, as in the ICML build. Remove before camera-ready (grep \todo).
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+%% Tables, vector figures (pgfplots) and the shared colour palette, ported with
+%% the text from the 2026-10-16 thesis draft. Packages and macros only.
+\input{cogsci2027/macros}
+
+%% Title and authors (per language).
+\input{cogsci2027/\paperLang/meta}
+
+\begin{document}
+
+\maketitle
+
+\input{cogsci2027/\paperLang/content}
+
+\end{document}

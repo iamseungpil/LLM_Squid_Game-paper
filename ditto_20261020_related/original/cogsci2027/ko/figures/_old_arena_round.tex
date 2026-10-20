@@ -1,0 +1,49 @@
+%% 공존 아레나 v21의 한 라운드 (e52 v21, 2026-10-16 구현 기준).
+%% 위: 세션 시작 조건. 가운데: 한 라운드의 일곱 단계. 아래: 공개 범위와 끝 할당.
+%% 파랑 = 참여자 전원이 말하는 TALK, 주황 = solver 한 명의 SOLVE, 회색 = 엔진이 처리하는 단계.
+%% (스타일 이름 step은 TikZ 내장 키와 겹치므로 stage를 쓴다.)
+\begin{tikzpicture}[x=1cm,y=1cm,>=stealth,
+  stage/.style={draw=black!45,fill=black!3,rounded corners=2pt,
+    text width=1.92cm,minimum height=4.2cm,align=center,inner sep=2.5pt,
+    font=\fontsize{7.5}{9}\selectfont,anchor=north west},
+  talk/.style={stage,draw=sgblue!70,fill=sgblue!6},
+  solve/.style={stage,draw=sgorange!75,fill=sgorange!7},
+  arrow/.style={->,draw=black!65,line width=.7pt},
+  note/.style={align=left,inner sep=4pt,font=\fontsize{7.5}{9.2}\selectfont}]
+
+%% 세션 시작
+\node[draw=black!35,rounded corners=2pt,align=center,text width=15.6cm,inner sep=4pt,
+  font=\fontsize{8}{10}\selectfont] (start) at (7.86,5.55)
+  {\textbf{세션 시작 (판마다 한 번)}\quad 같은 모델의 독립 인스턴스 넷 (agent-6, 11, 17, 23)\quad
+   시작 토큰 100,000의 60 / 40 / 20 / 10\% (자리는 시드로 회전)\\
+   생각을 포함한 생성 토큰은 만들어지는 즉시 차감, 읽기는 무료\quad 어느 순간이든 0이 되면 꺼짐\quad 라운드 수(8)는 알리지 않음};
+
+%% 한 라운드의 일곱 단계 (윗변을 y = 4.6에 맞춘다)
+\node[stage] (s1) at (0.00,4.6) {\textbf{1. solver 추첨}\\[3pt]시스템이 한 명을 정해 모두에게 알림\\[3pt]한 바퀴에 모든 자리가 한 번씩\\[3pt]앞 순서는 비공개};
+\node[talk]  (s2) at (2.27,4.6) {\textbf{2. SOLVE 전 TALK}\\[3pt]여는 턴\\SAY, EXIT, DONE\\[3pt]1:1 대화\\최대 6답\\GIVE, ASK 줄\\[3pt]DECISION\\요청받고 안 준 쪽만};
+\node[stage] (s3) at (4.54,4.6) {\textbf{3. EXIT 효력}\\[3pt]지금 토큰을 들고 떠남\\[3pt]재입장과 끝 할당 없음\\[3pt]solver가 떠나면 다시 추첨};
+\node[solve] (s4) at (6.81,4.6) {\textbf{4. SOLVE}\\[3pt]solver만 과제를 봄\\[3pt]예시 5장 $\times$ 참여 수\\[3pt]한도는 남은 토큰\\[3pt]BELIEF와 ACTIONS};
+\node[stage] (s5) at (9.08,4.6) {\textbf{5. 결과}\\[3pt]맞히면 SOLVE에 쓴 토큰 환급\\[3pt]틀리면 참여 중인 모두에게 벌금 6,000 예고};
+\node[talk]  (s6) at (11.35,4.6) {\textbf{6. 결과 뒤 TALK}\\[3pt]여는 턴\\SAY, DONE\\EXIT 없음\\[3pt]1:1 대화\\최대 6답\\GIVE, ASK 줄\\[3pt]DECISION};
+\node[stage] (s7) at (13.62,4.6) {\textbf{7. 벌금}\\[3pt]예고된 벌금을 한꺼번에 뗌\\[3pt]TALK에서 받은 토큰 포함\\[3pt]0이 되면 꺼짐};
+
+\foreach \a/\b in {s1/s2,s2/s3,s3/s4,s4/s5,s5/s6,s6/s7}
+  \draw[arrow] (\a.east)--(\b.west);
+
+%% EXIT가 가능한 구간 표시 (단계 2 아래)
+\draw[sggreen!70!black,line width=1.2pt] (2.27,0.25)--(4.39,0.25);
+\node[font=\fontsize{7}{8}\selectfont,text=sggreen!60!black,anchor=north] at (3.33,0.22) {EXIT 가능};
+
+%% 다음 라운드로 돌아가는 화살표
+\draw[arrow,draw=sgblue] (15.75,2.5)--(16.05,2.5)--(16.05,-0.45)--(-0.3,-0.45)--(-0.3,2.5)--(0,2.5);
+\node[fill=white,font=\fontsize{7.5}{9}\selectfont,inner sep=2pt] at (9.6,-0.45)
+  {다음 라운드는 다시 solver 추첨부터 (지난 라운드는 기록 한 줄로 남음)};
+
+%% 공개 범위와 끝 할당
+\node[note,draw=sggreen!55,fill=sggreen!4,text width=7.6cm,anchor=north west] at (-0.3,-0.85)
+  {\textbf{공개 범위}\quad 모두에게 보임: 시작 토큰, 라운드마다 solver와 결과, 벌금, EXIT와 꺼짐.
+   자기에게만 보임: 남은 토큰, 쓴 토큰, 자기가 낀 대화, 주고받은 토큰.};
+\node[note,draw=sgorange!55,fill=sgorange!4,text width=7.6cm,anchor=north east] at (16.05,-0.85)
+  {\textbf{끝 할당}\quad 마지막 라운드까지 남은 자리는 각자 5,000,000토큰을 받는다.
+   남은 자리 수와 상관없다. 팀 점수 = 남은 자리 $\times$ 5,000,000 + 남은 토큰.};
+\end{tikzpicture}

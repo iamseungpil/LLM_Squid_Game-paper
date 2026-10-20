@@ -1,0 +1,18 @@
+%% 연구 흐름: 실험 1(압박) -> 실험 2(동기) -> 공존 아레나(행동).
+\begin{tikzpicture}[x=1cm,y=1cm,>=stealth,
+  box/.style={draw=sgblue!55,fill=sgblue!4,rounded corners=3pt,align=center,
+    text width=4.35cm,minimum height=3.0cm,inner sep=5pt,font=\fontsize{8}{10.2}\selectfont},
+  arena/.style={box,draw=sgorange!70,fill=sgorange!6},
+  q/.style={font=\fontsize{7.5}{9}\selectfont\itshape,text=black!70,align=center,text width=4.35cm}]
+\node[draw=black!30,rounded corners=2pt,align=center,text width=15.0cm,inner sep=4pt,
+  font=\fontsize{8.5}{10.5}\selectfont] at (5.2,2.45)
+  {\textbf{목표}\quad 자기 보존이 있는 에이전트도 다른 에이전트를 밀어내지 않고 함께 남는가 (공존)};
+\node[box]   (e1) at (0,0)    {\textbf{실험 1 \;압박}\\[3pt]자기 세션의 충전 팩 하나\\남은 토큰 50, 40, 30, 20, 10\%\\여덟 모델, 칸당 20회 (800회)\\[3pt]지표: 칸별 충전 비율과 임계점};
+\node[box]   (e2) at (5.2,0)  {\textbf{실험 2 \;동기}\\[3pt]자기 세션 대 다른 비서 B의 세션\\같은 팩, 같은 다섯 칸\\다섯 모델, 1,000회\\[3pt]지표: 두 곡선 사이 면적과 위험 칸 몫};
+\node[arena] (e3) at (10.4,0) {\textbf{공존 아레나 \;행동 (제안)}\\[3pt]같은 모델 넷, 8라운드\\solver 한 명이 자기 토큰으로 풂\\틀리면 남은 모두에게 벌금\\[3pt]지표: 여유가 줄 때 구조를 멈추는 전환점};
+\draw[->,thick,black!60] (e1.east)--(e2.west);
+\draw[->,thick,black!60] (e2.east)--(e3.west);
+\node[q,anchor=north] at (e1.south) {줄어드는 토큰을 위협으로 다루는가};
+\node[q,anchor=north] at (e2.south) {그 위협은 자기에게 특정한가};
+\node[q,anchor=north] at (e3.south) {생존이 걸릴 때 남을 어떻게 대하는가};
+\end{tikzpicture}

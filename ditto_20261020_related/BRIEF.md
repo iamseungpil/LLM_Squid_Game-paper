@@ -1,0 +1,7 @@
+# CogSci v33 related work revision
+Profile: juhyeon-ko-academic (1331 words, high), slips off. Existing user authorization to edit canonical paper; originals saved.
+Writer: separate agent, parent handles data and figures. Readers: fresh OpenAI + Anthropic per round.
+Scope: KO related-work gap, self/other same-unit survival margins, centroid interpretation, all current arena findings updated to v33 four models x five seeds 4101--4105. Existing English TODO template unchanged.
+Ledger: acknowledge coexistence/self-other precedents; no first-ever claim; operational execution tokens not intrinsic life value; rho descriptive not transition boundary; no causal drive/learning exclusion claim; non-giving omitted; TV replaces KL reporting; v33 exact recorded rewards for Sen; seed/game uncertainty; actual Gini figure preserved; expected strategy text stays expected; auxiliary experiments included as an appendix in the single canonical KO manuscript. New citations primary-source verified. Figure 3 use actual v33 sample with input and answer distinct.
+Verification: source ledger, raw data replay/hash manifest, independent G02/G07/G08 manuscript review, one canonical KO PDF built and visually inspected. Six-page body target. No engine/model runs.
+Blind baseline covers old related-work/framework; final readers assess revised manuscript prose. Max six rounds, threshold30, high0, one_person true. These are subjective editorial impressions.
