@@ -86,9 +86,11 @@
 \usepackage{ifthen}
 \ifthenelse{\equal{\paperLang}{ko}}{%
   \usepackage{kotex}%
-  \setmainhangulfont{UnBatang}[Extension=.ttf,BoldFont=UnBatangBold]%
-  \setsanshangulfont{UnDotum}[Extension=.ttf,BoldFont=UnDotumBold]%
-  \setmonohangulfont{UnDotum}[Extension=.ttf,BoldFont=UnDotumBold]%
+  %% Options first ([...]{name}): older xetexko / fontspec (e.g. on Overleaf) do not read a trailing [...]
+  %% and would typeset it as text.
+  \setmainhangulfont[Extension=.ttf,BoldFont=UnBatangBold]{UnBatang}%
+  \setsanshangulfont[Extension=.ttf,BoldFont=UnDotumBold]{UnDotum}%
+  \setmonohangulfont[Extension=.ttf,BoldFont=UnDotumBold]{UnDotum}%
 }{}
 
 %% Shared figure path --- both languages reuse the same images.
