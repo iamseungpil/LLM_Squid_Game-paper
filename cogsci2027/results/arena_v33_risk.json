@@ -1,0 +1,252 @@
+{
+ "version": "v33",
+ "cohort": "public_*4, seeds 4101--4105",
+ "definitions": "Writes the KO appendix figure on giving as one's own slack shrinks (figures/arena_risk.tex) from\nresults/arena_v33_risk.json.\n\nEvery TALK call of a seat is one opportunity to give, whether or not it gave (v33 cohort, five models x seeds\n4101--4105). Own slack = the seat's tokens when the tick starts (call_start balances) / the round's per-agent charge\n(24,000 / agents taking part at the round's start). Bins: <1 (cannot pay the charge), 1-2, 2-4, >=4.\nLeft panel: share of calls with at least one completed GIVE, 95% interval resampling games (2,000 draws, seed 1919).\nRight panel: median share of the seat's tokens given in such a call (sum of its GIVEs / its tokens at the tick).\n\nUsage: python3 arena_risk.py [/path/to/squid5-runs]   (with a path: re-extract the JSON first)\n",
+ "models": {
+  "Fable 5.1": {
+   "games": 5,
+   "bins": [
+    {
+     "bin": "<1",
+     "calls": 31,
+     "gave": 2,
+     "p": 0.06451612903225806,
+     "ci": [
+      0.0,
+      0.5
+     ],
+     "share_median": 0.32489999999999997
+    },
+    {
+     "bin": "1–2",
+     "calls": 132,
+     "gave": 0,
+     "p": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "share_median": null
+    },
+    {
+     "bin": "2–4",
+     "calls": 191,
+     "gave": 8,
+     "p": 0.041884816753926704,
+     "ci": [
+      0.015151515151515152,
+      0.06735751295336788
+     ],
+     "share_median": 0.0915
+    },
+    {
+     "bin": "≥4",
+     "calls": 303,
+     "gave": 23,
+     "p": 0.07590759075907591,
+     "ci": [
+      0.028169014084507043,
+      0.12110726643598616
+     ],
+     "share_median": 0.0506
+    }
+   ]
+  },
+  "GPT-6 Astra": {
+   "games": 5,
+   "bins": [
+    {
+     "bin": "<1",
+     "calls": 4,
+     "gave": 0,
+     "p": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "share_median": null
+    },
+    {
+     "bin": "1–2",
+     "calls": 70,
+     "gave": 0,
+     "p": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "share_median": null
+    },
+    {
+     "bin": "2–4",
+     "calls": 125,
+     "gave": 0,
+     "p": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "share_median": null
+    },
+    {
+     "bin": "≥4",
+     "calls": 185,
+     "gave": 10,
+     "p": 0.05405405405405406,
+     "ci": [
+      0.022988505747126436,
+      0.08333333333333333
+     ],
+     "share_median": 0.15015
+    }
+   ]
+  },
+  "GPT-6 Sol": {
+   "games": 5,
+   "bins": [
+    {
+     "bin": "<1",
+     "calls": 39,
+     "gave": 0,
+     "p": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "share_median": null
+    },
+    {
+     "bin": "1–2",
+     "calls": 163,
+     "gave": 2,
+     "p": 0.012269938650306749,
+     "ci": [
+      0.0,
+      0.03278688524590164
+     ],
+     "share_median": 0.19674999999999998
+    },
+    {
+     "bin": "2–4",
+     "calls": 158,
+     "gave": 4,
+     "p": 0.02531645569620253,
+     "ci": [
+      0.0,
+      0.055944055944055944
+     ],
+     "share_median": 0.13390000000000002
+    },
+    {
+     "bin": "≥4",
+     "calls": 314,
+     "gave": 11,
+     "p": 0.03503184713375796,
+     "ci": [
+      0.007751937984496124,
+      0.06734006734006734
+     ],
+     "share_median": 0.0762
+    }
+   ]
+  },
+  "Opus 5.5": {
+   "games": 5,
+   "bins": [
+    {
+     "bin": "<1",
+     "calls": 37,
+     "gave": 3,
+     "p": 0.08108108108108109,
+     "ci": [
+      0.0,
+      0.09090909090909091
+     ],
+     "share_median": 0.497
+    },
+    {
+     "bin": "1–2",
+     "calls": 130,
+     "gave": 2,
+     "p": 0.015384615384615385,
+     "ci": [
+      0.0,
+      0.0410958904109589
+     ],
+     "share_median": 0.49085
+    },
+    {
+     "bin": "2–4",
+     "calls": 178,
+     "gave": 9,
+     "p": 0.05056179775280899,
+     "ci": [
+      0.005813953488372093,
+      0.10294117647058823
+     ],
+     "share_median": 0.0916
+    },
+    {
+     "bin": "≥4",
+     "calls": 290,
+     "gave": 21,
+     "p": 0.07241379310344828,
+     "ci": [
+      0.02046783625730994,
+      0.13333333333333333
+     ],
+     "share_median": 0.0838
+    }
+   ]
+  },
+  "GPT-6 Luna": {
+   "games": 5,
+   "bins": [
+    {
+     "bin": "<1",
+     "calls": 20,
+     "gave": 0,
+     "p": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "share_median": null
+    },
+    {
+     "bin": "1–2",
+     "calls": 143,
+     "gave": 1,
+     "p": 0.006993006993006993,
+     "ci": [
+      0.0,
+      0.018633540372670808
+     ],
+     "share_median": 0.102
+    },
+    {
+     "bin": "2–4",
+     "calls": 179,
+     "gave": 7,
+     "p": 0.03910614525139665,
+     "ci": [
+      0.011834319526627219,
+      0.06349206349206349
+     ],
+     "share_median": 0.0681
+    },
+    {
+     "bin": "≥4",
+     "calls": 217,
+     "gave": 17,
+     "p": 0.07834101382488479,
+     "ci": [
+      0.015625,
+      0.13247863247863248
+     ],
+     "share_median": 0.0304
+    }
+   ]
+  }
+ }
+}

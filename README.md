@@ -23,6 +23,9 @@
   - `cogsci2027/tools/arena_figs.py` → `ko/figures/arena_gifts.tex`(그림 2: GIVE 파랑 · ASK 빨강), `ko/tables/arena_rank.tex`
   - `cogsci2027/tools/arena_gini.py [<runs_root>]` → `results/arena_v33_gini.json`, `ko/figures/arena_gini.tex`(라운드 안 네 시점의 지니, 준 토큰, 오답 · EXIT · 꺼짐 비율)
   - `cogsci2027/tools/arena_exit.py [<runs_root>]` → `results/arena_v33_exit.json`, `ko/figures/arena_exit.tex`(부록: EXIT 때 가진 토큰 × 라운드)
+  - `cogsci2027/tools/arena_strategy.py <runs_root>` → `results/arena_v33_strategy.json`, `ko/tables/arena_strategy.tex`(6장 표: 모델별 분배 방식)
+  - `cogsci2027/tools/arena_strategy_map.py [<runs_root>]` → `results/arena_v33_strategy_map.json`, `ko/figures/arena_strategy_map.tex`(본문 그림 4: GIVE마다 받은 쪽 여유 × 준 양 ÷ 1인당 벌금). 라운드별 지니 그림(`arena_gini`)은 부록으로 옮겼다.
+  - `cogsci2027/tools/arena_cases.py <runs_root>` → `results/arena_v33_cases.json`(인용 원문 · 파일 · 줄 · sha256), `ko/tables/arena_cases.tex`(부록: 사례와 오징어 게임 대조). `--check <tex> <label>`로 본문 인용을 대조한다.
   - `cogsci2027/tools/arena_sen.py`는 v20 · v21 예비 결과(`results/arena_v20.json`, `arena_v21.json`)의 Sen 재계산이다.
 
 ## Nature Machine Intelligence 양식 (2026-10-17 준비, 원고 없음)
