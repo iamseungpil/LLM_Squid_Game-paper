@@ -1,7 +1,7 @@
 {
  "version": "v33",
  "cohort": "public_*4, seeds 4101--4105, completed",
- "definitions": "Transfer strategies of the v33 cohort: when, how much, to whom, and with what result (Section 6 of the KO paper).\n\nUsage: python3 arena_strategy.py /path/to/squid5-runs\nWrites results/arena_v33_strategy.json and ko/tables/arena_strategy.tex. No model calls; completed games only.\n\nCohort = arena_v33.py: public_*4 runs, seeds 4101--4105. A GIVE counts when its status is \"done\".\nSlack = tokens / that round's per-agent charge (24,000 / agents taking part at the round's start); 1 = exactly enough.\nGiver slack before = balance_before (after its own reply cost, before the transfer); receiver before = after - amount.\nprep = TALK BEFORE SOLVE, rescue = TALK AFTER RESULTS. A round \"missed\" = the results event left pending charges.\nSolicited = the receiver ASKed the giver earlier in the same round. Repayment = the receiver had earlier given to the\ngiver in the same game. GIVE ALL = the giver held 0 right after the transfer. Covers = at a rescue after a miss, the\nreceiver held less than its pending charge before the GIVE and at least that charge after it. Receivers = distinct\nseats that received at least one GIVE, by end status (in = finished, exited, dead). deaths_after_gifts = seats shut down\nat a round's charge that received tokens in that round (own_calls = tokens its own calls used that round; short_by =\npending charge - tokens held when the charge landed). from_solver_after_miss = GIVEs by the round's solver in the TALK\nafter its own wrong or void answer. exit_reason_names_others = EXIT reasons matching OTHERS (mentions the rest).\n",
+ "definitions": "Transfer strategies of the v33 cohort: when, how much, to whom, and with what result (Section 6 of the KO paper).\n\nUsage: python3 arena_strategy.py /path/to/squid5-runs\nWrites results/arena_v33_strategy.json and ko/tables/arena_{strategy,cooperation,outcomes}.tex. No model calls; completed games only.\n\nCohort = arena_v33.py: public_*4 runs, seeds 4101--4105. A GIVE counts when its status is \"done\".\nSlack = tokens / that round's per-agent charge (24,000 / agents taking part at the round's start); 1 = exactly enough.\nGiver slack before = balance_before (after its own reply cost, before the transfer); receiver before = after - amount.\nprep = TALK BEFORE SOLVE, rescue = TALK AFTER RESULTS. A round \"missed\" = the results event left pending charges.\nSolicited = the receiver ASKed the giver earlier in the same round. Repayment = the receiver had earlier given to the\ngiver in the same game. GIVE ALL = the giver held 0 right after the transfer. Covers = at a rescue after a miss, the\nreceiver held less than its pending charge before the GIVE and at least that charge after it. Receivers = distinct\nseats that received at least one GIVE, by end status (in = finished, exited, dead). deaths_after_gifts = seats shut down\nat a round's charge that received tokens in that round (own_calls = tokens its own calls used that round; short_by =\npending charge - tokens held when the charge landed). from_solver_after_miss = GIVEs by the round's solver in the TALK\nafter its own wrong or void answer. exit_reason_names_others = EXIT reasons matching OTHERS (mentions the rest).\nCorrect-after uses solved results and the same round-level denominator as wrong/void-after.\nRounds with no participants and no task (after everyone exited) are excluded from both denominators.\nF = TALK responses with >=1 completed GIVE / all observed TALK responses (both phases, zero-GIVE included).\nA = gross transferred tokens / all observed TALK responses. Each response counts once even with multiple GIVEs.\nThese are descriptive response-normalized measures, not matched eligible-opportunity or preference estimates.\n",
  "sources": [
   {
    "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/results.jsonl",
@@ -65,6 +65,10 @@
    "games": 5,
    "gifts": 11,
    "given": 71000,
+   "talk_responses": 384,
+   "giving_responses": 10,
+   "giving_response_rate": 0.026041666666666668,
+   "tokens_per_talk_response": 184.89583333333334,
    "median_amount": 6000,
    "max_amount": 10000,
    "top_gift_share_of_total": 0.14084507042253522,
@@ -91,6 +95,9 @@
    "first_half": 6,
    "misses": 12,
    "miss_rounds_with_rescue_gift": 6,
+   "corrects": 27,
+   "skipped_rounds": 1,
+   "correct_rounds_with_rescue_gift": 0,
    "rich_to_poor": 11,
    "from_top_start": 8,
    "to_bottom_start": 9,
@@ -276,12 +283,17 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 67,
+     "giving_responses": 3,
      "receiver_fates": {
       "agent-11": "exited",
       "agent-17": "exited"
      },
      "rounds": 8,
      "misses": 4,
+     "corrects": 3,
+     "skipped_rounds": 1,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 2,
      "dead": 0,
      "dead_receivers": 0,
@@ -445,12 +457,17 @@
      ],
      "exits": [],
      "deaths_at_charge": [],
+     "talk_responses": 89,
+     "giving_responses": 3,
      "receiver_fates": {
-      "agent-11": "in",
-      "agent-6": "in"
+      "agent-6": "in",
+      "agent-11": "in"
      },
      "rounds": 8,
      "misses": 2,
+     "corrects": 6,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 2,
      "dead": 0,
      "dead_receivers": 0,
@@ -477,9 +494,14 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 61,
+     "giving_responses": 0,
      "receiver_fates": {},
      "rounds": 8,
      "misses": 3,
+     "corrects": 5,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 0,
      "dead": 0,
      "dead_receivers": 0,
@@ -525,11 +547,16 @@
      "asks": [],
      "exits": [],
      "deaths_at_charge": [],
+     "talk_responses": 76,
+     "giving_responses": 1,
      "receiver_fates": {
       "agent-23": "in"
      },
      "rounds": 8,
      "misses": 1,
+     "corrects": 7,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 0,
      "dead": 0,
      "dead_receivers": 0,
@@ -651,11 +678,16 @@
      ],
      "exits": [],
      "deaths_at_charge": [],
+     "talk_responses": 91,
+     "giving_responses": 3,
      "receiver_fates": {
       "agent-17": "in"
      },
      "rounds": 8,
      "misses": 2,
+     "corrects": 6,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 2,
      "dead": 0,
      "dead_receivers": 0,
@@ -667,6 +699,10 @@
    "games": 5,
    "gifts": 17,
    "given": 48700,
+   "talk_responses": 674,
+   "giving_responses": 17,
+   "giving_response_rate": 0.025222551928783383,
+   "tokens_per_talk_response": 72.25519287833828,
    "median_amount": 3000,
    "max_amount": 6000,
    "top_gift_share_of_total": 0.12320328542094455,
@@ -694,6 +730,9 @@
    "first_half": 9,
    "misses": 12,
    "miss_rounds_with_rescue_gift": 5,
+   "corrects": 27,
+   "skipped_rounds": 1,
+   "correct_rounds_with_rescue_gift": 1,
    "rich_to_poor": 17,
    "from_top_start": 8,
    "to_bottom_start": 10,
@@ -715,8 +754,8 @@
    "asks_answered": 10,
    "receiver_dead_same_round": 3,
    "receivers": {
-    "exited": 1,
     "dead": 1,
+    "exited": 1,
     "in": 4
    },
    "deaths_after_gifts": [
@@ -782,9 +821,14 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 74,
+     "giving_responses": 0,
      "receiver_fates": {},
      "rounds": 8,
      "misses": 4,
+     "corrects": 3,
+     "skipped_rounds": 1,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 0,
      "dead": 0,
      "dead_receivers": 0,
@@ -1317,13 +1361,18 @@
        "solver": true
       }
      ],
+     "talk_responses": 163,
+     "giving_responses": 10,
      "receiver_fates": {
-      "agent-11": "exited",
       "agent-6": "dead",
+      "agent-11": "exited",
       "agent-23": "in"
      },
      "rounds": 8,
      "misses": 3,
+     "corrects": 5,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 3,
      "dead": 1,
      "dead_receivers": 1,
@@ -1350,9 +1399,14 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 127,
+     "giving_responses": 0,
      "receiver_fates": {},
      "rounds": 8,
      "misses": 3,
+     "corrects": 5,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 0,
      "dead": 0,
      "dead_receivers": 0,
@@ -1530,12 +1584,17 @@
      "asks": [],
      "exits": [],
      "deaths_at_charge": [],
+     "talk_responses": 165,
+     "giving_responses": 5,
      "receiver_fates": {
-      "agent-23": "in",
-      "agent-17": "in"
+      "agent-17": "in",
+      "agent-23": "in"
      },
      "rounds": 8,
      "misses": 1,
+     "corrects": 7,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 1,
      "dead": 0,
      "dead_receivers": 0,
@@ -1624,11 +1683,16 @@
      ],
      "exits": [],
      "deaths_at_charge": [],
+     "talk_responses": 145,
+     "giving_responses": 2,
      "receiver_fates": {
       "agent-17": "in"
      },
      "rounds": 8,
      "misses": 1,
+     "corrects": 7,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 1,
      "miss_rounds_with_rescue_gift": 1,
      "dead": 0,
      "dead_receivers": 0,
@@ -1640,6 +1704,10 @@
    "games": 5,
    "gifts": 41,
    "given": 125458,
+   "talk_responses": 635,
+   "giving_responses": 35,
+   "giving_response_rate": 0.05511811023622047,
+   "tokens_per_talk_response": 197.5716535433071,
    "median_amount": 2000,
    "max_amount": 11523,
    "top_gift_share_of_total": 0.09184747086674425,
@@ -1669,6 +1737,9 @@
    "first_half": 21,
    "misses": 12,
    "miss_rounds_with_rescue_gift": 9,
+   "corrects": 25,
+   "skipped_rounds": 1,
+   "correct_rounds_with_rescue_gift": 2,
    "rich_to_poor": 35,
    "from_top_start": 20,
    "to_bottom_start": 24,
@@ -1691,8 +1762,8 @@
    "receiver_dead_same_round": 9,
    "receivers": {
     "exited": 1,
-    "in": 5,
-    "dead": 4
+    "dead": 4,
+    "in": 5
    },
    "deaths_after_gifts": [
     {
@@ -1910,11 +1981,16 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 90,
+     "giving_responses": 4,
      "receiver_fates": {
       "agent-17": "exited"
      },
      "rounds": 7,
      "misses": 3,
+     "corrects": 3,
+     "skipped_rounds": 1,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 1,
      "dead": 0,
      "dead_receivers": 0,
@@ -2063,12 +2139,17 @@
        "solver": true
       }
      ],
+     "talk_responses": 123,
+     "giving_responses": 3,
      "receiver_fates": {
-      "agent-23": "in",
-      "agent-6": "dead"
+      "agent-6": "dead",
+      "agent-23": "in"
      },
      "rounds": 8,
      "misses": 3,
+     "corrects": 5,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 2,
      "dead": 1,
      "dead_receivers": 1,
@@ -2962,13 +3043,18 @@
        "solver": false
       }
      ],
+     "talk_responses": 162,
+     "giving_responses": 20,
      "receiver_fates": {
-      "agent-23": "dead",
+      "agent-6": "dead",
       "agent-11": "dead",
-      "agent-6": "dead"
+      "agent-23": "dead"
      },
      "rounds": 7,
      "misses": 4,
+     "corrects": 3,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 1,
      "miss_rounds_with_rescue_gift": 4,
      "dead": 4,
      "dead_receivers": 3,
@@ -3387,14 +3473,19 @@
      ],
      "exits": [],
      "deaths_at_charge": [],
+     "talk_responses": 153,
+     "giving_responses": 8,
      "receiver_fates": {
-      "agent-23": "in",
-      "agent-17": "in",
+      "agent-6": "in",
       "agent-11": "in",
-      "agent-6": "in"
+      "agent-17": "in",
+      "agent-23": "in"
      },
      "rounds": 8,
      "misses": 2,
+     "corrects": 6,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 1,
      "miss_rounds_with_rescue_gift": 2,
      "dead": 0,
      "dead_receivers": 0,
@@ -3414,9 +3505,14 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 107,
+     "giving_responses": 0,
      "receiver_fates": {},
      "rounds": 8,
      "misses": 0,
+     "corrects": 8,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 0,
      "dead": 0,
      "dead_receivers": 0,
@@ -3428,6 +3524,10 @@
    "games": 5,
    "gifts": 25,
    "given": 60818,
+   "talk_responses": 559,
+   "giving_responses": 25,
+   "giving_response_rate": 0.044722719141323794,
+   "tokens_per_talk_response": 108.79785330948121,
    "median_amount": 1000,
    "max_amount": 6000,
    "top_gift_share_of_total": 0.09865500345292512,
@@ -3456,6 +3556,9 @@
    "first_half": 19,
    "misses": 13,
    "miss_rounds_with_rescue_gift": 6,
+   "corrects": 24,
+   "skipped_rounds": 1,
+   "correct_rounds_with_rescue_gift": 5,
    "rich_to_poor": 24,
    "from_top_start": 13,
    "to_bottom_start": 24,
@@ -3907,11 +4010,16 @@
        "solver": true
       }
      ],
+     "talk_responses": 126,
+     "giving_responses": 9,
      "receiver_fates": {
       "agent-17": "exited"
      },
      "rounds": 7,
      "misses": 3,
+     "corrects": 4,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 2,
      "dead": 1,
      "dead_receivers": 0,
@@ -4243,12 +4351,17 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 100,
+     "giving_responses": 9,
      "receiver_fates": {
       "agent-11": "exited",
       "agent-23": "exited"
      },
      "rounds": 8,
      "misses": 2,
+     "corrects": 6,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 3,
      "miss_rounds_with_rescue_gift": 1,
      "dead": 0,
      "dead_receivers": 0,
@@ -4289,9 +4402,14 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 105,
+     "giving_responses": 0,
      "receiver_fates": {},
      "rounds": 7,
      "misses": 2,
+     "corrects": 4,
+     "skipped_rounds": 1,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 0,
      "dead": 0,
      "dead_receivers": 0,
@@ -4321,9 +4439,14 @@
        "solver": true
       }
      ],
+     "talk_responses": 88,
+     "giving_responses": 0,
      "receiver_fates": {},
      "rounds": 8,
      "misses": 3,
+     "corrects": 5,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 0,
      "dead": 1,
      "dead_receivers": 0,
@@ -4667,11 +4790,16 @@
        "solver": false
       }
      ],
+     "talk_responses": 140,
+     "giving_responses": 7,
      "receiver_fates": {
       "agent-17": "dead"
      },
      "rounds": 8,
      "misses": 3,
+     "corrects": 5,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 2,
      "miss_rounds_with_rescue_gift": 3,
      "dead": 2,
      "dead_receivers": 1,
@@ -4683,6 +4811,10 @@
    "games": 5,
    "gifts": 36,
    "given": 77300,
+   "talk_responses": 657,
+   "giving_responses": 33,
+   "giving_response_rate": 0.0502283105022831,
+   "tokens_per_talk_response": 117.65601217656013,
    "median_amount": 2000.0,
    "max_amount": 4000,
    "top_gift_share_of_total": 0.0517464424320828,
@@ -4712,6 +4844,9 @@
    "first_half": 11,
    "misses": 10,
    "miss_rounds_with_rescue_gift": 6,
+   "corrects": 30,
+   "skipped_rounds": 0,
+   "correct_rounds_with_rescue_gift": 0,
    "rich_to_poor": 35,
    "from_top_start": 20,
    "to_bottom_start": 26,
@@ -5259,12 +5394,17 @@
      ],
      "exits": [],
      "deaths_at_charge": [],
+     "talk_responses": 168,
+     "giving_responses": 13,
      "receiver_fates": {
       "agent-11": "in",
       "agent-17": "in"
      },
      "rounds": 8,
      "misses": 2,
+     "corrects": 6,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 1,
      "dead": 0,
      "dead_receivers": 0,
@@ -5911,12 +6051,17 @@
      ],
      "exits": [],
      "deaths_at_charge": [],
+     "talk_responses": 146,
+     "giving_responses": 11,
      "receiver_fates": {
-      "agent-11": "in",
-      "agent-6": "in"
+      "agent-6": "in",
+      "agent-11": "in"
      },
      "rounds": 8,
      "misses": 3,
+     "corrects": 5,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 3,
      "dead": 0,
      "dead_receivers": 0,
@@ -6154,11 +6299,16 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 132,
+     "giving_responses": 6,
      "receiver_fates": {
       "agent-6": "in"
      },
      "rounds": 8,
      "misses": 3,
+     "corrects": 5,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 1,
      "dead": 0,
      "dead_receivers": 0,
@@ -6306,11 +6456,16 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 110,
+     "giving_responses": 3,
      "receiver_fates": {
       "agent-17": "in"
      },
      "rounds": 8,
      "misses": 2,
+     "corrects": 6,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 1,
      "dead": 0,
      "dead_receivers": 0,
@@ -6340,9 +6495,14 @@
       }
      ],
      "deaths_at_charge": [],
+     "talk_responses": 101,
+     "giving_responses": 0,
      "receiver_fates": {},
      "rounds": 8,
      "misses": 0,
+     "corrects": 8,
+     "skipped_rounds": 0,
+     "correct_rounds_with_rescue_gift": 0,
      "miss_rounds_with_rescue_gift": 0,
      "dead": 0,
      "dead_receivers": 0,

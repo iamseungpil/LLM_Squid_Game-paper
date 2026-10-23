@@ -181,6 +181,11 @@
    "dead": 0,
    "exited": 6,
    "tv_mean": 0.04431025641025641,
+   "js_mean": 0.04168827508729556,
+   "js_ci": [
+    0.03275167288036626,
+    0.05109522477880008
+   ],
    "tv_n": 39,
    "solve_n": 39,
    "solved": 27,
@@ -218,42 +223,70 @@
        "round": 1,
        "agent": "agent-17",
        "tv": 0.0577,
+       "js": 0.05467848749673231,
+       "balance": 9994,
+       "used": 1222,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 2,
        "agent": "agent-11",
        "tv": 0.003,
+       "js": 0.0028041159030494298,
+       "balance": 13897,
+       "used": 946,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 3,
        "agent": "agent-6",
        "tv": 0.0577,
+       "js": 0.05467848749673231,
+       "balance": 23785,
+       "used": 1197,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-23",
        "tv": 0.1077,
+       "js": 0.10539938998999958,
+       "balance": 37714,
+       "used": 1065,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-6",
        "tv": 0.003,
+       "js": 0.0028041159030494298,
+       "balance": 23765,
+       "used": 1054,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 6,
        "agent": "agent-23",
        "tv": 0.0857,
+       "js": 0.08504589673733637,
+       "balance": 29674,
+       "used": 791,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.088,
+       "js": 0.07961511004713318,
+       "balance": 29660,
+       "used": 721,
+       "charge": 24000,
        "solved": false
       }
      ],
@@ -311,48 +344,80 @@
        "round": 1,
        "agent": "agent-23",
        "tv": 0.013,
+       "js": 0.01228052318903412,
+       "balance": 39982,
+       "used": 813,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-6",
        "tv": 0.05,
+       "js": 0.0475780038431947,
+       "balance": 19925,
+       "used": 359,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.088,
+       "js": 0.07961511004713318,
+       "balance": 9901,
+       "used": 903,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 4,
        "agent": "agent-17",
        "tv": 0.0374,
+       "js": 0.03530740294166148,
+       "balance": 45846,
+       "used": 653,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-23",
        "tv": 0.0172,
+       "js": 0.01604827163822138,
+       "balance": 33914,
+       "used": 661,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-17",
        "tv": 0.07,
+       "js": 0.06743140568113591,
+       "balance": 45825,
+       "used": 732,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 7,
        "agent": "agent-6",
        "tv": 0.088,
+       "js": 0.07961511004713318,
+       "balance": 11785,
+       "used": 689,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-11",
        "tv": 0.088,
+       "js": 0.07961511004713318,
+       "balance": 16787,
+       "used": 678,
+       "charge": 6000,
        "solved": true
       }
      ],
@@ -378,48 +443,80 @@
        "round": 1,
        "agent": "agent-6",
        "tv": 0.003,
+       "js": 0.0028041159030494298,
+       "balance": 9988,
+       "used": 789,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-23",
        "tv": 0.088,
+       "js": 0.07961511004713318,
+       "balance": 19962,
+       "used": 946,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.0172,
+       "js": 0.01604827163822138,
+       "balance": 59950,
+       "used": 1070,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-17",
        "tv": 0.0172,
+       "js": 0.01604827163822138,
+       "balance": 39939,
+       "used": 711,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-11",
        "tv": 0.0374,
+       "js": 0.03530740294166148,
+       "balance": 59929,
+       "used": 852,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 6,
        "agent": "agent-23",
        "tv": 0.0857,
+       "js": 0.08504589673733637,
+       "balance": 13922,
+       "used": 949,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-17",
        "tv": 0.0879,
+       "js": 0.08566811903319903,
+       "balance": 33908,
+       "used": 917,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 8,
        "agent": "agent-11",
        "tv": 0.0172,
+       "js": 0.01604827163822138,
+       "balance": 45012,
+       "used": 650,
+       "charge": 8000,
        "solved": false
       }
      ],
@@ -451,48 +548,80 @@
        "round": 1,
        "agent": "agent-17",
        "tv": 0.0029,
+       "js": 0.0027036297452364636,
+       "balance": 19982,
+       "used": 780,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-23",
        "tv": 0.0172,
+       "js": 0.01604827163822138,
+       "balance": 19905,
+       "used": 715,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.0172,
+       "js": 0.01604827163822138,
+       "balance": 33894,
+       "used": 784,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-6",
        "tv": 0.003,
+       "js": 0.0028041159030494298,
+       "balance": 43868,
+       "used": 816,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-17",
        "tv": 0.0172,
+       "js": 0.01604827163822138,
+       "balance": 13936,
+       "used": 994,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-6",
        "tv": 0.0857,
+       "js": 0.08504589673733637,
+       "balance": 43847,
+       "used": 720,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.0172,
+       "js": 0.01604827163822138,
+       "balance": 13077,
+       "used": 722,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-11",
        "tv": 0.0577,
+       "js": 0.05467848749673231,
+       "balance": 33842,
+       "used": 795,
+       "charge": 6000,
        "solved": true
       }
      ],
@@ -540,48 +669,80 @@
        "round": 1,
        "agent": "agent-6",
        "tv": 0.088,
+       "js": 0.07961511004713318,
+       "balance": 39982,
+       "used": 859,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-17",
        "tv": 0.003,
+       "js": 0.0028041159030494298,
+       "balance": 9920,
+       "used": 647,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.088,
+       "js": 0.07961511004713318,
+       "balance": 19932,
+       "used": 715,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 4,
        "agent": "agent-23",
        "tv": 0.0172,
+       "js": 0.01604827163822138,
+       "balance": 45844,
+       "used": 861,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-23",
        "tv": 0.05,
+       "js": 0.0475780038431947,
+       "balance": 45833,
+       "used": 467,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-17",
        "tv": 0.0029,
+       "js": 0.0027036297452364636,
+       "balance": 11817,
+       "used": 867,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-6",
        "tv": 0.0256,
+       "js": 0.023327925414765846,
+       "balance": 33857,
+       "used": 868,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 8,
        "agent": "agent-11",
        "tv": 0.0273,
+       "js": 0.02562334474482911,
+       "balance": 7078,
+       "used": 745,
+       "charge": 6000,
        "solved": true
       }
      ],
@@ -825,6 +986,11 @@
    "dead": 1,
    "exited": 7,
    "tv_mean": 0.14743076923076923,
+   "js_mean": 0.16467681406929977,
+   "js_ci": [
+    0.09692568677218691,
+    0.20849922978676352
+   ],
    "tv_n": 39,
    "solve_n": 39,
    "solved": 27,
@@ -840,42 +1006,70 @@
        "round": 1,
        "agent": "agent-17",
        "tv": 0.1923,
+       "js": 0.16705650765333543,
+       "balance": 9896,
+       "used": 1840,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 2,
        "agent": "agent-11",
        "tv": 0.1,
+       "js": 0.08914767822445263,
+       "balance": 12074,
+       "used": 2379,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 3,
        "agent": "agent-6",
        "tv": 0.0923,
+       "js": 0.08206031412367586,
+       "balance": 25289,
+       "used": 1662,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-23",
        "tv": 0.1423,
+       "js": 0.12485277589594107,
+       "balance": 44755,
+       "used": 1948,
+       "charge": 12000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-6",
        "tv": 0.1,
+       "js": 0.08914767822445263,
+       "balance": 23980,
+       "used": 2229,
+       "charge": 12000,
        "solved": false
       },
       {
        "round": 6,
        "agent": "agent-23",
        "tv": 0.2857,
+       "js": 0.4001293199514329,
+       "balance": 31756,
+       "used": 435,
+       "charge": 12000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.2143,
+       "js": 0.1872519823056507,
+       "balance": 31530,
+       "used": 1831,
+       "charge": 24000,
        "solved": false
       }
      ],
@@ -1048,48 +1242,80 @@
        "round": 1,
        "agent": "agent-23",
        "tv": 0.0143,
+       "js": 0.013344929040605866,
+       "balance": 39930,
+       "used": 2101,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-6",
        "tv": 0.05,
+       "js": 0.0475780038431947,
+       "balance": 19259,
+       "used": 916,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.0557,
+       "js": 0.11174986186680431,
+       "balance": 8520,
+       "used": 2306,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 4,
        "agent": "agent-17",
        "tv": 0.3,
+       "js": 0.4113330221378465,
+       "balance": 52133,
+       "used": 352,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-23",
        "tv": 0.15,
+       "js": 0.1319140868736712,
+       "balance": 24319,
+       "used": 1543,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-17",
        "tv": 0.0,
+       "js": 0.0,
+       "balance": 51360,
+       "used": 1745,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 7,
        "agent": "agent-6",
        "tv": 0.7143,
+       "js": 0.7132609438711683,
+       "balance": 2888,
+       "used": 521,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 8,
        "agent": "agent-17",
        "tv": 0.2143,
+       "js": 0.1872519823056507,
+       "balance": 26458,
+       "used": 2208,
+       "charge": 12000,
        "solved": true
       }
      ],
@@ -1115,48 +1341,80 @@
        "round": 1,
        "agent": "agent-6",
        "tv": 0.05,
+       "js": 0.045350250584471036,
+       "balance": 9877,
+       "used": 1570,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-23",
        "tv": 0.0943,
+       "js": 0.08508754038555247,
+       "balance": 19671,
+       "used": 2619,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.1,
+       "js": 0.09832917878282785,
+       "balance": 59278,
+       "used": 2278,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-17",
        "tv": 0.01,
+       "js": 0.00931203451365068,
+       "balance": 39075,
+       "used": 2914,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-11",
        "tv": 0.3,
+       "js": 0.4113330221378465,
+       "balance": 58924,
+       "used": 721,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 6,
        "agent": "agent-23",
        "tv": 0.2857,
+       "js": 0.4001293199514329,
+       "balance": 11648,
+       "used": 593,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-17",
        "tv": 0.2,
+       "js": 0.17408372939284805,
+       "balance": 31761,
+       "used": 1066,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 8,
        "agent": "agent-11",
        "tv": 0.3,
+       "js": 0.4113330221378465,
+       "balance": 42422,
+       "used": 825,
+       "charge": 8000,
        "solved": false
       }
      ],
@@ -1208,48 +1466,80 @@
        "round": 1,
        "agent": "agent-17",
        "tv": 0.0357,
+       "js": 0.03424429655276836,
+       "balance": 19795,
+       "used": 2041,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-23",
        "tv": 0.01,
+       "js": 0.009223744951593244,
+       "balance": 9192,
+       "used": 3187,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.0,
+       "js": 0.0,
+       "balance": 27970,
+       "used": 1115,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-6",
        "tv": 0.05,
+       "js": 0.0475780038431947,
+       "balance": 41139,
+       "used": 2620,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-17",
        "tv": 0.1,
+       "js": 0.08914767822445263,
+       "balance": 11679,
+       "used": 1970,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-6",
        "tv": 0.0643,
+       "js": 0.058678798821404095,
+       "balance": 40784,
+       "used": 1065,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.03,
+       "js": 0.027429929622222432,
+       "balance": 11527,
+       "used": 2501,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-11",
        "tv": 0.0423,
+       "js": 0.038246029603372665,
+       "balance": 26680,
+       "used": 2492,
+       "charge": 6000,
        "solved": true
       }
      ],
@@ -1292,48 +1582,80 @@
        "round": 1,
        "agent": "agent-6",
        "tv": 0.1357,
+       "js": 0.1405389452662155,
+       "balance": 39816,
+       "used": 3823,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-17",
        "tv": 0.05,
+       "js": 0.045350250584471036,
+       "balance": 8925,
+       "used": 1897,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.7143,
+       "js": 0.7132609438711683,
+       "balance": 19257,
+       "used": 615,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-23",
        "tv": 0.03,
+       "js": 0.1014696378267622,
+       "balance": 58985,
+       "used": 1278,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-23",
        "tv": 0.3,
+       "js": 0.4113330221378465,
+       "balance": 58794,
+       "used": 979,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-17",
        "tv": 0.1143,
+       "js": 0.10243898271686089,
+       "balance": 12234,
+       "used": 2777,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-6",
        "tv": 0.0577,
+       "js": 0.1648402966328044,
+       "balance": 38251,
+       "used": 2555,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 8,
        "agent": "agent-11",
        "tv": 0.05,
+       "js": 0.0475780038431947,
+       "balance": 12020,
+       "used": 2308,
+       "charge": 6000,
        "solved": true
       }
      ],
@@ -1682,6 +2004,11 @@
    "dead": 5,
    "exited": 6,
    "tv_mean": 0.12362432432432433,
+   "js_mean": 0.18038947653307746,
+   "js_ci": [
+    0.1708756616088208,
+    0.19114078870410253
+   ],
    "tv_n": 37,
    "solve_n": 37,
    "solved": 25,
@@ -1718,36 +2045,60 @@
        "round": 1,
        "agent": "agent-17",
        "tv": 0.0877,
+       "js": 0.1453069372198362,
+       "balance": 16673,
+       "used": 1466,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 2,
        "agent": "agent-11",
        "tv": 0.15,
+       "js": 0.19151488616874485,
+       "balance": 12701,
+       "used": 848,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 3,
        "agent": "agent-6",
        "tv": 0.2023,
+       "js": 0.2117850591963954,
+       "balance": 19221,
+       "used": 346,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-23",
        "tv": 0.1123,
+       "js": 0.16225388649677747,
+       "balance": 36504,
+       "used": 400,
+       "charge": 12000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-6",
        "tv": 0.12,
+       "js": 0.16572868004113797,
+       "balance": 18332,
+       "used": 753,
+       "charge": 12000,
        "solved": false
       },
       {
        "round": 6,
        "agent": "agent-23",
        "tv": 0.0457,
+       "js": 0.14643379894603095,
+       "balance": 22954,
+       "used": 523,
+       "charge": 12000,
        "solved": true
       }
      ],
@@ -1800,48 +2151,80 @@
        "round": 1,
        "agent": "agent-23",
        "tv": 0.0343,
+       "js": 0.10212883682428464,
+       "balance": 39910,
+       "used": 720,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-6",
        "tv": 0.04,
+       "js": 0.14266512054900984,
+       "balance": 19208,
+       "used": 440,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-17",
        "tv": 0.1643,
+       "js": 0.16819144999534572,
+       "balance": 59278,
+       "used": 907,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 4,
        "agent": "agent-23",
        "tv": 0.25,
+       "js": 0.3248041519397415,
+       "balance": 30970,
+       "used": 593,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-17",
        "tv": 0.06,
+       "js": 0.14560917363056927,
+       "balance": 49562,
+       "used": 527,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-6",
        "tv": 0.06,
+       "js": 0.14560917363056927,
+       "balance": 8632,
+       "used": 337,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.0943,
+       "js": 0.08508754038555247,
+       "balance": 18455,
+       "used": 1130,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-6",
        "tv": 0.2543,
+       "js": 0.24773269619042648,
+       "balance": 4356,
+       "used": 323,
+       "charge": 8000,
        "solved": false
       }
      ],
@@ -2049,42 +2432,70 @@
        "round": 1,
        "agent": "agent-6",
        "tv": 0.04,
+       "js": 0.14266512054900984,
+       "balance": 16917,
+       "used": 2416,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-23",
        "tv": 0.1557,
+       "js": 0.18922541412867516,
+       "balance": 18135,
+       "used": 853,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.37,
+       "js": 0.31818556505504814,
+       "balance": 56058,
+       "used": 1314,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 4,
        "agent": "agent-17",
        "tv": 0.23,
+       "js": 0.2303436144941715,
+       "balance": 29614,
+       "used": 219,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 5,
        "agent": "agent-11",
        "tv": 0.04,
+       "js": 0.14291390159392195,
+       "balance": 30264,
+       "used": 758,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 6,
        "agent": "agent-23",
        "tv": 0.0857,
+       "js": 0.17548937908479248,
+       "balance": 7778,
+       "used": 579,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-11",
        "tv": 0.05,
+       "js": 0.12939587878090786,
+       "balance": 12605,
+       "used": 544,
+       "charge": 12000,
        "solved": false
       }
      ],
@@ -2177,48 +2588,80 @@
        "round": 1,
        "agent": "agent-17",
        "tv": 0.2143,
+       "js": 0.1872519823056507,
+       "balance": 19902,
+       "used": 397,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-23",
        "tv": 0.02,
+       "js": 0.10123630693751325,
+       "balance": 24693,
+       "used": 1766,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.05,
+       "js": 0.1602125686570035,
+       "balance": 30967,
+       "used": 338,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-6",
        "tv": 0.05,
+       "js": 0.1632228288072381,
+       "balance": 45024,
+       "used": 1355,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-17",
        "tv": 0.08,
+       "js": 0.17883659160092727,
+       "balance": 11758,
+       "used": 553,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-6",
        "tv": 0.03,
+       "js": 0.1233375609050108,
+       "balance": 36274,
+       "used": 434,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.05,
+       "js": 0.1439694295683573,
+       "balance": 11613,
+       "used": 651,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-11",
        "tv": 0.3523,
+       "js": 0.3208073385659389,
+       "balance": 29954,
+       "used": 599,
+       "charge": 6000,
        "solved": false
       }
      ],
@@ -2244,48 +2687,80 @@
        "round": 1,
        "agent": "agent-6",
        "tv": 0.2143,
+       "js": 0.2041839301994006,
+       "balance": 39896,
+       "used": 524,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-11",
        "tv": 0.05,
+       "js": 0.1602125686570035,
+       "balance": 18779,
+       "used": 578,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-23",
        "tv": 0.2343,
+       "js": 0.20400915191893346,
+       "balance": 59017,
+       "used": 658,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-6",
        "tv": 0.03,
+       "js": 0.12477879666191141,
+       "balance": 39219,
+       "used": 719,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-23",
        "tv": 0.12,
+       "js": 0.18026721837206217,
+       "balance": 58697,
+       "used": 634,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-11",
        "tv": 0.05,
+       "js": 0.1595755811832744,
+       "balance": 17508,
+       "used": 1207,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.3123,
+       "js": 0.35774542804104037,
+       "balance": 58424,
+       "used": 709,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-6",
        "tv": 0.07,
+       "js": 0.19169308444165134,
+       "balance": 38555,
+       "used": 642,
+       "charge": 8000,
        "solved": true
       }
      ],
@@ -2549,6 +3024,11 @@
    "dead": 4,
    "exited": 12,
    "tv_mean": 0.29455675675675674,
+   "js_mean": 0.3443225149393623,
+   "js_ci": [
+    0.3033261316432138,
+    0.3960400508580623
+   ],
    "tv_n": 37,
    "solve_n": 37,
    "solved": 24,
@@ -2646,42 +3126,70 @@
        "round": 1,
        "agent": "agent-17",
        "tv": 0.1923,
+       "js": 0.16705650765333543,
+       "balance": 9362,
+       "used": 2204,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 2,
        "agent": "agent-11",
        "tv": 0.7,
+       "js": 0.702440464210416,
+       "balance": 7189,
+       "used": 675,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-6",
        "tv": 0.6923,
+       "js": 0.6966579364164678,
+       "balance": 28172,
+       "used": 817,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 4,
        "agent": "agent-23",
        "tv": 0.1523,
+       "js": 0.15904112726830424,
+       "balance": 27590,
+       "used": 1870,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-6",
        "tv": 0.2,
+       "js": 0.17408372939284805,
+       "balance": 18331,
+       "used": 1841,
+       "charge": 12000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-23",
        "tv": 0.2857,
+       "js": 0.4001293199514329,
+       "balance": 26307,
+       "used": 838,
+       "charge": 12000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.2857,
+       "js": 0.4001293199514329,
+       "balance": 25409,
+       "used": 547,
+       "charge": 24000,
        "solved": false
       }
      ],
@@ -2753,48 +3261,80 @@
        "round": 1,
        "agent": "agent-23",
        "tv": 0.2757,
+       "js": 0.3746795790241892,
+       "balance": 39809,
+       "used": 717,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-6",
        "tv": 0.2,
+       "js": 0.17408372939284805,
+       "balance": 18938,
+       "used": 1757,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.2857,
+       "js": 0.4001293199514329,
+       "balance": 16886,
+       "used": 423,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 4,
        "agent": "agent-17",
        "tv": 0.29,
+       "js": 0.380845645431773,
+       "balance": 45400,
+       "used": 427,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-17",
        "tv": 0.17,
+       "js": 0.20039720173002729,
+       "balance": 43607,
+       "used": 3219,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-11",
        "tv": 0.3,
+       "js": 0.4113330221378465,
+       "balance": 16271,
+       "used": 693,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.1957,
+       "js": 0.23578734048447442,
+       "balance": 13013,
+       "used": 4467,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-17",
        "tv": 0.2143,
+       "js": 0.1872519823056507,
+       "balance": 32838,
+       "used": 2469,
+       "charge": 12000,
        "solved": true
       }
      ],
@@ -2820,36 +3360,60 @@
        "round": 1,
        "agent": "agent-6",
        "tv": 0.3,
+       "js": 0.4159777148017659,
+       "balance": 9189,
+       "used": 409,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-23",
        "tv": 0.2757,
+       "js": 0.3746795790241892,
+       "balance": 19116,
+       "used": 860,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.29,
+       "js": 0.375726789626467,
+       "balance": 57705,
+       "used": 792,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-17",
        "tv": 0.69,
+       "js": 0.6763226781938202,
+       "balance": 37020,
+       "used": 781,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 5,
        "agent": "agent-11",
        "tv": 0.3,
+       "js": 0.4113330221378465,
+       "balance": 49865,
+       "used": 711,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 6,
        "agent": "agent-17",
        "tv": 0.2857,
+       "js": 0.409805348948376,
+       "balance": 19959,
+       "used": 834,
+       "charge": 12000,
        "solved": true
       }
      ],
@@ -2875,48 +3439,80 @@
        "round": 1,
        "agent": "agent-17",
        "tv": 0.2143,
+       "js": 0.1872519823056507,
+       "balance": 19610,
+       "used": 3257,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 2,
        "agent": "agent-23",
        "tv": 0.28,
+       "js": 0.36163782656163523,
+       "balance": 395,
+       "used": 385,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.3,
+       "js": 0.4159777148017659,
+       "balance": 25394,
+       "used": 575,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-6",
        "tv": 0.2,
+       "js": 0.2105210919008749,
+       "balance": 43899,
+       "used": 1573,
+       "charge": 12000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-11",
        "tv": 0.29,
+       "js": 0.375726789626467,
+       "balance": 23806,
+       "used": 996,
+       "charge": 12000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-6",
        "tv": 0.0443,
+       "js": 0.040767833208468336,
+       "balance": 42398,
+       "used": 1734,
+       "charge": 12000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-6",
        "tv": 0.2,
+       "js": 0.23485432118530644,
+       "balance": 41904,
+       "used": 2251,
+       "charge": 12000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-11",
        "tv": 0.6023,
+       "js": 0.5515103156842563,
+       "balance": 21572,
+       "used": 2846,
+       "charge": 12000,
        "solved": false
       }
      ],
@@ -3024,48 +3620,80 @@
        "round": 1,
        "agent": "agent-6",
        "tv": 0.0643,
+       "js": 0.058678798821404095,
+       "balance": 39869,
+       "used": 2094,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-17",
        "tv": 0.05,
+       "js": 0.0475780038431947,
+       "balance": 13433,
+       "used": 2940,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.2457,
+       "js": 0.31060694858416726,
+       "balance": 18271,
+       "used": 1050,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 4,
        "agent": "agent-23",
        "tv": 0.29,
+       "js": 0.375726789626467,
+       "balance": 39540,
+       "used": 470,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-23",
        "tv": 0.3,
+       "js": 0.4159777148017659,
+       "balance": 38924,
+       "used": 945,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-17",
        "tv": 0.6943,
+       "js": 0.6679726877390592,
+       "balance": 13398,
+       "used": 3603,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 7,
        "agent": "agent-6",
        "tv": 0.2423,
+       "js": 0.34591985389313107,
+       "balance": 15409,
+       "used": 4287,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 8,
        "agent": "agent-23",
        "tv": 0.3,
+       "js": 0.4113330221378465,
+       "balance": 7566,
+       "used": 1579,
+       "charge": 12000,
        "solved": true
       }
      ],
@@ -3469,6 +4097,11 @@
    "dead": 0,
    "exited": 3,
    "tv_mean": 0.155645,
+   "js_mean": 0.20575697620357927,
+   "js_ci": [
+    0.18179091481510265,
+    0.2318537199046858
+   ],
    "tv_n": 40,
    "solve_n": 40,
    "solved": 30,
@@ -3591,48 +4224,80 @@
        "round": 1,
        "agent": "agent-17",
        "tv": 0.0423,
+       "js": 0.038246029603372665,
+       "balance": 15436,
+       "used": 971,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 2,
        "agent": "agent-11",
        "tv": 0.29,
+       "js": 0.27306184968825753,
+       "balance": 13438,
+       "used": 648,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-6",
        "tv": 0.0923,
+       "js": 0.1684090620747105,
+       "balance": 29721,
+       "used": 1454,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-23",
        "tv": 0.0923,
+       "js": 0.08206031412367586,
+       "balance": 46242,
+       "used": 846,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-11",
        "tv": 0.2,
+       "js": 0.17408372939284805,
+       "balance": 12912,
+       "used": 600,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-6",
        "tv": 0.2457,
+       "js": 0.33624034658621943,
+       "balance": 29283,
+       "used": 323,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.2143,
+       "js": 0.22032538118480974,
+       "balance": 40528,
+       "used": 735,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 8,
        "agent": "agent-17",
        "tv": 0.1143,
+       "js": 0.13573461971537154,
+       "balance": 10738,
+       "used": 1722,
+       "charge": 6000,
        "solved": true
       }
      ],
@@ -3825,48 +4490,80 @@
        "round": 1,
        "agent": "agent-23",
        "tv": 0.05,
+       "js": 0.16096853457666885,
+       "balance": 39876,
+       "used": 989,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-6",
        "tv": 0.08,
+       "js": 0.20432766179372389,
+       "balance": 19397,
+       "used": 560,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.2557,
+       "js": 0.33538046933136906,
+       "balance": 11351,
+       "used": 418,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 4,
        "agent": "agent-17",
        "tv": 0.27,
+       "js": 0.3466931923045929,
+       "balance": 49507,
+       "used": 333,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-23",
        "tv": 0.27,
+       "js": 0.2584298942047146,
+       "balance": 31240,
+       "used": 991,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 6,
        "agent": "agent-17",
        "tv": 0.2,
+       "js": 0.2105210919008749,
+       "balance": 38111,
+       "used": 1352,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 7,
        "agent": "agent-6",
        "tv": 0.2143,
+       "js": 0.22032538118480974,
+       "balance": 6726,
+       "used": 517,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-11",
        "tv": 0.1857,
+       "js": 0.2921906134958951,
+       "balance": 3827,
+       "used": 218,
+       "charge": 6000,
        "solved": true
       }
      ],
@@ -3934,48 +4631,80 @@
        "round": 1,
        "agent": "agent-6",
        "tv": 0.08,
+       "js": 0.13467877132825967,
+       "balance": 16445,
+       "used": 1461,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-23",
        "tv": 0.2057,
+       "js": 0.2655027027226738,
+       "balance": 16763,
+       "used": 311,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-11",
        "tv": 0.16,
+       "js": 0.23212012794860584,
+       "balance": 56055,
+       "used": 1284,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-17",
        "tv": 0.12,
+       "js": 0.16572868004113797,
+       "balance": 36741,
+       "used": 817,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-11",
        "tv": 0.1,
+       "js": 0.17077978281165995,
+       "balance": 55811,
+       "used": 482,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 6,
        "agent": "agent-23",
        "tv": 0.2657,
+       "js": 0.3615328992065864,
+       "balance": 9739,
+       "used": 276,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-17",
        "tv": 0.06,
+       "js": 0.15003688028390358,
+       "balance": 30167,
+       "used": 773,
+       "charge": 6000,
        "solved": false
       },
       {
        "round": 8,
        "agent": "agent-6",
        "tv": 0.15,
+       "js": 0.1319140868736712,
+       "balance": 8556,
+       "used": 349,
+       "charge": 6000,
        "solved": false
       }
      ],
@@ -4033,48 +4762,80 @@
        "round": 1,
        "agent": "agent-17",
        "tv": 0.0557,
+       "js": 0.11174986186680431,
+       "balance": 19862,
+       "used": 876,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-11",
        "tv": 0.05,
+       "js": 0.045350250584471036,
+       "balance": 39249,
+       "used": 1634,
+       "charge": 8000,
        "solved": false
       },
       {
        "round": 3,
        "agent": "agent-6",
        "tv": 0.1,
+       "js": 0.20738825730051577,
+       "balance": 51176,
+       "used": 1021,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-11",
        "tv": 0.05,
+       "js": 0.16021256865700353,
+       "balance": 29127,
+       "used": 547,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-17",
        "tv": 0.23,
+       "js": 0.317467996298313,
+       "balance": 12223,
+       "used": 271,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-6",
        "tv": 0.0643,
+       "js": 0.16192392842984876,
+       "balance": 47380,
+       "used": 535,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-6",
        "tv": 0.12,
+       "js": 0.16572868004113797,
+       "balance": 47284,
+       "used": 1218,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-17",
        "tv": 0.2323,
+       "js": 0.23168845514644398,
+       "balance": 11808,
+       "used": 1139,
+       "charge": 8000,
        "solved": false
       }
      ],
@@ -4106,48 +4867,80 @@
        "round": 1,
        "agent": "agent-6",
        "tv": 0.2143,
+       "js": 0.2434706573762933,
+       "balance": 39913,
+       "used": 2384,
+       "charge": 6000,
        "solved": true
       },
       {
        "round": 2,
        "agent": "agent-11",
        "tv": 0.07,
+       "js": 0.14780005195489518,
+       "balance": 19158,
+       "used": 696,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 3,
        "agent": "agent-23",
        "tv": 0.2343,
+       "js": 0.20400915191893346,
+       "balance": 59080,
+       "used": 1734,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 4,
        "agent": "agent-6",
        "tv": 0.25,
+       "js": 0.33744546347421894,
+       "balance": 39403,
+       "used": 418,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 5,
        "agent": "agent-23",
        "tv": 0.1,
+       "js": 0.1677853820903983,
+       "balance": 58877,
+       "used": 936,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 6,
        "agent": "agent-11",
        "tv": 0.0843,
+       "js": 0.151850330147687,
+       "balance": 18610,
+       "used": 1682,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 7,
        "agent": "agent-23",
        "tv": 0.3423,
+       "js": 0.3175984785671076,
+       "balance": 58690,
+       "used": 1402,
+       "charge": 8000,
        "solved": true
       },
       {
        "round": 8,
        "agent": "agent-6",
        "tv": 0.07,
+       "js": 0.1895174319106859,
+       "balance": 39012,
+       "used": 2079,
+       "charge": 8000,
        "solved": true
       }
      ],

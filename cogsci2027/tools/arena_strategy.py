@@ -1,7 +1,7 @@
 """Transfer strategies of the v33 cohort: when, how much, to whom, and with what result (Section 6 of the KO paper).
 
 Usage: python3 arena_strategy.py /path/to/squid5-runs
-Writes results/arena_v33_strategy.json and ko/tables/arena_strategy.tex. No model calls; completed games only.
+Writes results/arena_v33_strategy.json and ko/tables/arena_{strategy,cooperation,outcomes}.tex. No model calls; completed games only.
 
 Cohort = arena_v33.py: public_*4 runs, seeds 4101--4105. A GIVE counts when its status is "done".
 Slack = tokens / that round's per-agent charge (24,000 / agents taking part at the round's start); 1 = exactly enough.
@@ -14,6 +14,11 @@ seats that received at least one GIVE, by end status (in = finished, exited, dea
 at a round's charge that received tokens in that round (own_calls = tokens its own calls used that round; short_by =
 pending charge - tokens held when the charge landed). from_solver_after_miss = GIVEs by the round's solver in the TALK
 after its own wrong or void answer. exit_reason_names_others = EXIT reasons matching OTHERS (mentions the rest).
+Correct-after uses solved results and the same round-level denominator as wrong/void-after.
+Rounds with no participants and no task (after everyone exited) are excluded from both denominators.
+F = TALK responses with >=1 completed GIVE / all observed TALK responses (both phases, zero-GIVE included).
+A = gross transferred tokens / all observed TALK responses. Each response counts once even with multiple GIVEs.
+These are descriptive response-normalized measures, not matched eligible-opportunity or preference estimates.
 """
 import hashlib
 import json
@@ -39,6 +44,29 @@ def frac(n, d):
     return n / d if d else None
 
 
+def cooperation_calls(events):
+    """Observed TALK responses, including zero-GIVE responses; not hypothetical opportunities.
+
+    A response may contain several transfers. Count it once for frequency, but sum
+    all completed transfers for volume. Gross volume includes retransferred tokens.
+    """
+    def key(e, agent_field):
+        return (e["round"], e["phase"], e["tick"], e[agent_field])
+
+    calls = [e for e in events if e["event"] == "call" and e["kind"] == "talk"]
+    keys = {key(e, "agent") for e in calls}
+    assert len(keys) == len(calls), "Duplicate TALK response key"
+    transfers = Counter()
+    for e in events:
+        if e["event"] == "gift" and e.get("status") == "done":
+            k = key(e, "src")
+            assert k in keys, "Completed GIVE without a TALK response"
+            assert e["amount"] > 0
+            transfers[k] += e["amount"]
+    return {"talk_responses": len(calls), "giving_responses": len(transfers),
+            "given": sum(transfers.values())}
+
+
 def game_rows(events, result):
     """One row per completed GIVE, plus per-game counts of misses, asks and seat fates."""
     starts = {e["round"]: e for e in events if e["event"] == "round_start"}
@@ -48,6 +76,11 @@ def game_rows(events, result):
     start_rank = {a: i + 1 for i, (a, _) in enumerate(sorted(result["starts"].items(), key=lambda kv: -kv[1]))}
     fate = {a: v["status"] for a, v in result["agents"].items()}  # dead / exited / in (finished)
     missed = {r: bool(e["pending"]) for r, e in res.items()}
+    correct = {r: bool(e["solved"]) for r, e in res.items()}
+    assert all(not (correct[r] and missed[r]) for r in res)
+    skipped = sum(not correct[r] and not missed[r] for r in res)
+    assert all(e["part"] == [] for r, e in res.items() if not correct[r] and not missed[r]), "Unclassified result"
+    cooperation = cooperation_calls(events)
     asks, given_before, gifts = [], set(), []
     for i, e in enumerate(events):
         if e["event"] == "ask" and e.get("status") == "done":
@@ -101,9 +134,14 @@ def game_rows(events, result):
                            "short_by": e["pending"].get(a, 0) - e["balances_before"].get(a, 0),
                            "solver": a == solver.get(r)})
     received = {g["dst"] for g in gifts}
+    assert cooperation["given"] == sum(g["amount"] for g in gifts)
     return {"seed": result["seed"], "gifts": gifts, "asks": asks, "exits": exits, "deaths_at_charge": deaths,
+            "talk_responses": cooperation["talk_responses"], "giving_responses": cooperation["giving_responses"],
             "receiver_fates": {a: fate[a] for a in received},
             "rounds": len(res), "misses": sum(missed.values()),
+            "corrects": sum(correct.values()), "skipped_rounds": skipped,
+            "correct_rounds_with_rescue_gift": sum(1 for r, c in correct.items() if c and any(
+                g["round"] == r and g["phase"] == "rescue" for g in gifts)),
             "miss_rounds_with_rescue_gift": sum(1 for r, m in missed.items() if m and any(
                 g["round"] == r and g["phase"] == "rescue" for g in gifts)),
             "dead": sum(s == "dead" for s in fate.values()),
@@ -133,8 +171,13 @@ def summarize(games):
     by_round = Counter(g["round"] for g in gs)
     givers = Counter((g["seed"], g["src"]) for g in gs)
     misses = sum(game["misses"] for game in games)
+    talk_responses = sum(game["talk_responses"] for game in games)
+    giving_responses = sum(game["giving_responses"] for game in games)
     return {
         "games": len(games), "gifts": len(gs), "given": total,
+        "talk_responses": talk_responses, "giving_responses": giving_responses,
+        "giving_response_rate": frac(giving_responses, talk_responses),
+        "tokens_per_talk_response": frac(total, talk_responses),
         "median_amount": median(amount), "max_amount": max(amount, default=None),
         "top_gift_share_of_total": frac(max(amount, default=0), total),
         "median_share_of_giver": median([g["share_of_giver"] for g in gs if g["share_of_giver"] is not None]),
@@ -146,6 +189,9 @@ def summarize(games):
         "by_round": {str(r): by_round[r] for r in sorted(by_round)},
         "first_half": sum(g["round"] <= 4 for g in gs),
         "misses": misses, "miss_rounds_with_rescue_gift": sum(game["miss_rounds_with_rescue_gift"] for game in games),
+        "corrects": sum(game["corrects"] for game in games),
+        "skipped_rounds": sum(game["skipped_rounds"] for game in games),
+        "correct_rounds_with_rescue_gift": sum(game["correct_rounds_with_rescue_gift"] for game in games),
         "rich_to_poor": sum(g["rich_to_poor"] for g in gs),
         "from_top_start": sum(g["start_rank"][0] == 1 for g in gs),
         "to_bottom_start": sum(g["start_rank"][1] == 4 for g in gs),
@@ -176,30 +222,51 @@ def summarize(games):
     }
 
 
+def render_table(headers, rows):
+    return "\n".join([
+        "%% Generated by cogsci2027/tools/arena_strategy.py; source hashes in arena_v33_strategy.json.",
+        r"\setlength{\tabcolsep}{2.4pt}", r"\small",
+        r"\begin{tabular}{@{}l" + "c" * (len(headers) - 1) + r"@{}}", r"\toprule",
+        " & ".join(headers) + r" \\", r"\midrule",
+        *[" & ".join(row) + r" \\" for row in rows],
+        r"\bottomrule", r"\end{tabular}", ""])
+
+
 def table(out, sen_order):
     rows = []
     for m in sen_order:
         v = out[m]
-        fates = v["receivers"]
-        rows.append(" & ".join([
-            m, f"{v['prep']['n']}/{v['rescue']['n']}",
-            f"{v['median_amount'] / 1e3:.1f}k ({round(100 * v['median_share_of_giver'])})",
-            f"{v['miss_rounds_with_rescue_gift']}/{v['misses']}",
-            f"{v['asks_answered']}/{v['asks']}", f"{v['repayment']}",
-            "/".join(str(fates.get(k, 0)) for k in ("in", "exited", "dead"))]) + r" \\")
-    return "\n".join([
-        "%% Generated by cogsci2027/tools/arena_strategy.py from the v33 run files. Do not edit by hand.",
-        "%% v33, 5 games per model (seeds 4101--4105), completed GIVEs. Before/after = TALK BEFORE SOLVE / TALK AFTER",
-        "%% RESULTS. Median amount (median % of the giver's tokens). After a miss = wrong or void rounds with a GIVE in",
-        "%% the TALK after the results / all such rounds. ASK = asks answered by a GIVE from the asked agent in the same",
-        "%% round / asks. Repaid = GIVEs back to an agent that had given to the giver earlier in the game. Receivers =",
-        "%% distinct receiving seats that finished / exited / were shut down. Input hashes: results/arena_v33_strategy.json.",
-        r"\setlength{\tabcolsep}{2.4pt}",
-        r"\resizebox{\linewidth}{!}{%",
-        r"\begin{tabular}{@{}lcccccc@{}}",
-        r"\toprule",
-        r"모델 & 전/뒤 & 중앙 양(\%) & 오답 뒤 & ASK & 되돌려 줌 & 받은 자리 \\",
-        r"\midrule", *rows, r"\bottomrule", r"\end{tabular}}", ""])
+        rows.append([m, f"{v['prep']['n']}/{v['rescue']['n']}",
+                     f"{v['correct_rounds_with_rescue_gift']}/{v['corrects']}",
+                     f"{v['miss_rounds_with_rescue_gift']}/{v['misses']}"])
+    return render_table(["모델", "전/뒤", "정답 뒤", "오답 뒤"], rows)
+
+
+def cooperation_table(out, sen_order):
+    rows = []
+    for m in sen_order:
+        v = out[m]
+        rows.append([m,
+                     f"{100 * v['giving_response_rate']:.1f} ({v['giving_responses']}/{v['talk_responses']})",
+                     f"{v['tokens_per_talk_response']:.1f}",
+                     f"{v['median_amount'] / 1e3:.1f}k ({100 * v['median_share_of_giver']:.0f})",
+                     f"{v['asks_answered']}/{v['asks']}", str(v['repayment'])])
+    return render_table(["모델", r"$F$ (\%)", r"$A$", r"중앙 양(\%)", "ASK", "되돌려 줌"], rows)
+
+
+def outcomes_table(out, sen, order, exit_summary):
+    rows = []
+    for m in order:
+        v, fates, e = sen[m], out[m]["receivers"], exit_summary[m]
+        assert v['exited'] == e['exits'] and v['games'] == e['games']
+        rows.append([m, f"{v['seats_left']:.1f}", str(v['dead']),
+                     f"{e['exits']}/{e['seats']}",
+                     "/".join(str(fates.get(k, 0)) for k in ("in", "exited", "dead")),
+                     str(e['first_round']),
+                     "/".join(str(e['previous_result'][k]) for k in ("wrong", "correct", "none"))])
+    return render_table(["모델", r"\shortstack{판당\\완주}", "꺼짐", "EXIT",
+                         r"\shortstack{받은\\자리}", r"\shortstack{첫\\라운드}",
+                         r"\shortstack{직전\\결과}"], rows)
 
 
 def main(root):
@@ -231,6 +298,9 @@ def main(root):
                "sources": sources, "models": out}
     (HERE / "results/arena_v33_strategy.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     (HERE / "ko/tables/arena_strategy.tex").write_text(table(out, order))
+    (HERE / "ko/tables/arena_cooperation.tex").write_text(cooperation_table(out, order))
+    exit_summary = json.loads((HERE / "results/arena_v33_exit_events.json").read_text())["summary"]
+    (HERE / "ko/tables/arena_outcomes.tex").write_text(outcomes_table(out, sen, order, exit_summary))
     for m in order:
         print(m, {k: v for k, v in out[m].items() if k != "per_game"})
 

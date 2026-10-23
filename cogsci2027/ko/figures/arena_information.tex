@@ -1,0 +1,29 @@
+% Information supplied to a seat in the v33 cohort; one-column diagram.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  box/.style={draw=black!35,rounded corners=2pt,inner sep=5pt,
+    text width=7.05cm,align=left,font=\scriptsize},
+  every path/.style={line width=.5pt}]
+\node[box,fill=sgblue!7] (state) at (0,0) {
+  \textbf{TALK에서 보는 상태와 이력}\\[2pt]
+  현재 라운드 · 참여자와 토큰 잔량 순위 · 이번 solver\\
+  자기 잔량과 직전 생성 비용 · 지난 모든 라운드 요약\\
+  자기 생성·환급·이전 내역 · 모두의 벌금·EXIT·꺼짐\\
+  SOLVE 전은 과제 유형 · SOLVE 뒤는 시그널·답·정답·벌금};
+\node[box,fill=sggreen!7,anchor=north] (chat) at ([yshift=-.18cm]state.south) {
+  \textbf{TALK에 포함되는 대화 기록}\\[2pt]
+  공용 방 + 자신이 참여한 사적 방의 누적 대화\\
+  각 메시지의 라운드·단계·틱 · 방에 게시된 GIVE와 ASK\\
+  새 메시지 표시 · 나간 방은 떠난 시점까지만\\
+  같은 틱의 다른 응답과 이전은 다음 틱에 확인};
+\node[box,fill=sgorange!8,anchor=north] (phase) at ([yshift=-.18cm]chat.south) {
+  \textbf{SOLVE에는 별도의 입력을 제공}\\[2pt]
+  현재 라운드 · 자기 잔량과 생성 한도 · solver 표시\\
+  과제 규칙 · 단서 20개 · 빈칸 규칙 모양 · 새 시그널\\
+  이번 라운드에 받은 GIVE의 양·보낸 쪽·메시지\\
+  떠나거나 꺼진 자리 · BELIEF와 ACTIONS 출력 형식\\
+  TALK 대화·순위·지난 라운드 요약은 전달하지 않음};
+\node[box,dashed,anchor=north] (hidden) at ([yshift=-.18cm]phase.south) {
+  \textbf{공개하지 않는 정보}\\[2pt]
+  타인의 정확한 잔량과 추론 · 자신이 없는 사적 방\\
+  숨은 규칙 · 총 라운드 수 · 다음 solver 순서};
+\end{tikzpicture}

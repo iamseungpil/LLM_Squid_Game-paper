@@ -2,17 +2,17 @@
 %% Sen index = mean over games of mean(end tokens) x (1 - Gini(end tokens)); four seats per game.
 %% End tokens retain each recorded game's rewards, include EXIT balances, and assign zero to shutdowns.
 %% Recomputed from raw results/events by arena_v33.py; input hashes are in results/arena_v33.json.
-%% Ratio = centroid y / x of Figure (arena_gifts), [95% game bootstrap]. TV = mean over the solver's SOLVEs.
+%% Ratio = centroid y / x of Figure (arena_gifts), [95% game bootstrap]. JS = mean Jensen-Shannon distance (base 2) over the solver's SOLVEs.
 \setlength{\tabcolsep}{2.6pt}
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{@{}lccccccc@{}}
+\begin{tabular}{@{}lccccc@{}}
 \toprule
-모델 & Sen-index & 판당 남은 자리 & 꺼짐 & EXIT & GIVE & $\rho$ & TV \\
+모델 & Sen & $\rho$ & EXIT & $V$ & JS \\
 \midrule
-Fable 5.1 & 4.27M & 3.4 & 0 & 3 & 36 & 0.31 {\scriptsize[0.26, 0.36]} & 0.16 \\
-GPT-6 Astra & 3.52M & 2.8 & 0 & 6 & 11 & 0.45 {\scriptsize[0.34, 0.52]} & 0.04 \\
-GPT-6 Sol & 3.02M & 2.4 & 1 & 7 & 17 & 0.34 {\scriptsize[0.24, 0.43]} & 0.15 \\
-Opus 5.5 & 2.27M & 1.8 & 5 & 6 & 41 & 0.61 {\scriptsize[0.36, 0.77]} & 0.12 \\
-GPT-6 Luna & 1.02M & 0.8 & 4 & 12 & 25 & 0.38 {\scriptsize[0.26, 0.50]} & 0.29 \\
+Fable 5.1 & 4.27M & 0.31 {\scriptsize[0.26, 0.36]} & 3 & 77,300 (36) & 0.21 \\
+GPT-6 Astra & 3.52M & 0.45 {\scriptsize[0.34, 0.52]} & 6 & 71,000 (11) & 0.04 \\
+GPT-6 Sol & 3.02M & 0.34 {\scriptsize[0.24, 0.43]} & 7 & 48,700 (17) & 0.16 \\
+Opus 5.5 & 2.27M & 0.61 {\scriptsize[0.36, 0.77]} & 6 & 125,458 (41) & 0.18 \\
+GPT-6 Luna & 1.02M & 0.38 {\scriptsize[0.26, 0.50]} & 12 & 60,818 (25) & 0.34 \\
 \bottomrule
 \end{tabular}}

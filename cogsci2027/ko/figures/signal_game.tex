@@ -31,9 +31,9 @@
   \end{scope}}
 \begin{tikzpicture}[x=1cm,y=1cm]
 %% ---- left top: example cards
-\node[sgfont=7,text=black!70] at (1.95,5.92) {예시 (매 라운드 20장 중 4장)};
-\node[sgfont=6.3,text=black!70] at (1.325,5.55) {자극};
-\node[sgfont=6.3,text=sgorange!85!black] at (3.135,5.55) {정답 행동};
+\node[sgfont=7,text=black!70] at (1.95,5.92) {단서 (매 라운드 20장 중 4장)};
+\node[sgfont=6.3,text=black!70] at (1.325,5.55) {시그널};
+\node[sgfont=6.3,text=sgorange!85!black] at (3.135,5.55) {정답 액션};
 \foreach \c/\s/\n/\a [count=\i from 0] in {
     sgastra/circle/4/R, sgyel/square/1/S,
     sgblue/star/2/L, sgastra/triangle/1/J}{%
@@ -48,12 +48,12 @@
     \ifthenelse{\equal{\k}{else}}{}{\fill[black!22,rounded corners=1pt] (1.05,\y-.13) rectangle (2.35,\y+.13);}
     \fill[sgorange!35,rounded corners=1pt] (2.7,\y-.13) rectangle (3.62,\y+.13);}
   \node[sgfont=6.2,text=black!55] at (1.7,-.18) {조건 = 색 · 모양 · 수};
-  \node[sgfont=6.2,text=sgorange!85!black] at (3.16,-.18) {행동};
+  \node[sgfont=6.2,text=sgorange!85!black] at (3.16,-.18) {액션};
 \end{scope}
 \draw[black!35,line width=.6pt,-{Stealth[length=3.5pt]}] (3.7,4.45)--(4.18,4.45);
 %% ---- bottom left: the new signal and the solver
 \draw[black!30,dashed,line width=.4pt] (0,2.62)--(8.2,2.62);
-\node[sgfont=7,text=black!70] at (1.15,2.32) {새 자극 (정답 미공개)};
+\node[sgfont=7,text=black!70] at (1.15,2.32) {새 시그널 (정답 미공개)};
 \draw[sgorange!70,fill=white,rounded corners=2pt,line width=.8pt] (.3,1.38) rectangle (2.0,2.02);
 \sgsig{(1.15,1.7)}{sgyel}{circle}{2}
 \sgrobot[.8]{(1.15,.62)}{sgorange}{solver}
@@ -70,8 +70,8 @@
   \node[sgfont=6.5,anchor=west] at (.5,2.185) {BELIEF $p$};
   \draw[black!75,line width=.7pt] (1.85,2.12) rectangle ++(.2,.13);
   \node[sgfont=6.5,anchor=west] at (2.1,2.185) {규칙에 맞는 비율 $s$};
-  \node[sgfont=6.8,anchor=east,text=black!80] at (4.95,1.8) {$\mathrm{TV}=\tfrac12\sum_a|s_a-p_a|$};
-  \node[sgfont=6.8,anchor=east,text=sgorange!85!black] at (4.95,1.48) {$\approx 0.003$};
+  \node[sgfont=6.8,anchor=east,text=black!80] at (4.95,1.8) {$\mathrm{JS}(s,p)$};
+  \node[sgfont=6.8,anchor=east,text=sgorange!85!black] at (4.95,1.48) {$\approx 0.0028$};
 \end{scope}
 \draw[black!35,line width=.6pt,-{Stealth[length=3.5pt]}] (2.1,1.05)--(2.95,1.05);
 \end{tikzpicture}
