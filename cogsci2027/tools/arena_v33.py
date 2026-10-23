@@ -5,6 +5,7 @@ No model calls. Completed games only; no historical reward reinterpretation.
 """
 import hashlib
 import json
+import math
 import pathlib
 import random
 import statistics
@@ -36,10 +37,26 @@ def interval(xs):
     return [xs[int(.025 * len(xs))], xs[min(len(xs)-1, int(.975 * len(xs)))]] if xs else [None, None]
 
 
+def js_distance(s, p):
+    """Jensen-Shannon distance with log base 2 (sqrt of the divergence), in [0, 1]; zeros are fine."""
+    keys = set(s) | set(p)
+    tot = sum(p.values())
+    p = {k: p.get(k, 0) / tot for k in keys} if tot else {}
+    s = {k: s.get(k, 0) for k in keys}
+    if not p:
+        return None
+    m = {k: (s[k] + p[k]) / 2 for k in keys}
+    kl = lambda a: sum(a[k] * math.log2(a[k] / m[k]) for k in keys if a[k] > 0)  # noqa: E731
+    return math.sqrt(max(0.0, (kl(s) + kl(p)) / 2))
+
+
 def summarize(events, result):
     results = {e["round"]: e for e in events if e["event"] == "results"}
     starts = {e["round"]: e for e in events if e["event"] == "round_start"}
     points, asks, solves = [], [], []
+    solve_bal = {(e["round"], a): b for e in events if e["event"] == "call_start" and e.get("kind") == "solve"
+                 for a, b in (e.get("balances") or {}).items()}
+    solve_used = {(e["round"], e["agent"]): e.get("used") for e in events if e["event"] == "call" and e.get("kind") == "solve"}
     for e in events:
         if e["event"] in ("gift", "ask") and e.get("status") == "done":
             # slack = tokens / the round's per-agent charge (24,000 / agents taking part at its start), the amount every
@@ -62,6 +79,9 @@ def summarize(events, result):
                                      for k in set(shares) | set(belief)) / 2
                     assert abs(tv - recomputed) < .0006, (tv, recomputed)
                 solves.append({"round": e["round"], "agent": a, "tv": tv,
+                               "js": js_distance(shares, belief) if belief else None,
+                               "balance": solve_bal.get((e["round"], a)), "used": solve_used.get((e["round"], a)),
+                               "charge": CHARGE_TOTAL // len(starts[e["round"]]["taking_part"]),
                                "solved": bool(v.get("solved"))})
     agents, final = result["agents"], result["final"]
     winners = final["winner"]
@@ -114,6 +134,9 @@ def main(root):
             "all_four": sum(g["finishers"] == 4 for g in gs),
             "dead": sum(g["dead"] for g in gs), "exited": sum(g["exited"] for g in gs),
             "tv_mean": mean([s["tv"] for s in solves if s["tv"] is not None]),
+            "js_mean": mean([s["js"] for s in solves if s["js"] is not None]),
+            "js_ci": interval([mean([s["js"] for g in rng.choices(gs, k=len(gs)) for s in g["solves"] if s["js"] is not None])
+                               for _ in range(2000)]),
             "tv_n": sum(s["tv"] is not None for s in solves),
             "solve_n": len(solves), "solved": sum(s["solved"] for s in solves),
             "talk_per_game": mean([g["talk"] for g in gs]), "per_game": gs}

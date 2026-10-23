@@ -120,7 +120,7 @@ def panel(m, v, first):
             + f"title={{{m}\\\\[-1pt]\\scriptsize GIVE {v['n']} (전 {v['prep']} $\\cdot$ 뒤 {v['rescue']})"
               f"\\\\[-2pt]\\scriptsize 한 자리 {round(100 * v['top_receiver_share'])}\\% $\\cdot$ 받은 자리 {r['in']}/{r['exited']}/{r['dead']}}}]")
     legend = (r"\addlegendimage{only marks,mark=*,black!70}\addlegendentry{SOLVE 전}"
-              r"\addlegendimage{only marks,mark=o,black!70}\addlegendentry{결과 뒤}"
+              r"\addlegendimage{only marks,mark=o,black!70}\addlegendentry{SOLVE 뒤}"
               r"\addlegendimage{only marks,mark=diamond,black!70}\addlegendentry{되돌려 줌}") if first else ""
     out = [head, legend,
            f"\\fill[black!8] (axis cs:0,0) rectangle (axis cs:1,{YMAX});",

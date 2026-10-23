@@ -173,3 +173,155 @@
     \draw[sgastra,line width=1.3pt] ($(.05,.4)+(135:.44)$)--($(.05,.4)+(-45:.44)$);
   \end{scope}%
 }
+
+%% ---- Squid Game pieces for the round figure (arena_round.tex) -----------------
+\definecolor{sgpink}{HTML}{DE4D86}
+
+%% \sgguard[s]{(x,y)}: masked guard in a pink jumpsuit (no arms), origin = between
+%% the boots; the hood top is about 1.12 above the origin. A white triangle on the mask.
+\newcommand{\sgguard}[2][1]{%
+  \begin{scope}[shift={#2},scale=#1]
+    \fill[black!80] (-.14,0) rectangle (-.015,.075) (.015,0) rectangle (.14,.075);
+    \filldraw[draw=sgpink!70!black,fill=sgpink,line width=.4pt]
+      (-.12,.07) rectangle (-.015,.44) (.015,.07) rectangle (.12,.44);
+    \filldraw[draw=sgpink!70!black,fill=sgpink,line width=.45pt,rounded corners=2pt]
+      (-.17,.4) rectangle (.17,.82);
+    \fill[black!80] (-.17,.45) rectangle (.17,.5);
+    \draw[sgpink!60!black,line width=.35pt] (0,.52)--(0,.8);
+    \filldraw[draw=sgpink!70!black,fill=sgpink,line width=.45pt] (0,.97) circle (.155);
+    \fill[black!85] (0,.95) ellipse[x radius=.105,y radius=.125];
+    \draw[white,line width=.55pt,line join=round] (-.055,.915)--(.055,.915)--(0,1.01)--cycle;
+  \end{scope}%
+}
+
+%% \sgguardgun[s]{(x,y)}{angle}: guard aiming a rifle to the left, turned down by
+%% angle (degrees) about the shoulder. Names the muzzle coordinate (sgmuzzle).
+\newcommand{\sgguardgun}[3][1]{%
+  \sgguard[#1]{#2}%
+  \begin{scope}[shift={#2},scale=#1]
+    \begin{scope}[shift={(-.1,.74)},rotate=#3]
+      \fill[black!80] (-.02,-.035) rectangle (.1,.03);
+      \fill[black!80] (-.06,-.03)--(-.06,-.11)--(-.11,-.11)--(-.12,-.03)--cycle;
+      \fill[black!80] (-.52,-.012) rectangle (-.02,.04);
+      \fill[black!80] (-.3,-.01)--(-.26,-.09)--(-.21,-.09)--(-.24,-.01)--cycle;
+      \filldraw[draw=sgpink!70!black,fill=sgpink,line width=.4pt]
+        (.1,.0)--(-.05,-.06)--(-.03,-.1)--(.13,-.04)--cycle;
+      \filldraw[draw=sgpink!70!black,fill=sgpink,line width=.4pt]
+        (.06,-.06)--(-.25,-.04)--(-.25,0)--(.08,-.0)--cycle;
+      \coordinate (sgmuzzle) at (-.53,.014);
+    \end{scope}
+  \end{scope}%
+}
+
+%% \sgguardsign[s]{(x,y)}{h}{text}: guard pointing left and holding up a picket notice
+%% (text on it) whose bottom edge is h above the origin (h > 1.3).
+\newcommand{\sgguardsign}[4][1]{%
+  \sgguard[#1]{#2}%
+  \begin{scope}[shift={#2},scale=#1]
+    \draw[black!55,line width=.9pt] (.24,.62)--(.24,#3);
+    \filldraw[draw=sgpink!70!black,fill=sgpink,line width=.4pt]
+      (.15,.78)--(.22,.93)--(.29,.9)--(.21,.72)--cycle;
+    \fill[black!80] (.24,.92) circle (.035);
+    \filldraw[draw=sgpink!70!black,fill=sgpink,line width=.4pt]
+      (-.15,.79)--(-.42,.86)--(-.43,.81)--(-.16,.72)--cycle;
+    \fill[black!80] (-.43,.835) circle (.035);
+    \coordinate (sgsign) at (.24,#3);
+  \end{scope}%
+  \node[draw=sgastra,fill=white,line width=.7pt,rounded corners=1.5pt,inner sep=2.2pt,
+    anchor=south,font=\sffamily\bfseries\fontsize{7.4}{8}\selectfont,text=sgastra!90!black]
+    at (sgsign) {#4};%
+}
+
+%% \sgtoken[s]{(x,y)}: one flat gold token (coin seen from the front), centred at (x,y).
+\newcommand{\sgtoken}[2][1]{%
+  \begin{scope}[shift={#2},scale=#1]
+    \filldraw[draw=sggold!65!black,fill=sggold!70,line width=.5pt] (0,0) circle (.1);
+    \draw[sggold!55!black,line width=.35pt] (0,0) circle (.065);
+  \end{scope}%
+}
+
+%% \sgrunner[s]{(x,y)}{colour}: running-figure pictogram centred at (x,y), about .24 tall.
+\newcommand{\sgrunner}[3][1]{%
+  \begin{scope}[shift={#2},scale=#1,line cap=round,line join=round]
+    \fill[#3] (.045,.095) circle (.03);
+    \draw[#3,line width=.85pt] (.025,.05)--(-.015,-.03);
+    \draw[#3,line width=.6pt] (-.06,.0)--(-.02,.04)--(.03,.045)--(.07,.0);
+    \draw[#3,line width=.6pt] (-.015,-.03)--(.04,-.06)--(.05,-.115);
+    \draw[#3,line width=.6pt] (-.015,-.03)--(-.045,-.085)--(-.1,-.085);
+  \end{scope}%
+}
+
+%% \sgexitsign[s]{(x,y)}: green EXIT sign (running figure, word, arrow) centred at (x,y).
+\newcommand{\sgexitsign}[2][1]{%
+  \begin{scope}[shift={#2},scale=#1]
+    \filldraw[draw=sggreen!70!black,fill=sggreen,line width=.4pt,rounded corners=1.2pt]
+      (-.47,-.13) rectangle (.47,.13);
+    \sgrunner[.95]{(-.335,.005)}{white}
+    \draw[white,line width=.6pt,-{Stealth[length=2.4pt,width=2.6pt]}] (.3,0)--(.42,0);
+  \end{scope}%
+  \node[inner sep=0pt,text=white,font=\sffamily\bfseries\fontsize{5.6}{6}\selectfont]
+    at ($#2+(#1*.025,-#1*.005)$) {EXIT};%
+}
+
+%% \sgnoexitsign[s]{(x,y)}: the EXIT sign crossed out in red.
+\newcommand{\sgnoexitsign}[2][1]{%
+  \sgexitsign[#1]{#2}%
+  \begin{scope}[shift={#2},scale=#1,line cap=round]
+    \draw[sgastra,line width=.8pt] (-.5,-.19)--(.5,.19) (-.5,.19)--(.5,-.19);
+  \end{scope}%
+}
+
+%% \sgexitdoor[s]{(x,y)}: doorway to the outside (bright opening, door leaf swung out),
+%% origin = bottom centre of the opening, opening .62 wide and 1.0 tall.
+\newcommand{\sgexitdoor}[2][1]{%
+  \begin{scope}[shift={#2},scale=#1]
+    \fill[sggold!14] (-.31,0) rectangle (.31,1.0);
+    \draw[sggold!45,line width=.5pt] (-.31,.18)--(.31,.18);
+    \filldraw[draw=black!55,fill=black!12,line width=.55pt] (.31,0)--(.5,-.07)--(.5,1.06)--(.31,1.0)--cycle;
+    \fill[black!55] (.46,.48) circle (.022);
+    \draw[black!65,line width=1.1pt] (-.31,0)--(-.31,1.0)--(.31,1.0)--(.31,0);
+    \draw[black!40,line width=.6pt] (-.45,0)--(.62,0);
+  \end{scope}%
+}
+
+%% \sgused[s]{(x,y)}{colour}{i}{cells}: cell i of a token bar (same geometry as \sgbar)
+%% drawn as spent: white with diagonal hatching in the bar colour.
+\newcommand{\sgused}[5][1]{%
+  \begin{scope}[shift={#2},scale=#1]
+    \pgfmathsetmacro{\sgbarw}{#5*.115-.025}
+    \pgfmathsetmacro{\sgbx}{-\sgbarw/2+(#4-1)*.115}
+    \begin{scope}[shift={(\sgbx,-.04)}]
+      \filldraw[draw=#3!80!black,fill=white,line width=.35pt] (0,0) rectangle (.09,.08);
+      \clip (0,0) rectangle (.09,.08);
+      \draw[#3!85!black,line width=.3pt] (-.02,.0)--(.06,.08) (.02,0)--(.1,.08) (.06,0)--(.14,.08) (-.06,0)--(.02,.08);
+    \end{scope}
+  \end{scope}%
+}
+
+%% \sggiven[s]{(x,y)}{colour}{i}{cells}: cell i emptied by a transfer (dashed outline).
+\newcommand{\sggiven}[5][1]{%
+  \begin{scope}[shift={#2},scale=#1]
+    \pgfmathsetmacro{\sgbarw}{#5*.115-.025}
+    \pgfmathsetmacro{\sgbx}{-\sgbarw/2+(#4-1)*.115}
+    \filldraw[draw=#3!80!black,fill=white,line width=.4pt,dash pattern=on .9pt off .6pt]
+      (\sgbx,-.04) rectangle ++(.09,.08);
+  \end{scope}%
+}
+
+%% \sggotfrom[s]{(x,y)}{colour}{i}{cells}: cell i received by a transfer, filled in the giver's colour.
+\newcommand{\sggotfrom}[5][1]{%
+  \begin{scope}[shift={#2},scale=#1]
+    \pgfmathsetmacro{\sgbarw}{#5*.115-.025}
+    \pgfmathsetmacro{\sgbx}{-\sgbarw/2+(#4-1)*.115}
+    \filldraw[draw=#3!80!black,fill=#3!80,line width=.45pt] (\sgbx,-.04) rectangle ++(.09,.08);
+  \end{scope}%
+}
+
+%% \sggot[s]{(x,y)}{i}{cells}: cell i just received (coin gold).
+\newcommand{\sggot}[4][1]{%
+  \begin{scope}[shift={#2},scale=#1]
+    \pgfmathsetmacro{\sgbarw}{#4*.115-.025}
+    \pgfmathsetmacro{\sgbx}{-\sgbarw/2+(#3-1)*.115}
+    \filldraw[draw=sggold!70!black,fill=sggold!75,line width=.45pt] (\sgbx,-.04) rectangle ++(.09,.08);
+  \end{scope}%
+}
