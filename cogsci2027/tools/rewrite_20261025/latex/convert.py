@@ -13,17 +13,16 @@ FIG = {  # doc figure number -> (label, float env, body)
     1: ("fig:arena-round", "figure*", r"\resizebox{\textwidth}{!}{\input{cogsci2027/ko/figures/arena_round}}"),
     2: ("fig:rw-main", "figure*", r"\includegraphics[width=\textwidth]{cogsci2027/ko/figures/rw_fig2_main.pdf}"),
     3: ("fig:rw-validity", "figure*", r"\includegraphics[width=\textwidth]{cogsci2027/ko/figures/rw_fig3_validity.pdf}"),
-    4: ("fig:rw-models", "figure", r"\includegraphics[width=\linewidth]{cogsci2027/ko/figures/rw_fig4_models.pdf}"),
-    5: ("fig:rw-persona", "figure*", r"\includegraphics[width=0.85\textwidth]{cogsci2027/ko/figures/rw_fig5_persona.jpg}"),
+    4: ("fig:rw-models", "figure*", r"\includegraphics[width=\textwidth]{cogsci2027/ko/figures/rw_fig4_models.pdf}"),
 }
 TAB = {1: "tab:rw-related", 2: "tab:rw-metrics", 3: "tab:rw-models", 4: "tab:rw-persona"}
 TABSPEC = {  # column spec per table (tabularx X columns wrap)
     1: r"@{}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.1\textwidth}*{5}{>{\centering\arraybackslash}p{0.075\textwidth}}@{}",
-    2: r"@{}>{\raggedright\arraybackslash}p{0.07\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.07\textwidth}@{}",
-    3: r"@{}l>{\raggedright\arraybackslash}Xccccccc@{}",
+    2: r"@{}>{\raggedright\arraybackslash}p{0.09\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.07\textwidth}@{}",
+    3: r"@{}>{\raggedright\arraybackslash}p{0.085\textwidth}>{\raggedright\arraybackslash}X*{9}{c}@{}",
     4: r"@{}>{\raggedright\arraybackslash}p{0.11\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}X@{}",
 }
-SEC = {"초록": None, "1 서론": ("section", "서론", "chap:intro"), "2 아레나": ("section", "아레나", "sec:arena"),
+SEC = {"초록": None, "1 서론": ("section", "서론", "chap:intro"), "2 아레나": ("section", "아레나", "sec:rw-arena"),
        "3 아레나 분석": ("section", "아레나 분석", "sec:analysis"), "4 논의 및 결론": ("section", "논의 및 결론", "chap:discussion")}
 
 
@@ -37,7 +36,7 @@ def esc(s):
         s = s.replace(a, b)
     s = s.replace("{", r"\{").replace("}", r"\}") if False else s
     for a, b in [("✓", r"\ding{51}"), ("✗", r"\ding{55}"), ("△", r"$\triangle$"), ("†", r"\textdagger{}"),
-                 ("×", r"$\times$"), ("≥", r"$\geq$"), ("κ", r"$\kappa$"), ("→", r"$\rightarrow$"), ("÷", r"$\div$"),
+                 ("×", r"$\times$"), ("≥", r"$\geq$"), ("κ", r"$\kappa$"), ("ρ", r"$\rho$"), ("−", r"$-$"), ("→", r"$\rightarrow$"), ("÷", r"$\div$"),
                  ("“", "``"), ("”", "''")]:
         s = s.replace(a, b)
     s = re.sub(r'"([^"]*)"', r"``\1''", s)
@@ -109,7 +108,7 @@ while i < len(blocks):
         spec = TABSPEC[tab_n]
         head = " & ".join(r"\textbf{%s}" % c for c in rows[0]) + r" \\"
         body = "\n".join(" & ".join(r) + r" \\" for r in rows[1:])
-        size = r"\scriptsize" if tab_n in (1, 4) else r"\footnotesize"
+        size = r"\scriptsize" if tab_n in (1, 3, 4) else r"\footnotesize"
         out_.append("\\begin{table*}[t]\n\\color{blue}\n\\caption{%s}\n\\label{%s}\n%s\n\\setlength{\\tabcolsep}{3pt}\n"
                     "\\begin{tabularx}{\\textwidth}{%s}\n\\toprule\n%s\n\\midrule\n%s\n\\bottomrule\n\\end{tabularx}\n\\end{table*}"
                     % (esc(pending_tab_caption or ""), TAB[tab_n], size, spec, head, body))

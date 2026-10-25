@@ -11,3 +11,11 @@
 - `figs/make_fig2_main.py`, `make_fig3_validity.py`, `make_fig4_models.py` → 그림 2–4(`an2/*.json`, `pbdata/fig3.json` 사용).
   그림 1은 기존 TikZ(`ko/figures/arena_round.tex`), 그림 5는 PaperBanana 도식이다.
 - `latex/convert.py` → Claude Docs 원고(XML)를 `ko/sections/r0–r4`로 바꾼 변환기.
+
+## 10-25 의도 재정렬판(공존의 세 요소, 그림 2–4 v4)
+
+- `an3/analyze.py` → 3.1 그림 2(여유 구간별 정답률·GIVE·EXIT, 위기 사슬, 판 단위 오답과 끝까지 남은 수·Sen 상관), 모델별 지표(표 3), 페르소나 장면 수. `audit/G.pkl`(audit/build.py), `an2/panel.json`, `audit/elig.json`, `audit/ep.json`, `../../results/arena_v33_*.json`을 읽는다.
+- `an3/gifts_adj.py` → GIVE 직후 두 쪽 여유(결과 뒤 대화는 곧 낼 벌금을 뺌)와 모델별 ρ(판 부트스트랩 2,000번).
+- `audit_r2/audit_r2.py` → 위 숫자의 독립 재계산(`ARENA_RAW`). 11개 묶음 중 9개가 일치했고, 두 곳(GIVE 여유의 벌금 차감, 혼자 남은 라운드의 벌금 24,000)은 정의를 고쳐 맞췄다.
+- `figs/make_fig2_v4.py`, `make_fig3_v4.py`, `make_fig4_v4.py` → 그림 2–4. 그림 5(PaperBanana)는 이 판에서 뺐다.
+- `constraints.md` → 제약 원장(1–22).
