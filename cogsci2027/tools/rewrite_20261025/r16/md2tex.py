@@ -8,7 +8,7 @@ FIG = {1: ("fig:arena-round", "figure*", r"\resizebox{\textwidth}{!}{\input{cogs
        3: ("fig:rw-validity", "figure*", r"\includegraphics[width=\textwidth]{cogsci2027/ko/figures/rw_fig3_validity.pdf}"),
        4: ("fig:rw-models", "figure*", r"\includegraphics[width=\textwidth]{cogsci2027/ko/figures/rw_fig4_models.pdf}")}
 TAB = {"1": "tab:rw-models", "A1": "tab:rw-related", "A2": "tab:rw-metrics", "A3": "tab:rw-persona"}
-FIG1_CAP = "한 라운드는 다섯 단계로 지나간다. 같은 모델 넷(A–D) 가운데 푸는 에이전트가 정해지고(①), 풀기 전 대화(②)에서 토큰을 청하거나(ASK) 건네며, 푸는 에이전트가 아닌 에이전트는 떠날 수 있다(EXIT, 잔량에 20,000을 더해 나감). 푸는 에이전트가 과제를 풀어 답을 내면(③) 결과가 공개되고, 결과 뒤 대화(④)에서는 토큰을 건넬 수 있지만 떠날 수는 없다. 오답이면 벌금 24,000을 라운드를 시작한 인원으로 나눈 몫을 남은 에이전트가 각자 낸다(⑤, 넷이 시작했으므로 D가 떠나도 6,000). 막대는 잔량(60k–10k는 시작 토큰)이다."
+FIG1_CAP = "한 라운드는 다섯 단계로 지나간다. 같은 모델 넷(A–D) 가운데 푸는 에이전트가 정해지고(①), 풀기 전 대화(②)에서 토큰을 청하거나(ASK) 건네며, 푸는 에이전트가 아닌 에이전트는 떠날 수 있다(EXIT). 푸는 에이전트가 과제를 풀어 답을 내면(③) 결과가 공개되고, 결과 뒤 대화(④)에서는 토큰을 건넬 수 있지만 떠날 수는 없다. 오답이면 벌금 24,000을 라운드를 시작한 인원으로 나눈 몫을 남은 에이전트가 각자 낸다(⑤, 넷이 시작했으므로 D가 떠나도 6,000)."
 def esc(s):
     s = s.replace("\\", r"\textbackslash{}")
     for a, b in [("&", r"\&"), ("%", r"\%"), ("#", r"\#"), ("_", r"\_"), ("$", r"\$"), ("~", r"\textasciitilde{}"), ("^", r"\^{}")]:
