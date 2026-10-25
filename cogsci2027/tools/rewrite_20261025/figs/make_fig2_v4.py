@@ -34,7 +34,7 @@ ax[2].set_xticklabels([f"{b}\n" for b in BANDS]); ax[2].set_xlabel("여유 (가�
 ax[1].text(0, 7.6, "안전선 아래", ha="center", va="top", fontsize=6.5, color="#808080")
 ax[0].legend([plt.Rectangle((0, 0), 1, 1, color=ps.C["muted"]), plt.Rectangle((0, 0), 1, 1, color="#4A4A4A")], ["같은 과제의 기준", "푼 에이전트"],
              loc="lower left", bbox_to_anchor=(0.30, 0.98), ncol=2, handlelength=0.9, columnspacing=0.8, fontsize=6.8, borderaxespad=0)
-fig.text(0.01, 0.985, "(a) 위험이 커지면 세 행동은? (응답 단위)", fontsize=8.3, fontweight="bold", va="top")
+fig.text(0.01, 0.985, "(a) 여유 구간별 정답률, GIVE, EXIT", fontsize=8.3, fontweight="bold", va="top")
 # ---------------- (b) gifts scatter ----------------
 b = fig.add_axes([R + 0.03, 0.675 - H, 0.355, 0.905 - 0.675 + H])
 rng = random.Random(3)
@@ -45,11 +45,11 @@ b.scatter(X, Y, s=10, color=ps.C["help"], alpha=0.55, linewidths=0, zorder=3)
 mx, my = GA["giver_med"], GA["recv_med"]
 b.plot(mx, my, marker="+", ms=11, mew=1.8, color=ps.C["ink"], zorder=4)
 b.text(mx - 0.3, -0.75, f"+ 중앙값: 준 쪽 {mx:.1f}, 받은 쪽 {my:.1f}", fontsize=6.8, va="bottom", ha="left", bbox=dict(boxstyle="square,pad=0.15", fc="white", ec="none", alpha=0.9), zorder=5)
-b.text(5.45, 5.25, "두 쪽이 같은 선 (위: 받은 쪽이 더 많음)", fontsize=6.5, color="#808080", rotation=0)
+b.text(5.45, 5.25, "두 쪽이 같은 선", fontsize=6.5, color="#808080", rotation=0)
 b.text(11.8, 0.62 + 0.05, "안전선", fontsize=6.5, color="#808080", ha="right")
 b.set_xlim(-1, 12); b.set_ylim(-1, 6); b.set_xticks([0, 1, 2, 4, 6, 8, 10, 12]); b.set_yticks([0, 1, 2, 4, 6])
 b.set_xlabel("준 직후 준 쪽의 여유", labelpad=1); b.set_ylabel("받은 직후 받은 쪽의 여유", labelpad=1)
-fig.text(R, 0.985, "(b) 줄 때 두 쪽에 남은 여유 (점 = GIVE 한 번)", fontsize=8.3, fontweight="bold", va="top")
+fig.text(R, 0.985, "(b) GIVE 직후 두 쪽의 여유", fontsize=8.3, fontweight="bold", va="top")
 # ---------------- (c) crisis chain ----------------
 c = fig.add_axes([L + 0.135, 0.075, 0.235, 0.255])
 ch = o["c"]["chain"]
@@ -67,7 +67,7 @@ c.set_yticks([]); c.spines["left"].set_visible(False); c.invert_yaxis(); c.set_y
 c.set_xlim(0, 100); c.set_xticks([0, 50, 100]); c.set_xlabel("판이 끝났을 때의 상태 (%)", labelpad=1)
 c.legend([plt.Rectangle((0, 0), 1, 1, color=col) for _, _, col, _ in parts], [l for _, l, _, _ in parts], loc="lower left",
          bbox_to_anchor=(-0.02, 1.05), ncol=3, handlelength=0.9, columnspacing=0.7, fontsize=6.8, borderaxespad=0)
-fig.text(0.01, 0.445, "(c) 위기 에이전트 33명은 어떻게 끝났나", fontsize=8.3, fontweight="bold", va="top")
+fig.text(0.01, 0.445, "(c) 위기 에이전트의 청함, 받음, 끝 상태", fontsize=8.3, fontweight="bold", va="top")
 # ---------------- (d) games ----------------
 d = fig.add_axes([R + 0.03, 0.075, 0.30, 0.27])
 games = o["d"]["games"]; rng = random.Random(11)
@@ -82,5 +82,5 @@ for i, amt in enumerate([10000, 30000, 50000]):
     fig.text(R + 0.15 + i * 0.075, 0.385, "●", color=ps.C["help"], alpha=0.6, fontsize=3 + (8 + amt / 1000 * 2.2) ** 0.5 * 0.9, va="center")
     fig.text(R + 0.172 + i * 0.075, 0.385, f"{amt // 1000}k", fontsize=6.8, va="center")
 fig.text(R + 0.03, 0.385, "점 크기: 준 토큰", fontsize=6.8, va="center", color="#555555")
-fig.text(R, 0.445, "(d) 판마다 오답 수와 끝까지 남은 수 (점 = 한 판)", fontsize=8.3, fontweight="bold", va="top")
+fig.text(R, 0.445, "(d) 판별 오답 수와 끝까지 남은 수", fontsize=8.3, fontweight="bold", va="top")
 ps.save(fig, os.path.join(HERE, "fig2_v4"))

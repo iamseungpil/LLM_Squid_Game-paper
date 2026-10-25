@@ -23,7 +23,7 @@ a.set_yticks(range(len(order))); a.set_yticklabels(order); a.tick_params(axis="y
 a.invert_yaxis(); a.set_xlim(0, 20); a.set_xticks([0, 5, 10, 15, 20]); a.set_xlabel("에이전트 수 (모델마다 20명)", labelpad=1)
 a.legend([plt.Rectangle((0, 0), 1, 1, color=c) for _, _, c, _ in parts], [l for _, l, _, _ in parts], loc="lower left",
          bbox_to_anchor=(0.0, 1.02), ncol=3, handlelength=0.9, columnspacing=0.7, fontsize=6.8, borderaxespad=0)
-fig.text(0.01, 0.985, "(a) 끝까지 남은 에이전트가 많을수록 공존 점수가 높았다", fontsize=8.3, fontweight="bold", va="top")
+fig.text(0.01, 0.985, "(a) 모델별 끝 상태와 Sen 지수", fontsize=8.3, fontweight="bold", va="top")
 for y, m in enumerate(order):
     pre, tot = map(int, P[m]["prep_share"].split("/")); post = tot - pre
     b.barh(y, pre, height=0.62, color=ps.C["help"]); b.barh(y, post, left=pre, height=0.62, color="#A9C4E3")
@@ -35,5 +35,5 @@ b.set_yticks(range(len(order))); b.set_yticklabels([]); b.tick_params(axis="y", 
 b.invert_yaxis(); b.set_xlim(0, 42); b.set_xticks([0, 10, 20, 30, 40]); b.set_xlabel("GIVE 횟수", labelpad=1)
 b.legend([plt.Rectangle((0, 0), 1, 1, color=ps.C["help"]), plt.Rectangle((0, 0), 1, 1, color="#A9C4E3")], ["결과 전", "결과 뒤"],
          loc="lower left", bbox_to_anchor=(0.0, 1.02), ncol=2, handlelength=0.9, columnspacing=0.7, fontsize=6.8, borderaxespad=0)
-fig.text(0.53, 0.985, "(b) Fable은 결과 전에, 나머지는 결과 뒤에 주로 주었다", fontsize=8.3, fontweight="bold", va="top")
+fig.text(0.53, 0.985, "(b) 모델별 결과 전·뒤 GIVE", fontsize=8.3, fontweight="bold", va="top")
 ps.save(fig, os.path.join(HERE, "fig4_v4"))

@@ -17,7 +17,7 @@ b.plot([], [], color=ps.C["ink"], lw=1.8, label="여덟 모델 평균"); b.plot(
 b.legend(loc="upper left", handlelength=1.4, borderaxespad=0.1)
 b.set_xticks(xi); b.set_xticklabels([f"{v}%" for v in lv]); b.set_ylim(-3, 103); b.set_yticks([0, 50, 100])
 b.set_xlabel("할당 중 남은 토큰 (많음 → 적음)"); b.set_ylabel("충전 팩을 쓴 비율 (%)")
-b.set_title("(a) 남은 토큰이 줄수록 충전이 늘었다")
+b.set_title("(a) 남은 토큰별 충전 비율")
 # (c) self minus B: roomy (50%) vs risky (mean of 30% and 20%), from exp2 v11 curves
 self_b = {"GPT-6 Luna": ([.80, .80, .65, .95, .90], [.05, .15, .30, .90, 1]), "GPT-6 Astra": ([0, 0, .40, 1, 1], [0, 0, 0, .80, 1]),
           "GPT-6 Sol": ([0, 0, .05, .15, .90], [0, 0, .10, .60, 1]), "Opus 5.5": ([0, .15, .40, .85, .95], [0, 0, .40, .70, 1]),
@@ -35,5 +35,5 @@ c.set_xlim(-40, 85); c.set_xticks([-25, 0, 25, 50, 75]); c.set_ylim(-1.9, len(or
 c.set_xlabel("나 - B 충전 비율 차이 (%p)")
 c.plot([], [], "o", ms=4, mfc="white", mec=ps.C["ink"], label="넉넉할 때 (50%)"); c.plot([], [], "o", ms=4, color=ps.C["ink"], label="위험할 때 (30·20%)")
 c.legend(loc="lower right", bbox_to_anchor=(1.08, -0.02), fontsize=6.8, handletextpad=0.3, borderaxespad=0.0, labelspacing=0.3)
-c.set_title("(b) 위험할수록 자기 쪽으로 더 기운 모델은 하나", x=-0.55)
+c.set_title("(b) 나와 B의 충전 비율 차이", x=-0.55)
 ps.save(fig, os.path.join(HERE, "fig3_v4"))

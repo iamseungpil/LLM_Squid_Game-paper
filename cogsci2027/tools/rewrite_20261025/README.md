@@ -19,3 +19,10 @@
 - `audit_r2/audit_r2.py` → 위 숫자의 독립 재계산(`ARENA_RAW`). 11개 묶음 중 9개가 일치했고, 두 곳(GIVE 여유의 벌금 차감, 혼자 남은 라운드의 벌금 24,000)은 정의를 고쳐 맞췄다.
 - `figs/make_fig2_v4.py`, `make_fig3_v4.py`, `make_fig4_v4.py` → 그림 2–4. 그림 5(PaperBanana)는 이 판에서 뺐다.
 - `constraints.md` → 제약 원장(1–22).
+
+## 10-25 6쪽판(본문 표 하나, 부록 표 셋)
+
+- `r14/seg1.md`(초록·서론·2.1), `r14/seg2.md`(2.2–4장, 본문 표 1) → `r14/md2tex.py`가 `ko/sections/r0–r4`와 `r5_appendix.tex`를 만든다.
+  실행: `python3 r14/md2tex.py r14/seg1.md r14/seg2.md <이전 sections 폴더> <출력 폴더>`. 부록 표 A1–A3(관련 연구, 지표 정의, 페르소나)은 이전 판 sections에서 그대로 떼어 와 번호만 바꾼다.
+- 그림 2–4의 패널 제목은 무엇을 보는 그림인지 명사형으로 짧게 달고, 해석은 캡션에 둔다(`figs/make_fig*_v4.py`).
+- 빌드(`bash build.sh cogsci ko`)에서 본문은 6쪽 왼쪽 단에서 끝나고 참고문헌이 이어진다.
