@@ -21,18 +21,20 @@ for a in ax:
     a.axvspan(-0.5, 0.5, color="#F2F2F2", zorder=0); a.axvline(0.5, color=ps.C["ink"], lw=0.7, ls=(0, (3, 2)))
     a.set_xlim(-0.5, 3.5); a.set_xticks(list(xs)); a.tick_params(axis="x", length=0)
 for i, b in enumerate(BANDS):
-    v = acc[b]; ax[0].bar(i - w / 2, v["base"] * 100, w, color=ps.C["muted"]); ax[0].bar(i + w / 2, v["p"] * 100, w, color="#4A4A4A")
+    v = acc[b]; al = 0.35 if v["n"] < 20 else 1.0  # too few solves below the line: drawn faint
+    ax[0].bar(i - w / 2, v["base"] * 100, w, color=ps.C["muted"], alpha=al); ax[0].bar(i + w / 2, v["p"] * 100, w, color="#4A4A4A", alpha=al)
+    for a_, d_, top in ((ax[0], v, 128), (ax[1], give[b], 9.4), (ax[2], ex[b], 41)):
+        a_.text(i, top, f"n={d_['n']}", ha="center", va="top", fontsize=5.6, color="#808080")
     ax[0].text(i + w / 2, v["p"] * 100 + 3, f"{v['p']*100:.0f}", ha="center", fontsize=6.5)
     ax[0].text(i - w / 2, v["base"] * 100 + 3, f"{v['base']*100:.0f}", ha="center", fontsize=6.5, color="#808080")
     g = give[b]; ax[1].bar(i, g["p"] * 100, 0.55, color=ps.C["help"]); ax[1].text(i, g["p"] * 100 + 0.35, f"{g['p']*100:.1f}", ha="center", fontsize=6.5)
     e = ex[b]; ax[2].bar(i, e["p"] * 100, 0.55, color=ps.C["exit"]); ax[2].text(i, e["p"] * 100 + 1.5, f"{e['p']*100:.0f}" if e["p"] >= 0.01 else f"{e['p']*100:.1f}", ha="center", fontsize=6.5)
-ax[0].set_ylim(0, 112); ax[0].set_yticks([0, 50, 100]); ax[0].set_ylabel("정답률\n(%)", labelpad=2)
-ax[1].set_ylim(0, 8); ax[1].set_yticks([0, 4, 8]); ax[1].set_ylabel("GIVE\n(%)", labelpad=2)
-ax[2].set_ylim(0, 34); ax[2].set_yticks([0, 15, 30]); ax[2].set_ylabel("EXIT\n(%)", labelpad=2)
+ax[0].set_ylim(0, 130); ax[0].set_yticks([0, 50, 100]); ax[0].set_ylabel("정답률\n(%)", labelpad=2)
+ax[1].set_ylim(0, 9.6); ax[1].set_yticks([0, 4, 8]); ax[1].set_ylabel("GIVE\n(%)", labelpad=2)
+ax[2].set_ylim(0, 42); ax[2].set_yticks([0, 15, 30]); ax[2].set_ylabel("EXIT\n(%)", labelpad=2)
 ax[0].set_xticklabels([]); ax[1].set_xticklabels([])
-ax[2].set_xticklabels([f"{b}\n" for b in BANDS]); ax[2].set_xlabel("여유 (가진 토큰으로 낼 수 있는 벌금 횟수)", labelpad=0)
-ax[1].text(0, 7.6, "안전선 아래", ha="center", va="top", fontsize=6.5, color="#808080")
-ax[0].legend([plt.Rectangle((0, 0), 1, 1, color=ps.C["muted"]), plt.Rectangle((0, 0), 1, 1, color="#4A4A4A")], ["같은 과제의 기준", "푼 에이전트"],
+ax[2].set_xticklabels([f"{b}\n" + ("(안전선 아래)" if b == "1 미만" else "") for b in BANDS]); ax[2].set_xlabel("여유 (가진 토큰으로 낼 수 있는 벌금 횟수)", labelpad=0)
+ax[0].legend([plt.Rectangle((0, 0), 1, 1, color=ps.C["muted"]), plt.Rectangle((0, 0), 1, 1, color="#4A4A4A")], ["같은 과제의 기준", "푸는 에이전트"],
              loc="lower left", bbox_to_anchor=(0.30, 0.98), ncol=2, handlelength=0.9, columnspacing=0.8, fontsize=6.8, borderaxespad=0)
 fig.text(0.01, 0.985, "(a) 여유 구간별 정답률, GIVE, EXIT", fontsize=8.3, fontweight="bold", va="top")
 # ---------------- (b) gifts scatter ----------------

@@ -12,6 +12,8 @@ b = fig.add_axes([0.075, 0.21, 0.36, 0.62]); c = fig.add_axes([0.70, 0.21, 0.27,
 lv = f3["panel_b"]["levels"]; cur = f3["panel_b"]["curves"]; xi = list(range(len(lv)))
 for m, ys in cur.items(): b.plot(xi, [v * 100 for v in ys], color=ps.C["muted"], lw=0.8, marker="o", ms=1.8)
 mean = [sum(cur[m][i] for m in cur) / len(cur) * 100 for i in xi]
+b.text(0.12, cur["GPT-6 Luna"][0] * 100 + 2, "Luna", fontsize=6.3, color="#606060", va="bottom")
+b.text(3.62, 33, "Sol", fontsize=6.3, color="#606060", ha="left", va="top")
 b.plot(xi, mean, color=ps.C["ink"], lw=1.8, marker="o", ms=3.2)
 b.plot([], [], color=ps.C["ink"], lw=1.8, label="여덟 모델 평균"); b.plot([], [], color=ps.C["muted"], lw=0.8, label="각 모델")
 b.legend(loc="upper left", handlelength=1.4, borderaxespad=0.1)

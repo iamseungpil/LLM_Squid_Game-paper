@@ -21,10 +21,10 @@
   laser/.style={sgastra,line width=.55pt,dash pattern=on 2pt off 1pt}]
 
 %% == 단계 머리 ==
-\sgstep{(1.6,4.5)}{sgblue}{1}{solver}
-\sgstep{(5.4,4.5)}{sgpurple}{2}{TALK}
-\sgstep{(9.05,4.5)}{sgorange}{3}{SOLVE}
-\sgstep{(12.7,4.5)}{sggreen}{4}{결과 $\cdot$ TALK}
+\sgstep{(1.6,4.5)}{sgblue}{1}{푸는 에이전트}
+\sgstep{(5.4,4.5)}{sgpurple}{2}{풀기 전 대화}
+\sgstep{(9.05,4.5)}{sgorange}{3}{풀기}
+\sgstep{(12.7,4.5)}{sggreen}{4}{결과 뒤 대화}
 \sgstep{(16.35,4.5)}{sgastra}{5}{벌금}
 \draw[black!20,line width=.5pt] (0,4.22)--(17.8,4.22);
 \foreach \x in {3.325,7.475,10.625,14.775}{\sgchev{(\x,2.2)}}
@@ -46,7 +46,7 @@
 \sgbar[1.45]{(2.0,1.3)}{sggreen}{2}{4}
 \sgbar[1.45]{(2.8,1.3)}{sgpurple}{1}{4}
 \foreach \x/\p in {.4/60,1.2/40,2.0/20,2.8/10}
-  \node[lab] at (\x,1.03) {\p\%};
+  \node[lab] at (\x,1.03) {\p k};
 
 %% == 2. TALK: B만 ASK(말풍선), A는 말 없이 GIVE / 각자 밑 EXIT 표지 / D는 문으로 나감 ==
 \sgbubble[inner sep=2.4pt]{(5.45,3.2)}{(5.38,2.75)}{%
@@ -62,7 +62,7 @@
 \sgcoins[.9]{(4.67,1.37)}{2}
 \node[tag,draw=sgblue,fill=sgblue!10,text=sgblue!85!black] at (4.67,1.84) {GIVE};
 \sgexitsign[.92]{(4.0,.86)}
-\sgexitsign[.92]{(5.35,.86)}
+\sgnoexitsign[.92]{(5.35,.86)}
 \draw[black!25,dash pattern=on 2pt off 1.5pt] (6.12,3.75)--(6.12,1.0);
 \sgexitdoor[1.15]{(6.8,1.17)}
 \sgexitsign{(6.8,2.53)}
@@ -90,7 +90,7 @@
     \filldraw[draw=sgorange!80!black,fill=sgorange!60,line width=.35pt] ({\i*.22},0) rectangle ++(.15,\h);
   \draw[black!50,line width=.45pt] (-.05,0)--(.86,0);
 \end{scope}
-\node[tag,draw=sgorange,fill=sgorange!12,text=sgorange!85!black] at (9.48,2.6) {BELIEF};
+\node[tag,draw=sgorange,fill=sgorange!12,text=sgorange!85!black] at (9.48,2.6) {답};
 
 %% == 4. 결과 + TALK: 맞히면 B에게 환급 / 틀리면 진행요원이 -6,000을 알림, A가 C에게 GIVE ==
 \sgcheck[1.1]{(10.98,3.66)}
@@ -132,5 +132,5 @@
   (17.95,2.0)--(17.95,.3)--(-.15,.3)--(-.15,2.0)--(-.01,2.0);
 \node[fill=white,sgfont=7,inner sep=2pt,text=sgblue!80!black] at (8.9,.3) {다음 라운드};
 \node[tag,draw=sggold!80!black,fill=sggold!18,text=black!75,
-  font=\sffamily\fontsize{6.8}{7}\selectfont] at (15.4,.3) {$+20,000,000/N_{\mathrm{end}}$ (끝까지 남으면)};
+  font=\sffamily\fontsize{6.8}{7}\selectfont] at (15.4,.3) {끝까지 남으면 상금 2,000만 $\div$ 남은 수};
 \end{tikzpicture}
