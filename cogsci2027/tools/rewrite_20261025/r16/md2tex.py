@@ -25,7 +25,7 @@ paras = [p.strip() for p in md.split("\n\n") if p.strip()]
 files = {k: [] for k in ("abstract", "intro", "arena", "analysis", "discussion", "app")}
 cur = "abstract"; i = 0; fig1_done = False
 SECS = {"## 1 서론": ("intro", r"\section{서론}\label{chap:intro}"), "## 2 아레나": ("arena", r"\section{아레나}\label{sec:rw-arena}"),
-        "## 3 아레나 분석": ("analysis", r"\section{아레나 분석}\label{sec:analysis}"), "## 4 논의 및 결론": ("discussion", r"\section{논의 및 결론}\label{chap:discussion}"), "## 부록": ("app", "")}
+        "## 3 분석": ("analysis", r"\section{분석}\label{sec:analysis}"), "## 4 논의 및 결론": ("discussion", r"\section{논의 및 결론}\label{chap:discussion}"), "## 부록": ("app", "")}
 LAB = {"2.1": "sec:related", "2.2": "sec:design", "3.1": "sec:relation", "3.2": "sec:validity", "3.3": "sec:behavior"}
 while i < len(paras):
     p = paras[i]
