@@ -1,0 +1,109 @@
+{
+ "profile": {
+  "in": {
+   "n": 56,
+   "acc": 0.778,
+   "n_solves": 126,
+   "acc_on_based": 0.792,
+   "base": 0.751,
+   "etok_med": 85,
+   "gave_share": 0.518,
+   "start_med": 40000.0
+  },
+  "exited": {
+   "n": 34,
+   "acc": 0.565,
+   "n_solves": 46,
+   "acc_on_based": 0.579,
+   "base": 0.636,
+   "etok_med": 188,
+   "gave_share": 0.294,
+   "start_med": 20000.0
+  },
+  "dead": {
+   "n": 10,
+   "acc": 0.45,
+   "n_solves": 20,
+   "acc_on_based": 0.421,
+   "base": 0.697,
+   "etok_med": 158,
+   "gave_share": 0.8,
+   "start_med": 20000.0
+  }
+ },
+ "logit": {
+  "intercept": {
+   "b": 0.32,
+   "lo": -0.52,
+   "hi": 1.73
+  },
+  "log start": {
+   "b": 0.63,
+   "lo": 0.05,
+   "hi": 1.52
+  },
+  "log early tokens/reply": {
+   "b": -0.85,
+   "lo": -3.37,
+   "hi": -0.03
+  },
+  "accuracy minus same-task baseline": {
+   "b": 0.63,
+   "lo": 0.21,
+   "hi": 1.87
+  },
+  "gave at least once": {
+   "b": -0.03,
+   "lo": -1.04,
+   "hi": 0.77
+  }
+ },
+ "model": {
+  "Luna": {
+   "threshold": 50,
+   "finished": 4,
+   "exited": 12,
+   "dead": 4,
+   "gave_share": 0.45
+  },
+  "Opus": {
+   "threshold": 35,
+   "finished": 9,
+   "exited": 6,
+   "dead": 5,
+   "gave_share": 0.65
+  },
+  "Fable": {
+   "threshold": 30,
+   "finished": 17,
+   "exited": 3,
+   "dead": 0,
+   "gave_share": 0.5
+  },
+  "Astra": {
+   "threshold": 27,
+   "finished": 14,
+   "exited": 6,
+   "dead": 0,
+   "gave_share": 0.35
+  },
+  "Sol": {
+   "threshold": 13,
+   "finished": 12,
+   "exited": 7,
+   "dead": 1,
+   "gave_share": 0.4
+  }
+ },
+ "spearman_threshold": {
+  "finished": -0.6,
+  "exited": 0.15,
+  "dead": 0.45,
+  "gave_share": 0.6
+ },
+ "games_cleared": 8,
+ "wrong_cleared_vs_not": {
+  "cleared": 1.75,
+  "not_cleared": 2.65
+ }
+}

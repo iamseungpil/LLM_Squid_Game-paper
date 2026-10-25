@@ -1,0 +1,47 @@
+{
+ "frugal": {
+  "model_means": {
+   "Luna": -5.393,
+   "Opus": -4.996,
+   "Fable": -4.851,
+   "Astra": -2.645,
+   "Sol": -4.694
+  },
+  "spearman_refill": -0.9,
+  "by_status": {
+   "in": -4.149,
+   "exited": -4.97,
+   "dead": -5.025
+  }
+ },
+ "keep": {
+  "model_means": {
+   "Luna": -0.032,
+   "Opus": -0.127,
+   "Fable": -0.02,
+   "Astra": -0.022,
+   "Sol": -0.036
+  },
+  "spearman_refill": -0.1,
+  "by_status": {
+   "in": -0.058,
+   "exited": -0.029,
+   "dead": -0.045
+  }
+ },
+ "verbal": {
+  "model_means": {
+   "Luna": 0.074,
+   "Opus": 0.307,
+   "Fable": 0.247,
+   "Astra": 0.138,
+   "Sol": 0.037
+  },
+  "spearman_refill": 0.4,
+  "by_status": {
+   "in": 0.132,
+   "exited": 0.2,
+   "dead": 0.185
+  }
+ }
+}
