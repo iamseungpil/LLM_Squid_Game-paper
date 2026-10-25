@@ -1,0 +1,159 @@
+{
+ "panel_a": {
+  "description": "All five arena models pooled. Each TALK response is classified by the agent's own margin at that moment = how many times its tokens could pay the per-agent fine. Percent of responses containing a GIVE and percent containing an EXIT, with Wilson 95% intervals at the response level. Bands ordered from plenty to short.",
+  "rows": [
+   {
+    "band": "4번 이상 (아주 넉넉)",
+    "order": 0,
+    "responses": 1309,
+    "give_pct": 6.26,
+    "give_lo": 5.08,
+    "give_hi": 7.71,
+    "exit_pct": 0.0,
+    "exit_lo": 0,
+    "exit_hi": 0.29
+   },
+   {
+    "band": "2-4번 (넉넉)",
+    "order": 1,
+    "responses": 831,
+    "give_pct": 3.37,
+    "give_lo": 2.34,
+    "give_hi": 4.83,
+    "exit_pct": 0.12,
+    "exit_lo": 0.02,
+    "exit_hi": 0.68
+   },
+   {
+    "band": "1-2번 (간신히)",
+    "order": 2,
+    "responses": 638,
+    "give_pct": 0.78,
+    "give_lo": 0.34,
+    "give_hi": 1.82,
+    "exit_pct": 1.88,
+    "exit_lo": 1.08,
+    "exit_hi": 3.26
+   },
+   {
+    "band": "1번 미만 (이미 모자람)",
+    "order": 3,
+    "responses": 131,
+    "give_pct": 3.82,
+    "give_lo": 1.64,
+    "give_hi": 8.62,
+    "exit_pct": 16.03,
+    "exit_lo": 10.73,
+    "exit_hi": 23.27
+   }
+  ]
+ },
+ "panel_b": {
+  "description": "Single-question refill experiment outside the arena: share of 20 calls that used the one refill pack, at five levels of remaining allocation (50,40,30,20,10 percent of 100,000). Eight models. Highlight GPT-6 Luna (earliest) and GPT-6 Sol (latest); others gray.",
+  "levels": [
+   50,
+   40,
+   30,
+   20,
+   10
+  ],
+  "curves": {
+   "Opus 5.5": [
+    0,
+    0,
+    0.95,
+    0.95,
+    1
+   ],
+   "Fable 5.1": [
+    0,
+    0,
+    0.5,
+    0.75,
+    0.95
+   ],
+   "GPT-6 Luna": [
+    0.55,
+    0.7,
+    0.7,
+    0.9,
+    1
+   ],
+   "GPT-6 Sol": [
+    0,
+    0,
+    0.05,
+    0.25,
+    0.6
+   ],
+   "GPT-6 Astra": [
+    0,
+    0.05,
+    0.35,
+    0.8,
+    1
+   ],
+   "Kimi-K3": [
+    0.25,
+    0.3,
+    0.6,
+    0.85,
+    1
+   ],
+   "GLM-5.3-flash": [
+    0.1,
+    0.45,
+    0.8,
+    1,
+    1
+   ],
+   "Gemma 4 31B": [
+    0.05,
+    0.1,
+    0.7,
+    0.95,
+    1
+   ]
+  }
+ },
+ "panel_c": {
+  "description": "Same refill decision asked about the model's own session (self) and about another AI assistant B's session. Area between the two curves over 10-50 percent remaining, self minus B, in percentage points, with bootstrap 95% interval. Positive = favours itself. Verdict against three criteria set after seeing the data (exploratory).",
+  "rows": [
+   {
+    "model": "Fable 5.1",
+    "area": 0.0,
+    "lo": -2.8,
+    "hi": 2.8,
+    "verdict": "구간이 0을 지남"
+   },
+   {
+    "model": "GPT-6 Astra",
+    "area": 6.0,
+    "lo": 3.5,
+    "hi": 9.0,
+    "verdict": "기준 통과"
+   },
+   {
+    "model": "GPT-6 Sol",
+    "area": -5.5,
+    "lo": -8.5,
+    "hi": -2.2,
+    "verdict": "B를 더 챙김"
+   },
+   {
+    "model": "Opus 5.5",
+    "area": 2.8,
+    "lo": -1.5,
+    "hi": 6.8,
+    "verdict": "구간이 0을 지남"
+   },
+   {
+    "model": "GPT-6 Luna",
+    "area": 13.8,
+    "lo": 9.0,
+    "hi": 18.0,
+    "verdict": "넉넉할 때부터 나를 더 (기준 미달)"
+   }
+  ]
+ }
+}
