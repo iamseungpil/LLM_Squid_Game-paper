@@ -7,6 +7,7 @@ FIG = {1: ("fig:arena-round", "figure*", r"\resizebox{\textwidth}{!}{\input{cogs
        2: ("fig:rw-main", "figure*", r"\includegraphics[width=\textwidth]{cogsci2027/ko/figures/rw_fig2_main.pdf}"),
        3: ("fig:rw-validity", "figure*", r"\includegraphics[width=\textwidth]{cogsci2027/ko/figures/rw_fig3_validity.pdf}"),
        4: ("fig:rw-models", "figure*", r"\includegraphics[width=\textwidth]{cogsci2027/ko/figures/rw_fig4_models.pdf}"),
+       5: ("fig:rw-persona", "figure", r"\includegraphics[width=\columnwidth]{cogsci2027/ko/figures/rw_fig5_persona.jpg}"),
        "A1": ("fig:rw-a1", "figure*", r"\includegraphics[width=\textwidth]{cogsci2027/ko/figures/rw_figA1_models.pdf}")}
 TAB = {"1": "tab:rw-models", "A1": "tab:rw-related", "A2": "tab:rw-metrics", "A3": "tab:rw-persona"}
 FIG1_CAP = "한 라운드는 다섯 단계로 지나간다. 같은 모델 넷(A–D) 가운데 푸는 에이전트가 정해지고(①), 풀기 전 대화(②)에서 토큰을 청하거나(ASK) 건네며, 푸는 에이전트가 아닌 에이전트는 떠날 수 있다(EXIT). 푸는 에이전트가 과제를 풀어 답을 내면(③) 결과가 공개되고, 결과 뒤 대화(④)에서는 토큰을 건넬 수 있지만 떠날 수는 없다. 오답이면 벌금 24,000을 라운드를 시작한 인원으로 나눈 몫을 남은 에이전트가 각자 낸다(⑤, 넷이 시작했으므로 D가 떠나도 6,000)."
@@ -46,7 +47,7 @@ while i < len(paras):
     if p.startswith("!["):
         n = fk(re.match(r"!\[그림 (A\d|\d)", p).group(1)); cap = re.sub(r"^그림 A?\d\.\s*", "", paras[i + 1])
         lab, env, body = FIG[n]
-        files[cur].append("\\begin{%s}[%s]\n\\centering\n%s\n\\caption{\\rev{%s}}\n\\label{%s}\n\\end{%s}" % (env, "h" if cur == "app" else "t", body, esc(cap), lab, env)); i += 2; continue
+        files[cur].append("\\begin{%s}[%s]\n\\centering\n%s\n\\caption{\\rev{%s}}\n\\label{%s}\n\\end{%s}" % (env, "h" if cur == "app" else ("!b" if n == 5 else "t"), body, esc(cap), lab, env)); i += 2; continue
     if p.startswith("표 1."):
         cap = re.sub(r"^표 1\.\s*", "", p); rows = [r.strip().strip("|").split("|") for r in paras[i + 1].splitlines() if not r.startswith("|---")]
         rows = [[esc(c.strip()) for c in r] for r in rows]

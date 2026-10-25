@@ -45,3 +45,5 @@
 - `figs/make_fig2_outcome.py` → 그림 2(`rw_fig2_main.pdf`), `figs/make_fig4_behavior.py` → 그림 4(`rw_fig4_models.pdf`), 이전 그림 4(`make_fig4_v4.py`)는 부록 그림 A1(`rw_figA1_models.pdf`).
 - 실행: `python3 r17/md2tex.py r17/seg1.md r17/seg2_tex.md <이전 sections 폴더> <출력 폴더>`. 부록 A–C 표는 `## 부록`의 A., B., C. 소제목 자리에 들어간다.
 - 3.3은 여유에 따른 결정 뒤에 모델마다 닮은 『오징어 게임』 인물(부록 표 A3의 장면 수와 표 1의 지표를 함께 보고 붙임)을 두 단락으로 쓴다. 표 1의 둘째 칸은 가까운 인물이고, 분배 전략은 부록 D에 모델별로 적었다.
+- 3.1에 생존 동기의 역할을 넣었다: `an3/motive_role.py`가 모델마다 충전 임계점과 기준 대비 정답률, 초반 응답당 토큰, 안전선 위·아래 EXIT 비율, 건넨 에이전트 비율, 잔량 대비 GIVE 몫 등을 구하고 순위 상관(모델 5개, 정확 순열 p)을 낸다. 그림 2(c)는 이 네 지표, (d)는 모델별 끝 상태다(판 단위 산점도는 본문 수치로만 남김).
+- 3.3에 페르소나 그림(그림 5, `ko/figures/rw_fig5_persona.jpg`, 단 너비, 6쪽 아래)을 되살렸다.

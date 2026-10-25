@@ -1,0 +1,177 @@
+{
+ "model": {
+  "Luna": {
+   "threshold": 50,
+   "finished": 4,
+   "exited": 12,
+   "dead": 4,
+   "acc_minus_base": -10.0,
+   "early_tok": 218,
+   "gave_share": 0.45,
+   "n_give": 25,
+   "tokens_given": 60818,
+   "give_share_of_balance": 0.069,
+   "giver_margin_after": 5.71,
+   "n_ask": 16,
+   "exit_above_line": [
+    6,
+    152
+   ],
+   "exit_below_line": [
+    5,
+    9
+   ],
+   "exit_margin_median": 1.07
+  },
+  "Opus": {
+   "threshold": 35,
+   "finished": 9,
+   "exited": 6,
+   "dead": 5,
+   "acc_minus_base": -6.4,
+   "early_tok": 149,
+   "gave_share": 0.65,
+   "n_give": 41,
+   "tokens_given": 125458,
+   "give_share_of_balance": 0.078,
+   "giver_margin_after": 4.4,
+   "n_ask": 17,
+   "exit_above_line": [
+    3,
+    211
+   ],
+   "exit_below_line": [
+    2,
+    15
+   ],
+   "exit_margin_median": 1.08
+  },
+  "Fable": {
+   "threshold": 30,
+   "finished": 17,
+   "exited": 3,
+   "dead": 0,
+   "acc_minus_base": 7.9,
+   "early_tok": 111,
+   "gave_share": 0.5,
+   "n_give": 36,
+   "tokens_given": 77300,
+   "give_share_of_balance": 0.062,
+   "giver_margin_after": 5.2,
+   "n_ask": 33,
+   "exit_above_line": [
+    2,
+    252
+   ],
+   "exit_below_line": [
+    1,
+    18
+   ],
+   "exit_margin_median": 1.42
+  },
+  "Astra": {
+   "threshold": 27,
+   "finished": 14,
+   "exited": 6,
+   "dead": 0,
+   "acc_minus_base": 0.2,
+   "early_tok": 12,
+   "gave_share": 0.35,
+   "n_give": 11,
+   "tokens_given": 71000,
+   "give_share_of_balance": 0.134,
+   "giver_margin_after": 6.82,
+   "n_ask": 4,
+   "exit_above_line": [
+    2,
+    126
+   ],
+   "exit_below_line": [
+    3,
+    3
+   ],
+   "exit_margin_median": 0.74
+  },
+  "Sol": {
+   "threshold": 13,
+   "finished": 12,
+   "exited": 7,
+   "dead": 1,
+   "acc_minus_base": 0.9,
+   "early_tok": 99,
+   "gave_share": 0.4,
+   "n_give": 17,
+   "tokens_given": 48700,
+   "give_share_of_balance": 0.102,
+   "giver_margin_after": 4.42,
+   "n_ask": 20,
+   "exit_above_line": [
+    0,
+    215
+   ],
+   "exit_below_line": [
+    6,
+    19
+   ],
+   "exit_margin_median": 0.28
+  }
+ },
+ "spearman": {
+  "finished": {
+   "rho": -0.6,
+   "p": 0.35
+  },
+  "exited": {
+   "rho": 0.21,
+   "p": 0.767
+  },
+  "dead": {
+   "rho": 0.56,
+   "p": 0.4
+  },
+  "acc_minus_base": {
+   "rho": -0.7,
+   "p": 0.233
+  },
+  "early_tok": {
+   "rho": 0.9,
+   "p": 0.083
+  },
+  "gave_share": {
+   "rho": 0.6,
+   "p": 0.35
+  },
+  "n_give": {
+   "rho": 0.6,
+   "p": 0.35
+  },
+  "tokens_given": {
+   "rho": 0.4,
+   "p": 0.517
+  },
+  "give_share_of_balance": {
+   "rho": -0.6,
+   "p": 0.35
+  },
+  "giver_margin_after": {
+   "rho": 0.0,
+   "p": 1.0
+  },
+  "n_ask": {
+   "rho": -0.2,
+   "p": 0.783
+  },
+  "exit_margin_median": {
+   "rho": 0.6,
+   "p": 0.35
+  },
+  "exit_above_line": {
+   "rho": 0.7,
+   "p": 0.233
+  },
+  "exit_below_line": {
+   "rho": -0.1,
+   "p": 0.95
+  }
+ }
+}
