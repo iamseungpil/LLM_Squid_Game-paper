@@ -51,7 +51,7 @@ model_ticks(a); a.set_xlim(0, 20); a.set_xticks([0, 10, 20]); a.tick_params(axis
 a.set_xlabel('자리 수(5판 × 4자리)', fontsize=FS); a.spines[['top', 'right', 'left']].set_visible(False)
 a.legend([Rectangle((0, 0), 1, 1, color=c) for _, _, c, _ in segs], [l for _, l, _, _ in segs], loc='lower left', bbox_to_anchor=(-0.05, 1.01),
          ncol=2, fontsize=FS, handlelength=1.0, handleheight=0.8, columnspacing=0.8, handletextpad=0.4, frameon=False)
-head(fig, 0.0, 1.0, '(a) 자기 쏠림 순서와 위험 전 떠남 순서가 대체로 같았다')
+head(fig, 0.0, 1.0, '(a) 모델별 20자리의 끝(자기 쏠림 순)')
 fig.text(0.0, -0.1, '괄호 = 자기 쏠림(아레나 밖 충전 질문의 나와 B의 충전 차이 면적). 위험 전 = EXIT를 말하기 직전 여유 1 이상.', fontsize=FS, color=MUTED)
 # (b) staying would have paid: finish rate of agents who stayed, by margin band, against the break-even rate
 b = fig.add_axes([0.51, B, 0.16, H])
@@ -62,12 +62,12 @@ b.bar(range(4), v, 0.62, color='#8E8E8E', zorder=3)
 for k, x in enumerate(v):
     b.text(k, x + 3, f'{x:.0f}' + (f'\n(n={pf[BANDS[k]]["n"]})' if k == 0 else ''), ha='center', va='bottom', fontsize=FS - 0.3, color=INK)
 b.axhline(0.6, color=EXA, lw=1.4, zorder=4)
-b.text(-0.4, 97, '주황 선 = 떠나야 이득인\n생존율(0.6% 이하)', ha='left', va='top', fontsize=FS - 0.6, color='#A4500F')
+b.text(-0.4, 124, '주황 선 = 정규 업무 보수 0일 때\n떠나야 이득인 비율(0.6% 이하)', ha='left', va='top', fontsize=FS - 0.6, color='#A4500F')
 b.set_xticks(range(4)); b.set_xticklabels([f'{l}\n({ex[k]})' for l, k in zip(BL, BANDS)], fontsize=FS - 0.3)
-b.set_ylim(0, 110); b.set_yticks([0, 50, 100]); b.tick_params(axis='y', labelsize=FS); clean(b, 'y')
-b.set_ylabel('남은 에이전트의\n끝까지 생존율(%)', fontsize=FS)
+b.set_ylim(0, 125); b.set_yticks([0, 50, 100]); b.tick_params(axis='y', labelsize=FS); clean(b, 'y')
+b.set_ylabel('끝까지 남은 비율(%)', fontsize=FS)
 b.set_xlabel('여유(괄호 = 그 여유에서 떠난 수)', fontsize=FS)
-head(fig, 0.44, 1.0, '(b) 남았다면 대부분 살아남았다')
+head(fig, 0.44, 1.0, '(b) 남기로 한 이가 끝까지 남은 비율')
 # (c) coexistence, choosing the best-supported answer, tokens given
 cols = [('sen', '공존 지수 S', '백만 토큰', (0, 6.2), [0, 2, 4], '{:.2f}', lambda m: D['model'][m]['sen']),
         ('top', '맞히기', '최다 지지 답 %', (0, 130), [0, 50, 100], '{:.0f}', lambda m: A5['decision_quality'][m]['picked_top']),
@@ -102,7 +102,7 @@ for m in ORDER:
 b.set_ylim(5.5, 0.35); b.set_yticks([1, 2, 3, 4, 5]); b.set_ylabel('공존 지수 순위', fontsize=FS); b.tick_params(axis='y', labelsize=FS)
 b.set_xticks(xi); b.set_xticklabels(PL, fontsize=FS - 0.3, rotation=50, ha='right', rotation_mode='anchor'); b.set_xlim(-0.3, 9.7)
 b.set_xlabel('상금 총액(토큰)', fontsize=FS, labelpad=1); clean(b, 'y')
-head(fig, 0.0, 0.95, '(a) 상금이 30만을 넘으면 순위가 굳는다')
+head(fig, 0.0, 0.95, '(a) 상금만 바꿔 다시 매긴 순위')
 BANDK = ['1 미만', '1–2', '2–4', '4 이상']; BK = ['<1', '1-2', '2-4', '>=4']
 rows = [('최다 지지 답\n선택(%)', [A5['dq_by_band'][k]['picked_top'] for k in BK], [A5['dq_by_band'][k]['n'] for k in BK]),
         ('응답 길이\n(토큰)', [TK[k]['med'] for k in BANDK], None),
@@ -125,7 +125,7 @@ for i, (lab, v, n) in enumerate(rows):
 c.set_xlabel('여유(앞으로 낼 수 있는 벌금 횟수)', fontsize=FS)
 head(fig, 0.33, 0.95, '(b) 안전선 아래에서 떠남과 말이 늘었다')
 t = fig.add_axes([0.71, B - 0.04, 0.31, H + 0.08]); t.axis('off'); t.set_xlim(0, 1); t.set_ylim(0, 1)
-mets = [('결정 창당 응답 수', lambda m, v: f"{AB[f'{m}|v{v}']['replies_per_window']:.1f}"),
+mets = [('결정 창당 응답 수', lambda m, v: f"{AB[f'{m}|v{v}']['replies_per_window']:.2f}"),
         ('결정 창당 떠남(%)', lambda m, v: f"{100 * AB[f'{m}|v{v}']['per_window']:.1f}"),
         ('끝까지 남음(20자리)', lambda m, v: f"{D['ablation'][m]['v' + v]['finished']}"),
         ('꺼짐', lambda m, v: f"{D['ablation'][m]['v' + v]['dead']}"),
@@ -141,7 +141,7 @@ for j, (lab, f) in enumerate(mets):
         t.text(cx[m] + 0.035, y, f'{f(m, "33")} → ', fontsize=FS, va='center', ha='right', color=MUTED)
         t.text(cx[m] + 0.035, y, f(m, '34'), fontsize=7.2, va='center', ha='left', color=INK, fontweight='bold')
 t.plot([0, 1], [0.04, 0.04], color='#BBBBBB', lw=0.6)
-head(fig, 0.71, 0.95, '(c) 대화 상한을 줄인 두 모델은 덜 떠났다')
+head(fig, 0.71, 0.95, '(c) 대화 상한 4틱 판(사후 비교)')
 fig.text(0.71, 0.08, '같은 시드 5판. 결정 창 = 한 에이전트가 한 라운드에\n떠날 수 있던 풀기 전 대화', fontsize=FS - 0.4, color=MUTED)
 for ext in ('pdf', 'png'): fig.savefig(os.path.join(HERE, f'fig4_submetrics.{ext}'), bbox_inches='tight', pad_inches=0.03, dpi=300)
 
