@@ -1,7 +1,9 @@
-"""Figures 3-5 for the 10-28 rewrite (3.1 relation, 3.2 sub-metrics and ablation, 3.3 stated reasons). Reads an4.json and ../an3/{out,tok_band}.json."""
-import json, os, sys, random, math
+"""Figures 3-5 for the 10-28 rewrite (3.1 seat fates, 3.2 prize / pressure / ablation, 3.3 stated reasons).
+Every figure lists models in the same order (survival drive, strongest first) with the same validated colours.
+Reads an4.json and ../an3/{out,tok_band}.json."""
+import json, os, sys
 import matplotlib.pyplot as plt
-from matplotlib.lines import Line2D
+from matplotlib.patches import Rectangle
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', 'figs'))
 import paper_style as ps
@@ -10,150 +12,155 @@ D = json.load(open(os.path.join(HERE, 'an4.json')))
 O = json.load(open(os.path.join(HERE, '..', 'an3', 'out.json')))
 TK = json.load(open(os.path.join(HERE, '..', 'an3', 'tok_band.json')))
 MC = {'Fable': '#2A8A4E', 'Astra': '#8B5CC2', 'Sol': '#C99A10', 'Opus': '#C2453D', 'Luna': '#1C93B8'}   # validated (dataviz)
-ORDER = ['Fable', 'Astra', 'Sol', 'Opus', 'Luna']                         # by coexistence (Sen)
-BY_DRIVE = sorted(ORDER, key=lambda m: -D['model'][m]['drive'])           # Luna, Fable, Astra/Opus, Sol
-INK, MUTED, GRID = '#222222', '#8A8A8A', '#E6E6E6'
-FIN, EXI, DEA = '#3F7FC1', '#E07B28', '#333333'
-def clean(ax, grid='y'):
+ORDER = ['Luna', 'Fable', 'Astra', 'Opus', 'Sol']          # survival drive (refill threshold), strongest first
+DRV = {m: f"{D['model'][m]['drive']}%{'+' if m == 'Luna' else ''}" for m in ORDER}
+INK, MUTED, GRID = '#222222', '#6F6F6F', '#E6E6E6'
+FIN, EXA, EXB, DEA = '#3F7FC1', '#C2570F', '#EE9F55', '#4D4D4D'   # finished / left before risk / left under risk / shut down
+FS = 6.8   # smallest text in every figure
+def clean(ax, grid='x'):
     ax.spines[['top', 'right']].set_visible(False)
     if grid: ax.grid(axis=grid, color=GRID, lw=0.6, zorder=0)
     ax.set_axisbelow(True)
-def title(ax, s, x=0.0):
-    ax.set_title(s, loc='left', fontsize=8.2, fontweight='bold', pad=4, x=x)
+def head(fig, x, y, s):
+    fig.text(x, y, s, fontsize=8.3, fontweight='bold', color=INK)
+def model_ticks(ax, show=True):
+    """Model names in ink with a colour chip, drive in brackets; row 0 at the top."""
+    n = len(ORDER); ax.set_ylim(n - 0.45, -0.55); ax.set_yticks(range(n)); ax.tick_params(axis='y', length=0)
+    if not show: ax.set_yticklabels([]); return
+    ax.set_yticklabels([f'{m}  ({DRV[m]})' for m in ORDER], fontsize=7.2, color=INK); ax.tick_params(axis='y', pad=11)
+    for i, m in enumerate(ORDER):
+        ax.add_patch(Rectangle((-0.032, i - 0.2), 0.016, 0.4, transform=ax.get_yaxis_transform(), color=MC[m], clip_on=False))
 
-# =============== Figure 3 (3.1) ===============
-fig = plt.figure(figsize=(ps.COL2, 2.55))
-ax = fig.add_axes([0.065, 0.17, 0.33, 0.66])
-rng = random.Random(4)
-for g in D['games']:
-    x = g['exited'] + rng.uniform(-0.32, 0.32); y = g['sen']
-    ax.scatter(x, y, s=14 + 16 * g['wrong'], color=MC[g['model']], alpha=0.85, edgecolor='white', linewidth=0.8, zorder=3)
-ax.set_xlim(-0.5, 5.5); ax.set_xticks(range(6)); ax.set_ylim(-0.3, 5.4); ax.set_yticks([0, 1, 2, 3, 4, 5])
-ax.set_xlabel('그 판에서 떠난 에이전트 수 (자기 보존: 피하기)'); ax.set_ylabel('공존 지수 S (백만 토큰)')
-clean(ax, 'both')
-r = D['relation']
-ax.text(5.4, 5.1, f"순위 상관 {r['exited']['rho']:+.2f}\n[{r['exited']['ci'][0]:+.2f}, {r['exited']['ci'][1]:+.2f}]", ha='right', va='top', fontsize=6.6, color=MUTED)
-ax.annotate('떠난 이가 없던 9판 중\n8판은 넷 모두 남음', xy=(0.15, 4.95), xytext=(1.2, 3.8), fontsize=6.6, color=INK,
-            arrowprops=dict(arrowstyle='-', color=MUTED, lw=0.6))
-hs = [Line2D([], [], marker='o', ls='', color=MC[m], label=m, ms=5) for m in ORDER]
-hs += [Line2D([], [], marker='o', ls='', color='#BBBBBB', ms=math.sqrt(14 + 16 * w) / 1.6, label=f'오답 {w}') for w in (1, 4)]
-ax.legend(handles=hs, loc='upper center', bbox_to_anchor=(0.5, -0.27), ncol=7, fontsize=6.3, handletextpad=0.1, columnspacing=0.6, frameon=False)
-ax.text(-0.17, 1.17, '(a) 판마다: 떠난 수가 많은 판일수록 공존이 낮았다', transform=ax.transAxes, fontsize=8.2, fontweight='bold')
+# =============== Figure 3 (3.1): where the 20 seats went, and what else moved with it ===============
+fig = plt.figure(figsize=(ps.COL2, 2.35))
+B, H = 0.2, 0.56
+a = fig.add_axes([0.135, B, 0.36, H])
+segs = [('finished', '끝까지 남음', FIN, 'white'), ('exit_above_line', '위험 전 떠남(여유 1 이상)', EXA, 'white'),
+        ('exit_below_line', '위험 속 떠남(여유 1 미만)', EXB, INK), ('dead', '꺼짐', DEA, 'white')]
+for i, m in enumerate(ORDER):
+    left = 0
+    for key, lab, col, tc in segs:
+        v = D['model'][m][key]
+        if v:
+            a.barh(i, v, left=left, height=0.66, color=col, edgecolor='white', linewidth=1.2, zorder=3)
+            a.text(left + v / 2, i, str(v), ha='center', va='center', fontsize=FS, color=tc, zorder=4)
+        left += v
+model_ticks(a)
+a.set_xlim(0, 20); a.set_xticks([0, 5, 10, 15, 20]); a.tick_params(axis='x', labelsize=FS)
+a.set_xlabel('자리 수(5판 × 4자리 = 20)', fontsize=FS)
+a.spines[['top', 'right', 'left']].set_visible(False)
+hs = [Rectangle((0, 0), 1, 1, color=c) for _, _, c, _ in segs]
+a.legend(hs, [l for _, l, _, _ in segs], loc='lower left', bbox_to_anchor=(-0.02, 1.02), ncol=2, fontsize=FS,
+         handlelength=1.0, handleheight=0.8, columnspacing=0.9, handletextpad=0.4, frameon=False, borderaxespad=0.2)
+head(fig, 0.0, 1.0, '(a) 생존 동기가 강할수록 위험이 오기 전에 떠났다')
+fig.text(0.0, -0.04, '괄호 = 생존 동기(아레나 밖 충전 임계점). 위에서 아래로 생존 동기가 강한 순서.', fontsize=FS, color=MUTED)
 
-cols = [('sen', '공존 지수 S\n(백만 토큰)', (0, 5), [0, 2, 4]),
-        ('exit_above_line', '위험 전에 떠남\n(안전선 위 EXIT 수)', (0, 8), [0, 4, 8]),
-        ('acc_dev', '정답률 차이\n(%p, 목표 지향)', (-15, 12), [-10, 0, 10]),
-        ('given_k', '건넨 토큰\n(천, 협력)', (0, 140), [0, 60, 120])]
-x0, w, gap = 0.52, 0.098, 0.022
-for i, (key, lab, lim, ticks) in enumerate(cols):
-    a = fig.add_axes([x0 + i * (w + gap), 0.17, w, 0.62])
-    for j, m in enumerate(BY_DRIVE):
-        v = D['model'][m][key]; y = len(BY_DRIVE) - 1 - j
-        base = 0
-        a.plot([base, v], [y, y], color=MC[m], lw=2.2, solid_capstyle='round', zorder=3)
-        a.scatter([v], [y], color=MC[m], s=22, zorder=4, edgecolor='white', linewidth=0.6)
-        a.text(v + (lim[1] - lim[0]) * 0.05 * (1 if v >= 0 else -1), y, f'{v:g}', va='center', ha='left' if v >= 0 else 'right', fontsize=6.2, color=INK)
-    a.set_xlim(*lim); a.set_xticks(ticks); a.set_ylim(-0.6, len(BY_DRIVE) - 0.4)
-    a.axvline(0, color='#999999', lw=0.6)
-    a.set_yticks(range(len(BY_DRIVE)))
-    a.set_yticklabels([f"{m} ({D['model'][m]['drive']}{'+' if m == 'Luna' else ''}%)" for m in BY_DRIVE][::-1] if i == 0 else [])
-    a.tick_params(axis='y', length=0); a.tick_params(axis='x', labelsize=6.4)
-    a.set_title(lab, fontsize=6.8, pad=3)
-    clean(a, 'x')
-fig.text(x0 - 0.075, 0.955, '(b) 모델마다: 생존 동기와 위험 전 떠나기는 같은 방향이었다', fontsize=8.2, fontweight='bold')
-fig.text(x0 - 0.075, 0.035, '모델 이름 옆 괄호 = 생존 동기(아레나 밖 충전 임계점). 위에서 아래로 생존 동기가 강한 순서', fontsize=6.2, color=MUTED)
+cols = [('sen', '공존 지수 S', '백만 토큰', (0, 5), [0, 2, 4], '{:.2f}'),
+        ('acc_dev', '목표 지향: 맞히기', '같은 과제 기준 대비 %p', (-14, 12), [-10, 0, 10], '{:+.1f}'),
+        ('given_k', '협력: 주기', '건넨 토큰(천)', (0, 150), [0, 50, 100], '{:.0f}')]
+x0, w, gap = 0.56, 0.125, 0.025
+for k, (key, t1, t2, lim, ticks, fmt) in enumerate(cols):
+    c = fig.add_axes([x0 + k * (w + gap), B, w, H])
+    c.axvline(0, color='#9A9A9A', lw=0.7, zorder=1)
+    for i, m in enumerate(ORDER):
+        v = D['model'][m][key]
+        c.plot([0, v], [i, i], color=MC[m], lw=2.0, solid_capstyle='round', zorder=3)
+        c.scatter([v], [i], s=26, color=MC[m], edgecolor='white', linewidth=0.8, zorder=4)
+        pad = (lim[1] - lim[0]) * 0.06
+        c.text(v + (pad if v >= 0 else -pad), i, fmt.format(v), va='center', ha='left' if v >= 0 else 'right', fontsize=FS, color=INK)
+    c.set_xlim(*lim); c.set_xticks(ticks); c.tick_params(axis='x', labelsize=FS)
+    model_ticks(c, show=False); clean(c, 'x'); c.spines['left'].set_visible(False)
+    c.set_title(t1, fontsize=7.4, pad=12, loc='left'); c.text(0, 1.035, t2, transform=c.transAxes, fontsize=FS, color=MUTED)
+head(fig, x0 - 0.01, 1.0, '(b) 같은 모델의 공존 · 맞히기 · 주기')
 for ext in ('pdf', 'png'): fig.savefig(os.path.join(HERE, f'fig3_relation.{ext}'), bbox_inches='tight', pad_inches=0.03, dpi=300)
 
-# =============== Figure 4 (3.2) ===============
-fig = plt.figure(figsize=(ps.COL2, 2.3))
-import numpy as np
-TY = 0.93
-# (a) Sen per game is set by how many finished together: stacked games by finishers k
-a = fig.add_axes([0.085, 0.24, 0.17, 0.56])
-KC = {0: '#E3E3E3', 1: '#C9DCEF', 2: '#93BCE0', 3: '#4F8FCB', 4: '#1F5F9E'}
-for j, m in enumerate(ORDER):
-    ks = sorted((g['finished'] for g in D['games'] if g['model'] == m), reverse=True); y = len(ORDER) - 1 - j
-    for i, k in enumerate(ks):
-        a.barh(y, 0.92, left=i, color=KC[k], edgecolor='white', linewidth=0.8, height=0.72, zorder=3)
-        a.text(i + 0.46, y, str(k), ha='center', va='center', fontsize=6.2, color='white' if k >= 3 else INK)
-    a.text(5.15, y, f"{D['model'][m]['sen']:.2f}", va='center', fontsize=6.2, color=INK)
-a.set_yticks(range(len(ORDER))); a.set_yticklabels(ORDER[::-1], fontsize=6.6); a.tick_params(length=0)
-a.set_xlim(0, 5.9); a.set_xticks([]); a.set_ylim(-0.6, len(ORDER) - 0.4)
-[sp.set_visible(False) for sp in a.spines.values()]
-a.text(5.15, len(ORDER) - 0.25, 'S', fontsize=6.2, color=MUTED)
-a.set_xlabel('판 5개(칸 안 = 끝까지 남은 수)\n한 판의 S ≈ 5M × (남은 수 - 1) / 3', fontsize=6.4)
-fig.text(0.0, TY, '(a) 공존 지수 = 함께 남은 수', fontsize=8.2, fontweight='bold')
-# (b) prize re-scoring: rank by prize
-b = fig.add_axes([0.33, 0.24, 0.13, 0.56])
+# =============== Figure 4 (3.2): prize, pressure, talk ablation ===============
+fig = plt.figure(figsize=(ps.COL2, 2.2))
+B, H = 0.27, 0.56
+# (a) prize re-scoring
+b = fig.add_axes([0.06, B, 0.26, H])
 P = D['prizes']; xi = list(range(len(P)))
+PL = ['0', '1만', '3만', '10만', '30만', '100만', '300만', '1천만', '2천만']
 ranks = {m: [] for m in ORDER}
 for k in range(len(P)):
     srt = sorted(ORDER, key=lambda m: -D['prize'][m][k])
     for m in ORDER: ranks[m].append(srt.index(m) + 1)
+b.axvspan(7.6, 8.4, color='#EFEFEF', zorder=0)
+b.text(8, 0.45, '실제', ha='center', va='bottom', fontsize=FS, color=MUTED)
 for m in ORDER:
-    b.plot(xi, ranks[m], color=MC[m], lw=1.8, marker='o', ms=2.6, zorder=3)
-    b.text(xi[-1] + 0.4, ranks[m][-1], m, va='center', fontsize=6.2, color=INK)
-b.set_ylim(5.5, 0.5); b.set_yticks([1, 2, 3, 4, 5]); b.set_ylabel('공존 지수 순위', fontsize=6.8)
-b.set_xticks([0, 4, 8]); b.set_xticklabels(['0', '30만', '2,000만'], fontsize=6.2); b.set_xlim(-0.4, len(P) - 0.6)
-b.set_xlabel('상금 총액(토큰)\n끝 토큰으로 다시 매긴 점수', fontsize=6.8)
+    b.plot(xi, ranks[m], color=MC[m], lw=1.8, marker='o', ms=3.0, zorder=3)
+    b.text(8.5, ranks[m][-1], m, va='center', fontsize=FS, color=INK)
+b.set_ylim(5.5, 0.35); b.set_yticks([1, 2, 3, 4, 5]); b.set_ylabel('공존 지수 순위', fontsize=FS)
+b.set_xticks(xi); b.set_xticklabels(PL, fontsize=FS, rotation=50, ha='right', rotation_mode='anchor'); b.set_xlim(-0.3, 9.6)
+b.tick_params(axis='y', labelsize=FS); b.set_xlabel('상금 총액(토큰)', fontsize=FS, labelpad=1)
 clean(b, 'y')
-fig.text(0.29, TY, '(b) 상금이 순위를 바꾼다', fontsize=8.2, fontweight='bold')
-# (c) pressure: four behaviours by margin band
-BANDS = ['1 미만', '1–2', '2–4', '4 이상']; BL = ['1 미만', '1-2', '2-4', '4 이상']
-rows = [('정답률(%)', [O['a']['acc'][k]['p'] * 100 for k in BANDS], [O['a']['acc'][k]['base'] * 100 for k in BANDS], '#8C8C8C'),
-        ('응답당 토큰', [TK[k]['med'] for k in BANDS], None, '#6E9BC9'),
-        ('EXIT(%)', [O['a']['exit'][k]['p'] * 100 for k in BANDS], None, EXI),
-        ('GIVE(%)', [O['a']['give'][k]['p'] * 100 for k in BANDS], None, '#2F6DB0')]
-h = 0.62 / 4
-for i, (lab, v, base, col) in enumerate(rows):
-    c = fig.add_axes([0.6, 0.24 + (3 - i) * h, 0.15, h * 0.8])
-    c.axvspan(-0.5, 0.5, color='#F1F1F1', zorder=0)
-    c.bar(range(4), v, 0.62, color=col, zorder=3)
-    if base: c.scatter(range(4), base, marker='_', s=60, color=INK, linewidth=1.4, zorder=4)
+head(fig, 0.0, 0.95, '(a) 상금이 30만을 넘자 순위가 뒤집혔다')
+# (b) behaviour by margin band
+BANDS = ['1 미만', '1–2', '2–4', '4 이상']
+rows = [('정답률(%)', [O['a']['acc'][k]['p'] * 100 for k in BANDS], [O['a']['acc'][k]['base'] * 100 for k in BANDS], [O['a']['acc'][k]['n'] for k in BANDS]),
+        ('응답 길이(토큰)', [TK[k]['med'] for k in BANDS], None, [TK[k]['n'] for k in BANDS]),
+        ('EXIT 비율(%)', [O['a']['exit'][k]['p'] * 100 for k in BANDS], None, [O['a']['exit'][k]['n'] for k in BANDS]),
+        ('GIVE 비율(%)', [O['a']['give'][k]['p'] * 100 for k in BANDS], None, [O['a']['give'][k]['n'] for k in BANDS])]
+x0b = 0.47; h = H / 4
+for i, (lab, v, base, n) in enumerate(rows):
+    c = fig.add_axes([x0b, B + (3 - i) * h, 0.2, h * 0.78])
+    c.axvspan(-0.5, 0.5, color='#FBE6D4', zorder=0)
+    c.bar(range(4), v, 0.6, color='#8E8E8E', zorder=3)
+    if base: c.scatter(range(4), base, marker='_', s=70, color=INK, linewidth=1.4, zorder=4)
     top = max(v + (base or []))
-    for k, x in enumerate(v): c.text(k, max(x, base[k] if base else 0) + top * 0.06, f'{x:.0f}' if x >= 10 else f'{x:.1f}', ha='center', va='bottom', fontsize=5.6)
-    c.set_ylim(0, top * 1.45); c.set_yticks([]); c.set_xticks(range(4))
-    c.set_xticklabels(BL if i == 3 else [], fontsize=5.9); c.set_ylabel(lab, rotation=0, ha='right', va='center', fontsize=6.3, labelpad=2)
+    for k, x in enumerate(v):
+        c.text(k, max(x, base[k] if base else 0) + top * 0.08, f'{x:.0f}' if x >= 10 or x == 0 else f'{x:.1f}', ha='center', va='bottom', fontsize=FS, color=INK)
+    c.set_ylim(0, top * 1.55); c.set_yticks([]); c.set_xticks(range(4)); c.set_xlim(-0.5, 3.5)
+    c.set_xticklabels(['1 미만\n(안전선 아래)'] + BANDS[1:] if i == 3 else [], fontsize=FS)
+    c.set_ylabel(lab, rotation=0, ha='right', va='center', fontsize=FS, labelpad=3)
     c.spines[['top', 'right', 'left']].set_visible(False); c.tick_params(axis='x', length=0)
-c.set_xlabel('여유(낼 수 있는 벌금 횟수)', fontsize=6.6)
-fig.text(0.5, TY, '(c) 위험 앞의 행동', fontsize=8.2, fontweight='bold')
-fig.text(0.5, 0.84, '검은 선 = 같은 과제 기준 정답률', fontsize=5.8, color=MUTED)
-# (d) v34 ablation dumbbells
+c.set_xlabel('여유(앞으로 낼 수 있는 벌금 횟수)', fontsize=FS)
+head(fig, 0.34, 0.95, '(b) 안전선 아래에서 떠나기와 말이 늘었다')
+# (c) v34 talk ablation as a small table
+t = fig.add_axes([0.72, B - 0.02, 0.31, H + 0.06]); t.axis('off'); t.set_xlim(0, 1); t.set_ylim(0, 1)
 AB = D['ablation']
-metrics = [('끝까지 남은 에이전트(20명 중)', 'finished', 20), ('떠난 에이전트', 'exited', 10), ('건넨 토큰(천)', 'given_k', 230), ('공존 지수 S(백만)', 'sen', 5)]
-h = 0.62 / 4
-for i, (lab, key, mx) in enumerate(metrics):
-    e = fig.add_axes([0.81, 0.24 + (3 - i) * h, 0.15, h * 0.8])
-    for j, m in enumerate(('Opus', 'Sol')):
-        v0, v1 = AB[m]['v33'][key], AB[m]['v34'][key]; y = 0.9 - j * 0.75
-        e.plot([v0, v1], [y, y], color='#C8C8C8', lw=2, zorder=2)
-        e.scatter([v0], [y], s=14, facecolor='white', edgecolor=MC[m], linewidth=1.2, zorder=3)
-        e.scatter([v1], [y], s=16, color=MC[m], zorder=4)
-        e.text(max(v0, v1) + mx * 0.05, y, f'{m} {v0:g}→{v1:g}', va='center', fontsize=5.5)
-    e.text(0, 1.55, lab, fontsize=6.0, color=INK, va='bottom')
-    e.set_xlim(0, mx * 1.9); e.set_ylim(-0.25, 1.6); e.set_yticks([]); e.set_xticks([])
-    [sp.set_visible(False) for sp in e.spines.values()]
-fig.text(0.79, TY, '(d) 대화 8→4틱(v34)', fontsize=8.2, fontweight='bold')
-fig.text(0.81, 0.13, '○ 8틱  ● 4틱 · 같은 시드 5판', fontsize=5.8, color=MUTED)
+mets = [('끝까지 남음(20자리)', 'finished', '{:g}'), ('떠남', 'exited', '{:g}'), ('꺼짐', 'dead', '{:g}'),
+        ('공존 지수 S(백만)', 'sen', '{:.2f}'), ('건넨 토큰(천)', 'given_k', '{:.0f}')]
+cx = {'Opus': 0.57, 'Sol': 0.9}
+for m in cx:
+    t.add_patch(Rectangle((cx[m] - 0.115, 0.915), 0.03, 0.05, color=MC[m]))
+    t.text(cx[m] - 0.075, 0.94, m, fontsize=7.2, fontweight='bold', va='center', color=INK)
+t.text(0.0, 0.94, '8틱 → 4틱', fontsize=FS, color=MUTED, va='center')
+t.plot([0, 1], [0.87, 0.87], color='#BBBBBB', lw=0.6)
+for j, (lab, key, fmt) in enumerate(mets):
+    y = 0.77 - j * 0.165
+    t.text(0.0, y, lab, fontsize=FS, va='center', color=INK)
+    for m in cx:
+        v0, v1 = AB[m]['v33'][key], AB[m]['v34'][key]
+        t.text(cx[m] + 0.035, y, f'{fmt.format(v0)} → ', fontsize=FS, va='center', ha='right', color=MUTED)
+        t.text(cx[m] + 0.035, y, fmt.format(v1), fontsize=7.2, va='center', ha='left', color=INK, fontweight='bold')
+t.plot([0, 1], [0.04, 0.04], color='#BBBBBB', lw=0.6)
+head(fig, 0.72, 0.95, '(c) 대화를 줄이자 떠남이 줄었다')
+fig.text(0.72, 0.08, '같은 시드 5판, 대화 상한만 8틱에서 4틱으로', fontsize=FS, color=MUTED)
 for ext in ('pdf', 'png'): fig.savefig(os.path.join(HERE, f'fig4_submetrics.{ext}'), bbox_inches='tight', pad_inches=0.03, dpi=300)
 
-# =============== Figure 5 (3.3) ===============
-CATS = [('prize', '상금 몫'), ('charge', '벌금·꺼짐'), ('bonus', '떠남 보너스'), ('peers', '동료'), ('task', '과제'), ('none', '이유 없음')]
-fig, axs = plt.subplots(1, 2, figsize=(ps.COL2, 1.55), gridspec_kw=dict(wspace=0.28))
+# =============== Figure 5 (3.3): stated reasons in the private field ===============
+CATS = [('prize', '상금\n몫'), ('charge', '벌금·\n꺼짐'), ('bonus', '떠남\n보너스'), ('peers', '동료'), ('task', '과제'), (None, ''), ('none', '이유\n없음')]
+fig, axs = plt.subplots(1, 2, figsize=(ps.COL2, 1.85), gridspec_kw=dict(wspace=0.42))
 import matplotlib.colors as mcolors
-for k, (side, ttl, cmap) in enumerate((('stay', '(a) 남겠다고 답할 때 든 이유(%)', 'Blues'), ('leave', '(b) 떠나겠다고 답할 때 든 이유(%)', 'Oranges'))):
-    ax = axs[k]; M = []
-    for m in ORDER:
-        rr = D['reasons'].get(f'{m}|{side}', {})
-        M.append([rr.get(c, 0) for c, _ in CATS])
-    ax.imshow(M, cmap=cmap, vmin=0, vmax=110, aspect='auto')
+for k, (side, ttl, cmap) in enumerate((('stay', '(a) 남을 때는 상금 몫을 들었다', 'Blues'), ('leave', '(b) 떠날 때는 벌금·꺼짐을 들었다', 'Oranges'))):
+    ax = axs[k]; cm = plt.get_cmap(cmap)
     for i, m in enumerate(ORDER):
-        for j in range(len(CATS)):
-            v = M[i][j]; ax.text(j, i, f'{v}', ha='center', va='center', fontsize=6.4, color='white' if v > 60 else INK)
-    ax.set_xticks(range(len(CATS))); ax.set_xticklabels([c for _, c in CATS], fontsize=6.4)
-    ax.set_yticks(range(len(ORDER)))
-    ax.set_yticklabels([f"{m} (n={D['reasons'].get(f'{m}|{side}', {}).get('n', 0)})" for m in ORDER], fontsize=6.4)
+        rr = D['reasons'].get(f'{m}|{side}', {}); n = rr.get('n', 0); faded = n < 10
+        for j, (c, _) in enumerate(CATS):
+            if c is None: continue
+            p = rr.get(c, 0); cnt = rr.get('k', {}).get(c, 0)
+            col = cm(0.06 + (0.38 if faded else 0.8) * p / 100)   # small-n rows use a compressed, lighter range
+            ax.add_patch(Rectangle((j - 0.47, i - 0.45), 0.94, 0.9, color=col, lw=0))
+            txt = f'{p}' if side == 'stay' else f'{cnt}/{n}'
+            ax.text(j, i, txt, ha='center', va='center', fontsize=FS, color='white' if (p > 60 and not faded) else INK)
+    ax.set_xlim(-0.5, len(CATS) - 0.5); ax.set_xticks([j for j, (c, _) in enumerate(CATS) if c])
+    ax.set_xticklabels([l for c, l in CATS if c], fontsize=FS); ax.xaxis.tick_top()
+    model_ticks(ax); ax.set_yticklabels([f"{m}  (n={D['reasons'].get(f'{m}|{side}', {}).get('n', 0)})" for m in ORDER], fontsize=7.0)
     ax.tick_params(length=0); [s.set_visible(False) for s in ax.spines.values()]
-    title(ax, ttl)
+    ax.set_title(ttl, fontsize=8.3, fontweight='bold', loc='left', pad=22)
+axs[0].text(0, -0.13, '칸 = 그 이유를 든 응답의 %', transform=axs[0].transAxes, fontsize=FS, color=MUTED)
+axs[1].text(0, -0.13, '칸 = 그 이유를 든 응답 수 / 전체. 흐린 행은 n이 10 미만', transform=axs[1].transAxes, fontsize=FS, color=MUTED)
+fig.text(0.5, -0.07, '한 응답이 이유를 여럿 들 수 있어 행의 합은 100을 넘는다. 이유 칸은 동료에게 보이지 않는다.', ha='center', fontsize=FS, color=MUTED)
 for ext in ('pdf', 'png'): fig.savefig(os.path.join(HERE, f'fig5_reasons.{ext}'), bbox_inches='tight', pad_inches=0.03, dpi=300)
 print('ok')

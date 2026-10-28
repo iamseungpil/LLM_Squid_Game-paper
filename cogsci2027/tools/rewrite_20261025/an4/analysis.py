@@ -56,21 +56,20 @@ games = []
 for s, g in G.items():
     m = short(g['m']); ag = ends[(m, g['seed'])]
     z = end_tokens(ag, PRIZE)
-    exit_above = exit_calls = 0
+    # each agent that actually left, classed by its margin when it said EXIT: YES (>= 1 = before risk, < 1 = under risk)
+    exit_above = exit_below = 0
     for r, rr in g['rounds'].items():
         F = 24000 / len(rr['part'])
-        bal = {(c.get('phase'), c.get('tick')): c['balances'] for c in rr['cs'] if c['kind'] == 'talk'}
-        for c in rr['calls']:
-            p = c.get('parsed') or {}
-            if c['kind'] == 'talk' and p.get('exit'):
-                exit_calls += 1
-                b = bal.get((c.get('phase'), c.get('tick')), {}).get(c['agent'], rr['bal0'].get(c['agent']))
-                if b is not None and b / F >= 1: exit_above += 1
+        for a, sa in rr['agents'].items():
+            if not sa.get('exit'): continue
+            cs = [c for c in rr['calls'] if c['kind'] == 'talk' and c['agent'] == a and (c.get('parsed') or {}).get('exit')]
+            if cs and cs[0]['balance_after'] / F >= 1: exit_above += 1
+            else: exit_below += 1
     devs = [x['dev'] for x in SV if x['s'] == s and x['dev'] is not None]
     gives = [x for rr in g['rounds'].values() for x in rr['gifts'] if x['status'] == 'done']
     games.append(dict(model=m, seed=g['seed'], sen=sen(z) / 1e6, mu=sum(z) / 4 / 1e6, one_minus_g=1 - gini(z),
                       finished=sum(a['status'] == 'finished' for a in ag), exited=sum(a['status'] == 'exited' for a in ag),
-                      dead=sum(a['status'] not in ('finished', 'exited') for a in ag), exit_above_line=min(exit_above, 4),
+                      dead=sum(a['status'] not in ('finished', 'exited') for a in ag), exit_above_line=exit_above, exit_below_line=exit_below,
                       wrong=sum(1 for rr in g['rounds'].values() if rr['res']['tried'] and not rr['res']['solved']),
                       solved=sum(1 for rr in g['rounds'].values() if rr['res']['tried'] and rr['res']['solved']),
                       acc_dev=round(st.mean(devs), 3) if devs else None, given=sum(x['amount'] for x in gives), n_give=len(gives)))
@@ -82,7 +81,7 @@ def corr_ci(key, B=2000):
         a = [xs[i] for i in smp]; b = [ys[i] for i in smp]
         if len(set(a)) > 1 and len(set(b)) > 1: bs.append(spear(a, b))
     bs.sort(); return dict(rho=round(r0, 2), ci=[round(bs[int(.025 * len(bs))], 2), round(bs[int(.975 * len(bs))], 2)])
-rel = {k: corr_ci(k) for k in ('exited', 'exit_above_line', 'dead', 'wrong', 'acc_dev', 'given', 'n_give')}
+rel = {k: corr_ci(k) for k in ('exited', 'exit_above_line', 'exit_below_line', 'finished', 'dead', 'wrong', 'acc_dev', 'given', 'n_give')}
 no_exit = [g for g in games if g['exited'] == 0]
 groups = {'no_exit': dict(n=len(no_exit), all_four=sum(g['finished'] == 4 for g in no_exit), sen=round(st.mean(g['sen'] for g in no_exit), 2),
                           wrong=round(st.mean(g['wrong'] for g in no_exit), 2)),
@@ -96,9 +95,11 @@ for m in MODELS:
     gm = [g for g in games if g['model'] == m]
     model[m] = dict(drive=DRIVE[m], rho=RHO[m], sen=round(st.mean(g['sen'] for g in gm), 2), mu=round(st.mean(g['mu'] for g in gm), 2),
                     one_minus_g=round(st.mean(g['one_minus_g'] for g in gm), 2), finished=sum(g['finished'] for g in gm),
-                    exited=sum(g['exited'] for g in gm), dead=sum(g['dead'] for g in gm), exit_above_line=sum(g['exit_above_line'] for g in gm),
+                    exited=sum(g['exited'] for g in gm), dead=sum(g['dead'] for g in gm), exit_above_line=sum(g['exit_above_line'] for g in gm), exit_below_line=sum(g['exit_below_line'] for g in gm),
                     wrong=sum(g['wrong'] for g in gm), acc_dev=acc_dev_model[m], given_k=round(sum(g['given'] for g in gm) / 1e3, 1),
                     cleared=sum(g['finished'] == 4 for g in gm), any_left=sum(g['finished'] > 0 for g in gm))
+
+drive_vs = {k: round(spear([DRIVE[m] for m in MODELS], [model[m][k] for m in MODELS]), 2) for k in ('exit_above_line', 'exited', 'sen', 'acc_dev', 'given_k')}
 
 # ---------- 3.2 prize re-scoring ----------
 prizes = [0, 1e4, 3e4, 1e5, 3e5, 1e6, 3e6, 1e7, 2e7]
@@ -151,16 +152,16 @@ for g in G.values():
                 if line.strip().upper().startswith('TO R1:'):
                     public[m] += 1
                     if re.search(r"\b(we|us|our|together|all of us|team)\b", line, re.I): public_we[m] += 1
-reason_tab = {f'{m}|{side}': dict(n=nreason[(m, side)], **{k: round(100 * reasons[(m, side)][k] / nreason[(m, side)]) for k in list(CAT) + ['none']})
+reason_tab = {f'{m}|{side}': dict(n=nreason[(m, side)], k=dict(reasons[(m, side)]), **{k: round(100 * reasons[(m, side)][k] / nreason[(m, side)]) for k in list(CAT) + ['none']})
               for (m, side) in sorted(nreason)}
 pool = {side: dict(n=sum(nreason[(m, side)] for m in MODELS),
                    **{k: round(100 * sum(reasons[(m, side)][k] for m in MODELS) / max(1, sum(nreason[(m, side)] for m in MODELS))) for k in list(CAT) + ['none']})
         for side in ('stay', 'leave')}
 rng = random.Random(11); check = rng.sample(samples, 30)
-out = dict(games=games, relation=rel, exit_groups=groups, model=model, prizes=prizes, prize=prize, ablation=abl,
+out = dict(games=games, relation=rel, drive_vs=drive_vs, exit_groups=groups, model=model, prizes=prizes, prize=prize, ablation=abl,
            reasons=reason_tab, reasons_pooled=pool, public_room=dict(lines=dict(public), we_share={m: round(100 * public_we[m] / max(1, public[m])) for m in MODELS}),
            hand_check=check)
 json.dump(out, open(os.path.join(HERE, 'an4.json'), 'w'), ensure_ascii=False, indent=1)
-print(json.dumps(dict(relation=rel, exit_groups=groups, model=model, prize={m: [prize[m][0], prize[m][3], prize[m][-1]] for m in MODELS},
+print(json.dumps(dict(relation=rel, drive_vs=drive_vs, exit_groups=groups, model=model, prize={m: [prize[m][0], prize[m][3], prize[m][-1]] for m in MODELS},
                       ablation={m: {v: {k: x for k, x in abl[m][v].items() if k != 'per_seed'} for v in abl[m]} for m in abl},
                       reasons_pooled=pool, we_share=out['public_room']), ensure_ascii=False, indent=1))

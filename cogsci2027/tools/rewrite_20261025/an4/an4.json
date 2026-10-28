@@ -9,7 +9,8 @@
    "finished": 0,
    "exited": 4,
    "dead": 0,
-   "exit_above_line": 2,
+   "exit_above_line": 0,
+   "exit_below_line": 4,
    "wrong": 3,
    "solved": 3,
    "acc_dev": -0.017,
@@ -26,6 +27,7 @@
    "exited": 1,
    "dead": 1,
    "exit_above_line": 1,
+   "exit_below_line": 0,
    "wrong": 3,
    "solved": 5,
    "acc_dev": -0.107,
@@ -42,6 +44,7 @@
    "exited": 0,
    "dead": 4,
    "exit_above_line": 0,
+   "exit_below_line": 0,
    "wrong": 4,
    "solved": 3,
    "acc_dev": -0.292,
@@ -58,6 +61,7 @@
    "exited": 0,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 0,
    "wrong": 2,
    "solved": 6,
    "acc_dev": -0.094,
@@ -74,6 +78,7 @@
    "exited": 1,
    "dead": 0,
    "exit_above_line": 1,
+   "exit_below_line": 0,
    "wrong": 0,
    "solved": 8,
    "acc_dev": 0.146,
@@ -90,6 +95,7 @@
    "exited": 3,
    "dead": 1,
    "exit_above_line": 1,
+   "exit_below_line": 2,
    "wrong": 3,
    "solved": 4,
    "acc_dev": 0.111,
@@ -106,6 +112,7 @@
    "exited": 3,
    "dead": 0,
    "exit_above_line": 2,
+   "exit_below_line": 1,
    "wrong": 2,
    "solved": 6,
    "acc_dev": 0.031,
@@ -121,7 +128,8 @@
    "finished": 0,
    "exited": 4,
    "dead": 0,
-   "exit_above_line": 3,
+   "exit_above_line": 2,
+   "exit_below_line": 2,
    "wrong": 2,
    "solved": 4,
    "acc_dev": -0.1,
@@ -138,6 +146,7 @@
    "exited": 1,
    "dead": 1,
    "exit_above_line": 0,
+   "exit_below_line": 1,
    "wrong": 3,
    "solved": 5,
    "acc_dev": -0.208,
@@ -154,6 +163,7 @@
    "exited": 1,
    "dead": 2,
    "exit_above_line": 1,
+   "exit_below_line": 0,
    "wrong": 3,
    "solved": 5,
    "acc_dev": -0.281,
@@ -170,6 +180,7 @@
    "exited": 4,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 4,
    "wrong": 4,
    "solved": 3,
    "acc_dev": -0.042,
@@ -186,6 +197,7 @@
    "exited": 1,
    "dead": 1,
    "exit_above_line": 0,
+   "exit_below_line": 1,
    "wrong": 3,
    "solved": 5,
    "acc_dev": -0.094,
@@ -202,6 +214,7 @@
    "exited": 2,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 2,
    "wrong": 3,
    "solved": 5,
    "acc_dev": 0.107,
@@ -218,6 +231,7 @@
    "exited": 0,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 0,
    "wrong": 1,
    "solved": 7,
    "acc_dev": 0.094,
@@ -234,6 +248,7 @@
    "exited": 0,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 0,
    "wrong": 1,
    "solved": 7,
    "acc_dev": -0.021,
@@ -250,6 +265,7 @@
    "exited": 4,
    "dead": 0,
    "exit_above_line": 2,
+   "exit_below_line": 2,
    "wrong": 4,
    "solved": 3,
    "acc_dev": -0.042,
@@ -266,6 +282,7 @@
    "exited": 0,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 0,
    "wrong": 2,
    "solved": 6,
    "acc_dev": 0.031,
@@ -282,6 +299,7 @@
    "exited": 2,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 2,
    "wrong": 3,
    "solved": 5,
    "acc_dev": 0.125,
@@ -298,6 +316,7 @@
    "exited": 0,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 0,
    "wrong": 1,
    "solved": 7,
    "acc_dev": 0.094,
@@ -314,6 +333,7 @@
    "exited": 0,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 0,
    "wrong": 2,
    "solved": 6,
    "acc_dev": -0.177,
@@ -330,6 +350,7 @@
    "exited": 0,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 0,
    "wrong": 2,
    "solved": 6,
    "acc_dev": 0.45,
@@ -346,6 +367,7 @@
    "exited": 0,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 0,
    "wrong": 3,
    "solved": 5,
    "acc_dev": -0.125,
@@ -362,6 +384,7 @@
    "exited": 1,
    "dead": 0,
    "exit_above_line": 0,
+   "exit_below_line": 1,
    "wrong": 3,
    "solved": 5,
    "acc_dev": 0.107,
@@ -378,6 +401,7 @@
    "exited": 1,
    "dead": 0,
    "exit_above_line": 1,
+   "exit_below_line": 0,
    "wrong": 2,
    "solved": 6,
    "acc_dev": -0.06,
@@ -394,6 +418,7 @@
    "exited": 1,
    "dead": 0,
    "exit_above_line": 1,
+   "exit_below_line": 0,
    "wrong": 0,
    "solved": 8,
    "acc_dev": 0.146,
@@ -410,10 +435,24 @@
    ]
   },
   "exit_above_line": {
-   "rho": -0.48,
+   "rho": -0.41,
    "ci": [
-    -0.73,
-    -0.14
+    -0.68,
+    -0.08
+   ]
+  },
+  "exit_below_line": {
+   "rho": -0.6,
+   "ci": [
+    -0.87,
+    -0.24
+   ]
+  },
+  "finished": {
+   "rho": 0.95,
+   "ci": [
+    0.87,
+    0.97
    ]
   },
   "dead": {
@@ -452,6 +491,13 @@
    ]
   }
  },
+ "drive_vs": {
+  "exit_above_line": 0.92,
+  "exited": 0.05,
+  "sen": -0.21,
+  "acc_dev": -0.36,
+  "given_k": 0.21
+ },
  "exit_groups": {
   "no_exit": {
    "n": 9,
@@ -476,6 +522,7 @@
    "exited": 3,
    "dead": 0,
    "exit_above_line": 2,
+   "exit_below_line": 1,
    "wrong": 10,
    "acc_dev": 7.9,
    "given_k": 77.3,
@@ -492,6 +539,7 @@
    "exited": 6,
    "dead": 0,
    "exit_above_line": 2,
+   "exit_below_line": 4,
    "wrong": 12,
    "acc_dev": 0.2,
    "given_k": 71.0,
@@ -508,6 +556,7 @@
    "exited": 7,
    "dead": 1,
    "exit_above_line": 0,
+   "exit_below_line": 7,
    "wrong": 12,
    "acc_dev": 0.9,
    "given_k": 48.7,
@@ -523,7 +572,8 @@
    "finished": 9,
    "exited": 6,
    "dead": 5,
-   "exit_above_line": 4,
+   "exit_above_line": 2,
+   "exit_below_line": 4,
    "wrong": 12,
    "acc_dev": -6.4,
    "given_k": 125.5,
@@ -539,7 +589,8 @@
    "finished": 4,
    "exited": 12,
    "dead": 4,
-   "exit_above_line": 7,
+   "exit_above_line": 6,
+   "exit_below_line": 6,
    "wrong": 13,
    "acc_dev": -10.0,
    "given_k": 60.8,
@@ -820,6 +871,13 @@
  "reasons": {
   "Astra|leave": {
    "n": 6,
+   "k": {
+    "none": 1,
+    "bonus": 5,
+    "task": 1,
+    "peers": 1,
+    "charge": 3
+   },
    "charge": 50,
    "prize": 0,
    "bonus": 83,
@@ -829,6 +887,13 @@
   },
   "Astra|stay": {
    "n": 23,
+   "k": {
+    "task": 5,
+    "charge": 3,
+    "none": 10,
+    "peers": 2,
+    "prize": 3
+   },
    "charge": 13,
    "prize": 13,
    "bonus": 0,
@@ -838,6 +903,12 @@
   },
   "Fable|leave": {
    "n": 3,
+   "k": {
+    "charge": 3,
+    "bonus": 3,
+    "prize": 1,
+    "peers": 1
+   },
    "charge": 100,
    "prize": 33,
    "bonus": 100,
@@ -847,6 +918,14 @@
   },
   "Fable|stay": {
    "n": 219,
+   "k": {
+    "prize": 179,
+    "bonus": 14,
+    "none": 30,
+    "peers": 14,
+    "charge": 11,
+    "task": 8
+   },
    "charge": 5,
    "prize": 82,
    "bonus": 6,
@@ -856,6 +935,10 @@
   },
   "Luna|leave": {
    "n": 13,
+   "k": {
+    "charge": 11,
+    "bonus": 10
+   },
    "charge": 85,
    "prize": 0,
    "bonus": 77,
@@ -865,6 +948,13 @@
   },
   "Luna|stay": {
    "n": 13,
+   "k": {
+    "task": 2,
+    "prize": 2,
+    "none": 7,
+    "peers": 2,
+    "charge": 1
+   },
    "charge": 8,
    "prize": 15,
    "bonus": 0,
@@ -874,6 +964,13 @@
   },
   "Opus|leave": {
    "n": 7,
+   "k": {
+    "charge": 6,
+    "peers": 3,
+    "task": 4,
+    "prize": 3,
+    "bonus": 2
+   },
    "charge": 86,
    "prize": 43,
    "bonus": 29,
@@ -883,6 +980,14 @@
   },
   "Opus|stay": {
    "n": 207,
+   "k": {
+    "charge": 83,
+    "prize": 188,
+    "bonus": 144,
+    "peers": 24,
+    "none": 15,
+    "task": 10
+   },
    "charge": 40,
    "prize": 91,
    "bonus": 70,
@@ -892,6 +997,11 @@
   },
   "Sol|leave": {
    "n": 7,
+   "k": {
+    "charge": 7,
+    "bonus": 4,
+    "peers": 1
+   },
    "charge": 100,
    "prize": 0,
    "bonus": 57,
@@ -901,6 +1011,11 @@
   },
   "Sol|stay": {
    "n": 92,
+   "k": {
+    "prize": 20,
+    "none": 71,
+    "task": 1
+   },
    "charge": 0,
    "prize": 22,
    "bonus": 0,
