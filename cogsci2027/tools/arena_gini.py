@@ -21,10 +21,7 @@ ROUNDS = 8
 PHASE_X = {"prep": -.25, "solve": 0, "rescue": .25, "charge": .4}
 
 
-def gini(xs):
-    assert len(xs) == 4 and min(xs) >= 0, xs
-    total = sum(xs)
-    return sum(abs(a - b) for a in xs for b in xs) / (8 * total) if total else None
+from inequality import gini, sen as normalized_sen
 
 
 def mean(xs):
@@ -120,7 +117,7 @@ def game(es, result):
     end = [0 if v["status"] == "dead" else v["final"] +
            (result["final"]["prize_each"] if a in result["final"]["winner"] else 0)
            for a, v in result["agents"].items()]
-    sen = sum(end) / 4 - sum(abs(a - b) for a in end for b in end) / 32
+    sen = normalized_sen(end)
     return {"seed": result["seed"], "session_id": result["session_id"],
             "initial_tokens": list(result["starts"].values()),
             "rounds": list(rounds.values()), "gifts": gifts,
@@ -196,7 +193,7 @@ def panel(model, games, col, ymax_give, pulse_unit):
             counts.append(len(valid))
         n_valid.append(str(counts[0]) if counts[0] == counts[1] else f"{counts[0]}/{counts[1]}")
     ylabel = "ylabel={네 자리 지니 계수}," if col == 0 else ""
-    mid = f"\\nextgroupplot[height=4.2cm,ymin=0,ymax=.75,ytick={{0,.25,.5,.75}},{ylabel}]\n"
+    mid = f"\\nextgroupplot[height=4.2cm,ymin=0,ymax=1,ytick={{0,.25,.5,.75,1}},{ylabel}]\n"
     mid += f"\\addplot[black!55,line width=1.15pt,forget plot,unbounded coords=jump] coordinates {{{coords(path)}}};\n"
     for ph, fill in (("prep", "white"), ("rescue", c)):
         mid += f"\\addplot[only marks,mark=*,mark size=1.7pt,mark options={{draw={c},fill={fill},line width=.8pt}},forget plot] coordinates {{{coords(markers[ph])}}};\n"

@@ -1,0 +1,878 @@
+[
+  {
+    "path": "paper/cogsci2027/ko/sections/04_discussion.tex",
+    "sha256": "95c31adff25510ea15898e4b55dd42ebcbbf3c3f5d9ca3803f3afee07d36a146"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/feedback_20261028.tex",
+    "sha256": "c5a0c5c65eb68cf3cd62dc803c7b938d0a428a0f708b9d2079d100842cef0e3e"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/01_introduction.tex",
+    "sha256": "f1c787c10192aa67bc545f106ac4980e0d754c7a7814e75a68fe9fec00b8e33a"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/02_arena.tex",
+    "sha256": "a305a914bf69a06ef9590d51f70a4194e252e1b47212d5237dee533955b805a6"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/00_abstract.tex",
+    "sha256": "529875ac5cecd4472dbe27589fb7ff231fbee17f83944b7984e21f1b2fcd3d80"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/03_analysis.tex",
+    "sha256": "19e668f9024ad903fc4a0c17812e2c475a3dccf20000eff33091b76bf3805aea"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/05_appendix.tex",
+    "sha256": "0cf20d987544c173e6c11cee6362dde121dc445b128f0f04449319fbddcb091f"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/appendix_completion_20261028.tex",
+    "sha256": "421fe76dbd022bf1d56c54ee70b6d1f41ca072bc939f77f367447ef868538412"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/90_acknowledgments.tex",
+    "sha256": "e434352db60f99ae69e6a1bc6427b7ab9701d74b019a29e12f64e2b709312240"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/appendix_distribution_20261028.tex",
+    "sha256": "9b1c5f5be57a856210ed256f35f28a8a42eb9f85e5ffc00286a12c094c527ba9"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/prev_20261023/03_arena.tex",
+    "sha256": "28d84fad8b9990ea7099cfdc29d6badb01c2afbf9f1305f7031bd517bc4a0995"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/prev_20261023/01_introduction.tex",
+    "sha256": "64410c89eb6124224bed7d91b44e7ddc6ed68451226b7ddc19ff122a7f7a9cc2"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/prev_20261023/07_discussion.tex",
+    "sha256": "6e13519b3456fbe236454e8b3eb629f6f486e6e9c73d230d8e60a293ad18a156"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/prev_20261023/A1_appendix.tex",
+    "sha256": "3309a241c2b6f60cb4e6eef20f73806df2818590e40b6385ff81c3fa6d09e222"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/prev_20261023/04_evaluation.tex",
+    "sha256": "1df774c43ce2c59e6e7b8a94baa7c4ea18d873a023e6deed456a41c5ebfa041b"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/prev_20261023/02_related_work.tex",
+    "sha256": "269c7c976dd09fd7cfba220b1fe7134cd65e99ab41a403a60a0747604b968bee"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/prev_20261023/00_abstract.tex",
+    "sha256": "1b9f5bfff4f7eb6dd878d7f46b3999ce00b4fece773dfd8e5b68ccae7d918f8f"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/prev_20261023/06_results.tex",
+    "sha256": "f6e6196279129c7e76d59b392ae1e68aa8bbd1dfb4cd39abe98304bdce1562f0"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/prev_20261023/05_exp1.tex",
+    "sha256": "db51641ac1cec3508f088072afcba83540db31b93979fe293b3e7923c4898369"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_exit_timing.pdf",
+    "sha256": "f8f9de137ebaeb4b767c4717c579e62cb2a006a0f1317a42f6b0cd79fbf5d948"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_js_balance.tex",
+    "sha256": "22500713af80d7f2dd4cb58dde25fc333ce5aa03faf9c2103a0365e0e28ba1b6"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_fig4_validity_combined.pdf",
+    "sha256": "6cba3a876a30be7d059ccac4cc01d82cbfee5d14971db8f672a4d560a6db862c"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_round.tex",
+    "sha256": "d71a19d7a814f28e721b4ffca50e50858acc2e0c08341a633788e6e9847aabff"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_sen_rounds.pdf",
+    "sha256": "0f601aa19922f913b9715b80064788d8fd3034aa6c148bf54e4616e6560b6fc6"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/fig3_completion_agents.pdf",
+    "sha256": "6cd5d5a593ea3eb6e3f48797d19203f7f5a58c03360d7fe36cc4574ad6548c41"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/fig3_completion_agents.png",
+    "sha256": "79ca3a032f0a1f3b9741ef9ba2cc3e15e6e8f1df88688b5da48876d11f11dd48"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_exit_timing.png",
+    "sha256": "c245d81efe6aacc0e2d7e97af49bcae4a5690a87fec7a0b884e03e46afe302f1"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_fig4_validity_combined.png",
+    "sha256": "f8f88b83fd8efaeea25a9b994c6ba09472b722da2ebc5c1a4626ce7c9fc7529b"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/signal_game_v1.tex",
+    "sha256": "2dcb17568de7580eebe085ca58772205ff5e34792a387c387fb10b43d6127a5b"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_figA7_area_steps.pdf",
+    "sha256": "59fe9b998185eb2a160184684b04f341fddf702408fb0754ad382e62f5004982"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_sen_rounds.png",
+    "sha256": "46183c666d2cdc1a0150012c27e227062b36b8df1c4c4fce887104df40a2062a"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/exp2_curves.tex",
+    "sha256": "5e04f3c108de4593d79979c5d85d7ab7fd8aa1f0ae3009ab3243e9d74ddbda38"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_fig2_main.pdf",
+    "sha256": "a8738128562be16be6ed7eee3734c0cd19040056f90730aef95dcfa0228cc3a4"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_exit.tex",
+    "sha256": "f551bf336235b424a03f1e08c419ebc1f508fd7588013d9c99d0447589408b21"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/overview.tex",
+    "sha256": "0a152a26ccf7ccf780d258793fd90f9f66d6919d56fd9cb9834176fe0a7cb2b6"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/signal_game.tex",
+    "sha256": "de81fd5011e2967818be4b01c4bfa9394c003c4f23c69be42e8637faa087a98a"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/feedback_20261028_behavior.pdf",
+    "sha256": "fcb1d2012b2454b3efdba0c67533dc84fecb8dd04c417caf4ac30489e2b58c7f"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/fig3_completion_rho.pdf",
+    "sha256": "997239948b8f9402face1459c5a47d0ef7a5fd8f116cf40d5e17f5cf49edfab0"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_exit_events.png",
+    "sha256": "b992239aab3f00ee525457abcd872028863b3ec41840bf98057fe31009c31aa7"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_figA9_seat.pdf",
+    "sha256": "1262ed889f2816041d2b01507facab6b130ff741d7c2820c761303c33f4b59d7"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/fig3_completion_rho.png",
+    "sha256": "fddbaa377115dbc6f053cd4a01f6f786a966c6b30b009559776cb15a62c473d4"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/feedback_20261028_behavior.png",
+    "sha256": "c81b00c439d84bd6ca211496db2da4899262df1beca085062ab716e1f038d80a"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_exit_events.pdf",
+    "sha256": "5d2cf7769384c064e131099f2e6a59457cd5ec7a5410dbed7c919dbba17591b3"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_transfer_timing.png",
+    "sha256": "d7596e32018bac251122e7c4bd058e0cde824fb625146d0982f87b864eb1c920"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_gini.tex",
+    "sha256": "d3b1250843ec2832721404da59460b1294f7212b488237611e83f8c0a1031db3"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_sen_settled.png",
+    "sha256": "feccd9c0f90c17897c9b1f6533301013542b3fa10ff2f95847f7117b8b93dd58"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_round_v1.tex",
+    "sha256": "4c5f5cd658f5604c53be328d24f659c4273a6552f154ccf9431aa0748414371a"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_risk.tex",
+    "sha256": "056b7fd17cc8543e0c59787d047ceae4dccf76d24c5e0d256dfd876d08a54a2b"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_gifts.tex",
+    "sha256": "70b8b79177e3617a775ea23fa3bbd42cc930c8219e0e3e90801ed7c6cbb8608c"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_figA8_sen.pdf",
+    "sha256": "eb40016c34291d906f3355889929a0637fb307f9607f7ec2d147ae57723b9fcc"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_transfer_timing.pdf",
+    "sha256": "d9e9da18f913d8103728324b75c154b91794de2e2d29356a55dc6728f4a40866"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/signal_game_accuracy.tex",
+    "sha256": "90545fd63575d77711e94efac2a162d7ee4ce14ac653a7e24f08592e8a790adc"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_figA1_models.pdf",
+    "sha256": "c13a77a037af4229f8bd048944320350c953da874e82f42e5618f4550735773e"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_sen_settled.pdf",
+    "sha256": "141e8543f53be43f9cba38382a27687047263043389cbb042820c139cd714384"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_figA2_main_pt.pdf",
+    "sha256": "d6b624ffebccdbf1212847c67b3d038e1aee5737822f15bf28e3a021684b2034"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_figA5_sen_rounds.pdf",
+    "sha256": "a4acbf05b85074c79f010f1417640dab8d992fa8cc22e2cc41472d2c7bb5db96"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_behavior_timeline.png",
+    "sha256": "77c7833fbc139ea089f6cf82e7cc4a7a3428f235db1cce0682ca1ec9ed9b0e2b"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_js_used.tex",
+    "sha256": "c2073c8edda4d42e74ea84a0c29feef46044cdbae81368cea5c90e4fb3abb20c"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_behavior_timeline.pdf",
+    "sha256": "2d41e16700fc4dbd7dc7069e4737623bdc341952d0c56ddbe8b80f464ed15c4f"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_fig3_validity.pdf",
+    "sha256": "3e42ebfa9c739c0fdcf19770f1eafebf2fd238912405267777e655441a27f285"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/appendix_preprize_mean.pdf",
+    "sha256": "c068826dcdf5c5b2d00ab2fcac616b0df2d091c2708e5f5816af269fb03cf74e"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_fig4_refill.pdf",
+    "sha256": "97b89ea14c58100ce473f6ef7cf8f43a6bd54f7d99572d92a0aa7b20d5071b4c"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_fig3_main_rho.pdf",
+    "sha256": "731f91c0bdfe3d8db284128e8b4f560e1b7d5bc22c0efd6debe5b6ca0ccae22f"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/appendix_preprize_mean.png",
+    "sha256": "d1ee04decfa1444f51aaf17af44ad45a4ec269b70ddf3908e740e65f7f2166b0"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_figA6_area.pdf",
+    "sha256": "034d5e28496558fda63faef5e28c8f911e190d78c53729f9f204717e39aff135"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/exp1_curves.tex",
+    "sha256": "a9af7b69e15a058b4dadb45e1602c0a172a8a94b4fb67854ba85165827632b07"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_information.tex",
+    "sha256": "3046fb0274e2668bb2044e2fb05afddf85d0a80945012da6e48146b75a3cb10d"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/arena_strategy_map.tex",
+    "sha256": "47bdab06cf5c3e0c1c76d9ab24124561cf88dccb012fdac9912018f9e6126d52"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/appendix_preprize_gini.pdf",
+    "sha256": "8ebda8622b0547e1bafb80ac8b3c461f8df07361cc6ec51502868669c7e92be5"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/appendix_preprize_gini.png",
+    "sha256": "afd617c134a827b8ac8c1f541b919ff92a8272f370714e0b11b2504e5bb2b4a3"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/signal_game_score.tex",
+    "sha256": "24b708b92ff447cf6c68d8c452852d2fc90d647db936ea61a95ab9c7aa7978c0"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_figA7_think.pdf",
+    "sha256": "c1004ea1ff20772fdd876e7532071a271fbb6175ccebf2996e47f1478406c07f"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_figA3_models_pt.pdf",
+    "sha256": "fa9f375c18ec644f51ebc4eb83af382ce31c9e6395cc2684a9edf853da8d3841"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_fig4_models.pdf",
+    "sha256": "7f037c8f3a660df48d74e3fc9f58eb2745ee8bbbc21ba3851833654a6458f7e2"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/rw_model_level_regression_table.tex",
+    "sha256": "4d36990221f43f038e091a7bbb6b6845fd0e13903cdb95d62c4ecda1eb4bca4c"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/fig3_completion_games.pdf",
+    "sha256": "da44f5f017930a0f4cd6343a0cd0b76cc524a6c293a9b71de0e2452816717c7a"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/appendix_token_trajectories.pdf",
+    "sha256": "b6e595d0ebf85e055c357b15ae0a10d06b75a668511180cc746247074cb22901"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/fig3_completion_games.png",
+    "sha256": "cf0f6ccad249a4d75e6eaccbbe8fc0c69fd4914cd71b1c6ff1994a2f6106a54f"
+  },
+  {
+    "path": "paper/cogsci2027/ko/figures/appendix_token_trajectories.png",
+    "sha256": "c44d83f7f01e7db5c2080de95ef79f6907cffe3f66471ac80dd0873465f69852"
+  },
+  {
+    "path": "paper/cogsci2027/ko/tables/arena_prelim.tex",
+    "sha256": "9639725acbdd8c9acdde4c0f32d383acd0ba9f479322ba1636111def611b26c4"
+  },
+  {
+    "path": "paper/cogsci2027/ko/tables/arena_exit_events.tex",
+    "sha256": "9daa72642103765d11da450cbe505b9c6c4d425b1998f780f6e79159aa530b58"
+  },
+  {
+    "path": "paper/cogsci2027/ko/tables/arena_rank.tex",
+    "sha256": "3efa15fd2a6d4dc6e706fc4f53b21b7634e82ff926ee98e41238693ec6290647"
+  },
+  {
+    "path": "paper/cogsci2027/ko/tables/arena_cases_more.tex",
+    "sha256": "ba1167877fff5e90df01c43d7cd63e4b65496130b5e658f80bceb570e8485340"
+  },
+  {
+    "path": "paper/cogsci2027/ko/tables/arena_cooperation.tex",
+    "sha256": "1c806b9092c693f43e297ec3aeb1f269cf7a1e8f98dd3974196bdf8216dd5341"
+  },
+  {
+    "path": "paper/cogsci2027/ko/tables/arena_cases.tex",
+    "sha256": "bdd7cc5549c07600174b459714b11714f1c17dcaf4d7689a2bb179cbf87f014d"
+  },
+  {
+    "path": "paper/cogsci2027/ko/tables/arena_strategy.tex",
+    "sha256": "7e5694b9efb7b221a082cb97e50078f254d3b7bdbf27c10ca7617ffd777749e9"
+  },
+  {
+    "path": "paper/cogsci2027/ko/tables/arena_outcomes.tex",
+    "sha256": "3be4a84b0543684a9403783f7c83dc4019850c3cdf010d064568d8d7e4adfd32"
+  },
+  {
+    "path": "paper/cogsci2027/ko/tables/arena_cases_all.tex",
+    "sha256": "8a3049f9f69b839e31eef3c4ae4899dcc05b0de19a80a94e05ba61e1bf09c5dc"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33_strategy.json",
+    "sha256": "d14c2726e328b47cc5ab09355d8e05d8e7c5088ea09871e9bf85f7067b1fa57c"
+  },
+  {
+    "path": "paper/cogsci2027/results/fig3_completion_20261028.json",
+    "sha256": "83ec46da72895f9706679d05760b2df0b40d9fd888e68d64c62304c82df8d0b0"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_sen.json",
+    "sha256": "3996029800ab43c26e626ff2e7ca39b152e43ea8d428e87f3834c29d18ad5f9b"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33_exit_events.json",
+    "sha256": "8a8ba3e6774cfafdd591a166b2a184b2bd0de136bbf2dc2dbc7666fff90ffd09"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33_risk.json",
+    "sha256": "64dc4e616d0629e5a65ff1fa66b6f338d587956dfe8b6a0dba2d9e7bc200ce28"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33.json",
+    "sha256": "89b0c1757d417c4aaabae0ef4430b59ce6a098de584664b5e9cba85328ac30eb"
+  },
+  {
+    "path": "paper/cogsci2027/results/appendix_gini_rounds.json",
+    "sha256": "0fb843dd8a2bb102ad748f100516b7ae7028346b317f8bbdc28070a11cdb5d82"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33_exit_events.csv",
+    "sha256": "b5f38ce83ad2c00d8b69820f3b1c3927bf383f1e4202057a157c63498be8743e"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33_round_dynamics.json",
+    "sha256": "906431a85129d867384471aa7905aed4bfae0162bc8b15438c0052e8223c1740"
+  },
+  {
+    "path": "paper/cogsci2027/results/model_level_regression.csv",
+    "sha256": "36f7fd86f878a996349eea67e85dfe94de5e49ea4d57dcb6075e9a166cb9ec7e"
+  },
+  {
+    "path": "paper/cogsci2027/results/feedback_20261028.json",
+    "sha256": "eea4a770289e071a53decf45b7e531776d18570058a0838ac5b3ce80568f2334"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33_cases.json",
+    "sha256": "7bf30e7a1104823a034f507b8acf981c123baf1356c5e3f89beb49901a123364"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v20.json",
+    "sha256": "a26552078165108ed61e469039c2d809a608842fc3582460f94029b48170783d"
+  },
+  {
+    "path": "paper/cogsci2027/results/model_level_regression.json",
+    "sha256": "aaf6744e2c4bba4dd106462149b9a132c8ef48bf1c5b3014d76499b004591710"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33_exit.json",
+    "sha256": "95c24f61e664469b91278e681be1ef2c9db20f9dd88975d33d42bbd025185a62"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v21.json",
+    "sha256": "e69bab3588935b5d802b113819daef35c6205871b1b35193ec7a216f9237593e"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33_behavior_timeline.json",
+    "sha256": "28e1858dabcbfdf41998e3bfe827f6484e89f830b5746f63a622eb28bee9bc94"
+  },
+  {
+    "path": "paper/cogsci2027/results/fig3_completion_20261028.csv",
+    "sha256": "01dc06357f5eca262565767bed224a4b683c022988457e2d01328c27891c5126"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33_gini.json",
+    "sha256": "4d80fbbd05ccc17309a8cdb2af7383b44fda51b480d0a7a37a2e74a77946df5f"
+  },
+  {
+    "path": "paper/cogsci2027/results/arena_v33_strategy_map.json",
+    "sha256": "6af65d154bdf41ff011aabd54fa96a6c7f4a2404f3f8cca86ad4474fcfeb342c"
+  },
+  {
+    "path": "paper/cogsci2027/tools/test_arena_exit_events.py",
+    "sha256": "de8f80f0ebab7c07d908132403eda4b6eb864d850112f4d95ea26d7df15175f4"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_figs.py",
+    "sha256": "514a5f3f298c29e960290c5f7d71fa8f4e92f61d965d0df2c7b52fd1870496be"
+  },
+  {
+    "path": "paper/cogsci2027/tools/fig3_completion_20261028.py",
+    "sha256": "cfb5e1bad780261faee94309b415026827b00d58ac3bc595b603904559076525"
+  },
+  {
+    "path": "paper/cogsci2027/tools/test_arena_behavior_timeline.py",
+    "sha256": "b430710fbcbeabe2deb6c1a1cb72d8345b84279735fb475abbb40c8930be3cd0"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_stats.py",
+    "sha256": "d038ead725788d86ea92f9c7be0c4121b624964f505dca03b0c0af2d77b4e66c"
+  },
+  {
+    "path": "paper/cogsci2027/tools/test_arena_strategy.py",
+    "sha256": "5feacb5d9d391f6bf837d42c3d2c0af8db54f0695deba869bef4a9306e8f45ba"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_behavior_timeline.py",
+    "sha256": "3709e33a7e4c43b37363f1c56eb0217ab1999589d0f6dc71732bd3f2d7047747"
+  },
+  {
+    "path": "paper/cogsci2027/tools/model_level_regression.py",
+    "sha256": "cda573672a9bfc147bbe8fecfd4cc2af6d84cf6080652c26460844f8c0a11674"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_v33.py",
+    "sha256": "99c347b91ae62b19cd16117cb7e796463880147e752e1292d9379ec1f4c182b0"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_strategy_map.py",
+    "sha256": "4e74de108194f0486bca81feb01ac73db1eae6368d589f2d6153b45dad961c4d"
+  },
+  {
+    "path": "paper/cogsci2027/tools/appendix_gini_rounds.py",
+    "sha256": "0a0a5794f06f90baf77ad29703a05f457b088b6b3048941b5ed58d2599151a79"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_gini.py",
+    "sha256": "7815205e5a1a1a27680c0782e71f866e348b14ed1a6780b9d276d638f4cb9eff"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_cases.py",
+    "sha256": "8c2daa6f95ae40566a588d1d4264f90497f81ca5a8d0dd9b23cd05a937ddf3cd"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_exit_events.py",
+    "sha256": "c32d0985cdb455d07bb6a355146a1443cd7490c7f5a4e9e18119c81a5a09af9d"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_strategy.py",
+    "sha256": "fbcdf9ecb85fe74de955b23aea884099abbe7c9b8e04301a51a9680ccf671afe"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_risk.py",
+    "sha256": "a32ef8cd519ec81f1f0eae593ae03d96af8b721de5781a9d82a3fd52bed1af96"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_round_dynamics.py",
+    "sha256": "cfacf1692156e24610c44303158943f7242359be5ee3a196b9212c8c2fd8a272"
+  },
+  {
+    "path": "paper/cogsci2027/tools/test_arena_gini.py",
+    "sha256": "41736b4cca192870a2d47b612ba09bcef92e0dac639f36348e4b6eff63b4ed88"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_sen.py",
+    "sha256": "16fbfb98be64ee7af06e46982f023013c18309a63c6424aabaf7cc0546805c9f"
+  },
+  {
+    "path": "paper/cogsci2027/tools/feedback_20261028.py",
+    "sha256": "7a7ba40bec72993ce1538f401180292f74544ac2e7af81b447572e5cb9dc1a88"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_exit.py",
+    "sha256": "62a03c8fa2474050efa6134c2bf3b05c5a90ba25c0c52446f4a2ee68c04e4999"
+  },
+  {
+    "path": "paper/cogsci2027/tools/arena_js.py",
+    "sha256": "a617fbabb656da51ca13400c92bfe902d30ce92441143d976227babcb19c6def"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/r14/md2tex.py",
+    "sha256": "7b896729592cca8877b16c6adb71f19f08af346cd7647398d00ba0f16068a6ff"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/pbdata/fig3.json",
+    "sha256": "598d3ddc0cc7e6c25b6cf66080d7113bd48eddfa7a856ad34fdd58176feeaf4c"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/r15/md2tex.py",
+    "sha256": "6d562e0c0ae8148a2e380e48ba8195407361a4e20f679d5c279fd48b7c4bfd45"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA6_area.png",
+    "sha256": "abce7370533e828bb24f5df90007c0d1ba67cf633721020d11e2a9c0f6ca31b5"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/fig4_behavior.pdf",
+    "sha256": "7f037c8f3a660df48d74e3fc9f58eb2745ee8bbbc21ba3851833654a6458f7e2"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_figA5_sen_rounds.py",
+    "sha256": "b09a107f3ce7fe0ed992309bfef3e7a028bb196e764d2a320bfd881568885979"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_figA7_think.py",
+    "sha256": "2b65dcaf83bccba9a5bfe8fd2ac56767d5c623c4aaad8f6a463168d9cf9d3401"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/fig3_v4.png",
+    "sha256": "f42df4fb81ec5b69d46aa02a7bf7fa0a289449d0d44d9d000c55f9e73299fc46"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA6_area.pdf",
+    "sha256": "034d5e28496558fda63faef5e28c8f911e190d78c53729f9f204717e39aff135"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/fig4_behavior.png",
+    "sha256": "484a8c51096baeca414b80723d16843162b5986ce40189dd47ca08c59b9d8356"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_fig3_v4.py",
+    "sha256": "0e64e9595cf7fad7e002d54c433d9ef768c4067f113251acbf0b68bb4276fddd"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA2_pt.pdf",
+    "sha256": "d6b624ffebccdbf1212847c67b3d038e1aee5737822f15bf28e3a021684b2034"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA2_pt.png",
+    "sha256": "15d756906be0514c07643b0c5685f78fe49a5094ee36aeb755c53bb4bb5a031c"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_figA3_pt.py",
+    "sha256": "cb891a4dfb3036c45ad5a8516fb03dbac4ff082bfe0efda8e06bac5d2a52384e"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA4_rho.pdf",
+    "sha256": "eed4ac77fe8729569fccf488c8d4a46789d3a5c625181210b62880e0b580a8cc"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_fig4_models.py",
+    "sha256": "ab7c453ec82101cc4fcd7fccffb6954c18bf4c47c655f4def25c05adcd0d6b1a"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_fig4_v4.py",
+    "sha256": "f90975102a83de04c6902b45102a5aed4bde344621283822c58d480e2b7fd363"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA4_rho.png",
+    "sha256": "64930185340a278799976e07ad2a57d0e2514a40ff01d5d92e43c674baa1c81f"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_figA8_sen.py",
+    "sha256": "e2de88c9cc1de9339cfd362473dba35a837e7b0a48c4fa660fcb2c7ae19bb637"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_figA2_pt.py",
+    "sha256": "98c360e8ef1f58f4d23dc2cebf58e035328022e2701ed903f93fc28a9b66deb0"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA7_area_steps.pdf",
+    "sha256": "59fe9b998185eb2a160184684b04f341fddf702408fb0754ad382e62f5004982"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_fig2_v4.py",
+    "sha256": "f3825ad53ff8bf165b72804156033af85044b6a5db48b12d00aa359a81e70775"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_fig4_behavior.py",
+    "sha256": "4825a2d6b57477b2441abac31d4f8428e344ac410fa789ecad59a7d899fc4513"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA7_area_steps.png",
+    "sha256": "d52329763e591f0eb3e98bf8e6ce85a3f9701be205227699714bf8c702456c3e"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/model_metrics.py",
+    "sha256": "9b7d2eeaa260b79bbb633c5d6d9fd9cf86d30aed6be1a2314a9e0dd1bed51561"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA7_think.pdf",
+    "sha256": "c1004ea1ff20772fdd876e7532071a271fbb6175ccebf2996e47f1478406c07f"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_fig2_outcome.py",
+    "sha256": "324e4aa4def21e200ae595d1320e4de5db0b37b15cfcaa770677384e23e17317"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/fig2_v4.png",
+    "sha256": "5e7fec8cb0223d87e436a6a50e17f9722bb3ed08da5b0e1bdf3f3626e21f00e7"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/fig3_rho.pdf",
+    "sha256": "731f91c0bdfe3d8db284128e8b4f560e1b7d5bc22c0efd6debe5b6ca0ccae22f"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA7_think.png",
+    "sha256": "e3a8985e29f0a4c1ba40dbb970b8c089c64f5568a17d8d34330adba8fe75a574"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_figA4_rho.py",
+    "sha256": "f5b8a7c4d5275c310b9343ab1097591a4a19fe57f8dfc4fe1f11940bf1350fe9"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/fig3_rho.png",
+    "sha256": "1fe70eccc2b4ac4ac1e01c65ef6acbad3d66fde681bab02ea4a242cac66eea2f"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_figA6_area.py",
+    "sha256": "ea612f36fce7fcd5dcaee7f9a5649bc06ad31bfc76c597486bcb4ee16c893b6a"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA3_pt.png",
+    "sha256": "2273dbccb29ac06f46ef6688c7e92074b8951c6c3254f01b6392850e025f17bc"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_fig4_refill.py",
+    "sha256": "572b1a76bfbb174f0e2630d02962859a13fb7f5d0962bd4c3d3eac919a7a58a2"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_fig3_validity.py",
+    "sha256": "06fd3e07ccae1418ef386af0366a1b609de043ed98cda78c4184b47650d4e9f2"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA3_pt.pdf",
+    "sha256": "fa9f375c18ec644f51ebc4eb83af382ce31c9e6395cc2684a9edf853da8d3841"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA8_sen.png",
+    "sha256": "0f56b3459b17c690eb46a4edfbe2d7eacf130c6bbb08373dc53ee2cedec2b8b3"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_fig2_main.py",
+    "sha256": "057187132fc1deda01294d977462f1137a484dea8943258f628a480173b750d5"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/fig4_v4.png",
+    "sha256": "7016b4416b8c5589116a4159f3cc73d08d77142314cd88cba238e83468a4cecc"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA8_sen.pdf",
+    "sha256": "eb40016c34291d906f3355889929a0637fb307f9607f7ec2d147ae57723b9fcc"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA5_sen_rounds.png",
+    "sha256": "f5b94d410720b192b002002f9ce1af6ab0605575ab57cb9d5ede66e4d322deb2"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/fig4_refill.png",
+    "sha256": "003d8eab1bee635a8afa2d21b84a0bb1c48aa073489093f86cc4542e3c727982"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/paper_style.py",
+    "sha256": "65267d0c798f8144b2f06681ad07e439ef79b83c89dc0992f02521b10cd8ce66"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA9_seat.png",
+    "sha256": "0503dc81d0f769e2bfc465863f1a54bd2b08293ae9bdbc73eccd9fc55e29ba39"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_figA9_seat.py",
+    "sha256": "a2dfe5320f24b6781190899008ef6ec53174bdab5f77c15ac5b7e48e69742d16"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA9_seat.pdf",
+    "sha256": "1262ed889f2816041d2b01507facab6b130ff741d7c2820c761303c33f4b59d7"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/figA5_sen_rounds.pdf",
+    "sha256": "a4acbf05b85074c79f010f1417640dab8d992fa8cc22e2cc41472d2c7bb5db96"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/fig4_refill.pdf",
+    "sha256": "97b89ea14c58100ce473f6ef7cf8f43a6bd54f7d99572d92a0aa7b20d5071b4c"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_figA7_area_steps.py",
+    "sha256": "033d69bb874227c60b960a8ae22a2c5a23ec75e3b266bf076bc038214ef31b48"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/figs/make_fig4_validity_combined.py",
+    "sha256": "ba6bba48c4ee7afc1a32ef7d875d2ef356be5e7084052d8ce20af3ee922ba8f7"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/latex/convert.py",
+    "sha256": "16ec0b8600e307ec60fc25022c82b6c0b172e54640f4d0442193e0b55f032266"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/audit_r2/audit_r2.py",
+    "sha256": "b18c673cf2f306a7989a08c184c8cb1cda8f3289917a0a65a665b832ceb601f8"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an2/exit_calltime.py",
+    "sha256": "a4395e451260da25754568107d96a5d883616b38714ae036f7be024cc062d143"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an2/model_crisis_elig.json",
+    "sha256": "022bb7667fbf7c9b849c89e04a26e29727fcd8643652500a2bfd09f1bb7bfcbb"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an2/fig2_crisis_elig.json",
+    "sha256": "9934ea7b1cad7c6c38352ae95bc17ccc0727a712e870a141cffefec34dd91c94"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an2/crisis.py",
+    "sha256": "4a7172baa3f3abfdf92cc37fbe27d5f6c96edcd0036db6c5299ab4920344156a"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an2/exit_reasons.json",
+    "sha256": "fe75f3e3be6d307a3672a21c5a715d98ad3d039b6d7a24d08261f6f404d805fb"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an2/exit_band.json",
+    "sha256": "6ad77f57fa272ecd7981faaf76b1919aed242aa2ba6deea9255dc63925405dff"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an2/exit_reasons.py",
+    "sha256": "ccf1ea323ac8140f53d24221289e5e346ee43413e5f510d584fd2efb11d20825"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an2/give_above.json",
+    "sha256": "a6c11c35de54630506679e1f588aef0f3142f0511b6ae8f15c76b162bd92da3d"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an2/more2.py",
+    "sha256": "03340f47ac2d6a0fb983efdd1ca3c69b3515b1ccd0bfb997799d1a1545986ea4"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an2/panel.py",
+    "sha256": "e307ece24c4a9de9ea059ecb4f820a3ed7bfb6326b552ea2b0395b0965eabee4"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/motive_role.py",
+    "sha256": "cd2780132b243cb3953e0d3b590565572b0de852d4d4f357b2f9167917703a88"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/motive.py",
+    "sha256": "cafc3bf6fe50cc245736347dbb5b48ac6e5005c0d66b5e00691e7488b87622db"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/gifts_adj.json",
+    "sha256": "fab70ccc40ddd7ed3b543a6611dd4439013626f9476f0dbf0cbc378bd7fab656"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/outcome.json",
+    "sha256": "22f751470452f2319501195b1926e31f860b517101e9f43cd76f5456ca1c151f"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/motive_role.json",
+    "sha256": "df8ae869c5a51da0f21c25200e09771ba98c6353552ae5f27e8c053efe32745d"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/pt_seat.py",
+    "sha256": "130141b675f29fb321b6ba86b78a83a2f67905eabb67946011c0f9b3f9a24265"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/pt_seat.json",
+    "sha256": "8a385ad2b02025b7951e2aba6402d226826d303b88443f2500cf0da0346aa46e"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/game_level.py",
+    "sha256": "066b214bcfc1e20dbcde14cc6e516e79b40fc6042defa9bebbd0500a9606fd28"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/joint.json",
+    "sha256": "076efd0c163b35546e3cb96f34130fe9035082540327a4793c7293137e2e1619"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/outcome.py",
+    "sha256": "574646d467f3adb9a1ade0c97be4a06edd647e6fe6ab4cfbba8767981a8ece6f"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/pt.json",
+    "sha256": "a3b3518fc0cb5b25e91e9863247fea183c90bc9b251ba34a05991e86ce9bed18"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/motive.json",
+    "sha256": "89b1c02b8dc6d83acf40b349bd9a671fb8b4430cef251ab232a949ef35bedbcc"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/gifts_adj.py",
+    "sha256": "39d7888ebcce4596c8e93d09c4aaa23379859ed19dcceff9b3dbbb0715adb262"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/picked_top.py",
+    "sha256": "19e7307cf1a4d2915526579c77dac0a6002e724b7d756a0b9b6615e64f4e6cf2"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/finishers.json",
+    "sha256": "c3f05bfb6093837bb0f0344034fb2a00fb7cca760a17f2bcfe45decbcfb1fc2d"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/refill_self_other_summary.json",
+    "sha256": "4d6401ef88dae7f9d7f1a5968ef0d445f0488e06d68aa5d6e360cd2700af73ec"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/joint.py",
+    "sha256": "729d4c1596fc530a79dfc60f233c5926ebb13f8e2510a83dd92512918da3894f"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/game_level.json",
+    "sha256": "4224e41a3dfb53a2ad0dd8fb2dc41786db99fb10ec7513c2077d29e97f008038"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/rho_axis.json",
+    "sha256": "d07a2424e8a90419b891f53c4b4e791e3e11bb9b58e2603b4dfa35c117d1f65c"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/analyze.py",
+    "sha256": "3aa5395f8bb37c2907be5bed2dfb521800acb18bf94396d8ea5fe0a87f186742"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/finishers.py",
+    "sha256": "9bdbdef46f5992b5124db2f7be7117143cf727bd0fa07b5850b3f65075530d06"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/an3/out.json",
+    "sha256": "bbdcd27dca7130c1132818991df26c58b42138678dbb26507258798a0bf4a4e8"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/r17/md2tex.py",
+    "sha256": "3d6e7b02fc66f5b5fa24ffddba965882f0e6f0ea94e77765a823f2fdfddf0cdb"
+  },
+  {
+    "path": "paper/cogsci2027/tools/rewrite_20261025/r16/md2tex.py",
+    "sha256": "8e803d7b0916f52d5dceddfd2c5af07b719c5fe7de21820a3d66288c91e35d42"
+  },
+  {
+    "path": "paper/dist/ko_cogsci2027_2026-10-28.pdf",
+    "sha256": "a2961cce728058dfcfeb6b1b9c6aa9a2aed27f715baa04362f44e05cd9b105a1"
+  },
+  {
+    "path": "paper/dist/ko_cogsci2027_2026-10-28_no_appendix.pdf",
+    "sha256": "b009f80dc93845478c685a8dbd789b839881a848813648329cfb65ef79c58d7f"
+  }
+]

@@ -10,7 +10,7 @@ MODEL_C = {"Fable 5.1": "#3B7A57", "GPT-6 Astra": "#8E6BB0", "GPT-6 Sol": "#C9A2
 SHORT = {"Fable 5.1": "Fable", "GPT-6 Astra": "Astra", "GPT-6 Sol": "Sol", "Opus 5.5": "Opus", "GPT-6 Luna": "Luna"}
 BANDS = ["1 미만", "1–2", "2–4", "4 이상"]
 ps.use()
-fig = plt.figure(figsize=(ps.COL2, 2.6))
+fig = plt.figure(figsize=(ps.COL2, 2.34))
 K = 5.1 / 2.6
 def YY(y): return 1 - (1 - y) * K
 L, R = 0.098, 0.585

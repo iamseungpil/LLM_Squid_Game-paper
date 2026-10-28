@@ -6,10 +6,11 @@ and one meaning per colour across the paper.
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import os
 from matplotlib import font_manager as fm
 
 for f in ("/usr/share/fonts/truetype/nanum/NanumBarunGothic.ttf", "/usr/share/fonts/truetype/nanum/NanumBarunGothicBold.ttf"):
-    fm.fontManager.addfont(f)
+    if os.path.exists(f): fm.fontManager.addfont(f)  # Linux build box; on a Mac the family list below falls back
 
 C = {
     "finish": "#9CC0E0",   # stayed to the end
@@ -25,7 +26,7 @@ COL1, COL2 = 3.35, 7.0   # CogSci single / double column width (in)
 
 def use():
     plt.rcParams.update({
-        "font.family": "NanumBarunGothic", "axes.unicode_minus": False,
+        "font.family": ["NanumBarunGothic", "Apple SD Gothic Neo", "AppleGothic"], "axes.unicode_minus": False,
         "font.size": 8, "axes.labelsize": 8, "xtick.labelsize": 7.5, "ytick.labelsize": 7.5, "legend.fontsize": 7.5,
         "axes.titlesize": 8.5, "axes.titleweight": "bold", "axes.titlelocation": "left", "axes.titlepad": 6,
         "axes.spines.top": False, "axes.spines.right": False, "axes.linewidth": 0.7, "axes.edgecolor": C["ink"],

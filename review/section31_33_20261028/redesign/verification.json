@@ -1,0 +1,70 @@
+{
+  "figure_book": [
+    "fig31_profiles",
+    "fig31_budget",
+    "fig33_effective_giving",
+    "fig33_all_crossings",
+    "appendix_token_trajectories",
+    "appendix_preprize_gini"
+  ],
+  "figure_book_pages": 6,
+  "manuscript_full_pages": 40,
+  "manuscript_no_appendix_pages": 8,
+  "appendix_trajectory_page": 21,
+  "appendix_gini_page": 22,
+  "figure31_primary_tasks_per_model": 30,
+  "all_model_task_input_match": true,
+  "rho_source": "Current live 02_arena.tex eq:rw-rho giver/taker and03_analysis.tex table; manuscript unchanged in this task",
+  "appendix_trajectory_cohort": "20 agents each model =4initial budgets x5seeds; fifth line is focal20mean",
+  "trajectory_checks": {
+    "agents": 100,
+    "rows": 900,
+    "each_group_n": 5,
+    "last_balances_match_all100_raw_final": true,
+    "overall_final_matches_preprize_mu": true
+  },
+  "rescue_checks": {
+    "source_hashes_match": true,
+    "post_crossing_balance_identity_all11": true,
+    "all3_failed_crossings_have_no_later_transfers_and_cost_exceeds_buffer": true
+  },
+  "relation_checks": {
+    "all25_wallet_identities": true,
+    "all36_task_inputs_equal": true
+  },
+  "figure31_primary_panels": [
+    "fixed30solveranswers",
+    "early4personcost/130k",
+    "pergameGIVE+pooledrho",
+    "fixed20outcomes"
+  ],
+  "independent_audit_sha256": "d96584c3f75193cad6744f8fb98e55cb6d13a9d4ab79c63828d24d46c2f6cf67",
+  "final_reviews": {
+    "relations": {
+      "review": "blind_r8",
+      "scores": {
+        "intuitive": 4,
+        "denominators": 5,
+        "alignment": 5,
+        "verdict": "PASS"
+      },
+      "model": [
+        "claude-fable-5-1"
+      ],
+      "image_sha256": "c0d28c10c62125968d1a6483dff67e9e536b621490b6e2ef2969415c00029eab"
+    },
+    "behavior": {
+      "review": "blind_r6",
+      "scores": {
+        "intuitive": 4,
+        "denominators": 4,
+        "alignment": 5,
+        "verdict": "PASS"
+      },
+      "model": [
+        "claude-fable-5-1"
+      ],
+      "image_sha256": "548224a15a6c71e92e782ef4ac2e27c205c6595ec7ebcf78fbc9f9c523d1a55c"
+    }
+  }
+}

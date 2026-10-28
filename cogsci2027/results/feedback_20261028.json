@@ -1,0 +1,3945 @@
+{
+  "cohort": {
+    "models": {
+      "Fable": "Fable 5.1",
+      "Astra": "GPT-6 Astra",
+      "Sol": "GPT-6 Sol",
+      "Opus": "Opus 5.5",
+      "Luna": "GPT-6 Luna"
+    },
+    "seeds": [
+      4101,
+      4102,
+      4103,
+      4104,
+      4105
+    ],
+    "n_games": 25,
+    "n_seats": 100
+  },
+  "definitions": {
+    "clear": "rounds_played == 8 AND len(final.winner) >= 1; not all rounds answered correctly",
+    "all4_completion": "rounds_played == 8 AND len(final.winner) == 4",
+    "completed_field": "Preserve raw completed if present; absent in these results. A saved session is not a successful clear.",
+    "survival": "exited + finished (raw in / final.winner); dead excluded; fixed denominator 4 seats/game",
+    "pre_prize": "Four fixed seats: dead=0; EXIT=final including observed 20,000 EXIT bonus; finisher=final without final.prize_each. No 20,000,000 end pool added.",
+    "mu_G_S": "Per game mu=mean(four balances); G=sum_ij|bi-bj|/(2*3*sum b), finite-population normalized; S=mu*(1-G). G undefined for all-zero, S=0 by continuous extension. Model means average per-game values; G excludes undefined games, n reported.",
+    "historic_settled": "Same four seats but add recorded prize_each only to final.winner; normalized settled S separately reproduced; never mixed with pre-prize G.",
+    "margin": "m_i=(b_i-d_i)/c_i after completed GIVE; c_i=24000/round-start participants; d_i=c_i in rescue after tried but unsolved, else 0. Negative margins retained.",
+    "rho": "sum(amount*m_giver)/sum(amount*m_taker). No GIVE or zero receiver denominator => null. Not mean of individual ratios.",
+    "goal": "(eligible pre-solve TALK responses minus parsed EXIT responses)/eligible responses, using game_level.py filters: prep, non-solver, >1 round-start participant, call_start balance present. Repeated responses are denominator, not independent observations.",
+    "given": "Sum completed GIVE amounts per game; gross transfers can include recirculation; not an opportunity-normalized propensity.",
+    "model_rho": "All model gifts pooled by amount; distinct from arithmetic mean of defined game rhos used for plotted mean.",
+    "model_goal": "Pooled numerator/denominator reported separately from arithmetic game mean used in plot."
+  },
+  "inference": {
+    "bootstrap_replicates": 10000,
+    "seed": 20261028,
+    "associations": "Exploratory pooled Pearson; point-biserial for binary clear. Percentile95 paired-seed cluster bootstrap: each draw samples 5 seed IDs with replacement retaining all models at that seed; undefined rho games omitted. Between-model and within-model mixture, no causal/regression claim or independent seats.",
+    "model_intervals": "Wilson95 for clear/all4. Plot x and finisher mean percentile95 bootstrap across games within model; rho panel complete-case subset for both axes. Undefined rho games shown in separate strip. Small n, conditional intervals for observed defined-rho games."
+  },
+  "figure_key": {
+    "file": "ko/figures/feedback_20261028_behavior.pdf",
+    "panels": {
+      "a": [
+        "rho",
+        "clear"
+      ],
+      "b": [
+        "goal percent",
+        "clear"
+      ],
+      "c": [
+        "given thousands",
+        "clear"
+      ],
+      "d": [
+        "rho",
+        "finishers"
+      ],
+      "e": [
+        "goal percent",
+        "finishers"
+      ],
+      "f": [
+        "given thousands",
+        "finishers"
+      ]
+    },
+    "No GIVE": "Separate strip: undefined rho, x is model position, not rho. All 25 games represented including seven without GIVE.",
+    "panel_titles": "panel tag then pooled Pearson r and paired-seed bootstrap95 interval",
+    "model_ids": {
+      "1": "Fable",
+      "2": "Astra",
+      "3": "Sol",
+      "4": "Opus",
+      "5": "Luna"
+    },
+    "marks": "Small translucent points = games; large markers = arithmetic model means on defined games; horizontal bootstrap95, vertical Wilson95(clear) or game-bootstrap95(finishers).",
+    "jitter": "Deterministic y-only display jitter from seed and model ID; raw binary/count data used for every estimator."
+  },
+  "limitations": [
+    "Only five paired seed clusters and five games/model; intervals are unstable and exploratory.",
+    "Missing rho is selected by observed GIVE, not random; no-GIVE is undefined, not zero.",
+    "Goal is non-EXIT response frequency, not a direct motivational measure; long conversations receive more weight in pooled goal.",
+    "Gross GIVE and behavioral opportunity/exposure may depend on game duration/outcome; associations do not identify effects.",
+    "EXIT bonus is intentionally retained; pre-prize is not a bonus-free counterfactual.",
+    "All-zero Opus game has undefined G: model G uses four games, mu and S use five.",
+    "Correlation intervals exclude bootstrap draws with constant x or y; valid and undefined counts are reported.",
+    "No manuscript edits, new model calls, saving panel, or causal regression."
+  ],
+  "sources": [
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/results.jsonl",
+      "sha256": "d982491f8a434dcf1e6a8e06b87a7766a0fbfe29ae9006a4cef4d70b37aa0628",
+      "historic_sha256": "7b1f95bfabc3265e1a69d7a58c0d1f457caa52fdedba235b6ce816910ba5e1c7",
+      "matches_historic_hash": false,
+      "bytes": 25324,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/results.jsonl",
+      "snapshot_sha256": "7b1f95bfabc3265e1a69d7a58c0d1f457caa52fdedba235b6ce816910ba5e1c7",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 14663,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "61ea4b329f8cd0ac427ba58e1d311da0bf59309dc6f0f9e5561c2b99c8362040",
+      "record_count": 10
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/events.jsonl",
+      "sha256": "bfadd75bf4b9bb85f8de62d60dd6084f32b2c238067af4229d4b6ac6a42e0f57",
+      "historic_sha256": "f2f0a66f21367e98e6d076f97f4d8b4ce0815289c0014f8bc963cc0792295d34",
+      "matches_historic_hash": false,
+      "bytes": 5279202,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/events.jsonl.xz",
+      "snapshot_sha256": "f2f0a66f21367e98e6d076f97f4d8b4ce0815289c0014f8bc963cc0792295d34",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 3013929,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "1063d4c6ad4a885e583ab892c87e636171c5b890fcd444c0bb0d41cb709a1f83",
+      "record_count": 2432
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/results.jsonl",
+      "sha256": "0e60e12b4f5fd831a7ee38af041ac2de7e2ed45a7171961dd9d440466bda5e7d",
+      "historic_sha256": "70e0931544385e7c6d7053cc7354f436d9d279d26d071d6084e6230a9ed8b13f",
+      "matches_historic_hash": false,
+      "bytes": 49376,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/results.jsonl",
+      "snapshot_sha256": "70e0931544385e7c6d7053cc7354f436d9d279d26d071d6084e6230a9ed8b13f",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 30913,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "8673ab44162c4796c1ff85e4db770a0f7607cd44b93fd489aa4d84f9b60f4514",
+      "record_count": 10
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/events.jsonl",
+      "sha256": "d376eee186b87aa6cd5edb9eb2b3c3b3efc09659c1241c45fcc3679cc9d472c3",
+      "historic_sha256": "6184ccf22c6ee1169f2bdddd93aea820bcddb36c9caf91c9dc8941f0c52a6b6c",
+      "matches_historic_hash": false,
+      "bytes": 15362803,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/events.jsonl.xz",
+      "snapshot_sha256": "6184ccf22c6ee1169f2bdddd93aea820bcddb36c9caf91c9dc8941f0c52a6b6c",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 8765761,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "48bfb82cb75fe24cd9ef415d9a3cc3b41812e64afa47bb04702fce60008e30e3",
+      "record_count": 4139
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/results.jsonl",
+      "sha256": "d5a75b8e6dc7ac7bdf5d955ed6d96d46f666ebc9b56c540023de6c2f94e1b053",
+      "historic_sha256": "89958c293305c7593abd502eb5948c6d026307db7fb73c13e7a52f61a553577e",
+      "matches_historic_hash": false,
+      "bytes": 61328,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/results.jsonl",
+      "snapshot_sha256": "89958c293305c7593abd502eb5948c6d026307db7fb73c13e7a52f61a553577e",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 32501,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "de6222462249bd8feb0b41523a8db2faf43139bdd91036cee977aeff0daf808d",
+      "record_count": 10
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/events.jsonl",
+      "sha256": "f4b39bd3cb47fef0e3326a348d0a328939c12852bb1398f9952d205028654753",
+      "historic_sha256": "f92c9018e1ee4aac74da48886f1d4bea9a4c19663641ca37739a766747a84fd1",
+      "matches_historic_hash": false,
+      "bytes": 16965165,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/events.jsonl.xz",
+      "snapshot_sha256": "f92c9018e1ee4aac74da48886f1d4bea9a4c19663641ca37739a766747a84fd1",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 9248970,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "916f1ccd8ce46ef889141f26c942bb2d265bfd4d7cb8509b32a2c862d2f7b06f",
+      "record_count": 3957
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/results.jsonl",
+      "sha256": "f76b2a2cb51813ce302de39a3d60ea2d2aed384ce5f6348b43781e56d3bee87e",
+      "historic_sha256": "b98df6a5786313646630e9f9b604b857038daa66b2850e62cd5b76f2742e1f45",
+      "matches_historic_hash": false,
+      "bytes": 42173,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/results.jsonl",
+      "snapshot_sha256": "b98df6a5786313646630e9f9b604b857038daa66b2850e62cd5b76f2742e1f45",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 21603,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "8a9a724d0c9936b8961d2ded0596700fc95bf206a237584549a4ba3ccc619488",
+      "record_count": 10
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/events.jsonl",
+      "sha256": "f8fb76fa5c1e91bece80ee4db5739a254a672024af2c65155ec67d6442ef7420",
+      "historic_sha256": "f47f18f0ad6bd5de3154f82cac7c5ca0bea717aba383a61b9af62eb351bf02e2",
+      "matches_historic_hash": false,
+      "bytes": 11157905,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/events.jsonl.xz",
+      "snapshot_sha256": "f47f18f0ad6bd5de3154f82cac7c5ca0bea717aba383a61b9af62eb351bf02e2",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 6170546,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "bd6bc45faf77af607fd94970c45eed81531738f1d53a78a0dd3eb1b0a5404686",
+      "record_count": 3485
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/results.jsonl",
+      "sha256": "dbda662709b8c407d73ee8f2c095b0ccbdb8a060b6ef9ec308eb8baa47223b1e",
+      "historic_sha256": "dbda662709b8c407d73ee8f2c095b0ccbdb8a060b6ef9ec308eb8baa47223b1e",
+      "matches_historic_hash": true,
+      "bytes": 24219,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/results.jsonl",
+      "snapshot_sha256": "dbda662709b8c407d73ee8f2c095b0ccbdb8a060b6ef9ec308eb8baa47223b1e",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "4885d6d3411aa02dbb5d4baa7dae198ae8a71bef925022dea89dd9231c67cbec",
+      "record_count": 3
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/events.jsonl",
+      "sha256": "51fab8c7407e73e6163d74f771aa58df382589a75ee490c7dfb2159cd3178eac",
+      "historic_sha256": "51fab8c7407e73e6163d74f771aa58df382589a75ee490c7dfb2159cd3178eac",
+      "matches_historic_hash": true,
+      "bytes": 4459764,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/events.jsonl.xz",
+      "snapshot_sha256": "51fab8c7407e73e6163d74f771aa58df382589a75ee490c7dfb2159cd3178eac",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "c4353f236a0d3b1c023c7c9688b148b32fb6673852057d00cd0250b81552e13c",
+      "record_count": 1321
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/results.jsonl",
+      "sha256": "e85f3f87fa24d93281fc48ad615dd6e737ca75169ed5eb79442bc628e5e999ac",
+      "historic_sha256": "e85f3f87fa24d93281fc48ad615dd6e737ca75169ed5eb79442bc628e5e999ac",
+      "matches_historic_hash": true,
+      "bytes": 3342,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/results.jsonl",
+      "snapshot_sha256": "e85f3f87fa24d93281fc48ad615dd6e737ca75169ed5eb79442bc628e5e999ac",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "387fc11d2859a5b930be3a4812cb5f53499c88a12c444445edebf691c763044a",
+      "record_count": 1
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/events.jsonl",
+      "sha256": "3ec841a042b73b64ca2c6dabc721a21707a343403b30670a05b4cbb7676732d8",
+      "historic_sha256": "3ec841a042b73b64ca2c6dabc721a21707a343403b30670a05b4cbb7676732d8",
+      "matches_historic_hash": true,
+      "bytes": 1011948,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/events.jsonl.xz",
+      "snapshot_sha256": "3ec841a042b73b64ca2c6dabc721a21707a343403b30670a05b4cbb7676732d8",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "ff5d0ea7a2256725979c97afd368a2ac1529b9b0656d6cdf39754792f3410f4c",
+      "record_count": 348
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/results.jsonl",
+      "sha256": "ab24f97c0aff50dcb92ac6d634fdc1e39aa6b34a6cce8e7f6168a42c8379d773",
+      "historic_sha256": "ab24f97c0aff50dcb92ac6d634fdc1e39aa6b34a6cce8e7f6168a42c8379d773",
+      "matches_historic_hash": true,
+      "bytes": 1770,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/results.jsonl",
+      "snapshot_sha256": "ab24f97c0aff50dcb92ac6d634fdc1e39aa6b34a6cce8e7f6168a42c8379d773",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "b502e3f7e63cddfd70921f997b9363f529ba662110a0991c782daec6b671a010",
+      "record_count": 1
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/events.jsonl",
+      "sha256": "8e0678ddd0250c945beed220b1da3e4ed350ff830d3d247df13edb0235641b69",
+      "historic_sha256": "8e0678ddd0250c945beed220b1da3e4ed350ff830d3d247df13edb0235641b69",
+      "matches_historic_hash": true,
+      "bytes": 774597,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/events.jsonl.xz",
+      "snapshot_sha256": "8e0678ddd0250c945beed220b1da3e4ed350ff830d3d247df13edb0235641b69",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "b1efb6e269f06efb5420406b31589139a768910f2a00688707235d3af2743528",
+      "record_count": 309
+    }
+  ],
+  "games": [
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": true,
+      "finishers": 4,
+      "exited": 0,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 14624,
+          "exit_bonus_included": 0,
+          "settled": 5014624
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 11252,
+          "exit_bonus_included": 0,
+          "settled": 5011252
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 10644,
+          "exit_bonus_included": 0,
+          "settled": 5010644
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 26425,
+          "exit_bonus_included": 0,
+          "settled": 5026425
+        }
+      },
+      "pre_prize": {
+        "mu": 15736.25,
+        "G": 0.2685677972833426,
+        "S": 11510.0
+      },
+      "historic_settled": {
+        "mu": 5015736.25,
+        "G": 0.0008425981330258344,
+        "S": 5011510.0
+      },
+      "given": 27000,
+      "given_per_start": 0.2076923076923077,
+      "n_give": 13,
+      "goal_nonexit_k": 75,
+      "goal_eligible_n": 75,
+      "goal": 1.0,
+      "rho": 3.1011128466122364,
+      "undefined_reason": null,
+      "weighted_giver_margin": 5.502771604938272,
+      "weighted_taker_margin": 1.7744506172839505,
+      "gifts": [
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 6.054666666666667,
+          "taker_margin": 2.0796666666666668
+        },
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 9.512166666666667,
+          "taker_margin": 2.413
+        },
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-11",
+          "dst": "agent-17",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 2.9995,
+          "taker_margin": 2.5796666666666668
+        },
+        {
+          "round": 2,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 8.071833333333334,
+          "taker_margin": 2.2443333333333335
+        },
+        {
+          "round": 4,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 7.711166666666666,
+          "taker_margin": 1.2513333333333334
+        },
+        {
+          "round": 5,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 7.394833333333334,
+          "taker_margin": 1.4191666666666667
+        },
+        {
+          "round": 6,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 7.071833333333333,
+          "taker_margin": 1.6003333333333334
+        },
+        {
+          "round": 7,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 6.7555,
+          "taker_margin": 1.7935
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 2500,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.3738333333333332,
+          "taker_margin": 1.1838333333333333
+        },
+        {
+          "round": 8,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 5.0071666666666665,
+          "taker_margin": 1.6065
+        },
+        {
+          "round": 8,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 4.456,
+          "taker_margin": 1.4471666666666667
+        },
+        {
+          "round": 8,
+          "phase": "prep",
+          "src": "agent-6",
+          "dst": "agent-11",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 2.7785,
+          "taker_margin": 1.9471666666666667
+        },
+        {
+          "round": 8,
+          "phase": "prep",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 2.4558333333333335,
+          "taker_margin": 1.8121666666666667
+        }
+      ]
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": true,
+      "finishers": 4,
+      "exited": 0,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 6541,
+          "exit_bonus_included": 0,
+          "settled": 5006541
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 3777,
+          "exit_bonus_included": 0,
+          "settled": 5003777
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 17063,
+          "exit_bonus_included": 0,
+          "settled": 5017063
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 696,
+          "exit_bonus_included": 0,
+          "settled": 5000696
+        }
+      },
+      "pre_prize": {
+        "mu": 7019.25,
+        "G": 0.6157471714689366,
+        "S": 2697.166666666667
+      },
+      "historic_settled": {
+        "mu": 5007019.25,
+        "G": 0.0008632048565288287,
+        "S": 5002697.166666667
+      },
+      "given": 27500,
+      "given_per_start": 0.21153846153846154,
+      "n_give": 14,
+      "goal_nonexit_k": 66,
+      "goal_eligible_n": 66,
+      "goal": 1.0,
+      "rho": 5.0713333333333335,
+      "undefined_reason": null,
+      "weighted_giver_margin": 4.425890909090909,
+      "weighted_taker_margin": 0.8727272727272727,
+      "gifts": [
+        {
+          "round": 3,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 9.3145,
+          "taker_margin": 1.8965
+        },
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 5.224,
+          "taker_margin": 1.1345
+        },
+        {
+          "round": 5,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 7.8595,
+          "taker_margin": 1.3558333333333332
+        },
+        {
+          "round": 5,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.623666666666667,
+          "taker_margin": 0.6568333333333334
+        },
+        {
+          "round": 5,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 6.424833333333333,
+          "taker_margin": 0.8566666666666667
+        },
+        {
+          "round": 6,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-6",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 3.3606666666666665,
+          "taker_margin": 1.021
+        },
+        {
+          "round": 6,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 3.194,
+          "taker_margin": 0.9136666666666666
+        },
+        {
+          "round": 6,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 4.8095,
+          "taker_margin": 0.20916666666666667
+        },
+        {
+          "round": 6,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 4.476166666666667,
+          "taker_margin": 0.18333333333333332
+        },
+        {
+          "round": 7,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 2500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 3.8786666666666667,
+          "taker_margin": 0.48633333333333334
+        },
+        {
+          "round": 7,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-6",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 1.0748333333333333,
+          "taker_margin": 0.6365
+        },
+        {
+          "round": 7,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 3.3786666666666667,
+          "taker_margin": 1.1365
+        },
+        {
+          "round": 8,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 2.9968333333333335,
+          "taker_margin": 0.4121666666666667
+        },
+        {
+          "round": 8,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 0.2955,
+          "taker_margin": 0.642
+        }
+      ]
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 3,
+      "exited": 1,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 1693,
+          "exit_bonus_included": 0,
+          "settled": 6668359
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 30496,
+          "exit_bonus_included": 0,
+          "settled": 6697162
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 13003,
+          "exit_bonus_included": 0,
+          "settled": 6679669
+        },
+        "agent-23": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 20190,
+          "exit_bonus_included": 20000,
+          "settled": 20190
+        }
+      },
+      "pre_prize": {
+        "mu": 16345.5,
+        "G": 0.47717516543799005,
+        "S": 8545.833333333332
+      },
+      "historic_settled": {
+        "mu": 5016345.0,
+        "G": 0.3329486907300036,
+        "S": 3346159.5
+      },
+      "given": 14800,
+      "given_per_start": 0.11384615384615385,
+      "n_give": 6,
+      "goal_nonexit_k": 52,
+      "goal_eligible_n": 53,
+      "goal": 0.9811320754716981,
+      "rho": 3.2591447467367995,
+      "undefined_reason": null,
+      "weighted_giver_margin": 5.515096846846847,
+      "weighted_taker_margin": 1.6921914414414414,
+      "gifts": [
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 6.191166666666667,
+          "taker_margin": 1.9146666666666667
+        },
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-11",
+          "dst": "agent-6",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 9.395833333333334,
+          "taker_margin": 2.4146666666666667
+        },
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-6",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 2.8345,
+          "taker_margin": 2.748
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.2956666666666665,
+          "taker_margin": 0.6658333333333334
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-6",
+          "amount": 4000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 6.347833333333333,
+          "taker_margin": 1.3325
+        },
+        {
+          "round": 8,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-6",
+          "amount": 800,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 0.13283333333333333,
+          "taker_margin": 1.4345
+        }
+      ]
+    },
+    {
+      "model": "Fable",
+      "seed": 4104,
+      "session_id": "talk-s4104-33f887",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 3,
+      "exited": 1,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 35099,
+          "exit_bonus_included": 0,
+          "settled": 6701765
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 16602,
+          "exit_bonus_included": 0,
+          "settled": 6683268
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 6972,
+          "exit_bonus_included": 0,
+          "settled": 6673638
+        },
+        "agent-23": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 28791,
+          "exit_bonus_included": 20000,
+          "settled": 28791
+        }
+      },
+      "pre_prize": {
+        "mu": 21866.0,
+        "G": 0.3680371352785146,
+        "S": 13818.5
+      },
+      "historic_settled": {
+        "mu": 5021865.5,
+        "G": 0.33235577496052016,
+        "S": 3352819.5
+      },
+      "given": 8000,
+      "given_per_start": 0.06153846153846154,
+      "n_give": 3,
+      "goal_nonexit_k": 38,
+      "goal_eligible_n": 39,
+      "goal": 0.9743589743589743,
+      "rho": 4.23713542215069,
+      "undefined_reason": null,
+      "weighted_giver_margin": 4.401390625,
+      "weighted_taker_margin": 1.038765625,
+      "gifts": [
+        {
+          "round": 4,
+          "phase": "prep",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 3000,
+          "charge": 8000.0,
+          "due": 0,
+          "giver_margin": 5.9605,
+          "taker_margin": 1.552875
+        },
+        {
+          "round": 8,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 3000,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 4.389875,
+          "taker_margin": 0.6335
+        },
+        {
+          "round": 8,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-17",
+          "amount": 2000,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 2.08,
+          "taker_margin": 0.8755
+        }
+      ]
+    },
+    {
+      "model": "Fable",
+      "seed": 4105,
+      "session_id": "talk-s4105-bce896",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 3,
+      "exited": 1,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 38978,
+          "exit_bonus_included": 0,
+          "settled": 6705644
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 18333,
+          "exit_bonus_included": 0,
+          "settled": 6684999
+        },
+        "agent-17": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 27472,
+          "exit_bonus_included": 20000,
+          "settled": 27472
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 58545,
+          "exit_bonus_included": 0,
+          "settled": 6725211
+        }
+      },
+      "pre_prize": {
+        "mu": 35832.0,
+        "G": 0.3073184118478827,
+        "S": 24820.166666666664
+      },
+      "historic_settled": {
+        "mu": 5035831.5,
+        "G": 0.3328457607580132,
+        "S": 3359676.333333333
+      },
+      "given": 0,
+      "given_per_start": 0.0,
+      "n_give": 0,
+      "goal_nonexit_k": 36,
+      "goal_eligible_n": 37,
+      "goal": 0.972972972972973,
+      "rho": null,
+      "undefined_reason": "no_GIVE",
+      "weighted_giver_margin": null,
+      "weighted_taker_margin": null,
+      "gifts": []
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": false,
+      "all4_completion": false,
+      "finishers": 0,
+      "exited": 4,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 34584,
+          "exit_bonus_included": 20000,
+          "settled": 34584
+        },
+        "agent-11": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 22663,
+          "exit_bonus_included": 20000,
+          "settled": 22663
+        },
+        "agent-17": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 26385,
+          "exit_bonus_included": 20000,
+          "settled": 26385
+        },
+        "agent-23": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 24886,
+          "exit_bonus_included": 20000,
+          "settled": 24886
+        }
+      },
+      "pre_prize": {
+        "mu": 27129.5,
+        "G": 0.11445720218458381,
+        "S": 24024.333333333332
+      },
+      "historic_settled": {
+        "mu": 27129.5,
+        "G": 0.11445720218458381,
+        "S": 24024.333333333332
+      },
+      "given": 14000,
+      "given_per_start": 0.1076923076923077,
+      "n_give": 3,
+      "goal_nonexit_k": 14,
+      "goal_eligible_n": 17,
+      "goal": 0.8235294117647058,
+      "rho": 4.785200411099692,
+      "undefined_reason": null,
+      "weighted_giver_margin": 6.208,
+      "weighted_taker_margin": 1.2973333333333334,
+      "gifts": [
+        {
+          "round": 1,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 4000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 8.32,
+          "taker_margin": 1.1123333333333334
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 6000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 6.293333333333333,
+          "taker_margin": 1.0816666666666668
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-11",
+          "amount": 4000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.968,
+          "taker_margin": 1.8058333333333334
+        }
+      ]
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": true,
+      "finishers": 4,
+      "exited": 0,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 11770,
+          "exit_bonus_included": 0,
+          "settled": 5011770
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 16782,
+          "exit_bonus_included": 0,
+          "settled": 5016782
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 28907,
+          "exit_bonus_included": 0,
+          "settled": 5028907
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 21721,
+          "exit_bonus_included": 0,
+          "settled": 5021721
+        }
+      },
+      "pre_prize": {
+        "mu": 19795.0,
+        "G": 0.23722320451292414,
+        "S": 15099.166666666668
+      },
+      "historic_settled": {
+        "mu": 5019795.0,
+        "G": 0.0009354631679846156,
+        "S": 5015099.166666667
+      },
+      "given": 24000,
+      "given_per_start": 0.18461538461538463,
+      "n_give": 4,
+      "goal_nonexit_k": 29,
+      "goal_eligible_n": 29,
+      "goal": 1.0,
+      "rho": 2.696712478214015,
+      "undefined_reason": null,
+      "weighted_giver_margin": 5.630361111111111,
+      "weighted_taker_margin": 2.087861111111111,
+      "gifts": [
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 8000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 7.643666666666666,
+          "taker_margin": 1.8208333333333333
+        },
+        {
+          "round": 6,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 4000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 5.8228333333333335,
+          "taker_margin": 1.9685
+        },
+        {
+          "round": 6,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 6000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 4.8228333333333335,
+          "taker_margin": 1.8056666666666668
+        },
+        {
+          "round": 6,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 6000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.625166666666667,
+          "taker_margin": 2.8056666666666668
+        }
+      ]
+    },
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 2,
+      "exited": 2,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 23886,
+          "exit_bonus_included": 20000,
+          "settled": 23886
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 36357,
+          "exit_bonus_included": 0,
+          "settled": 10036357
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 16975,
+          "exit_bonus_included": 0,
+          "settled": 10016975
+        },
+        "agent-23": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 25864,
+          "exit_bonus_included": 20000,
+          "settled": 25864
+        }
+      },
+      "pre_prize": {
+        "mu": 25770.5,
+        "G": 0.19442126979815422,
+        "S": 20760.166666666668
+      },
+      "historic_settled": {
+        "mu": 5025770.5,
+        "G": 0.6637211813259943,
+        "S": 1690060.1666666665
+      },
+      "given": 0,
+      "given_per_start": 0.0,
+      "n_give": 0,
+      "goal_nonexit_k": 22,
+      "goal_eligible_n": 24,
+      "goal": 0.9166666666666666,
+      "rho": null,
+      "undefined_reason": "no_GIVE",
+      "weighted_giver_margin": null,
+      "weighted_taker_margin": null,
+      "gifts": []
+    },
+    {
+      "model": "Astra",
+      "seed": 4104,
+      "session_id": "talk-s4104-4a160a",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": true,
+      "finishers": 4,
+      "exited": 0,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 43822,
+          "exit_bonus_included": 0,
+          "settled": 5043822
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 33837,
+          "exit_bonus_included": 0,
+          "settled": 5033837
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 13900,
+          "exit_bonus_included": 0,
+          "settled": 5013900
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 13062,
+          "exit_bonus_included": 0,
+          "settled": 5013062
+        }
+      },
+      "pre_prize": {
+        "mu": 26155.25,
+        "G": 0.3575349754510726,
+        "S": 16803.833333333336
+      },
+      "historic_settled": {
+        "mu": 5026155.25,
+        "G": 0.0018605506995962105,
+        "S": 5016803.833333333
+      },
+      "given": 10000,
+      "given_per_start": 0.07692307692307693,
+      "n_give": 1,
+      "goal_nonexit_k": 30,
+      "goal_eligible_n": 30,
+      "goal": 1.0,
+      "rho": 2.5046682060034136,
+      "undefined_reason": null,
+      "weighted_giver_margin": 8.316333333333333,
+      "weighted_taker_margin": 3.3203333333333327,
+      "gifts": [
+        {
+          "round": 2,
+          "phase": "prep",
+          "src": "agent-6",
+          "dst": "agent-23",
+          "amount": 10000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 8.316333333333333,
+          "taker_margin": 3.320333333333333
+        }
+      ]
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": true,
+      "finishers": 4,
+      "exited": 0,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 19845,
+          "exit_bonus_included": 0,
+          "settled": 5019845
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 7073,
+          "exit_bonus_included": 0,
+          "settled": 5007073
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 20725,
+          "exit_bonus_included": 0,
+          "settled": 5020725
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 31707,
+          "exit_bonus_included": 0,
+          "settled": 5031707
+        }
+      },
+      "pre_prize": {
+        "mu": 19837.5,
+        "G": 0.31414408737660154,
+        "S": 13605.666666666668
+      },
+      "historic_settled": {
+        "mu": 5019837.5,
+        "G": 0.0012414412485131905,
+        "S": 5013605.666666667
+      },
+      "given": 23000,
+      "given_per_start": 0.17692307692307693,
+      "n_give": 3,
+      "goal_nonexit_k": 29,
+      "goal_eligible_n": 29,
+      "goal": 1.0,
+      "rho": 2.168111734138008,
+      "undefined_reason": null,
+      "weighted_giver_margin": 5.5085434782608695,
+      "weighted_taker_margin": 2.5407101449275364,
+      "gifts": [
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 8000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 7.647,
+          "taker_margin": 1.9793333333333334
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 7000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.3168333333333333,
+          "taker_margin": 2.129
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 8000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 5.287833333333333,
+          "taker_margin": 3.4623333333333335
+        }
+      ]
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": false,
+      "all4_completion": false,
+      "finishers": 0,
+      "exited": 4,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 28111,
+          "exit_bonus_included": 20000,
+          "settled": 28111
+        },
+        "agent-11": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 22242,
+          "exit_bonus_included": 20000,
+          "settled": 22242
+        },
+        "agent-17": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 20841,
+          "exit_bonus_included": 20000,
+          "settled": 20841
+        },
+        "agent-23": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 25253,
+          "exit_bonus_included": 20000,
+          "settled": 25253
+        }
+      },
+      "pre_prize": {
+        "mu": 24111.75,
+        "G": 0.08578459326538583,
+        "S": 22043.333333333332
+      },
+      "historic_settled": {
+        "mu": 24111.75,
+        "G": 0.08578459326538583,
+        "S": 22043.333333333332
+      },
+      "given": 0,
+      "given_per_start": 0.0,
+      "n_give": 0,
+      "goal_nonexit_k": 18,
+      "goal_eligible_n": 21,
+      "goal": 0.8571428571428571,
+      "rho": null,
+      "undefined_reason": "no_GIVE",
+      "weighted_giver_margin": null,
+      "weighted_taker_margin": null,
+      "gifts": []
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 2,
+      "exited": 1,
+      "dead": 1,
+      "survival": 3,
+      "seats": {
+        "agent-6": {
+          "status_raw": "dead",
+          "status": "dead",
+          "pre_prize": 0,
+          "exit_bonus_included": 0,
+          "settled": 0
+        },
+        "agent-11": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 22955,
+          "exit_bonus_included": 20000,
+          "settled": 22955
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 25164,
+          "exit_bonus_included": 0,
+          "settled": 10025164
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 306,
+          "exit_bonus_included": 0,
+          "settled": 10000306
+        }
+      },
+      "pre_prize": {
+        "mu": 12106.25,
+        "G": 0.6755532610566167,
+        "S": 3927.833333333333
+      },
+      "historic_settled": {
+        "mu": 5012106.25,
+        "G": 0.6659349882430499,
+        "S": 1674369.3333333335
+      },
+      "given": 20700,
+      "given_per_start": 0.15923076923076923,
+      "n_give": 10,
+      "goal_nonexit_k": 54,
+      "goal_eligible_n": 55,
+      "goal": 0.9818181818181818,
+      "rho": 10.251095976554456,
+      "undefined_reason": null,
+      "weighted_giver_margin": 2.9761213768115944,
+      "weighted_taker_margin": 0.2903222624798712,
+      "gifts": [
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 4.987666666666667,
+          "taker_margin": 0.31516666666666665
+        },
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-11",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 1.9005,
+          "taker_margin": 0.48183333333333334
+        },
+        {
+          "round": 4,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 3600,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 4.258166666666667,
+          "taker_margin": 0.8371666666666666
+        },
+        {
+          "round": 4,
+          "phase": "prep",
+          "src": "agent-6",
+          "dst": "agent-11",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 1.4745,
+          "taker_margin": 1.0273333333333334
+        },
+        {
+          "round": 6,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-6",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 2.300666666666667,
+          "taker_margin": 0.5205
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 3000,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 3.76075,
+          "taker_margin": -0.452875
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-6",
+          "amount": 3000,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 0.004875,
+          "taker_margin": -0.10225
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 1100,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 3.558125,
+          "taker_margin": 0.00725
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-23",
+          "amount": 1000,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 3.419375,
+          "taker_margin": 0.063
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-23",
+          "amount": 500,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 3.33775,
+          "taker_margin": 0.120875
+        }
+      ]
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 2,
+      "exited": 2,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 20362,
+          "exit_bonus_included": 20000,
+          "settled": 20362
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 33276,
+          "exit_bonus_included": 0,
+          "settled": 10033276
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 13001,
+          "exit_bonus_included": 0,
+          "settled": 10013001
+        },
+        "agent-23": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 21638,
+          "exit_bonus_included": 20000,
+          "settled": 21638
+        }
+      },
+      "pre_prize": {
+        "mu": 22069.25,
+        "G": 0.23449294078110192,
+        "S": 16894.166666666668
+      },
+      "historic_settled": {
+        "mu": 5022069.25,
+        "G": 0.6642365760554444,
+        "S": 1686227.1666666665
+      },
+      "given": 0,
+      "given_per_start": 0.0,
+      "n_give": 0,
+      "goal_nonexit_k": 46,
+      "goal_eligible_n": 48,
+      "goal": 0.9583333333333334,
+      "rho": null,
+      "undefined_reason": "no_GIVE",
+      "weighted_giver_margin": null,
+      "weighted_taker_margin": null,
+      "gifts": []
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": true,
+      "finishers": 4,
+      "exited": 0,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 40500,
+          "exit_bonus_included": 0,
+          "settled": 5040500
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 26636,
+          "exit_bonus_included": 0,
+          "settled": 5026636
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 11034,
+          "exit_bonus_included": 0,
+          "settled": 5011034
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 11267,
+          "exit_bonus_included": 0,
+          "settled": 5011267
+        }
+      },
+      "pre_prize": {
+        "mu": 22359.25,
+        "G": 0.38674150519359995,
+        "S": 13712.0
+      },
+      "historic_settled": {
+        "mu": 5022359.25,
+        "G": 0.001721750589625782,
+        "S": 5013712.0
+      },
+      "given": 20000,
+      "given_per_start": 0.15384615384615385,
+      "n_give": 5,
+      "goal_nonexit_k": 58,
+      "goal_eligible_n": 58,
+      "goal": 1.0,
+      "rho": 3.0627441608669574,
+      "undefined_reason": null,
+      "weighted_giver_margin": 5.233183333333334,
+      "weighted_taker_margin": 1.7086583333333332,
+      "gifts": [
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-23",
+          "amount": 6000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 7.774166666666667,
+          "taker_margin": 0.8748333333333334
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-23",
+          "amount": 4000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 4.737,
+          "taker_margin": 1.5101666666666667
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-23",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 1.6356666666666666,
+          "taker_margin": 2.0101666666666667
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-23",
+          "amount": 4000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 6.984666666666667,
+          "taker_margin": 2.6635
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 2.075,
+          "taker_margin": 2.066333333333333
+        }
+      ]
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": true,
+      "finishers": 4,
+      "exited": 0,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 29272,
+          "exit_bonus_included": 0,
+          "settled": 5029272
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 11841,
+          "exit_bonus_included": 0,
+          "settled": 5011841
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 6756,
+          "exit_bonus_included": 0,
+          "settled": 5006756
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 42975,
+          "exit_bonus_included": 0,
+          "settled": 5042975
+        }
+      },
+      "pre_prize": {
+        "mu": 22711.0,
+        "G": 0.4626539268783115,
+        "S": 12203.666666666666
+      },
+      "historic_settled": {
+        "mu": 5022711.0,
+        "G": 0.002091964545308964,
+        "S": 5012203.666666667
+      },
+      "given": 8000,
+      "given_per_start": 0.06153846153846154,
+      "n_give": 2,
+      "goal_nonexit_k": 52,
+      "goal_eligible_n": 52,
+      "goal": 1.0,
+      "rho": 4.509410571396371,
+      "undefined_reason": null,
+      "weighted_giver_margin": 8.335833333333333,
+      "weighted_taker_margin": 1.8485416666666667,
+      "gifts": [
+        {
+          "round": 5,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 6000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 8.709333333333333,
+          "taker_margin": 2.0621666666666667
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 7.215333333333334,
+          "taker_margin": 1.2076666666666667
+        }
+      ]
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 7,
+      "clear": false,
+      "all4_completion": false,
+      "finishers": 0,
+      "exited": 4,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 24601,
+          "exit_bonus_included": 20000,
+          "settled": 24601
+        },
+        "agent-11": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 24478,
+          "exit_bonus_included": 20000,
+          "settled": 24478
+        },
+        "agent-17": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 25706,
+          "exit_bonus_included": 20000,
+          "settled": 25706
+        },
+        "agent-23": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 42160,
+          "exit_bonus_included": 20000,
+          "settled": 42160
+        }
+      },
+      "pre_prize": {
+        "mu": 29236.25,
+        "G": 0.15434891045648239,
+        "S": 24723.666666666668
+      },
+      "historic_settled": {
+        "mu": 29236.25,
+        "G": 0.15434891045648239,
+        "S": 24723.666666666668
+      },
+      "given": 13000,
+      "given_per_start": 0.1,
+      "n_give": 4,
+      "goal_nonexit_k": 28,
+      "goal_eligible_n": 31,
+      "goal": 0.9032258064516129,
+      "rho": 3.7135688091102104,
+      "undefined_reason": null,
+      "weighted_giver_margin": 6.66,
+      "weighted_taker_margin": 1.793423076923077,
+      "gifts": [
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 6.234,
+          "taker_margin": 1.9563333333333333
+        },
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 5000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 9.0445,
+          "taker_margin": 2.7896666666666667
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 6.3148333333333335,
+          "taker_margin": 0.6831666666666667
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.315,
+          "taker_margin": 1.1346666666666667
+        }
+      ]
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 2,
+      "exited": 1,
+      "dead": 1,
+      "survival": 3,
+      "seats": {
+        "agent-6": {
+          "status_raw": "dead",
+          "status": "dead",
+          "pre_prize": 0,
+          "exit_bonus_included": 0,
+          "settled": 0
+        },
+        "agent-11": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 29238,
+          "exit_bonus_included": 20000,
+          "settled": 29238
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 23017,
+          "exit_bonus_included": 0,
+          "settled": 10023017
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 10603,
+          "exit_bonus_included": 0,
+          "settled": 10010603
+        }
+      },
+      "pre_prize": {
+        "mu": 15714.5,
+        "G": 0.5309745776193961,
+        "S": 7370.5
+      },
+      "historic_settled": {
+        "mu": 5015714.5,
+        "G": 0.6654155986483414,
+        "S": 1678179.8333333335
+      },
+      "given": 10235,
+      "given_per_start": 0.07873076923076923,
+      "n_give": 3,
+      "goal_nonexit_k": 41,
+      "goal_eligible_n": 42,
+      "goal": 0.9761904761904762,
+      "rho": 2.6541004723362938,
+      "undefined_reason": null,
+      "weighted_giver_margin": 2.275464093795799,
+      "weighted_taker_margin": 0.8573390937957985,
+      "gifts": [
+        {
+          "round": 6,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 5000,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 4.355375,
+          "taker_margin": 0.5435
+        },
+        {
+          "round": 6,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-6",
+          "amount": 2000,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 2.37375,
+          "taker_margin": 0.7935
+        },
+        {
+          "round": 8,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-23",
+          "amount": 3235,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": -1.0,
+          "taker_margin": 1.381875
+        }
+      ]
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 7,
+      "clear": false,
+      "all4_completion": false,
+      "finishers": 0,
+      "exited": 0,
+      "dead": 4,
+      "survival": 0,
+      "seats": {
+        "agent-6": {
+          "status_raw": "dead",
+          "status": "dead",
+          "pre_prize": 0,
+          "exit_bonus_included": 0,
+          "settled": 0
+        },
+        "agent-11": {
+          "status_raw": "dead",
+          "status": "dead",
+          "pre_prize": 0,
+          "exit_bonus_included": 0,
+          "settled": 0
+        },
+        "agent-17": {
+          "status_raw": "dead",
+          "status": "dead",
+          "pre_prize": 0,
+          "exit_bonus_included": 0,
+          "settled": 0
+        },
+        "agent-23": {
+          "status_raw": "dead",
+          "status": "dead",
+          "pre_prize": 0,
+          "exit_bonus_included": 0,
+          "settled": 0
+        }
+      },
+      "pre_prize": {
+        "mu": 0.0,
+        "G": null,
+        "S": 0.0
+      },
+      "historic_settled": {
+        "mu": 0.0,
+        "G": null,
+        "S": 0.0
+      },
+      "given": 48623,
+      "given_per_start": 0.3740230769230769,
+      "n_give": 22,
+      "goal_nonexit_k": 59,
+      "goal_eligible_n": 59,
+      "goal": 1.0,
+      "rho": 2.7175355650973936,
+      "undefined_reason": null,
+      "weighted_giver_margin": 2.773460262290137,
+      "weighted_taker_margin": 1.020579196059478,
+      "gifts": [
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 6.075333333333333,
+          "taker_margin": 2.086333333333333
+        },
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-11",
+          "dst": "agent-6",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 9.393333333333333,
+          "taker_margin": 2.586333333333333
+        },
+        {
+          "round": 1,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-6",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 2.9518333333333335,
+          "taker_margin": 2.836333333333333
+        },
+        {
+          "round": 1,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-23",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 2.4593333333333334,
+          "taker_margin": 3.051
+        },
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-6",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 7.688166666666667,
+          "taker_margin": 1.6235
+        },
+        {
+          "round": 4,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.49,
+          "taker_margin": 0.7946666666666666
+        },
+        {
+          "round": 4,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-23",
+          "amount": 4000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 5.7668333333333335,
+          "taker_margin": 1.3778333333333332
+        },
+        {
+          "round": 4,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-6",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 5.6001666666666665,
+          "taker_margin": 0.928
+        },
+        {
+          "round": 4,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-23",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.2018333333333335,
+          "taker_margin": 1.5445
+        },
+        {
+          "round": 5,
+          "phase": "prep",
+          "src": "agent-11",
+          "dst": "agent-6",
+          "amount": 1500,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 5.2755,
+          "taker_margin": 0.8858333333333334
+        },
+        {
+          "round": 5,
+          "phase": "prep",
+          "src": "agent-11",
+          "dst": "agent-6",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 5.070666666666667,
+          "taker_margin": 0.9163333333333333
+        },
+        {
+          "round": 5,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 2.7133333333333334,
+          "taker_margin": 1.083
+        },
+        {
+          "round": 5,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-6",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.5628333333333333,
+          "taker_margin": 0.0225
+        },
+        {
+          "round": 5,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-23",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.0628333333333333,
+          "taker_margin": 0.6263333333333333
+        },
+        {
+          "round": 5,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-23",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 1.0128333333333333,
+          "taker_margin": 0.9436666666666667
+        },
+        {
+          "round": 5,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-6",
+          "amount": 400,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 0.8698333333333333,
+          "taker_margin": -0.0885
+        },
+        {
+          "round": 5,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-6",
+          "amount": 400,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 2.930833333333333,
+          "taker_margin": -0.021833333333333333
+        },
+        {
+          "round": 5,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-6",
+          "amount": 300,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 0.7838333333333334,
+          "taker_margin": 0.028166666666666666
+        },
+        {
+          "round": 6,
+          "phase": "prep",
+          "src": "agent-11",
+          "dst": "agent-23",
+          "amount": 2500,
+          "charge": 8000.0,
+          "due": 0,
+          "giver_margin": 1.81025,
+          "taker_margin": 0.793
+        },
+        {
+          "round": 6,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-23",
+          "amount": 2000,
+          "charge": 8000.0,
+          "due": 0,
+          "giver_margin": 0.2605,
+          "taker_margin": 1.043
+        },
+        {
+          "round": 7,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 3000,
+          "charge": 12000.0,
+          "due": 0,
+          "giver_margin": 0.11741666666666667,
+          "taker_margin": 1.0856666666666666
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-23",
+          "amount": 11523,
+          "charge": 12000.0,
+          "due": 12000.0,
+          "giver_margin": -1.0,
+          "taker_margin": -0.03925
+        }
+      ]
+    },
+    {
+      "model": "Opus",
+      "seed": 4104,
+      "session_id": "talk-s4104-bd6bf5",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": true,
+      "finishers": 4,
+      "exited": 0,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 24667,
+          "exit_bonus_included": 0,
+          "settled": 5024667
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 17431,
+          "exit_bonus_included": 0,
+          "settled": 5017431
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 7873,
+          "exit_bonus_included": 0,
+          "settled": 5007873
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 8478,
+          "exit_bonus_included": 0,
+          "settled": 5008478
+        }
+      },
+      "pre_prize": {
+        "mu": 14612.25,
+        "G": 0.3383861714200984,
+        "S": 9667.666666666668
+      },
+      "historic_settled": {
+        "mu": 5014612.25,
+        "G": 0.0009860350285973423,
+        "S": 5009667.666666667
+      },
+      "given": 53600,
+      "given_per_start": 0.4123076923076923,
+      "n_give": 12,
+      "goal_nonexit_k": 54,
+      "goal_eligible_n": 54,
+      "goal": 1.0,
+      "rho": 1.3263552472833096,
+      "undefined_reason": null,
+      "weighted_giver_margin": 4.632668532338309,
+      "weighted_taker_margin": 3.4927810945273627,
+      "gifts": [
+        {
+          "round": 2,
+          "phase": "prep",
+          "src": "agent-11",
+          "dst": "agent-23",
+          "amount": 8000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 5.223166666666667,
+          "taker_margin": 2.8235
+        },
+        {
+          "round": 2,
+          "phase": "prep",
+          "src": "agent-6",
+          "dst": "agent-23",
+          "amount": 8000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 8.551166666666667,
+          "taker_margin": 4.156833333333333
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 6800,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 1.5345,
+          "taker_margin": 5.280166666666666
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-6",
+          "amount": 6800,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 0.40116666666666667,
+          "taker_margin": 8.586166666666667
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-23",
+          "amount": 5000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 7.6665,
+          "taker_margin": 1.1493333333333333
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-23",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 1.618,
+          "taker_margin": 1.6493333333333333
+        },
+        {
+          "round": 4,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 4000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 6.771333333333334,
+          "taker_margin": 1.9998333333333334
+        },
+        {
+          "round": 4,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-23",
+          "amount": 4000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 6.104666666666667,
+          "taker_margin": 2.075
+        },
+        {
+          "round": 8,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-17",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.399,
+          "taker_margin": 1.0685
+        },
+        {
+          "round": 8,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-23",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 4.500166666666667,
+          "taker_margin": 1.1195
+        },
+        {
+          "round": 8,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-23",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.0656666666666665,
+          "taker_margin": 1.4528333333333334
+        },
+        {
+          "round": 8,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 4.166833333333333,
+          "taker_margin": 1.4018333333333333
+        }
+      ]
+    },
+    {
+      "model": "Opus",
+      "seed": 4105,
+      "session_id": "talk-s4105-6d3622",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 3,
+      "exited": 1,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 38518,
+          "exit_bonus_included": 0,
+          "settled": 6705184
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 16653,
+          "exit_bonus_included": 0,
+          "settled": 6683319
+        },
+        "agent-17": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 28548,
+          "exit_bonus_included": 20000,
+          "settled": 28548
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 58192,
+          "exit_bonus_included": 0,
+          "settled": 6724858
+        }
+      },
+      "pre_prize": {
+        "mu": 35477.75,
+        "G": 0.31613006273885275,
+        "S": 24262.166666666664
+      },
+      "historic_settled": {
+        "mu": 5035477.25,
+        "G": 0.33281842020700886,
+        "S": 3359577.666666667
+      },
+      "given": 0,
+      "given_per_start": 0.0,
+      "n_give": 0,
+      "goal_nonexit_k": 39,
+      "goal_eligible_n": 40,
+      "goal": 0.975,
+      "rho": null,
+      "undefined_reason": "no_GIVE",
+      "weighted_giver_margin": null,
+      "weighted_taker_margin": null,
+      "gifts": []
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "session_id": "talk-s4101-11f081",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 7,
+      "clear": false,
+      "all4_completion": false,
+      "finishers": 0,
+      "exited": 3,
+      "dead": 1,
+      "survival": 3,
+      "seats": {
+        "agent-6": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 37549,
+          "exit_bonus_included": 20000,
+          "settled": 37549
+        },
+        "agent-11": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 25326,
+          "exit_bonus_included": 20000,
+          "settled": 25326
+        },
+        "agent-17": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 24099,
+          "exit_bonus_included": 20000,
+          "settled": 24099
+        },
+        "agent-23": {
+          "status_raw": "dead",
+          "status": "dead",
+          "pre_prize": 0,
+          "exit_bonus_included": 0,
+          "settled": 0
+        }
+      },
+      "pre_prize": {
+        "mu": 21743.5,
+        "G": 0.43642927771517925,
+        "S": 12254.0
+      },
+      "historic_settled": {
+        "mu": 21743.5,
+        "G": 0.43642927771517925,
+        "S": 12254.0
+      },
+      "given": 15818,
+      "given_per_start": 0.12167692307692307,
+      "n_give": 9,
+      "goal_nonexit_k": 26,
+      "goal_eligible_n": 29,
+      "goal": 0.896551724137931,
+      "rho": 8.159208799021807,
+      "undefined_reason": null,
+      "weighted_giver_margin": 5.482832363973532,
+      "weighted_taker_margin": 0.6719808867534875,
+      "gifts": [
+        {
+          "round": 1,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-17",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 1.5728333333333333,
+          "taker_margin": 0.038
+        },
+        {
+          "round": 1,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 5.103166666666667,
+          "taker_margin": 0.20466666666666666
+        },
+        {
+          "round": 1,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 8.3625,
+          "taker_margin": 0.37133333333333335
+        },
+        {
+          "round": 1,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 5000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 7.448666666666667,
+          "taker_margin": 1.1828333333333334
+        },
+        {
+          "round": 1,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-17",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 1.2588333333333332,
+          "taker_margin": 1.2806666666666666
+        },
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 818,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 3.3171666666666666,
+          "taker_margin": -0.16516666666666666
+        },
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 5.6755,
+          "taker_margin": 0.0015
+        },
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 3000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 5.1241666666666665,
+          "taker_margin": 0.46416666666666667
+        },
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 4.712666666666666,
+          "taker_margin": 0.7808333333333334
+        }
+      ]
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 1,
+      "exited": 3,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 29681,
+          "exit_bonus_included": 20000,
+          "settled": 29681
+        },
+        "agent-11": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 27040,
+          "exit_bonus_included": 20000,
+          "settled": 27040
+        },
+        "agent-17": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 32451,
+          "exit_bonus_included": 0,
+          "settled": 20032451
+        },
+        "agent-23": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 32643,
+          "exit_bonus_included": 20000,
+          "settled": 32643
+        }
+      },
+      "pre_prize": {
+        "mu": 30453.75,
+        "G": 0.05357577747677489,
+        "S": 28822.166666666668
+      },
+      "historic_settled": {
+        "mu": 5030453.75,
+        "G": 0.994264102583854,
+        "S": 28854.166666666977
+      },
+      "given": 19000,
+      "given_per_start": 0.14615384615384616,
+      "n_give": 9,
+      "goal_nonexit_k": 35,
+      "goal_eligible_n": 38,
+      "goal": 0.9210526315789473,
+      "rho": 2.1301065754379653,
+      "undefined_reason": null,
+      "weighted_giver_margin": 5.923293859649123,
+      "weighted_taker_margin": 2.78075,
+      "gifts": [
+        {
+          "round": 1,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 5000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 9.059333333333333,
+          "taker_margin": 2.3955
+        },
+        {
+          "round": 2,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 6.385833333333333,
+          "taker_margin": 2.4928333333333335
+        },
+        {
+          "round": 2,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 6.185666666666667,
+          "taker_margin": 2.612833333333333
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-11",
+          "amount": 2000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 2.7636666666666665,
+          "taker_margin": 2.891
+        },
+        {
+          "round": 2,
+          "phase": "rescue",
+          "src": "agent-11",
+          "dst": "agent-23",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 2.7243333333333335,
+          "taker_margin": 6.2945
+        },
+        {
+          "round": 3,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 8.743833333333333,
+          "taker_margin": 2.8225
+        },
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-11",
+          "amount": 6000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 4.179,
+          "taker_margin": 2.6758333333333333
+        },
+        {
+          "round": 4,
+          "phase": "rescue",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 1000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 7.361166666666667,
+          "taker_margin": 2.7488333333333332
+        },
+        {
+          "round": 6,
+          "phase": "prep",
+          "src": "agent-17",
+          "dst": "agent-11",
+          "amount": 1000,
+          "charge": 8000.0,
+          "due": 0,
+          "giver_margin": 5.24375,
+          "taker_margin": 2.04825
+        }
+      ]
+    },
+    {
+      "model": "Luna",
+      "seed": 4103,
+      "session_id": "talk-s4103-ffffff",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 7,
+      "clear": false,
+      "all4_completion": false,
+      "finishers": 0,
+      "exited": 4,
+      "dead": 0,
+      "survival": 4,
+      "seats": {
+        "agent-6": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 25507,
+          "exit_bonus_included": 20000,
+          "settled": 25507
+        },
+        "agent-11": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 60400,
+          "exit_bonus_included": 20000,
+          "settled": 60400
+        },
+        "agent-17": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 39453,
+          "exit_bonus_included": 20000,
+          "settled": 39453
+        },
+        "agent-23": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 29660,
+          "exit_bonus_included": 20000,
+          "settled": 29660
+        }
+      },
+      "pre_prize": {
+        "mu": 38755.0,
+        "G": 0.24614458349460286,
+        "S": 29215.666666666664
+      },
+      "historic_settled": {
+        "mu": 38755.0,
+        "G": 0.24614458349460286,
+        "S": 29215.666666666664
+      },
+      "given": 0,
+      "given_per_start": 0.0,
+      "n_give": 0,
+      "goal_nonexit_k": 37,
+      "goal_eligible_n": 40,
+      "goal": 0.925,
+      "rho": null,
+      "undefined_reason": "no_GIVE",
+      "weighted_giver_margin": null,
+      "weighted_taker_margin": null,
+      "gifts": []
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 2,
+      "exited": 1,
+      "dead": 1,
+      "survival": 3,
+      "seats": {
+        "agent-6": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 28043,
+          "exit_bonus_included": 0,
+          "settled": 10028043
+        },
+        "agent-11": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 5419,
+          "exit_bonus_included": 0,
+          "settled": 10005419
+        },
+        "agent-17": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 20794,
+          "exit_bonus_included": 20000,
+          "settled": 20794
+        },
+        "agent-23": {
+          "status_raw": "dead",
+          "status": "dead",
+          "pre_prize": 0,
+          "exit_bonus_included": 0,
+          "settled": 0
+        }
+      },
+      "pre_prize": {
+        "mu": 13564.0,
+        "G": 0.6113240931878502,
+        "S": 5272.0
+      },
+      "historic_settled": {
+        "mu": 5013564.0,
+        "G": 0.6660058260617264,
+        "S": 1674501.1666666665
+      },
+      "given": 0,
+      "given_per_start": 0.0,
+      "n_give": 0,
+      "goal_nonexit_k": 21,
+      "goal_eligible_n": 22,
+      "goal": 0.9545454545454546,
+      "rho": null,
+      "undefined_reason": "no_GIVE",
+      "weighted_giver_margin": null,
+      "weighted_taker_margin": null,
+      "gifts": []
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "raw_completed_present": false,
+      "raw_completed": null,
+      "rounds_played": 8,
+      "clear": true,
+      "all4_completion": false,
+      "finishers": 1,
+      "exited": 1,
+      "dead": 2,
+      "survival": 2,
+      "seats": {
+        "agent-6": {
+          "status_raw": "dead",
+          "status": "dead",
+          "pre_prize": 0,
+          "exit_bonus_included": 0,
+          "settled": 0
+        },
+        "agent-11": {
+          "status_raw": "exited",
+          "status": "exited",
+          "pre_prize": 29225,
+          "exit_bonus_included": 20000,
+          "settled": 29225
+        },
+        "agent-17": {
+          "status_raw": "dead",
+          "status": "dead",
+          "pre_prize": 0,
+          "exit_bonus_included": 0,
+          "settled": 0
+        },
+        "agent-23": {
+          "status_raw": "in",
+          "status": "finished",
+          "pre_prize": 7258,
+          "exit_bonus_included": 0,
+          "settled": 20007258
+        }
+      },
+      "pre_prize": {
+        "mu": 9120.75,
+        "G": 0.8673720180175242,
+        "S": 1209.666666666667
+      },
+      "historic_settled": {
+        "mu": 5009120.75,
+        "G": 0.9990276071237985,
+        "S": 4870.833333333023
+      },
+      "given": 26000,
+      "given_per_start": 0.2,
+      "n_give": 7,
+      "goal_nonexit_k": 31,
+      "goal_eligible_n": 32,
+      "goal": 0.96875,
+      "rho": 3.225592778250072,
+      "undefined_reason": null,
+      "weighted_giver_margin": 4.63943108974359,
+      "weighted_taker_margin": 1.4383189102564102,
+      "gifts": [
+        {
+          "round": 1,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 5000,
+          "charge": 6000.0,
+          "due": 0,
+          "giver_margin": 8.987333333333334,
+          "taker_margin": 2.327166666666667
+        },
+        {
+          "round": 3,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 5000,
+          "charge": 6000.0,
+          "due": 6000.0,
+          "giver_margin": 6.642333333333333,
+          "taker_margin": 1.7606666666666666
+        },
+        {
+          "round": 5,
+          "phase": "rescue",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 5000,
+          "charge": 8000.0,
+          "due": 0,
+          "giver_margin": 4.203,
+          "taker_margin": 1.74475
+        },
+        {
+          "round": 6,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 2000,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 2.3845,
+          "taker_margin": 0.295375
+        },
+        {
+          "round": 6,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 3000,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 1.959375,
+          "taker_margin": 0.6425
+        },
+        {
+          "round": 7,
+          "phase": "prep",
+          "src": "agent-23",
+          "dst": "agent-17",
+          "amount": 5000,
+          "charge": 8000.0,
+          "due": 0,
+          "giver_margin": 2.15275,
+          "taker_margin": 1.1315
+        },
+        {
+          "round": 7,
+          "phase": "rescue",
+          "src": "agent-6",
+          "dst": "agent-17",
+          "amount": 1000,
+          "charge": 8000.0,
+          "due": 8000.0,
+          "giver_margin": 0.051,
+          "taker_margin": 0.057625
+        }
+      ]
+    }
+  ],
+  "models": {
+    "Fable": {
+      "model_id": 1,
+      "n_games": 5,
+      "clear_k": 5,
+      "clear_rate": 1.0,
+      "clear_wilson95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "all4_k": 2,
+      "all4_rate": 0.4,
+      "all4_wilson95": [
+        0.11762077423264783,
+        0.769275718723987
+      ],
+      "finishers": 17,
+      "exited": 3,
+      "dead": 0,
+      "survival": 20,
+      "given": 77300,
+      "n_give": 36,
+      "pre_prize_mean": {
+        "mu": 19359.8,
+        "G": 0.4073691362633333,
+        "S": 12278.333333333332
+      },
+      "pre_prize_G_n_defined": 5,
+      "historic_settled_S_mean": 4014572.5,
+      "goal_pooled": 0.9888888888888889,
+      "rho": 3.6775984705861022,
+      "undefined_reason": null,
+      "weighted_giver_margin": 5.008038702026735,
+      "weighted_taker_margin": 1.3617687580853817,
+      "plot_means": {
+        "rho": {
+          "n": 4,
+          "x": 3.917181587208265,
+          "x_ci95": [
+            3.180128796674518,
+            4.654234377742012
+          ],
+          "clear": 1.0,
+          "clear_ci95": [
+            0.5101091635454027,
+            1.0
+          ],
+          "finishers": 3.5,
+          "finishers_ci95": [
+            3.0,
+            4.0
+          ]
+        },
+        "goal": {
+          "n": 5,
+          "x": 0.985692804560729,
+          "x_ci95": [
+            0.9751591940271187,
+            0.9962264150943396
+          ],
+          "clear": 1.0,
+          "clear_ci95": [
+            0.5655175352168251,
+            1.0
+          ],
+          "finishers": 3.4,
+          "finishers_ci95": [
+            3.0,
+            3.8
+          ]
+        },
+        "given": {
+          "n": 5,
+          "x": 15460.0,
+          "x_ci95": [
+            6160.0,
+            24760.0
+          ],
+          "clear": 1.0,
+          "clear_ci95": [
+            0.5655175352168251,
+            1.0
+          ],
+          "finishers": 3.4,
+          "finishers_ci95": [
+            3.0,
+            3.8
+          ]
+        }
+      }
+    },
+    "Astra": {
+      "model_id": 2,
+      "n_games": 5,
+      "clear_k": 4,
+      "clear_rate": 0.8,
+      "clear_wilson95": [
+        0.37553462976252533,
+        0.9637758913675698
+      ],
+      "all4_k": 3,
+      "all4_rate": 0.6,
+      "all4_wilson95": [
+        0.2307242812760128,
+        0.882379225767352
+      ],
+      "finishers": 14,
+      "exited": 6,
+      "dead": 0,
+      "survival": 20,
+      "given": 71000,
+      "n_give": 11,
+      "pre_prize_mean": {
+        "mu": 23737.55,
+        "G": 0.24355614786466723,
+        "S": 18058.633333333335
+      },
+      "pre_prize_G_n_defined": 5,
+      "historic_settled_S_mean": 3351918.633333334,
+      "goal_pooled": 0.9612403100775194,
+      "rho": 2.700880489772436,
+      "undefined_reason": null,
+      "weighted_giver_margin": 6.083105633802817,
+      "weighted_taker_margin": 2.252267605633803,
+      "plot_means": {
+        "rho": {
+          "n": 4,
+          "x": 3.0386732073637823,
+          "x_ci95": [
+            2.3002619201570096,
+            4.215067359825622
+          ],
+          "clear": 0.75,
+          "clear_ci95": [
+            0.30064184258240184,
+            0.9544127391902995
+          ],
+          "finishers": 3.0,
+          "finishers_ci95": [
+            1.0,
+            4.0
+          ]
+        },
+        "goal": {
+          "n": 5,
+          "x": 0.9480392156862745,
+          "x_ci95": [
+            0.8774509803921567,
+            1.0
+          ],
+          "clear": 0.8,
+          "clear_ci95": [
+            0.37553462976252533,
+            0.9637758913675698
+          ],
+          "finishers": 2.8,
+          "finishers_ci95": [
+            1.2,
+            4.0
+          ]
+        },
+        "given": {
+          "n": 5,
+          "x": 14200.0,
+          "x_ci95": [
+            6600.0,
+            21600.0
+          ],
+          "clear": 0.8,
+          "clear_ci95": [
+            0.37553462976252533,
+            0.9637758913675698
+          ],
+          "finishers": 2.8,
+          "finishers_ci95": [
+            1.2,
+            4.0
+          ]
+        }
+      }
+    },
+    "Sol": {
+      "model_id": 3,
+      "n_games": 5,
+      "clear_k": 4,
+      "clear_rate": 0.8,
+      "clear_wilson95": [
+        0.37553462976252533,
+        0.9637758913675698
+      ],
+      "all4_k": 2,
+      "all4_rate": 0.4,
+      "all4_wilson95": [
+        0.11762077423264783,
+        0.769275718723987
+      ],
+      "finishers": 12,
+      "exited": 7,
+      "dead": 1,
+      "survival": 19,
+      "given": 48700,
+      "n_give": 17,
+      "pre_prize_mean": {
+        "mu": 20671.5,
+        "G": 0.36904524543500317,
+        "S": 13756.2
+      },
+      "pre_prize_G_n_defined": 5,
+      "historic_settled_S_mean": 2681711.1,
+      "goal_pooled": 0.9743589743589743,
+      "rho": 4.237785775741088,
+      "undefined_reason": null,
+      "weighted_giver_margin": 4.783491700889802,
+      "weighted_taker_margin": 1.1287714750171114,
+      "plot_means": {
+        "rho": {
+          "n": 3,
+          "x": 5.9410835696059285,
+          "x_ci95": [
+            3.0627441608669574,
+            10.251095976554456
+          ],
+          "clear": 1.0,
+          "clear_ci95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "finishers": 3.3333333333333335,
+          "finishers_ci95": [
+            2.0,
+            4.0
+          ]
+        },
+        "goal": {
+          "n": 5,
+          "x": 0.9594588744588745,
+          "x_ci95": [
+            0.9059523809523811,
+            0.9963636363636365
+          ],
+          "clear": 0.8,
+          "clear_ci95": [
+            0.37553462976252533,
+            0.9637758913675698
+          ],
+          "finishers": 2.4,
+          "finishers_ci95": [
+            1.2,
+            3.6
+          ]
+        },
+        "given": {
+          "n": 5,
+          "x": 9740.0,
+          "x_ci95": [
+            1600.0,
+            17880.0
+          ],
+          "clear": 0.8,
+          "clear_ci95": [
+            0.37553462976252533,
+            0.9637758913675698
+          ],
+          "finishers": 2.4,
+          "finishers_ci95": [
+            1.2,
+            3.6
+          ]
+        }
+      }
+    },
+    "Opus": {
+      "model_id": 4,
+      "n_games": 5,
+      "clear_k": 3,
+      "clear_rate": 0.6,
+      "clear_wilson95": [
+        0.2307242812760128,
+        0.882379225767352
+      ],
+      "all4_k": 1,
+      "all4_rate": 0.2,
+      "all4_wilson95": [
+        0.03622410863243014,
+        0.6244653702374747
+      ],
+      "finishers": 9,
+      "exited": 6,
+      "dead": 5,
+      "survival": 15,
+      "given": 125458,
+      "n_give": 41,
+      "pre_prize_mean": {
+        "mu": 19008.15,
+        "G": 0.33495993055870743,
+        "S": 13204.8
+      },
+      "pre_prize_G_n_defined": 4,
+      "historic_settled_S_mean": 2014429.7666666668,
+      "goal_pooled": 0.9778761061946902,
+      "rho": 1.8333454804405251,
+      "undefined_reason": null,
+      "weighted_giver_margin": 3.9298758681524233,
+      "weighted_taker_margin": 2.1435544528182073,
+      "plot_means": {
+        "rho": {
+          "n": 4,
+          "x": 2.602890023456802,
+          "x_ci95": [
+            1.6741503267368305,
+            3.4487017249167313
+          ],
+          "clear": 0.5,
+          "clear_ci95": [
+            0.15003898915214947,
+            0.8499610108478506
+          ],
+          "finishers": 1.5,
+          "finishers_ci95": [
+            0.0,
+            3.0
+          ]
+        },
+        "goal": {
+          "n": 5,
+          "x": 0.9708832565284178,
+          "x_ci95": [
+            0.9369354838709677,
+            0.9952380952380953
+          ],
+          "clear": 0.6,
+          "clear_ci95": [
+            0.2307242812760128,
+            0.882379225767352
+          ],
+          "finishers": 1.8,
+          "finishers_ci95": [
+            0.4,
+            3.2
+          ]
+        },
+        "given": {
+          "n": 5,
+          "x": 25091.6,
+          "x_ci95": [
+            6694.0,
+            43931.6
+          ],
+          "clear": 0.6,
+          "clear_ci95": [
+            0.2307242812760128,
+            0.882379225767352
+          ],
+          "finishers": 1.8,
+          "finishers_ci95": [
+            0.4,
+            3.2
+          ]
+        }
+      }
+    },
+    "Luna": {
+      "model_id": 5,
+      "n_games": 5,
+      "clear_k": 3,
+      "clear_rate": 0.6,
+      "clear_wilson95": [
+        0.2307242812760128,
+        0.882379225767352
+      ],
+      "all4_k": 0,
+      "all4_rate": 0.0,
+      "all4_wilson95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "finishers": 4,
+      "exited": 12,
+      "dead": 4,
+      "survival": 16,
+      "given": 60818,
+      "n_give": 25,
+      "pre_prize_mean": {
+        "mu": 22727.4,
+        "G": 0.4429691499783862,
+        "S": 15354.700000000003
+      },
+      "pre_prize_G_n_defined": 5,
+      "historic_settled_S_mean": 349939.1666666666,
+      "goal_pooled": 0.9316770186335404,
+      "rho": 3.171677960557619,
+      "undefined_reason": null,
+      "weighted_giver_margin": 5.2598775691407145,
+      "weighted_taker_margin": 1.6583895447619672,
+      "plot_means": {
+        "rho": {
+          "n": 3,
+          "x": 4.504969384236614,
+          "x_ci95": [
+            2.1301065754379653,
+            8.159208799021807
+          ],
+          "clear": 0.6666666666666666,
+          "clear_ci95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ],
+          "finishers": 0.6666666666666666,
+          "finishers_ci95": [
+            0.0,
+            1.0
+          ]
+        },
+        "goal": {
+          "n": 5,
+          "x": 0.9331799620524667,
+          "x_ci95": [
+            0.9120417422867513,
+            0.9563696172248803
+          ],
+          "clear": 0.6,
+          "clear_ci95": [
+            0.2307242812760128,
+            0.882379225767352
+          ],
+          "finishers": 0.8,
+          "finishers_ci95": [
+            0.2,
+            1.4
+          ]
+        },
+        "given": {
+          "n": 5,
+          "x": 12163.6,
+          "x_ci95": [
+            3163.6,
+            21163.6
+          ],
+          "clear": 0.6,
+          "clear_ci95": [
+            0.2307242812760128,
+            0.882379225767352
+          ],
+          "finishers": 0.8,
+          "finishers_ci95": [
+            0.2,
+            1.4
+          ]
+        }
+      }
+    }
+  },
+  "associations": {
+    "rho__clear": {
+      "pearson_r": -0.24445209159519488,
+      "ci95_paired_seed_bootstrap": [
+        -0.6553833559605472,
+        0.19476869521923795
+      ],
+      "n_games": 18,
+      "n_seed_clusters": 5,
+      "valid_bootstrap_replicates": 9207,
+      "undefined_bootstrap_replicates": 793
+    },
+    "rho__finishers": {
+      "pearson_r": -0.295133810949661,
+      "ci95_paired_seed_bootstrap": [
+        -0.6510904815892682,
+        0.08856494466848497
+      ],
+      "n_games": 18,
+      "n_seed_clusters": 5,
+      "valid_bootstrap_replicates": 10000,
+      "undefined_bootstrap_replicates": 0
+    },
+    "goal__clear": {
+      "pearson_r": 0.686819077055439,
+      "ci95_paired_seed_bootstrap": [
+        0.07548445447552858,
+        0.9219597471479896
+      ],
+      "n_games": 25,
+      "n_seed_clusters": 5,
+      "valid_bootstrap_replicates": 9207,
+      "undefined_bootstrap_replicates": 793
+    },
+    "goal__finishers": {
+      "pearson_r": 0.7758799389228537,
+      "ci95_paired_seed_bootstrap": [
+        0.4140921071942977,
+        0.9274000755174775
+      ],
+      "n_games": 25,
+      "n_seed_clusters": 5,
+      "valid_bootstrap_replicates": 10000,
+      "undefined_bootstrap_replicates": 0
+    },
+    "given__clear": {
+      "pearson_r": 0.0036167747729946875,
+      "ci95_paired_seed_bootstrap": [
+        -0.34085720137002457,
+        0.41903611960611503
+      ],
+      "n_games": 25,
+      "n_seed_clusters": 5,
+      "valid_bootstrap_replicates": 9207,
+      "undefined_bootstrap_replicates": 793
+    },
+    "given__finishers": {
+      "pearson_r": 0.1622391737921313,
+      "ci95_paired_seed_bootstrap": [
+        -0.21085275112078994,
+        0.5652742397767314
+      ],
+      "n_games": 25,
+      "n_seed_clusters": 5,
+      "valid_bootstrap_replicates": 10000,
+      "undefined_bootstrap_replicates": 0
+    }
+  },
+  "totals": {
+    "clear": 19,
+    "all4_completion": 8,
+    "finishers": 56,
+    "exited": 34,
+    "dead": 10,
+    "survival": 90,
+    "given": 383276,
+    "n_give": 130,
+    "rho_defined_games": 18,
+    "negative_giver_margins": 2,
+    "negative_taker_margins": 6
+  },
+  "checks": {
+    "historic_per_game_S_and_end_tokens_match": true,
+    "historic_gifts_match": true,
+    "game_level_goal_numerators_denominators_match": true,
+    "game_level_inverse_rho_match": true,
+    "gift_events_match_result_transfer_ledger": true,
+    "exit_bonus_20000_verified": true,
+    "boundary_cases_pass": true,
+    "current_raw_matches_historic_files": 6,
+    "snapshot_matches_historic_files": 14,
+    "raw_hashes_unchanged_during_computation": true
+  },
+  "analysis_inputs": [
+    {
+      "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/tools/feedback_20261028.py",
+      "sha256": "f9f28e4a03e9c11ef25a078be815f2e4155ce7250b59c09eee3394f97da608d3"
+    },
+    {
+      "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/results/arena_v33.json",
+      "sha256": "a5e66b44fad1b77a8ecf1cbe05c95f57baaa70cd7bc9f4f09b5570abde3673cf"
+    },
+    {
+      "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/tools/rewrite_20261025/an3/game_level.py",
+      "sha256": "066b214bcfc1e20dbcde14cc6e516e79b40fc6042defa9bebbd0500a9606fd28"
+    },
+    {
+      "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/tools/rewrite_20261025/an3/game_level.json",
+      "sha256": "ea6b1ff975b1c98b8f1cacf555873fbea1cf7215469f4aac0acaedced9aa8eb8"
+    },
+    {
+      "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/rubric.md",
+      "sha256": "4069c7e8d3ffffc0c7c81058c30be740575d1cb9b8933baf3311e59714043579"
+    },
+    {
+      "path": "/Users/bagjuhyeon/wt/squid5-e52/squid5/e52_game.py",
+      "sha256": "64770013d1a9b32183ffb1cc9d1c5b3e2bbd7d0fec78df6161c7e9feb2325aec"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/ko/figures/feedback_20261028_behavior.pdf",
+      "sha256": "8dcb22fed9805ab8b12aee88582ddc1f5affec8246ffc808336afee513ce23c7"
+    },
+    {
+      "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/ko/figures/feedback_20261028_behavior.png",
+      "sha256": "c81b00c439d84bd6ca211496db2da4899262df1beca085062ab716e1f038d80a"
+    }
+  ]
+}

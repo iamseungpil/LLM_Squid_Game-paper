@@ -7,8 +7,9 @@
 # Korean builds with XeLaTeX (kotex), English with pdfLaTeX, as the official templates do.
 # CogSci uses biblatex + biber; NatMI uses BibTeX with sn-nature.bst. latexmkrc puts the venue
 # style folders on TEXINPUTS / BSTINPUTS (so Overleaf finds them as well).
-# Output: build/<venue folder>/<lang>_<venue folder>.pdf and dist/<lang>_<venue folder>_<DATE>.pdf
+# Output: dist/<lang>_<venue folder>_<DATE>.pdf and the matching _no_appendix.pdf.
 # (venue folder: cogsci2027 | natmi). DATE defaults to today; set PAPER_DATE to override.
+# PDF export requires Python 3 with PyMuPDF (python3 -m pip install pymupdf).
 set -euo pipefail
 cd "$(dirname "$0")"
 venue="${1:-cogsci}"; shift || true
@@ -26,4 +27,7 @@ for lang in ${@:-ko en}; do
     -jobname="$job" -usepretex="\\def\\paperVenue{$venue}\\def\\paperLang{$lang}" main.tex
   cp "build/$dir/$job.pdf" "dist/${job}_${DATE}.pdf"
   echo "built dist/${job}_${DATE}.pdf"
+  python3 tools/export_no_appendix.py "build/$dir/$job.pdf" "build/$dir/$job.aux" \
+    "dist/${job}_${DATE}_no_appendix.pdf"
+  echo "built dist/${job}_${DATE}_no_appendix.pdf"
 done

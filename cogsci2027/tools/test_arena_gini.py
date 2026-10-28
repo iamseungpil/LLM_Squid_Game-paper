@@ -6,9 +6,9 @@ from arena_gini import game, gini
 
 class FixedCohortTests(unittest.TestCase):
     def test_zero_seat_is_retained(self):
-        self.assertEqual(gini([10, 10, 10, 0]), .25)
+        self.assertEqual(gini([10, 10, 10, 0]), 1/3)
         self.assertEqual(gini([10, 10, 10, 10]), 0)
-        self.assertEqual(gini([10, 0, 0, 0]), .75)
+        self.assertEqual(gini([10, 0, 0, 0]), 1)
 
     def test_total_extinction_is_undefined(self):
         self.assertIsNone(gini([0, 0, 0, 0]))
@@ -50,7 +50,7 @@ class FixedCohortTests(unittest.TestCase):
         out = game(events, result)
         self.assertEqual(out["exit_frozen"], {"c": 10})
         self.assertEqual(out["rounds"][0]["end_tokens"], [5, 10, 10, 0])
-        self.assertEqual(out["rounds"][0]["gini_end"], .35)
+        self.assertAlmostEqual(out["rounds"][0]["gini_end"], .35*4/3)
         self.assertEqual(out["rounds"][0]["after_talk"]["prep"]["tokens"], [5, 13, 10, 10])
         self.assertEqual(out["rounds"][0]["after_talk"]["rescue"]["tokens"], [5, 10, 10, 12])
         self.assertEqual(out["rounds"][0]["after_talk"]["rescue"]["gini"], gini([5, 10, 10, 12]))

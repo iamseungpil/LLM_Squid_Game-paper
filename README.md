@@ -4,6 +4,8 @@
 
 빌드 형식은 CogSci 2027(본문)과 Nature Machine Intelligence(빈 틀) 두 가지이고, 진입 파일은 `main.tex` 하나다. 맨 위 두 줄 `\paperVenue`(cogsci | natmi)와 `\paperLang`(ko | en)로 판을 고른다. 빌드: `bash build.sh [cogsci|natmi] [ko] [en]`(기본 cogsci ko en; 한국어는 XeLaTeX, 영어는 pdfLaTeX; 산출물 `build/<cogsci2027|natmi>/`, PDF `dist/<lang>_<cogsci2027|natmi>_<날짜>.pdf`). Overleaf는 Main document를 `main.tex`로, Compiler를 한국어 XeLaTeX · 영어 pdfLaTeX로 두며, `latexmkrc`가 공식 스타일 폴더를 경로에 올린다. ICML 2027 · ARR · ICLR 판과 그 원고, ditto 초안 · 블라인드 리뷰 기록, `docs/`, 5.2 v6.5 결과(`results/arena_v65`)는 2026-10-20에 지웠으며 git 기록(브랜치 `ARR`, 그 이전 커밋)에 남아 있다. 지난 판 PDF 일부는 `dist/`에 그대로 둔다.
 
+빌드할 때마다 기본 PDF와 같은 이름의 `_no_appendix.pdf`를 함께 만든다. 부록 없는 본은 참고문헌까지 포함하며, 전체 PDF에서 `\label{paper:appendix-start}`가 있는 페이지 앞까지 추출하므로 조판과 인용 번호가 같다. 부록이 없는 원고는 두 파일의 내용이 같다. PDF 추출에는 Python 3의 PyMuPDF가 필요하다(`python3 -m pip install pymupdf`).
+
 ## CogSci 2027 양식 (2026-10-16 준비, 한국어판 원고 2026-10-17)
 
 - 한국어판 원고(2026-10-17): 학위논문 초안(`LLM Squid Game Thesis`, 2026-10-16)의 본문을 옮긴 뒤 실험별 구성(서론 → 관련 연구 → 측정의 틀 → 실험 1 → 실험 2 → 공존 아레나 → 종합 논의)으로 다시 배치했다. 실측 전 자리표시 그림 · 표 4개, 그림과 겹치는 실험 1 · 2 표, 아레나 지표 표 · 설정 표는 뺐다. 문장은 ditto-writer(프로필 juhyeon-ko-academic, writer GPT-6 Astra, 블라인드 리뷰 Fable + GPT-6 Astra) 3라운드로 2,768어절에서 2,166어절로 줄였고, 두 리뷰어 점수 중 큰 값이 가장 낮은 v1을 실었다(멈춤 기준 30%에는 못 미침, 34.1%). 작업 기록은 `build/ditto/ko_20261017/`(CHANGELOG.md, BRIEF.md). 6쪽, References는 5쪽에서 시작한다.

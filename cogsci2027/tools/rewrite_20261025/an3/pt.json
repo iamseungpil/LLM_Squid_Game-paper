@@ -1,0 +1,306 @@
+{
+ "overall": {
+  "solves": 192,
+  "solved": 133,
+  "picked_top": 171,
+  "both": 124,
+  "top_not_truth": 47,
+  "truth_not_top": 9,
+  "by_n": {
+   "4": {
+    "n": 124,
+    "solved": 87,
+    "picked_top": 113
+   },
+   "3": {
+    "n": 47,
+    "solved": 32,
+    "picked_top": 39
+   },
+   "2": {
+    "n": 18,
+    "solved": 14,
+    "picked_top": 16
+   },
+   "1": {
+    "n": 3,
+    "solved": 0,
+    "picked_top": 3
+   }
+  }
+ },
+ "profile": {
+  "ok": {
+   "in": {
+    "n": 56,
+    "n_solves": 126,
+    "acc": 0.778,
+    "acc_on_based": 0.792,
+    "base": 0.751,
+    "etok_med": 85,
+    "gave_share": 0.518
+   },
+   "exited": {
+    "n": 34,
+    "n_solves": 46,
+    "acc": 0.565,
+    "acc_on_based": 0.579,
+    "base": 0.636,
+    "etok_med": 188,
+    "gave_share": 0.294
+   },
+   "dead": {
+    "n": 10,
+    "n_solves": 20,
+    "acc": 0.45,
+    "acc_on_based": 0.421,
+    "base": 0.697,
+    "etok_med": 158,
+    "gave_share": 0.8
+   }
+  },
+  "pt": {
+   "in": {
+    "n": 56,
+    "n_solves": 126,
+    "acc": 0.913,
+    "acc_on_based": 0.908,
+    "base": 0.913,
+    "etok_med": 85,
+    "gave_share": 0.518
+   },
+   "exited": {
+    "n": 34,
+    "n_solves": 46,
+    "acc": 0.891,
+    "acc_on_based": 0.868,
+    "base": 0.904,
+    "etok_med": 188,
+    "gave_share": 0.294
+   },
+   "dead": {
+    "n": 10,
+    "n_solves": 20,
+    "acc": 0.75,
+    "acc_on_based": 0.737,
+    "base": 0.961,
+    "etok_med": 158,
+    "gave_share": 0.8
+   }
+  }
+ },
+ "joint": {
+  "ok": {
+   "both": {
+    "exited": 4,
+    "in": 33,
+    "n": 37
+   },
+   "one": {
+    "exited": 13,
+    "in": 20,
+    "dead": 7,
+    "n": 40
+   },
+   "neither": {
+    "exited": 6,
+    "in": 2,
+    "dead": 2,
+    "n": 10
+   },
+   "no_solve": {
+    "exited": 11,
+    "in": 1,
+    "dead": 1,
+    "n": 13
+   }
+  },
+  "pt": {
+   "both": {
+    "exited": 5,
+    "in": 33,
+    "n": 38
+   },
+   "one": {
+    "in": 19,
+    "exited": 14,
+    "dead": 8,
+    "n": 41
+   },
+   "neither": {
+    "in": 3,
+    "exited": 4,
+    "dead": 1,
+    "n": 8
+   },
+   "no_solve": {
+    "exited": 11,
+    "in": 1,
+    "dead": 1,
+    "n": 13
+   }
+  }
+ },
+ "median_early_tok": 116.6,
+ "models": {
+  "Luna": {
+   "threshold": 50,
+   "solves": 37,
+   "solved": 24,
+   "picked_top": 30,
+   "acc": 0.649,
+   "top_rate": 0.811,
+   "picked_share": 0.628,
+   "acc_minus_base": -10.0,
+   "top_minus_base": -12.4,
+   "early_tok": 218,
+   "exit_above_line": [
+    6,
+    152
+   ],
+   "gave_share": 0.45
+  },
+  "Opus": {
+   "threshold": 35,
+   "solves": 37,
+   "solved": 25,
+   "picked_top": 31,
+   "acc": 0.676,
+   "top_rate": 0.838,
+   "picked_share": 0.638,
+   "acc_minus_base": -6.4,
+   "top_minus_base": -11.3,
+   "early_tok": 149,
+   "exit_above_line": [
+    3,
+    211
+   ],
+   "gave_share": 0.65
+  },
+  "Fable": {
+   "threshold": 30,
+   "solves": 40,
+   "solved": 30,
+   "picked_top": 34,
+   "acc": 0.75,
+   "top_rate": 0.85,
+   "picked_share": 0.644,
+   "acc_minus_base": 7.9,
+   "top_minus_base": -10.2,
+   "early_tok": 111,
+   "exit_above_line": [
+    2,
+    252
+   ],
+   "gave_share": 0.5
+  },
+  "Astra": {
+   "threshold": 27,
+   "solves": 39,
+   "solved": 27,
+   "picked_top": 39,
+   "acc": 0.692,
+   "top_rate": 1.0,
+   "picked_share": 0.704,
+   "acc_minus_base": 0.2,
+   "top_minus_base": 10.9,
+   "early_tok": 12,
+   "exit_above_line": [
+    2,
+    126
+   ],
+   "gave_share": 0.35
+  },
+  "Sol": {
+   "threshold": 13,
+   "solves": 39,
+   "solved": 27,
+   "picked_top": 37,
+   "acc": 0.692,
+   "top_rate": 0.949,
+   "picked_share": 0.682,
+   "acc_minus_base": 0.9,
+   "top_minus_base": 4.5,
+   "early_tok": 99,
+   "exit_above_line": [
+    0,
+    215
+   ],
+   "gave_share": 0.4
+  }
+ },
+ "spearman": {
+  "acc_minus_base": -0.7,
+  "top_minus_base": -0.9
+ },
+ "bands": {
+  "ok": {
+   "4 이상": {
+    "n": 82,
+    "k": 59,
+    "p": 0.7195121951219512,
+    "nb": 80,
+    "p_b": 0.7375,
+    "base": 0.734375
+   },
+   "2–4": {
+    "n": 56,
+    "k": 46,
+    "p": 0.8214285714285714,
+    "nb": 54,
+    "p_b": 0.8148148148148148,
+    "base": 0.8194444444444444
+   },
+   "1–2": {
+    "n": 47,
+    "k": 24,
+    "p": 0.5106382978723404,
+    "nb": 36,
+    "p_b": 0.5,
+    "base": 0.5138888888888888
+   },
+   "1 미만": {
+    "n": 7,
+    "k": 4,
+    "p": 0.5714285714285714,
+    "nb": 7,
+    "p_b": 0.5714285714285714,
+    "base": 0.8571428571428571
+   }
+  },
+  "pt": {
+   "4 이상": {
+    "n": 82,
+    "k": 72,
+    "p": 0.8780487804878049,
+    "nb": 80,
+    "p_b": 0.875,
+    "base": 0.896875
+   },
+   "2–4": {
+    "n": 56,
+    "k": 53,
+    "p": 0.9464285714285714,
+    "nb": 54,
+    "p_b": 0.9444444444444444,
+    "base": 0.9120370370370371
+   },
+   "1–2": {
+    "n": 47,
+    "k": 41,
+    "p": 0.8723404255319149,
+    "nb": 36,
+    "p_b": 0.8333333333333334,
+    "base": 0.949074074074074
+   },
+   "1 미만": {
+    "n": 7,
+    "k": 5,
+    "p": 0.7142857142857143,
+    "nb": 7,
+    "p_b": 0.7142857142857143,
+    "base": 1.0
+   }
+  }
+ }
+}

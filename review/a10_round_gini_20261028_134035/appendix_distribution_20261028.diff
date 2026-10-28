@@ -1,0 +1,22 @@
+--- before/cogsci2027/ko/sections/appendix_distribution_20261028.tex
++++ after/cogsci2027/ko/sections/appendix_distribution_20261028.tex
+@@ -1,7 +1,7 @@
+ {\color{blue}
+ \subsection*{P. 상금 제외 평균 토큰과 지니 계수}\label{app:preprize-distribution}
+ 
+-최종 상금 2천만 토큰을 제외한 네 자리의 토큰 잔액으로 판별 평균과 지니 계수를 계산했으며, EXIT한 자리에는 20,000토큰의 보너스를 포함하고 완주한 자리에는 상금 지급 전 잔액을 사용했다. EXIT로 자원을 보존할 수 있으므로, 평균이나 지니 계수가 낮다는 사실만으로 완주가 많거나 완주를 선호한다고 해석할 수는 없다.
++최종 상금 2천만 토큰을 제외한 네 자리의 토큰 잔액으로 라운드별 평균과 지니 계수를 계산했으며, EXIT한 자리에는 20,000토큰의 보너스를 포함하고 완주한 자리에는 상금 지급 전 잔액을 사용했다. EXIT로 자원을 보존할 수 있으므로, 평균이나 지니 계수가 낮다는 사실만으로 완주가 많거나 완주를 선호한다고 해석할 수는 없다.
+ 
+ \begin{figure*}[h]
+ \centering
+@@ -12,8 +12,8 @@
+ 
+ \begin{figure*}[h]
+ \centering
+-\includegraphics[width=.85\textwidth]{cogsci2027/ko/figures/appendix_preprize_gini.pdf}
+-\caption{모델별 지니 계수. 작은 점과 시드 마커는 판별 값을, 큰 검정 점과 가로선은 모델별 평균과 판 단위 부트스트랩 10,000회의 95\% 구간을 나타내며, 네 자리에서 계산한 지니 계수는 별도 보정 없이 0--0.75 범위를 갖는다. Opus의 시드 4103은 네 자리 잔액이 모두 0이어서 지니 계수가 정의되지 않으므로 0으로 대체하지 않고 제외했으며, Opus는 4판, 나머지 모델은 각각 5판으로 요약했다.}
++\includegraphics[width=\textwidth]{cogsci2027/ko/figures/appendix_preprize_gini.pdf}
++\caption{모델별·판별 지니 계수의 라운드별 변화. 색 실선은 각 시드의 판별 값이고 검정 점선은 해당 모델의 판별 지니 계수 평균이다. 라운드 0은 초기 잔액, 1--8은 라운드 종료 시 잔액이며, 네 자리를 고정해 꺼짐은 0, EXIT는 보너스를 포함한 잔액으로 유지하고 최종 상금은 제외했다. 조기 종료 판은 마지막 잔액을 8라운드까지 유지했다. 지니 계수는 별도 보정 없이 0--0.75 범위이며, Opus 시드 4103의 7·8라운드는 네 자리 잔액이 모두 0이어서 미정으로 남겼다. 따라서 해당 두 시점의 Opus 평균은 4판, 나머지는 모두 5판 기준이다.}
+ \label{fig:preprize-gini}
+ \end{figure*}
+ \FloatBarrier

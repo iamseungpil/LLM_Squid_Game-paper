@@ -11,6 +11,7 @@ import random
 import statistics
 import sys
 from collections import defaultdict
+from inequality import sen as normalized_sen
 
 HERE = pathlib.Path(__file__).resolve().parents[1]
 MODELS = {"astra": "GPT-6 Astra", "sol": "GPT-6 Sol",
@@ -88,7 +89,7 @@ def summarize(events, result):
     end = [0 if v["status"] == "dead" else v["final"] +
            (final["prize_each"] if a in winners else 0) for a, v in agents.items()]
     assert len(end) == 4
-    sen = mean(end) - sum(abs(a-b) for a in end for b in end) / 32
+    sen = normalized_sen(end)
     return {"seed": result["seed"], "session_id": result["session_id"],
             "points": points, "asks": asks, "solves": solves, "sen": sen, "end_tokens": end,
             "finishers": len(winners), "dead": sum(v["status"] == "dead" for v in agents.values()),

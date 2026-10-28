@@ -1,0 +1,142 @@
+{
+  "Fable": {
+    "rho": 0.272,
+    "solves": 40,
+    "tok_lo": 384,
+    "n_lo": 8,
+    "tok_hi": 906,
+    "n_hi": 32,
+    "tok_ratio": 0.42,
+    "tok_marg_spear": 0.33,
+    "exit_below": [
+      1,
+      18
+    ],
+    "exit_above": [
+      2,
+      252
+    ],
+    "gave_share": 0.5,
+    "n_give": 36,
+    "tokens_given": 77300,
+    "given_per_start": 0.119,
+    "sen": 4014572.5,
+    "finishers": 17,
+    "crisis": "7/9",
+    "early_tok": 111,
+    "threshold": 30,
+    "sen_definition": "G=sum_ij|xi-xj|/(2*(n-1)*sum(x)), n=4 fixed original seats; S=mean(x)*(1-G); all-zero G=null and S=0."
+  },
+  "Astra": {
+    "rho": 0.37,
+    "solves": 39,
+    "tok_lo": 767,
+    "n_lo": 8,
+    "tok_hi": 795,
+    "n_hi": 31,
+    "tok_ratio": 0.96,
+    "tok_marg_spear": -0.05,
+    "exit_below": [
+      3,
+      3
+    ],
+    "exit_above": [
+      2,
+      126
+    ],
+    "gave_share": 0.35,
+    "n_give": 11,
+    "tokens_given": 71000,
+    "given_per_start": 0.109,
+    "sen": 3351918.6333333333,
+    "finishers": 14,
+    "crisis": "6/10",
+    "early_tok": 12,
+    "threshold": 27,
+    "sen_definition": "G=sum_ij|xi-xj|/(2*(n-1)*sum(x)), n=4 fixed original seats; S=mean(x)*(1-G); all-zero G=null and S=0."
+  },
+  "Sol": {
+    "rho": 0.236,
+    "solves": 39,
+    "tok_lo": 1897,
+    "n_lo": 11,
+    "tok_hi": 1846,
+    "n_hi": 28,
+    "tok_ratio": 1.03,
+    "tok_marg_spear": -0.09,
+    "exit_below": [
+      6,
+      19
+    ],
+    "exit_above": [
+      0,
+      215
+    ],
+    "gave_share": 0.4,
+    "n_give": 17,
+    "tokens_given": 48700,
+    "given_per_start": 0.075,
+    "sen": 2681711.1,
+    "finishers": 12,
+    "crisis": "6/12",
+    "early_tok": 99,
+    "threshold": 13,
+    "sen_definition": "G=sum_ij|xi-xj|/(2*(n-1)*sum(x)), n=4 fixed original seats; S=mean(x)*(1-G); all-zero G=null and S=0."
+  },
+  "Opus": {
+    "rho": 0.545,
+    "solves": 37,
+    "tok_lo": 548,
+    "n_lo": 8,
+    "tok_hi": 658,
+    "n_hi": 29,
+    "tok_ratio": 0.83,
+    "tok_marg_spear": 0.21,
+    "exit_below": [
+      2,
+      15
+    ],
+    "exit_above": [
+      3,
+      211
+    ],
+    "gave_share": 0.65,
+    "n_give": 41,
+    "tokens_given": 125458,
+    "given_per_start": 0.193,
+    "sen": 2014429.7666666668,
+    "finishers": 9,
+    "crisis": "9/13",
+    "early_tok": 149,
+    "threshold": 35,
+    "sen_definition": "G=sum_ij|xi-xj|/(2*(n-1)*sum(x)), n=4 fixed original seats; S=mean(x)*(1-G); all-zero G=null and S=0."
+  },
+  "Luna": {
+    "rho": 0.315,
+    "solves": 37,
+    "tok_lo": 1579,
+    "n_lo": 13,
+    "tok_hi": 902,
+    "n_hi": 24,
+    "tok_ratio": 1.75,
+    "tok_marg_spear": -0.07,
+    "exit_below": [
+      5,
+      9
+    ],
+    "exit_above": [
+      6,
+      152
+    ],
+    "gave_share": 0.45,
+    "n_give": 25,
+    "tokens_given": 60818,
+    "given_per_start": 0.094,
+    "sen": 349939.1666666666,
+    "finishers": 4,
+    "crisis": "4/11",
+    "early_tok": 218,
+    "threshold": 50,
+    "sen_definition": "G=sum_ij|xi-xj|/(2*(n-1)*sum(x)), n=4 fixed original seats; S=mean(x)*(1-G); all-zero G=null and S=0."
+  }
+}

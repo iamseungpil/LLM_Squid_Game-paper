@@ -10,6 +10,13 @@ This project's prose follows the principles validated for the LLM Addiction Neur
 - Language switch: `\newcommand{\paperLang}{en|ko}` in `main.tex`. Both EN and KO must build.
 - Acceptable cosmetic warnings: `fontspec lnum`, `unicode-math overbracket`. Do not silence.
 
+## CogSci 2027 page rule (2026-10-26, overrides the KDD-UC line above for `cogsci2027/`)
+
+- **Everything except the reference list and the acknowledgments must fit inside 6 pages.** The 6 pages are the whole submission: body, every figure and table, and every appendix section. There is no appendix outside the limit; "move it to the appendix" never buys space.
+- **All equations stay in the body.** Do not relocate a formula to an appendix to shorten a section; shorten the prose around it instead.
+- An appendix (`cogsci2027/ko/sections/05_appendix.tex`) may exist only as a section that sits inside the 6 pages, before the references. If the build pushes any non-reference, non-acknowledgment content past page 6, cut text or figures until it fits.
+- Verify with `bash build.sh cogsci ko` (and `en`) and read the page count of `dist/<lang>_cogsci2027_<DATE>.pdf` before committing.
+
 ## Page budget (target)
 
 - Page 1: title + authors + abstract (column 1) → §1 entire (column 2). §1 ends on page 1.

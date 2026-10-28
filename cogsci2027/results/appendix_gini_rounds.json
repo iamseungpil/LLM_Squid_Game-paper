@@ -1,0 +1,1398 @@
+{
+  "models": {
+    "Fable": {
+      "games": [
+        {
+          "seed": 4101,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.4840277915764235,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.47041677630913104,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.47928804245806245,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.46138367921844536,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.43595579016130903,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.4089195421903371,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.4710951526032316,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.2685677972833426,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4102,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.44938362667629217,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.451336850740831,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.4865261769083634,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.4921873436968569,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.5482071074793001,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.7204526779103919,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.5953446732318711,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.6157471714689366,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4103,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.3686215997873757,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.37123023279826534,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.37366161898227196,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.37590517967265175,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.46956252856873976,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.48565355275563554,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.5725859426319246,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.47717516543799005,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4104,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.29286349232199443,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.33218015035519693,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.3453673103054908,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.3007880167113889,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.30083089579264843,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.3033701447611541,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.30506755595283114,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.3680371352785146,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4105,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.3034243457694885,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.3031210213000241,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.3040146455447002,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.3048588727341477,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.30589124390734307,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.3060557222777963,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.30669377033355144,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.3073184118478827,
+              "carried_after_session": false
+            }
+          ]
+        }
+      ],
+      "mean": [
+        0.43589743589743596,
+        0.37966417122631485,
+        0.38565700630068966,
+        0.3977715588397778,
+        0.38702461840669816,
+        0.41208951318186804,
+        0.444890327979063,
+        0.45015741895068195,
+        0.4073691362633333
+      ],
+      "n_defined": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "Astra": {
+      "games": [
+        {
+          "seed": 4101,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.478684437625851,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.4519909492693861,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.28215785863214415,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.2824132766728533,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.4209326613086319,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.11487689134841411,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.34878696866367076,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.11445720218458381,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4102,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.4370260773071944,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.43716082881105084,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.3981606337365913,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.3983142466251447,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.3984667362154609,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.23696816004508311,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.23710342506101154,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.23722320451292414,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4103,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.4361607933415973,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.43629516100461335,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.4364252696456086,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.43656059823724497,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.5319050162800163,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.3403235934639999,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.3955796934443587,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.19442126979815422,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4104,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.4366469181837559,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.35661206145787644,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.3568389521683552,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.3569751684385319,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.35711171575413303,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.3572485984164733,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.3573981005522539,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.3575349754510726,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4105,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.43679117357001973,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.43693336107921193,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.39063802704852824,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.3907825328456232,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.390920237583401,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.3910702451954937,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.31396134839763373,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.31414408737660154,
+              "carried_after_session": false
+            }
+          ]
+        }
+      ],
+      "mean": [
+        0.43589743589743596,
+        0.44506188000568364,
+        0.4237984723244278,
+        0.3728441482462455,
+        0.3730091645638796,
+        0.4198672734283286,
+        0.2880974976938928,
+        0.33056590722378576,
+        0.24355614786466723
+      ],
+      "n_defined": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "Sol": {
+      "games": [
+        {
+          "seed": 4101,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.5887806116992835,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.47432599992914587,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.22097829069057376,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.21786882506028699,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.2820427236315087,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.1240892000518605,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.30332323126763505,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.08578459326538583,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4102,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.44666625007811034,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.4545387661366819,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.5800967413264898,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.5824662683761831,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.6081269987169913,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.520804435491977,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.6722371470712178,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.6755532610566167,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4103,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.43947373197565726,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.4440511430973003,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.45343648746941745,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.4619449723739184,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.6008826253942151,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.378198375455978,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.47088499948285967,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.23449294078110192,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4104,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.4431473937114802,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.3647403507282069,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.3695971520785752,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.37374874197842156,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.3753432030343694,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.37998045655256524,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.38278461515676604,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.38674150519359995,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4105,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.4484985419321549,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.45305181007448836,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.4602903273904616,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.4705506538458428,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.3824206166589968,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.38373193594763666,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.45492389278022116,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.4626539268783115,
+              "carried_after_session": false
+            }
+          ]
+        }
+      ],
+      "mean": [
+        0.43589743589743596,
+        0.47331330587933723,
+        0.43814161399316465,
+        0.4168797997911035,
+        0.4213158923269306,
+        0.44976323348721625,
+        0.3573608807000035,
+        0.4568307771517399,
+        0.36904524543500317
+      ],
+      "n_defined": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "Opus": {
+      "games": [
+        {
+          "seed": 4101,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.450488785893133,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.5297034497452883,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.16917071942332815,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.1747393925555228,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.2622277336302745,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.029671736569877604,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.15434891045648239,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.15434891045648239,
+              "carried_after_session": true
+            }
+          ]
+        },
+        {
+          "seed": 4102,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.2956111715632934,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.2964568105860935,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.33027191465536976,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.3410269528290546,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.3475043966994408,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.364719900154218,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.38169357201227316,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.5309745776193961,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4103,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.3802612906918852,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.3837672265375028,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.435871609607696,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.47986276699566366,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.6560415668644286,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.7611678422290066,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": null,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": null,
+              "carried_after_session": true
+            }
+          ]
+        },
+        {
+          "seed": 4104,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.44472154246613776,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.45217145074514165,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.4701142401795254,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.3360517445568006,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.3420623501199041,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.3466571337072041,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.35377317516249523,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.3383861714200984,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4105,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.30230137409715496,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.301547263272375,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.3042036871226209,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.30698754252112787,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.3100842050597225,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.3100272779913352,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.31342132207526263,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.31613006273885275,
+              "carried_after_session": false
+            }
+          ]
+        }
+      ],
+      "mean": [
+        0.43589743589743596,
+        0.37467683294232085,
+        0.3927292401772803,
+        0.3419264341977081,
+        0.3277336798916339,
+        0.38358405047475413,
+        0.3624487781303283,
+        0.30080924492662836,
+        0.33495993055870743
+      ],
+      "n_defined": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        4
+      ]
+    },
+    "Luna": {
+      "games": [
+        {
+          "seed": 4101,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.49218226490953765,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.5240919618143818,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.331756100942873,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.09489188736171639,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.09628921802834846,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.12079615040365818,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.43642927771517925,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.43642927771517925,
+              "carried_after_session": true
+            }
+          ]
+        },
+        {
+          "seed": 4102,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.3671722299617745,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.36057422969187675,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.4045334006819043,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.26404522443271133,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.2746319485255338,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.3803938499916049,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.20423265965994294,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.05357577747677489,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4103,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.4503540216810303,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.467077417917665,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.486036447239409,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.35232800154728605,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.18887941405319114,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.31194488418083277,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.24614458349460286,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.24614458349460286,
+              "carried_after_session": true
+            }
+          ]
+        },
+        {
+          "seed": 4104,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.6211032191950245,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.7429771987581718,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.5053442372113406,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.5042011097270978,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.5009801089865789,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.499636448926938,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.4990933459476506,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.6113240931878502,
+              "carried_after_session": false
+            }
+          ]
+        },
+        {
+          "seed": 4105,
+          "rounds": [
+            {
+              "round": 0,
+              "gini": 0.4358974358974359,
+              "carried_after_session": false
+            },
+            {
+              "round": 1,
+              "gini": 0.37268766630938477,
+              "carried_after_session": false
+            },
+            {
+              "round": 2,
+              "gini": 0.3748947879572677,
+              "carried_after_session": false
+            },
+            {
+              "round": 3,
+              "gini": 0.4115120844474892,
+              "carried_after_session": false
+            },
+            {
+              "round": 4,
+              "gini": 0.27902071493704467,
+              "carried_after_session": false
+            },
+            {
+              "round": 5,
+              "gini": 0.18292986957248936,
+              "carried_after_session": false
+            },
+            {
+              "round": 6,
+              "gini": 0.3693080403470176,
+              "carried_after_session": false
+            },
+            {
+              "round": 7,
+              "gini": 0.8552866059515174,
+              "carried_after_session": false
+            },
+            {
+              "round": 8,
+              "gini": 0.8673720180175242,
+              "carried_after_session": false
+            }
+          ]
+        }
+      ],
+      "mean": [
+        0.43589743589743596,
+        0.46069988041135035,
+        0.4939231192278727,
+        0.4278364541046032,
+        0.29889738760117124,
+        0.2487421118332283,
+        0.3364158747700102,
+        0.44823729455377864,
+        0.4429691499783862
+      ],
+      "n_defined": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    }
+  },
+  "definitions": {
+    "balance": "Four original seats; round 0 starts, rounds 1-8 after round charges. EXIT bonus retained; shutdown zero; completion prize excluded.",
+    "early_end": "Terminal balances carried through round 8, matching Figure 22's time grid.",
+    "gini": "Pairwise absolute differences / (2 * 3 * sum balances); finite-population normalization n/(n-1), n=4. All-zero undefined, not zero.",
+    "mean": "Arithmetic mean of defined per-game Ginis, not Gini of pooled seats."
+  },
+  "checks": {
+    "raw_round_vectors_matched": 225,
+    "all_25_endpoints_match_previous_A10": true
+  },
+  "input_sha256": {
+    "arena_v33_round_dynamics.json": "db704b30c3e61b500621e940d833e656d78e713b5754efbaa59b5c70a8248a12",
+    "raw_case_index.json": "f44c98ecd5844c969201a22f37406e310f26cf4c9a3ce5cdbcdc80364386f6f2"
+  }
+}

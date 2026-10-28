@@ -24,9 +24,7 @@ SLUGS = {"fable": "Fable 5.1", "astra": "GPT-6 Astra", "sol": "GPT-6 Sol",
 FIG = HERE / "ko/figures"
 
 
-def sen(values):
-    assert len(values) == 4 and min(values) >= 0
-    return sum(values) / 4 - sum(abs(a - b) for a in values for b in values) / 32
+from inequality import sen
 
 
 def extract():
@@ -107,7 +105,7 @@ def extract():
             expected = next(g["sen"] for g in manifest["models"][model]["per_game"] if g["seed"] == result["seed"])
             assert abs(sen(paid) - expected) < 1e-8
             games[model][result["seed"]] = {"seed": result["seed"], "session_id": sid, "file": str(p.with_name("events.jsonl")),
-                                          "rounds": rounds, "settled_tokens": paid, "settled_sen": sen(paid),
+                                          "rounds": rounds, "finishers": len(result["final"]["winner"]), "settled_tokens": paid, "settled_sen": sen(paid),
                                           "gifts": gifts, "exits": exits, "exit_opportunities": opportunities}
     data = {}
     penalties = [6000, 8000, 12000, 24000]
@@ -159,7 +157,7 @@ def save(fig, name):
     plt.close(fig)
 
 
-def plot(data):
+def plot(data, sen_only=False):
     plt.rcParams.update({"font.family": "AppleGothic", "font.size": 9, "axes.spines.top": False,
                          "axes.spines.right": False, "pdf.fonttype": 42, "axes.unicode_minus": False})
     for name, key, logarithmic in (("arena_sen_rounds", "sen_before_prize", False),
@@ -180,6 +178,9 @@ def plot(data):
         ax.grid(axis="y", alpha=.18)
         ax.legend(ncol=3, frameon=False, fontsize=8, loc="upper center", bbox_to_anchor=(.5, 1.27))
         save(fig, name)
+
+    if sen_only:
+        return
 
     fig, ax = plt.subplots(figsize=(3.4, 2.35))
     for i, (model, v) in enumerate(data.items()):

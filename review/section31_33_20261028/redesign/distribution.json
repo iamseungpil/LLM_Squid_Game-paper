@@ -1,0 +1,314 @@
+{
+  "mu": {
+    "Fable": {
+      "n": 5,
+      "mean": 19359.8,
+      "ci95": [
+        11732.0,
+        27915.55
+      ],
+      "per_game": [
+        {
+          "seed": 4101,
+          "value": 15736.25
+        },
+        {
+          "seed": 4102,
+          "value": 7019.25
+        },
+        {
+          "seed": 4103,
+          "value": 16345.5
+        },
+        {
+          "seed": 4104,
+          "value": 21866.0
+        },
+        {
+          "seed": 4105,
+          "value": 35832.0
+        }
+      ]
+    },
+    "Astra": {
+      "n": 5,
+      "mean": 23737.55,
+      "ci95": [
+        21007.1,
+        26468.0
+      ],
+      "per_game": [
+        {
+          "seed": 4101,
+          "value": 27129.5
+        },
+        {
+          "seed": 4102,
+          "value": 19795.0
+        },
+        {
+          "seed": 4103,
+          "value": 25770.5
+        },
+        {
+          "seed": 4104,
+          "value": 26155.25
+        },
+        {
+          "seed": 4105,
+          "value": 19837.5
+        }
+      ]
+    },
+    "Sol": {
+      "n": 5,
+      "mean": 20671.5,
+      "ci95": [
+        16219.8,
+        23352.75
+      ],
+      "per_game": [
+        {
+          "seed": 4101,
+          "value": 24111.75
+        },
+        {
+          "seed": 4102,
+          "value": 12106.25
+        },
+        {
+          "seed": 4103,
+          "value": 22069.25
+        },
+        {
+          "seed": 4104,
+          "value": 22359.25
+        },
+        {
+          "seed": 4105,
+          "value": 22711.0
+        }
+      ]
+    },
+    "Opus": {
+      "n": 5,
+      "mean": 19008.15,
+      "ci95": [
+        8769.64125,
+        29028.5
+      ],
+      "per_game": [
+        {
+          "seed": 4101,
+          "value": 29236.25
+        },
+        {
+          "seed": 4102,
+          "value": 15714.5
+        },
+        {
+          "seed": 4103,
+          "value": 0.0
+        },
+        {
+          "seed": 4104,
+          "value": 14612.25
+        },
+        {
+          "seed": 4105,
+          "value": 35477.75
+        }
+      ]
+    },
+    "Luna": {
+      "n": 5,
+      "mean": 22727.4,
+      "ci95": [
+        13422.6,
+        32056.55
+      ],
+      "per_game": [
+        {
+          "seed": 4101,
+          "value": 21743.5
+        },
+        {
+          "seed": 4102,
+          "value": 30453.75
+        },
+        {
+          "seed": 4103,
+          "value": 38755.0
+        },
+        {
+          "seed": 4104,
+          "value": 13564.0
+        },
+        {
+          "seed": 4105,
+          "value": 9120.75
+        }
+      ]
+    }
+  },
+  "G": {
+    "Fable": {
+      "n": 5,
+      "mean": 0.3055268521975,
+      "ci95": [
+        0.22797143303114478,
+        0.3947602637539024
+      ],
+      "per_game": [
+        {
+          "seed": 4101,
+          "value": 0.20142584796250695
+        },
+        {
+          "seed": 4102,
+          "value": 0.4618103786017025
+        },
+        {
+          "seed": 4103,
+          "value": 0.3578813740784926
+        },
+        {
+          "seed": 4104,
+          "value": 0.2760278514588859
+        },
+        {
+          "seed": 4105,
+          "value": 0.23048880888591203
+        }
+      ]
+    },
+    "Astra": {
+      "n": 5,
+      "mean": 0.18266711089850046,
+      "ci95": [
+        0.12779054455927608,
+        0.23708719952524088
+      ],
+      "per_game": [
+        {
+          "seed": 4101,
+          "value": 0.08584290163843786
+        },
+        {
+          "seed": 4102,
+          "value": 0.1779174033846931
+        },
+        {
+          "seed": 4103,
+          "value": 0.14581595234861566
+        },
+        {
+          "seed": 4104,
+          "value": 0.26815123158830445
+        },
+        {
+          "seed": 4105,
+          "value": 0.23560806553245117
+        }
+      ]
+    },
+    "Sol": {
+      "n": 5,
+      "mean": 0.27678393407625246,
+      "ci95": [
+        0.1540944859929863,
+        0.4085709976243896
+      ],
+      "per_game": [
+        {
+          "seed": 4101,
+          "value": 0.06433844494903937
+        },
+        {
+          "seed": 4102,
+          "value": 0.5066649457924626
+        },
+        {
+          "seed": 4103,
+          "value": 0.17586970558582643
+        },
+        {
+          "seed": 4104,
+          "value": 0.2900561288952
+        },
+        {
+          "seed": 4105,
+          "value": 0.3469904451587337
+        }
+      ]
+    },
+    "Opus": {
+      "n": 4,
+      "mean": 0.2512199479190306,
+      "ci95": [
+        0.15026866927303978,
+        0.3579475866744452
+      ],
+      "per_game": [
+        {
+          "seed": 4101,
+          "value": 0.1157616828423618
+        },
+        {
+          "seed": 4102,
+          "value": 0.39823093321454706
+        },
+        {
+          "seed": 4103,
+          "value": null
+        },
+        {
+          "seed": 4104,
+          "value": 0.2537896285650738
+        },
+        {
+          "seed": 4105,
+          "value": 0.23709754705413957
+        }
+      ]
+    },
+    "Luna": {
+      "n": 5,
+      "mean": 0.33222686248378974,
+      "ci95": [
+        0.15503788317910247,
+        0.5189377096102538
+      ],
+      "per_game": [
+        {
+          "seed": 4101,
+          "value": 0.32732195828638444
+        },
+        {
+          "seed": 4102,
+          "value": 0.040181833107581166
+        },
+        {
+          "seed": 4103,
+          "value": 0.18460843762095214
+        },
+        {
+          "seed": 4104,
+          "value": 0.4584930698908876
+        },
+        {
+          "seed": 4105,
+          "value": 0.6505290135131431
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "cohort": "25 frozen v33 games, seeds4101–4105",
+    "balance": "fixed four seats: dead0, EXIT raw final including20k exit bonus, finishers raw final before20m end-pool prize",
+    "mean": "mean of four fixed seats, then arithmetic mean over all5 games; all-zero game retained",
+    "Gini": "sum_ij abs(bi-bj)/(2*4*sum(b)), no n/(n-1) correction. All-zero = NA; Opus n4, others n5. Model mean of game Ginis, not pooled seats.",
+    "CI": "within-model nonparametric game bootstrap10000 draws, percentile95; Gini conditional on defined games; five or four observed games only."
+  },
+  "input_sha256": "9eaf0bf5ca099ae24c61fba19ef31c54f9638bcbc8570241b8245499e2ac535d"
+}

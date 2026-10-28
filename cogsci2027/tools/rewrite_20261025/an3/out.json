@@ -1,680 +1,681 @@
 {
- "a": {
-  "give": {
-   "4 이상": {
-    "n": 1258,
-    "k": 70,
-    "p": 0.05564387917329094
-   },
-   "2–4": {
-    "n": 764,
-    "k": 36,
-    "p": 0.04712041884816754
-   },
-   "1–2": {
-    "n": 614,
-    "k": 5,
-    "p": 0.008143322475570033
-   },
-   "1 미만": {
-    "n": 262,
-    "k": 9,
-    "p": 0.03435114503816794
-   }
+  "a": {
+    "give": {
+      "4 이상": {
+        "n": 1258,
+        "k": 70,
+        "p": 0.05564387917329094
+      },
+      "2–4": {
+        "n": 764,
+        "k": 36,
+        "p": 0.04712041884816754
+      },
+      "1–2": {
+        "n": 614,
+        "k": 5,
+        "p": 0.008143322475570033
+      },
+      "1 미만": {
+        "n": 262,
+        "k": 9,
+        "p": 0.03435114503816794
+      }
+    },
+    "exit": {
+      "4 이상": {
+        "n": 450,
+        "k": 0,
+        "p": 0.0
+      },
+      "2–4": {
+        "n": 281,
+        "k": 1,
+        "p": 0.0035587188612099642
+      },
+      "1–2": {
+        "n": 225,
+        "k": 12,
+        "p": 0.05333333333333334
+      },
+      "1 미만": {
+        "n": 64,
+        "k": 17,
+        "p": 0.265625
+      }
+    },
+    "acc": {
+      "4 이상": {
+        "n": 82,
+        "k": 59,
+        "p": 0.7195121951219512,
+        "nb": 80,
+        "p_b": 0.7375,
+        "base": 0.734375
+      },
+      "2–4": {
+        "n": 56,
+        "k": 46,
+        "p": 0.8214285714285714,
+        "nb": 54,
+        "p_b": 0.8148148148148148,
+        "base": 0.8194444444444444
+      },
+      "1–2": {
+        "n": 47,
+        "k": 24,
+        "p": 0.5106382978723404,
+        "nb": 36,
+        "p_b": 0.5,
+        "base": 0.5138888888888888
+      },
+      "1 미만": {
+        "n": 7,
+        "k": 4,
+        "p": 0.5714285714285714,
+        "nb": 7,
+        "p_b": 0.5714285714285714,
+        "base": 0.8571428571428571
+      }
+    },
+    "n_calls": 2898,
+    "n_exit_calls": 1020
   },
-  "exit": {
-   "4 이상": {
-    "n": 450,
-    "k": 0,
-    "p": 0.0
-   },
-   "2–4": {
-    "n": 281,
-    "k": 1,
-    "p": 0.0035587188612099642
-   },
-   "1–2": {
-    "n": 225,
-    "k": 12,
-    "p": 0.05333333333333334
-   },
-   "1 미만": {
-    "n": 64,
-    "k": 17,
-    "p": 0.265625
-   }
+  "b": {
+    "n": 130,
+    "rho": {
+      "GPT-6 Astra": {
+        "rho": 0.4481857900326739,
+        "ci": [
+          0.3422210577780065,
+          0.5213919324681848
+        ],
+        "cx": 6.942260563380282,
+        "cy": 3.1114225352112674
+      },
+      "GPT-6 Sol": {
+        "rho": 0.34215155143995046,
+        "ci": [
+          0.2444191012326507,
+          0.43455457484271015
+        ],
+        "cx": 5.555565622861054,
+        "cy": 1.9008453969883643
+      },
+      "Opus 5.5": {
+        "rho": 0.6050901733861794,
+        "ci": [
+          0.3550270366824333,
+          0.7680304265149759
+        ],
+        "cx": 4.523365322790629,
+        "cy": 2.737043907456413
+      },
+      "GPT-6 Luna": {
+        "rho": 0.37899892163766485,
+        "ci": [
+          0.2579090115063037,
+          0.49631320952878394
+        ],
+        "cx": 5.799487553027064,
+        "cy": 2.197999528648317
+      },
+      "Fable 5.1": {
+        "rho": 0.31358503870769683,
+        "ci": [
+          0.2629339835670663,
+          0.355926177159351
+        ],
+        "cx": 5.312049051315222,
+        "cy": 1.6657791073738681
+      }
+    },
+    "giver_med": 5.070666666666667,
+    "recv_med": 1.928,
+    "recv_1_2": 55,
+    "giver_ge2": 116
   },
-  "acc": {
-   "4 이상": {
-    "n": 82,
-    "k": 59,
-    "p": 0.7195121951219512,
-    "nb": 80,
-    "p_b": 0.7375,
-    "base": 0.734375
-   },
-   "2–4": {
-    "n": 56,
-    "k": 46,
-    "p": 0.8214285714285714,
-    "nb": 54,
-    "p_b": 0.8148148148148148,
-    "base": 0.8194444444444444
-   },
-   "1–2": {
-    "n": 47,
-    "k": 24,
-    "p": 0.5106382978723404,
-    "nb": 36,
-    "p_b": 0.5,
-    "base": 0.5138888888888888
-   },
-   "1 미만": {
-    "n": 7,
-    "k": 4,
-    "p": 0.5714285714285714,
-    "nb": 7,
-    "p_b": 0.5714285714285714,
-    "base": 0.8571428571428571
-   }
+  "c": {
+    "n": 33,
+    "chain": {
+      "noask|none|dead": 2,
+      "noask|none|exited": 13,
+      "noask|rec|exited": 1,
+      "noask|rec|finished": 5,
+      "ask|rec|dead": 5,
+      "ask|rec|exited": 3,
+      "ask|rec|finished": 4
+    }
   },
-  "n_calls": 2898,
-  "n_exit_calls": 1020
- },
- "b": {
-  "n": 130,
-  "rho": {
-   "GPT-6 Astra": {
-    "rho": 0.4481857900326739,
-    "ci": [
-     0.3422210577780065,
-     0.5213919324681848
+  "d": {
+    "games": [
+      {
+        "mod": "GPT-6 Astra",
+        "seed": 4101,
+        "k": 0,
+        "miss": 4,
+        "exits": 4,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 3,
+        "amt": 14000,
+        "sen": 24024.333333333332
+      },
+      {
+        "mod": "GPT-6 Astra",
+        "seed": 4102,
+        "k": 4,
+        "miss": 2,
+        "exits": 0,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 4,
+        "amt": 24000,
+        "sen": 5015099.166666667
+      },
+      {
+        "mod": "GPT-6 Astra",
+        "seed": 4103,
+        "k": 2,
+        "miss": 3,
+        "exits": 2,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 0,
+        "amt": 0,
+        "sen": 1690060.1666666665
+      },
+      {
+        "mod": "GPT-6 Astra",
+        "seed": 4104,
+        "k": 4,
+        "miss": 1,
+        "exits": 0,
+        "dead": 0,
+        "prep": 1,
+        "gifts": 1,
+        "amt": 10000,
+        "sen": 5016803.833333333
+      },
+      {
+        "mod": "GPT-6 Astra",
+        "seed": 4105,
+        "k": 4,
+        "miss": 2,
+        "exits": 0,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 3,
+        "amt": 23000,
+        "sen": 5013605.666666667
+      },
+      {
+        "mod": "GPT-6 Sol",
+        "seed": 4101,
+        "k": 0,
+        "miss": 4,
+        "exits": 4,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 0,
+        "amt": 0,
+        "sen": 22043.333333333332
+      },
+      {
+        "mod": "GPT-6 Sol",
+        "seed": 4102,
+        "k": 2,
+        "miss": 3,
+        "exits": 1,
+        "dead": 1,
+        "prep": 2,
+        "gifts": 10,
+        "amt": 20700,
+        "sen": 1674369.3333333335
+      },
+      {
+        "mod": "GPT-6 Sol",
+        "seed": 4103,
+        "k": 2,
+        "miss": 3,
+        "exits": 2,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 0,
+        "amt": 0,
+        "sen": 1686227.1666666665
+      },
+      {
+        "mod": "GPT-6 Sol",
+        "seed": 4104,
+        "k": 4,
+        "miss": 1,
+        "exits": 0,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 5,
+        "amt": 20000,
+        "sen": 5013712.0
+      },
+      {
+        "mod": "GPT-6 Sol",
+        "seed": 4105,
+        "k": 4,
+        "miss": 1,
+        "exits": 0,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 2,
+        "amt": 8000,
+        "sen": 5012203.666666667
+      },
+      {
+        "mod": "Opus 5.5",
+        "seed": 4101,
+        "k": 0,
+        "miss": 3,
+        "exits": 4,
+        "dead": 0,
+        "prep": 2,
+        "gifts": 4,
+        "amt": 13000,
+        "sen": 24723.666666666668
+      },
+      {
+        "mod": "Opus 5.5",
+        "seed": 4102,
+        "k": 2,
+        "miss": 3,
+        "exits": 1,
+        "dead": 1,
+        "prep": 0,
+        "gifts": 3,
+        "amt": 10235,
+        "sen": 1678179.8333333335
+      },
+      {
+        "mod": "Opus 5.5",
+        "seed": 4103,
+        "k": 0,
+        "miss": 4,
+        "exits": 0,
+        "dead": 4,
+        "prep": 9,
+        "gifts": 22,
+        "amt": 48623,
+        "sen": 0.0
+      },
+      {
+        "mod": "Opus 5.5",
+        "seed": 4104,
+        "k": 4,
+        "miss": 2,
+        "exits": 0,
+        "dead": 0,
+        "prep": 2,
+        "gifts": 12,
+        "amt": 53600,
+        "sen": 5009667.666666667
+      },
+      {
+        "mod": "Opus 5.5",
+        "seed": 4105,
+        "k": 3,
+        "miss": 0,
+        "exits": 1,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 0,
+        "amt": 0,
+        "sen": 3359577.666666667
+      },
+      {
+        "mod": "GPT-6 Luna",
+        "seed": 4101,
+        "k": 0,
+        "miss": 3,
+        "exits": 3,
+        "dead": 1,
+        "prep": 0,
+        "gifts": 9,
+        "amt": 15818,
+        "sen": 12254.0
+      },
+      {
+        "mod": "GPT-6 Luna",
+        "seed": 4102,
+        "k": 1,
+        "miss": 2,
+        "exits": 3,
+        "dead": 0,
+        "prep": 4,
+        "gifts": 9,
+        "amt": 19000,
+        "sen": 28854.166666666977
+      },
+      {
+        "mod": "GPT-6 Luna",
+        "seed": 4103,
+        "k": 0,
+        "miss": 2,
+        "exits": 4,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 0,
+        "amt": 0,
+        "sen": 29215.666666666664
+      },
+      {
+        "mod": "GPT-6 Luna",
+        "seed": 4104,
+        "k": 2,
+        "miss": 3,
+        "exits": 1,
+        "dead": 1,
+        "prep": 0,
+        "gifts": 0,
+        "amt": 0,
+        "sen": 1674501.1666666665
+      },
+      {
+        "mod": "GPT-6 Luna",
+        "seed": 4105,
+        "k": 1,
+        "miss": 3,
+        "exits": 1,
+        "dead": 2,
+        "prep": 1,
+        "gifts": 7,
+        "amt": 26000,
+        "sen": 4870.833333333023
+      },
+      {
+        "mod": "Fable 5.1",
+        "seed": 4101,
+        "k": 4,
+        "miss": 2,
+        "exits": 0,
+        "dead": 0,
+        "prep": 12,
+        "gifts": 13,
+        "amt": 27000,
+        "sen": 5011510.0
+      },
+      {
+        "mod": "Fable 5.1",
+        "seed": 4102,
+        "k": 4,
+        "miss": 3,
+        "exits": 0,
+        "dead": 0,
+        "prep": 9,
+        "gifts": 14,
+        "amt": 27500,
+        "sen": 5002697.166666667
+      },
+      {
+        "mod": "Fable 5.1",
+        "seed": 4103,
+        "k": 3,
+        "miss": 3,
+        "exits": 1,
+        "dead": 0,
+        "prep": 4,
+        "gifts": 6,
+        "amt": 14800,
+        "sen": 3346159.5
+      },
+      {
+        "mod": "Fable 5.1",
+        "seed": 4104,
+        "k": 3,
+        "miss": 2,
+        "exits": 1,
+        "dead": 0,
+        "prep": 1,
+        "gifts": 3,
+        "amt": 8000,
+        "sen": 3352819.5
+      },
+      {
+        "mod": "Fable 5.1",
+        "seed": 4105,
+        "k": 3,
+        "miss": 0,
+        "exits": 1,
+        "dead": 0,
+        "prep": 0,
+        "gifts": 0,
+        "amt": 0,
+        "sen": 3359676.333333333
+      }
     ],
-    "cx": 6.942260563380282,
-    "cy": 3.1114225352112674
-   },
-   "GPT-6 Sol": {
-    "rho": 0.34215155143995046,
-    "ci": [
-     0.2444191012326507,
-     0.43455457484271015
-    ],
-    "cx": 5.555565622861054,
-    "cy": 1.9008453969883643
-   },
-   "Opus 5.5": {
-    "rho": 0.6050901733861794,
-    "ci": [
-     0.3550270366824333,
-     0.7680304265149759
-    ],
-    "cx": 4.523365322790629,
-    "cy": 2.737043907456413
-   },
-   "GPT-6 Luna": {
-    "rho": 0.37899892163766485,
-    "ci": [
-     0.2579090115063037,
-     0.49631320952878394
-    ],
-    "cx": 5.799487553027064,
-    "cy": 2.197999528648317
-   },
-   "Fable 5.1": {
-    "rho": 0.31358503870769683,
-    "ci": [
-     0.2629339835670663,
-     0.355926177159351
-    ],
-    "cx": 5.312049051315222,
-    "cy": 1.6657791073738681
-   }
+    "coex": 8,
+    "spear": {
+      "miss": -0.66,
+      "exits": -0.83,
+      "dead": -0.42,
+      "prep": 0.09,
+      "gifts": 0.11,
+      "amt": 0.27
+    },
+    "sen_by_k": {
+      "0": [
+        0.0,
+        0.01,
+        0.02,
+        0.02,
+        0.02,
+        0.03
+      ],
+      "1": [
+        0.0,
+        0.03
+      ],
+      "2": [
+        1.67,
+        1.67,
+        1.68,
+        1.69,
+        1.69
+      ],
+      "3": [
+        3.35,
+        3.35,
+        3.36,
+        3.36
+      ],
+      "4": [
+        5.0,
+        5.01,
+        5.01,
+        5.01,
+        5.01,
+        5.01,
+        5.02,
+        5.02
+      ]
+    },
+    "by_miss": {
+      "0": {
+        "n": 2,
+        "k_mean": 3.0
+      },
+      "1": {
+        "n": 3,
+        "k_mean": 4.0
+      },
+      "2": {
+        "n": 7,
+        "k_mean": 2.857142857142857
+      },
+      "3": {
+        "n": 10,
+        "k_mean": 1.8
+      },
+      "4": {
+        "n": 3,
+        "k_mean": 0.0
+      }
+    }
   },
-  "giver_med": 5.070666666666667,
-  "recv_med": 1.928,
-  "recv_1_2": 55,
-  "giver_ge2": 116
- },
- "c": {
-  "n": 33,
-  "chain": {
-   "noask|none|dead": 2,
-   "noask|none|exited": 13,
-   "noask|rec|exited": 1,
-   "noask|rec|finished": 5,
-   "ask|rec|dead": 5,
-   "ask|rec|exited": 3,
-   "ask|rec|finished": 4
-  }
- },
- "d": {
-  "games": [
-   {
-    "mod": "GPT-6 Astra",
-    "seed": 4101,
-    "k": 0,
-    "miss": 4,
-    "exits": 4,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 3,
-    "amt": 14000,
-    "sen": 24800.625
-   },
-   {
-    "mod": "GPT-6 Astra",
-    "seed": 4102,
-    "k": 4,
-    "miss": 2,
-    "exits": 0,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 4,
-    "amt": 24000,
-    "sen": 5016273.125
-   },
-   {
-    "mod": "GPT-6 Astra",
-    "seed": 4103,
-    "k": 2,
-    "miss": 3,
-    "exits": 2,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 0,
-    "amt": 0,
-    "sen": 2523987.75
-   },
-   {
-    "mod": "GPT-6 Astra",
-    "seed": 4104,
-    "k": 4,
-    "miss": 1,
-    "exits": 0,
-    "dead": 0,
-    "prep": 1,
-    "gifts": 1,
-    "amt": 10000,
-    "sen": 5019141.6875
-   },
-   {
-    "mod": "GPT-6 Astra",
-    "seed": 4105,
-    "k": 4,
-    "miss": 2,
-    "exits": 0,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 3,
-    "amt": 23000,
-    "sen": 5015163.625
-   },
-   {
-    "mod": "GPT-6 Sol",
-    "seed": 4101,
-    "k": 0,
-    "miss": 4,
-    "exits": 4,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 0,
-    "amt": 0,
-    "sen": 22560.4375
-   },
-   {
-    "mod": "GPT-6 Sol",
-    "seed": 4102,
-    "k": 2,
-    "miss": 3,
-    "exits": 1,
-    "dead": 1,
-    "prep": 2,
-    "gifts": 10,
-    "amt": 20700,
-    "sen": 2508803.5625
-   },
-   {
-    "mod": "GPT-6 Sol",
-    "seed": 4103,
-    "k": 2,
-    "miss": 3,
-    "exits": 2,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 0,
-    "amt": 0,
-    "sen": 2520187.6875
-   },
-   {
-    "mod": "GPT-6 Sol",
-    "seed": 4104,
-    "k": 4,
-    "miss": 1,
-    "exits": 0,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 5,
-    "amt": 20000,
-    "sen": 5015873.8125
-   },
-   {
-    "mod": "GPT-6 Sol",
-    "seed": 4105,
-    "k": 4,
-    "miss": 1,
-    "exits": 0,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 2,
-    "amt": 8000,
-    "sen": 5014830.5
-   },
-   {
-    "mod": "Opus 5.5",
-    "seed": 4101,
-    "k": 0,
-    "miss": 3,
-    "exits": 4,
-    "dead": 0,
-    "prep": 2,
-    "gifts": 4,
-    "amt": 13000,
-    "sen": 25851.8125
-   },
-   {
-    "mod": "Opus 5.5",
-    "seed": 4102,
-    "k": 2,
-    "miss": 3,
-    "exits": 1,
-    "dead": 1,
-    "prep": 0,
-    "gifts": 3,
-    "amt": 10235,
-    "sen": 2512563.5
-   },
-   {
-    "mod": "Opus 5.5",
-    "seed": 4103,
-    "k": 0,
-    "miss": 4,
-    "exits": 0,
-    "dead": 4,
-    "prep": 9,
-    "gifts": 22,
-    "amt": 48623,
-    "sen": 0.0
-   },
-   {
-    "mod": "Opus 5.5",
-    "seed": 4104,
-    "k": 4,
-    "miss": 2,
-    "exits": 0,
-    "dead": 0,
-    "prep": 2,
-    "gifts": 12,
-    "amt": 53600,
-    "sen": 5010903.8125
-   },
-   {
-    "mod": "Opus 5.5",
-    "seed": 4105,
-    "k": 3,
-    "miss": 0,
-    "exits": 1,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 0,
-    "amt": 0,
-    "sen": 3778552.5625
-   },
-   {
-    "mod": "GPT-6 Luna",
-    "seed": 4101,
-    "k": 0,
-    "miss": 3,
-    "exits": 3,
-    "dead": 1,
-    "prep": 0,
-    "gifts": 9,
-    "amt": 15818,
-    "sen": 14626.375
-   },
-   {
-    "mod": "GPT-6 Luna",
-    "seed": 4102,
-    "k": 1,
-    "miss": 2,
-    "exits": 3,
-    "dead": 0,
-    "prep": 4,
-    "gifts": 9,
-    "amt": 19000,
-    "sen": 1279254.0625
-   },
-   {
-    "mod": "GPT-6 Luna",
-    "seed": 4103,
-    "k": 0,
-    "miss": 2,
-    "exits": 4,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 0,
-    "amt": 0,
-    "sen": 31600.5
-   },
-   {
-    "mod": "GPT-6 Luna",
-    "seed": 4104,
-    "k": 2,
-    "miss": 3,
-    "exits": 1,
-    "dead": 1,
-    "prep": 0,
-    "gifts": 0,
-    "amt": 0,
-    "sen": 2509266.875
-   },
-   {
-    "mod": "GPT-6 Luna",
-    "seed": 4105,
-    "k": 1,
-    "miss": 3,
-    "exits": 1,
-    "dead": 2,
-    "prep": 1,
-    "gifts": 7,
-    "amt": 26000,
-    "sen": 1255933.3125
-   },
-   {
-    "mod": "Fable 5.1",
-    "seed": 4101,
-    "k": 4,
-    "miss": 2,
-    "exits": 0,
-    "dead": 0,
-    "prep": 12,
-    "gifts": 13,
-    "amt": 27000,
-    "sen": 5012566.5625
-   },
-   {
-    "mod": "Fable 5.1",
-    "seed": 4102,
-    "k": 4,
-    "miss": 3,
-    "exits": 0,
-    "dead": 0,
-    "prep": 9,
-    "gifts": 14,
-    "amt": 27500,
-    "sen": 5003777.6875
-   },
-   {
-    "mod": "Fable 5.1",
-    "seed": 4103,
-    "k": 3,
-    "miss": 3,
-    "exits": 1,
-    "dead": 0,
-    "prep": 4,
-    "gifts": 6,
-    "amt": 14800,
-    "sen": 3763705.875
-   },
-   {
-    "mod": "Fable 5.1",
-    "seed": 4104,
-    "k": 3,
-    "miss": 2,
-    "exits": 1,
-    "dead": 0,
-    "prep": 1,
-    "gifts": 3,
-    "amt": 8000,
-    "sen": 3770081.0
-   },
-   {
-    "mod": "Fable 5.1",
-    "seed": 4105,
-    "k": 3,
-    "miss": 0,
-    "exits": 1,
-    "dead": 0,
-    "prep": 0,
-    "gifts": 0,
-    "amt": 0,
-    "sen": 3778715.125
-   }
-  ],
-  "coex": 8,
-  "spear": {
-   "miss": -0.66,
-   "exits": -0.83,
-   "dead": -0.42,
-   "prep": 0.09,
-   "gifts": 0.11,
-   "amt": 0.27
+  "profile": {
+    "GPT-6 Astra": {
+      "sen": 3351918.6333333333,
+      "rho": 0.4481857900326739,
+      "finishers": 14,
+      "exits": 6,
+      "dead": 0,
+      "exit_below": "3/3",
+      "exit_above2": "0/99",
+      "F": 0.026041666666666668,
+      "V": 71000,
+      "gifts": 11,
+      "prep_share": "1/11",
+      "crisis_rounds": 10,
+      "crisis_received": 6,
+      "crisis_asked": 4,
+      "give_all": 0,
+      "lifted": 0,
+      "mutual_pairs": 0,
+      "repayment": 0,
+      "top_receiver_share": 0.8869047619047619,
+      "median_giver_slack": 7.621166666666666,
+      "median_receiver_slack": 1.8056666666666668
+    },
+    "GPT-6 Sol": {
+      "sen": 2681711.1,
+      "rho": 0.34215155143995046,
+      "finishers": 12,
+      "exits": 7,
+      "dead": 1,
+      "exit_below": "6/19",
+      "exit_above2": "0/158",
+      "F": 0.025222551928783383,
+      "V": 48700,
+      "gifts": 17,
+      "prep_share": "2/17",
+      "crisis_rounds": 12,
+      "crisis_received": 6,
+      "crisis_asked": 4,
+      "give_all": 0,
+      "lifted": 5,
+      "mutual_pairs": 1,
+      "repayment": 1,
+      "top_receiver_share": 0.7793075684380032,
+      "median_giver_slack": 4.695625,
+      "median_receiver_slack": 1.0205
+    },
+    "Opus 5.5": {
+      "sen": 2014429.7666666668,
+      "rho": 0.6050901733861794,
+      "finishers": 9,
+      "exits": 6,
+      "dead": 5,
+      "exit_below": "2/15",
+      "exit_above2": "0/162",
+      "F": 0.05511811023622047,
+      "V": 125458,
+      "gifts": 41,
+      "prep_share": "13/41",
+      "crisis_rounds": 13,
+      "crisis_received": 9,
+      "crisis_asked": 6,
+      "give_all": 2,
+      "lifted": 6,
+      "mutual_pairs": 5,
+      "repayment": 11,
+      "top_receiver_share": 0.7117479034016136,
+      "median_giver_slack": 4.732333333333333,
+      "median_receiver_slack": 1.5863333333333334
+    },
+    "GPT-6 Luna": {
+      "sen": 349939.1666666666,
+      "rho": 0.37899892163766485,
+      "finishers": 4,
+      "exits": 12,
+      "dead": 4,
+      "exit_below": "5/9",
+      "exit_above2": "1/114",
+      "F": 0.044722719141323794,
+      "V": 60818,
+      "gifts": 25,
+      "prep_share": "5/25",
+      "crisis_rounds": 11,
+      "crisis_received": 4,
+      "crisis_asked": 4,
+      "give_all": 0,
+      "lifted": 5,
+      "mutual_pairs": 1,
+      "repayment": 2,
+      "top_receiver_share": 0.9824561403508771,
+      "median_giver_slack": 6.179,
+      "median_receiver_slack": 1.4475
+    },
+    "Fable 5.1": {
+      "sen": 4014572.5,
+      "rho": 0.31358503870769683,
+      "finishers": 17,
+      "exits": 3,
+      "dead": 0,
+      "exit_below": "1/18",
+      "exit_above2": "0/198",
+      "F": 0.0502283105022831,
+      "V": 77300,
+      "gifts": 36,
+      "prep_share": "26/36",
+      "crisis_rounds": 9,
+      "crisis_received": 7,
+      "crisis_asked": 4,
+      "give_all": 0,
+      "lifted": 5,
+      "mutual_pairs": 0,
+      "repayment": 0,
+      "top_receiver_share": 0.8486531986531987,
+      "median_giver_slack": 5.636020833333333,
+      "median_receiver_slack": 1.3123333333333331
+    }
   },
-  "sen_by_k": {
-   "0": [
-    0.0,
-    0.01,
-    0.02,
-    0.02,
-    0.03,
-    0.03
-   ],
-   "1": [
-    1.26,
-    1.28
-   ],
-   "2": [
-    2.51,
-    2.51,
-    2.51,
-    2.52,
-    2.52
-   ],
-   "3": [
-    3.76,
-    3.77,
-    3.78,
-    3.78
-   ],
-   "4": [
-    5.0,
-    5.01,
-    5.01,
-    5.01,
-    5.02,
-    5.02,
-    5.02,
-    5.02
-   ]
+  "crisis_rounds_total": 55,
+  "personas": {
+    "exit_below": {
+      "GPT-6 Astra": 4,
+      "GPT-6 Sol": 7,
+      "Opus 5.5": 4,
+      "GPT-6 Luna": 6,
+      "Fable 5.1": 1,
+      "total": 22
+    },
+    "saebyeok": {
+      "GPT-6 Astra": 4,
+      "GPT-6 Sol": 6,
+      "Opus 5.5": 4,
+      "GPT-6 Luna": 5,
+      "Fable 5.1": 1,
+      "total": 20
+    },
+    "ali": {
+      "GPT-6 Sol": 5,
+      "Opus 5.5": 6,
+      "GPT-6 Luna": 5,
+      "Fable 5.1": 5,
+      "total": 21
+    },
+    "ilnam": {
+      "Opus 5.5": 2,
+      "total": 2
+    },
+    "jiyoung": {
+      "Opus 5.5": 3,
+      "Fable 5.1": 1,
+      "total": 4
+    },
+    "gihun_pairs": {
+      "Opus 5.5": 5,
+      "GPT-6 Luna": 2,
+      "Fable 5.1": 4,
+      "total": 11
+    }
   },
-  "by_miss": {
-   "0": {
-    "n": 2,
-    "k_mean": 3.0
-   },
-   "1": {
-    "n": 3,
-    "k_mean": 4.0
-   },
-   "2": {
-    "n": 7,
-    "k_mean": 2.857142857142857
-   },
-   "3": {
-    "n": 10,
-    "k_mean": 1.8
-   },
-   "4": {
-    "n": 3,
-    "k_mean": 0.0
-   }
-  }
- },
- "profile": {
-  "GPT-6 Astra": {
-   "sen": 3519873.3625,
-   "rho": 0.4481857900326739,
-   "finishers": 14,
-   "exits": 6,
-   "dead": 0,
-   "exit_below": "3/3",
-   "exit_above2": "0/99",
-   "F": 0.026041666666666668,
-   "V": 71000,
-   "gifts": 11,
-   "prep_share": "1/11",
-   "crisis_rounds": 10,
-   "crisis_received": 6,
-   "crisis_asked": 4,
-   "give_all": 0,
-   "lifted": 0,
-   "mutual_pairs": 0,
-   "repayment": 0,
-   "top_receiver_share": 0.8869047619047619,
-   "median_giver_slack": 7.621166666666666,
-   "median_receiver_slack": 1.8056666666666668
-  },
-  "GPT-6 Sol": {
-   "sen": 3016451.2,
-   "rho": 0.34215155143995046,
-   "finishers": 12,
-   "exits": 7,
-   "dead": 1,
-   "exit_below": "6/19",
-   "exit_above2": "0/158",
-   "F": 0.025222551928783383,
-   "V": 48700,
-   "gifts": 17,
-   "prep_share": "2/17",
-   "crisis_rounds": 12,
-   "crisis_received": 6,
-   "crisis_asked": 4,
-   "give_all": 0,
-   "lifted": 5,
-   "mutual_pairs": 1,
-   "repayment": 1,
-   "top_receiver_share": 0.7793075684380032,
-   "median_giver_slack": 4.695625,
-   "median_receiver_slack": 1.0205
-  },
-  "Opus 5.5": {
-   "sen": 2265574.3375,
-   "rho": 0.6050901733861794,
-   "finishers": 9,
-   "exits": 6,
-   "dead": 5,
-   "exit_below": "2/15",
-   "exit_above2": "0/162",
-   "F": 0.05511811023622047,
-   "V": 125458,
-   "gifts": 41,
-   "prep_share": "13/41",
-   "crisis_rounds": 13,
-   "crisis_received": 9,
-   "crisis_asked": 6,
-   "give_all": 2,
-   "lifted": 6,
-   "mutual_pairs": 5,
-   "repayment": 11,
-   "top_receiver_share": 0.7117479034016136,
-   "median_giver_slack": 4.732333333333333,
-   "median_receiver_slack": 1.5863333333333334
-  },
-  "GPT-6 Luna": {
-   "sen": 1018136.225,
-   "rho": 0.37899892163766485,
-   "finishers": 4,
-   "exits": 12,
-   "dead": 4,
-   "exit_below": "5/9",
-   "exit_above2": "1/114",
-   "F": 0.044722719141323794,
-   "V": 60818,
-   "gifts": 25,
-   "prep_share": "5/25",
-   "crisis_rounds": 11,
-   "crisis_received": 4,
-   "crisis_asked": 4,
-   "give_all": 0,
-   "lifted": 5,
-   "mutual_pairs": 1,
-   "repayment": 2,
-   "top_receiver_share": 0.9824561403508771,
-   "median_giver_slack": 6.179,
-   "median_receiver_slack": 1.4475
-  },
-  "Fable 5.1": {
-   "sen": 4265769.25,
-   "rho": 0.31358503870769683,
-   "finishers": 17,
-   "exits": 3,
-   "dead": 0,
-   "exit_below": "1/18",
-   "exit_above2": "0/198",
-   "F": 0.0502283105022831,
-   "V": 77300,
-   "gifts": 36,
-   "prep_share": "26/36",
-   "crisis_rounds": 9,
-   "crisis_received": 7,
-   "crisis_asked": 4,
-   "give_all": 0,
-   "lifted": 5,
-   "mutual_pairs": 0,
-   "repayment": 0,
-   "top_receiver_share": 0.8486531986531987,
-   "median_giver_slack": 5.636020833333333,
-   "median_receiver_slack": 1.3123333333333331
-  }
- },
- "crisis_rounds_total": 55,
- "personas": {
-  "exit_below": {
-   "GPT-6 Astra": 4,
-   "GPT-6 Sol": 7,
-   "Opus 5.5": 4,
-   "GPT-6 Luna": 6,
-   "Fable 5.1": 1,
-   "total": 22
-  },
-  "saebyeok": {
-   "GPT-6 Astra": 4,
-   "GPT-6 Sol": 6,
-   "Opus 5.5": 4,
-   "GPT-6 Luna": 5,
-   "Fable 5.1": 1,
-   "total": 20
-  },
-  "ali": {
-   "GPT-6 Sol": 5,
-   "Opus 5.5": 6,
-   "GPT-6 Luna": 5,
-   "Fable 5.1": 5,
-   "total": 21
-  },
-  "ilnam": {
-   "Opus 5.5": 2,
-   "total": 2
-  },
-  "jiyoung": {
-   "Opus 5.5": 3,
-   "Fable 5.1": 1,
-   "total": 4
-  },
-  "gihun_pairs": {
-   "Opus 5.5": 5,
-   "GPT-6 Luna": 2,
-   "Fable 5.1": 4,
-   "total": 11
-  }
- }
+  "inequality_definition": "G=sum_ij|xi-xj|/(2*(n-1)*sum(x)), n=4 fixed original seats; S=mean(x)*(1-G); all-zero G=null and S=0."
 }

@@ -1,0 +1,18 @@
+[
+  {
+    "path": "paper/cogsci2027/ko/sections/05_appendix.tex",
+    "sha256": "42d2c61268f24255dfe4258329c3288a56f80761b5532544325d3ff3a870a91d"
+  },
+  {
+    "path": "paper/cogsci2027/ko/sections/03_analysis.tex",
+    "sha256": "19e668f9024ad903fc4a0c17812e2c475a3dccf20000eff33091b76bf3805aea"
+  },
+  {
+    "path": "paper/dist/ko_cogsci2027_2026-10-28.pdf",
+    "sha256": "5f6fa29b790e251bb1ce681cbd949b5fd873b3205f0a6b530d83fbde6fbd888c"
+  },
+  {
+    "path": "paper/dist/ko_cogsci2027_2026-10-28_no_appendix.pdf",
+    "sha256": "78bd7d368230aa5b30cb116d300e6293e6e88cd328728087810c673fb840fe98"
+  }
+]

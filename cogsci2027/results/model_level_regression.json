@@ -1,0 +1,197 @@
+{
+  "unit": "model; five games per model",
+  "n": 5,
+  "input_rows": [
+    {
+      "model": "Fable",
+      "sen": 4.0145725,
+      "rho": 0.272,
+      "goal": 98.88888888888889,
+      "given": 77.3,
+      "saving": 1.6340122199592668
+    },
+    {
+      "model": "Astra",
+      "sen": 3.3519186333333333,
+      "rho": 0.37,
+      "goal": 96.12403100775194,
+      "given": 71.0,
+      "saving": 0.9855296879057984
+    },
+    {
+      "model": "Sol",
+      "sen": 2.6817111000000002,
+      "rho": 0.236,
+      "goal": 97.43589743589743,
+      "given": 48.7,
+      "saving": 0.948852321559585
+    },
+    {
+      "model": "Opus",
+      "sen": 2.014429766666667,
+      "rho": 0.545,
+      "goal": 97.78761061946902,
+      "given": 125.458,
+      "saving": 1.5205092738641237
+    },
+    {
+      "model": "Luna",
+      "sen": 0.34993916666666663,
+      "rho": 0.315,
+      "goal": 93.16770186335404,
+      "given": 60.818,
+      "saving": 0.7302500033775111
+    }
+  ],
+  "source_sha256": {
+    "tools/rewrite_20261025/figs/model_metrics.py": "9b7d2eeaa260b79bbb633c5d6d9fd9cf86d30aed6be1a2314a9e0dd1bed51561",
+    "tools/rewrite_20261025/an3/rho_axis.json": "0c66dfc5ea38a9e432e8a970e927be2fd6440a71c845f292f2f275a3d9d98719",
+    "tools/rewrite_20261025/an3/game_level.json": "ea6b1ff975b1c98b8f1cacf555873fbea1cf7215469f4aac0acaedced9aa8eb8"
+  },
+  "correlations_with_rho": {
+    "sen": {
+      "pearson": -0.20759696349397655,
+      "pearson_exact_abs_p": 0.7,
+      "spearman": -0.3,
+      "spearman_exact_abs_p": 0.6833333333333333
+    },
+    "goal": {
+      "pearson": 0.0651062323012411,
+      "pearson_exact_abs_p": 0.9333333333333333,
+      "spearman": -0.09999999999999999,
+      "spearman_exact_abs_p": 0.95
+    },
+    "given": {
+      "pearson": 0.9206108176920816,
+      "pearson_exact_abs_p": 0.05,
+      "spearman": 0.7,
+      "spearman_exact_abs_p": 0.23333333333333334
+    },
+    "saving": {
+      "pearson": 0.36333532230448,
+      "pearson_exact_abs_p": 0.6083333333333333,
+      "spearman": 0.19999999999999998,
+      "spearman_exact_abs_p": 0.7833333333333333
+    }
+  },
+  "regression": {
+    "response": "mean per-game Sen index / 1e6",
+    "predictors": [
+      "goal",
+      "rho",
+      "given"
+    ],
+    "scaling": "(x - mean) / sample SD (ddof=1), using five models",
+    "means": {
+      "goal": 96.68082596307227,
+      "rho": 0.3476,
+      "given": 76.6552
+    },
+    "sds": {
+      "goal": 2.1978801520650904,
+      "rho": 0.1211416526220441,
+      "given": 29.353110792554848
+    },
+    "estimates": {
+      "intercept": {
+        "coefficient": 2.4825142333333323,
+        "se": 0.6098882158689432,
+        "ci95": [
+          -5.266850303677767,
+          10.231878770344432
+        ],
+        "p": 0.15336337950562512
+      },
+      "goal": {
+        "coefficient": 1.5042641761967297,
+        "se": 1.0755016767199168,
+        "ci95": [
+          -12.161280322305702,
+          15.16980867469916
+        ],
+        "p": 0.3951508679264612
+      },
+      "rho": {
+        "coefficient": 0.6466810325969718,
+        "se": 2.5687386144060804,
+        "ci95": [
+          -31.99223771576439,
+          33.285599780958336
+        ],
+        "p": 0.8429933683533525
+      },
+      "given": {
+        "coefficient": -1.1259299426054423,
+        "se": 2.7484531431577346,
+        "ci95": [
+          -36.048338287350475,
+          33.796478402139584
+        ],
+        "p": 0.752478605112275
+      }
+    },
+    "r_squared": 0.76486943843902,
+    "adjusted_r_squared": 0.05947775375608,
+    "residual_df": 1,
+    "f": 1.0843187622530797,
+    "f_p": 0.5922678889591497,
+    "vif": {
+      "goal": 2.487778363529635,
+      "rho": 14.191533651313899,
+      "given": 16.246738018362734
+    },
+    "leave_one_model_out": {
+      "Fable": {
+        "coefficients": {
+          "intercept": 1.6543230300611576,
+          "goal": 1.8438385099118313,
+          "rho": 5.615893636580536,
+          "given": -5.845912333907582
+        },
+        "held_out_prediction": -0.12638351636088108,
+        "held_out_observed": 4.0145725
+      },
+      "Astra": {
+        "coefficients": {
+          "intercept": 2.075545045415644,
+          "goal": 0.9338012347751181,
+          "rho": -1.5612334234600116,
+          "given": 1.2105520312805689
+        },
+        "held_out_prediction": 1.31707269374488,
+        "held_out_observed": 3.3519186333333333
+      },
+      "Sol": {
+        "coefficients": {
+          "intercept": 2.950894262039449,
+          "goal": 2.3917357820347407,
+          "rho": 2.030464907369269,
+          "given": -3.277679846599971
+        },
+        "held_out_prediction": 5.023611243530561,
+        "held_out_observed": 2.6817111000000002
+      },
+      "Opus": {
+        "coefficients": {
+          "intercept": 3.3956059790569473,
+          "goal": 1.722455153161052,
+          "rho": 1.7690430200688922,
+          "given": -0.34027425288352725
+        },
+        "held_out_prediction": 6.579888495284725,
+        "held_out_observed": 2.014429766666667
+      },
+      "Luna": {
+        "coefficients": {
+          "intercept": 4.784325528998975,
+          "goal": -5.689914455090982,
+          "rho": -7.660039720893847,
+          "given": 7.564839418329962
+        },
+        "held_out_prediction": 11.858995644994923,
+        "held_out_observed": 0.34993916666666663
+      }
+    },
+    "inference": "Conventional OLS t intervals/tests, residual df=1; not causal contributions."
+  }
+}

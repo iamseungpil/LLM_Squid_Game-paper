@@ -13,10 +13,7 @@ MODELS = {"astra": "GPT-6 Astra", "sol": "GPT-6 Sol",
           "opus": "Opus 5.5", "luna": "GPT-6 Luna"}
 
 
-def sen(tokens):
-    # Equivalent to mean * (1 - Gini), including the all-zero case.
-    n = len(tokens)
-    return sum(tokens) / n - sum(abs(a - b) for a in tokens for b in tokens) / (2 * n * n)
+from inequality import sen
 
 
 def recompute(root):

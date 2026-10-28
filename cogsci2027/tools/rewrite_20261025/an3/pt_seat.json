@@ -1,0 +1,82 @@
+{
+ "profile": {
+  "in": {
+   "n": 56,
+   "n_solves": 126,
+   "n_based": 126,
+   "acc": 0.913,
+   "acc_on_based": 0.913,
+   "base": 0.882,
+   "etok_med": 85,
+   "etok_rel_med": 0.92,
+   "gave_share": 0.518,
+   "gtok_mean": 4755,
+   "gtok_ask_mean": 2200
+  },
+  "exited": {
+   "n": 34,
+   "n_solves": 46,
+   "n_based": 46,
+   "acc": 0.891,
+   "acc_on_based": 0.891,
+   "base": 0.895,
+   "etok_med": 188,
+   "etok_rel_med": 1.33,
+   "gave_share": 0.294,
+   "gtok_mean": 1312,
+   "gtok_ask_mean": 201
+  },
+  "dead": {
+   "n": 10,
+   "n_solves": 20,
+   "n_based": 20,
+   "acc": 0.75,
+   "acc_on_based": 0.75,
+   "base": 0.96,
+   "etok_med": 158,
+   "etok_rel_med": 0.86,
+   "gave_share": 0.8,
+   "gtok_mean": 7236,
+   "gtok_ask_mean": 4492
+  }
+ },
+ "joint": {
+  "both": {
+   "in": 27,
+   "exited": 10,
+   "dead": 1,
+   "n": 38
+  },
+  "one": {
+   "exited": 17,
+   "in": 27,
+   "dead": 9,
+   "n": 53
+  },
+  "neither": {
+   "in": 2,
+   "exited": 3,
+   "n": 5
+  },
+  "no_solve": {
+   "exited": 4,
+   "n": 4
+  }
+ },
+ "median_early_tok": 116.6,
+ "model_median_early_tok": {
+  "Sol": 99.5,
+  "Opus": 149.1,
+  "Luna": 217.8,
+  "Astra": 12.4,
+  "Fable": 110.7
+ },
+ "unbased": 0,
+ "solves": 192,
+ "never_solved": 4,
+ "given": {
+  "gives": 130,
+  "tokens": 383276,
+  "tokens_ask": 174941
+ }
+}
