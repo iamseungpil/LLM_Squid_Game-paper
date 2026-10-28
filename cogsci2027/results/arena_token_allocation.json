@@ -3087,23 +3087,23 @@
     "n_dead": 10,
     "gross_transfers_match": 383276
   },
-  "analysis_sha256": "043b1beb6c4af53ac5f3c98e7c83eee4a1012b301b48e76d8cb62eada852ac21",
+  "analysis_sha256": "5b1548d2afa9e74bacad3b94013dd67d8d0b3b201c2f9ba41a4a005a0f8859b6",
   "figures": [
     {
       "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/ko/figures/arena_token_allocation_100.pdf",
-      "sha256": "b5063dee307e236566d1a30ad5511596366334f039c8f7ba029624e303748672"
+      "sha256": "18f938d574f44209d244c06e780462548955cf40573293bcf5ea68fa1881ee93"
     },
     {
       "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/ko/figures/arena_token_allocation_100.png",
-      "sha256": "fa3f3fe08c1a072cf0125d35b1dd24de84adfe3ba506a2e7a7dc66003cfe0fbf"
+      "sha256": "7b741de1c82c1cdea84407d0a853a28c1621747cd7bc5ae8856040421a3d3bfb"
     },
     {
       "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/ko/figures/arena_token_allocation_mean.pdf",
-      "sha256": "a8f29bbcaa02e29cf008af137911d0420ed50ddef51cabc4f582d12bbd7e2468"
+      "sha256": "3398ca98aea2438ba3be8df5f775aae85bb157d195e065898803f1c4fa924fdd"
     },
     {
       "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/ko/figures/arena_token_allocation_mean.png",
-      "sha256": "46b9de9c3309ca5770705d226dae31f68f9d34abf62af732e893f920f80f7617"
+      "sha256": "58e147cd598fa879a6f6d4888932673b4adc90abe8eb77b7ef8c8fcb87480ac0"
     }
   ]
 }

@@ -3,7 +3,7 @@
 - 검토자: `/root/analysis_review` (작성자 `/root`, prose 작성자 Astra와 분리).
 - 검토 시점: 2026-10-28. 읽기 전용 재계산; 이 보고서 외 구현·원고를 수정하지 않음.
 - 범위: 현재 CogSci KO input tree, EN의 실제 포함 내용, 현재 그림 생성기 및 25판/100명 파생자료. G03/G07/G08에 해당하는 제한된 측정·표현·재현성 검토다. 엔진 실행, 유료 모델 실험, 인간 검증, arena 릴리스 인증은 수행하지 않았다.
-- 상태: 수치 및 텍스트 검토 PASS. 최종 그림 여백·Q provenance·새 KO 빌드 확인은 아래 최종 확인란에 기록한다.
+- 상태: 요청 범위의 수치·텍스트·최종 그림 및 PDF 검토 PASS. 미해결 Critical 0. 전체 arena gate 인증은 아님.
 
 ## Critical / Warning / Suggestion
 
@@ -86,4 +86,68 @@
 
 ## 최종 산출물 확인
 
-최종 생성·빌드 완료 후 해시와 시각 재확인 결과를 기록한다.
+- 2026-10-28 14:54 재생성 산출물 재확인: Q의 analysis_inputs 5개(inequality.py 포함) SHA가 실제 파일과 일치하며 25판의 pre-prize/settled 값이 feedback JSON과 일치한다.
+- 새 100명 PNG는 다섯 모델×20행과 범례를 한 장에 온전히 표시한다. footer 겹침 수정 확인: 그림 PDF의 마지막 x축 제목 bbox 끝 y=485.31, footer 시작 y=499.64로 약14.3pt 분리된다. 해당 PDF는 1페이지다.
+- 최종 KO full 44쪽 / no-appendix 8쪽 확인. 첫 8쪽은 텍스트 및 렌더 픽셀이 일치한다. page 4의 Figure 3에는 절약/조합 패널이 없고, page 22의 Gini 축은 0–1, page 26의 집단별 평균과 page 27의 100명 그림은 각각 온전히 배치됐다. page 4/26/27을 실제 렌더로 확인했으며 footer·caption·행 clipping은 발견하지 못했다.
+- R 별도 PDF는 2쪽, Q 별도 PDF는 3쪽이며 각각 canonical page 26–27 / 23–25와 텍스트 및 픽셀이 일치한다.
+- EN full/no-appendix도 실제 파일을 열어 확인했다. EN 내용은 skeleton이며 포함된 Gini/Sen 산출물이 없어 추가 수정 대상이 아니다.
+
+## 검토 대상 SHA-256
+
+최종 재생성 후 확인한 코드·데이터·원고·그림. PDF 빌드 산출물 해시는 아래 별도 표에 기록했다.
+
+| 경로 | SHA-256 |
+|---|---|
+| `rubric.md` | `4069c7e8d3ffffc0c7c81058c30be740575d1cb9b8933baf3311e59714043579` |
+| `paper/cogsci2027/tools/inequality.py` | `6f63c3ce8c38089b526f6d4b6aff771b317b69211b363913d6af196baa67d071` |
+| `paper/cogsci2027/tools/normalize_gini_20261028.py` | `ff9eee10c027dc42eabf3ad7cad1601636353b00af22c163f5073ff8e99e42cf` |
+| `paper/cogsci2027/tools/feedback_20261028.py` | `1dfae116c0822802f3af4108554ab05c2df6f4d5fa836e4904b97ae37df699a7` |
+| `paper/cogsci2027/tools/appendix_gini_rounds.py` | `aed14a9680ae3c732bd6ea7ac19d636c0068cf3c54464fb286eae08e6577a9e9` |
+| `paper/cogsci2027/tools/arena_round_dynamics.py` | `3d76368ba8cd645adc237ac2c17b5d3ac9b88e79eefc840976103cd8e5394476` |
+| `paper/cogsci2027/tools/arena_v33.py` | `b73e5fd53fb4ff6079057b9068c99f910c9f429848b8df0d96940aa7ce421a5b` |
+| `paper/cogsci2027/tools/arena_gini.py` | `f9b9cb97c94a8a6c9013bb178686e36d59e8aef5bd50ed2c3f4c003da785fab6` |
+| `paper/cogsci2027/tools/arena_sen.py` | `04b9025009d98f7c7eef2e0ff18316fb100b74b20eb413d0d445282e11716180` |
+| `paper/cogsci2027/tools/model_level_regression.py` | `cda573672a9bfc147bbe8fecfd4cc2af6d84cf6080652c26460844f8c0a11674` |
+| `paper/cogsci2027/tools/make_fig3_current.py` | `b4e1475523b56b87e2a127bb5030a948602ddd852b8e36f85cfdd18829b1480a` |
+| `paper/cogsci2027/tools/arena_token_allocation.py` | `5b1548d2afa9e74bacad3b94013dd67d8d0b3b201c2f9ba41a4a005a0f8859b6` |
+| `paper/cogsci2027/tools/fig3_completion_20261028.py` | `52b9463cb94786b0686d1a61abb4e3e503459e5c7bc1e332d9f21608ecf116e0` |
+| `paper/cogsci2027/results/arena_v33.json` | `a5e66b44fad1b77a8ecf1cbe05c95f57baaa70cd7bc9f4f09b5570abde3673cf` |
+| `paper/cogsci2027/results/arena_v33_gini.json` | `dae6ee3f7c8ad31cbfebb10542ba2178ee261a53d9587acb4895468a59ca948b` |
+| `paper/cogsci2027/results/arena_v33_round_dynamics.json` | `db704b30c3e61b500621e940d833e656d78e713b5754efbaa59b5c70a8248a12` |
+| `paper/cogsci2027/results/arena_sen.json` | `062909f6520ee3b90df4cca72b989f86270c5f789a69fa5f3d5cddf9ff794f7d` |
+| `paper/cogsci2027/results/feedback_20261028.json` | `6773a62af03445296e34dc35f6d7c01309f1c148063331805d6fd101b1313129` |
+| `paper/cogsci2027/results/appendix_gini_rounds.json` | `6387ed12a4321ee1b5577d1c06bf4ab2d81e32520b7c45c1d91a33a749d3c6fe` |
+| `paper/cogsci2027/results/fig3_completion_20261028.json` | `6984c4d76bce31f832c1a6b292a0495aedeb104352020b23f0329ac9b4e0910a` |
+| `paper/cogsci2027/results/fig3_completion_20261028.csv` | `01dc06357f5eca262565767bed224a4b683c022988457e2d01328c27891c5126` |
+| `paper/cogsci2027/results/arena_token_allocation.json` | `7a1ed8cb2a79a4ba166e62e695c63b505aada9f20037d3e30b5c04431a6e636b` |
+| `paper/cogsci2027/results/arena_token_allocation.csv` | `2d08608da40242e928a7a7a4f7269ce6cbde7f26f8752382e62c52ecd6c174fa` |
+| `paper/cogsci2027/results/model_level_regression.json` | `38deba8c59e87c00af793d7559696bd41212d770c2a08378e5be97062a605f84` |
+| `paper/cogsci2027/results/model_level_regression.csv` | `bb4f2f72a069f3d41768e9c9b5495ba3cb7f5c4427c743dbd4ce376180f81cd8` |
+| `paper/cogsci2027/ko/sections/02_arena.tex` | `7c3ee5ac27ece505332820dec880ffdc666a6e1f9bb3249393784129ab289e18` |
+| `paper/cogsci2027/ko/sections/03_analysis.tex` | `6a84d08f82ce4875729473013e12d738d6df626a9597ea56e83c01b9b1dafc8a` |
+| `paper/cogsci2027/ko/sections/05_appendix.tex` | `39072ab5725006c61df402dc51a1ddde20490ec816f8c86c9ad2a1a46b29eb8c` |
+| `paper/cogsci2027/ko/sections/feedback_20261028.tex` | `5925837df8ffbbe76b0c794815ed6cb4a949168ce2538e1fe21ba276fddfb85f` |
+| `paper/cogsci2027/ko/sections/appendix_distribution_20261028.tex` | `3d3b3fc8528440ceb9d7aea2951e1e79fc20aa592b3f466856fcde1db57f2bdb` |
+| `paper/cogsci2027/ko/sections/appendix_completion_20261028.tex` | `421fe76dbd022bf1d56c54ee70b6d1f41ca072bc939f77f367447ef868538412` |
+| `paper/cogsci2027/ko/sections/appendix_token_allocation_20261028.tex` | `16b55f0be626fbb7cf5b249328609533d9d91f28d4dcc2952ade7bed16c0bd52` |
+| `paper/cogsci2027/ko/sections/prev_20261023/04_evaluation.tex` | `2059b9d3767349184115f77e822a2a58ad94eecdb436557849fd076055ef2928` |
+| `paper/cogsci2027/ko/sections/prev_20261023/06_results.tex` | `6efdbdfb8caa9f9ea2315e7193648a43ae202c4b2e6db87693b58108745668f4` |
+| `paper/cogsci2027/ko/sections/prev_20261023/A1_appendix.tex` | `4a61cf07a67af2f578914a0e8a21cb03cf008ac4974a892d0a309ed7d39058ff` |
+| `paper/cogsci2027/ko/figures/arena_token_allocation_mean.pdf` | `3398ca98aea2438ba3be8df5f775aae85bb157d195e065898803f1c4fa924fdd` |
+| `paper/cogsci2027/ko/figures/arena_token_allocation_100.pdf` | `18f938d574f44209d244c06e780462548955cf40573293bcf5ea68fa1881ee93` |
+| `paper/cogsci2027/ko/figures/rw_fig3_main_rho.pdf` | `a87ea0f0899f2fd8cd4beee336a72ed5685a23c2dc84ca8384bcc627d7bd493d` |
+| `paper/cogsci2027/ko/figures/rw_figA1_models.pdf` | `b647ba4d361122d01eb5f4577523e088f71d9307377846ac4a29cc7fb60271e7` |
+| `paper/cogsci2027/ko/figures/arena_gini.tex` | `207adf5bed58e4d1517fa7ec6752958d2a48949ec0bdd39716affbb579ba8f39` |
+| `paper/cogsci2027/ko/figures/appendix_preprize_gini.pdf` | `5facaabfed6431077011b64ae9bf34cba0e0e008c924d58ebfd6a2001bbdbaa6` |
+| `paper/cogsci2027/ko/figures/rw_model_level_regression_table.tex` | `d464b01c4b02f20624605ef92abd58728b9908223fc9defeb50ffee8f0a426dc` |
+
+## 최종 PDF SHA-256
+
+| 경로 | 쪽수 | SHA-256 |
+|---|---:|---|
+| `paper/dist/ko_cogsci2027_2026-10-28.pdf` | 44 | `8614526c433bf0df078fa184bd699a64cdfa8c1d1574220b08532e5fa524fff1` |
+| `paper/dist/ko_cogsci2027_2026-10-28_no_appendix.pdf` | 8 | `803d9fd632f8578bf187fd36442d66fa127346ae9d8c19a3c588a262e7ac4037` |
+| `paper/dist/en_cogsci2027_2026-10-28.pdf` | 1 | `322aaba9f1307582f8165024a6975ab8740b66a613e4a6b949b4d976641d27f9` |
+| `paper/dist/en_cogsci2027_2026-10-28_no_appendix.pdf` | 1 | `322aaba9f1307582f8165024a6975ab8740b66a613e4a6b949b4d976641d27f9` |
+| `paper/dist/ko_cogsci2027_2026-10-28_token_allocation_appendix.pdf` | 2 | `c6f42427a089b575fae01848405f79d34f1981e087f03533e37f70df7a60c65e` |
+| `paper/dist/ko_cogsci2027_2026-10-28_figure3_appendix.pdf` | 3 | `d133f14329776b7f2bdb94ebce17d9e4e979660b6707762c4b5833cce90799e1` |
