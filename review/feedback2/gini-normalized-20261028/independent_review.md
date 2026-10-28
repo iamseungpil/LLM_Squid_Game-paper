@@ -151,3 +151,20 @@
 | `paper/dist/en_cogsci2027_2026-10-28_no_appendix.pdf` | 1 | `322aaba9f1307582f8165024a6975ab8740b66a613e4a6b949b4d976641d27f9` |
 | `paper/dist/ko_cogsci2027_2026-10-28_token_allocation_appendix.pdf` | 2 | `c6f42427a089b575fae01848405f79d34f1981e087f03533e37f70df7a60c65e` |
 | `paper/dist/ko_cogsci2027_2026-10-28_figure3_appendix.pdf` | 3 | `d133f14329776b7f2bdb94ebce17d9e4e979660b6707762c4b5833cce90799e1` |
+
+## 추가 검토 — 기존 3.2 타당성 분석의 부록 S 이동
+
+사용자 추가 요청 범위만 검토했다. 이전 HEAD의 3.2 블록과 새 `appendix_validity_20261028.tex`를 비교해, 제목의 S 표기·별표 절·추가 label·onecolumn/color wrapper·figure*[t]→figure[H] 배치 변환만 제외하면 **문자 단위로 동일**함을 확인했다. 문장·숫자·인용·그림 파일·캡션을 보존했다. 본문 subsection은 3.1 관계/3.2 행동의 두 개이며 `sec:validity`는 부록에 한 번만 존재한다. intro/03/05의 현재 참조는 부록 S/행동3.2로 갱신됐고, 05의 M 이후 역사 검토표에 남은 구3.2/3.3 표기는 보존 범위다.
+
+최종 KO는 full44쪽 / no-appendix7쪽이다. 첫7쪽은 텍스트·렌더픽셀이 일치한다. 본문7쪽에 타당성 절이 없고 행동 분석은3.2로 나타난다. 부록 S는 **27쪽 한 페이지**에 Figure A16과 전체 본문이 함께 놓여 있다. 실제 페이지 렌더로 누락·본문/그림/캡션 clipping 없이 확인했다. R은25–26쪽, Q는22–24쪽으로 이동했다. 위의 이전 revision 페이지 번호/해시는 당시 검증 기록이며 이 추가 검토의 최신 해시가 우선한다. 수치 재분석 없이 원문과 배치만 검토했으며 PASS, 새 Critical 없음.
+
+| 최신 대상 | SHA-256 |
+|---|---|
+| `paper/cogsci2027/ko/sections/01_introduction.tex` | `5d8674e58604371235daee5f361eb860059d40c5e42005619195e8671f17bfe1` |
+| `paper/cogsci2027/ko/sections/03_analysis.tex` | `7ba5e864f4cc04ef87ac703c0e794ff8588abc1ef85562e3640bc01923cf9ea2` |
+| `paper/cogsci2027/ko/sections/05_appendix.tex` | `a2474907b5031cfba9a6d4844210a2c018fdcc9d33cccd558ffecfc3ff1f4e1c` |
+| `paper/cogsci2027/ko/sections/appendix_validity_20261028.tex` | `2ab49e8ae54efea7920116c1e1d69cfb307ee2b6d3a3687b08d78dd2bc892e3c` |
+| `paper/dist/ko_cogsci2027_2026-10-28.pdf` | `73f827077979af92c52e549775aab00218752195768f2db24e8182214e434bcf` |
+| `paper/dist/ko_cogsci2027_2026-10-28_no_appendix.pdf` | `90107706a57f7a941a365dd80ecfa051a9b4f9cf95f3ee5d7ad80ffb532caf15` |
+| `paper/dist/ko_cogsci2027_2026-10-28_token_allocation_appendix.pdf` | `53f8015ffe99d54ef64253ae18e85fb1e12710a547f8b6bd9baa2283fac34061` |
+| `paper/dist/ko_cogsci2027_2026-10-28_figure3_appendix.pdf` | `015750a07ca1ce206362a033914df45500df391ac07ae757947213a4b1a541a2` |
