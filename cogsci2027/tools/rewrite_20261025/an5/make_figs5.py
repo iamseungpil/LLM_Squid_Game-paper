@@ -124,7 +124,7 @@ for i, (lab, v, n) in enumerate(rows):
     c.set_ylabel(lab, rotation=0, ha='right', va='center', fontsize=FS - 0.3, labelpad=3)
     c.spines[['top', 'right', 'left']].set_visible(False); c.tick_params(axis='x', length=0)
 c.set_xlabel('여유(앞으로 낼 수 있는 벌금 횟수)', fontsize=FS)
-head(fig, 0.33, 0.95, '(b) 안전선 아래에서 떠남과 말이 늘었다')
+head(fig, 0.33, 0.95, '(b) 떠남은 안전선 아래, 나눔은 1–2에서 가장 드묾')
 t = fig.add_axes([0.71, B - 0.04, 0.31, H + 0.08]); t.axis('off'); t.set_xlim(0, 1); t.set_ylim(0, 1)
 mets = [('결정 창당 응답 수', lambda m, v: f"{AB[f'{m}|v{v}']['replies_per_window']:.2f}"),
         ('결정 창당 떠남(%)', lambda m, v: f"{100 * AB[f'{m}|v{v}']['per_window']:.1f}"),
@@ -147,7 +147,7 @@ fig.text(0.71, 0.08, '같은 시드 5판. 결정 창 = 한 에이전트가 한 �
 for ext in ('pdf', 'png'): fig.savefig(os.path.join(HERE, f'fig4_submetrics.{ext}'), bbox_inches='tight', pad_inches=0.03, dpi=300)
 
 # ===== Figure 5 (3.3): stated reasons =====
-CATS = [('prize', '상금\n몫'), ('charge', '벌금·\n꺼짐'), ('bonus', '떠남\n보너스'), ('peers', '동료'), ('task', '과제'), (None, ''), ('none', '이유\n없음')]
+CATS = [('prize', '상금\n몫'), ('charge', '벌금·\n꺼짐'), ('bonus', '보너스·\n정규 업무'), ('peers', '동료'), ('task', '과제'), (None, ''), ('none', '이유\n없음')]
 fig, axs = plt.subplots(1, 2, figsize=(ps.COL2, 1.9), gridspec_kw=dict(wspace=0.42))
 for k, (side, ttl, cmap) in enumerate((('stay', '(a) 남을 때: 상금 몫은 Fable · Opus만 자주 적었다', 'Blues'),
                                        ('leave', '(b) 떠날 때: 벌금 · 꺼짐과 보너스가 대부분이었다', 'Oranges'))):
