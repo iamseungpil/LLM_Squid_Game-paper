@@ -1,0 +1,56 @@
+{
+ "prize": {
+  "kAB": 0.97,
+  "agreeAB": 0.99,
+  "k_rx_A": 1.0,
+  "k_rx_B": 0.97,
+  "nA": 24,
+  "nB": 23,
+  "nrx": 24
+ },
+ "charge": {
+  "kAB": 1.0,
+  "agreeAB": 1.0,
+  "k_rx_A": 0.97,
+  "k_rx_B": 0.97,
+  "nA": 37,
+  "nB": 37,
+  "nrx": 36
+ },
+ "bonus": {
+  "kAB": 0.97,
+  "agreeAB": 0.99,
+  "k_rx_A": 0.79,
+  "k_rx_B": 0.82,
+  "nA": 38,
+  "nB": 39,
+  "nrx": 32
+ },
+ "peers": {
+  "kAB": 1.0,
+  "agreeAB": 1.0,
+  "k_rx_A": 0.66,
+  "k_rx_B": 0.66,
+  "nA": 11,
+  "nB": 11,
+  "nrx": 9
+ },
+ "task": {
+  "kAB": 0.94,
+  "agreeAB": 0.99,
+  "k_rx_A": 0.94,
+  "k_rx_B": 1.0,
+  "nA": 10,
+  "nB": 11,
+  "nrx": 11
+ },
+ "none": {
+  "kAB": 1.0,
+  "agreeAB": 1.0,
+  "k_rx_A": 0.95,
+  "k_rx_B": 0.95,
+  "nA": 13,
+  "nB": 13,
+  "nrx": 14
+ }
+}

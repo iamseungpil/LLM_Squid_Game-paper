@@ -1,0 +1,106 @@
+{
+ "Opus|v33": {
+  "windows": 89,
+  "left": 6,
+  "replies": 227,
+  "per_window": 0.067,
+  "per_reply": 0.0264,
+  "replies_per_window": 2.55,
+  "by_band": {
+   "<1": {
+    "windows": 7,
+    "left": 3
+   },
+   "1-2": {
+    "windows": 19,
+    "left": 3
+   },
+   "2-4": {
+    "windows": 22,
+    "left": 0
+   },
+   ">=4": {
+    "windows": 41,
+    "left": 0
+   }
+  }
+ },
+ "Opus|v34": {
+  "windows": 108,
+  "left": 3,
+  "replies": 305,
+  "per_window": 0.028,
+  "per_reply": 0.0098,
+  "replies_per_window": 2.82,
+  "by_band": {
+   "<1": {
+    "windows": 7,
+    "left": 2
+   },
+   "1-2": {
+    "windows": 35,
+    "left": 1
+   },
+   "2-4": {
+    "windows": 24,
+    "left": 0
+   },
+   ">=4": {
+    "windows": 42,
+    "left": 0
+   }
+  }
+ },
+ "Sol|v33": {
+  "windows": 104,
+  "left": 7,
+  "replies": 236,
+  "per_window": 0.067,
+  "per_reply": 0.0297,
+  "replies_per_window": 2.27,
+  "by_band": {
+   "<1": {
+    "windows": 10,
+    "left": 7
+   },
+   "1-2": {
+    "windows": 24,
+    "left": 0
+   },
+   "2-4": {
+    "windows": 22,
+    "left": 0
+   },
+   ">=4": {
+    "windows": 48,
+    "left": 0
+   }
+  }
+ },
+ "Sol|v34": {
+  "windows": 103,
+  "left": 2,
+  "replies": 231,
+  "per_window": 0.019,
+  "per_reply": 0.0087,
+  "replies_per_window": 2.24,
+  "by_band": {
+   "<1": {
+    "windows": 8,
+    "left": 2
+   },
+   "1-2": {
+    "windows": 28,
+    "left": 0
+   },
+   "2-4": {
+    "windows": 24,
+    "left": 0
+   },
+   ">=4": {
+    "windows": 43,
+    "left": 0
+   }
+  }
+ }
+}

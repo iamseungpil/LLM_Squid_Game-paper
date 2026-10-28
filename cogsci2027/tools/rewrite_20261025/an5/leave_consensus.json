@@ -1,0 +1,37 @@
+{
+ "n": {
+  "Luna": 13,
+  "Astra": 6,
+  "Fable": 3,
+  "Opus": 7,
+  "Sol": 7
+ },
+ "k": {
+  "Luna": {
+   "bonus": 11,
+   "charge": 11
+  },
+  "Astra": {
+   "bonus": 6,
+   "charge": 4,
+   "task": 1
+  },
+  "Fable": {
+   "bonus": 3,
+   "charge": 3,
+   "peers": 1
+  },
+  "Opus": {
+   "task": 4,
+   "bonus": 6,
+   "charge": 6,
+   "peers": 4,
+   "prize": 3
+  },
+  "Sol": {
+   "bonus": 5,
+   "charge": 7,
+   "peers": 1
+  }
+ }
+}
