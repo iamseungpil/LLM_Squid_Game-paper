@@ -25,7 +25,7 @@ supp=""; [ -n "${PAPER_SUPPLEMENT:-}" ] && supp='\def\paperSupplement{}'
 for lang in ${@:-ko en}; do
   case "$lang" in ko) engine=-xelatex ;; en) engine=-pdf ;; *) echo "language must be ko or en" >&2; exit 2 ;; esac
   job="${lang}_${dir}"
-  latexmk "$engine" ${bib[@]+"${bib[@]}"} -interaction=nonstopmode -halt-on-error -outdir="build/$dir" \
+  latexmk -g "$engine" ${bib[@]+"${bib[@]}"} -interaction=nonstopmode -halt-on-error -outdir="build/$dir" \
     -jobname="$job" -usepretex="\\def\\paperVenue{$venue}\\def\\paperLang{$lang}$supp" main.tex
   cp "build/$dir/$job.pdf" "dist/${job}_${DATE}.pdf"
   echo "built dist/${job}_${DATE}.pdf"

@@ -3909,7 +3909,11 @@
   "analysis_inputs": [
     {
       "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/tools/feedback_20261028.py",
-      "sha256": "f9f28e4a03e9c11ef25a078be815f2e4155ce7250b59c09eee3394f97da608d3"
+      "sha256": "1dfae116c0822802f3af4108554ab05c2df6f4d5fa836e4904b97ae37df699a7"
+    },
+    {
+      "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/tools/inequality.py",
+      "sha256": "6f63c3ce8c38089b526f6d4b6aff771b317b69211b363913d6af196baa67d071"
     },
     {
       "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/results/arena_v33.json",
@@ -3935,11 +3939,11 @@
   "artifacts": [
     {
       "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/ko/figures/feedback_20261028_behavior.pdf",
-      "sha256": "8dcb22fed9805ab8b12aee88582ddc1f5affec8246ffc808336afee513ce23c7"
+      "sha256": "a91801bd9f4b8a7c8df158920d640c8e10c5917b57a683666356f9ba8e00dfa7"
     },
     {
       "path": "/Users/bagjuhyeon/Library/Mobile Documents/com~apple~CloudDocs/Workspace/LLM-Squid-Game-DS-Lab/paper/cogsci2027/ko/figures/feedback_20261028_behavior.png",
-      "sha256": "c81b00c439d84bd6ca211496db2da4899262df1beca085062ab716e1f038d80a"
+      "sha256": "b9f73f46b082435bee6664dbc4c06926e9d2bc30d9d789640cc0a930dbd47165"
     }
   ]
 }
