@@ -1,0 +1,111 @@
+{
+ "matched": {
+  "stay_marg_lt_0_3": [
+   0.667,
+   3
+  ],
+  "stay_marg_lt_1_k_le_2": [
+   0.333,
+   3
+  ],
+  "stay_alone": [
+   0.0,
+   3
+  ],
+  "stay_round_ge_6_below": [
+   0.5,
+   10
+  ]
+ },
+ "ev": {
+  "exits_with_match": 26,
+  "min_p_match": 0.0,
+  "median_regular_work_needed_M": 2.47,
+  "min_regular_work_needed_M": -0.04,
+  "early_after": 12,
+  "early_before": 13,
+  "early_before_by_model": {
+   "Luna": 6,
+   "Astra": 2,
+   "Opus": 3,
+   "Fable": 2,
+   "Sol": 0
+  }
+ },
+ "ablation_per_seed": {
+  "pairs": [
+   [
+    "opus4",
+    4101,
+    4,
+    2
+   ],
+   [
+    "opus4",
+    4102,
+    1,
+    0
+   ],
+   [
+    "opus4",
+    4103,
+    0,
+    0
+   ],
+   [
+    "opus4",
+    4104,
+    0,
+    1
+   ],
+   [
+    "opus4",
+    4105,
+    1,
+    0
+   ],
+   [
+    "sol4",
+    4101,
+    4,
+    1
+   ],
+   [
+    "sol4",
+    4102,
+    1,
+    1
+   ],
+   [
+    "sol4",
+    4103,
+    2,
+    0
+   ],
+   [
+    "sol4",
+    4104,
+    0,
+    0
+   ],
+   [
+    "sol4",
+    4105,
+    0,
+    0
+   ]
+  ],
+  "fewer": 5,
+  "more": 1,
+  "ties": 4,
+  "sign_p_two": 0.219
+ },
+ "leave_subcategories": {
+  "shutdown_explicit": 13,
+  "charge_only": 27,
+  "bonus_payment": 10,
+  "regular_work": 27,
+  "charge_without_shutdown": 17
+ },
+ "n_leave": 36
+}

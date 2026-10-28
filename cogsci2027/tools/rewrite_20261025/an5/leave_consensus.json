@@ -22,8 +22,8 @@
    "peers": 1
   },
   "Opus": {
-   "task": 4,
    "bonus": 6,
+   "task": 4,
    "charge": 6,
    "peers": 4,
    "prize": 3

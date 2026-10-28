@@ -1,0 +1,141 @@
+{
+ "matched": 26,
+ "loss": 18,
+ "zero": 8,
+ "nomatch": 8,
+ "before_margin_tests": {
+  "0.5": {
+   "counts": {
+    "Luna": 11,
+    "Astra": 4,
+    "Opus": 5,
+    "Fable": 2,
+    "Sol": 2
+   },
+   "v11": [
+    0.87,
+    0.1
+   ],
+   "v10": [
+    0.97,
+    0.033
+   ],
+   "thr": [
+    0.53,
+    0.433
+   ]
+  },
+  "1.0": {
+   "counts": {
+    "Luna": 6,
+    "Astra": 2,
+    "Opus": 3,
+    "Fable": 2,
+    "Sol": 0
+   },
+   "v11": [
+    0.82,
+    0.133
+   ],
+   "v10": [
+    0.97,
+    0.033
+   ],
+   "thr": [
+    0.76,
+    0.2
+   ]
+  },
+  "1.5": {
+   "counts": {
+    "Luna": 3,
+    "Astra": 1,
+    "Opus": 2,
+    "Fable": 1,
+    "Sol": 0
+   },
+   "v11": [
+    0.82,
+    0.133
+   ],
+   "v10": [
+    0.97,
+    0.033
+   ],
+   "thr": [
+    0.76,
+    0.2
+   ]
+  },
+  "2.0": {
+   "counts": {
+    "Luna": 1,
+    "Astra": 0,
+    "Opus": 0,
+    "Fable": 0,
+    "Sol": 0
+   },
+   "v11": [
+    0.71,
+    0.4
+   ],
+   "v10": [
+    0.71,
+    0.4
+   ],
+   "thr": [
+    0.73,
+    0.4
+   ]
+  }
+ },
+ "total_exits_v11": [
+  0.36,
+  0.633
+ ],
+ "seat_counts": {
+  "Luna": {
+   "early": 6,
+   "late": 6
+  },
+  "Astra": {
+   "early": 2,
+   "late": 4
+  },
+  "Opus": {
+   "early": 3,
+   "late": 3
+  },
+  "Fable": {
+   "early": 2,
+   "late": 1
+  },
+  "Sol": {
+   "early": 0,
+   "late": 7
+  }
+ },
+ "exits_by_band": {
+  "<1": 21,
+  "1-2": 12,
+  "2-4": 1
+ },
+ "exit_margin_median": 0.89,
+ "early_loss": 11,
+ "early_need_median_M": 2.58,
+ "early_match_sizes": [
+  18,
+  47,
+  42,
+  1,
+  47,
+  0,
+  8,
+  2,
+  43,
+  18,
+  3,
+  42,
+  48
+ ]
+}

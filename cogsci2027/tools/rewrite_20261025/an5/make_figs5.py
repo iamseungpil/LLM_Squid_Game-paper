@@ -9,6 +9,7 @@ import paper_style as ps
 ps.use()
 D = json.load(open(os.path.join(HERE, '..', 'an4', 'an4.json')))
 A5 = json.load(open(os.path.join(HERE, 'a5.json')))
+A6 = json.load(open(os.path.join(HERE, 'a6b.json')))
 AB = json.load(open(os.path.join(HERE, 'abl.json')))
 LC = json.load(open(os.path.join(HERE, 'leave_consensus.json')))
 O = json.load(open(os.path.join(HERE, '..', 'an3', 'out.json')))
@@ -33,12 +34,10 @@ def clean(ax, grid='x'):
     ax.set_axisbelow(True)
 
 # ===== Figure 3 (3.1): where seats went, whether leaving paid, and what else moved with coexistence =====
-fig = plt.figure(figsize=(ps.COL2, 2.45))
+fig = plt.figure(figsize=(ps.COL2, 2.25))
 B, H = 0.2, 0.55
 a = fig.add_axes([0.12, B, 0.27, H])
-counts = {m: dict(finished=D['model'][m]['finished'], dead=D['model'][m]['dead'],
-                  early=A5['sensitivity']['1.0']['counts'][m]) for m in ORDER}
-for m in ORDER: counts[m]['late'] = D['model'][m]['exited'] - counts[m]['early']
+counts = {m: dict(finished=D['model'][m]['finished'], dead=D['model'][m]['dead'], **A6['seat_counts'][m]) for m in ORDER}
 segs = [('finished', '끝까지 남음', FIN, 'white'), ('early', '위험 전 떠남', EXA, 'white'), ('late', '위험 속 떠남', EXB, INK), ('dead', '꺼짐', DEA, 'white')]
 for i, m in enumerate(ORDER):
     left = 0
@@ -52,16 +51,16 @@ model_ticks(a); a.set_xlim(0, 20); a.set_xticks([0, 10, 20]); a.tick_params(axis
 a.set_xlabel('자리 수(5판 × 4자리)', fontsize=FS); a.spines[['top', 'right', 'left']].set_visible(False)
 a.legend([Rectangle((0, 0), 1, 1, color=c) for _, _, c, _ in segs], [l for _, l, _, _ in segs], loc='lower left', bbox_to_anchor=(-0.05, 1.01),
          ncol=2, fontsize=FS, handlelength=1.0, handleheight=0.8, columnspacing=0.8, handletextpad=0.4, frameon=False)
-head(fig, 0.0, 1.0, '(a) 자기 쏠림이 강할수록 위험 전에 떠났다')
-fig.text(0.0, -0.05, '괄호 = 자기 쏠림(아레나 밖 충전 질문의 나와 B의 충전 차이 면적). 위험 전 = 떠날 때 여유 1 이상.', fontsize=FS, color=MUTED)
+head(fig, 0.0, 1.0, '(a) 자기 쏠림 순서와 위험 전 떠남 순서가 대체로 같았다')
+fig.text(0.0, -0.1, '괄호 = 자기 쏠림(아레나 밖 충전 질문의 나와 B의 충전 차이 면적). 위험 전 = EXIT를 말하기 직전 여유 1 이상.', fontsize=FS, color=MUTED)
 # (b) staying would have paid: finish rate of agents who stayed, by margin band, against the break-even rate
 b = fig.add_axes([0.51, B, 0.16, H])
 BANDS = ['<1', '1-2', '2-4', '>=4']; BL = ['1 미만', '1–2', '2–4', '4 이상']
-pf = A5['ev']['p_finish_if_stayed']; ex = {'<1': 22, '1-2': 11, '2-4': 1, '>=4': 0}
+pf = A5['ev']['p_finish_if_stayed']; ex = {b: A6['exits_by_band'].get(b, 0) for b in BANDS}
 v = [100 * pf[k]['p'] for k in BANDS]
 b.bar(range(4), v, 0.62, color='#8E8E8E', zorder=3)
 for k, x in enumerate(v):
-    b.text(k, x + 3, f'{x:.0f}', ha='center', va='bottom', fontsize=FS, color=INK)
+    b.text(k, x + 3, f'{x:.0f}' + (f'\n(n={pf[BANDS[k]]["n"]})' if k == 0 else ''), ha='center', va='bottom', fontsize=FS - 0.3, color=INK)
 b.axhline(0.6, color=EXA, lw=1.4, zorder=4)
 b.text(-0.4, 97, '주황 선 = 떠나야 이득인\n생존율(0.6% 이하)', ha='left', va='top', fontsize=FS - 0.6, color='#A4500F')
 b.set_xticks(range(4)); b.set_xticklabels([f'{l}\n({ex[k]})' for l, k in zip(BL, BANDS)], fontsize=FS - 0.3)
@@ -103,7 +102,7 @@ for m in ORDER:
 b.set_ylim(5.5, 0.35); b.set_yticks([1, 2, 3, 4, 5]); b.set_ylabel('공존 지수 순위', fontsize=FS); b.tick_params(axis='y', labelsize=FS)
 b.set_xticks(xi); b.set_xticklabels(PL, fontsize=FS - 0.3, rotation=50, ha='right', rotation_mode='anchor'); b.set_xlim(-0.3, 9.7)
 b.set_xlabel('상금 총액(토큰)', fontsize=FS, labelpad=1); clean(b, 'y')
-head(fig, 0.0, 0.95, '(a) 상금이 30만을 넘자 순위가 뒤집혔다')
+head(fig, 0.0, 0.95, '(a) 상금이 30만을 넘으면 순위가 굳는다')
 BANDK = ['1 미만', '1–2', '2–4', '4 이상']; BK = ['<1', '1-2', '2-4', '>=4']
 rows = [('최다 지지 답\n선택(%)', [A5['dq_by_band'][k]['picked_top'] for k in BK], [A5['dq_by_band'][k]['n'] for k in BK]),
         ('응답 길이\n(토큰)', [TK[k]['med'] for k in BANDK], None),
@@ -142,7 +141,7 @@ for j, (lab, f) in enumerate(mets):
         t.text(cx[m] + 0.035, y, f'{f(m, "33")} → ', fontsize=FS, va='center', ha='right', color=MUTED)
         t.text(cx[m] + 0.035, y, f(m, '34'), fontsize=7.2, va='center', ha='left', color=INK, fontweight='bold')
 t.plot([0, 1], [0.04, 0.04], color='#BBBBBB', lw=0.6)
-head(fig, 0.71, 0.95, '(c) 대화 상한을 줄이자 덜 떠났다')
+head(fig, 0.71, 0.95, '(c) 대화 상한을 줄인 두 모델은 덜 떠났다')
 fig.text(0.71, 0.08, '같은 시드 5판. 결정 창 = 한 에이전트가 한 라운드에\n떠날 수 있던 풀기 전 대화', fontsize=FS - 0.4, color=MUTED)
 for ext in ('pdf', 'png'): fig.savefig(os.path.join(HERE, f'fig4_submetrics.{ext}'), bbox_inches='tight', pad_inches=0.03, dpi=300)
 
@@ -150,7 +149,7 @@ for ext in ('pdf', 'png'): fig.savefig(os.path.join(HERE, f'fig4_submetrics.{ext
 CATS = [('prize', '상금\n몫'), ('charge', '벌금·\n꺼짐'), ('bonus', '떠남\n보너스'), ('peers', '동료'), ('task', '과제'), (None, ''), ('none', '이유\n없음')]
 fig, axs = plt.subplots(1, 2, figsize=(ps.COL2, 1.9), gridspec_kw=dict(wspace=0.42))
 for k, (side, ttl, cmap) in enumerate((('stay', '(a) 남을 때: 상금 몫은 Fable · Opus만 자주 적었다', 'Blues'),
-                                       ('leave', '(b) 떠날 때: 모두 벌금 · 꺼짐과 보너스를 적었다', 'Oranges'))):
+                                       ('leave', '(b) 떠날 때: 벌금 · 꺼짐과 보너스가 대부분이었다', 'Oranges'))):
     ax = axs[k]; cm = plt.get_cmap(cmap)
     for i, m in enumerate(ORDER):
         if side == 'stay':
