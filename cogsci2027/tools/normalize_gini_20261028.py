@@ -1,6 +1,6 @@
 """Recompute current-paper caches from recorded vectors, never rescale Sen.
 
-Original files are retained in review/feedback2/gini-normalized-20261028/before.tar.gz.
+Original files are retained in Git at c73cbaa:review/feedback2/gini-normalized-20261028/before.tar.gz.
 Raw reward rules and cohort membership are unchanged. Safe to rerun.
 """
 import json

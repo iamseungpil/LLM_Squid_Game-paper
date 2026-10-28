@@ -12,7 +12,7 @@ from matplotlib.lines import Line2D
 
 PAPER = Path(__file__).resolve().parents[2]
 SOURCE = PAPER / "cogsci2027/results/arena_v33_round_dynamics.json"
-RAW = PAPER / "review/section31_33_20261028/raw_case_index.json"
+RAW = PAPER / "cogsci2027/results/raw_case_index.json"
 FIG = PAPER / "cogsci2027/ko/figures"
 MODELS = {"Fable 5.1": "Fable", "GPT-6 Astra": "Astra", "GPT-6 Sol": "Sol",
           "Opus 5.5": "Opus", "GPT-6 Luna": "Luna"}
