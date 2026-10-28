@@ -9,9 +9,14 @@
 \setcounter{secnumdepth}{0}
 \input{cogsci2027/\paperLang/sections/90_acknowledgments}
 \printbibliography
+%% CogSci 2027 rule (CLAUDE.md, 2026-10-26): everything but references and acknowledgments fits
+%% in 6 pages, so the submission carries no appendix. The 10-28 appendix stays in the repository
+%% as a separate supplement: PAPER_SUPPLEMENT=1 bash build.sh cogsci ko
+\ifdefined\paperSupplement
 \clearpage
 \appendix
 \label{paper:appendix-start}
 \setcounter{secnumdepth}{2}
 \input{cogsci2027/\paperLang/sections/05_appendix}
 \setcounter{secnumdepth}{0}
+\fi

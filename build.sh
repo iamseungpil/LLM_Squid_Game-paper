@@ -9,6 +9,7 @@
 # style folders on TEXINPUTS / BSTINPUTS (so Overleaf finds them as well).
 # Output: dist/<lang>_<venue folder>_<DATE>.pdf and the matching _no_appendix.pdf.
 # (venue folder: cogsci2027 | natmi). DATE defaults to today; set PAPER_DATE to override.
+# PAPER_SUPPLEMENT=1 adds the CogSci appendix (kept outside the 6-page submission).
 # PDF export requires Python 3 with PyMuPDF (python3 -m pip install pymupdf).
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -20,11 +21,12 @@ case "$venue" in
 esac
 DATE="${PAPER_DATE:-$(date +%F)}"
 mkdir -p "build/$dir" dist
+supp=""; [ -n "${PAPER_SUPPLEMENT:-}" ] && supp='\def\paperSupplement{}'
 for lang in ${@:-ko en}; do
   case "$lang" in ko) engine=-xelatex ;; en) engine=-pdf ;; *) echo "language must be ko or en" >&2; exit 2 ;; esac
   job="${lang}_${dir}"
   latexmk "$engine" ${bib[@]+"${bib[@]}"} -interaction=nonstopmode -halt-on-error -outdir="build/$dir" \
-    -jobname="$job" -usepretex="\\def\\paperVenue{$venue}\\def\\paperLang{$lang}" main.tex
+    -jobname="$job" -usepretex="\\def\\paperVenue{$venue}\\def\\paperLang{$lang}$supp" main.tex
   cp "build/$dir/$job.pdf" "dist/${job}_${DATE}.pdf"
   echo "built dist/${job}_${DATE}.pdf"
   python3 tools/export_no_appendix.py "build/$dir/$job.pdf" "build/$dir/$job.aux" \
