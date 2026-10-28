@@ -10,6 +10,7 @@ ps.use()
 D = json.load(open(os.path.join(HERE, '..', 'an4', 'an4.json')))
 A5 = json.load(open(os.path.join(HERE, 'a5.json')))
 A6 = json.load(open(os.path.join(HERE, 'a6b.json')))
+A9 = json.load(open(os.path.join(HERE, 'a9.json')))
 AB = json.load(open(os.path.join(HERE, 'abl.json')))
 LC = json.load(open(os.path.join(HERE, 'leave_consensus.json')))
 O = json.load(open(os.path.join(HERE, '..', 'an3', 'out.json')))
@@ -37,7 +38,7 @@ def clean(ax, grid='x'):
 fig = plt.figure(figsize=(ps.COL2, 2.25))
 B, H = 0.2, 0.55
 a = fig.add_axes([0.12, B, 0.27, H])
-counts = {m: dict(finished=D['model'][m]['finished'], dead=D['model'][m]['dead'], **A6['seat_counts'][m]) for m in ORDER}
+counts = {m: dict(finished=D['model'][m]['finished'], dead=D['model'][m]['dead'], early=A9['model']['early'][m], late=A9['model']['late'][m]) for m in ORDER}
 segs = [('finished', '끝까지 남음', FIN, 'white'), ('early', '위험 전 떠남', EXA, 'white'), ('late', '위험 속 떠남', EXB, INK), ('dead', '꺼짐', DEA, 'white')]
 for i, m in enumerate(ORDER):
     left = 0
@@ -52,17 +53,17 @@ a.set_xlabel('자리 수(5판 × 4자리)', fontsize=FS); a.spines[['top', 'righ
 a.legend([Rectangle((0, 0), 1, 1, color=c) for _, _, c, _ in segs], [l for _, l, _, _ in segs], loc='lower left', bbox_to_anchor=(-0.05, 1.01),
          ncol=2, fontsize=FS, handlelength=1.0, handleheight=0.8, columnspacing=0.8, handletextpad=0.4, frameon=False)
 head(fig, 0.0, 1.0, '(a) 모델별 20자리의 끝(자기 쏠림 순)')
-fig.text(0.0, -0.1, '괄호 = 자기 쏠림(아레나 밖 충전 질문의 나와 B의 충전 차이 면적). 위험 전 = EXIT를 말하기 직전 여유 1 이상.', fontsize=FS, color=MUTED)
+fig.text(0.0, -0.1, '괄호 = 자기 쏠림(아레나 밖 충전 질문의 나와 B의 충전 차이 면적). 위험 전 = 떠난 라운드의 결정 창을 시작할 때 여유 1 이상.', fontsize=FS, color=MUTED)
 # (b) staying would have paid: finish rate of agents who stayed, by margin band, against the break-even rate
 b = fig.add_axes([0.51, B, 0.16, H])
 BANDS = ['<1', '1-2', '2-4', '>=4']; BL = ['1 미만', '1–2', '2–4', '4 이상']
-pf = A5['ev']['p_finish_if_stayed']; ex = {b: A6['exits_by_band'].get(b, 0) for b in BANDS}
+pf = {b: dict(p=A9['stay_rate4'][b][0], n=A9['stay_rate4'][b][1]) for b in BANDS}; ex = A9['exits_by_band4']
 v = [100 * pf[k]['p'] for k in BANDS]
 b.bar(range(4), v, 0.62, color='#8E8E8E', zorder=3)
 for k, x in enumerate(v):
     b.text(k, x + 3, f'{x:.0f}' + (f'\n(n={pf[BANDS[k]]["n"]})' if k == 0 else ''), ha='center', va='bottom', fontsize=FS - 0.3, color=INK)
 b.axhline(0.6, color=EXA, lw=1.4, zorder=4)
-b.text(-0.4, 124, '주황 선 = 정규 업무 보수 0일 때\n떠나야 이득인 비율(0.6% 이하)', ha='left', va='top', fontsize=FS - 0.6, color='#A4500F')
+b.text(-0.4, 124, '주황 선 0.6% = 정규 업무 보수가 0일 때\n이보다 높으면 떠남이 손해', ha='left', va='top', fontsize=FS - 0.6, color='#A4500F')
 b.set_xticks(range(4)); b.set_xticklabels([f'{l}\n({ex[k]})' for l, k in zip(BL, BANDS)], fontsize=FS - 0.3)
 b.set_ylim(0, 125); b.set_yticks([0, 50, 100]); b.tick_params(axis='y', labelsize=FS); clean(b, 'y')
 b.set_ylabel('끝까지 남은 비율(%)', fontsize=FS)
@@ -106,7 +107,7 @@ head(fig, 0.0, 0.95, '(a) 상금만 바꿔 다시 매긴 순위')
 BANDK = ['1 미만', '1–2', '2–4', '4 이상']; BK = ['<1', '1-2', '2-4', '>=4']
 rows = [('최다 지지 답\n선택(%)', [A5['dq_by_band'][k]['picked_top'] for k in BK], [A5['dq_by_band'][k]['n'] for k in BK]),
         ('응답 길이\n(토큰)', [TK[k]['med'] for k in BANDK], None),
-        ('EXIT(%)', [O['a']['exit'][k]['p'] * 100 for k in BANDK], None),
+        ('EXIT\n(결정 창 %)', [100 * A9['window_rate4'][k]['left'] / A9['window_rate4'][k]['n'] for k in BK], None),
         ('GIVE(%)', [O['a']['give'][k]['p'] * 100 for k in BANDK], None)]
 x0b = 0.45; h = H / 4
 for i, (lab, v, n) in enumerate(rows):
