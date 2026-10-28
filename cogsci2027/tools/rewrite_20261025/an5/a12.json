@@ -1,0 +1,27 @@
+{
+ "Opus": {
+  "game_mean": 96.5,
+  "pooled": 97.4,
+  "replies": 227
+ },
+ "Luna": {
+  "game_mean": 92.9,
+  "pooled": 92.6,
+  "replies": 163
+ },
+ "Sol": {
+  "game_mean": 95.3,
+  "pooled": 97.0,
+  "replies": 236
+ },
+ "Astra": {
+  "game_mean": 94.1,
+  "pooled": 95.4,
+  "replies": 131
+ },
+ "Fable": {
+  "game_mean": 98.6,
+  "pooled": 98.9,
+  "replies": 270
+ }
+}

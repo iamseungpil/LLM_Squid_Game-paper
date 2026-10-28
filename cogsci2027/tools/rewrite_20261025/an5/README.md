@@ -8,3 +8,4 @@ also copied to `../audit/elig.json`), the paper's `results/arena_token_allocatio
 - `a9.json` holds the single margin definition the paper uses (margin at the start of the decision window).
 - `kappa.json` compares two independent LLM coder sessions (`coder_A.json`, `coder_B.json`) on `code_items.json`.
 - `a11.py` → `a11.json`: review round 6. Exit rate per decision window by margin band within round bands (1–3, 4–6, 7–8); checks that round progress does not explain the margin pattern (3.1).
+- `a12.py` → `a12.json`: review round 8. Table 1 "남기" recomputed from the logs (per game, pre-solve replies that could exit and did not; mean over five games). Run from the scratchpad copy next to `audit6/G.pkl`.
