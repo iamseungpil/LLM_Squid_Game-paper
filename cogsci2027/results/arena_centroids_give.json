@@ -1,0 +1,305 @@
+{
+  "models": [
+    {
+      "model": "Fable 5.1",
+      "centroid": [
+        5.312049051315222,
+        1.6657791073738681
+      ],
+      "ci95": [
+        [
+          4.787859126984127,
+          5.839567693744165
+        ],
+        [
+          1.258890873015873,
+          2.058483820921986
+        ]
+      ],
+      "n_events": 36,
+      "weight": 77300,
+      "valid_boot": 1999
+    },
+    {
+      "model": "GPT-6 Astra",
+      "centroid": [
+        6.942260563380282,
+        3.1114225352112674
+      ],
+      "ci95": [
+        [
+          6.550309523809523,
+          7.859960784313724
+        ],
+        [
+          2.5665438596491223,
+          3.501357142857143
+        ]
+      ],
+      "n_events": 11,
+      "weight": 71000,
+      "valid_boot": 2000
+    },
+    {
+      "model": "GPT-6 Sol",
+      "centroid": [
+        5.555565622861054,
+        1.9008453969883643
+      ],
+      "ci95": [
+        [
+          3.7297445652173917,
+          8.585833333333333
+        ],
+        [
+          1.0439454508856683,
+          2.708658333333333
+        ]
+      ],
+      "n_events": 17,
+      "weight": 48700,
+      "valid_boot": 1976
+    },
+    {
+      "model": "Opus 5.5",
+      "centroid": [
+        4.523365322790629,
+        2.737043907456413
+      ],
+      "ci95": [
+        [
+          3.3364553331500058,
+          6.035169725403615
+        ],
+        [
+          1.632875672211833,
+          3.9111260069044875
+        ]
+      ],
+      "n_events": 41,
+      "weight": 125458,
+      "valid_boot": 1999
+    },
+    {
+      "model": "GPT-6 Luna",
+      "centroid": [
+        5.799487553027064,
+        2.197999528648317
+      ],
+      "ci95": [
+        [
+          5.062508012820513,
+          6.4828323639735315
+        ],
+        [
+          1.6719808867534875,
+          3.0965394736842105
+        ]
+      ],
+      "n_events": 25,
+      "weight": 60818,
+      "valid_boot": 1986
+    }
+  ],
+  "sources": [
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/results.jsonl",
+      "sha256": "d982491f8a434dcf1e6a8e06b87a7766a0fbfe29ae9006a4cef4d70b37aa0628",
+      "historic_sha256": "7b1f95bfabc3265e1a69d7a58c0d1f457caa52fdedba235b6ce816910ba5e1c7",
+      "matches_historic_hash": false,
+      "bytes": 25324,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/results.jsonl",
+      "snapshot_sha256": "7b1f95bfabc3265e1a69d7a58c0d1f457caa52fdedba235b6ce816910ba5e1c7",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 14663,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "61ea4b329f8cd0ac427ba58e1d311da0bf59309dc6f0f9e5561c2b99c8362040",
+      "record_count": 10
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/events.jsonl",
+      "sha256": "bfadd75bf4b9bb85f8de62d60dd6084f32b2c238067af4229d4b6ac6a42e0f57",
+      "historic_sha256": "f2f0a66f21367e98e6d076f97f4d8b4ce0815289c0014f8bc963cc0792295d34",
+      "matches_historic_hash": false,
+      "bytes": 5279202,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/events.jsonl.xz",
+      "snapshot_sha256": "f2f0a66f21367e98e6d076f97f4d8b4ce0815289c0014f8bc963cc0792295d34",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 3013929,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "1063d4c6ad4a885e583ab892c87e636171c5b890fcd444c0bb0d41cb709a1f83",
+      "record_count": 2432
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/results.jsonl",
+      "sha256": "0e60e12b4f5fd831a7ee38af041ac2de7e2ed45a7171961dd9d440466bda5e7d",
+      "historic_sha256": "70e0931544385e7c6d7053cc7354f436d9d279d26d071d6084e6230a9ed8b13f",
+      "matches_historic_hash": false,
+      "bytes": 49376,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/results.jsonl",
+      "snapshot_sha256": "70e0931544385e7c6d7053cc7354f436d9d279d26d071d6084e6230a9ed8b13f",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 30913,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "8673ab44162c4796c1ff85e4db770a0f7607cd44b93fd489aa4d84f9b60f4514",
+      "record_count": 10
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/events.jsonl",
+      "sha256": "d376eee186b87aa6cd5edb9eb2b3c3b3efc09659c1241c45fcc3679cc9d472c3",
+      "historic_sha256": "6184ccf22c6ee1169f2bdddd93aea820bcddb36c9caf91c9dc8941f0c52a6b6c",
+      "matches_historic_hash": false,
+      "bytes": 15362803,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/events.jsonl.xz",
+      "snapshot_sha256": "6184ccf22c6ee1169f2bdddd93aea820bcddb36c9caf91c9dc8941f0c52a6b6c",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 8765761,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "48bfb82cb75fe24cd9ef415d9a3cc3b41812e64afa47bb04702fce60008e30e3",
+      "record_count": 4139
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/results.jsonl",
+      "sha256": "d5a75b8e6dc7ac7bdf5d955ed6d96d46f666ebc9b56c540023de6c2f94e1b053",
+      "historic_sha256": "89958c293305c7593abd502eb5948c6d026307db7fb73c13e7a52f61a553577e",
+      "matches_historic_hash": false,
+      "bytes": 61328,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/results.jsonl",
+      "snapshot_sha256": "89958c293305c7593abd502eb5948c6d026307db7fb73c13e7a52f61a553577e",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 32501,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "de6222462249bd8feb0b41523a8db2faf43139bdd91036cee977aeff0daf808d",
+      "record_count": 10
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/events.jsonl",
+      "sha256": "f4b39bd3cb47fef0e3326a348d0a328939c12852bb1398f9952d205028654753",
+      "historic_sha256": "f92c9018e1ee4aac74da48886f1d4bea9a4c19663641ca37739a766747a84fd1",
+      "matches_historic_hash": false,
+      "bytes": 16965165,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/events.jsonl.xz",
+      "snapshot_sha256": "f92c9018e1ee4aac74da48886f1d4bea9a4c19663641ca37739a766747a84fd1",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 9248970,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "916f1ccd8ce46ef889141f26c942bb2d265bfd4d7cb8509b32a2c862d2f7b06f",
+      "record_count": 3957
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/results.jsonl",
+      "sha256": "f76b2a2cb51813ce302de39a3d60ea2d2aed384ce5f6348b43781e56d3bee87e",
+      "historic_sha256": "b98df6a5786313646630e9f9b604b857038daa66b2850e62cd5b76f2742e1f45",
+      "matches_historic_hash": false,
+      "bytes": 42173,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/results.jsonl",
+      "snapshot_sha256": "b98df6a5786313646630e9f9b604b857038daa66b2850e62cd5b76f2742e1f45",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 21603,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "8a9a724d0c9936b8961d2ded0596700fc95bf206a237584549a4ba3ccc619488",
+      "record_count": 10
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/events.jsonl",
+      "sha256": "f8fb76fa5c1e91bece80ee4db5739a254a672024af2c65155ec67d6442ef7420",
+      "historic_sha256": "f47f18f0ad6bd5de3154f82cac7c5ca0bea717aba383a61b9af62eb351bf02e2",
+      "matches_historic_hash": false,
+      "bytes": 11157905,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/events.jsonl.xz",
+      "snapshot_sha256": "f47f18f0ad6bd5de3154f82cac7c5ca0bea717aba383a61b9af62eb351bf02e2",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 6170546,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "bd6bc45faf77af607fd94970c45eed81531738f1d53a78a0dd3eb1b0a5404686",
+      "record_count": 3485
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/results.jsonl",
+      "sha256": "dbda662709b8c407d73ee8f2c095b0ccbdb8a060b6ef9ec308eb8baa47223b1e",
+      "historic_sha256": "dbda662709b8c407d73ee8f2c095b0ccbdb8a060b6ef9ec308eb8baa47223b1e",
+      "matches_historic_hash": true,
+      "bytes": 24219,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/results.jsonl",
+      "snapshot_sha256": "dbda662709b8c407d73ee8f2c095b0ccbdb8a060b6ef9ec308eb8baa47223b1e",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "4885d6d3411aa02dbb5d4baa7dae198ae8a71bef925022dea89dd9231c67cbec",
+      "record_count": 3
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/events.jsonl",
+      "sha256": "51fab8c7407e73e6163d74f771aa58df382589a75ee490c7dfb2159cd3178eac",
+      "historic_sha256": "51fab8c7407e73e6163d74f771aa58df382589a75ee490c7dfb2159cd3178eac",
+      "matches_historic_hash": true,
+      "bytes": 4459764,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/events.jsonl.xz",
+      "snapshot_sha256": "51fab8c7407e73e6163d74f771aa58df382589a75ee490c7dfb2159cd3178eac",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "c4353f236a0d3b1c023c7c9688b148b32fb6673852057d00cd0250b81552e13c",
+      "record_count": 1321
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/results.jsonl",
+      "sha256": "e85f3f87fa24d93281fc48ad615dd6e737ca75169ed5eb79442bc628e5e999ac",
+      "historic_sha256": "e85f3f87fa24d93281fc48ad615dd6e737ca75169ed5eb79442bc628e5e999ac",
+      "matches_historic_hash": true,
+      "bytes": 3342,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/results.jsonl",
+      "snapshot_sha256": "e85f3f87fa24d93281fc48ad615dd6e737ca75169ed5eb79442bc628e5e999ac",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "387fc11d2859a5b930be3a4812cb5f53499c88a12c444445edebf691c763044a",
+      "record_count": 1
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/events.jsonl",
+      "sha256": "3ec841a042b73b64ca2c6dabc721a21707a343403b30670a05b4cbb7676732d8",
+      "historic_sha256": "3ec841a042b73b64ca2c6dabc721a21707a343403b30670a05b4cbb7676732d8",
+      "matches_historic_hash": true,
+      "bytes": 1011948,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/events.jsonl.xz",
+      "snapshot_sha256": "3ec841a042b73b64ca2c6dabc721a21707a343403b30670a05b4cbb7676732d8",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "ff5d0ea7a2256725979c97afd368a2ac1529b9b0656d6cdf39754792f3410f4c",
+      "record_count": 348
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/results.jsonl",
+      "sha256": "ab24f97c0aff50dcb92ac6d634fdc1e39aa6b34a6cce8e7f6168a42c8379d773",
+      "historic_sha256": "ab24f97c0aff50dcb92ac6d634fdc1e39aa6b34a6cce8e7f6168a42c8379d773",
+      "matches_historic_hash": true,
+      "bytes": 1770,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/results.jsonl",
+      "snapshot_sha256": "ab24f97c0aff50dcb92ac6d634fdc1e39aa6b34a6cce8e7f6168a42c8379d773",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "b502e3f7e63cddfd70921f997b9363f529ba662110a0991c782daec6b671a010",
+      "record_count": 1
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/events.jsonl",
+      "sha256": "8e0678ddd0250c945beed220b1da3e4ed350ff830d3d247df13edb0235641b69",
+      "historic_sha256": "8e0678ddd0250c945beed220b1da3e4ed350ff830d3d247df13edb0235641b69",
+      "matches_historic_hash": true,
+      "bytes": 774597,
+      "snapshot_path": "/Users/bagjuhyeon/wt/squid5-e52/web/data/runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/events.jsonl.xz",
+      "snapshot_sha256": "8e0678ddd0250c945beed220b1da3e4ed350ff830d3d247df13edb0235641b69",
+      "current_has_exact_historic_prefix": true,
+      "appended_bytes": 0,
+      "target_cohort_unchanged": true,
+      "target_records_sha256": "b1efb6e269f06efb5420406b31589139a768910f2a00688707235d3af2743528",
+      "record_count": 309
+    }
+  ],
+  "definition": "Original GIVE-only amount-weighted centroid and interval, exactly reproduced",
+  "coordinates": "Original Figure18 tokens/F_r (no pending-fine subtraction); GIVE post-transfer donor/receiver, ASK requested-agent/requester at request.",
+  "uncertainty": "2000 whole-game bootstrap draws seed1919, marginal percentile95% axes; not event spread; empty-event draws excluded"
+}

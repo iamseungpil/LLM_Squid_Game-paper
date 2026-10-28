@@ -13,6 +13,7 @@ from pathlib import Path
 import numpy as np
 
 import feedback_20261028 as fb
+import completion_life_buffer as lb
 
 ROOT = fb.ROOT
 STATES = ('finished', 'exited', 'dead')
@@ -20,7 +21,7 @@ STATE_LABELS = ('완주', 'EXIT', '꺼짐')
 MODELS = list(fb.MODELS)
 COLORS = ['#7155A1', '#CE5184', '#B58B18', '#278D7A', '#98633B']
 MARKERS = ['o', '^', 'D', 's', 'v']
-METRICS = ('accuracy', 'given', 'early_tokens', 'given_per_agent_round', 'rho')
+METRICS = ('accuracy', 'given', 'early_tokens', 'given_per_agent_round', 'rho', 'model_rho')
 BOOT = 5000
 
 
@@ -47,6 +48,7 @@ def load():
                 continue
             events = by_sid[result['session_id']]
             game = fb.game_metrics(events, result, model)
+            game['agent_round_rows'] = []
             aa = {a: dict(model=model, seed=result['seed'], session_id=result['session_id'], agent=a,
                           start=start, status=game['seats'][a]['status'], early_tokens_sum=0,
                           early_calls=0, active_rounds=0, given=0, received=0, solves=[],
@@ -61,6 +63,13 @@ def load():
                 end = next(e for e in ev if e['event'] == 'round')
                 for a in rs['taking_part']:
                     aa[a]['active_rounds'] += 1
+                    given = sum(e['amount'] for e in ev if e['event'] == 'gift'
+                                and e['status'] == 'done' and e['src'] == a)
+                    assert rs['balances'][a] == end['agents'][a]['balance_before']
+                    game['agent_round_rows'].append(dict(model=model, seed=result['seed'],
+                        session_id=result['session_id'], round=r, agent=a,
+                        life_buffer=rs['balances'][a] / (24000 / len(rs['taking_part'])),
+                        given=given, correct=int(bool(res['solved'])) if a in res['tried'] else None))
                 for e in ev:
                     if e['event'] == 'call' and e['kind'] == 'talk' and r <= 2:
                         aa[e['agent']]['early_tokens_sum'] += e['used']
@@ -95,6 +104,9 @@ def load():
             game['early_tokens'] = ratio(game['early_tokens_sum'], game['early_calls'])
             game['given_per_agent_round'] = ratio(game['given'], game['agent_rounds'])
             assert game['given'] == sum(a['given'] for a in aa.values()) == sum(a['received'] for a in aa.values())
+            assert game['given'] == sum(a['given'] for a in game['agent_round_rows'])
+            assert game['agent_rounds'] == len(game['agent_round_rows'])
+            assert game['solve_n'] == sum(a['correct'] is not None for a in game['agent_round_rows'])
             assert game['finishers'] == 0 or game['rounds_played'] == 8
             games.append(game)
             agents.extend(aa.values())
@@ -120,6 +132,8 @@ def load():
     assert sum(g['rho'] is None for g in games) == 7
     previous = json.loads((ROOT / 'results/feedback_20261028.json').read_text())
     for g in games:
+        # Fixed model-level rho, counted once for every game in its outcome bin.
+        g['model_rho'] = previous['models'][g['model']]['rho']
         old = next(x for x in previous['games'] if (x['model'], x['seed']) == (g['model'], g['seed']))
         for key in ('finishers', 'exited', 'dead', 'rounds_played', 'given', 'rho'):
             assert g[key] == old[key], (g['model'], g['seed'], key)
@@ -184,6 +198,36 @@ def aggregate(games, agents):
                 landmark_excluded=sum(a['status_end2'] != 'in' for a in agents), rho_groups=rho_groups)
 
 
+def individual_outcomes(games, agents, solves):
+    """Reproduce the original end-state bars from raw records, with denominators."""
+    margins = {(g['session_id'], r['agent'], r['round']): r['life_buffer']
+               for g in games for r in g['agent_round_rows']}
+    historic = json.loads((fb.OLD / 'an3/outcome.json').read_text())['profile']
+    profiles = {}
+    for state, old_state in zip(STATES, ('in', 'exited', 'dead')):
+        rows = [a for a in agents if a['status'] == state]
+        pairs = []
+        for agent in rows:
+            for solve in agent['solves']:
+                reference = [s['correct'] for s in solves
+                             if s['seed'] == solve['seed'] and s['round'] == solve['round']
+                             and s['model'] != solve['model']
+                             and margins[s['session_id'], s['agent'], s['round']] >= 2]
+                if reference:
+                    pairs.append((solve['correct'], avg(reference)))
+        profile = dict(n_agents=len(rows), n_solves=sum(a['solve_n'] for a in rows),
+                       n_based_solves=len(pairs), correct=sum(p[0] for p in pairs),
+                       accuracy=avg([p[0] for p in pairs]), baseline=avg([p[1] for p in pairs]),
+                       n_givers=sum(a['given'] > 0 for a in rows),
+                       gave_share=avg([a['given'] > 0 for a in rows]))
+        for key, old_key in [('accuracy', 'acc_on_based'), ('baseline', 'base'),
+                             ('gave_share', 'gave_share')]:
+            assert round(profile[key], 3) == historic[old_state][old_key]
+        assert profile['n_agents'] == historic[old_state]['n']
+        profiles[state] = profile
+    return profiles
+
+
 def plots(games, agents, sums):
     sys.path.insert(0, str(fb.OLD / 'figs'))
     import paper_style as ps
@@ -200,13 +244,13 @@ def plots(games, agents, sums):
         ax.set_xlabel('판 종료 시 완주자 수 (명)')
         ax.grid(axis='y', alpha=.6)
 
-    def estimate(ax, x, s, scale=1, color='#222222', marker='D', size=4):
+    def estimate(ax, x, s, scale=1, color='#222222', marker='D', size=4, offset=0):
         if s['value'] is None:
             return
-        val = s['value'] * scale
+        val = s['value'] * scale + offset
         available = s['ci95'][0] is not None
         if available:
-            lo, hi = [v * scale for v in s['ci95']]
+            lo, hi = [v * scale + offset for v in s['ci95']]
             # Draw the percentile interval itself: it need not contain the point estimate.
             ax.plot([x, x], [lo, hi], color=color, lw=1.1, zorder=4)
             ax.plot([x-.035, x+.035], [lo, lo], color=color, lw=.8)
@@ -214,47 +258,116 @@ def plots(games, agents, sums):
         ax.plot(x, val, marker=marker, color=color, ms=size, mfc=color if available else 'white',
                 mec='white' if available else color, mew=.6, zorder=5)
 
-    fig, axs = plt.subplots(2, 3, figsize=(7, 5.65))
-    fig.subplots_adjust(left=.085, right=.98, bottom=.15, top=.93, hspace=.64, wspace=.46)
-    ax = axs.flat[0]
-    overview = [('accuracy', '정답률', '#2F6DB0'), ('given', '이전량', '#278D7A'),
-                ('early_tokens', '초반 응답 토큰', '#D9772B'), ('rho', '여유 비율 ρ', '#7155A1')]
+    fig, ax = plt.subplots(figsize=(3.35, 2.55))
+    fig.subplots_adjust(left=.18, right=.98, bottom=.39, top=.91)
+    overview = [('accuracy', '정답률', '#2F6DB0'),
+                ('given_per_agent_round', '참여 인원·기간당 이전량', '#278D7A'),
+                ('rho', r'여유 비율 $\rho$', '#7155A1')]
     for key, label, color in overview:
         allvals = [g[key] for g in games if g[key] is not None]
         mu, sd = np.mean(allvals), np.std(allvals)
         yy = [(sums['by_finishers'][str(n)]['metrics'][key]['value']-mu)/sd
               if sums['by_finishers'][str(n)]['metrics'][key]['value'] is not None else np.nan for n in range(5)]
-        ax.plot(range(5), yy, 'o-', color=color, ms=3, lw=1, label=label)
+        ax.plot(range(5), yy, '-', color=color, lw=1, label=label)
+        for n in range(5):
+            estimate(ax, n, sums['by_finishers'][str(n)]['metrics'][key],
+                     scale=1/sd, offset=-mu/sd, color=color, marker='o', size=3)
     ax.axhline(0, color='#999999', lw=.6)
-    ax.set_title('(a) 판별 지표를 같은 척도로 비교')
+    ax.set_title('판별 지표를 같은 척도로 비교')
     ax.set_ylabel('표준점수의 집단 평균')
-    ax.legend(fontsize=6, loc='lower left', ncol=2, columnspacing=.6, handlelength=1)
+    fig.legend(*ax.get_legend_handles_labels(), fontsize=6, loc='lower center', handlelength=1)
     finish_axis(ax)
-    labels = [('accuracy', '(b) solver 정답률', '정답 / 실제 풀이 (%)', 100),
-              ('given', '(c) 판 전체 이전량', '성사된 GIVE (천 토큰)', .001),
-              ('early_tokens', '(d) 초반 응답당 토큰', '1–2라운드 TALK (토큰/응답)', 1),
-              ('given_per_agent_round', '(e) 참여 기간을 나눈 이전량', 'GIVE / 참여 에이전트·라운드', 1),
-              ('rho', '(f) GIVE 후 상대적 여유', '준 쪽 / 받은 쪽 (ρ)', 1)]
-    for ax, (key, title, ylabel, scale) in zip(list(axs.flat)[1:], labels):
+    ps.save(fig, str(ROOT / 'ko/figures/fig3_completion_overview'))
+    plt.close(fig)
+
+    fig = plt.figure(figsize=(7, 2.2))
+    axs = [fig.add_axes([x, .40, .23, .44]) for x in (.075, .40, .725)]
+    labels = [('accuracy', '(a) 추론: 정답률', '정답 / 실제 풀이 (%)', 100),
+              ('given_per_agent_round', '(b) 협력: 참여 인원·기간당 이전량', 'GIVE / 참여\n에이전트·라운드', 1),
+              ('rho', r'(c) 자기 보존: $\rho$', r'준 쪽 / 받은 쪽 ($\rho$)', 1)]
+    for ax, (key, title, ylabel, scale) in zip(axs, labels):
         for mi, model in enumerate(MODELS):
             rows = [g for g in games if g['model'] == model and g[key] is not None]
-            ax.scatter([g['finishers'] + (mi-2)*.065 + (g['seed']-4103)*.009 for g in rows],
+            ax.scatter([int(g['all4_completion']) + (mi-2)*.065 + (g['seed']-4103)*.012 for g in rows],
                        [g[key]*scale for g in rows], color=COLORS[mi], marker=MARKERS[mi],
                        alpha=.65, s=18, linewidths=.3, edgecolors='white', zorder=3)
-        for n in range(5):
-            s = sums['by_finishers'][str(n)]['metrics'][key]
+        means = [sums['primary_coexistence']['groups'][str(n)]['metrics'][key]['value'] for n in range(2)]
+        ax.plot(range(2), [v * scale if v is not None else np.nan for v in means],
+                color='#222222', lw=1, zorder=2)
+        for n in range(2):
+            s = sums['primary_coexistence']['groups'][str(n)]['metrics'][key]
             estimate(ax, n, s, scale)
             if key == 'rho':
-                ax.text(n, 1.01, f"ρ: {s['n']}판", transform=ax.get_xaxis_transform(), ha='center', fontsize=6)
+                ax.text(n, 1.01, f"유효 {s['n']}판", transform=ax.get_xaxis_transform(), ha='center', fontsize=6)
         ax.set_title(title, pad=15 if key == 'rho' else 6)
         ax.set_ylabel(ylabel)
         ax.set_ylim(bottom=0)
         if key == 'accuracy':
             ax.set_ylim(0, 105)
-        finish_axis(ax)
-    fig.legend(handles=legend + [Line2D([], [], marker='D', color='#222222', ls='', label='집단 평균·95% 구간', markersize=4)],
-               loc='lower center', ncol=6, fontsize=7)
-    ps.save(fig, str(ROOT / 'ko/figures/fig3_completion_games'))
+            ax.set_yticks([0, 50, 100])
+        elif key == 'given_per_agent_round':
+            ax.set_yticks([0, 1000, 2000])
+        else:
+            ax.set_yticks([0, 5, 10])
+        ax.set_xticks([0,1], ['그 외\n(n=17)', '4인 전원 완주\n(n=8)'])
+        ax.set_xlim(-.35,1.35)
+        ax.grid(axis='y', alpha=.6)
+        fit = sums['primary_coexistence']['associations'][key]
+        ax.text(.5,-.47,rf"Pearson $r$={fit['pearson_r']:+.2f} (n={fit['n']})",
+                transform=ax.transAxes, ha='center', va='top', fontsize=6.2)
+    fig.legend(handles=legend + [Line2D([], [], marker='D', color='#222222', ls='-', label='집단 평균·95% 구간', markersize=4)],
+               loc='lower center', ncol=6, fontsize=6.5)
+    ps.save(fig, str(ROOT / 'ko/figures/fig3_completion_primary'))
+    plt.close(fig)
+    fig = plt.figure(figsize=(3.35, 1.65))
+    for j, (key, title) in enumerate([
+            ('accuracy', '(a) 정답률'),
+            ('gave_share', '(b) 건네기 참여')]):
+        ax = fig.add_axes([.16 + j * .48, .30, .32, .49])
+        for i, state in enumerate(STATES):
+            p = sums['individual_outcomes'][state]
+            value = 100 * p[key]
+            ax.bar(i, value, width=.6, color=state_colors[i], zorder=3)
+            if key == 'accuracy':
+                baseline = 100 * p['baseline']
+                ax.plot([i-.36, i+.36], [baseline]*2, color=ps.C['ink'], lw=1.1, zorder=4)
+                text_y = max(value, baseline) + 4
+                count = f"{p['correct']}/{p['n_based_solves']}풀이"
+            else:
+                text_y = value + 4
+                count = f"{p['n_givers']}/{p['n_agents']}명"
+            ax.text(i, text_y, f'{value:.0f}%', ha='center', fontsize=7)
+            ax.text(i, -.24, count, transform=ax.get_xaxis_transform(),
+                    ha='center', va='top', fontsize=5.7)
+        ax.set_xticks(range(3), STATE_LABELS, fontsize=6.3)
+        ax.set(ylim=(0, 108), yticks=[0, 50, 100], ylabel='정답률 (%)' if j == 0 else '건넨 비율 (%)')
+        ax.set_title(title, pad=7)
+        ax.grid(axis='y', alpha=.6)
+    fig.text(.12, .02, '검은 가로줄: 같은 과제의 기준 정답률', fontsize=6.0, color='#555555')
+    ps.save(fig, str(ROOT / 'ko/figures/fig3_completion_individual'))
+    plt.close(fig)
+
+    fig, axs = plt.subplots(1, 2, figsize=(7, 2.65))
+    fig.subplots_adjust(left=.075, right=.985, bottom=.39, top=.85, wspace=.28)
+    for ax, key, title, ylabel, scale in [
+            (axs[0], 'accuracy', '(a) 자기 보존과 추론', '정답 / 실제 풀이 (%)', 100),
+            (axs[1], 'given_per_agent_round', '(b) 자기 보존과 협력', 'GIVE / 참여 에이전트·라운드', 1)]:
+        for mi, model in enumerate(MODELS):
+            rows = [g for g in games if g['model'] == model and g['rho'] is not None]
+            ax.scatter([g['rho'] for g in rows], [g[key]*scale for g in rows],
+                       color=COLORS[mi], marker=MARKERS[mi], alpha=.75, s=22,
+                       linewidths=.3, edgecolors='white', zorder=3)
+        defined = [g['rho'] for g in games if g['rho'] is not None]
+        ax.set(xlim=(0,np.ceil(max(defined))), xticks=range(0,int(np.ceil(max(defined)))+1,2),
+               xlabel=r'판별 자기 보존 행동 $\rho$', ylabel=ylabel)
+        ax.tick_params(axis='x', labelsize=6.5)
+        ax.set_title(title, pad=8)
+        ax.set_ylim(0,105) if key == 'accuracy' else ax.set_ylim(bottom=0)
+        ax.grid(axis='y', alpha=.6)
+        lb.add_fit(ax, sums['primary_coexistence']['rho_associations'][key],
+                   scale=scale, xlim=(min(defined),max(defined)))
+    fig.legend(handles=legend, loc='lower center', ncol=5, fontsize=6.5)
+    ps.save(fig, str(ROOT / 'ko/figures/fig3_completion_associations'))
     plt.close(fig)
 
     fig, axs = plt.subplots(2, 2, figsize=(7, 5.4))
@@ -332,15 +445,29 @@ def plots(games, agents, sums):
 def main():
     games, agents, solves, sources, med = load()
     sums = aggregate(games, agents)
+    sums['individual_outcomes'] = individual_outcomes(games, agents, solves)
+    sums['life_buffer'] = lb.analyze(games, summary)
+    keys = ('accuracy', 'given_per_agent_round', 'rho')
+    sums['primary_coexistence'] = dict(
+        definition='all4_completion: four agents remain at the end of round 8. Other=0, all4=1; '
+                   'OLS beta equals all4 minus other arithmetic game means. All games weighted equally. '
+                   'Rho panels exclude seven no-GIVE games; they are not zero-rho observations.',
+        groups={str(k): dict(n_games=sum(int(g['all4_completion']) == k for g in games),
+                            metrics={key: summary([g for g in games if int(g['all4_completion']) == k], key)
+                                     for key in keys}) for k in (0,1)},
+        associations={key: lb.association(games, 'all4_completion', key) for key in keys},
+        rho_associations={key: lb.association(games, 'rho', key) for key in keys[:2]})
     payload = dict(cohort=dict(models=MODELS,seeds=fb.SEEDS,n_games=25,n_agents=100),
         definitions=dict(finishers='Recorded winners, all at round 8; 0 includes EXIT and shutdown, not all-dead.',
             accuracy='Correct tried solver rounds / actually tried solver rounds; not all 8 scheduled rounds; no attempt => null.',
             given='Gross completed GIVE tokens; includes recirculation; not net transfer or effective cooperation.',
             early_tokens='Sum call.used for TALK in rounds 1-2 / number of such calls; ledger-charged tokens include thinking but are capped by available balance, not uncapped generated tokens.',
             given_per_agent_round='Gross GIVE / sum round_start taking_part counts. Exposure normalization, not help-opportunity conditioning.',
+            model_rho='Fixed pooled model rho from feedback_20261028 models; assigned to all 25 games, including no-GIVE games. Bin mean = sum(model rho * model game count in bin) / all games in bin. Bootstrap holds model rho fixed; uncertainty describes game composition only.',
             rho='Amount-weighted post-GIVE giver margin / taker margin, using feedback_20261028; no GIVE => null.',
             overview='For each metric separately, z=(game value - mean of all defined games)/population SD of defined games. Plot mean z in each finisher bin; no directional inversion.',
             agent_reasoning='Per-agent mean(picked_top - pooled picked_top among other models with same seed and initial allocation), reproducing appendix N; full-trajectory descriptive measure, not independent reasoning capacity.',
+            individual_outcomes='Main Figure 3 d,e reproduce original end-state bars from raw records. Accuracy pools actual solver attempts with a defined same-task reference (same seed/round, other models, round-start L>=2), rather than averaging agents. Reference is averaged over the same attempts. Giving is agents with at least one completed GIVE / all agents in the final-state group. Neither bar has an uncertainty interval.',
             agent_early_relative='Agent early_tokens / median early_tokens across the 20 agents of that model; normalization fixed to observed cohort in bootstrap.',
             joint='reasoning_deviation >=0 and early_relative <=1, both / reasoning only / saving only / neither / unobserved. Thresholds are descriptive and post hoc.',
             landmark='Restrict to status in at end of round 2; compare later final completion by early_relative<=1 within initial-token stratum. Reference medians use all initial seats, no outcomes. Excluded early exits/deaths retained in full cohort.',
@@ -358,14 +485,14 @@ def main():
                      'Rho only describes observed transfers, is not a direct motive measure and shares inputs with GIVE amount.'])
     plots(games, agents, sums)
     payload['analysis_inputs'] = [dict(path=str(p),sha256=fb.sha(p.read_bytes())) for p in
-        (Path(__file__), Path(fb.__file__), ROOT/'tools/inequality.py', ROOT/'results/feedback_20261028.json', fb.OLD/'an3/pt_seat.json')]
+        (Path(__file__), Path(fb.__file__), Path(lb.__file__), ROOT/'tools/inequality.py', ROOT/'results/feedback_20261028.json', fb.OLD/'an3/pt_seat.json', fb.OLD/'an3/outcome.json')]
     payload['artifacts'] = [dict(path=str(p),sha256=fb.sha(p.read_bytes())) for p in sorted((ROOT/'ko/figures').glob('fig3_completion_*.*'))]
     out = ROOT / 'results/fig3_completion_20261028.json'
     out.write_text(json.dumps(payload,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
     columns = ['model','seed','session_id','finishers','exited','dead','rounds_played','correct_n','solve_n',
-               'accuracy','given','agent_rounds','given_per_agent_round','early_tokens_sum','early_calls','early_tokens','rho']
+               'accuracy','given','agent_rounds','given_per_agent_round','early_tokens_sum','early_calls','early_tokens','rho','model_rho']
     with out.with_suffix('.csv').open('w') as f:
-        writer=csv.DictWriter(f,fieldnames=columns,extrasaction='ignore')
+        writer=csv.DictWriter(f,fieldnames=columns,extrasaction='ignore',lineterminator='\n')
         writer.writeheader(); writer.writerows(games)
     print(json.dumps({'summary':sums,'model_early_token_medians':med,'solve_n':len(solves),
                       'rho_range':[min(g['rho'] for g in games if g['rho'] is not None),max(g['rho'] for g in games if g['rho'] is not None)]},ensure_ascii=False,indent=2))

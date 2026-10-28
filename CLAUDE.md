@@ -54,6 +54,14 @@ This project's prose follows the principles validated for the LLM Addiction Neur
 - **No causal language for correlational evidence.** Use "수렴", "일관된", "is consistent with" rather than "causes".
 - **Scope-honest hedging.** "보고된다", "관찰된다" rather than "증명된다", "확립한다".
 
+## 본문과 부록의 독립성 (2026-10-28)
+
+- 부록은 별도로 작성·업데이트·분석·활용할 수 있다. 다만 논문 본문에서는 부록을 언급하거나 참조하지 않는다.
+- 본문에 부록의 절·그림·표·수식을 가리키는 교차 참조나 안내 문구를 넣지 않는다. 번호 없는 간접 언급도 금지한다.
+- **본문의 주장·해석·결론은 오로지 본문에 제시된 결과에 근거해 작성한다.** 부록에만 있는 결과·수치·사례·분석을 본문의 근거로 사용하거나, 부록을 읽어야 성립하는 설명을 쓰지 않는다. 부록 참조 문구만 지우고 해당 근거에 의존하는 서술을 남기는 것도 금지한다.
+- 부록의 결과를 본문에 활용하려면 필요한 결과와 그 해석에 필요한 설명을 본문 자체에 정식으로 제시해야 한다. 그렇지 않으면 해당 주장이나 해석을 본문에서 제외한다.
+- 본문 수정 시 부록 교차 참조의 유무뿐 아니라, 각 주장과 해석의 근거가 본문 안에 실제로 제시되어 있는지도 확인한다.
+
 ## Self-containment
 
 - Each section reads on its own. A reader entering §4 should not need §3 open beside them.

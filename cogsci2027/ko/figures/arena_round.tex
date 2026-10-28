@@ -34,6 +34,8 @@
 \fill[black!35] (2.2,2.86) rectangle (3.2,2.93);
 \draw[black!35,line width=.6pt] (2.28,2.86)--(2.28,2.68) (3.12,2.86)--(3.12,2.68);
 \sgguardgun{(2.85,2.93)}{38}
+\sgbubble[sgfont=8,inner sep=3pt]{(1.45,3.72)}{(2.6,3.43)}{네 차례야.}
+\node[tag,draw=sgorange,fill=sgorange!12,text=sgorange!85!black] at (1.2,2.85) {solver: B};
 \draw[laser] (sgmuzzle)--(1.34,2.06);
 \draw[sgastra,line width=.5pt] (1.34,2.06) circle (.06);
 \fill[sgastra] (1.34,2.06) circle (.025);
@@ -116,7 +118,9 @@
 \foreach \x in {11.05,12.42,13.45}{\sgnoexitsign[.92]{(\x,.86)}}
 
 %% == 5. 벌금: 한꺼번에 뗌, B는 0으로 꺼짐 ==
-\node[fine] at (16.35,3.64) {$-$6,000};
+\node[lab] at (16.35,4.0) {오답 벌금: 24,000 $\div$ 시작 4명};
+\node[fine] at (16.35,3.64) {각자 $-$6,000};
+\node[lab] at (16.35,.76) {D가 떠나도 이번 몫은 그대로};
 \foreach \x in {15.4,16.35,17.3}
   \draw[sgastra,line width=.8pt,-{Stealth[length=4pt,width=3.5pt]}] (16.35,3.48)--(\x,2.86);
 \sgrobot[1.25]{(15.4,2.0)}{sgblue}{A}

@@ -40,8 +40,9 @@ for i,m in enumerate(mods):
         left+=v
 ax.set_yticks(range(5),mods);ax.invert_yaxis();ax.set(xlim=(0,20),xticks=[0,10,20],xlabel='에이전트 수 (모델마다 20명)')
 fig.text(.55,.98,'(b) 모델별 끝 상태',va='top',fontsize=8.5,weight='bold')
-fig.text(.02,.43,'(c) 자기 여유 비율과 공존·목표 지향·협력',va='top',fontsize=8.5,weight='bold')
+fig.text(.02,.43,'(c) 자기 여유 비율과 자원 분포·목표 지향·협력',va='top',fontsize=8.5,weight='bold')
 metrics=dict(mm.METRIC)
+metrics['sen']=('보조: 정산 Sen 지수(백만)', metrics['sen'][1], metrics['sen'][2])
 metrics['rho']=('여유 비율 ρ',lambda m:fb['models'][m]['rho'],(1.3,4.9))
 for j,key in enumerate(['sen','goal','given']):
     ax=fig.add_axes([.085+j*.31,.09,.22,.23])
