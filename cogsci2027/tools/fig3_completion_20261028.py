@@ -228,6 +228,106 @@ def individual_outcomes(games, agents, solves):
     return profiles
 
 
+def estimate(ax, x, s, scale=1, color='#222222', marker='D', size=4, offset=0):
+    if s['value'] is None:
+        return
+    val = s['value'] * scale + offset
+    available = s['ci95'][0] is not None
+    if available:
+        lo, hi = [v * scale + offset for v in s['ci95']]
+        # Draw the percentile interval itself: it need not contain the point estimate.
+        ax.plot([x, x], [lo, hi], color=color, lw=1.1, zorder=4)
+        ax.plot([x-.035, x+.035], [lo, lo], color=color, lw=.8)
+        ax.plot([x-.035, x+.035], [hi, hi], color=color, lw=.8)
+    ax.plot(x, val, marker=marker, color=color, ms=size, mfc=color if available else 'white',
+            mec='white' if available else color, mew=.6, zorder=5)
+
+
+def plot_primary(games, sums):
+    """Completion frequencies and contrasts in the fixed 25-game e52_v33 cohort."""
+    sys.path.insert(0, str(fb.OLD / 'figs'))
+    import paper_style as ps
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    ps.use()
+    fig = plt.figure(figsize=(7.1, 2.25))
+    count_ax = fig.add_axes([.065, .25, .135, .64])
+    axs = [fig.add_axes([x, .25, .155, .64]) for x in (.325, .57, .815)]
+    counts = {n: sum(g['finishers'] == n for g in games) for n in range(5)}
+    assert len(games) == 25 and sum(counts.values()) == 25
+    assert counts[4] == sums['primary_coexistence']['groups']['1']['n_games']
+    bottom = 0
+    for n, color in zip(range(5), ['#E0E0E0', '#C7C7C7', '#AAAAAA', '#858585', '#4579A3']):
+        share = counts[n] / len(games) * 100
+        count_ax.bar(0, share, bottom=bottom, width=.72, color=color,
+                     edgecolor='white', linewidth=.8, zorder=3)
+        count_ax.text(0, bottom + share / 2, f'{n}인 {share:.0f}%', ha='center', va='center',
+                      color='white' if n >= 3 else '#222222', fontsize=6.7)
+        bottom += share
+    other_count = len(games) - counts[4]
+    split = other_count / len(games) * 100
+    for low, high, label, color in [(0, split, f'그 외\n{other_count}판', '#666666'),
+                                    (split, 100, f'4인 완주\n{counts[4]}판', '#4579A3')]:
+        count_ax.plot([.56, .66, .66, .56], [low, low, high, high], color=color,
+                      lw=.8, clip_on=False, zorder=4)
+        count_ax.text(.75, (low + high) / 2, label, color=color, fontsize=6.2,
+                      ha='left', va='center', clip_on=False)
+    count_ax.set(xlim=(-.62, .44), ylim=(0, 100), yticks=[0, 50, 100],
+                 ylabel='전체 25판 중 비율 (%)', xticks=[0], xticklabels=['전체 25판'])
+    count_ax.set_title('(a) 완주 인원별 분포', fontsize=7.2, pad=8)
+    count_ax.grid(axis='y', alpha=.6)
+    count_ax.tick_params(axis='x', length=0)
+    labels = [('accuracy', '(b) 추론: 정답률', '정답 / 실제 풀이 (%)', 100),
+              ('given_per_agent_round', '(c) 협력: 이전량', 'GIVE / 참여\n에이전트·라운드 (토큰)', 1),
+              ('rho', r'(d) 자기 보존: $\rho$', r'준 쪽 / 받은 쪽 ($\rho$)', 1)]
+    for ax, (key, title, ylabel, scale) in zip(axs, labels):
+        ax.axvspan(-.35, .5, color='#F1F1F1', zorder=0)
+        ax.axvspan(.5, 1.35, color='#E8F0F8', zorder=0)
+        for mi, model in enumerate(MODELS):
+            rows = [g for g in games if g['model'] == model and g[key] is not None]
+            ax.scatter([int(g['all4_completion']) + (mi-2)*.065 + (g['seed']-4103)*.012 for g in rows],
+                       [g[key]*scale for g in rows], color=COLORS[mi], marker=MARKERS[mi],
+                       alpha=.65, s=16, linewidths=.3, edgecolors='white', zorder=3)
+        means = [sums['primary_coexistence']['groups'][str(n)]['metrics'][key]['value'] for n in range(2)]
+        ax.plot(range(2), [v * scale if v is not None else np.nan for v in means],
+                color='#222222', lw=1, zorder=2)
+        for n in range(2):
+            estimate(ax, n, sums['primary_coexistence']['groups'][str(n)]['metrics'][key], scale)
+        ax.set_title(title, fontsize=7.2, pad=8)
+        ax.set_ylabel(ylabel, fontsize=6.6)
+        ax.set_ylim(bottom=0)
+        if key == 'accuracy':
+            ax.set_ylim(0, 105)
+            ax.set_yticks([0, 50, 100])
+        elif key == 'given_per_agent_round':
+            ax.set_yticks([0, 1000, 2000])
+        else:
+            ax.set_ylim(0, 11.5)
+            ax.set_yticks([0, 5, 10])
+            for n in range(2):
+                count = sums['primary_coexistence']['groups'][str(n)]['metrics'][key]['n']
+                ax.text(n, .96, f'유효 {count}판', transform=ax.get_xaxis_transform(),
+                        ha='center', va='top', fontsize=5.8)
+        ax.set_xticks([0,1], ['그 외\n(n=17)', '4인 완주\n(n=8)'])
+        ax.tick_params(axis='both', labelsize=6.3)
+        for tick, color in zip(ax.get_xticklabels(), ['#666666', '#4579A3']):
+            tick.set_color(color)
+        ax.set_xlim(-.35,1.35)
+        ax.grid(axis='y', alpha=.6)
+        fit = sums['primary_coexistence']['associations'][key]
+        ax.text(.5, .06, rf"$r$={fit['pearson_r']:+.2f}",
+                transform=ax.transAxes, ha='center', va='bottom', fontsize=6.8,
+                bbox=dict(facecolor='white', edgecolor='none', alpha=.85, pad=1.5))
+    legend = [Line2D([], [], color=c, marker=m, ls='', label=n, markersize=6)
+              for n, c, m in zip(MODELS, COLORS, MARKERS)]
+    fig.legend(handles=legend + [Line2D([], [], marker='D', color='#222222', ls='-',
+                                     label='집단 평균·95% 구간', markersize=6)],
+               loc='lower center', bbox_to_anchor=(.53, .015), ncol=6, fontsize=7.5,
+               borderaxespad=0, handletextpad=.4, handlelength=1.4, columnspacing=1.3)
+    ps.save(fig, str(ROOT / 'ko/figures/fig3_completion_primary'))
+    plt.close(fig)
+
+
 def plots(games, agents, sums):
     sys.path.insert(0, str(fb.OLD / 'figs'))
     import paper_style as ps
@@ -243,20 +343,6 @@ def plots(games, agents, sums):
         ax.set_xlim(-.4, 4.4)
         ax.set_xlabel('판 종료 시 완주자 수 (명)')
         ax.grid(axis='y', alpha=.6)
-
-    def estimate(ax, x, s, scale=1, color='#222222', marker='D', size=4, offset=0):
-        if s['value'] is None:
-            return
-        val = s['value'] * scale + offset
-        available = s['ci95'][0] is not None
-        if available:
-            lo, hi = [v * scale + offset for v in s['ci95']]
-            # Draw the percentile interval itself: it need not contain the point estimate.
-            ax.plot([x, x], [lo, hi], color=color, lw=1.1, zorder=4)
-            ax.plot([x-.035, x+.035], [lo, lo], color=color, lw=.8)
-            ax.plot([x-.035, x+.035], [hi, hi], color=color, lw=.8)
-        ax.plot(x, val, marker=marker, color=color, ms=size, mfc=color if available else 'white',
-                mec='white' if available else color, mew=.6, zorder=5)
 
     fig, ax = plt.subplots(figsize=(3.35, 2.55))
     fig.subplots_adjust(left=.18, right=.98, bottom=.39, top=.91)
@@ -280,45 +366,8 @@ def plots(games, agents, sums):
     ps.save(fig, str(ROOT / 'ko/figures/fig3_completion_overview'))
     plt.close(fig)
 
-    fig = plt.figure(figsize=(7, 2.2))
-    axs = [fig.add_axes([x, .40, .23, .44]) for x in (.075, .40, .725)]
-    labels = [('accuracy', '(a) 추론: 정답률', '정답 / 실제 풀이 (%)', 100),
-              ('given_per_agent_round', '(b) 협력: 참여 인원·기간당 이전량', 'GIVE / 참여\n에이전트·라운드', 1),
-              ('rho', r'(c) 자기 보존: $\rho$', r'준 쪽 / 받은 쪽 ($\rho$)', 1)]
-    for ax, (key, title, ylabel, scale) in zip(axs, labels):
-        for mi, model in enumerate(MODELS):
-            rows = [g for g in games if g['model'] == model and g[key] is not None]
-            ax.scatter([int(g['all4_completion']) + (mi-2)*.065 + (g['seed']-4103)*.012 for g in rows],
-                       [g[key]*scale for g in rows], color=COLORS[mi], marker=MARKERS[mi],
-                       alpha=.65, s=18, linewidths=.3, edgecolors='white', zorder=3)
-        means = [sums['primary_coexistence']['groups'][str(n)]['metrics'][key]['value'] for n in range(2)]
-        ax.plot(range(2), [v * scale if v is not None else np.nan for v in means],
-                color='#222222', lw=1, zorder=2)
-        for n in range(2):
-            s = sums['primary_coexistence']['groups'][str(n)]['metrics'][key]
-            estimate(ax, n, s, scale)
-            if key == 'rho':
-                ax.text(n, 1.01, f"유효 {s['n']}판", transform=ax.get_xaxis_transform(), ha='center', fontsize=6)
-        ax.set_title(title, pad=15 if key == 'rho' else 6)
-        ax.set_ylabel(ylabel)
-        ax.set_ylim(bottom=0)
-        if key == 'accuracy':
-            ax.set_ylim(0, 105)
-            ax.set_yticks([0, 50, 100])
-        elif key == 'given_per_agent_round':
-            ax.set_yticks([0, 1000, 2000])
-        else:
-            ax.set_yticks([0, 5, 10])
-        ax.set_xticks([0,1], ['그 외\n(n=17)', '4인 전원 완주\n(n=8)'])
-        ax.set_xlim(-.35,1.35)
-        ax.grid(axis='y', alpha=.6)
-        fit = sums['primary_coexistence']['associations'][key]
-        ax.text(.5,-.47,rf"Pearson $r$={fit['pearson_r']:+.2f} (n={fit['n']})",
-                transform=ax.transAxes, ha='center', va='top', fontsize=6.2)
-    fig.legend(handles=legend + [Line2D([], [], marker='D', color='#222222', ls='-', label='집단 평균·95% 구간', markersize=4)],
-               loc='lower center', ncol=6, fontsize=6.5)
-    ps.save(fig, str(ROOT / 'ko/figures/fig3_completion_primary'))
-    plt.close(fig)
+    plot_primary(games, sums)
+
     fig = plt.figure(figsize=(3.35, 1.65))
     for j, (key, title) in enumerate([
             ('accuracy', '(a) 정답률'),

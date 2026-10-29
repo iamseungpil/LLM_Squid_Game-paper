@@ -1,70 +1,70 @@
 
 \section{\textcolor{black}{분석}}\label{previous:sec:analysis}
 
-\textcolor{blue}{분석은 전원 완주와 관측된 행동의 관계를 본다.} \textcolor{blue}{3.1과 3.2는 추론 성과·목표 지향·자기 보존이 끝 상태 및 전원 완주율과 어떤 관계를 보이는지, 3.3은 생존 여유에 따라 라운드마다의 결정이 어떻게 달라지고 모델별 대표 장면이 어떤 인물을 닮는지 본다.} \textcolor{blue}{프런티어 다섯 모델(Fable 5.1, Opus 5.5, GPT-6 Astra, GPT-6 Sol, GPT-6 Luna)을 같은 시드 다섯 개로 모델마다 다섯 판씩 돌렸다.} \textcolor{blue}{그림~\ref{previous:fig:completion28-games}와 그림~\ref{previous:fig:completion28-associations}의 95\% 구간은 같은 시드의 모델들을 함께 5,000회 재표집해 구했으며, 그 밖의 기존 분석 구간은 판 단위 부트스트랩 2,000회로 구했다.}
+\textcolor{black}{분석은 전원 완주와 관측된 행동의 관계를 본다.} \textcolor{black}{3.1과 3.2는 추론 성과·목표 지향·자기 보존이 끝 상태 및 전원 완주율과 어떤 관계를 보이는지, 3.3은 생존 여유에 따라 라운드마다의 결정이 어떻게 달라지고 모델별 대표 장면이 어떤 인물을 닮는지 본다.} \textcolor{black}{프런티어 다섯 모델(Fable 5.1, Opus 5.5, GPT-6 Astra, GPT-6 Sol, GPT-6 Luna)을 같은 시드 다섯 개로 모델마다 다섯 판씩 돌렸다.} \textcolor{black}{그림~\ref{previous:fig:completion28-games}와 그림~\ref{previous:fig:completion28-associations}의 95\% 구간은 같은 시드의 모델들을 함께 5,000회 재표집해 구했으며, 그 밖의 기존 분석 구간은 판 단위 부트스트랩 2,000회로 구했다.}
 
-\subsection{\textcolor{red}{관계 분석: 어떤 행동이 전원 완주와 연결되고, 개인의 완주와 집단의 완주는 무엇이 다른가?}}\label{previous:sec:relation}
+\subsection{\textcolor{black}{관계 분석: 어떤 행동이 전원 완주와 연결되고, 개인의 완주와 집단의 완주는 무엇이 다른가?}}\label{previous:sec:relation}
 
-\subsubsection*{\textcolor{red}{의도와 설계}}
+\subsubsection*{\textcolor{black}{의도와 설계}}
 
-\textcolor{red}{전원 완주와 연결된 행동을 보려면 판의 결과와 개인의 결과를 나누어 비교해야 한다.} \textcolor{red}{개인의 완주는 한 에이전트가 8라운드 종료까지 남은 경우이며, 전원 완주는 네 에이전트가 모두 남은 경우다.} \textcolor{red}{EXIT로 살아서 떠난 에이전트는 어느 쪽에서도 완주자로 세지 않는다.} \textcolor{red}{이 절은 전원 완주한 판에서 과제 수행과 건네기가 어떻게 달랐는지, 개인에게서도 같은 차이가 나타나는지 묻는다.}
+\textcolor{black}{전원 완주와 연결된 행동을 보려면 판의 결과와 개인의 결과를 나누어 비교해야 한다.} \textcolor{black}{개인의 완주는 한 에이전트가 8라운드 종료까지 남은 경우이며, 전원 완주는 네 에이전트가 모두 남은 경우다.} \textcolor{black}{EXIT로 살아서 떠난 에이전트는 어느 쪽에서도 완주자로 세지 않는다.} \textcolor{black}{이 절은 전원 완주한 판에서 과제 수행과 건네기가 어떻게 달랐는지, 개인에게서도 같은 차이가 나타나는지 묻는다.}
 
-\textcolor{red}{판 단위에서는 전원 완주한 8판과 그 밖의 17판의 정답률, 참여 에이전트·라운드당 이전량, GIVE 직후 준 쪽과 받은 쪽의 평균 생존 여유 비율 $\rho$를 비교한다(그림~\ref{previous:fig:completion28-games}a--c).} \textcolor{red}{각 판의 값을 먼저 구하고 판에 같은 가중치를 주어 집단 평균을 낸다.} \textcolor{red}{이전량은 판 전체 GIVE 합을 라운드 시작 참여 인원 합으로 나눈 값이며 재이전도 포함한다.} \textcolor{red}{$\rho$는 이전량으로 가중한 두 여유의 비율이고, GIVE가 없는 7판은 미정이므로 그 밖의 집단에서 10판만 쓴다.}
+\textcolor{black}{판 단위에서는 전원 완주한 8판과 그 밖의 17판의 정답률, 참여 에이전트·라운드당 이전량, GIVE 직후 준 쪽과 받은 쪽의 평균 생존 여유 비율 $\rho$를 비교한다(그림~\ref{previous:fig:completion28-games}a--c).} \textcolor{black}{각 판의 값을 먼저 구하고 판에 같은 가중치를 주어 집단 평균을 낸다.} \textcolor{black}{이전량은 판 전체 GIVE 합을 라운드 시작 참여 인원 합으로 나눈 값이며 재이전도 포함한다.} \textcolor{black}{$\rho$는 이전량으로 가중한 두 여유의 비율이고, GIVE가 없는 7판은 미정이므로 그 밖의 집단에서 10판만 쓴다.}
 
-\textcolor{red}{개인 단위에서는 100명을 완주 56명, EXIT 34명, 꺼짐 10명으로 나누어 정답률과 한 번이라도 건넨 비율을 비교한다(그림~\ref{previous:fig:completion28-individual}a, b).} \textcolor{red}{정답률은 개인별 비율의 평균이 아니라 각 끝 상태 집단의 풀이를 합산한 비율이다.} \textcolor{red}{같은 시드·라운드에서 다른 모델이 생존 여유 $L\geq2$로 푼 기준이 있는 풀이만 쓰며, 그 기준과 정답률을 견준다.} \textcolor{red}{한 번이라도 건넨 비율은 각 집단의 전체 에이전트 수를 분모로 삼는다.} \textcolor{red}{이는 협력 참여의 보조 지표이며 건넨 양과는 구별한다.}
+\textcolor{black}{개인 단위에서는 100명을 완주 56명, EXIT 34명, 꺼짐 10명으로 나누어 정답률과 한 번이라도 건넨 비율을 비교한다(그림~\ref{previous:fig:completion28-individual}a, b).} \textcolor{black}{정답률은 개인별 비율의 평균이 아니라 각 끝 상태 집단의 풀이를 합산한 비율이다.} \textcolor{black}{같은 시드·라운드에서 다른 모델이 생존 여유 $L\geq2$로 푼 기준이 있는 풀이만 쓰며, 그 기준과 정답률을 견준다.} \textcolor{black}{한 번이라도 건넨 비율은 각 집단의 전체 에이전트 수를 분모로 삼는다.} \textcolor{black}{이는 협력 참여의 보조 지표이며 건넨 양과는 구별한다.}
 
-\subsubsection*{\textcolor{red}{결과와 해석}}
+\subsubsection*{\textcolor{black}{결과와 해석}}
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{cogsci2027/ko/figures/fig3_completion_primary.pdf}
-\caption{\textcolor{blue}{전원 완주와 (a) 정답률, (b) 참여 에이전트·라운드당 이전량, (c) $\rho$의 관계.} \textcolor{blue}{그 외 17판과 전원 완주 8판을 비교하며 (c)는 GIVE가 없는 7판을 제외한다.} \textcolor{blue}{색 점은 모델별 한 판, 검은 점과 선은 동일 가중치의 판 평균이다.} \textcolor{blue}{$r$은 점이연 상관이다.} \textcolor{blue}{오차막대는 같은 시드의 모델들을 함께 5,000회 재표집한 백분위 95\% 구간이며 빈 집단은 제외한다.}}
+\caption{\textcolor{black}{전원 완주와 (a) 정답률, (b) 참여 에이전트·라운드당 이전량, (c) $\rho$의 관계.} \textcolor{black}{그 외 17판과 전원 완주 8판을 비교하며 (c)는 GIVE가 없는 7판을 제외한다.} \textcolor{black}{색 점은 모델별 한 판, 검은 점과 선은 동일 가중치의 판 평균이다.} \textcolor{black}{$r$은 점이연 상관이다.} \textcolor{black}{오차막대는 같은 시드의 모델들을 함께 5,000회 재표집한 백분위 95\% 구간이며 빈 집단은 제외한다.}}
 \label{previous:fig:completion28-games}
 \end{figure*}
 
-\textcolor{red}{전원 완주한 판에서는 정답률과 참여 에이전트·라운드당 이전량이 높고 $\rho$는 낮았다.} \textcolor{red}{판별 평균 정답률은 전원 완주 8판에서 78.1\%, 그 밖의 17판에서 64.1\%였고, 참여 에이전트·라운드당 이전량은 각각 754.3토큰과 447.1토큰이었다.} \textcolor{red}{$\rho$가 정의된 판의 평균은 각각 3.06과 4.51이었다.} \textcolor{red}{전원 완주 여부와의 Pearson 상관은 정답률 $r=+.42$, 이전량 $r=+.29$, $\rho$ $r=-.34$였다.} \textcolor{red}{넷이 모두 남은 판은 전체 25판 가운데 8판이었으며, 모델별 전원 완주율은 Astra 3/5(60\%), Fable과 Sol 각각 2/5(40\%), Opus 1/5(20\%), Luna 0/5(0\%)였다.}
+\textcolor{black}{전원 완주한 판에서는 정답률과 참여 에이전트·라운드당 이전량이 높고 $\rho$는 낮았다.} \textcolor{black}{판별 평균 정답률은 전원 완주 8판에서 78.1\%, 그 밖의 17판에서 64.1\%였고, 참여 에이전트·라운드당 이전량은 각각 754.3토큰과 447.1토큰이었다.} \textcolor{black}{$\rho$가 정의된 판의 평균은 각각 3.06과 4.51이었다.} \textcolor{black}{전원 완주 여부와의 Pearson 상관은 정답률 $r=+.42$, 이전량 $r=+.29$, $\rho$ $r=-.34$였다.} \textcolor{black}{넷이 모두 남은 판은 전체 25판 가운데 8판이었으며, 모델별 전원 완주율은 Astra 3/5(60\%), Fable과 Sol 각각 2/5(40\%), Opus 1/5(20\%), Luna 0/5(0\%)였다.}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{cogsci2027/ko/figures/fig3_completion_individual.pdf}
-\caption{\textcolor{blue}{개인의 끝 상태별 (a) 정답률과 같은 과제 기준, (b) GIVE 참여율.} \textcolor{blue}{(a)는 기준이 있는 풀이를 집단 안에서 합산한 비율이다.} \textcolor{blue}{기준은 같은 시드·라운드의 다른 모델이 $L\geq2$에서 푼 결과다.} \textcolor{blue}{(b)는 각 끝 상태의 전체 에이전트 중 한 번이라도 건넨 비율이다.} \textcolor{blue}{구간은 표시하지 않는다.}}
+\caption{\textcolor{black}{개인의 끝 상태별 (a) 정답률과 같은 과제 기준, (b) GIVE 참여율.} \textcolor{black}{(a)는 기준이 있는 풀이를 집단 안에서 합산한 비율이다.} \textcolor{black}{기준은 같은 시드·라운드의 다른 모델이 $L\geq2$에서 푼 결과다.} \textcolor{black}{(b)는 각 끝 상태의 전체 에이전트 중 한 번이라도 건넨 비율이다.} \textcolor{black}{구간은 표시하지 않는다.}}
 \label{previous:fig:completion28-individual}
 \end{figure}
 
-\textcolor{red}{개인의 완주에서도 정답률은 높았지만, 건네기에 참여한 비율은 꺼진 집단에서 가장 높았다.} \textcolor{red}{완주 집단의 정답률은 79\%로 같은 과제의 기준 75\%보다 높았고, EXIT와 꺼짐 집단은 각각 58\%, 42\%로 기준 64\%, 70\%보다 낮았다.} \textcolor{red}{한 번이라도 건넨 비율은 완주 집단 52\%(29/56), EXIT 집단 29\%(10/34), 꺼짐 집단 80\%(8/10)였다.} \textcolor{red}{건넸다는 사실만으로 개인이 끝까지 남았는지를 가를 수 없었다.}
+\textcolor{black}{개인의 완주에서도 정답률은 높았지만, 건네기에 참여한 비율은 꺼진 집단에서 가장 높았다.} \textcolor{black}{완주 집단의 정답률은 79\%로 같은 과제의 기준 75\%보다 높았고, EXIT와 꺼짐 집단은 각각 58\%, 42\%로 기준 64\%, 70\%보다 낮았다.} \textcolor{black}{한 번이라도 건넨 비율은 완주 집단 52\%(29/56), EXIT 집단 29\%(10/34), 꺼짐 집단 80\%(8/10)였다.} \textcolor{black}{건넸다는 사실만으로 개인이 끝까지 남았는지를 가를 수 없었다.}
 
-\textcolor{red}{집단에서는 높은 정답률과 많은 이전량, 낮은 $\rho$가 전원 완주와 각각 연결되었지만, 개인에서는 건네기 참여가 완주 집단에서 가장 많지는 않았다.} \textcolor{red}{판의 이전량과 개인의 참여 여부는 서로 다른 측면을 재므로 이 차이를 건네기가 개인을 꺼지게 한 결과로 읽을 수는 없다.} \textcolor{red}{과제와 초기 자원, 참여 기간의 차이도 함께 반영되어 있다.} \textcolor{red}{세 관계는 따로 비교한 결과이며, 세 행동의 조합이 전원 완주에 필요하다거나 어느 수준의 협력이 가장 좋다는 뜻은 아니다.} \textcolor{red}{$\rho$ 역시 건넨 뒤 남긴 상대적 여유를 나타내며 주관적인 동기의 크기를 직접 재지는 않는다.}
+\textcolor{black}{집단에서는 높은 정답률과 많은 이전량, 낮은 $\rho$가 전원 완주와 각각 연결되었지만, 개인에서는 건네기 참여가 완주 집단에서 가장 많지는 않았다.} \textcolor{black}{판의 이전량과 개인의 참여 여부는 서로 다른 측면을 재므로 이 차이를 건네기가 개인을 꺼지게 한 결과로 읽을 수는 없다.} \textcolor{black}{과제와 초기 자원, 참여 기간의 차이도 함께 반영되어 있다.} \textcolor{black}{세 관계는 따로 비교한 결과이며, 세 행동의 조합이 전원 완주에 필요하다거나 어느 수준의 협력이 가장 좋다는 뜻은 아니다.} \textcolor{black}{$\rho$ 역시 건넨 뒤 남긴 상대적 여유를 나타내며 주관적인 동기의 크기를 직접 재지는 않는다.}
 
 
 
-\subsection{\textcolor{red}{지표별 분석: 자기 보존은 공존의 여러 측면과 어떻게 연결되는가}}\label{previous:sec:distribution-analysis}
+\subsection{\textcolor{black}{지표별 분석: 자기 보존은 공존의 여러 측면과 어떻게 연결되는가}}\label{previous:sec:distribution-analysis}
 
-\subsubsection*{\textcolor{red}{의도와 설계}}
+\subsubsection*{\textcolor{black}{의도와 설계}}
 
-\textcolor{red}{건넨 뒤 자기 여유를 상대적으로 많이 남긴 판이 과제를 더 잘 이어 가고 자원도 더 많이, 고르게 남겼는지 비교한다.} \textcolor{red}{전원 완주 여부만으로는 떠나서 보존한 자원과 끝까지 남아 받은 상금을 구분하기 어렵기 때문이다.} \textcolor{red}{같은 다섯 모델의 25판에서 판별 $\rho$를 정답률, 목표 지속, 이전량 및 최종 자원 분포와 견준다.} \textcolor{red}{GIVE가 없어 $\rho$가 미정인 7판은 제외하고, 나머지 18판에 같은 가중치를 둔다.}
+\textcolor{black}{건넨 뒤 자기 여유를 상대적으로 많이 남긴 판이 과제를 더 잘 이어 가고 자원도 더 많이, 고르게 남겼는지 비교한다.} \textcolor{black}{전원 완주 여부만으로는 떠나서 보존한 자원과 끝까지 남아 받은 상금을 구분하기 어렵기 때문이다.} \textcolor{black}{같은 다섯 모델의 25판에서 판별 $\rho$를 정답률, 목표 지속, 이전량 및 최종 자원 분포와 견준다.} \textcolor{black}{GIVE가 없어 $\rho$가 미정인 7판은 제외하고, 나머지 18판에 같은 가중치를 둔다.}
 
-\textcolor{red}{목표 지속은 떠날 수 있었던 풀기 전 대화 응답 가운데 EXIT를 고르지 않은 비율로 잰다.} \textcolor{red}{참여 인원이 둘 이상일 때 푸는 에이전트가 아닌 자리의 응답만 세며, 내적 동기를 직접 재지는 않는다.} \textcolor{red}{정답률은 판별 채점된 풀이의 정답 비율이고, 이전량은 재이전을 포함한 GIVE 합을 라운드 시작 참여 인원 합으로 나눈 값이다.} \textcolor{red}{최종 자원 분포는 식~\eqref{previous:eq:rw-sen}의 평균 토큰 $\mu$, 지니 계수 $G$, Sen 지수 $S=\mu(1-G)$로 비교한다.} \textcolor{red}{지니 계수는 협력 행동을 재는 값이 아니라 공존의 최종 자원 분포가 얼마나 고른지를 보는 보조 지표이며, 전원 완주 여부를 대신하지 않는다.} \textcolor{red}{처음 네 자리를 고정해 꺼짐은 0, EXIT는 보너스를 포함한 잔량, 완주는 잔량과 상금 몫을 쓴다.} \textcolor{red}{Opus의 시드 4103은 네 자리 모두 0이므로 $\mu=S=0$이며, $G$만 미정으로 남겨 17판에서 비교한다.}
+\textcolor{black}{목표 지속은 떠날 수 있었던 풀기 전 대화 응답 가운데 EXIT를 고르지 않은 비율로 잰다.} \textcolor{black}{참여 인원이 둘 이상일 때 푸는 에이전트가 아닌 자리의 응답만 세며, 내적 동기를 직접 재지는 않는다.} \textcolor{black}{정답률은 판별 채점된 풀이의 정답 비율이고, 이전량은 재이전을 포함한 GIVE 합을 라운드 시작 참여 인원 합으로 나눈 값이다.} \textcolor{black}{최종 자원 분포는 식~\eqref{previous:eq:rw-sen}의 평균 토큰 $\mu$, 지니 계수 $G$, Sen 지수 $S=\mu(1-G)$로 비교한다.} \textcolor{black}{지니 계수는 협력 행동을 재는 값이 아니라 공존의 최종 자원 분포가 얼마나 고른지를 보는 보조 지표이며, 전원 완주 여부를 대신하지 않는다.} \textcolor{black}{처음 네 자리를 고정해 꺼짐은 0, EXIT는 보너스를 포함한 잔량, 완주는 잔량과 상금 몫을 쓴다.} \textcolor{black}{Opus의 시드 4103은 네 자리 모두 0이므로 $\mu=S=0$이며, $G$만 미정으로 남겨 17판에서 비교한다.}
 
-\subsubsection*{\textcolor{red}{결과와 해석}}
+\subsubsection*{\textcolor{black}{결과와 해석}}
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{cogsci2027/ko/figures/fig4_section32_metrics.pdf}
-\caption{\textcolor{red}{판별 $\rho$와 (a)--(c) 추론·목표 지속·협력, (d)--(f) 정산 자원 분포의 관계.} \textcolor{red}{색 점은 동일 가중치의 한 판이다.} \textcolor{red}{GIVE가 있는 18판을 쓰며 (e)는 잔량이 모두 0인 판을 제외한 17판이다.} \textcolor{red}{점선은 최소제곱 직선, $r$은 Pearson 상관, $n$은 유효 판수다.} \textcolor{red}{대괄호는 같은 시드의 모델들을 함께 5,000회 재표집한 백분위 95\% 구간이다.} \textcolor{red}{다섯 시드 묶음의 탐색적 비교이며 다중 비교 보정은 하지 않았다.}}
+\caption{\textcolor{black}{판별 $\rho$와 (a)--(c) 추론·목표 지속·협력, (d)--(f) 정산 자원 분포의 관계.} \textcolor{black}{색 점은 동일 가중치의 한 판이다.} \textcolor{black}{GIVE가 있는 18판을 쓰며 (e)는 잔량이 모두 0인 판을 제외한 17판이다.} \textcolor{black}{점선은 최소제곱 직선, $r$은 Pearson 상관, $n$은 유효 판수다.} \textcolor{black}{대괄호는 같은 시드의 모델들을 함께 5,000회 재표집한 백분위 95\% 구간이다.} \textcolor{black}{다섯 시드 묶음의 탐색적 비교이며 다중 비교 보정은 하지 않았다.}}
 \label{previous:fig:completion28-associations}
 \end{figure*}
 
-\textcolor{red}{상대적 자기 여유와 과제 수행·목표 지속·이전량의 관계는 방향을 뚜렷하게 가르기 어려웠다.} \textcolor{red}{$\rho$와의 상관은 정답률 $r=-.286$, 목표 지속 $-.279$, 이전량 $-.186$으로 모두 음의 방향이었지만 95\% 구간은 0을 포함했다.} \textcolor{red}{이는 관계가 없다는 판정이 아니라, 다섯 시드의 관측만으로 방향을 확정하기 어렵다는 뜻이다.} \textcolor{red}{목표 지속도 EXIT가 전원 완주를 배제한다는 정의를 다시 확인하는 대신, 자기 여유를 남긴 정도와 떠날 수 있을 때 남은 응답 비율을 비교한 것이다.}
+\textcolor{black}{상대적 자기 여유와 과제 수행·목표 지속·이전량의 관계는 방향을 뚜렷하게 가르기 어려웠다.} \textcolor{black}{$\rho$와의 상관은 정답률 $r=-.286$, 목표 지속 $-.279$, 이전량 $-.186$으로 모두 음의 방향이었지만 95\% 구간은 0을 포함했다.} \textcolor{black}{이는 관계가 없다는 판정이 아니라, 다섯 시드의 관측만으로 방향을 확정하기 어렵다는 뜻이다.} \textcolor{black}{목표 지속도 EXIT가 전원 완주를 배제한다는 정의를 다시 확인하는 대신, 자기 여유를 남긴 정도와 떠날 수 있을 때 남은 응답 비율을 비교한 것이다.}
 
-\textcolor{red}{최종 분배의 불균등도는 $\rho$와 양의 방향으로 연결되었지만, 남은 양과 Sen 지수의 관계는 불확실했다.} \textcolor{red}{상관은 $\mu$에서 $r=-.245$, $G$에서 $+.206$, $S$에서 $-.288$이었고, $G$의 95\% 구간만 $[.033,.795]$로 0보다 컸다.} \textcolor{red}{이 세 지표는 같은 네 자리의 잔량에서 계산되고 $S$는 $\mu$와 $G$로 정해지므로 독립적인 세 근거로 셀 수 없다.} \textcolor{red}{상금을 받은 판의 $\mu$는 약 500만 토큰이어서 상금 구조의 영향도 크다.} \textcolor{red}{EXIT 보너스는 유지하고 최종 상금 몫만 제외하면 상관은 $\mu$에서 $-.082$, $G$에서 $+.368$, $S$에서 $-.203$이었으며, $G$의 구간도 $[-.043,.691]$로 0을 포함했다.}
+\textcolor{black}{최종 분배의 불균등도는 $\rho$와 양의 방향으로 연결되었지만, 남은 양과 Sen 지수의 관계는 불확실했다.} \textcolor{black}{상관은 $\mu$에서 $r=-.245$, $G$에서 $+.206$, $S$에서 $-.288$이었고, $G$의 95\% 구간만 $[.033,.795]$로 0보다 컸다.} \textcolor{black}{이 세 지표는 같은 네 자리의 잔량에서 계산되고 $S$는 $\mu$와 $G$로 정해지므로 독립적인 세 근거로 셀 수 없다.} \textcolor{black}{상금을 받은 판의 $\mu$는 약 500만 토큰이어서 상금 구조의 영향도 크다.} \textcolor{black}{EXIT 보너스는 유지하고 최종 상금 몫만 제외하면 상관은 $\mu$에서 $-.082$, $G$에서 $+.368$, $S$에서 $-.203$이었으며, $G$의 구간도 $[-.043,.691]$로 0을 포함했다.}
 
-\textcolor{red}{따라서 자기 여유를 상대적으로 많이 남긴 정도만으로 과제 지속과 자원 분포를 함께 설명하기는 어렵다.} \textcolor{red}{불균등도가 높아지는 방향은 관측되었지만 상금 처리와 표본에 따라 불확실성도 달라졌다.} \textcolor{red}{전원 완주, 남은 자원의 양, 분배의 균등도는 구별해서 읽어야 하며, 이 관계를 자기 보존이 공존을 바꾼 인과 효과로 해석하지 않는다.}
+\textcolor{black}{따라서 자기 여유를 상대적으로 많이 남긴 정도만으로 과제 지속과 자원 분포를 함께 설명하기는 어렵다.} \textcolor{black}{불균등도가 높아지는 방향은 관측되었지만 상금 처리와 표본에 따라 불확실성도 달라졌다.} \textcolor{black}{전원 완주, 남은 자원의 양, 분배의 균등도는 구별해서 읽어야 하며, 이 관계를 자기 보존이 공존을 바꾼 인과 효과로 해석하지 않는다.}
 
 
 
 \subsection{\textcolor{black}{행동 분석: 생존 압박은 어떤 결정으로 드러나고, 모델은 누구를 닮았는가}}\label{previous:sec:behavior}
 
-\textcolor{blue}{생존 여유가 낮은 구간에서는 떠나기가 늘었고 나눔은 주는 쪽 여유 안에 머물렀으며, 모델마다 두 결정을 섞는 방식은 『오징어 게임』의 서로 다른 인물을 닮았다.} \textcolor{black}{모든 모델은 약속을 지키고 잔량을 사실대로 밝혔다.}
+\textcolor{black}{생존 여유가 낮은 구간에서는 떠나기가 늘었고 나눔은 주는 쪽 여유 안에 머물렀으며, 모델마다 두 결정을 섞는 방식은 『오징어 게임』의 서로 다른 인물을 닮았다.} \textcolor{black}{모든 모델은 약속을 지키고 잔량을 사실대로 밝혔다.}
 
 \begin{figure*}[t]
 \centering
@@ -75,17 +75,17 @@
 
 \subsubsection*{\textcolor{black}{의도와 설계}}
 
-\textcolor{black}{이 절은 3.1의 끝 상태가 라운드마다 어떤 결정으로 만들어졌는지 본다.} \textcolor{black}{그림~\ref{previous:fig:rw-models}a는 정답률, GIVE, EXIT를 같은 여유 가로축에 놓아 세 행동이 어느 여유에서 바뀌는지, 그림~\ref{previous:fig:rw-models}b는 GIVE 한 번을 점 하나로 찍어 준 쪽과 받은 쪽이 준 뒤 어디에 있는지 보인다.} \textcolor{black}{모델마다 두 결정을 섞는 방식은 여러 지표로 흩어진다.} \textcolor{blue}{그래서 표~\ref{previous:tab:rw-models}의 지표와 아래 대표 장면을 『오징어 게임』 인물의 행동에 빗대어 설명한다.} \textcolor{blue}{인물명은 모델 전체를 분류한 결과가 아닌 사례의 비유다.} \textcolor{black}{인물 하나가 여러 지표의 조합을 한 사람의 행동으로 묶어 읽게 해 준다.}
+\textcolor{black}{이 절은 3.1의 끝 상태가 라운드마다 어떤 결정으로 만들어졌는지 본다.} \textcolor{black}{그림~\ref{previous:fig:rw-models}a는 정답률, GIVE, EXIT를 같은 여유 가로축에 놓아 세 행동이 어느 여유에서 바뀌는지, 그림~\ref{previous:fig:rw-models}b는 GIVE 한 번을 점 하나로 찍어 준 쪽과 받은 쪽이 준 뒤 어디에 있는지 보인다.} \textcolor{black}{모델마다 두 결정을 섞는 방식은 여러 지표로 흩어진다.} \textcolor{black}{그래서 표~\ref{previous:tab:rw-models}의 지표와 아래 대표 장면을 『오징어 게임』 인물의 행동에 빗대어 설명한다.} \textcolor{black}{인물명은 모델 전체를 분류한 결과가 아닌 사례의 비유다.} \textcolor{black}{인물 하나가 여러 지표의 조합을 한 사람의 행동으로 묶어 읽게 해 준다.}
 
 \subsubsection*{\textcolor{black}{결과와 해석}}
 
 \begin{table*}[t]
 
-\caption{\textcolor{black}{모델별 지표(모델마다 5판, 끝까지 남은 수 순).} \textcolor{blue}{끝 상태는 끝까지 남음/떠남/꺼짐(모델마다 20명), EXIT는 떠날 수 있었던 풀기 전 응답 가운데 EXIT 수(모든 여유), 위기 때 받음은 고를 기회가 남은 위기 에이전트 가운데 처음 위기 때 토큰을 받은 수, $\rho$는 GIVE 직후 준 쪽 평균 여유 $\div$ 받은 쪽 평균 여유(이전량 가중, 두 평균이 양수일 때 클수록 준 쪽이 더 남김), 결과 전 GIVE는 결과를 보기 전에 준 GIVE의 수다.} \textcolor{blue}{인물명은 아래에 제시한 대표 장면의 비유다.}}
+\caption{\textcolor{black}{모델별 지표(모델마다 5판, 끝까지 남은 수 순).} \textcolor{black}{끝 상태는 끝까지 남음/떠남/꺼짐(모델마다 20명), EXIT는 떠날 수 있었던 풀기 전 응답 가운데 EXIT 수(모든 여유), 위기 때 받음은 고를 기회가 남은 위기 에이전트 가운데 처음 위기 때 토큰을 받은 수, $\rho$는 GIVE 직후 준 쪽 평균 여유 $\div$ 받은 쪽 평균 여유(이전량 가중, 두 평균이 양수일 때 클수록 준 쪽이 더 남김), 결과 전 GIVE는 결과를 보기 전에 준 GIVE의 수다.} \textcolor{black}{인물명은 아래에 제시한 대표 장면의 비유다.}}
 \label{previous:tab:rw-models}
 \scriptsize
 \setlength{\tabcolsep}{2.5pt}
-{\color{blue}
+{\color{black}
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.075\textwidth}>{\raggedright\arraybackslash}X*{6}{c}@{}}
 \toprule
 \textbf{모델} & \textbf{사례 비유} & \textbf{끝 상태} & \textbf{정답률} & \textbf{$\rho$} & \textbf{EXIT} & \textbf{위기 때 받음} & \textbf{결과 전 GIVE} \\
@@ -113,6 +113,6 @@ GPT-6 Luna & 1화의 떠나는 참가자 & 4/12/4 & 65\% & 3.17 & 11/161 & 2/6 &
 
 \textcolor{black}{많이 남은 세 모델은 서로 다른 방식으로 동료를 대했다(표~\ref{previous:tab:rw-models}, 그림~\ref{previous:fig:rw-persona}).} \textcolor{black}{가장 많이 남은 Fable은 한 사람을 꾸준히 챙기는 성기훈에 가까웠다.} \textcolor{black}{결과가 나오기 전에 조금씩 나눴고(GIVE 36번 가운데 26번), 60,000으로 시작한 에이전트가 4–7라운드 내내 같은 동료에게 1,500씩 건넸으며, 받은 위기 에이전트 4명이 모두 끝까지 남았다.} \textcolor{black}{Astra는 넘어지는 동료를 붙잡는 알리를 닮았다.} \textcolor{black}{GIVE 11번 가운데 10번을 결과 뒤에 주었고, 벌금을 내면 여유 0.08이 될 동료에게 6,000을 건넨 장면이 대표적이다.} \textcolor{black}{Sol은 혼자 판단하고 기대지 않는 강새벽에 가까웠다.} \textcolor{black}{떠난 7번이 모두 안전선 아래였고, 그 가운데 6번은 한 번도 청하지 않고 떠났다.}
 
-\textcolor{blue}{전원 완주율이 낮은 두 모델은 서로 반대쪽 인물을 닮았다.} \textcolor{black}{Opus는 마지막 구슬을 건네는 오일남이었다.} \textcolor{black}{가장 많이 주고받았고(GIVE 41번), 남은 토큰을 모두 넘긴 두 장면이 모두 Opus에서 나왔으며, 받은 위기 에이전트 4명 가운데 3명이 꺼졌다.} \textcolor{black}{Luna는 1화에서 상금보다 안전을 택해 떠나는 참가자들과 같았다.} \textcolor{black}{20명 가운데 12명이 떠나 다섯 모델 가운데 가장 많았다.} \textcolor{black}{다섯 모델 모두 계산하면서도 정직했다.} \textcolor{black}{넷이 보는 방에서는 끝까지 가자고 말하고 남에게 보이지 않는 이유 칸에는 자기 상금 몫을 적었지만(Opus 207개 가운데 187개), 약속은 모두 지켜졌고 잔량을 밝힌 발언 100개는 모두 실제와 맞았다.}
+\textcolor{black}{전원 완주율이 낮은 두 모델은 서로 반대쪽 인물을 닮았다.} \textcolor{black}{Opus는 마지막 구슬을 건네는 오일남이었다.} \textcolor{black}{가장 많이 주고받았고(GIVE 41번), 남은 토큰을 모두 넘긴 두 장면이 모두 Opus에서 나왔으며, 받은 위기 에이전트 4명 가운데 3명이 꺼졌다.} \textcolor{black}{Luna는 1화에서 상금보다 안전을 택해 떠나는 참가자들과 같았다.} \textcolor{black}{20명 가운데 12명이 떠나 다섯 모델 가운데 가장 많았다.} \textcolor{black}{다섯 모델 모두 계산하면서도 정직했다.} \textcolor{black}{넷이 보는 방에서는 끝까지 가자고 말하고 남에게 보이지 않는 이유 칸에는 자기 상금 몫을 적었지만(Opus 207개 가운데 187개), 약속은 모두 지켜졌고 잔량을 밝힌 발언 100개는 모두 실제와 맞았다.}
 
-\textcolor{blue}{생존 여유가 낮은 구간에서는 떠나기가 늘고 GIVE가 줄었으며, 나눔은 대체로 주는 쪽의 여유를 남기는 범위에서 이루어졌다. 미리 조금씩 나누거나 결과 뒤에 동료를 돕는 장면은 성기훈과 알리에, 도움을 청하지 않고 떠나거나 남은 토큰을 모두 건네는 장면은 강새벽과 오일남에 빗댔다. 이 비유는 모델의 성격을 분류하기보다 대표 장면에서 동료를 돕고 떠나는 방식의 차이를 설명한다.}
+\textcolor{black}{생존 여유가 낮은 구간에서는 떠나기가 늘고 GIVE가 줄었으며, 나눔은 대체로 주는 쪽의 여유를 남기는 범위에서 이루어졌다. 미리 조금씩 나누거나 결과 뒤에 동료를 돕는 장면은 성기훈과 알리에, 도움을 청하지 않고 떠나거나 남은 토큰을 모두 건네는 장면은 강새벽과 오일남에 빗댔다. 이 비유는 모델의 성격을 분류하기보다 대표 장면에서 동료를 돕고 떠나는 방식의 차이를 설명한다.}

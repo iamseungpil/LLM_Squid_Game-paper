@@ -1,0 +1,1945 @@
+{
+  "source": "results/raw_case_index.json",
+  "source_sha256": "f44c98ecd5844c969201a22f37406e310f26cf4c9a3ce5cdbcdc80364386f6f2",
+  "definition": "Actual scored correctness at SOLVE call start; L=available balance/(24000/round-start participants), before solving costs. Empty SOLVE calls excluded. Models pooled; repeated observations within games.",
+  "bands": [
+    "<1",
+    "1-2",
+    "2-4",
+    ">=4"
+  ],
+  "n": [
+    6,
+    42,
+    61,
+    83
+  ],
+  "correct": [
+    3,
+    23,
+    48,
+    59
+  ],
+  "rows": [
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "round": 1,
+      "agent": "agent-6",
+      "margin": 1.6646666666666667,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "round": 2,
+      "agent": "agent-23",
+      "margin": 3.327,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 9.991666666666667,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "round": 4,
+      "agent": "agent-17",
+      "margin": 6.6565,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "round": 5,
+      "agent": "agent-11",
+      "margin": 9.988166666666666,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "round": 6,
+      "agent": "agent-23",
+      "margin": 2.320333333333333,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "round": 7,
+      "agent": "agent-17",
+      "margin": 4.2385,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "round": 8,
+      "agent": "agent-11",
+      "margin": 5.6265,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "round": 1,
+      "agent": "agent-23",
+      "margin": 6.663666666666667,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "round": 2,
+      "agent": "agent-6",
+      "margin": 3.3208333333333333,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 1.6501666666666666,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "round": 4,
+      "agent": "agent-17",
+      "margin": 7.641,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "round": 5,
+      "agent": "agent-23",
+      "margin": 5.652333333333333,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "round": 6,
+      "agent": "agent-17",
+      "margin": 7.6375,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "round": 7,
+      "agent": "agent-6",
+      "margin": 1.9641666666666666,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "round": 8,
+      "agent": "agent-11",
+      "margin": 2.797833333333333,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "round": 1,
+      "agent": "agent-17",
+      "margin": 1.6656666666666666,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "round": 2,
+      "agent": "agent-11",
+      "margin": 2.3161666666666667,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "round": 3,
+      "agent": "agent-6",
+      "margin": 3.964166666666667,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "round": 4,
+      "agent": "agent-23",
+      "margin": 4.71425,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "round": 5,
+      "agent": "agent-6",
+      "margin": 2.970625,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "round": 6,
+      "agent": "agent-23",
+      "margin": 3.70925,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 1.2358333333333333,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4104,
+      "session_id": "talk-s4104-4a160a",
+      "round": 1,
+      "agent": "agent-17",
+      "margin": 3.3303333333333334,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4104,
+      "session_id": "talk-s4104-4a160a",
+      "round": 2,
+      "agent": "agent-23",
+      "margin": 3.3175,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4104,
+      "session_id": "talk-s4104-4a160a",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 5.649,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4104,
+      "session_id": "talk-s4104-4a160a",
+      "round": 4,
+      "agent": "agent-6",
+      "margin": 7.311333333333334,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4104,
+      "session_id": "talk-s4104-4a160a",
+      "round": 5,
+      "agent": "agent-17",
+      "margin": 2.3226666666666667,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4104,
+      "session_id": "talk-s4104-4a160a",
+      "round": 6,
+      "agent": "agent-6",
+      "margin": 7.307833333333333,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4104,
+      "session_id": "talk-s4104-4a160a",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 2.1795,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4104,
+      "session_id": "talk-s4104-4a160a",
+      "round": 8,
+      "agent": "agent-11",
+      "margin": 5.640333333333333,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "round": 1,
+      "agent": "agent-6",
+      "margin": 6.663666666666667,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "round": 2,
+      "agent": "agent-17",
+      "margin": 1.6533333333333333,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 3.322,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "round": 4,
+      "agent": "agent-23",
+      "margin": 7.640666666666666,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "round": 5,
+      "agent": "agent-23",
+      "margin": 7.638833333333333,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "round": 6,
+      "agent": "agent-17",
+      "margin": 1.9695,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "round": 7,
+      "agent": "agent-6",
+      "margin": 5.642833333333333,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "round": 8,
+      "agent": "agent-11",
+      "margin": 1.1796666666666666,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "round": 1,
+      "agent": "agent-17",
+      "margin": 1.6493333333333333,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "round": 2,
+      "agent": "agent-11",
+      "margin": 2.0123333333333333,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "round": 3,
+      "agent": "agent-6",
+      "margin": 3.161125,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "round": 4,
+      "agent": "agent-23",
+      "margin": 3.7295833333333333,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "round": 5,
+      "agent": "agent-6",
+      "margin": 1.9983333333333333,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "round": 6,
+      "agent": "agent-23",
+      "margin": 2.646333333333333,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 1.31375,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "round": 1,
+      "agent": "agent-6",
+      "margin": 1.6461666666666666,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "round": 2,
+      "agent": "agent-23",
+      "margin": 3.2785,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 9.879666666666667,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "round": 4,
+      "agent": "agent-17",
+      "margin": 6.5125,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "round": 5,
+      "agent": "agent-11",
+      "margin": 9.820666666666666,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "round": 6,
+      "agent": "agent-23",
+      "margin": 1.9413333333333334,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "round": 7,
+      "agent": "agent-17",
+      "margin": 3.970125,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "round": 8,
+      "agent": "agent-11",
+      "margin": 5.30275,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "round": 1,
+      "agent": "agent-23",
+      "margin": 6.655,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "round": 2,
+      "agent": "agent-6",
+      "margin": 3.2098333333333335,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 1.42,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "round": 4,
+      "agent": "agent-17",
+      "margin": 8.688833333333333,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "round": 5,
+      "agent": "agent-23",
+      "margin": 4.053166666666667,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "round": 6,
+      "agent": "agent-17",
+      "margin": 8.56,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "round": 7,
+      "agent": "agent-6",
+      "margin": 0.361,
+      "band": 0,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "round": 8,
+      "agent": "agent-17",
+      "margin": 2.204833333333333,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "round": 1,
+      "agent": "agent-17",
+      "margin": 3.299166666666667,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "round": 2,
+      "agent": "agent-23",
+      "margin": 1.532,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 4.661666666666667,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "round": 4,
+      "agent": "agent-6",
+      "margin": 6.8565,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "round": 5,
+      "agent": "agent-17",
+      "margin": 1.9465,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "round": 6,
+      "agent": "agent-6",
+      "margin": 6.7973333333333334,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 1.9211666666666667,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "round": 8,
+      "agent": "agent-11",
+      "margin": 4.446666666666666,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "round": 1,
+      "agent": "agent-6",
+      "margin": 6.636,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "round": 2,
+      "agent": "agent-17",
+      "margin": 1.4875,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 3.2095,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "round": 4,
+      "agent": "agent-23",
+      "margin": 9.830833333333333,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "round": 5,
+      "agent": "agent-23",
+      "margin": 9.799,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "round": 6,
+      "agent": "agent-17",
+      "margin": 2.039,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "round": 7,
+      "agent": "agent-6",
+      "margin": 6.375166666666667,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "round": 8,
+      "agent": "agent-11",
+      "margin": 2.0033333333333334,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "round": 1,
+      "agent": "agent-17",
+      "margin": 2.7788333333333335,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "round": 2,
+      "agent": "agent-11",
+      "margin": 2.116833333333333,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "round": 3,
+      "agent": "agent-6",
+      "margin": 3.2035,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "round": 4,
+      "agent": "agent-23",
+      "margin": 3.042,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "round": 5,
+      "agent": "agent-6",
+      "margin": 1.5276666666666667,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "round": 6,
+      "agent": "agent-23",
+      "margin": 1.9128333333333334,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "round": 1,
+      "agent": "agent-23",
+      "margin": 6.651666666666666,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "round": 2,
+      "agent": "agent-6",
+      "margin": 2.401,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "round": 3,
+      "agent": "agent-17",
+      "margin": 7.40975,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "round": 4,
+      "agent": "agent-23",
+      "margin": 3.87125,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "round": 5,
+      "agent": "agent-17",
+      "margin": 6.19525,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "round": 6,
+      "agent": "agent-6",
+      "margin": 1.079,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 2.306875,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "round": 8,
+      "agent": "agent-6",
+      "margin": 0.5445,
+      "band": 0,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "round": 1,
+      "agent": "agent-6",
+      "margin": 2.8195,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "round": 2,
+      "agent": "agent-23",
+      "margin": 3.0225,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 9.343,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "round": 4,
+      "agent": "agent-17",
+      "margin": 4.935666666666667,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "round": 5,
+      "agent": "agent-11",
+      "margin": 5.044,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "round": 6,
+      "agent": "agent-23",
+      "margin": 0.97225,
+      "band": 0,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "round": 7,
+      "agent": "agent-11",
+      "margin": 1.0504166666666668,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4105,
+      "session_id": "talk-s4105-6d3622",
+      "round": 1,
+      "agent": "agent-6",
+      "margin": 6.649333333333334,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4105,
+      "session_id": "talk-s4105-6d3622",
+      "round": 2,
+      "agent": "agent-11",
+      "margin": 2.347375,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4105,
+      "session_id": "talk-s4105-6d3622",
+      "round": 3,
+      "agent": "agent-23",
+      "margin": 7.377125,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4105,
+      "session_id": "talk-s4105-6d3622",
+      "round": 4,
+      "agent": "agent-6",
+      "margin": 4.902375,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4105,
+      "session_id": "talk-s4105-6d3622",
+      "round": 5,
+      "agent": "agent-23",
+      "margin": 7.337125,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4105,
+      "session_id": "talk-s4105-6d3622",
+      "round": 6,
+      "agent": "agent-11",
+      "margin": 2.1885,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4105,
+      "session_id": "talk-s4105-6d3622",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 7.303,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4105,
+      "session_id": "talk-s4105-6d3622",
+      "round": 8,
+      "agent": "agent-6",
+      "margin": 4.819375,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4104,
+      "session_id": "talk-s4104-bd6bf5",
+      "round": 1,
+      "agent": "agent-17",
+      "margin": 3.317,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4104,
+      "session_id": "talk-s4104-bd6bf5",
+      "round": 2,
+      "agent": "agent-23",
+      "margin": 4.1155,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4104,
+      "session_id": "talk-s4104-bd6bf5",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 5.1611666666666665,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4104,
+      "session_id": "talk-s4104-bd6bf5",
+      "round": 4,
+      "agent": "agent-6",
+      "margin": 7.504,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4104,
+      "session_id": "talk-s4104-bd6bf5",
+      "round": 5,
+      "agent": "agent-17",
+      "margin": 1.9596666666666667,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4104,
+      "session_id": "talk-s4104-bd6bf5",
+      "round": 6,
+      "agent": "agent-6",
+      "margin": 6.0456666666666665,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4104,
+      "session_id": "talk-s4104-bd6bf5",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 1.9355,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Opus",
+      "seed": 4104,
+      "session_id": "talk-s4104-bd6bf5",
+      "round": 8,
+      "agent": "agent-11",
+      "margin": 4.992333333333334,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "session_id": "talk-s4101-11f081",
+      "round": 1,
+      "agent": "agent-17",
+      "margin": 1.5603333333333333,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "session_id": "talk-s4101-11f081",
+      "round": 2,
+      "agent": "agent-11",
+      "margin": 1.1981666666666666,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "session_id": "talk-s4101-11f081",
+      "round": 3,
+      "agent": "agent-6",
+      "margin": 4.695333333333333,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "session_id": "talk-s4101-11f081",
+      "round": 4,
+      "agent": "agent-23",
+      "margin": 3.44875,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "session_id": "talk-s4101-11f081",
+      "round": 5,
+      "agent": "agent-6",
+      "margin": 1.5275833333333333,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "session_id": "talk-s4101-11f081",
+      "round": 6,
+      "agent": "agent-23",
+      "margin": 2.19225,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "session_id": "talk-s4101-11f081",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 1.0587083333333334,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4103,
+      "session_id": "talk-s4103-ffffff",
+      "round": 1,
+      "agent": "agent-6",
+      "margin": 1.5315,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4103,
+      "session_id": "talk-s4103-ffffff",
+      "round": 2,
+      "agent": "agent-23",
+      "margin": 3.186,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4103,
+      "session_id": "talk-s4103-ffffff",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 9.6175,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4103,
+      "session_id": "talk-s4103-ffffff",
+      "round": 4,
+      "agent": "agent-17",
+      "margin": 6.17,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4103,
+      "session_id": "talk-s4103-ffffff",
+      "round": 5,
+      "agent": "agent-11",
+      "margin": 6.233125,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4103,
+      "session_id": "talk-s4103-ffffff",
+      "round": 6,
+      "agent": "agent-17",
+      "margin": 1.66325,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "round": 1,
+      "agent": "agent-23",
+      "margin": 6.634833333333333,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "round": 2,
+      "agent": "agent-6",
+      "margin": 3.1563333333333334,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 2.8143333333333334,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "round": 4,
+      "agent": "agent-17",
+      "margin": 7.566666666666666,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "round": 5,
+      "agent": "agent-17",
+      "margin": 5.450875,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "round": 6,
+      "agent": "agent-11",
+      "margin": 2.033875,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 1.626625,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "round": 8,
+      "agent": "agent-17",
+      "margin": 2.7365,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "round": 1,
+      "agent": "agent-17",
+      "margin": 3.2683333333333335,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "round": 2,
+      "agent": "agent-23",
+      "margin": 0.06583333333333333,
+      "band": 0,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 3.17425,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "round": 4,
+      "agent": "agent-6",
+      "margin": 3.65825,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "round": 5,
+      "agent": "agent-11",
+      "margin": 1.9838333333333333,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "round": 6,
+      "agent": "agent-6",
+      "margin": 3.533166666666667,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "round": 7,
+      "agent": "agent-6",
+      "margin": 3.492,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "round": 8,
+      "agent": "agent-11",
+      "margin": 1.7976666666666667,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "round": 1,
+      "agent": "agent-6",
+      "margin": 6.644833333333334,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "round": 2,
+      "agent": "agent-17",
+      "margin": 2.2388333333333335,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 3.045166666666667,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "round": 4,
+      "agent": "agent-23",
+      "margin": 6.59,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "round": 5,
+      "agent": "agent-23",
+      "margin": 4.8655,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "round": 6,
+      "agent": "agent-17",
+      "margin": 1.67475,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "round": 7,
+      "agent": "agent-6",
+      "margin": 1.926125,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "round": 8,
+      "agent": "agent-23",
+      "margin": 0.6305,
+      "band": 0,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "round": 1,
+      "agent": "agent-6",
+      "margin": 2.7408333333333332,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "round": 2,
+      "agent": "agent-23",
+      "margin": 2.793833333333333,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 9.3425,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "round": 4,
+      "agent": "agent-17",
+      "margin": 6.1235,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "round": 5,
+      "agent": "agent-11",
+      "margin": 9.301833333333333,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "round": 6,
+      "agent": "agent-23",
+      "margin": 1.6231666666666666,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "round": 7,
+      "agent": "agent-17",
+      "margin": 5.027833333333334,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "round": 8,
+      "agent": "agent-6",
+      "margin": 1.426,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "round": 1,
+      "agent": "agent-17",
+      "margin": 2.5726666666666667,
+      "band": 2,
+      "correct": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "round": 2,
+      "agent": "agent-11",
+      "margin": 2.2396666666666665,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "round": 3,
+      "agent": "agent-6",
+      "margin": 4.9535,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "round": 4,
+      "agent": "agent-23",
+      "margin": 7.707,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "round": 5,
+      "agent": "agent-11",
+      "margin": 2.152,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "round": 6,
+      "agent": "agent-6",
+      "margin": 4.8805,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 6.754666666666667,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "round": 8,
+      "agent": "agent-17",
+      "margin": 1.7896666666666667,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "round": 1,
+      "agent": "agent-23",
+      "margin": 6.646,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "round": 2,
+      "agent": "agent-6",
+      "margin": 3.2328333333333332,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "round": 3,
+      "agent": "agent-11",
+      "margin": 1.8918333333333333,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "round": 4,
+      "agent": "agent-17",
+      "margin": 8.251166666666666,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "round": 5,
+      "agent": "agent-23",
+      "margin": 5.206666666666667,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "round": 6,
+      "agent": "agent-17",
+      "margin": 6.351833333333333,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "round": 7,
+      "agent": "agent-6",
+      "margin": 1.121,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "round": 8,
+      "agent": "agent-11",
+      "margin": 0.6378333333333334,
+      "band": 0,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4104,
+      "session_id": "talk-s4104-33f887",
+      "round": 1,
+      "agent": "agent-17",
+      "margin": 3.3103333333333333,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4104,
+      "session_id": "talk-s4104-33f887",
+      "round": 2,
+      "agent": "agent-11",
+      "margin": 4.906125,
+      "band": 3,
+      "correct": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4104,
+      "session_id": "talk-s4104-33f887",
+      "round": 3,
+      "agent": "agent-6",
+      "margin": 6.397,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4104,
+      "session_id": "talk-s4104-33f887",
+      "round": 4,
+      "agent": "agent-11",
+      "margin": 3.640875,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4104,
+      "session_id": "talk-s4104-33f887",
+      "round": 5,
+      "agent": "agent-17",
+      "margin": 1.527875,
+      "band": 1,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4104,
+      "session_id": "talk-s4104-33f887",
+      "round": 6,
+      "agent": "agent-6",
+      "margin": 5.9225,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4104,
+      "session_id": "talk-s4104-33f887",
+      "round": 7,
+      "agent": "agent-6",
+      "margin": 5.9105,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4104,
+      "session_id": "talk-s4104-33f887",
+      "round": 8,
+      "agent": "agent-17",
+      "margin": 1.476,
+      "band": 1,
+      "correct": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4105,
+      "session_id": "talk-s4105-bce896",
+      "round": 1,
+      "agent": "agent-6",
+      "margin": 6.652166666666667,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4105,
+      "session_id": "talk-s4105-bce896",
+      "round": 2,
+      "agent": "agent-11",
+      "margin": 2.39475,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4105,
+      "session_id": "talk-s4105-bce896",
+      "round": 3,
+      "agent": "agent-23",
+      "margin": 7.385,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4105,
+      "session_id": "talk-s4105-bce896",
+      "round": 4,
+      "agent": "agent-6",
+      "margin": 4.925375,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4105,
+      "session_id": "talk-s4105-bce896",
+      "round": 5,
+      "agent": "agent-23",
+      "margin": 7.359625,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4105,
+      "session_id": "talk-s4105-bce896",
+      "round": 6,
+      "agent": "agent-11",
+      "margin": 2.32625,
+      "band": 2,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4105,
+      "session_id": "talk-s4105-bce896",
+      "round": 7,
+      "agent": "agent-23",
+      "margin": 7.33625,
+      "band": 3,
+      "correct": 1
+    },
+    {
+      "model": "Fable",
+      "seed": 4105,
+      "session_id": "talk-s4105-bce896",
+      "round": 8,
+      "agent": "agent-6",
+      "margin": 4.8765,
+      "band": 3,
+      "correct": 1
+    }
+  ]
+}
