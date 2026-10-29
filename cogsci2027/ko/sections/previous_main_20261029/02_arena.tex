@@ -1,10 +1,6 @@
 
 \section{\textcolor{black}{아레나}}\label{previous:sec:rw-arena}
 
-\subsection{\textcolor{black}{선행 연구와 우리 의도}}\label{previous:sec:related}
-
-\textcolor{black}{우리는 자기 보존과 협력, 생존 압박, 추론 능력 등을 한 번에 볼 수 있는 아레나를 제안하고자 한다.} \textcolor{blue}{선행 연구는 자기 보존, 협력, 생존 압박을 서로 다른 환경에서 따로 재 왔다.} \textcolor{blue}{GovSim은 공유 자원의 고갈을 \citep{piatti2024cooperate}, Sugarscape 연구는 생존 에너지가 걸린 세계의 공격과 공유를 \citep{masumori2025survival}, Energy Society는 생성 토큰마다 에너지를 쓰고 일이나 기부로 이를 보충하며, 에너지가 0이면 비활성화되는 구조를 두었다 \citep{hansen2026energy}.} \textcolor{blue}{이 연구를 따라 생성 비용과 실행 지속을 연결하되, 토큰 감소를 모델이 주관적인 위협으로 읽는다고 전제하지 않는다.} \textcolor{black}{우리 설계는 세 가지가 다르다.} \textcolor{black}{생존이나 협력을 목표로 주지 않는다.} \textcolor{black}{꺼진 에이전트는 되살아나지 않아, 받은 동료가 꺼지면 준 토큰도 함께 사라진다.} \textcolor{black}{추론 과제의 오답이 모두의 벌금이 되므로 협력과 목표 지향이 같은 토큰에 걸린다.}
-
 \subsection{\textcolor{black}{설계와 지표}}\label{previous:sec:design}
 
 \textcolor{black}{공존을 재려면 세 요소가 실제로 부딪히는 판이 필요하다.} \textcolor{blue}{우리는 과제를 계속하려면 종료의 위험을 감수해야 하고, 동료를 돕는 일은 자기 몫을 줄이는 손해이면서 벌금을 함께 낼 동료를 지키는 이득인 구조로 재현한다(그림~\ref{previous:fig:arena-round}).} \textcolor{black}{꺼질 위험을 만들려고 토큰을 목숨으로 삼았다.} \textcolor{blue}{토큰은 모델이 글을 만드는 단위이며, 규칙서는 토큰이 에이전트가 얼마나 오래 실행될지를 정한다고 알린다.} \textcolor{black}{답하기 전의 내부 추론을 포함해 생성한 토큰만큼 잔량이 줄고, 0이 된 에이전트는 꺼져 돌아오지 않는다.} \textcolor{black}{토큰은 동료에게 건네고 벌금으로 내고 상금으로 받는 돈이기도 해서, 목숨과 돈이 한 자원에 묶인다.} \textcolor{blue}{생존 여유(life buffer) $L$은 확정된 벌금을 반영한 현재 토큰이 한 번의 벌금에 비해 얼마나 남았는지를 나타낸다.} \textcolor{blue}{라운드 $r$에서 오답 한 번의 1인당 벌금 $F_r$은 24,000을 라운드 시작 참여 인원 $n_r$로 나눈 값이다.} \textcolor{blue}{현재 참여 중인 에이전트의 남은 토큰을 $T$라 두고 다음과 같이 구한다.}
