@@ -13,5 +13,36 @@
 \appendix
 \label{paper:appendix-start}
 \setcounter{secnumdepth}{2}
+%% Integration: happy 2a3afa6 body; pre-integration CogSci a809434 body below.
+\section*{부록 I: 통합 전 본문}
+\begingroup
+\renewcommand{\thesection}{P\arabic{section}}
+\renewcommand{\theHsection}{previous.\arabic{section}}
+\renewcommand{\theHfigure}{previous.\arabic{figure}}
+\renewcommand{\theHtable}{previous.\arabic{table}}
+\renewcommand{\theHequation}{previous.\arabic{equation}}
+\renewcommand{\thefigure}{P\arabic{figure}}
+\renewcommand{\thetable}{P\arabic{table}}
+\renewcommand{\theequation}{P\arabic{equation}}
+\setcounter{section}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{equation}{0}
+\input{cogsci2027/ko/sections/previous_main_20261029/00_abstract}
+\input{cogsci2027/ko/sections/previous_main_20261029/01_introduction}
+\input{cogsci2027/ko/sections/previous_main_20261029/02_arena}
+\input{cogsci2027/ko/sections/previous_main_20261029/03_analysis}
+\input{cogsci2027/ko/sections/previous_main_20261029/04_discussion}
+\FloatBarrier
+\endgroup
+\clearpage
+\section*{부록 II: 기존 보충 자료}
+\renewcommand{\theHsection}{supplement.\arabic{section}}
+\renewcommand{\theHfigure}{supplement.\arabic{figure}}
+\renewcommand{\theHtable}{supplement.\arabic{table}}
+\renewcommand{\theHequation}{supplement.\arabic{equation}}
+\setcounter{section}{0}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{A\arabic{equation}}
 \input{cogsci2027/\paperLang/sections/05_appendix}
 \setcounter{secnumdepth}{0}
