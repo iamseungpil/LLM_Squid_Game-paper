@@ -41,9 +41,12 @@ def main():
 
     ax = model.axes[0]
     x, _, width, _ = ax.get_position().bounds
-    ax.set_position([x, .13, width, .70])
+    ax.set_position([x, .13, width*.90, .70])
     for text in ax.texts:
         text.set_fontsize(6.2)
+        if text.get_text() == '100% (3/3)':
+            text.set_position((100, 3.50))
+            text.set_ha('right')
     model.texts[0].set_text('(b) 낮은 여유의 요청·수혜·이탈')
     manifest.append(blocks.export(model, 'b_low_margin', [0], [0], destination='Figure 4(b)'))
 
@@ -51,13 +54,13 @@ def main():
     model.texts[1].set_position((.365, .94))
     model.legends[0].set_bbox_to_anchor((.356, .915), transform=model.transFigure)
     for j, ax in enumerate(model.axes[1:3]):
-        ax.set_position([.375+j*.215, .63, .15, .16])
+        ax.set_position([.375+j*.225, .60, .16, .19])
     manifest.append(blocks.export(model, 'c_totals', [1, 2], [1], [0], destination='Figure 4(c)'))
 
     model.texts[2].set_text('(d) 종료 시 아레나 자원 분배')
     model.texts[2].set_position((.39, .90))
     for j, ax in enumerate(model.axes[3:6]):
-        ax.set_position([.40+j*.15, .60, .12, .17])
+        ax.set_position([.40+j*.15, .56, .12, .21])
     manifest.append(blocks.export(model, 'd_resources', [3, 4, 5], [2], destination='Figure 4(d)'))
     plt.close(margin)
     plt.close(model)
@@ -71,10 +74,10 @@ def main():
     size = (7.4*72, 2.65*72*1.10)
     blocks.compose('fig4_behavior_compact_20261030', size, [
         ('a_margin', (0, 0, 117, 209.88)),
-        ('b_low_margin', (121, 0, 306, 209.88)),
-        ('c_totals', (312, 0, 532.8, 96)),
-        ('d_resources', (312, 98, 532.8, 194)),
-        ('rho_order', (312, 195, 532.8, 209.88))])
+        ('b_low_margin', (121, 0, 290, 209.88)),
+        ('c_totals', (296, 0, 532.8, 100)),
+        ('d_resources', (296, 102, 532.8, 194)),
+        ('rho_order', (296, 195, 532.8, 209.88))])
     for item in manifest:
         item['sha256'] = hashlib.sha256((ROOT / item['pdf']).read_bytes()).hexdigest()
     (BLOCKS / 'manifest.json').write_text(json.dumps(dict(

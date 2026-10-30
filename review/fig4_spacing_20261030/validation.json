@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "full_pages": 64,
+  "body_pages": 7,
+  "changed_pages": [
+    5,
+    9
+  ],
+  "all_text_characters_preserved": true,
+  "manuscript_sources_unchanged": true,
+  "canvas_pt": [
+    532.7999877929688,
+    209.8800048828125
+  ],
+  "b_xaxis_length_pt": {
+    "before": 119.678,
+    "after": 107.581,
+    "ratio": 0.8989204365046207
+  },
+  "right_slot_width_pt": {
+    "before": 220.8,
+    "after": 236.8
+  },
+  "astra_100_label": "Below the orange bar; value unchanged",
+  "d_bottom_spacing": "Expanded panel uses the vertical space above the ordering cue",
+  "latex_errors": []
+}
