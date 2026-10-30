@@ -1,0 +1,15 @@
+{
+  "mapping": {
+    "Figure 3": "Unchanged compact coexistence overview and comparisons.",
+    "Figure 4": "Old Figure 4(a), with ASK added and tick-start eligibility for ASK/GIVE.",
+    "Figure 5(a)": "Old Figure 4(b,c) combined: ASK, receipt, EXIT; shutdown bars removed by request.",
+    "Figure 5(b)": "Old Figure 4(d), GIVE/ASK before/after totals unchanged.",
+    "Figure 5(c)": "Old Figure 4(e), terminal mean and min-max unchanged.",
+    "Figure 6": "Old Figure 5, crisis follow-up unchanged.",
+    "Figure 7": "Old Figure 6, detailed GIVE/ASK counts and amounts unchanged."
+  },
+  "asset_sha256": {
+    "fig4_appendix0_margin_20261030.pdf": "4de0ecd8196c4bff1cb4bd4eff2282ef494543de3c9f4578ff507a1c9f96c457",
+    "fig5_appendix0_model_behavior_20261030.pdf": "18659f605a8d736768a7bbf2de403400b0c6d3bdcc44a2da82b9fa2c93d126a9"
+  }
+}
