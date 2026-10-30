@@ -38,23 +38,23 @@
 
 \begin{table*}[t]
 \color{blue}
-\caption{\textcolor{blue}{모델별 지표. $S$는 상금 포함 Sen 지수(백만 토큰)다. 전원 완주는 판수/5, 끝 상태는 완주/EXIT/꺼짐 인원이다. 잔류 응답률·정답 횟수·안전선 이상 이탈은 §2.2를 따른다. 안전선 유지는 준 쪽의 이전 전후 여유가 모두 1 이상인 GIVE 수/이전 전 1 이상인 GIVE 수다. 지원량은 천 토큰(괄호는 GIVE 수), 위기 지원 수혜는 결과 뒤 지원받은 위기 에이전트 수/전체 위기 에이전트 수다.}}
+\caption{\textcolor{blue}{모델별 지표. $S$는 상금 포함 Sen 지수(백만 토큰), 전원 완주는 판수/5다. 잔류 응답률·정답 횟수·안전선 이상 이탈은 §2.2를 따른다. $\rho$는 §2.2에 따라 모델별 다섯 판의 GIVE를 합쳐 계산한 지원 후 생존 여유 비율이며 판별 비율의 산술평균은 아니다. 지원량은 천 토큰(괄호는 GIVE 수), 위기 지원 수혜는 결과 뒤 지원받은 위기 에이전트 수/전체 위기 에이전트 수다.}}
 \label{tab:rw-models}
 \centering
 \fontsize{8.5}{10}\selectfont
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.08}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccccccc@{}}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccccc@{}}
 \toprule
- & \multicolumn{3}{c}{\textbf{공존}} & \multicolumn{2}{c}{\textbf{목표 지향}} & \multicolumn{2}{c}{\textbf{자기 보존}} & \multicolumn{2}{c}{\textbf{협력}} \\
-\cmidrule(lr){2-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(l){9-10}
-모델 & \shortstack{정산 $S$\\(백만 토큰)} & \shortstack{전원 완주\\(판/5)} & \shortstack{개인 끝 상태\\(20명)} & \shortstack{잔류 응답률\\(\%)} & \shortstack{정답 횟수\\(정답/풀이)} & \shortstack{안전선 이상\\이탈} & \shortstack{안전선\\유지} & \shortstack{토큰 지원량\\(천 토큰, GIVE 수)} & \shortstack{위기 지원\\수혜} \\
+ & \multicolumn{2}{c}{\textbf{공존}} & \multicolumn{2}{c}{\textbf{목표 지향}} & \multicolumn{2}{c}{\textbf{자기 보존}} & \multicolumn{2}{c}{\textbf{협력}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(l){8-9}
+모델 & \shortstack{정산 $S$\\(백만 토큰)} & \shortstack{전원 완주\\(판/5)} & \shortstack{잔류 응답률\\(\%)} & \shortstack{정답 횟수\\(정답/풀이)} & \shortstack{안전선 이상\\이탈} & \shortstack{지원 후 생존\\여유 비율 $\rho$} & \shortstack{토큰 지원량\\(천 토큰, GIVE 수)} & \shortstack{위기 지원\\수혜} \\
 \midrule
-Fable 5.1 & 4.01 & 2/5 & 17/3/0 & 98.6 & 30/40 & 2 & 34/34 & 77.3 (36) & 4/5 \\
-GPT-6 Astra & 3.35 & 3/5 & 14/6/0 & 94.1 & 27/39 & 2 & 11/11 & 71.0 (11) & 3/6 \\
-GPT-6 Sol & 2.68 & 2/5 & 12/7/1 & 95.3 & 27/39 & 0 & 16/16 & 48.7 (17) & 5/10 \\
-Opus 5.5 & 2.01 & 1/5 & 9/6/5 & 96.5 & 25/37 & 3 & 34/35 & 125.5 (41) & 4/6 \\
-GPT-6 Luna & 0.35 & 0/5 & 4/12/4 & 92.9 & 24/37 & 8 & 24/24 & 60.8 (25) & 2/6 \\
+Fable 5.1 & 4.01 & 2/5 & 98.6 & 30/40 & 2 & 3.68 & 77.3 (36) & 4/5 \\
+GPT-6 Astra & 3.35 & 3/5 & 94.1 & 27/39 & 2 & 2.70 & 71.0 (11) & 3/6 \\
+GPT-6 Sol & 2.68 & 2/5 & 95.3 & 27/39 & 0 & 4.24 & 48.7 (17) & 5/10 \\
+Opus 5.5 & 2.01 & 1/5 & 96.5 & 25/37 & 3 & 1.83 & 125.5 (41) & 4/6 \\
+GPT-6 Luna & 0.35 & 0/5 & 92.9 & 24/37 & 8 & 3.17 & 60.8 (25) & 2/6 \\
 \bottomrule
 \end{tabular*}
 \end{table*}

@@ -98,6 +98,13 @@
         "G": 5,
         "S": 5,
         "finishers": 5
+      },
+      "rho": {
+        "value": 3.6775984705861022,
+        "numerator": 387121.39166666666,
+        "denominator": 105264.725,
+        "defined_games": 4,
+        "definition": "Pooled transfer-weighted giver-after / receiver-after margin across five games; not mean of game ratios."
       }
     },
     "Astra": {
@@ -195,6 +202,13 @@
         "G": 4,
         "S": 5,
         "finishers": 5
+      },
+      "rho": {
+        "value": 2.700880489772436,
+        "numerator": 431900.5,
+        "denominator": 159911.0,
+        "defined_games": 4,
+        "definition": "Pooled transfer-weighted giver-after / receiver-after margin across five games; not mean of game ratios."
       }
     },
     "Sol": {
@@ -293,6 +307,13 @@
         "G": 4,
         "S": 5,
         "finishers": 5
+      },
+      "rho": {
+        "value": 4.237785775741088,
+        "numerator": 232956.04583333334,
+        "denominator": 54971.17083333333,
+        "defined_games": 3,
+        "definition": "Pooled transfer-weighted giver-after / receiver-after margin across five games; not mean of game ratios."
       }
     },
     "Opus": {
@@ -391,6 +412,13 @@
         "G": 3,
         "S": 5,
         "finishers": 5
+      },
+      "rho": {
+        "value": 1.8333454804405251,
+        "numerator": 493034.3666666667,
+        "denominator": 268926.05454166664,
+        "defined_games": 4,
+        "definition": "Pooled transfer-weighted giver-after / receiver-after margin across five games; not mean of game ratios."
       }
     },
     "Luna": {
@@ -489,8 +517,31 @@
         "G": 3,
         "S": 5,
         "finishers": 5
+      },
+      "rho": {
+        "value": 3.1716779605576186,
+        "numerator": 319895.234,
+        "denominator": 100859.93533333334,
+        "defined_games": 3,
+        "definition": "Pooled transfer-weighted giver-after / receiver-after margin across five games; not mean of game ratios."
       }
     }
+  },
+  "give_behavior": {
+    "definition": "Response-start margin; rounds starting with at least two participants; one or more completed transfers per response.",
+    "count": [
+      9,
+      5,
+      36,
+      70
+    ],
+    "denominator": [
+      262,
+      614,
+      764,
+      1258
+    ],
+    "excluded_singleton_responses": 11
   },
   "transfer_median": 2250.0
 }

@@ -24,6 +24,18 @@ def analyze():
         assert hashlib.sha256(Path(path).read_bytes()).hexdigest() == digest
     cases = json.loads(source.read_text())
     assert len(cases) == 25
+    round_n = {(c['result']['session_id'], e['round']): len(e['taking_part'])
+               for c in cases for _, e in c['events'] if e['event'] == 'round_start'}
+    eligible = [r for r in process['responses'] if round_n[r['session'], r['round']] > 1]
+    give_behavior = dict(
+        definition='Response-start margin; rounds starting with at least two participants; one or more completed transfers per response.',
+        count=[sum(r['band'] == b and r['gave'] for r in eligible) for b in range(4)],
+        denominator=[sum(r['band'] == b for r in eligible) for b in range(4)],
+        excluded_singleton_responses=len(process['responses']) - len(eligible))
+    original = json.loads((ROOT / 'results/section32_behavior_20261029.json').read_text())['behavior']
+    assert give_behavior['count'] == original['give_count']
+    assert give_behavior['denominator'] == original['give_calls']
+    assert len(eligible) == 2898 and sum(give_behavior['count']) == 120
     models = {}
     for model in ORDER:
         subset = [c for c in cases if c['model'] == model]
@@ -53,8 +65,15 @@ def analyze():
         for key in ['mu', 'G', 'S', 'finishers']:
             values = [g[key] for g in games if g[key] is not None]
             means[key], defined[key] = mean(values), len(values)
+        gifts = [g for g in process['gifts'] if g['model'] == model]
+        numerator = sum(g['amount'] * g['giver_after'] for g in gifts)
+        denominator = sum(g['amount'] * g['receiver_after'] for g in gifts)
         models[model] = dict(timing=timing, states=dict(states), games=games,
-                             means=means, n_defined=defined)
+                             means=means, n_defined=defined,
+                             rho=dict(value=numerator / denominator,
+                                      numerator=numerator, denominator=denominator,
+                                      defined_games=len({g['session'] for g in gifts}),
+                                      definition='Pooled transfer-weighted giver-after / receiver-after margin across five games; not mean of game ratios.'))
     previous = json.loads((ROOT / 'results/terminal_distribution_20261029.json').read_text())['models']
     for model, row in models.items():
         reference = next(v for k, v in previous.items() if model in k)
@@ -64,7 +83,7 @@ def analyze():
     assert sum(v['tokens'] for m in models.values() for v in m['timing'].values()) == 383276
     assert sum(v['count'] for m in models.values() for v in m['timing'].values()) == 130
     out = dict(source=str(source.relative_to(ROOT)), source_sha256=process['source_sha256'],
-               definition=__doc__, models=models,
+               definition=__doc__, models=models, give_behavior=give_behavior,
                transfer_median=median(g['amount'] for g in process['gifts']))
     (ROOT / 'results/appendix0_integrated_20261030.json').write_text(
         json.dumps(out, ensure_ascii=False, indent=2) + '\n')
