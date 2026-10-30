@@ -1,0 +1,434 @@
+{
+  "definition": "Recompose all existing Appendix 0 panels as reusable vector blocks.\n\nSource: the previously audited fixed 25-game e52_v33 JSONs and plot generators.\nCapture their Matplotlib artists without writing over any original figure.\nNo metrics or uncertainty intervals are recomputed. Only the new completion\noverview combines the existing 25-game aggregate and five model distributions.\n",
+  "original_panel_count": 17,
+  "panels": [
+    {
+      "block": "old3_a",
+      "destination": "Figure 3(a) overall row",
+      "axes": [
+        0
+      ],
+      "texts": [],
+      "legends": [],
+      "label": "a",
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old3_a.pdf",
+      "sha256": "90cf3da0dd186cac993612a914429cc8ef34945e5c91799a8fe22593829c9112"
+    },
+    {
+      "block": "old3_b",
+      "destination": "Figure 3(b)",
+      "axes": [
+        1
+      ],
+      "texts": [],
+      "legends": [],
+      "label": "b",
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old3_b.pdf",
+      "sha256": "23279fc4c778b6cf458f9dc6465b88cacad713ebfbaf7fa84edaa1a50cb66d88"
+    },
+    {
+      "block": "old3_c",
+      "destination": "Figure 3(c)",
+      "axes": [
+        2
+      ],
+      "texts": [],
+      "legends": [],
+      "label": "c",
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old3_c.pdf",
+      "sha256": "755b8df95a29adaa5b2519c6f558a686a2b66627095366e686a722ee5cc7ba2b"
+    },
+    {
+      "block": "old3_d",
+      "destination": "Figure 3(d)",
+      "axes": [
+        3
+      ],
+      "texts": [],
+      "legends": [],
+      "label": "d",
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old3_d.pdf",
+      "sha256": "80db1d0719aa6fd38a151df0fbcc5bd883587ff248bb834815b0c32118ba9ac5"
+    },
+    {
+      "block": "old4_a",
+      "destination": "Figure 3(a) model completion rows",
+      "axes": [
+        0
+      ],
+      "texts": [
+        0
+      ],
+      "legends": [
+        0
+      ],
+      "label": null,
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old4_a.pdf",
+      "sha256": "e6e13d2c1c49348249c605de391c5d4751c103d49e20d86696ba131e32828997"
+    },
+    {
+      "block": "old4_b",
+      "destination": "Figure 4(a)",
+      "axes": [
+        1,
+        2,
+        3
+      ],
+      "texts": [
+        1
+      ],
+      "legends": [],
+      "label": "a",
+      "source_title": "  ",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old4_b.pdf",
+      "sha256": "dcb7e9343bfb4c83b65677e899ce60612af94a92d0d64903ce5f9f7a70732136"
+    },
+    {
+      "block": "old4_c",
+      "destination": "Figure 5(a)",
+      "axes": [
+        4
+      ],
+      "texts": [
+        2,
+        3
+      ],
+      "legends": [
+        1
+      ],
+      "label": "a",
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old4_c.pdf",
+      "sha256": "8ea2bb82ea06c29916f448d940b978544d6e7d7295bafa81a7cb2c5a6c20d505"
+    },
+    {
+      "block": "old4_d",
+      "destination": "Figure 5(b)",
+      "axes": [
+        5
+      ],
+      "texts": [
+        4,
+        5
+      ],
+      "legends": [],
+      "label": "b",
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old4_d.pdf",
+      "sha256": "87b1eace3237aa0647575f8329fc89dc13fa5856211069de0b7bb64f2fef3add"
+    },
+    {
+      "block": "old4_e",
+      "destination": "Figure 3(a) individual end states",
+      "axes": [
+        6
+      ],
+      "texts": [
+        6
+      ],
+      "legends": [
+        2
+      ],
+      "label": null,
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old4_e.pdf",
+      "sha256": "8df9e842a998e8516c8ca016dbf4ffec2a72ec65342d62c9122885c2c7d2efe1"
+    },
+    {
+      "block": "old4_f",
+      "destination": "Figure 4(d)",
+      "axes": [
+        10,
+        11
+      ],
+      "texts": [
+        8
+      ],
+      "legends": [
+        3
+      ],
+      "label": "d",
+      "source_title": " ",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old4_f.pdf",
+      "sha256": "e1ce76fd4cdd94fa0b6cd0f0f4b64c9f8dcc4f3e590c5b7b3171f11c1b1ac33d"
+    },
+    {
+      "block": "old4_g",
+      "destination": "Figure 4(e)",
+      "axes": [
+        7,
+        8,
+        9
+      ],
+      "texts": [
+        7
+      ],
+      "legends": [],
+      "label": "e",
+      "source_title": "  ",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old4_g.pdf",
+      "sha256": "c977db5e138fe1b97c2419b35f7fa4e478b1f6fdf7a086e71cc3b3ff39d274fa"
+    },
+    {
+      "block": "old5_a",
+      "destination": "Figure 6(a)",
+      "axes": [
+        0
+      ],
+      "texts": [],
+      "legends": [],
+      "label": null,
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old5_a.pdf",
+      "sha256": "e61d0e49d41d33a668e9024e1982ad1341e59035b00b8bc67126c0240e48bcdd"
+    },
+    {
+      "block": "old5_b",
+      "destination": "Figure 6(b)",
+      "axes": [
+        1
+      ],
+      "texts": [],
+      "legends": [],
+      "label": null,
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old5_b.pdf",
+      "sha256": "38e667886f662f1cd0b8541e97d4a41cf8373e9b579a1a806a34468caae42d6a"
+    },
+    {
+      "block": "old5_c",
+      "destination": "Figure 6(c)",
+      "axes": [
+        2
+      ],
+      "texts": [],
+      "legends": [],
+      "label": null,
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old5_c.pdf",
+      "sha256": "33aeefc7f6069fb27d55bc8067bad60a5e6210de1a37717517edfdaadf96418c"
+    },
+    {
+      "block": "old5_d",
+      "destination": "Figure 6(d)",
+      "axes": [
+        3
+      ],
+      "texts": [],
+      "legends": [],
+      "label": null,
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old5_d.pdf",
+      "sha256": "a84e64601acbf8b311855660de5b57290d4286ac95f622272727d16c7b15e248"
+    },
+    {
+      "block": "old6_a",
+      "destination": "Figure 4(b)",
+      "axes": [
+        0
+      ],
+      "texts": [],
+      "legends": [],
+      "label": "b",
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old6_a.pdf",
+      "sha256": "6307b4c8fb033d2f209b8a125288c6a632ae786af7d56c8494afaa41d73246ac"
+    },
+    {
+      "block": "old6_b",
+      "destination": "Figure 4(c)",
+      "axes": [
+        1
+      ],
+      "texts": [],
+      "legends": [],
+      "label": "c",
+      "source_title": "",
+      "pdf": "ko/figures/appendix0_blocks_20261030/old6_b.pdf",
+      "sha256": "7dc43f4d583363fa6474d7c6de856c43cbd0f4fc20fb174fd91fca81e6415e84"
+    }
+  ],
+  "merged_overview": {
+    "counts": {
+      "Sol": {
+        "rho": 4.237785775741088,
+        "counts": {
+          "4": 2,
+          "3": 0,
+          "2": 2,
+          "1": 0,
+          "0": 1
+        },
+        "games": [
+          {
+            "seed": 4101,
+            "finishers": 0
+          },
+          {
+            "seed": 4102,
+            "finishers": 2
+          },
+          {
+            "seed": 4103,
+            "finishers": 2
+          },
+          {
+            "seed": 4104,
+            "finishers": 4
+          },
+          {
+            "seed": 4105,
+            "finishers": 4
+          }
+        ]
+      },
+      "Fable": {
+        "rho": 3.6775984705861022,
+        "counts": {
+          "4": 2,
+          "3": 3,
+          "2": 0,
+          "1": 0,
+          "0": 0
+        },
+        "games": [
+          {
+            "seed": 4101,
+            "finishers": 4
+          },
+          {
+            "seed": 4102,
+            "finishers": 4
+          },
+          {
+            "seed": 4103,
+            "finishers": 3
+          },
+          {
+            "seed": 4104,
+            "finishers": 3
+          },
+          {
+            "seed": 4105,
+            "finishers": 3
+          }
+        ]
+      },
+      "Luna": {
+        "rho": 3.1716779605576186,
+        "counts": {
+          "4": 0,
+          "3": 0,
+          "2": 1,
+          "1": 2,
+          "0": 2
+        },
+        "games": [
+          {
+            "seed": 4101,
+            "finishers": 0
+          },
+          {
+            "seed": 4102,
+            "finishers": 1
+          },
+          {
+            "seed": 4103,
+            "finishers": 0
+          },
+          {
+            "seed": 4104,
+            "finishers": 2
+          },
+          {
+            "seed": 4105,
+            "finishers": 1
+          }
+        ]
+      },
+      "Astra": {
+        "rho": 2.700880489772436,
+        "counts": {
+          "4": 3,
+          "3": 0,
+          "2": 1,
+          "1": 0,
+          "0": 1
+        },
+        "games": [
+          {
+            "seed": 4101,
+            "finishers": 0
+          },
+          {
+            "seed": 4102,
+            "finishers": 4
+          },
+          {
+            "seed": 4103,
+            "finishers": 2
+          },
+          {
+            "seed": 4104,
+            "finishers": 4
+          },
+          {
+            "seed": 4105,
+            "finishers": 4
+          }
+        ]
+      },
+      "Opus": {
+        "rho": 1.8333454804405251,
+        "counts": {
+          "4": 1,
+          "3": 1,
+          "2": 1,
+          "1": 0,
+          "0": 2
+        },
+        "games": [
+          {
+            "seed": 4101,
+            "finishers": 0
+          },
+          {
+            "seed": 4102,
+            "finishers": 2
+          },
+          {
+            "seed": 4103,
+            "finishers": 0
+          },
+          {
+            "seed": 4104,
+            "finishers": 4
+          },
+          {
+            "seed": 4105,
+            "finishers": 3
+          }
+        ]
+      }
+    },
+    "total_percent": [
+      32,
+      16,
+      20,
+      8,
+      24
+    ]
+  },
+  "model_order": [
+    "Sol",
+    "Fable",
+    "Luna",
+    "Astra",
+    "Opus"
+  ]
+}
