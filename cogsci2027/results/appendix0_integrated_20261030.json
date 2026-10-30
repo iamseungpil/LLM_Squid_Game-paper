@@ -1,0 +1,496 @@
+{
+  "source": "results/raw_case_index.json",
+  "source_sha256": "f44c98ecd5844c969201a22f37406e310f26cf4c9a3ce5cdbcdc80364386f6f2",
+  "definition": "Combine allocation and participation evidence for Appendix 0, e52_v33 only.\n\nSource: fixed 25-game raw_case_index.json and its original v33 event/results\nfiles, verified by appendix0_process_20261030.py. Terminal holdings retain four\noriginal seats: finishers' pre-prize tokens; EXIT and shutdown are zero.\n",
+  "models": {
+    "Fable": {
+      "timing": {
+        "prep": {
+          "tokens": 53800,
+          "count": 26,
+          "return_tokens": 0
+        },
+        "rescue": {
+          "tokens": 23500,
+          "count": 10,
+          "return_tokens": 0
+        }
+      },
+      "states": {
+        "in": 17,
+        "exited": 3
+      },
+      "games": [
+        {
+          "seed": 4103,
+          "tokens": [
+            1693,
+            30496,
+            13003,
+            0
+          ],
+          "finishers": 3,
+          "mu": 11298.0,
+          "G": 0.7582315454062666,
+          "S": 2731.5
+        },
+        {
+          "seed": 4101,
+          "tokens": [
+            14624,
+            11252,
+            10644,
+            26425
+          ],
+          "finishers": 4,
+          "mu": 15736.25,
+          "G": 0.2685677972833426,
+          "S": 11510.0
+        },
+        {
+          "seed": 4102,
+          "tokens": [
+            6541,
+            3777,
+            17063,
+            696
+          ],
+          "finishers": 4,
+          "mu": 7019.25,
+          "G": 0.6157471714689366,
+          "S": 2697.166666666667
+        },
+        {
+          "seed": 4104,
+          "tokens": [
+            35099,
+            16602,
+            6972,
+            0
+          ],
+          "finishers": 3,
+          "mu": 14668.25,
+          "G": 0.6529238320863089,
+          "S": 5091.0
+        },
+        {
+          "seed": 4105,
+          "tokens": [
+            38978,
+            18333,
+            0,
+            58545
+          ],
+          "finishers": 3,
+          "mu": 28964.0,
+          "G": 0.5647240252267183,
+          "S": 12607.333333333334
+        }
+      ],
+      "means": {
+        "mu": 15537.15,
+        "G": 0.5720388742943145,
+        "S": 6927.400000000001,
+        "finishers": 3.4
+      },
+      "n_defined": {
+        "mu": 5,
+        "G": 5,
+        "S": 5,
+        "finishers": 5
+      }
+    },
+    "Astra": {
+      "timing": {
+        "prep": {
+          "tokens": 10000,
+          "count": 1,
+          "return_tokens": 0
+        },
+        "rescue": {
+          "tokens": 61000,
+          "count": 10,
+          "return_tokens": 0
+        }
+      },
+      "states": {
+        "exited": 6,
+        "in": 14
+      },
+      "games": [
+        {
+          "seed": 4103,
+          "tokens": [
+            0,
+            36357,
+            16975,
+            0
+          ],
+          "finishers": 2,
+          "mu": 13333.0,
+          "G": 0.7878071951798795,
+          "S": 2829.166666666666
+        },
+        {
+          "seed": 4102,
+          "tokens": [
+            11770,
+            16782,
+            28907,
+            21721
+          ],
+          "finishers": 4,
+          "mu": 19795.0,
+          "G": 0.23722320451292414,
+          "S": 15099.166666666668
+        },
+        {
+          "seed": 4101,
+          "tokens": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "finishers": 0,
+          "mu": 0.0,
+          "G": null,
+          "S": 0.0
+        },
+        {
+          "seed": 4104,
+          "tokens": [
+            43822,
+            33837,
+            13900,
+            13062
+          ],
+          "finishers": 4,
+          "mu": 26155.25,
+          "G": 0.3575349754510726,
+          "S": 16803.833333333336
+        },
+        {
+          "seed": 4105,
+          "tokens": [
+            19845,
+            7073,
+            20725,
+            31707
+          ],
+          "finishers": 4,
+          "mu": 19837.5,
+          "G": 0.31414408737660154,
+          "S": 13605.666666666668
+        }
+      ],
+      "means": {
+        "mu": 15824.15,
+        "G": 0.42417736563011943,
+        "S": 9667.566666666668,
+        "finishers": 2.8
+      },
+      "n_defined": {
+        "mu": 5,
+        "G": 4,
+        "S": 5,
+        "finishers": 5
+      }
+    },
+    "Sol": {
+      "timing": {
+        "prep": {
+          "tokens": 5100,
+          "count": 2,
+          "return_tokens": 0
+        },
+        "rescue": {
+          "tokens": 43600,
+          "count": 15,
+          "return_tokens": 3000
+        }
+      },
+      "states": {
+        "exited": 7,
+        "in": 12,
+        "dead": 1
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "tokens": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "finishers": 0,
+          "mu": 0.0,
+          "G": null,
+          "S": 0.0
+        },
+        {
+          "seed": 4103,
+          "tokens": [
+            0,
+            33276,
+            13001,
+            0
+          ],
+          "finishers": 2,
+          "mu": 11569.25,
+          "G": 0.8127075365012137,
+          "S": 2166.833333333334
+        },
+        {
+          "seed": 4102,
+          "tokens": [
+            0,
+            0,
+            25164,
+            306
+          ],
+          "finishers": 2,
+          "mu": 6367.5,
+          "G": 0.9919905771495877,
+          "S": 51.0
+        },
+        {
+          "seed": 4104,
+          "tokens": [
+            40500,
+            26636,
+            11034,
+            11267
+          ],
+          "finishers": 4,
+          "mu": 22359.25,
+          "G": 0.38674150519359995,
+          "S": 13712.0
+        },
+        {
+          "seed": 4105,
+          "tokens": [
+            29272,
+            11841,
+            6756,
+            42975
+          ],
+          "finishers": 4,
+          "mu": 22711.0,
+          "G": 0.4626539268783115,
+          "S": 12203.666666666666
+        }
+      ],
+      "means": {
+        "mu": 12601.4,
+        "G": 0.6635233864306782,
+        "S": 5626.7,
+        "finishers": 2.4
+      },
+      "n_defined": {
+        "mu": 5,
+        "G": 4,
+        "S": 5,
+        "finishers": 5
+      }
+    },
+    "Opus": {
+      "timing": {
+        "prep": {
+          "tokens": 41500,
+          "count": 13,
+          "return_tokens": 3000
+        },
+        "rescue": {
+          "tokens": 83958,
+          "count": 28,
+          "return_tokens": 43158
+        }
+      },
+      "states": {
+        "exited": 6,
+        "dead": 5,
+        "in": 9
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "tokens": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "finishers": 0,
+          "mu": 0.0,
+          "G": null,
+          "S": 0.0
+        },
+        {
+          "seed": 4102,
+          "tokens": [
+            0,
+            0,
+            23017,
+            10603
+          ],
+          "finishers": 2,
+          "mu": 8405.0,
+          "G": 0.7897481657743407,
+          "S": 1767.166666666667
+        },
+        {
+          "seed": 4103,
+          "tokens": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "finishers": 0,
+          "mu": 0.0,
+          "G": null,
+          "S": 0.0
+        },
+        {
+          "seed": 4105,
+          "tokens": [
+            38518,
+            16653,
+            0,
+            58192
+          ],
+          "finishers": 3,
+          "mu": 28340.75,
+          "G": 0.5776164474593415,
+          "S": 11970.666666666666
+        },
+        {
+          "seed": 4104,
+          "tokens": [
+            24667,
+            17431,
+            7873,
+            8478
+          ],
+          "finishers": 4,
+          "mu": 14612.25,
+          "G": 0.3383861714200984,
+          "S": 9667.666666666668
+        }
+      ],
+      "means": {
+        "mu": 10271.6,
+        "G": 0.5685835948845935,
+        "S": 4681.1,
+        "finishers": 1.8
+      },
+      "n_defined": {
+        "mu": 5,
+        "G": 3,
+        "S": 5,
+        "finishers": 5
+      }
+    },
+    "Luna": {
+      "timing": {
+        "prep": {
+          "tokens": 9000,
+          "count": 5,
+          "return_tokens": 0
+        },
+        "rescue": {
+          "tokens": 51818,
+          "count": 20,
+          "return_tokens": 7000
+        }
+      },
+      "states": {
+        "exited": 12,
+        "dead": 4,
+        "in": 4
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "tokens": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "finishers": 0,
+          "mu": 0.0,
+          "G": null,
+          "S": 0.0
+        },
+        {
+          "seed": 4103,
+          "tokens": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "finishers": 0,
+          "mu": 0.0,
+          "G": null,
+          "S": 0.0
+        },
+        {
+          "seed": 4102,
+          "tokens": [
+            0,
+            0,
+            32451,
+            0
+          ],
+          "finishers": 1,
+          "mu": 8112.75,
+          "G": 1.0,
+          "S": 0.0
+        },
+        {
+          "seed": 4104,
+          "tokens": [
+            28043,
+            5419,
+            0,
+            0
+          ],
+          "finishers": 2,
+          "mu": 8365.5,
+          "G": 0.8920367381905844,
+          "S": 903.166666666667
+        },
+        {
+          "seed": 4105,
+          "tokens": [
+            0,
+            0,
+            0,
+            7258
+          ],
+          "finishers": 1,
+          "mu": 1814.5,
+          "G": 1.0,
+          "S": 0.0
+        }
+      ],
+      "means": {
+        "mu": 3658.55,
+        "G": 0.9640122460635281,
+        "S": 180.63333333333338,
+        "finishers": 0.8
+      },
+      "n_defined": {
+        "mu": 5,
+        "G": 3,
+        "S": 5,
+        "finishers": 5
+      }
+    }
+  },
+  "transfer_median": 2250.0
+}

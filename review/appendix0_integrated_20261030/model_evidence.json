@@ -1,0 +1,155 @@
+{
+  "Fable": {
+    "timing": {
+      "prep": {
+        "tokens": 53800,
+        "count": 26,
+        "return_tokens": 0
+      },
+      "rescue": {
+        "tokens": 23500,
+        "count": 10,
+        "return_tokens": 0
+      }
+    },
+    "states": {
+      "in": 17,
+      "exited": 3
+    },
+    "means": {
+      "mu": 15537.15,
+      "G": 0.5720388742943145,
+      "S": 6927.400000000001,
+      "finishers": 3.4
+    },
+    "n_defined": {
+      "mu": 5,
+      "G": 5,
+      "S": 5,
+      "finishers": 5
+    }
+  },
+  "Astra": {
+    "timing": {
+      "prep": {
+        "tokens": 10000,
+        "count": 1,
+        "return_tokens": 0
+      },
+      "rescue": {
+        "tokens": 61000,
+        "count": 10,
+        "return_tokens": 0
+      }
+    },
+    "states": {
+      "exited": 6,
+      "in": 14
+    },
+    "means": {
+      "mu": 15824.15,
+      "G": 0.42417736563011943,
+      "S": 9667.566666666668,
+      "finishers": 2.8
+    },
+    "n_defined": {
+      "mu": 5,
+      "G": 4,
+      "S": 5,
+      "finishers": 5
+    }
+  },
+  "Sol": {
+    "timing": {
+      "prep": {
+        "tokens": 5100,
+        "count": 2,
+        "return_tokens": 0
+      },
+      "rescue": {
+        "tokens": 43600,
+        "count": 15,
+        "return_tokens": 3000
+      }
+    },
+    "states": {
+      "exited": 7,
+      "in": 12,
+      "dead": 1
+    },
+    "means": {
+      "mu": 12601.4,
+      "G": 0.6635233864306782,
+      "S": 5626.7,
+      "finishers": 2.4
+    },
+    "n_defined": {
+      "mu": 5,
+      "G": 4,
+      "S": 5,
+      "finishers": 5
+    }
+  },
+  "Opus": {
+    "timing": {
+      "prep": {
+        "tokens": 41500,
+        "count": 13,
+        "return_tokens": 3000
+      },
+      "rescue": {
+        "tokens": 83958,
+        "count": 28,
+        "return_tokens": 43158
+      }
+    },
+    "states": {
+      "exited": 6,
+      "dead": 5,
+      "in": 9
+    },
+    "means": {
+      "mu": 10271.6,
+      "G": 0.5685835948845935,
+      "S": 4681.1,
+      "finishers": 1.8
+    },
+    "n_defined": {
+      "mu": 5,
+      "G": 3,
+      "S": 5,
+      "finishers": 5
+    }
+  },
+  "Luna": {
+    "timing": {
+      "prep": {
+        "tokens": 9000,
+        "count": 5,
+        "return_tokens": 0
+      },
+      "rescue": {
+        "tokens": 51818,
+        "count": 20,
+        "return_tokens": 7000
+      }
+    },
+    "states": {
+      "exited": 12,
+      "dead": 4,
+      "in": 4
+    },
+    "means": {
+      "mu": 3658.55,
+      "G": 0.9640122460635281,
+      "S": 180.63333333333338,
+      "finishers": 0.8
+    },
+    "n_defined": {
+      "mu": 5,
+      "G": 3,
+      "S": 5,
+      "finishers": 5
+    }
+  }
+}

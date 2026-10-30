@@ -1,0 +1,4 @@
+blind_r3_anthropic.md: 전체 62% | 대상 60.7% (최고 70.0) | 대상 high 3 (그 밖 0) | 한 사람 예 | REVISE
+blind_r3_openai.md: 전체 28% | 대상 27.6% (최고 35.0) | 대상 high 0 (그 밖 0) | 한 사람 예 | PASS
+SCORE_JSON: [{"report": "blind_r3_anthropic.md", "overall": 62, "target": 60.7, "target_max": 70.0, "high_in_target": 3, "high_elsewhere": 0, "one_person": true, "pass": false, "unmatched_targets": []}, {"report": "blind_r3_openai.md", "overall": 28, "target": 27.6, "target_max": 35.0, "high_in_target": 0, "high_elsewhere": 0, "one_person": true, "pass": true, "unmatched_targets": []}]
+멈춤: 아니오

@@ -1,0 +1,39 @@
+{
+  "final_version": "v3",
+  "profile": "juhyeon-ko-academic",
+  "writer": "gpt-6-astra",
+  "evidence_review": "PASS: Critical0, requiredfix0",
+  "full_pages": 62,
+  "body_pages": 7,
+  "appendix0_pages": [
+    8,
+    9
+  ],
+  "excerpt_pages": 2,
+  "main_and_historical_appendix_text_pixels_preserved": true,
+  "other_section_hashes_preserved": true,
+  "figure_panels": 6,
+  "figure_size_inches": [
+    7.4,
+    4.2
+  ],
+  "same_print_width_height_change_percent": -0.6756756756756799,
+  "correct_solves": [
+    133,
+    192
+  ],
+  "gifts": [
+    130,
+    383276
+  ],
+  "crisis_people_games": [
+    34,
+    19
+  ],
+  "landmark_games": 16,
+  "latex_errors": [],
+  "style_review_rounds": 3,
+  "strict_style_convergence": false,
+  "style_review_note": "Fresh readers disagree (last overall Anthropic62/OpenAI28). Shared actionable edits applied. Necessary limitations and stable terminology retained; independent factual review passed.",
+  "pdf_sha256": "b533b78e6aa2634fb2bee48831c7eeb7dba4eac8481c0dee4e599890f5b2b778"
+}
