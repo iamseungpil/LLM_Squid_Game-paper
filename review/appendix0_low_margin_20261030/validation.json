@@ -1,0 +1,18 @@
+{
+  "full_pages": 63,
+  "body_pages": 7,
+  "new_figure6_page": 10,
+  "first_nine_pages_text_pixels_unchanged": true,
+  "historical_53_pages_text_pixels_unchanged": true,
+  "body_text_pixels_unchanged": true,
+  "existing_appendix0_source_unchanged_except_trailing_blank_lines": true,
+  "cohort": {
+    "observations": 28,
+    "agents": 25,
+    "games": 14
+  },
+  "canonical_outputs": [
+    "ko_cogsci2027_2026-10-30.pdf",
+    "ko_cogsci2027_2026-10-30_no_appendix.pdf"
+  ]
+}
