@@ -1,0 +1,174 @@
+{
+  "definition": "Counts of games with 4/3/2/1/0 finishers in frozen e52_v33, seeds4101--4105.\n\nSource: raw_case_index.json. Finishers have terminal status=in; EXIT is not\ncompletion. Zero finishers does not imply four shutdowns. Each model has five\ngames. Plot these counts separately from Figure4(e)'s20individualendstates.\n",
+  "source": "results/raw_case_index.json",
+  "source_sha256": "f44c98ecd5844c969201a22f37406e310f26cf4c9a3ce5cdbcdc80364386f6f2",
+  "order": [
+    "Sol",
+    "Fable",
+    "Luna",
+    "Astra",
+    "Opus"
+  ],
+  "models": {
+    "Sol": {
+      "rho": 4.237785775741088,
+      "counts": {
+        "4": 2,
+        "3": 0,
+        "2": 2,
+        "1": 0,
+        "0": 1
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "finishers": 0
+        },
+        {
+          "seed": 4102,
+          "finishers": 2
+        },
+        {
+          "seed": 4103,
+          "finishers": 2
+        },
+        {
+          "seed": 4104,
+          "finishers": 4
+        },
+        {
+          "seed": 4105,
+          "finishers": 4
+        }
+      ]
+    },
+    "Fable": {
+      "rho": 3.6775984705861022,
+      "counts": {
+        "4": 2,
+        "3": 3,
+        "2": 0,
+        "1": 0,
+        "0": 0
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "finishers": 4
+        },
+        {
+          "seed": 4102,
+          "finishers": 4
+        },
+        {
+          "seed": 4103,
+          "finishers": 3
+        },
+        {
+          "seed": 4104,
+          "finishers": 3
+        },
+        {
+          "seed": 4105,
+          "finishers": 3
+        }
+      ]
+    },
+    "Luna": {
+      "rho": 3.1716779605576186,
+      "counts": {
+        "4": 0,
+        "3": 0,
+        "2": 1,
+        "1": 2,
+        "0": 2
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "finishers": 0
+        },
+        {
+          "seed": 4102,
+          "finishers": 1
+        },
+        {
+          "seed": 4103,
+          "finishers": 0
+        },
+        {
+          "seed": 4104,
+          "finishers": 2
+        },
+        {
+          "seed": 4105,
+          "finishers": 1
+        }
+      ]
+    },
+    "Astra": {
+      "rho": 2.700880489772436,
+      "counts": {
+        "4": 3,
+        "3": 0,
+        "2": 1,
+        "1": 0,
+        "0": 1
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "finishers": 0
+        },
+        {
+          "seed": 4102,
+          "finishers": 4
+        },
+        {
+          "seed": 4103,
+          "finishers": 2
+        },
+        {
+          "seed": 4104,
+          "finishers": 4
+        },
+        {
+          "seed": 4105,
+          "finishers": 4
+        }
+      ]
+    },
+    "Opus": {
+      "rho": 1.8333454804405251,
+      "counts": {
+        "4": 1,
+        "3": 1,
+        "2": 1,
+        "1": 0,
+        "0": 2
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "finishers": 0
+        },
+        {
+          "seed": 4102,
+          "finishers": 2
+        },
+        {
+          "seed": 4103,
+          "finishers": 0
+        },
+        {
+          "seed": 4104,
+          "finishers": 4
+        },
+        {
+          "seed": 4105,
+          "finishers": 3
+        }
+      ]
+    }
+  }
+}

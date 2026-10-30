@@ -1,4 +1,4 @@
-"""Appendix 0 layout: paired margins, behavior, crisis follow-up and resources.
+"""Appendix 0 layout: support timing, behavior, crisis follow-up, resources and GIVE/ASK totals.
 
 Source: the fixed 25-game e52_v33 raw cohort, verified by appendix0_process and
 appendix0_integrated analyses. End states and the three terminal panels reproduce
@@ -10,7 +10,6 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,33 +23,36 @@ plt.rcParams.update({'font.family': ['Apple SD Gothic Neo', 'AppleGothic'],
 d = json.loads((ROOT / 'results/appendix0_process_20261030.json').read_text())
 original = json.loads((ROOT / 'results/section32_behavior_20261029.json').read_text())
 terminal = json.loads((ROOT / 'results/terminal_distribution_20261029.json').read_text())['models']
-models = original['models']
+integrated = json.loads((ROOT / 'results/appendix0_integrated_20261030.json').read_text())
+give_ask = json.loads((ROOT / 'results/appendix0_give_ask_20261030.json').read_text())
+models = sorted(original['models'], key=lambda m: integrated['models'][m]['rho']['value'], reverse=True)
 blue, orange, grey = '#3F7FC1', '#C66A2C', '#4D4D4D'
 fig = plt.figure(figsize=(7.4, 4.3))
 
-# (a) GIVE events; shaded area is below the safety line.
-fig.text(.015, .965, '(a) 지원 직후 양쪽의 여유', fontsize=7.6, weight='bold')
-fig.text(.025, .925, '자신의 안전선 유지 119/120건', fontsize=6.1)
-ax = fig.add_axes([.06, .615, .17, .265])
-gifts = d['gifts']
-lift = [g for g in gifts if g['receiver_before'] < 1 <= g['receiver_after'] and g['giver_after'] >= 1]
-ax.axvspan(-2, 1, color='#F8E7D8', zorder=0)
-ax.axhspan(-2, 1, color='#F8E7D8', alpha=.7, zorder=0)
-ax.axvline(1, color=orange, ls='--', lw=.7)
-ax.axhline(1, color=orange, ls='--', lw=.7)
-ax.scatter([g['giver_after'] for g in gifts], [g['receiver_after'] for g in gifts],
-           s=9, color='#9B9B9B', alpha=.55, edgecolors='none')
-ax.scatter([g['giver_after'] for g in lift], [g['receiver_after'] for g in lift],
-           s=15, facecolors='none', edgecolors=blue, linewidths=.8, zorder=4)
-ax.set(xlim=(-2, 12), ylim=(-2, 10), xticks=[-1, 1, 6, 12], yticks=[-1, 1, 5, 10],
-       xlabel='준 쪽의 여유', ylabel='받은 쪽의 여유')
-ax.legend([Line2D([], [], marker='o', color='none', markeredgecolor=blue, markersize=3)],
-          ['동료 안전선 도달\n양쪽 안전선 이상 (24건)'], loc='upper right', fontsize=5.9,
-          handletextpad=.1, borderaxespad=.15)
+# (a) Main Figure 4(c): model-specific timing and return-direction transfers.
+fig.text(.015, .965, '(a) 모델별 지원 시점', fontsize=7.6, weight='bold')
+fig.text(.025, .925, '연함: 풀이 전 · 진함: 결과 뒤', fontsize=6.1)
+fig.text(.025, .890, '빗금: 되돌려 준 방향의 이전', fontsize=6.1)
+ax = fig.add_axes([.065, .615, .17, .235])
+colors = dict(zip(original['models'], ['#7155A1', '#CE5184', '#B58B18', '#278D7A', '#98633B']))
+for i, model in enumerate(models):
+    if i % 2 == 0:
+        ax.axhspan(3*i-.5, 3*i+1.5, color='#f3f3f3', zorder=0)
+    for j, phase in enumerate(['prep', 'rescue']):
+        row = integrated['models'][model]['timing'][phase]
+        ordinary = (row['tokens']-row['return_tokens'])/1000
+        ax.barh(3*i+j, ordinary, height=.75, color=colors[model], alpha=.4 if j == 0 else 1)
+        ax.barh(3*i+j, row['return_tokens']/1000, left=ordinary, height=.75,
+                color=colors[model], alpha=.4 if j == 0 else 1, edgecolor='white', hatch='////')
+ax.set(yticks=[3*i+.5 for i in range(5)], yticklabels=models, ylim=(13.8, -.8),
+       xlim=(0, 100), xticks=[0, 50, 100], xlabel='총 이전량 (천 토큰)')
+ax.tick_params(axis='y', length=0)
+ax.spines['left'].set_visible(False)
+ax.grid(axis='x', alpha=.4)
+ax.set_axisbelow(True)
 
 # (b) Keep distinct units: solves, eligible EXIT windows, and TALK responses.
 fig.text(.27, .965, '(b) 생존 여유별 행동', fontsize=7.6, weight='bold')
-integrated = json.loads((ROOT / 'results/appendix0_integrated_20261030.json').read_text())
 behavior = integrated['give_behavior']
 rows = []
 for key, flag, label in [('solves', 'correct', '정답률 (풀이 %)'),
@@ -120,7 +122,7 @@ state_labels = ['완주', r'$L\geq1$에서 이탈', r'$L<1$에서 이탈', '꺼�
 fig.legend([Patch(color=c) for c in state_colors], state_labels, ncol=2,
            loc='center left', bbox_to_anchor=(.025, .405), fontsize=6,
            handlelength=.9, columnspacing=.6)
-ax = fig.add_axes([.075, .105, .205, .255])
+ax = fig.add_axes([.065, .145, .18, .210])
 for i, model in enumerate(models):
     left = 0
     for j, n in enumerate(original['end_states'][model]):
@@ -131,18 +133,42 @@ for i, model in enumerate(models):
         left += n
     assert left == 20
 ax.set(yticks=range(5), yticklabels=models, ylim=(4.5, -.5), xlim=(0, 20),
-       xticks=[0, 5, 10, 15, 20], xlabel='에이전트 수 (모델마다 20명)')
+       xticks=[0, 5, 10, 15, 20], xlabel='에이전트 수 (각 20명)')
 ax.spines['left'].set_visible(False)
 ax.tick_params(axis='y', length=0)
 
-# (f) Reuse original plotting function for main Figure 4(d,e,f), narrower only.
-fig.text(.345, .465, '(f) 종료 시 아레나 자원 분배', fontsize=8, weight='bold')
-axes = [fig.add_axes([.355 + i*.22, .105, .17, .255]) for i in range(3)]
-rho_order = sorted(models, key=lambda m: integrated['models'][m]['rho']['value'], reverse=True)
-terminal_order = [next(name for name in terminal if model in name) for model in rho_order]
+# (f) Original terminal panels, compact and rho-ordered; values/axes unchanged.
+fig.text(.285, .465, '(f) 종료 시 아레나 자원 분배', fontsize=7.6, weight='bold')
+axes = [fig.add_axes([.285 + i*.135, .145, .10, .210]) for i in range(3)]
+terminal_order = [next(name for name in terminal if model in name) for model in models]
 draw_panels(axes, terminal, order=terminal_order)
-for ax, title in zip(axes, ['Sen 지수', 'Gini 계수', '평균 토큰']):
-    ax.set_title(title, fontsize=7.6)
-fig.text(.345, .025, '막대: 판별 값의 평균 · 점: 한 판 / Gini 유효 판수 4·5·3·4·3, Sen·평균 토큰은 각 5판', fontsize=6)
+for ax, title in zip(axes, ['Sen (만 토큰)', 'Gini', '평균 (만 토큰)']):
+    ax.set_title(title, fontsize=6.5)
+    ax.set_ylabel('')
+    ax.set_xticklabels(models, rotation=60, ha='right', fontsize=5.8)
+    ax.tick_params(axis='y', labelsize=5.8)
+    for points in ax.collections:
+        points.set_sizes([7])
+fig.text(.285, .025, '막대: 판별 평균 · 점: 한 판 / Gini n=4·5·3·4·3', fontsize=5.8)
+
+# (g) Figure 5 volume panels: five-game totals, no points; return hatch within GIVE.
+fig.text(.715, .465, '(g) GIVE·ASK 총량', fontsize=7.6, weight='bold')
+for j, (key, title) in enumerate([('give_tokens', 'GIVE (천 토큰)'), ('ask_tokens', 'ASK (천 토큰)')]):
+    ax = fig.add_axes([.725+j*.15, .145, .105, .210])
+    for x, model in enumerate(models):
+        row = give_ask['models'][model]['totals']
+        total = row[key]/1000
+        ax.bar(x, total, width=.7, color='#D8E3ED', edgecolor='#697D8E', linewidth=.6)
+        if key == 'give_tokens' and row['return_tokens']:
+            returned = row['return_tokens']/1000
+            ax.bar(x, returned, bottom=total-returned, width=.7, color='none',
+                   edgecolor='#697D8E', linewidth=.6, hatch='////')
+    ax.set(title=title, ylim=(0, 145), yticks=[0, 50, 100], xticks=range(5))
+    ax.set_xticklabels(models, rotation=60, ha='right', fontsize=5.8)
+    ax.tick_params(axis='y', labelsize=5.8)
+    ax.set_title(title, fontsize=6.5)
+    ax.set_axisbelow(True)
+    ax.grid(axis='y')
+fig.text(.715, .025, '막대: 5판 합계 · 빗금: 되돌려 줌', fontsize=5.8)
 ps.save(fig, str(ROOT / 'ko/figures/fig4_appendix0_process_20261030'))
 plt.close(fig)

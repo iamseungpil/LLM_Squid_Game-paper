@@ -1,0 +1,16 @@
+{
+  "full_pages": 63,
+  "body_pages": 7,
+  "appendix0_pages": [
+    8,
+    9,
+    10
+  ],
+  "body_text_pixels_unchanged": true,
+  "historical_appendix_pages_unchanged": 53,
+  "main_figure4_and_figure5_data_unchanged": true,
+  "canonical_outputs": [
+    "ko_cogsci2027_2026-10-30.pdf",
+    "ko_cogsci2027_2026-10-30_no_appendix.pdf"
+  ]
+}
