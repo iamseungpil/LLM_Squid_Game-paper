@@ -331,11 +331,11 @@ Astra는 다섯 판 중 세 판에서 네 명 모두 완주했고 Fable과 Sol�
 }
 
 %% SOURCE-BLOCK: 32
-\subsection{모델별 행동과 풀이 판단 (10-23 기록)}
+\subsection{모델별 행동과 풀이 판단 (\textcolor{blue}{$\rho$ 현행 정의 반영})}
 
 \begin{table}[H]
 \centering
-\caption{모델별 행동과 풀이 판단(모델별 5판). $\rho$는 식 (\ref{eq:rho})의 상대적 배분이며 대괄호는 판 단위 부트스트랩 95\% 구간이다. EXIT는 각 모델의 5판 20자리 중 이탈 수다. $V$는 재이전을 포함한 총 이전 토큰, 괄호는 GIVE 횟수다. JS는 BELIEF와 기준 분포 사이의 평균 거리다.}
+\caption{모델별 행동과 풀이 판단(모델별 5판). \textcolor{blue}{$\rho$는 기존 정의에서 본문의 식 (\ref{eq:completion-rho})으로 갱신했다. 확정된 미납 벌금을 차감한 이전 직후 여유를 쓰며, 5판의 GIVE를 합쳐 이전량으로 가중한 준 쪽 여유의 합을 받은 쪽 여유의 합으로 나눈다. 판별 비율의 평균이 아니다. 대괄호는 5판을 판 단위로 복원 추출해 구한 95\% 부트스트랩 구간이다(2,000회, 시드 1919). GIVE가 없거나 분모가 0인 재표본은 제외했다.} EXIT는 각 모델의 5판 20자리 중 이탈 수다. $V$는 재이전을 포함한 총 이전 토큰, 괄호는 GIVE 횟수다. JS는 BELIEF와 기준 분포 사이의 평균 거리다.}
 \label{tab:arena-rank}
 \input{cogsci2027/ko/tables/arena_rank}
 \end{table}

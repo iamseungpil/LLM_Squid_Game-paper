@@ -65,23 +65,25 @@ def extract():
     return models
 
 
-def draw_panels(axes, models, first_letter="a"):
+def draw_panels(axes, models, first_letter="a", order=None):
+    order = ORDER if order is None else order
+    short_names = dict(zip(ORDER, SHORT))
     metrics = [("S", 1e4, "(a) Sen 지수", "만 토큰", 3.4),
                ("G", 1, "(b) Gini 계수", "Gini (0–1)", 1),
                ("mu", 1e4, "(c) 평균 토큰", "만 토큰", 4),
                ("finishers", 1, "(d) 평균 완주 인원", "명", 4.25)]
     for i, (ax, (key, scale, title, label, ymax)) in enumerate(zip(axes, metrics)):
         title = f"({chr(ord(first_letter) + i)})" + title[3:]
-        means = [models[m]["means"][key] / scale for m in ORDER]
+        means = [models[m]["means"][key] / scale for m in order]
         ax.bar(range(5), means, width=.7, color="#D8E3ED", edgecolor="#697D8E", linewidth=.6)
-        for x, model in enumerate(ORDER):
+        for x, model in enumerate(order):
             for j, g in enumerate(models[model]["games"]):
                 if g[key] is not None:
                     ax.scatter(x + (j - 2) * .11, g[key] / scale, color="#777777",
                                marker="o", s=12, linewidths=.4, zorder=3, clip_on=False)
         labels = [f"{short}\n({value:.2f})" if key == "G" else
                   f"{short}\n({value:.1f})" if key == "finishers" else f"{short}\n({value:.2f})"
-                  for short, value in zip(SHORT, means)]
+                  for short, value in zip([short_names[m] for m in order], means)]
         ax.set(title=title, ylabel=label, ylim=(0, ymax), xticks=range(5), xticklabels=labels)
         ax.tick_params(axis="x", labelsize=6)
         ax.set_title(title, fontsize=8)

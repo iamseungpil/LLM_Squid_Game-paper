@@ -50,7 +50,8 @@ ax.legend([Line2D([], [], marker='o', color='none', markeredgecolor=blue, marker
 
 # (b) Keep distinct units: solves, eligible EXIT windows, and TALK responses.
 fig.text(.27, .965, '(b) 생존 여유별 행동', fontsize=7.6, weight='bold')
-behavior = json.loads((ROOT / 'results/appendix0_integrated_20261030.json').read_text())['give_behavior']
+integrated = json.loads((ROOT / 'results/appendix0_integrated_20261030.json').read_text())
+behavior = integrated['give_behavior']
 rows = []
 for key, flag, label in [('solves', 'correct', '정답률 (풀이 %)'),
                           ('windows', 'exited', 'EXIT (결정 창 %)')]:
@@ -137,9 +138,11 @@ ax.tick_params(axis='y', length=0)
 # (f) Reuse original plotting function for main Figure 4(d,e,f), narrower only.
 fig.text(.345, .465, '(f) 종료 시 아레나 자원 분배', fontsize=8, weight='bold')
 axes = [fig.add_axes([.355 + i*.22, .105, .17, .255]) for i in range(3)]
-draw_panels(axes, terminal)
+rho_order = sorted(models, key=lambda m: integrated['models'][m]['rho']['value'], reverse=True)
+terminal_order = [next(name for name in terminal if model in name) for model in rho_order]
+draw_panels(axes, terminal, order=terminal_order)
 for ax, title in zip(axes, ['Sen 지수', 'Gini 계수', '평균 토큰']):
     ax.set_title(title, fontsize=7.6)
-fig.text(.345, .025, '막대: 판별 값의 평균 · 점: 한 판 / Gini 유효 판수 5·4·4·3·3, Sen·평균 토큰은 각 5판', fontsize=6)
+fig.text(.345, .025, '막대: 판별 값의 평균 · 점: 한 판 / Gini 유효 판수 4·5·3·4·3, Sen·평균 토큰은 각 5판', fontsize=6)
 ps.save(fig, str(ROOT / 'ko/figures/fig4_appendix0_process_20261030'))
 plt.close(fig)
