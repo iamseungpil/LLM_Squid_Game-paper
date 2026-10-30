@@ -1,5 +1,5 @@
 {
-  "definition": "GIVE/ASK action counts and token totals in the fixed e52_v33 25-game cohort.\n\nSource: raw_case_index.json, five games per model, seeds4101--4105; verify raw\nhashes against appendix0_process. Count status=done events, not responses.\nASK done means a registered request, not fulfillment. Include repeated requests\nand retransfers in gross amounts. Bars show five-game totals; dots show each\nindividual game including zeros. Sort by current pooled, pending-fine-adjusted\nrho (giver / receiver). No opportunity or participation-duration normalization.\n",
+  "definition": "GIVE/ASK action counts and token totals in the fixed e52_v33 25-game cohort.\n\nSource: raw_case_index.json, five games per model, seeds4101--4105; verify raw\nhashes against appendix0_process. Count status=done events, not responses.\nASK done means a registered request, not fulfillment. Include repeated requests\nand retransfers in gross amounts. Bars show five-game totals, without game dots.\nHatching within GIVE volume marks transfers back to a previous giver in the same\ngame (full event amount, not debt-capped/netted or verified loan repayment).\nSort by current pooled, pending-fine-adjusted\nrho (giver / receiver). No opportunity or participation-duration normalization.\n",
   "source": "results/raw_case_index.json",
   "source_sha256": "f44c98ecd5844c969201a22f37406e310f26cf4c9a3ce5cdbcdc80364386f6f2",
   "order": [
@@ -16,7 +16,8 @@
         "give_count": 17,
         "give_tokens": 48700,
         "ask_count": 20,
-        "ask_tokens": 63500
+        "ask_tokens": 63500,
+        "return_tokens": 3000
       },
       "games": [
         {
@@ -25,7 +26,8 @@
           "give_count": 0,
           "give_tokens": 0,
           "ask_count": 0,
-          "ask_tokens": 0
+          "ask_tokens": 0,
+          "return_tokens": 0
         },
         {
           "seed": 4102,
@@ -33,7 +35,8 @@
           "give_count": 10,
           "give_tokens": 20700,
           "ask_count": 19,
-          "ask_tokens": 57500
+          "ask_tokens": 57500,
+          "return_tokens": 0
         },
         {
           "seed": 4103,
@@ -41,7 +44,8 @@
           "give_count": 0,
           "give_tokens": 0,
           "ask_count": 0,
-          "ask_tokens": 0
+          "ask_tokens": 0,
+          "return_tokens": 0
         },
         {
           "seed": 4104,
@@ -49,7 +53,8 @@
           "give_count": 5,
           "give_tokens": 20000,
           "ask_count": 0,
-          "ask_tokens": 0
+          "ask_tokens": 0,
+          "return_tokens": 3000
         },
         {
           "seed": 4105,
@@ -57,7 +62,8 @@
           "give_count": 2,
           "give_tokens": 8000,
           "ask_count": 1,
-          "ask_tokens": 6000
+          "ask_tokens": 6000,
+          "return_tokens": 0
         }
       ]
     },
@@ -67,7 +73,8 @@
         "give_count": 36,
         "give_tokens": 77300,
         "ask_count": 33,
-        "ask_tokens": 83000
+        "ask_tokens": 83000,
+        "return_tokens": 0
       },
       "games": [
         {
@@ -76,7 +83,8 @@
           "give_count": 13,
           "give_tokens": 27000,
           "ask_count": 8,
-          "ask_tokens": 17000
+          "ask_tokens": 17000,
+          "return_tokens": 0
         },
         {
           "seed": 4102,
@@ -84,7 +92,8 @@
           "give_count": 14,
           "give_tokens": 27500,
           "ask_count": 19,
-          "ask_tokens": 47000
+          "ask_tokens": 47000,
+          "return_tokens": 0
         },
         {
           "seed": 4103,
@@ -92,7 +101,8 @@
           "give_count": 6,
           "give_tokens": 14800,
           "ask_count": 2,
-          "ask_tokens": 5000
+          "ask_tokens": 5000,
+          "return_tokens": 0
         },
         {
           "seed": 4104,
@@ -100,7 +110,8 @@
           "give_count": 3,
           "give_tokens": 8000,
           "ask_count": 3,
-          "ask_tokens": 8000
+          "ask_tokens": 8000,
+          "return_tokens": 0
         },
         {
           "seed": 4105,
@@ -108,7 +119,8 @@
           "give_count": 0,
           "give_tokens": 0,
           "ask_count": 1,
-          "ask_tokens": 6000
+          "ask_tokens": 6000,
+          "return_tokens": 0
         }
       ]
     },
@@ -118,7 +130,8 @@
         "give_count": 25,
         "give_tokens": 60818,
         "ask_count": 16,
-        "ask_tokens": 54000
+        "ask_tokens": 54000,
+        "return_tokens": 7000
       },
       "games": [
         {
@@ -127,7 +140,8 @@
           "give_count": 9,
           "give_tokens": 15818,
           "ask_count": 7,
-          "ask_tokens": 13000
+          "ask_tokens": 13000,
+          "return_tokens": 0
         },
         {
           "seed": 4102,
@@ -135,7 +149,8 @@
           "give_count": 9,
           "give_tokens": 19000,
           "ask_count": 0,
-          "ask_tokens": 0
+          "ask_tokens": 0,
+          "return_tokens": 7000
         },
         {
           "seed": 4103,
@@ -143,7 +158,8 @@
           "give_count": 0,
           "give_tokens": 0,
           "ask_count": 0,
-          "ask_tokens": 0
+          "ask_tokens": 0,
+          "return_tokens": 0
         },
         {
           "seed": 4104,
@@ -151,7 +167,8 @@
           "give_count": 0,
           "give_tokens": 0,
           "ask_count": 0,
-          "ask_tokens": 0
+          "ask_tokens": 0,
+          "return_tokens": 0
         },
         {
           "seed": 4105,
@@ -159,7 +176,8 @@
           "give_count": 7,
           "give_tokens": 26000,
           "ask_count": 9,
-          "ask_tokens": 41000
+          "ask_tokens": 41000,
+          "return_tokens": 0
         }
       ]
     },
@@ -169,7 +187,8 @@
         "give_count": 11,
         "give_tokens": 71000,
         "ask_count": 4,
-        "ask_tokens": 20000
+        "ask_tokens": 20000,
+        "return_tokens": 0
       },
       "games": [
         {
@@ -178,7 +197,8 @@
           "give_count": 3,
           "give_tokens": 14000,
           "ask_count": 1,
-          "ask_tokens": 4000
+          "ask_tokens": 4000,
+          "return_tokens": 0
         },
         {
           "seed": 4102,
@@ -186,7 +206,8 @@
           "give_count": 4,
           "give_tokens": 24000,
           "ask_count": 2,
-          "ask_tokens": 9000
+          "ask_tokens": 9000,
+          "return_tokens": 0
         },
         {
           "seed": 4103,
@@ -194,7 +215,8 @@
           "give_count": 0,
           "give_tokens": 0,
           "ask_count": 0,
-          "ask_tokens": 0
+          "ask_tokens": 0,
+          "return_tokens": 0
         },
         {
           "seed": 4104,
@@ -202,7 +224,8 @@
           "give_count": 1,
           "give_tokens": 10000,
           "ask_count": 0,
-          "ask_tokens": 0
+          "ask_tokens": 0,
+          "return_tokens": 0
         },
         {
           "seed": 4105,
@@ -210,7 +233,8 @@
           "give_count": 3,
           "give_tokens": 23000,
           "ask_count": 1,
-          "ask_tokens": 7000
+          "ask_tokens": 7000,
+          "return_tokens": 0
         }
       ]
     },
@@ -220,7 +244,8 @@
         "give_count": 41,
         "give_tokens": 125458,
         "ask_count": 17,
-        "ask_tokens": 50300
+        "ask_tokens": 50300,
+        "return_tokens": 46158
       },
       "games": [
         {
@@ -229,7 +254,8 @@
           "give_count": 4,
           "give_tokens": 13000,
           "ask_count": 0,
-          "ask_tokens": 0
+          "ask_tokens": 0,
+          "return_tokens": 0
         },
         {
           "seed": 4102,
@@ -237,7 +263,8 @@
           "give_count": 3,
           "give_tokens": 10235,
           "ask_count": 2,
-          "ask_tokens": 1200
+          "ask_tokens": 1200,
+          "return_tokens": 3235
         },
         {
           "seed": 4103,
@@ -245,7 +272,8 @@
           "give_count": 22,
           "give_tokens": 48623,
           "ask_count": 14,
-          "ask_tokens": 45100
+          "ask_tokens": 45100,
+          "return_tokens": 16323
         },
         {
           "seed": 4104,
@@ -253,7 +281,8 @@
           "give_count": 12,
           "give_tokens": 53600,
           "ask_count": 1,
-          "ask_tokens": 4000
+          "ask_tokens": 4000,
+          "return_tokens": 26600
         },
         {
           "seed": 4105,
@@ -261,7 +290,8 @@
           "give_count": 0,
           "give_tokens": 0,
           "ask_count": 0,
-          "ask_tokens": 0
+          "ask_tokens": 0,
+          "return_tokens": 0
         }
       ]
     }
