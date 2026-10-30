@@ -163,7 +163,6 @@ for ax, title, key, scale in zip(axes, ['Sen (만 토큰)', 'Gini', '평균 (만
         ax.errorbar(x, mean, yerr=[[mean-min(vals)], [max(vals)-mean]],
                     fmt='none', ecolor='#526B80', elinewidth=.75,
                     capsize=2, capthick=.75, zorder=3, clip_on=False)
-fig.text(.285, .063, '막대: 평균 · 선: 최솟값–최댓값 / Gini n=4·5·3·4·3', fontsize=5.6)
 
 # (g) Five-game totals: GIVE stacked by timing, after-results segment hatched.
 fig.text(.715, .465, '(g) GIVE·ASK 총량', fontsize=7.6, weight='bold')
@@ -187,7 +186,6 @@ for j, (key, title) in enumerate([('give_tokens', 'GIVE (천 토큰)'), ('ask_to
     ax.set_title(title, fontsize=6.5)
     ax.set_axisbelow(True)
     ax.grid(axis='y')
-fig.text(.695, .063, 'GIVE: 무늬 없음=풀이 전 · 빗금=결과 뒤', fontsize=5.8)
 fig.text(.635, .029, r'(f), (g) 각 그래프 공통: $\rho$ 내림차순 (Sol, Fable, Luna, Astra, Opus)',
          ha='center', fontsize=6.4, color='#354B60')
 fig.add_artist(FancyArrowPatch((.285, .014), (.98, .014), transform=fig.transFigure,
