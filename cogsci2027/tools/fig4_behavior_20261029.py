@@ -57,7 +57,7 @@ assert sum(accuracy_k) == 133
 fig = plt.figure(figsize=(7.2, 3.3))
 ax = fig.add_axes([.07, .58, .235, .28])
 colors = ['#3F7FC1', '#C2570F', '#EE9F55', '#4D4D4D']
-labels = ['끝까지 남음', '위험 전 떠남', '위험 속 떠남', '꺼짐']
+labels = ['완주', r'$L\geq1$에서 이탈', r'$L<1$에서 이탈', '꺼짐']
 for i, model in enumerate(models):
     left = 0
     for j, n in enumerate(d['end_states'][model]):
@@ -70,7 +70,7 @@ ax.set_yticks(range(5), models)
 ax.set_ylim(4.5, -.5)
 ax.set_xlim(0, 20)
 ax.set_xticks([0, 5, 10, 15, 20])
-ax.set_xlabel('자리 수 (모델마다 20자리)', fontsize=7)
+ax.set_xlabel('에이전트 수 (모델마다 20명)', fontsize=7)
 ax.tick_params(labelsize=7)
 ax.spines['left'].set_visible(False)
 ax.tick_params(axis='y', length=0)

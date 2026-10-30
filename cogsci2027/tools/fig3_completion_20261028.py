@@ -277,9 +277,9 @@ def plot_primary(games, sums):
     count_ax.set_title('(a) 완주 인원별 분포', fontsize=7.2, pad=8)
     count_ax.grid(axis='y', alpha=.6)
     count_ax.tick_params(axis='x', length=0)
-    labels = [('accuracy', '(b) 추론: 정답률', '정답 / 실제 풀이 (%)', 100),
+    labels = [('accuracy', '(b) 과제 성과: 실제 정답률', '정답 / 실제 풀이 (%)', 100),
               ('given_per_agent_round', '(c) 협력: 이전량', 'GIVE / 참여\n에이전트·라운드 (토큰)', 1),
-              ('rho', r'(d) 자기 보존: $\rho$', r'준 쪽 / 받은 쪽 ($\rho$)', 1)]
+              ('rho', r'(d) 지원 후 생존 여유 비율: $\rho$', r'준 쪽 / 받은 쪽 ($\rho$)', 1)]
     for ax, (key, title, ylabel, scale) in zip(axs, labels):
         ax.axvspan(-.35, .5, color='#F1F1F1', zorder=0)
         ax.axvspan(.5, 1.35, color='#E8F0F8', zorder=0)
@@ -324,7 +324,7 @@ def plot_primary(games, sums):
                                      label='집단 평균·95% 구간', markersize=6)],
                loc='lower center', bbox_to_anchor=(.53, .015), ncol=6, fontsize=7.5,
                borderaxespad=0, handletextpad=.4, handlelength=1.4, columnspacing=1.3)
-    ps.save(fig, str(ROOT / 'ko/figures/fig3_completion_primary'))
+    ps.save(fig, str(ROOT / 'ko/figures/fig3_completion_primary_20261030'))
     plt.close(fig)
 
 

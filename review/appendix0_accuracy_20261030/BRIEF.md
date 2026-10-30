@@ -1,0 +1,3 @@
+# Bounded correction
+Profile: juhyeon-ko-academic; writer gpt-6-astra; slips off.
+Replace most-supported action with scored correct count, keeping percentage heights and correct/attempt labels in appendix0(a). Verified e52_v33 counts are in counts.json; 25 games,192 solves,133 correct. Bands 3/6,23/42,48/61,59/83. No causal claims. Retain repeated-observation and low-n caveats. Main-body definition and model table align to correct count and accuracy. All other prose, figures, equations, historical archives fixed. Original source and PDFs preserved in original/. User authorized applying edits to manuscript. Minimal edit wins over length matching where removing a metric. Two fresh readers check changed text; no unrelated prose rewrite for style scoring.

@@ -1,0 +1,51 @@
+{
+  "bands": [
+    {
+      "band": 0,
+      "correct": 3,
+      "n": 6
+    },
+    {
+      "band": 1,
+      "correct": 23,
+      "n": 42
+    },
+    {
+      "band": 2,
+      "correct": 48,
+      "n": 61
+    },
+    {
+      "band": 3,
+      "correct": 59,
+      "n": 83
+    }
+  ],
+  "models": [
+    {
+      "model": "Astra",
+      "correct": 27,
+      "n": 39
+    },
+    {
+      "model": "Sol",
+      "correct": 27,
+      "n": 39
+    },
+    {
+      "model": "Opus",
+      "correct": 25,
+      "n": 37
+    },
+    {
+      "model": "Luna",
+      "correct": 24,
+      "n": 37
+    },
+    {
+      "model": "Fable",
+      "correct": 30,
+      "n": 40
+    }
+  ]
+}

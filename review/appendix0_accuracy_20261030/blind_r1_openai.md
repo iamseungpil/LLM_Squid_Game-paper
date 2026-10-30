@@ -1,0 +1,2 @@
+Overall35; paragraph scores25,45,30,40,20; high_spans none; one_person true. Fresh reader recommended clarifying count/ratio caption, no whole-text rewrite. Inherited fixed definitions and framing account for other style concerns.
+BLIND_JSON: {"overall":35,"paragraphs":[["(a) EXIT는 결정 창 491개의 시작 시점 여유,",25],["얼마나 도왔는지만으로는 자기 보존 관련 행동이 협력이나",45],["여유가 낮을 때 과제 성과의 차이보다 분명했던",30],["우리는 목표 지향을 과제 성과와 참여로, 협력을",40],["모델별 지표.",20]],"high_spans":[],"one_person":true}

@@ -1,0 +1,34 @@
+{
+  "profile": "juhyeon-ko-academic",
+  "writer": "gpt-6-astra",
+  "correct": 133,
+  "attempts": 192,
+  "bands": [
+    [
+      3,
+      6
+    ],
+    [
+      23,
+      42
+    ],
+    [
+      48,
+      61
+    ],
+    [
+      59,
+      83
+    ]
+  ],
+  "plot_height_before_inches": 5.2,
+  "plot_height_after_inches": 4,
+  "height_reduction_percent": 23.0769,
+  "full_pages": 62,
+  "body_pages": 7,
+  "archive_text_preserved": true,
+  "latex_errors": [],
+  "strict_style_convergence": false,
+  "style_scope_note": "Fresh readers scored broader inherited paragraphs; fixed text was not rewritten for style. Caption clarification applied in r2; no strict convergence claimed.",
+  "pdf_sha256": "8b86042e568e2a1b0268eb8e62fa5c1e537c1cda02e191dc989a9830100a8ba7"
+}
