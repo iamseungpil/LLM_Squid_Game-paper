@@ -4,8 +4,8 @@ Source: raw_case_index.json, five games per model, seeds4101--4105; verify raw
 hashes against appendix0_process. Count status=done events, not responses.
 ASK done means a registered request, not fulfillment. Include repeated requests
 and retransfers in gross amounts. Bars show five-game totals, without game dots.
-Hatching within GIVE volume marks transfers back to a previous giver in the same
-game (full event amount, not debt-capped/netted or verified loan repayment).
+GIVE volume stacks before-solve and after-results totals; only after-results
+transfers are hatched. Return-direction amounts are not encoded.
 Sort by current pooled, pending-fine-adjusted
 rho (giver / receiver). No opportunity or participation-duration normalization.
 """
@@ -58,6 +58,9 @@ def analyze():
         totals['return_tokens'] = sum(g['return_tokens'] for g in games)
         assert totals['return_tokens'] == sum(p['return_tokens'] for p in current[model]['timing'].values())
         assert 0 <= totals['return_tokens'] <= totals['give_tokens']
+        totals['give_before_tokens'] = current[model]['timing']['prep']['tokens']
+        totals['give_after_tokens'] = current[model]['timing']['rescue']['tokens']
+        assert totals['give_before_tokens'] + totals['give_after_tokens'] == totals['give_tokens']
         models[model] = dict(rho=current[model]['rho']['value'], totals=totals, games=games)
     assert sum(m['totals']['give_count'] for m in models.values()) == 130
     assert sum(m['totals']['ask_count'] for m in models.values()) == 90
@@ -79,12 +82,15 @@ def plot(data):
         for x, model in enumerate(data['order']):
             row = data['models'][model]
             total = row['totals'][key] / scale
-            ax.bar(x, total, width=.7, color='#D8E3ED', edgecolor='#697D8E', linewidth=.6)
+            if key == 'give_tokens':
+                before = row['totals']['give_before_tokens']/scale
+                after = row['totals']['give_after_tokens']/scale
+                ax.bar(x, before, width=.7, color='#D8E3ED', edgecolor='#697D8E', linewidth=.6)
+                ax.bar(x, after, bottom=before, width=.7, color='#9DB4C8',
+                       edgecolor='#526B80', linewidth=.6, hatch='////')
+            else:
+                ax.bar(x, total, width=.7, color='#D8E3ED', edgecolor='#697D8E', linewidth=.6)
             ax.text(x, total+ymax*.025, f'{total:.1f}' if scale > 1 else str(int(total)), ha='center', fontsize=6.5)
-            if key == 'give_tokens' and row['totals']['return_tokens']:
-                returned = row['totals']['return_tokens'] / scale
-                ax.bar(x, returned, bottom=total-returned, width=.7,
-                       color='none', edgecolor='#697D8E', linewidth=.6, hatch='////')
         ax.set(title=title, ylabel=unit, ylim=(0, ymax), xticks=range(5),
                xticklabels=[f"{m}\n({data['models'][m]['rho']:.2f})" for m in data['order']])
         ax.set_title(title, fontsize=8)
@@ -92,7 +98,7 @@ def plot(data):
         ax.tick_params(axis='y', labelsize=6)
         ax.set_axisbelow(True)
         ax.grid(axis='y')
-    fig.text(.5, .02, '막대: 모델별 5판 합계 · 빗금: 앞서 준 상대에게 되돌려 준 양 · 괄호: ρ (내림차순)', ha='center', fontsize=6.5)
+    fig.text(.5, .02, '막대: 모델별 5판 합계 · GIVE 무늬 없음: 풀이 전 / 빗금: 결과 뒤 · 괄호: ρ (내림차순)', ha='center', fontsize=6.5)
     ps.save(fig, str(ROOT / 'ko/figures/fig_appendix0_give_ask_20261030'))
     plt.close(fig)
 

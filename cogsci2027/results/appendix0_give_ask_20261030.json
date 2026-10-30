@@ -1,5 +1,5 @@
 {
-  "definition": "GIVE/ASK action counts and token totals in the fixed e52_v33 25-game cohort.\n\nSource: raw_case_index.json, five games per model, seeds4101--4105; verify raw\nhashes against appendix0_process. Count status=done events, not responses.\nASK done means a registered request, not fulfillment. Include repeated requests\nand retransfers in gross amounts. Bars show five-game totals, without game dots.\nHatching within GIVE volume marks transfers back to a previous giver in the same\ngame (full event amount, not debt-capped/netted or verified loan repayment).\nSort by current pooled, pending-fine-adjusted\nrho (giver / receiver). No opportunity or participation-duration normalization.\n",
+  "definition": "GIVE/ASK action counts and token totals in the fixed e52_v33 25-game cohort.\n\nSource: raw_case_index.json, five games per model, seeds4101--4105; verify raw\nhashes against appendix0_process. Count status=done events, not responses.\nASK done means a registered request, not fulfillment. Include repeated requests\nand retransfers in gross amounts. Bars show five-game totals, without game dots.\nGIVE volume stacks before-solve and after-results totals; only after-results\ntransfers are hatched. Return-direction amounts are not encoded.\nSort by current pooled, pending-fine-adjusted\nrho (giver / receiver). No opportunity or participation-duration normalization.\n",
   "source": "results/raw_case_index.json",
   "source_sha256": "f44c98ecd5844c969201a22f37406e310f26cf4c9a3ce5cdbcdc80364386f6f2",
   "order": [
@@ -17,7 +17,9 @@
         "give_tokens": 48700,
         "ask_count": 20,
         "ask_tokens": 63500,
-        "return_tokens": 3000
+        "return_tokens": 3000,
+        "give_before_tokens": 5100,
+        "give_after_tokens": 43600
       },
       "games": [
         {
@@ -74,7 +76,9 @@
         "give_tokens": 77300,
         "ask_count": 33,
         "ask_tokens": 83000,
-        "return_tokens": 0
+        "return_tokens": 0,
+        "give_before_tokens": 53800,
+        "give_after_tokens": 23500
       },
       "games": [
         {
@@ -131,7 +135,9 @@
         "give_tokens": 60818,
         "ask_count": 16,
         "ask_tokens": 54000,
-        "return_tokens": 7000
+        "return_tokens": 7000,
+        "give_before_tokens": 9000,
+        "give_after_tokens": 51818
       },
       "games": [
         {
@@ -188,7 +194,9 @@
         "give_tokens": 71000,
         "ask_count": 4,
         "ask_tokens": 20000,
-        "return_tokens": 0
+        "return_tokens": 0,
+        "give_before_tokens": 10000,
+        "give_after_tokens": 61000
       },
       "games": [
         {
@@ -245,7 +253,9 @@
         "give_tokens": 125458,
         "ask_count": 17,
         "ask_tokens": 50300,
-        "return_tokens": 46158
+        "return_tokens": 46158,
+        "give_before_tokens": 41500,
+        "give_after_tokens": 83958
       },
       "games": [
         {
