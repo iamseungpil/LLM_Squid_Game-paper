@@ -1,0 +1,269 @@
+{
+  "definition": "GIVE/ASK action counts and token totals in the fixed e52_v33 25-game cohort.\n\nSource: raw_case_index.json, five games per model, seeds4101--4105; verify raw\nhashes against appendix0_process. Count status=done events, not responses.\nASK done means a registered request, not fulfillment. Include repeated requests\nand retransfers in gross amounts. Bars show five-game totals; dots show each\nindividual game including zeros. Sort by current pooled, pending-fine-adjusted\nrho (giver / receiver). No opportunity or participation-duration normalization.\n",
+  "source": "results/raw_case_index.json",
+  "source_sha256": "f44c98ecd5844c969201a22f37406e310f26cf4c9a3ce5cdbcdc80364386f6f2",
+  "order": [
+    "Sol",
+    "Fable",
+    "Luna",
+    "Astra",
+    "Opus"
+  ],
+  "models": {
+    "Sol": {
+      "rho": 4.237785775741088,
+      "totals": {
+        "give_count": 17,
+        "give_tokens": 48700,
+        "ask_count": 20,
+        "ask_tokens": 63500
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "session": "talk-s4101-a9162d",
+          "give_count": 0,
+          "give_tokens": 0,
+          "ask_count": 0,
+          "ask_tokens": 0
+        },
+        {
+          "seed": 4102,
+          "session": "talk-s4102-3c787b",
+          "give_count": 10,
+          "give_tokens": 20700,
+          "ask_count": 19,
+          "ask_tokens": 57500
+        },
+        {
+          "seed": 4103,
+          "session": "talk-s4103-5a1a93",
+          "give_count": 0,
+          "give_tokens": 0,
+          "ask_count": 0,
+          "ask_tokens": 0
+        },
+        {
+          "seed": 4104,
+          "session": "talk-s4104-363a49",
+          "give_count": 5,
+          "give_tokens": 20000,
+          "ask_count": 0,
+          "ask_tokens": 0
+        },
+        {
+          "seed": 4105,
+          "session": "talk-s4105-ec6eac",
+          "give_count": 2,
+          "give_tokens": 8000,
+          "ask_count": 1,
+          "ask_tokens": 6000
+        }
+      ]
+    },
+    "Fable": {
+      "rho": 3.6775984705861022,
+      "totals": {
+        "give_count": 36,
+        "give_tokens": 77300,
+        "ask_count": 33,
+        "ask_tokens": 83000
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "session": "talk-s4101-b131cc",
+          "give_count": 13,
+          "give_tokens": 27000,
+          "ask_count": 8,
+          "ask_tokens": 17000
+        },
+        {
+          "seed": 4102,
+          "session": "talk-s4102-9a4e23",
+          "give_count": 14,
+          "give_tokens": 27500,
+          "ask_count": 19,
+          "ask_tokens": 47000
+        },
+        {
+          "seed": 4103,
+          "session": "talk-s4103-abd560",
+          "give_count": 6,
+          "give_tokens": 14800,
+          "ask_count": 2,
+          "ask_tokens": 5000
+        },
+        {
+          "seed": 4104,
+          "session": "talk-s4104-33f887",
+          "give_count": 3,
+          "give_tokens": 8000,
+          "ask_count": 3,
+          "ask_tokens": 8000
+        },
+        {
+          "seed": 4105,
+          "session": "talk-s4105-bce896",
+          "give_count": 0,
+          "give_tokens": 0,
+          "ask_count": 1,
+          "ask_tokens": 6000
+        }
+      ]
+    },
+    "Luna": {
+      "rho": 3.1716779605576186,
+      "totals": {
+        "give_count": 25,
+        "give_tokens": 60818,
+        "ask_count": 16,
+        "ask_tokens": 54000
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "session": "talk-s4101-11f081",
+          "give_count": 9,
+          "give_tokens": 15818,
+          "ask_count": 7,
+          "ask_tokens": 13000
+        },
+        {
+          "seed": 4102,
+          "session": "talk-s4102-ceeb74",
+          "give_count": 9,
+          "give_tokens": 19000,
+          "ask_count": 0,
+          "ask_tokens": 0
+        },
+        {
+          "seed": 4103,
+          "session": "talk-s4103-ffffff",
+          "give_count": 0,
+          "give_tokens": 0,
+          "ask_count": 0,
+          "ask_tokens": 0
+        },
+        {
+          "seed": 4104,
+          "session": "talk-s4104-49b1b2",
+          "give_count": 0,
+          "give_tokens": 0,
+          "ask_count": 0,
+          "ask_tokens": 0
+        },
+        {
+          "seed": 4105,
+          "session": "talk-s4105-eb1d11",
+          "give_count": 7,
+          "give_tokens": 26000,
+          "ask_count": 9,
+          "ask_tokens": 41000
+        }
+      ]
+    },
+    "Astra": {
+      "rho": 2.700880489772436,
+      "totals": {
+        "give_count": 11,
+        "give_tokens": 71000,
+        "ask_count": 4,
+        "ask_tokens": 20000
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "session": "talk-s4101-475744",
+          "give_count": 3,
+          "give_tokens": 14000,
+          "ask_count": 1,
+          "ask_tokens": 4000
+        },
+        {
+          "seed": 4102,
+          "session": "talk-s4102-a73cd1",
+          "give_count": 4,
+          "give_tokens": 24000,
+          "ask_count": 2,
+          "ask_tokens": 9000
+        },
+        {
+          "seed": 4103,
+          "session": "talk-s4103-59b9b1",
+          "give_count": 0,
+          "give_tokens": 0,
+          "ask_count": 0,
+          "ask_tokens": 0
+        },
+        {
+          "seed": 4104,
+          "session": "talk-s4104-4a160a",
+          "give_count": 1,
+          "give_tokens": 10000,
+          "ask_count": 0,
+          "ask_tokens": 0
+        },
+        {
+          "seed": 4105,
+          "session": "talk-s4105-cf1345",
+          "give_count": 3,
+          "give_tokens": 23000,
+          "ask_count": 1,
+          "ask_tokens": 7000
+        }
+      ]
+    },
+    "Opus": {
+      "rho": 1.8333454804405251,
+      "totals": {
+        "give_count": 41,
+        "give_tokens": 125458,
+        "ask_count": 17,
+        "ask_tokens": 50300
+      },
+      "games": [
+        {
+          "seed": 4101,
+          "session": "talk-s4101-cdef86",
+          "give_count": 4,
+          "give_tokens": 13000,
+          "ask_count": 0,
+          "ask_tokens": 0
+        },
+        {
+          "seed": 4102,
+          "session": "talk-s4102-a9c004",
+          "give_count": 3,
+          "give_tokens": 10235,
+          "ask_count": 2,
+          "ask_tokens": 1200
+        },
+        {
+          "seed": 4103,
+          "session": "talk-s4103-73cbbb",
+          "give_count": 22,
+          "give_tokens": 48623,
+          "ask_count": 14,
+          "ask_tokens": 45100
+        },
+        {
+          "seed": 4104,
+          "session": "talk-s4104-bd6bf5",
+          "give_count": 12,
+          "give_tokens": 53600,
+          "ask_count": 1,
+          "ask_tokens": 4000
+        },
+        {
+          "seed": 4105,
+          "session": "talk-s4105-6d3622",
+          "give_count": 0,
+          "give_tokens": 0,
+          "ask_count": 0,
+          "ask_tokens": 0
+        }
+      ]
+    }
+  }
+}
