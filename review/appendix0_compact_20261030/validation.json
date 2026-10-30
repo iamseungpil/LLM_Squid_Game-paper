@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "full_pages": 64,
+  "body_pages": 7,
+  "body_text_and_pixels_unchanged": true,
+  "changed_full_pages": [
+    8,
+    9,
+    10
+  ],
+  "original_panel_count": 17,
+  "changed_block_text_characters_preserved": true,
+  "figure3_height_pt": {
+    "before": 318,
+    "after": 180,
+    "reduction_percent": 43.4
+  },
+  "figure4_height_pt": {
+    "before": 355,
+    "after": 294,
+    "reduction_percent": 17.2
+  },
+  "caption_changes": [
+    "왼쪽→위쪽",
+    "오른쪽→아래쪽"
+  ],
+  "latex_layout_reference_errors": []
+}

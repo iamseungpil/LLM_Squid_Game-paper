@@ -26,7 +26,7 @@
       "label": "b",
       "source_title": "",
       "pdf": "ko/figures/appendix0_blocks_20261030/old3_b.pdf",
-      "sha256": "23279fc4c778b6cf458f9dc6465b88cacad713ebfbaf7fa84edaa1a50cb66d88"
+      "sha256": "8df64a35e9ef3d82ff497378acf0290996d47168e109992b7cc6376190d68ce7"
     },
     {
       "block": "old3_c",
@@ -39,7 +39,7 @@
       "label": "c",
       "source_title": "",
       "pdf": "ko/figures/appendix0_blocks_20261030/old3_c.pdf",
-      "sha256": "755b8df95a29adaa5b2519c6f558a686a2b66627095366e686a722ee5cc7ba2b"
+      "sha256": "95e35e57eb676cb7cf38fc2f56328a2c03415342e849092b41918185cead7377"
     },
     {
       "block": "old3_d",
@@ -52,7 +52,7 @@
       "label": "d",
       "source_title": "",
       "pdf": "ko/figures/appendix0_blocks_20261030/old3_d.pdf",
-      "sha256": "80db1d0719aa6fd38a151df0fbcc5bd883587ff248bb834815b0c32118ba9ac5"
+      "sha256": "98901073b798e8ac86a55574ee526a89341be596e7277777cc8dd05207902b33"
     },
     {
       "block": "old4_a",
@@ -237,7 +237,7 @@
       "label": "b",
       "source_title": "",
       "pdf": "ko/figures/appendix0_blocks_20261030/old6_a.pdf",
-      "sha256": "6307b4c8fb033d2f209b8a125288c6a632ae786af7d56c8494afaa41d73246ac"
+      "sha256": "56ae8e11cbead55aa20aaa86d10848f827f7f0a85433bb25fbc641a2162dc169"
     },
     {
       "block": "old6_b",
@@ -250,7 +250,7 @@
       "label": "c",
       "source_title": "",
       "pdf": "ko/figures/appendix0_blocks_20261030/old6_b.pdf",
-      "sha256": "7dc43f4d583363fa6474d7c6de856c43cbd0f4fc20fb174fd91fca81e6415e84"
+      "sha256": "fc47951089d37a1413a932ce985313d619129a5374a2a9f3665475317f33bfc6"
     }
   ],
   "merged_overview": {

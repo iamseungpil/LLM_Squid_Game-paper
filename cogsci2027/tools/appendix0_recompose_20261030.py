@@ -62,6 +62,9 @@ def export(fig, name, axes=(), texts=(), legends=(), label=None, destination=Non
     boxes += [fig.texts[i].get_window_extent(renderer) for i in texts]
     boxes += [fig.legends[i].get_window_extent(renderer) for i in legends]
     box = Bbox.union(boxes).transformed(fig.dpi_scale_trans.inverted()).padded(.025)
+    if name in ['old3_b', 'old3_c', 'old3_d']:
+        # Equal panel widths keep the three comparison axes at the same scale.
+        box = Bbox.from_bounds(box.x1-1.76, box.y0, 1.76, box.height)
     stem = BLOCKS / name
     fig.savefig(stem.with_suffix('.pdf'), bbox_inches=box)
     fig.savefig(stem.with_suffix('.png'), bbox_inches=box, dpi=220)
@@ -76,10 +79,10 @@ def export(fig, name, axes=(), texts=(), legends=(), label=None, destination=Non
 def combined_outcomes(completion, states, order):
     ps.use()
     plt.rcParams.update({'font.family': ['Apple SD Gothic Neo', 'AppleGothic']})
-    fig = plt.figure(figsize=(7.4, 1.9))
-    fig.text(.02, .94, '(a) 공존 결과', fontsize=9, weight='bold')
-    left = fig.add_axes([.11, .20, .35, .56])
-    right = fig.add_axes([.60, .20, .38, .56])
+    fig = plt.figure(figsize=(2.5, 2.5))
+    fig.text(.02, .96, '(a) 공존 결과', fontsize=7.2, weight='bold')
+    left = fig.add_axes([.19, .565, .76, .285])
+    right = fig.add_axes([.19, .125, .76, .245])
     colors = ['#2F6DB0', '#6C9FC7', '#A6C8E0', '#D5E0E8', '#6B6B6B']
     totals = [sum(completion['models'][m]['counts'][str(n)] for m in order) for n in range(4, -1, -1)]
     assert totals == [8, 4, 5, 2, 6]
@@ -92,7 +95,7 @@ def combined_outcomes(completion, states, order):
             if count:
                 left.barh(y, width, left=start, height=.70, color=color, edgecolor='white', linewidth=.6)
                 left.text(start+width/2, y, f'{width:.0f}%' if y == 0 else str(count),
-                          ha='center', va='center', fontsize=6.4,
+                          ha='center', va='center', fontsize=5.7,
                           color='white' if n in [4, 0] else '#222222')
             start += width
     left.set(yticks=range(6), yticklabels=['전체']+order, ylim=(5.6, -.6), xlim=(0, 100),
@@ -105,22 +108,24 @@ def combined_outcomes(completion, states, order):
         for j, count in enumerate(states[model]):
             if count:
                 right.barh(y, count, left=start, height=.70, color=state_colors[j], edgecolor='white', linewidth=.6)
-                right.text(start+count/2, y, str(count), ha='center', va='center', fontsize=6.4,
+                right.text(start+count/2, y, str(count), ha='center', va='center', fontsize=5.7,
                            color='#222222' if j == 2 else 'white')
             start += count
-    right.set(yticks=range(1, 6), yticklabels=order, ylim=(5.6, -.6), xlim=(0, 20),
+    right.set(yticks=range(1, 6), yticklabels=order, ylim=(5.6, .4), xlim=(0, 20),
               xticks=[0, 5, 10, 15, 20], xlabel='개인의 끝 상태 (모델별 20명)')
     for ax in [left, right]:
         ax.spines['left'].set_visible(False)
-        ax.tick_params(axis='y', length=0, labelsize=7)
-        ax.tick_params(axis='x', labelsize=7)
-        ax.xaxis.label.set_fontsize(7)
+        ax.tick_params(axis='y', length=0, labelsize=6.2)
+        ax.tick_params(axis='x', labelsize=6.2)
+        ax.xaxis.label.set_fontsize(6.2)
+        ax.xaxis.labelpad = 2
+        ax.tick_params(axis='x', pad=2)
     fig.legend([Patch(color=c) for c in colors], [f'{n}인' for n in range(4, -1, -1)],
-               loc='upper left', bbox_to_anchor=(.09, .88), ncol=5, fontsize=6.3,
+               loc='upper left', bbox_to_anchor=(.16, .94), ncol=5, fontsize=5.7,
                handlelength=.8, columnspacing=.8)
     fig.legend([Patch(color=c) for c in state_colors],
                ['완주', r'$L\geq1$ EXIT', r'$L<1$ EXIT', '꺼짐'],
-               loc='upper left', bbox_to_anchor=(.575, .88), ncol=4, fontsize=6.3,
+               loc='upper left', bbox_to_anchor=(.16, .475), ncol=2, fontsize=5.7,
                handlelength=.8, columnspacing=.7)
     ps.save(fig, str(BLOCKS / 'combined_outcomes'))
     plt.close(fig)
@@ -148,18 +153,25 @@ def main():
     second = capture(lambda: runpy.run_path(str(ROOT / 'tools/fig4_appendix0_20261030.py')))
     fifth = capture(lambda: f5.plot(json.loads((ROOT / 'results/appendix0_give_ask_20261030.json').read_text())))
     sixth = capture(lambda: f6.plot(json.loads((ROOT / 'results/appendix0_low_margin_20261030.json').read_text())))
-    # Fill the wider three-column/bottom-row slots without changing axis limits.
+    # Narrow the comparison panels and fill their height without changing data or limits.
     for ax in first.axes[1:]:
         x, y, width, height = ax.get_position().bounds
-        ax.set_position([x, y, width*1.3, height])
+        ax.set_position([x, y, width*.92, height*1.17])
+        title = ax._left_title.get_text() or ax.get_title()
+        title = title.replace('지원 후 생존 여유 비율: ', '지원 후 생존\n여유 비율: ') if title.startswith('(d)') else title.replace(': ', ':\n')
+        ax.set_title(title, fontsize=7.2, pad=6)
     for indexes, anchor in [([10, 11], .285), ([7, 8, 9], .62)]:
         for i in indexes:
             x, y, width, height = second.axes[i].get_position().bounds
             second.axes[i].set_position([anchor+(x-anchor)*1.2, y, width*1.2, height])
+    # Tighten vertical spacing within the low-margin panels.
+    for ax in sixth.axes:
+        x, y, width, height = ax.get_position().bounds
+        ax.set_position([x, y, width, height*.72])
     # Data labels need to remain readable when these two blocks share the top row.
     for ax in sixth.axes:
         for text in ax.texts:
-            text.set_fontsize(8)
+            text.set_fontsize(7)
     manifest = []
     for i, letter in enumerate('abcd'):
         manifest.append(export(first, f'old3_{letter}', [i], label=letter,
@@ -191,15 +203,15 @@ def main():
                                   arrowstyle='-|>', mutation_scale=10, color='#526B80'))
     ps.save(cue, str(BLOCKS / 'rho_order'))
     plt.close(cue)
-    compose('fig3_appendix0_completion_20261030', (533, 318), [
-        ('combined_outcomes', (0, 0, 533, 137)),
-        ('old3_b', (3, 145, 173, 296)), ('old3_c', (181, 145, 351, 296)),
-        ('old3_d', (359, 145, 529, 296)), ('completion_legend', (70, 299, 468, 317))])
-    compose('fig4_appendix0_process_20261030', (533, 355), [
-        ('old4_b', (0, 0, 141, 185)), ('old6_a', (147, 0, 377, 185)),
-        ('old6_b', (382, 0, 533, 185)),
-        ('old4_f', (2, 190, 230, 330)), ('old4_g', (240, 190, 533, 330)),
-        ('rho_order', (0, 331, 533, 355))])
+    compose('fig3_appendix0_completion_20261030', (533, 180), [
+        ('combined_outcomes', (0, 0, 176, 180)),
+        ('old3_b', (179, 0, 294, 164)), ('old3_c', (298, 0, 413, 164)),
+        ('old3_d', (417, 0, 532, 164)), ('completion_legend', (180, 165, 533, 180))])
+    compose('fig4_appendix0_process_20261030', (533, 294), [
+        ('old4_b', (0, 0, 136, 150)), ('old6_a', (142, 0, 377, 150)),
+        ('old6_b', (382, 0, 533, 150)),
+        ('old4_f', (0, 157, 233, 270)), ('old4_g', (238, 157, 533, 270)),
+        ('rho_order', (0, 271, 533, 294))])
     compose('fig_appendix0_crisis_followup_20261030', (533, 155), [
         ('old4_c', (0, 0, 261, 155)), ('old4_d', (277, 0, 533, 155))])
     assert len(manifest) == 17 and all(row['destination'] for row in manifest)
