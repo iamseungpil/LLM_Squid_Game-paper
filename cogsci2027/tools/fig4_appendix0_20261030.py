@@ -144,9 +144,9 @@ ax.set(yticks=range(5), yticklabels=models, ylim=(4.5, -.5), xlim=(0, 20),
 ax.spines['left'].set_visible(False)
 ax.tick_params(axis='y', length=0)
 
-# (f) Original means and scales, with descriptive min-max whiskers.
-fig.text(.285, .465, '(f) 종료 시 아레나 자원 분배', fontsize=7.6, weight='bold')
-axes = [fig.add_axes([.285 + i*.135, .175, .10, .210]) for i in range(3)]
+# (g) Original means and scales, with descriptive min-max whiskers.
+fig.text(.62, .465, '(g) 종료 시 아레나 자원 분배', fontsize=7.6, weight='bold')
+axes = [fig.add_axes([.62 + i*.135, .175, .10, .210]) for i in range(3)]
 terminal_order = [next(name for name in terminal if model in name) for model in models]
 draw_panels(axes, terminal, order=terminal_order)
 for ax, title, key, scale in zip(axes, ['Sen (만 토큰)', 'Gini', '평균 (만 토큰)'],
@@ -164,22 +164,26 @@ for ax, title, key, scale in zip(axes, ['Sen (만 토큰)', 'Gini', '평균 (만
                     fmt='none', ecolor='#526B80', elinewidth=.75,
                     capsize=2, capthick=.75, zorder=3, clip_on=False)
 
-# (g) Five-game totals: GIVE stacked by timing, after-results segment hatched.
-fig.text(.715, .465, '(g) GIVE·ASK 총량', fontsize=7.6, weight='bold')
+# (f) Five-game GIVE/ASK totals, both stacked by timing with a shared legend.
+fig.text(.285, .465, '(f) GIVE·ASK 총량', fontsize=7.6, weight='bold')
+fig.legend([Patch(facecolor='#D8E3ED', edgecolor='#697D8E'),
+            Patch(facecolor='#9DB4C8', edgecolor='#526B80', hatch='////')],
+           ['풀이 전', '결과 뒤'], loc='center left', bbox_to_anchor=(.285, .431),
+           ncol=2, fontsize=6.2, handlelength=1.2, columnspacing=1.2)
 for j, (key, title) in enumerate([('give_tokens', 'GIVE (천 토큰)'), ('ask_tokens', 'ASK (천 토큰)')]):
-    ax = fig.add_axes([.725+j*.15, .175, .105, .210])
+    ax = fig.add_axes([.30+j*.15, .175, .105, .210])
     for x, model in enumerate(models):
         row = give_ask['models'][model]['totals']
         total = row[key]/1000
         if key == 'give_tokens':
             timing = integrated['models'][model]['timing']
             before, after = [timing[p]['tokens']/1000 for p in ['prep', 'rescue']]
-            assert abs(before+after-total) < 1e-8
-            ax.bar(x, before, width=.7, color='#D8E3ED', edgecolor='#697D8E', linewidth=.6)
-            ax.bar(x, after, bottom=before, width=.7, color='#9DB4C8',
-                   edgecolor='#526B80', linewidth=.6, hatch='////')
         else:
-            ax.bar(x, total, width=.7, color='#D8E3ED', edgecolor='#697D8E', linewidth=.6)
+            before, after = [row[f'ask_{p}_tokens']/1000 for p in ['before', 'after']]
+        assert abs(before+after-total) < 1e-8
+        ax.bar(x, before, width=.7, color='#D8E3ED', edgecolor='#697D8E', linewidth=.6)
+        ax.bar(x, after, bottom=before, width=.7, color='#9DB4C8',
+               edgecolor='#526B80', linewidth=.6, hatch='////')
     ax.set(title=title, ylim=(0, 145), yticks=[0, 50, 100], xticks=range(5))
     ax.set_xticklabels(models, rotation=60, ha='right', fontsize=5.8)
     ax.tick_params(axis='y', labelsize=5.8)

@@ -6,6 +6,7 @@ ASK done means a registered request, not fulfillment. Include repeated requests
 and retransfers in gross amounts. Bars show five-game totals, without game dots.
 GIVE volume stacks before-solve and after-results totals; only after-results
 transfers are hatched. Return-direction amounts are not encoded.
+The analysis also retains before-solve/after-results ASK totals for Figure 4.
 Sort by current pooled, pending-fine-adjusted
 rho (giver / receiver). No opportunity or participation-duration normalization.
 """
@@ -43,6 +44,11 @@ def analyze():
                 assert all(e['amount'] > 0 for e in actions)
                 row[prefix + '_count'] = len(actions)
                 row[prefix + '_tokens'] = sum(e['amount'] for e in actions)
+                if prefix == 'ask':
+                    assert all(e['phase'] in ['prep', 'rescue'] for e in actions)
+                    for phase, label in [('prep', 'before'), ('rescue', 'after')]:
+                        row[f'ask_{label}_tokens'] = sum(e['amount'] for e in actions if e['phase'] == phase)
+                    assert row['ask_before_tokens'] + row['ask_after_tokens'] == row['ask_tokens']
             prior, returned = set(), 0
             for _, event in case['events']:
                 if event['event'] != 'gift' or event.get('status') != 'done':
@@ -61,6 +67,9 @@ def analyze():
         totals['give_before_tokens'] = current[model]['timing']['prep']['tokens']
         totals['give_after_tokens'] = current[model]['timing']['rescue']['tokens']
         assert totals['give_before_tokens'] + totals['give_after_tokens'] == totals['give_tokens']
+        for label in ['before', 'after']:
+            totals[f'ask_{label}_tokens'] = sum(g[f'ask_{label}_tokens'] for g in games)
+        assert totals['ask_before_tokens'] + totals['ask_after_tokens'] == totals['ask_tokens']
         models[model] = dict(rho=current[model]['rho']['value'], totals=totals, games=games)
     assert sum(m['totals']['give_count'] for m in models.values()) == 130
     assert sum(m['totals']['ask_count'] for m in models.values()) == 90

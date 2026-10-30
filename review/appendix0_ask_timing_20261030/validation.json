@@ -1,0 +1,14 @@
+{
+  "full_pages": 62,
+  "body_pages": 7,
+  "changed_pages": [
+    8
+  ],
+  "body_text_pixels_unchanged": true,
+  "other_full_pages_text_pixels_unchanged": true,
+  "existing_give_ask_totals_unchanged": true,
+  "figure5_unchanged": true,
+  "new_f": "GIVE/ASK totals stacked before solve and after results",
+  "new_g": "terminal resource distribution",
+  "shared_timing_legend": "below f title and above axis titles"
+}
