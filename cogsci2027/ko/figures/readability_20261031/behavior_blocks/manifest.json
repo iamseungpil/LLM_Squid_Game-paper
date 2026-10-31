@@ -1,0 +1,77 @@
+{
+  "source": "Audited fixed e52_v33 summaries; no recomputation of metrics.",
+  "previous_height_pt": 190.8,
+  "height_pt": 188,
+  "height_ratio": 0.9853249475890985,
+  "arrangement": "Margin | low-margin behavior | totals above resources",
+  "panels": [
+    {
+      "block": "a_margin",
+      "destination": "Figure 4(a)",
+      "axes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "texts": [
+        0
+      ],
+      "legends": [],
+      "label": null,
+      "source_title": "   ",
+      "pdf": "ko/figures/readability_20261031/behavior_blocks/a_margin.pdf",
+      "sha256": "753d878a5a959c2c50d1724fa5758ab48fb04b4f3103c5fa5623de096738f580"
+    },
+    {
+      "block": "b_low_margin",
+      "destination": "Figure 4(b)",
+      "axes": [
+        0
+      ],
+      "texts": [
+        0
+      ],
+      "legends": [],
+      "label": null,
+      "source_title": "",
+      "pdf": "ko/figures/readability_20261031/behavior_blocks/b_low_margin.pdf",
+      "sha256": "adcdd20a024266e3a682d2132fdd98b9a7ccf3402c2ade54de0b10535f04cd39"
+    },
+    {
+      "block": "c_totals",
+      "destination": "Figure 4(c)",
+      "axes": [
+        1,
+        2
+      ],
+      "texts": [
+        1
+      ],
+      "legends": [
+        0
+      ],
+      "label": null,
+      "source_title": " ",
+      "pdf": "ko/figures/readability_20261031/behavior_blocks/c_totals.pdf",
+      "sha256": "af39813c694bc22fbea14ad2d2b9b7722ede2d71326c5a549048b2a89c597952"
+    },
+    {
+      "block": "d_resources",
+      "destination": "Figure 4(d)",
+      "axes": [
+        3,
+        4,
+        5
+      ],
+      "texts": [
+        2
+      ],
+      "legends": [],
+      "label": null,
+      "source_title": "  ",
+      "pdf": "ko/figures/readability_20261031/behavior_blocks/d_resources.pdf",
+      "sha256": "e1dc0e0d38e683d8644a507598992b805d17fb697a5d7b2fe2f86445c358d3b9"
+    }
+  ]
+}

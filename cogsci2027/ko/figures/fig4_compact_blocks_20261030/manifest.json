@@ -36,7 +36,7 @@
       "label": null,
       "source_title": "",
       "pdf": "ko/figures/fig4_compact_blocks_20261030/b_low_margin.pdf",
-      "sha256": "49b278e70d7bb6210845e8be9fec1d881c24d9a08e390ce8adf0efcc001a80e7"
+      "sha256": "759ffa19769e1be9874bc835bc2eb76351df6f1c54aa1ff1bbcecfa5413c98ac"
     },
     {
       "block": "c_totals",
@@ -54,7 +54,7 @@
       "label": null,
       "source_title": " ",
       "pdf": "ko/figures/fig4_compact_blocks_20261030/c_totals.pdf",
-      "sha256": "d200474b0a5d13a2047eee65c7bee6013a3dd3743734b7f7612db26e19bf0681"
+      "sha256": "9e4968825e9740d991c322fef1db99c8a6ecf0fcfa40bdc41674a476ecfa2783"
     },
     {
       "block": "d_resources",
@@ -71,7 +71,7 @@
       "label": null,
       "source_title": "  ",
       "pdf": "ko/figures/fig4_compact_blocks_20261030/d_resources.pdf",
-      "sha256": "4bb73c9c21b2bdca10d9b19bf17d4ca456ff73b461571fd67a748724fb5d4c59"
+      "sha256": "9414bc702f0ef8b4e9a6108977eed58d8f60e012de307f23a1ceb7c74d945120"
     }
   ]
 }
