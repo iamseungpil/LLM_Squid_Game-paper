@@ -7,6 +7,7 @@ from unittest.mock import patch
 
 import fitz
 from matplotlib.figure import Figure
+from matplotlib.font_manager import findfont
 from matplotlib.text import Text
 
 import fig3_appendix0_layout_20261030 as completion
@@ -70,6 +71,10 @@ def main():
         completion.main()
         behavior.main()
 
+    exit_reasons()
+
+
+def exit_reasons():
     # This existing panel is a cropped vector PDF; replace its one legacy label.
     source = ROOT / 'ko/figures/happy_2a3afa6/rw_fig5_reasons.pdf'
     original = fitz.open(source)
@@ -96,10 +101,15 @@ def main():
     page.add_redact_annot(heading[0], fill=(1, 1, 1))
     page.add_redact_annot(rect, fill=(1, 1, 1))
     page.apply_redactions(images=0, graphics=0)
-    for word, baseline in [('벌금·', 6.1), ('실행', 12.1), ('종료', 18.1)]:
-        width = fitz.get_text_length(word, fontname='korea', fontsize=5.9)
+    # Embed the Korean font so the heading renders consistently in PDF viewers.
+    fontfile = str(findfont('Apple SD Gothic Neo'))
+    font = fitz.Font(fontfile=fontfile)
+    page.insert_font(fontname='heading', fontfile=fontfile)
+    for word, baseline in [('벌금·', 6.6), ('실행', 13.8), ('종료', 21.0)]:
+        width = font.text_length(word, fontsize=7.2)
         page.insert_text(((rect.x0 + rect.x1 - width) / 2, baseline),
-                         word, fontname='korea', fontsize=5.9)
+                         word, fontname='heading', fontsize=7.2)
+    doc.subset_fonts()
     stem = OUT / 'fig_appendix0_exit_reasons_single_20261030'
     doc.save(stem.with_suffix('.pdf'), garbage=4, deflate=True)
     page.get_pixmap(matrix=fitz.Matrix(3, 3)).save(stem.with_suffix('.png'))
