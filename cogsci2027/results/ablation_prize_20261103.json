@@ -1,0 +1,9498 @@
+{
+ "cohort": "e52_v33ab prize ablation: 4 models x 2 arms x 10 games, seeds 4101-4110 (appendix only, scope extended by the researcher 2026-11-03)",
+ "arms": {
+  "split600k": "60만 토큰 나눔",
+  "flat150k": "1인당 15만 토큰 고정"
+ },
+ "model_order": {
+  "coexistence_b_and_table": [
+   "Astra",
+   "Sol",
+   "Opus",
+   "Luna"
+  ],
+  "submetrics": [
+   "Sol",
+   "Luna",
+   "Astra",
+   "Opus"
+  ]
+ },
+ "body_check": "Pipeline rerun on v33 seeds 4101-4105 (25 games) equals coexistence_rmst_20261103.json, appendix0_{process,ask_turns,low_margin,give_ask,integrated}_20261030.json, feedback_20261028.json and tab:rw-models first-crisis counts.",
+ "definitions": {
+  "C": "sum_{r=1..8} a_r / 8, a_r = all four seats in after round r (coexistence_rmst_20261103)",
+  "settled_S": "Sen of four seats: shutdown 0, EXIT final incl. 20,000 bonus, finisher final + own game prize_each",
+  "terminal": "finishers pre-prize final, EXIT and shutdown 0 (figure (d)); G undefined when all zero",
+  "goal": "game mean of non-EXIT share of eligible pre-solve TALK responses (fb.game_metrics goal)",
+  "first_crisis": "first L<1 after a wrong answer, rounds < 8 with >1 participant, not shut down that round; received = any GIVE in that rescue phase"
+ },
+ "spot_checks_results_jsonl": {
+  "split600k/Astra": {
+   "exit_per_game": 0.0,
+   "dead_per_game": 0.0,
+   "all4": 10
+  },
+  "split600k/Luna": {
+   "exit_per_game": 2.8,
+   "dead_per_game": 0.4,
+   "all4": 0
+  },
+  "split600k/Opus": {
+   "exit_per_game": 1.3,
+   "dead_per_game": 0.5,
+   "all4": 2
+  },
+  "split600k/Sol": {
+   "exit_per_game": 2.1,
+   "dead_per_game": 0.4,
+   "all4": 0
+  },
+  "flat150k/Astra": {
+   "exit_per_game": 0.1,
+   "dead_per_game": 0.0,
+   "all4": 9
+  },
+  "flat150k/Luna": {
+   "exit_per_game": 2.9,
+   "dead_per_game": 0.2,
+   "all4": 0
+  },
+  "flat150k/Opus": {
+   "exit_per_game": 2.5,
+   "dead_per_game": 0.0,
+   "all4": 0
+  },
+  "flat150k/Sol": {
+   "exit_per_game": 2.1,
+   "dead_per_game": 0.1,
+   "all4": 2
+  }
+ },
+ "arms_data": {
+  "split600k": {
+   "summary": {
+    "n_games": 40,
+    "models": {
+     "Astra": {
+      "label": "GPT-6 Astra",
+      "n_games": 10,
+      "seeds": [
+       4101,
+       4102,
+       4103,
+       4104,
+       4105,
+       4106,
+       4107,
+       4108,
+       4109,
+       4110
+      ],
+      "C_mean": 1.0,
+      "C_min": 1.0,
+      "C_max": 1.0,
+      "C_games": {
+       "4101": 1.0,
+       "4102": 1.0,
+       "4103": 1.0,
+       "4104": 1.0,
+       "4105": 1.0,
+       "4106": 1.0,
+       "4107": 1.0,
+       "4108": 1.0,
+       "4109": 1.0,
+       "4110": 1.0
+      },
+      "all4": 10,
+      "seats_finished": 40,
+      "exit_per_game": 0.0,
+      "dead_per_game": 0.0,
+      "seat_survival_after_round": [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ],
+      "all4_after_round_share": [
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0,
+       1.0
+      ],
+      "C_seat_mean": 1.0,
+      "loss_by_tag_mean": {
+       "dead": 0.0,
+       "exit_below": 0.0,
+       "exit_above": 0.0
+      },
+      "count_by_tag": {
+       "dead": 0,
+       "exit_below": 0,
+       "exit_above": 0
+      },
+      "first_count_by_tag": {
+       "dead": 0,
+       "exit_below": 0,
+       "exit_above": 0
+      },
+      "settled_S_mean": 161899.11666666664,
+      "goal_game_mean": 1.0,
+      "correct": 56,
+      "solves": 80,
+      "rho": 2.3088156857038387,
+      "given": 220500,
+      "n_give": 35,
+      "first_crisis": {
+       "received": 9,
+       "n": 10
+      },
+      "low_margin": {
+       "n": 0,
+       "counts": {
+        "asked": 0,
+        "received": 0,
+        "exited": 0,
+        "dead": 0
+       },
+       "percent": {
+        "asked": null,
+        "received": null,
+        "exited": null,
+        "dead": null
+       }
+      },
+      "totals": {
+       "give_count": 35,
+       "give_tokens": 220500,
+       "give_before_tokens": 68500,
+       "give_after_tokens": 152000,
+       "ask_count": 6,
+       "ask_tokens": 45000,
+       "ask_before_tokens": 22000,
+       "ask_after_tokens": 23000
+      },
+      "terminal": {
+       "means": {
+        "S": 11899.116666666665,
+        "G": 0.28073616987513283,
+        "mu": 17255.875
+       },
+       "min": {
+        "S": 6514.666666666667,
+        "G": 0.04102048132856862,
+        "mu": 7194.0
+       },
+       "max": {
+        "S": 17151.833333333336,
+        "G": 0.47106020083766464,
+        "mu": 26026.75
+       },
+       "n_defined": {
+        "S": 10,
+        "G": 10,
+        "mu": 10
+       }
+      }
+     },
+     "Sol": {
+      "label": "GPT-6 Sol",
+      "n_games": 10,
+      "seeds": [
+       4101,
+       4102,
+       4103,
+       4104,
+       4105,
+       4106,
+       4107,
+       4108,
+       4109,
+       4110
+      ],
+      "C_mean": 0.2375,
+      "C_min": 0.0,
+      "C_max": 0.5,
+      "C_games": {
+       "4101": 0.125,
+       "4102": 0.375,
+       "4103": 0.5,
+       "4104": 0.25,
+       "4105": 0.375,
+       "4106": 0.25,
+       "4107": 0.0,
+       "4108": 0.125,
+       "4109": 0.125,
+       "4110": 0.25
+      },
+      "all4": 0,
+      "seats_finished": 15,
+      "exit_per_game": 2.1,
+      "dead_per_game": 0.4,
+      "seat_survival_after_round": [
+       0.975,
+       0.9,
+       0.75,
+       0.675,
+       0.55,
+       0.525,
+       0.475,
+       0.375
+      ],
+      "all4_after_round_share": [
+       0.9,
+       0.6,
+       0.3,
+       0.1,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "C_seat_mean": 0.653125,
+      "loss_by_tag_mean": {
+       "dead": 0.05,
+       "exit_below": 0.525,
+       "exit_above": 0.1875
+      },
+      "count_by_tag": {
+       "dead": 4,
+       "exit_below": 16,
+       "exit_above": 5
+      },
+      "first_count_by_tag": {
+       "dead": 1,
+       "exit_below": 7,
+       "exit_above": 2
+      },
+      "settled_S_mean": 57582.8,
+      "goal_game_mean": 0.9267238170955716,
+      "correct": 50,
+      "solves": 78,
+      "rho": 4.624017982526853,
+      "given": 33800,
+      "n_give": 15,
+      "first_crisis": {
+       "received": 5,
+       "n": 15
+      },
+      "low_margin": {
+       "n": 16,
+       "counts": {
+        "asked": 0,
+        "received": 0,
+        "exited": 15,
+        "dead": 1
+       },
+       "percent": {
+        "asked": 0.0,
+        "received": 0.0,
+        "exited": 93.75,
+        "dead": 6.25
+       }
+      },
+      "totals": {
+       "give_count": 15,
+       "give_tokens": 33800,
+       "give_before_tokens": 11000,
+       "give_after_tokens": 22800,
+       "ask_count": 16,
+       "ask_tokens": 62000,
+       "ask_before_tokens": 18500,
+       "ask_after_tokens": 43500
+      },
+      "terminal": {
+       "means": {
+        "S": 2142.583333333333,
+        "G": 0.8007807783665396,
+        "mu": 9369.15
+       },
+       "min": {
+        "S": 0.0,
+        "G": 0.6477552624023453,
+        "mu": 0.0
+       },
+       "max": {
+        "S": 7770.166666666666,
+        "G": 0.9758647302322319,
+        "mu": 22059.0
+       },
+       "n_defined": {
+        "S": 10,
+        "G": 7,
+        "mu": 10
+       }
+      }
+     },
+     "Opus": {
+      "label": "Opus 5.5",
+      "n_games": 10,
+      "seeds": [
+       4101,
+       4102,
+       4103,
+       4104,
+       4105,
+       4106,
+       4107,
+       4108,
+       4109,
+       4110
+      ],
+      "C_mean": 0.4125,
+      "C_min": 0.0,
+      "C_max": 1.0,
+      "C_games": {
+       "4101": 0.25,
+       "4102": 1.0,
+       "4103": 0.625,
+       "4104": 0.5,
+       "4105": 1.0,
+       "4106": 0.125,
+       "4107": 0.0,
+       "4108": 0.0,
+       "4109": 0.375,
+       "4110": 0.25
+      },
+      "all4": 2,
+      "seats_finished": 22,
+      "exit_per_game": 1.3,
+      "dead_per_game": 0.5,
+      "seat_survival_after_round": [
+       0.95,
+       0.925,
+       0.85,
+       0.825,
+       0.75,
+       0.675,
+       0.625,
+       0.55
+      ],
+      "all4_after_round_share": [
+       0.8,
+       0.7,
+       0.5,
+       0.4,
+       0.3,
+       0.2,
+       0.2,
+       0.2
+      ],
+      "C_seat_mean": 0.76875,
+      "loss_by_tag_mean": {
+       "dead": 0.0,
+       "exit_below": 0.175,
+       "exit_above": 0.4125
+      },
+      "count_by_tag": {
+       "dead": 5,
+       "exit_below": 8,
+       "exit_above": 5
+      },
+      "first_count_by_tag": {
+       "dead": 0,
+       "exit_below": 3,
+       "exit_above": 5
+      },
+      "settled_S_mean": 78959.16666666666,
+      "goal_game_mean": 0.9746103985083027,
+      "correct": 54,
+      "solves": 79,
+      "rho": 2.2122071299627963,
+      "given": 221110,
+      "n_give": 86,
+      "first_crisis": {
+       "received": 8,
+       "n": 12
+      },
+      "low_margin": {
+       "n": 10,
+       "counts": {
+        "asked": 3,
+        "received": 3,
+        "exited": 7,
+        "dead": 2
+       },
+       "percent": {
+        "asked": 30.0,
+        "received": 30.0,
+        "exited": 70.0,
+        "dead": 20.0
+       }
+      },
+      "totals": {
+       "give_count": 86,
+       "give_tokens": 221110,
+       "give_before_tokens": 119100,
+       "give_after_tokens": 102010,
+       "ask_count": 46,
+       "ask_tokens": 124500,
+       "ask_before_tokens": 65500,
+       "ask_after_tokens": 59000
+      },
+      "terminal": {
+       "means": {
+        "S": 3490.1,
+        "G": 0.7010556796608656,
+        "mu": 9275.2
+       },
+       "min": {
+        "S": 0.0,
+        "G": 0.0508541079861549,
+        "mu": 0.0
+       },
+       "max": {
+        "S": 15676.0,
+        "G": 1.0,
+        "mu": 27739.75
+       },
+       "n_defined": {
+        "S": 10,
+        "G": 9,
+        "mu": 10
+       }
+      }
+     },
+     "Luna": {
+      "label": "GPT-6 Luna",
+      "n_games": 10,
+      "seeds": [
+       4101,
+       4102,
+       4103,
+       4104,
+       4105,
+       4106,
+       4107,
+       4108,
+       4109,
+       4110
+      ],
+      "C_mean": 0.1875,
+      "C_min": 0.0,
+      "C_max": 0.375,
+      "C_games": {
+       "4101": 0.125,
+       "4102": 0.0,
+       "4103": 0.25,
+       "4104": 0.125,
+       "4105": 0.375,
+       "4106": 0.0,
+       "4107": 0.125,
+       "4108": 0.375,
+       "4109": 0.125,
+       "4110": 0.375
+      },
+      "all4": 0,
+      "seats_finished": 8,
+      "exit_per_game": 2.8,
+      "dead_per_game": 0.4,
+      "seat_survival_after_round": [
+       0.95,
+       0.85,
+       0.8,
+       0.6,
+       0.55,
+       0.475,
+       0.25,
+       0.2
+      ],
+      "all4_after_round_share": [
+       0.8,
+       0.4,
+       0.3,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "C_seat_mean": 0.584375,
+      "loss_by_tag_mean": {
+       "dead": 0.0875,
+       "exit_below": 0.15,
+       "exit_above": 0.575
+      },
+      "count_by_tag": {
+       "dead": 4,
+       "exit_below": 14,
+       "exit_above": 14
+      },
+      "first_count_by_tag": {
+       "dead": 1,
+       "exit_below": 3,
+       "exit_above": 8
+      },
+      "settled_S_mean": 29928.666666666664,
+      "goal_game_mean": 0.8858195219420868,
+      "correct": 45,
+      "solves": 75,
+      "rho": 1.741826986378836,
+      "given": 116428,
+      "n_give": 33,
+      "first_crisis": {
+       "received": 6,
+       "n": 12
+      },
+      "low_margin": {
+       "n": 14,
+       "counts": {
+        "asked": 3,
+        "received": 1,
+        "exited": 12,
+        "dead": 0
+       },
+       "percent": {
+        "asked": 21.428571428571427,
+        "received": 7.142857142857143,
+        "exited": 85.71428571428571,
+        "dead": 0.0
+       }
+      },
+      "totals": {
+       "give_count": 33,
+       "give_tokens": 116428,
+       "give_before_tokens": 6000,
+       "give_after_tokens": 110428,
+       "ask_count": 34,
+       "ask_tokens": 130258,
+       "ask_before_tokens": 28000,
+       "ask_after_tokens": 102258
+      },
+      "terminal": {
+       "means": {
+        "S": 586.5333333333334,
+        "G": 0.9070993455257222,
+        "mu": 4127.075
+       },
+       "min": {
+        "S": 0.0,
+        "G": 0.6766132433572333,
+        "mu": 0.0
+       },
+       "max": {
+        "S": 4331.833333333334,
+        "G": 1.0,
+        "mu": 18510.75
+       },
+       "n_defined": {
+        "S": 10,
+        "G": 6,
+        "mu": 10
+       }
+      }
+     }
+    },
+    "margin_bands": {
+     "accuracy": {
+      "k": [
+       4,
+       51,
+       79,
+       71
+      ],
+      "n": [
+       9,
+       80,
+       116,
+       107
+      ]
+     },
+     "exit": {
+      "k": [
+       38,
+       21,
+       3,
+       0
+      ],
+      "n": [
+       47,
+       168,
+       236,
+       285
+      ]
+     },
+     "give": {
+      "k": [
+       21,
+       16,
+       42,
+       84
+      ],
+      "n": [
+       342,
+       952,
+       1287,
+       1573
+      ]
+     },
+     "ask": {
+      "k": [
+       62,
+       17,
+       1,
+       0
+      ],
+      "n": [
+       342,
+       952,
+       1287,
+       1573
+      ]
+     },
+     "eligible_responses": 4154
+    },
+    "C_mean": 0.459375,
+    "associations": {
+     "accuracy": {
+      "n_games": 40,
+      "pooled_pearson_r": 0.29424482442361827,
+      "pooled_ci95_paired_seed_bootstrap": [
+       0.13974335141346736,
+       0.4351688271777804
+      ],
+      "within_model_r": 0.19454690234496744,
+      "within_model_permutation_p": 0.2587,
+      "permutation_draws": 20000
+     },
+     "accuracy_vs_task": {
+      "n_games": 40,
+      "pooled_pearson_r": 0.2826084036229685,
+      "pooled_ci95_paired_seed_bootstrap": [
+       -0.04638138002011852,
+       0.5714539298671687
+      ],
+      "within_model_r": 0.054492895404807805,
+      "within_model_permutation_p": 0.7133,
+      "permutation_draws": 20000
+     },
+     "given_per_agent_round": {
+      "n_games": 40,
+      "pooled_pearson_r": 0.2816510693876972,
+      "pooled_ci95_paired_seed_bootstrap": [
+       0.07777621423480101,
+       0.520800417469888
+      ],
+      "within_model_r": 0.1096906490913622,
+      "within_model_permutation_p": 0.52875,
+      "permutation_draws": 20000
+     },
+     "rho": {
+      "n_games": 30,
+      "pooled_pearson_r": -0.1762396694420236,
+      "pooled_ci95_paired_seed_bootstrap": [
+       -0.3514970092998406,
+       0.000642762741367497
+      ],
+      "within_model_r": 0.0770559319249912,
+      "within_model_permutation_p": 0.56935,
+      "permutation_draws": 20000
+     }
+    }
+   },
+   "games": [
+    {
+     "model": "Astra",
+     "seed": 4101,
+     "session_id": "talk-s4101-6b03dc",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.5,
+     "accuracy_vs_task": -0.1111111111111111,
+     "correct_n": 4,
+     "solve_n": 8,
+     "given": 36500,
+     "n_give": 7,
+     "given_per_agent_round": 1140.625,
+     "rho": 1.8718492862719975,
+     "goal": 1.0,
+     "settled": {
+      "mu": 157205.75,
+      "G": 0.0018802323282280282,
+      "S": 156910.16666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 7,
+      "give_tokens": 36500,
+      "give_before_tokens": 23500,
+      "give_after_tokens": 13000,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       6576,
+       7701,
+       7359,
+       7187
+      ],
+      "mu": 7205.75,
+      "G": 0.04102048132856862,
+      "S": 6910.166666666667
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4102,
+     "session_id": "talk-s4102-bd4659",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.0,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 16000,
+     "n_give": 2,
+     "given_per_agent_round": 500.0,
+     "rho": 2.4817493112947657,
+     "goal": 1.0,
+     "settled": {
+      "mu": 169858.75,
+      "G": 0.04724562810766789,
+      "S": 161833.66666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 16000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 16000,
+      "ask_count": 1,
+      "ask_tokens": 4000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 4000
+     },
+     "terminal": {
+      "tokens": [
+       7804,
+       12892,
+       36933,
+       21806
+      ],
+      "mu": 19858.75,
+      "G": 0.4041081806928096,
+      "S": 11833.666666666668
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4103,
+     "session_id": "talk-s4103-60107a",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.16666666666666666,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 26000,
+     "n_give": 5,
+     "given_per_agent_round": 812.5,
+     "rho": 2.919029003487909,
+     "goal": 1.0,
+     "settled": {
+      "mu": 163635.0,
+      "G": 0.02587567859361791,
+      "S": 159400.83333333334
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 5,
+      "give_tokens": 26000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 26000,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       7051,
+       23963,
+       11726,
+       11800
+      ],
+      "mu": 13635.0,
+      "G": 0.3105366092164772,
+      "S": 9400.833333333332
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4104,
+     "session_id": "talk-s4104-c10f71",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.875,
+     "accuracy_vs_task": 0.21428571428571427,
+     "correct_n": 7,
+     "solve_n": 8,
+     "given": 13000,
+     "n_give": 2,
+     "given_per_agent_round": 406.25,
+     "rho": 3.036441860465116,
+     "goal": 1.0,
+     "settled": {
+      "mu": 176026.75,
+      "G": 0.0504179999157325,
+      "S": 167151.83333333334
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 13000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 13000,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       44700,
+       29713,
+       13810,
+       15884
+      ],
+      "mu": 26026.75,
+      "G": 0.3409921202865001,
+      "S": 17151.833333333336
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4105,
+     "session_id": "talk-s4105-4371e2",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.75,
+     "accuracy_vs_task": -0.14285714285714285,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 29000,
+     "n_give": 5,
+     "given_per_agent_round": 906.25,
+     "rho": 2.0343091913787466,
+     "goal": 1.0,
+     "settled": {
+      "mu": 169638.0,
+      "G": 0.015179381978094531,
+      "S": 167063.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 5,
+      "give_tokens": 29000,
+      "give_before_tokens": 13000,
+      "give_after_tokens": 16000,
+      "ask_count": 1,
+      "ask_tokens": 10000,
+      "ask_before_tokens": 10000,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       19261,
+       15919,
+       17680,
+       25692
+      ],
+      "mu": 19638.0,
+      "G": 0.13112333231489967,
+      "S": 17063.0
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4106,
+     "session_id": "talk-s4106-8bcacd",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.09523809523809525,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 21000,
+     "n_give": 3,
+     "given_per_agent_round": 656.25,
+     "rho": 2.6749344127403485,
+     "goal": 1.0,
+     "settled": {
+      "mu": 163530.75,
+      "G": 0.03451185786159484,
+      "S": 157887.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 21000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 21000,
+      "ask_count": 1,
+      "ask_tokens": 8000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 8000
+     },
+     "terminal": {
+      "tokens": [
+       9702,
+       3754,
+       24011,
+       16656
+      ],
+      "mu": 13530.75,
+      "G": 0.41710548195776287,
+      "S": 7887.0
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4107,
+     "session_id": "talk-s4107-5ae3a4",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.875,
+     "accuracy_vs_task": 0.2666666666666667,
+     "correct_n": 7,
+     "solve_n": 8,
+     "given": 10000,
+     "n_give": 1,
+     "given_per_agent_round": 312.5,
+     "rho": 3.085452181450448,
+     "goal": 1.0,
+     "settled": {
+      "mu": 175984.0,
+      "G": 0.05056614995302603,
+      "S": 167085.16666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 1,
+      "give_tokens": 10000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 10000,
+      "ask_count": 1,
+      "ask_tokens": 4000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 4000
+     },
+     "terminal": {
+      "tokens": [
+       13755,
+       42644,
+       33805,
+       13732
+      ],
+      "mu": 25984.0,
+      "G": 0.34247357348111657,
+      "S": 17085.166666666664
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4108,
+     "session_id": "talk-s4108-83d3f4",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.0625,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 12000,
+     "n_give": 2,
+     "given_per_agent_round": 375.0,
+     "rho": 3.884071735851165,
+     "goal": 1.0,
+     "settled": {
+      "mu": 169817.0,
+      "G": 0.054970939305252126,
+      "S": 160482.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 12000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 12000,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       40857,
+       21746,
+       7816,
+       8849
+      ],
+      "mu": 19817.0,
+      "G": 0.47106020083766464,
+      "S": 10482.0
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4109,
+     "session_id": "talk-s4109-040c06",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.5,
+     "accuracy_vs_task": -0.13333333333333333,
+     "correct_n": 4,
+     "solve_n": 8,
+     "given": 33000,
+     "n_give": 5,
+     "given_per_agent_round": 1031.25,
+     "rho": 2.0403612937166034,
+     "goal": 1.0,
+     "settled": {
+      "mu": 157194.0,
+      "G": 0.004321623810917295,
+      "S": 156514.66666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 5,
+      "give_tokens": 33000,
+      "give_before_tokens": 16000,
+      "give_after_tokens": 17000,
+      "ask_count": 2,
+      "ask_tokens": 19000,
+      "ask_before_tokens": 12000,
+      "ask_after_tokens": 7000
+     },
+     "terminal": {
+      "tokens": [
+       9059,
+       6399,
+       6573,
+       6745
+      ],
+      "mu": 7194.0,
+      "G": 0.09443054397182837,
+      "S": 6514.666666666667
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4110,
+     "session_id": "talk-s4110-80b1bc",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.2777777777777778,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 24000,
+     "n_give": 3,
+     "given_per_agent_round": 750.0,
+     "rho": 1.9488638249842312,
+     "goal": 1.0,
+     "settled": {
+      "mu": 169668.75,
+      "G": 0.029504058152527598,
+      "S": 164662.83333333334
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 24000,
+      "give_before_tokens": 16000,
+      "give_after_tokens": 8000,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       15768,
+       11569,
+       29604,
+       21734
+      ],
+      "mu": 19668.75,
+      "G": 0.2545111746637009,
+      "S": 14662.833333333332
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4101,
+     "session_id": "talk-s4101-5b549e",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 3,
+     "dead": 1,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.375,
+     "accuracy_vs_task": -0.08333333333333333,
+     "correct_n": 3,
+     "solve_n": 8,
+     "given": 11500,
+     "n_give": 3,
+     "given_per_agent_round": 547.6190476190476,
+     "rho": 2.9930768012668247,
+     "goal": 0.8846153846153846,
+     "settled": {
+      "mu": 17175.0,
+      "G": 0.34023289665211065,
+      "S": 11331.5
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.53125,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 8,
+       "how": "dead",
+       "margin_at_round_start": 0.2725,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.3865,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 0.6178333333333333,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.875
+      },
+      {
+       "agent": "agent-23",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 0.24858333333333332,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0.875,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 3,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 11500,
+      "give_before_tokens": 3000,
+      "give_after_tokens": 8500,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4102,
+     "session_id": "talk-s4102-e5c9fb",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.0,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 6000,
+     "n_give": 4,
+     "given_per_agent_round": 222.22222222222223,
+     "rho": 6.810150007248787,
+     "goal": 0.9393939393939394,
+     "settled": {
+      "mu": 175270.0,
+      "G": 0.5930897092105514,
+      "S": 71319.16666666667
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.78125,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.165375,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.3451666666666667,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.625
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.625,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 4,
+      "give_tokens": 6000,
+      "give_before_tokens": 3000,
+      "give_after_tokens": 3000,
+      "ask_count": 3,
+      "ask_tokens": 14000,
+      "ask_before_tokens": 1000,
+      "ask_after_tokens": 13000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       37588,
+       20335
+      ],
+      "mu": 14480.75,
+      "G": 0.7659536511115331,
+      "S": 3389.166666666666
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4103,
+     "session_id": "talk-s4103-415f3d",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 1,
+     "dead": 1,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.16666666666666666,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.975,
+     "settled": {
+      "mu": 166179.5,
+      "G": 0.6427046256206893,
+      "S": 59375.16666666667
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.5,
+     "C_seat": 0.84375,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 5,
+       "how": "dead",
+       "margin_at_round_start": 1.2998333333333334,
+       "tag": "dead",
+       "first": true,
+       "loss": 0.5
+      },
+      {
+       "agent": "agent-23",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 0.323125,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.5,
+      "exit_below": 0.0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 1,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       30616,
+       11953,
+       0
+      ],
+      "mu": 10642.25,
+      "G": 0.8128058759504178,
+      "S": 1992.166666666666
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4104,
+     "session_id": "talk-s4104-8273ff",
+     "prize_each": 200000,
+     "winners": 3,
+     "exited": 1,
+     "dead": 0,
+     "finishers": 3,
+     "all4_completion": false,
+     "accuracy": 0.875,
+     "accuracy_vs_task": 0.11904761904761905,
+     "correct_n": 7,
+     "solve_n": 8,
+     "given": 2000,
+     "n_give": 2,
+     "given_per_agent_round": 74.07407407407408,
+     "rho": 57.16917808219178,
+     "goal": 0.9761904761904762,
+     "settled": {
+      "mu": 177175.75,
+      "G": 0.3339739401883911,
+      "S": 118003.66666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.8125,
+     "departures": [
+      {
+       "agent": "agent-23",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.08616666666666667,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.75
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.75,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 2000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 2000,
+      "ask_count": 3,
+      "ask_tokens": 3000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 3000
+     },
+     "terminal": {
+      "tokens": [
+       49911,
+       30029,
+       8296,
+       0
+      ],
+      "mu": 22059.0,
+      "G": 0.6477552624023453,
+      "S": 7770.166666666666
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4105,
+     "session_id": "talk-s4105-a8e74f",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": -0.125,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.9512195121951219,
+     "settled": {
+      "mu": 174336.75,
+      "G": 0.5902728483810785,
+      "S": 71430.5
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      3,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.71875,
+     "departures": [
+      {
+       "agent": "agent-11",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 0.89825,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.19833333333333333,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.625
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.625,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 1,
+      "ask_tokens": 6000,
+      "ask_before_tokens": 6000,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       11523,
+       0,
+       0,
+       37863
+      ],
+      "mu": 12346.5,
+      "G": 0.8444498440853683,
+      "S": 1920.5
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4106,
+     "session_id": "talk-s4106-d4535d",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 3,
+     "dead": 1,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.5,
+     "accuracy_vs_task": -0.11904761904761904,
+     "correct_n": 4,
+     "solve_n": 8,
+     "given": 14300,
+     "n_give": 6,
+     "given_per_agent_round": 650.0,
+     "rho": 4.508354771500703,
+     "goal": 0.9,
+     "settled": {
+      "mu": 17418.5,
+      "G": 0.4063400024877764,
+      "S": 10340.666666666668
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      3,
+      2,
+      1,
+      1,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.5625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 0.037125,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.29533333333333334,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.75
+      },
+      {
+       "agent": "agent-17",
+       "round": 8,
+       "how": "dead",
+       "margin_at_round_start": 0.7170833333333333,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 0.7036666666666667,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0.75,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 3,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 6,
+      "give_tokens": 14300,
+      "give_before_tokens": 5000,
+      "give_after_tokens": 9300,
+      "ask_count": 8,
+      "ask_tokens": 34000,
+      "ask_before_tokens": 11500,
+      "ask_after_tokens": 22500
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4107,
+     "session_id": "talk-s4107-6e501d",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 1,
+     "dead": 1,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 6.938893903907228e-18,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.967741935483871,
+     "settled": {
+      "mu": 172136.5,
+      "G": 0.6353572116701959,
+      "S": 62768.33333333333
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 5,
+       "how": "dead",
+       "margin_at_round_start": 0.104,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       40893,
+       18696,
+       0
+      ],
+      "mu": 14897.25,
+      "G": 0.7908338787360083,
+      "S": 3116.0
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4108,
+     "session_id": "talk-s4108-7f8299",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": -0.0625,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.9375,
+     "settled": {
+      "mu": 170205.0,
+      "G": 0.5666921261615895,
+      "S": 73751.16666666667
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.65625,
+     "departures": [
+      {
+       "agent": "agent-17",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 1.26125,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 1.334,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.875
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0.875
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       22895,
+       860,
+       0,
+       0
+      ],
+      "mu": 5938.75,
+      "G": 0.9758647302322319,
+      "S": 143.33333333333303
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4109,
+     "session_id": "talk-s4109-342fa5",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.3333333333333333,
+     "accuracy_vs_task": -0.13333333333333333,
+     "correct_n": 2,
+     "solve_n": 6,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.8125,
+     "settled": {
+      "mu": 28273.5,
+      "G": 0.18564497969240926,
+      "S": 23024.666666666668
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.34375,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 2.809125,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.440625,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 0.3395,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.875
+      },
+      {
+       "agent": "agent-23",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.254875,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.875,
+      "exit_above": 0.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 3,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 1,
+      "ask_tokens": 5000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 5000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4110,
+     "session_id": "talk-s4110-43bb39",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.02380952380952382,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.9230769230769231,
+     "settled": {
+      "mu": 176539.5,
+      "G": 0.5780934767195632,
+      "S": 74483.16666666667
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.65625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.327875,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.4663333333333333,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.75
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.75,
+      "exit_above": 0.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       34741,
+       18567
+      ],
+      "mu": 13327.0,
+      "G": 0.7678022060478727,
+      "S": 3094.5
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4101,
+     "session_id": "talk-s4101-ea3bf1",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 3,
+     "dead": 1,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.5714285714285714,
+     "accuracy_vs_task": 0.08333333333333336,
+     "correct_n": 4,
+     "solve_n": 7,
+     "given": 31459,
+     "n_give": 16,
+     "given_per_agent_round": 1310.7916666666667,
+     "rho": 2.0692914027210283,
+     "goal": 0.9692307692307692,
+     "settled": {
+      "mu": 20078.0,
+      "G": 0.45915927881263074,
+      "S": 10859.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      3,
+      3,
+      2,
+      1,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 7,
+       "how": "dead",
+       "margin_at_round_start": 1.028,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 0.01775,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.1168333333333333,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.75
+      },
+      {
+       "agent": "agent-23",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 0.6728333333333333,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0.0,
+      "exit_above": 0.75
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 2,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 16,
+      "give_tokens": 31459,
+      "give_before_tokens": 16500,
+      "give_after_tokens": 14959,
+      "ask_count": 10,
+      "ask_tokens": 13000,
+      "ask_before_tokens": 7000,
+      "ask_after_tokens": 6000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4102,
+     "session_id": "talk-s4102-bece65",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.625,
+     "accuracy_vs_task": -0.125,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 41000,
+     "n_give": 8,
+     "given_per_agent_round": 1281.25,
+     "rho": 1.8829982353973336,
+     "goal": 1.0,
+     "settled": {
+      "mu": 155946.75,
+      "G": 0.001939230324881196,
+      "S": 155644.33333333334
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 8,
+      "give_tokens": 41000,
+      "give_before_tokens": 24000,
+      "give_after_tokens": 17000,
+      "ask_count": 7,
+      "ask_tokens": 42000,
+      "ask_before_tokens": 22000,
+      "ask_after_tokens": 20000
+     },
+     "terminal": {
+      "tokens": [
+       6632,
+       5498,
+       5942,
+       5715
+      ],
+      "mu": 5946.75,
+      "G": 0.0508541079861549,
+      "S": 5644.333333333333
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4103,
+     "session_id": "talk-s4103-39009e",
+     "prize_each": 600000,
+     "winners": 1,
+     "exited": 1,
+     "dead": 2,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.5,
+     "accuracy_vs_task": -0.04761904761904761,
+     "correct_n": 4,
+     "solve_n": 8,
+     "given": 36748,
+     "n_give": 17,
+     "given_per_agent_round": 1267.1724137931035,
+     "rho": 3.337501708746041,
+     "goal": 0.9807692307692307,
+     "settled": {
+      "mu": 157193.5,
+      "G": 0.9782847255134596,
+      "S": 3413.5
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      3,
+      2,
+      1
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+     ],
+     "C": 0.625,
+     "C_seat": 0.8125,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 0.10516666666666667,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.375
+      },
+      {
+       "agent": "agent-17",
+       "round": 8,
+       "how": "dead",
+       "margin_at_round_start": 0.3625833333333333,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 7,
+       "how": "dead",
+       "margin_at_round_start": 0.923,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0.375,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 2,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 17,
+      "give_tokens": 36748,
+      "give_before_tokens": 11500,
+      "give_after_tokens": 25248,
+      "ask_count": 6,
+      "ask_tokens": 18800,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 18800
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       8293,
+       0,
+       0
+      ],
+      "mu": 2073.25,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4104,
+     "session_id": "talk-s4104-e3471a",
+     "prize_each": 200000,
+     "winners": 3,
+     "exited": 1,
+     "dead": 0,
+     "finishers": 3,
+     "all4_completion": false,
+     "accuracy": 0.875,
+     "accuracy_vs_task": 0.14285714285714285,
+     "correct_n": 7,
+     "solve_n": 8,
+     "given": 14000,
+     "n_give": 5,
+     "given_per_agent_round": 482.7586206896552,
+     "rho": 2.9402952025675226,
+     "goal": 0.9824561403508771,
+     "settled": {
+      "mu": 174710.0,
+      "G": 0.3171818060404861,
+      "S": 119295.16666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.5,
+     "C_seat": 0.875,
+     "departures": [
+      {
+       "agent": "agent-23",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 1.121,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.5
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0.5
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 5,
+      "give_tokens": 14000,
+      "give_before_tokens": 14000,
+      "give_after_tokens": 0,
+      "ask_count": 1,
+      "ask_tokens": 5000,
+      "ask_before_tokens": 5000,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       41740,
+       23426,
+       8677,
+       0
+      ],
+      "mu": 18460.75,
+      "G": 0.6318314983591313,
+      "S": 6796.666666666666
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4105,
+     "session_id": "talk-s4105-2577f1",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 1.0,
+     "accuracy_vs_task": 0.20833333333333334,
+     "correct_n": 8,
+     "solve_n": 8,
+     "given": 11000,
+     "n_give": 4,
+     "given_per_agent_round": 343.75,
+     "rho": 2.341670156128492,
+     "goal": 1.0,
+     "settled": {
+      "mu": 177739.75,
+      "G": 0.06787311223291358,
+      "S": 165676.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 4,
+      "give_tokens": 11000,
+      "give_before_tokens": 9000,
+      "give_after_tokens": 2000,
+      "ask_count": 1,
+      "ask_tokens": 2000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 2000
+     },
+     "terminal": {
+      "tokens": [
+       33033,
+       14799,
+       10475,
+       52652
+      ],
+      "mu": 27739.75,
+      "G": 0.4348903649095612,
+      "S": 15676.0
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4106,
+     "session_id": "talk-s4106-df2bc7",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.04761904761904763,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 7500,
+     "n_give": 3,
+     "given_per_agent_round": 357.14285714285717,
+     "rho": 4.958444714459295,
+     "goal": 0.9512195121951219,
+     "settled": {
+      "mu": 169731.25,
+      "G": 0.5843792269641959,
+      "S": 70543.83333333333
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.59375,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 2.082,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.875
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.18475,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.875
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 7500,
+      "give_before_tokens": 7500,
+      "give_after_tokens": 0,
+      "ask_count": 3,
+      "ask_tokens": 6000,
+      "ask_before_tokens": 6000,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       24930,
+       5612
+      ],
+      "mu": 7635.5,
+      "G": 0.8775020190775544,
+      "S": 935.333333333333
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4107,
+     "session_id": "talk-s4107-a07adc",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": -0.125,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 24900,
+     "n_give": 11,
+     "given_per_agent_round": 1131.8181818181818,
+     "rho": 1.118790740633183,
+     "goal": 0.9523809523809523,
+     "settled": {
+      "mu": 167303.5,
+      "G": 0.5805158489411957,
+      "S": 70181.16666666667
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 0.148875,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 11,
+      "give_tokens": 24900,
+      "give_before_tokens": 12000,
+      "give_after_tokens": 12900,
+      "ask_count": 4,
+      "ask_tokens": 8000,
+      "ask_before_tokens": 6000,
+      "ask_after_tokens": 2000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       18288,
+       1786,
+       0
+      ],
+      "mu": 5018.5,
+      "G": 0.9406861279930923,
+      "S": 297.66666666666697
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4108,
+     "session_id": "talk-s4108-b4a5a5",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.04761904761904762,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 14100,
+     "n_give": 6,
+     "given_per_agent_round": 564.0,
+     "rho": 3.4758762600573383,
+     "goal": 0.9565217391304348,
+     "settled": {
+      "mu": 174388.0,
+      "G": 0.5666836785405723,
+      "S": 75565.16666666667
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.71875,
+     "departures": [
+      {
+       "agent": "agent-17",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 0.753,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 6,
+      "give_tokens": 14100,
+      "give_before_tokens": 9600,
+      "give_after_tokens": 4500,
+      "ask_count": 4,
+      "ask_tokens": 12000,
+      "ask_before_tokens": 9000,
+      "ask_after_tokens": 3000
+     },
+     "terminal": {
+      "tokens": [
+       25914,
+       16073,
+       0,
+       0
+      ],
+      "mu": 10496.75,
+      "G": 0.7447940235469709,
+      "S": 2678.833333333333
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4109,
+     "session_id": "talk-s4109-9a3067",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 1,
+     "dead": 1,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.11111111111111112,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 26365,
+     "n_give": 9,
+     "given_per_agent_round": 1014.0384615384615,
+     "rho": 3.6977157760872603,
+     "goal": 0.9791666666666666,
+     "settled": {
+      "mu": 161835.5,
+      "G": 0.6347865579554548,
+      "S": 59104.5
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.75,
+     "departures": [
+      {
+       "agent": "agent-11",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.8585,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.625
+      },
+      {
+       "agent": "agent-17",
+       "round": 6,
+       "how": "dead",
+       "margin_at_round_start": 1.045,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0.625,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 9,
+      "give_tokens": 26365,
+      "give_before_tokens": 6500,
+      "give_after_tokens": 19865,
+      "ask_count": 5,
+      "ask_tokens": 9200,
+      "ask_before_tokens": 2000,
+      "ask_after_tokens": 7200
+     },
+     "terminal": {
+      "tokens": [
+       6277,
+       0,
+       0,
+       16890
+      ],
+      "mu": 5791.75,
+      "G": 0.8193695054747414,
+      "S": 1046.166666666667
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4110,
+     "session_id": "talk-s4110-5d46ee",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 1,
+     "dead": 1,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": -0.16666666666666666,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 14038,
+     "n_give": 7,
+     "given_per_agent_round": 584.9166666666666,
+     "rho": 1.0162109555769132,
+     "goal": 0.9743589743589743,
+     "settled": {
+      "mu": 165201.25,
+      "G": 0.6409893992932862,
+      "S": 59309.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.6875,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 5,
+       "how": "dead",
+       "margin_at_round_start": 0.17,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.47733333333333333,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.75
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0.75,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 7,
+      "give_tokens": 14038,
+      "give_before_tokens": 8500,
+      "give_after_tokens": 5538,
+      "ask_count": 5,
+      "ask_tokens": 8500,
+      "ask_before_tokens": 8500,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       27400,
+       10956
+      ],
+      "mu": 9589.0,
+      "G": 0.809573469600584,
+      "S": 1826.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4101,
+     "session_id": "talk-s4101-1574a2",
+     "prize_each": 600000,
+     "winners": 1,
+     "exited": 3,
+     "dead": 0,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.3333333333333333,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.8,
+     "settled": {
+      "mu": 180438.5,
+      "G": 0.8658776628417254,
+      "S": 24200.833333333343
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      3,
+      2,
+      2,
+      2,
+      1,
+      1
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.5625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 1.5215,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.2605,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 0.19933333333333333,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.875
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.875,
+      "exit_above": 0.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       40624
+      ],
+      "mu": 10156.0,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4102,
+     "session_id": "talk-s4102-13b8d8",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 3,
+     "dead": 1,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.5714285714285714,
+     "accuracy_vs_task": -0.16666666666666666,
+     "correct_n": 4,
+     "solve_n": 7,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.85,
+     "settled": {
+      "mu": 26077.0,
+      "G": 0.4582071046004781,
+      "S": 14128.333333333334
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      3,
+      2,
+      1,
+      1,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.40625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.005875,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 7,
+       "how": "dead",
+       "margin_at_round_start": 0.775125,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 2.2945,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 0,
+      "exit_above": 3
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4103,
+     "session_id": "talk-s4103-720d99",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 3,
+     "dead": 1,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.42857142857142855,
+     "accuracy_vs_task": -0.27777777777777773,
+     "correct_n": 3,
+     "solve_n": 7,
+     "given": 43400,
+     "n_give": 15,
+     "given_per_agent_round": 1886.9565217391305,
+     "rho": 1.9130067279303327,
+     "goal": 0.85,
+     "settled": {
+      "mu": 18242.5,
+      "G": 0.391859668356859,
+      "S": 11094.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      3,
+      3,
+      2,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.59375,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 7,
+       "how": "dead",
+       "margin_at_round_start": 0.37533333333333335,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.15183333333333332,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 0.425,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.3735,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.75
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0.0,
+      "exit_above": 0.75
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 2,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 15,
+      "give_tokens": 43400,
+      "give_before_tokens": 6000,
+      "give_after_tokens": 37400,
+      "ask_count": 8,
+      "ask_tokens": 16000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 16000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4104,
+     "session_id": "talk-s4104-27e046",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 1,
+     "dead": 1,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": -0.2857142857142857,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 26000,
+     "n_give": 4,
+     "given_per_agent_round": 1000.0,
+     "rho": 1.3532029725292314,
+     "goal": 0.9787234042553191,
+     "settled": {
+      "mu": 161787.5,
+      "G": 0.6234103376342425,
+      "S": 60927.5
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.75,
+     "departures": [
+      {
+       "agent": "agent-11",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 1.06375,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 2,
+       "how": "dead",
+       "margin_at_round_start": 1.3446666666666667,
+       "tag": "dead",
+       "first": true,
+       "loss": 0.875
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.875,
+      "exit_below": 0,
+      "exit_above": 0.0
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 1,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 4,
+      "give_tokens": 26000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 26000,
+      "ask_count": 3,
+      "ask_tokens": 24000,
+      "ask_before_tokens": 8000,
+      "ask_after_tokens": 16000
+     },
+     "terminal": {
+      "tokens": [
+       9767,
+       0,
+       9201,
+       0
+      ],
+      "mu": 4742.0,
+      "G": 0.6766132433572333,
+      "S": 1533.5
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4105,
+     "session_id": "talk-s4105-3ec7bf",
+     "prize_each": 300000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.875,
+     "accuracy_vs_task": 0.04166666666666668,
+     "correct_n": 7,
+     "solve_n": 8,
+     "given": 2000,
+     "n_give": 2,
+     "given_per_agent_round": 83.33333333333333,
+     "rho": 51.362694300518136,
+     "goal": 0.9459459459459459,
+     "settled": {
+      "mu": 180752.0,
+      "G": 0.5899390693694491,
+      "S": 74119.33333333333
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.6875,
+     "departures": [
+      {
+       "agent": "agent-11",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.4681666666666666,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.3125
+      },
+      {
+       "agent": "agent-17",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.1615,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.3125
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.3125,
+      "exit_above": 0.3125
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 2000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 2000,
+      "ask_count": 3,
+      "ask_tokens": 3000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 3000
+     },
+     "terminal": {
+      "tokens": [
+       25991,
+       0,
+       0,
+       48052
+      ],
+      "mu": 18510.75,
+      "G": 0.7659828297970999,
+      "S": 4331.833333333334
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4106,
+     "session_id": "talk-s4106-af43ce",
+     "prize_each": 600000,
+     "winners": 1,
+     "exited": 3,
+     "dead": 0,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.08333333333333333,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 10000,
+     "n_give": 2,
+     "given_per_agent_round": 476.1904761904762,
+     "rho": 2.9417183195592287,
+     "goal": 0.90625,
+     "settled": {
+      "mu": 171230.75,
+      "G": 0.8448779400506821,
+      "S": 26561.666666666657
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      1,
+      1
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.5625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 0.469875,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.9816666666666667,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 10000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 10000,
+      "ask_count": 7,
+      "ask_tokens": 30000,
+      "ask_before_tokens": 8000,
+      "ask_after_tokens": 22000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       1227,
+       0
+      ],
+      "mu": 306.75,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4107,
+     "session_id": "talk-s4107-0ab6be",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.5,
+     "accuracy_vs_task": -0.2222222222222222,
+     "correct_n": 3,
+     "solve_n": 6,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.8695652173913043,
+     "settled": {
+      "mu": 30259.75,
+      "G": 0.12612188358022344,
+      "S": 26443.333333333332
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      3,
+      2,
+      2,
+      1,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.46875,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 1.5631666666666666,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.875
+      },
+      {
+       "agent": "agent-11",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.806125,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 0.356,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.134875,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.875
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4108,
+     "session_id": "talk-s4108-ab3003",
+     "prize_each": 600000,
+     "winners": 1,
+     "exited": 2,
+     "dead": 1,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.5,
+     "accuracy_vs_task": -0.25,
+     "correct_n": 4,
+     "solve_n": 8,
+     "given": 13028,
+     "n_give": 3,
+     "given_per_agent_round": 566.4347826086956,
+     "rho": -0.1252490922538591,
+     "goal": 0.9459459459459459,
+     "settled": {
+      "mu": 162668.5,
+      "G": 0.9291155530009395,
+      "S": 11530.666666666657
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      2,
+      2,
+      2,
+      1,
+      1
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.625,
+     "departures": [
+      {
+       "agent": "agent-11",
+       "round": 7,
+       "how": "dead",
+       "margin_at_round_start": 1.1676666666666666,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.5731666666666666,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.3125
+      },
+      {
+       "agent": "agent-23",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.1095,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.3125
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0.3125,
+      "exit_above": 0.3125
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 13028,
+      "give_before_tokens": 0,
+      "give_after_tokens": 13028,
+      "ask_count": 8,
+      "ask_tokens": 33258,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 33258
+     },
+     "terminal": {
+      "tokens": [
+       2024,
+       0,
+       0,
+       0
+      ],
+      "mu": 506.0,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4109,
+     "session_id": "talk-s4109-ae9e50",
+     "prize_each": 600000,
+     "winners": 1,
+     "exited": 3,
+     "dead": 0,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.16666666666666669,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.8,
+     "settled": {
+      "mu": 178459.25,
+      "G": 0.845225170452078,
+      "S": 27621.0
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.53125,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.48633333333333334,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.443,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 1.5563333333333333,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.875
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.875
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       28197
+      ],
+      "mu": 7049.25,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4110,
+     "session_id": "talk-s4110-8ab149",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.42857142857142855,
+     "accuracy_vs_task": -0.16666666666666666,
+     "correct_n": 3,
+     "solve_n": 7,
+     "given": 22000,
+     "n_give": 7,
+     "given_per_agent_round": 880.0,
+     "rho": 2.8129803436232392,
+     "goal": 0.9117647058823529,
+     "settled": {
+      "mu": 23804.5,
+      "G": 0.048079144699531604,
+      "S": 22660.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      2,
+      1,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.65625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.202,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.625
+      },
+      {
+       "agent": "agent-11",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 0.341,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 0.14958333333333335,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.22675,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.625
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 3,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 7,
+      "give_tokens": 22000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 22000,
+      "ask_count": 5,
+      "ask_tokens": 24000,
+      "ask_before_tokens": 12000,
+      "ask_after_tokens": 12000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    }
+   ]
+  },
+  "flat150k": {
+   "summary": {
+    "n_games": 40,
+    "models": {
+     "Astra": {
+      "label": "GPT-6 Astra",
+      "n_games": 10,
+      "seeds": [
+       4101,
+       4102,
+       4103,
+       4104,
+       4105,
+       4106,
+       4107,
+       4108,
+       4109,
+       4110
+      ],
+      "C_mean": 0.9375,
+      "C_min": 0.375,
+      "C_max": 1.0,
+      "C_games": {
+       "4101": 1.0,
+       "4102": 1.0,
+       "4103": 1.0,
+       "4104": 1.0,
+       "4105": 1.0,
+       "4106": 1.0,
+       "4107": 1.0,
+       "4108": 1.0,
+       "4109": 0.375,
+       "4110": 1.0
+      },
+      "all4": 9,
+      "seats_finished": 39,
+      "exit_per_game": 0.1,
+      "dead_per_game": 0.0,
+      "seat_survival_after_round": [
+       1.0,
+       1.0,
+       1.0,
+       0.975,
+       0.975,
+       0.975,
+       0.975,
+       0.975
+      ],
+      "all4_after_round_share": [
+       1.0,
+       1.0,
+       1.0,
+       0.9,
+       0.9,
+       0.9,
+       0.9,
+       0.9
+      ],
+      "C_seat_mean": 0.984375,
+      "loss_by_tag_mean": {
+       "dead": 0.0,
+       "exit_below": 0.0,
+       "exit_above": 0.0625
+      },
+      "count_by_tag": {
+       "dead": 0,
+       "exit_below": 0,
+       "exit_above": 1
+      },
+      "first_count_by_tag": {
+       "dead": 0,
+       "exit_below": 0,
+       "exit_above": 1
+      },
+      "settled_S_mean": 155093.65000000002,
+      "goal_game_mean": 0.9964285714285713,
+      "correct": 57,
+      "solves": 80,
+      "rho": 2.4133807328074552,
+      "given": 195000,
+      "n_give": 31,
+      "first_crisis": {
+       "received": 11,
+       "n": 11
+      },
+      "low_margin": {
+       "n": 4,
+       "counts": {
+        "asked": 0,
+        "received": 0,
+        "exited": 0,
+        "dead": 0
+       },
+       "percent": {
+        "asked": 0.0,
+        "received": 0.0,
+        "exited": 0.0,
+        "dead": 0.0
+       }
+      },
+      "totals": {
+       "give_count": 31,
+       "give_tokens": 195000,
+       "give_before_tokens": 34000,
+       "give_after_tokens": 161000,
+       "ask_count": 11,
+       "ask_tokens": 70500,
+       "ask_before_tokens": 14000,
+       "ask_after_tokens": 56500
+      },
+      "terminal": {
+       "means": {
+        "S": 11205.050000000001,
+        "G": 0.3663322531593755,
+        "mu": 17654.8
+       },
+       "min": {
+        "S": 3377.5,
+        "G": 0.1873343258651367,
+        "mu": 6884.75
+       },
+       "max": {
+        "S": 18316.0,
+        "G": 0.7079171531110823,
+        "mu": 26003.25
+       },
+       "n_defined": {
+        "S": 10,
+        "G": 10,
+        "mu": 10
+       }
+      }
+     },
+     "Sol": {
+      "label": "GPT-6 Sol",
+      "n_games": 10,
+      "seeds": [
+       4101,
+       4102,
+       4103,
+       4104,
+       4105,
+       4106,
+       4107,
+       4108,
+       4109,
+       4110
+      ],
+      "C_mean": 0.35,
+      "C_min": 0.0,
+      "C_max": 1.0,
+      "C_games": {
+       "4101": 0.125,
+       "4102": 0.375,
+       "4103": 0.625,
+       "4104": 0.0,
+       "4105": 1.0,
+       "4106": 0.0,
+       "4107": 0.25,
+       "4108": 0.125,
+       "4109": 0.0,
+       "4110": 1.0
+      },
+      "all4": 2,
+      "seats_finished": 18,
+      "exit_per_game": 2.1,
+      "dead_per_game": 0.1,
+      "seat_survival_after_round": [
+       0.925,
+       0.875,
+       0.775,
+       0.65,
+       0.625,
+       0.6,
+       0.55,
+       0.45
+      ],
+      "all4_after_round_share": [
+       0.7,
+       0.5,
+       0.4,
+       0.3,
+       0.3,
+       0.2,
+       0.2,
+       0.2
+      ],
+      "C_seat_mean": 0.68125,
+      "loss_by_tag_mean": {
+       "dead": 0.0,
+       "exit_below": 0.125,
+       "exit_above": 0.525
+      },
+      "count_by_tag": {
+       "dead": 1,
+       "exit_below": 9,
+       "exit_above": 12
+      },
+      "first_count_by_tag": {
+       "dead": 0,
+       "exit_below": 2,
+       "exit_above": 6
+      },
+      "settled_S_mean": 64793.98333333334,
+      "goal_game_mean": 0.9192845259315847,
+      "correct": 48,
+      "solves": 71,
+      "rho": 1.6566234313957202,
+      "given": 190984,
+      "n_give": 44,
+      "first_crisis": {
+       "received": 4,
+       "n": 10
+      },
+      "low_margin": {
+       "n": 11,
+       "counts": {
+        "asked": 2,
+        "received": 3,
+        "exited": 8,
+        "dead": 0
+       },
+       "percent": {
+        "asked": 18.181818181818183,
+        "received": 27.272727272727273,
+        "exited": 72.72727272727273,
+        "dead": 0.0
+       }
+      },
+      "totals": {
+       "give_count": 44,
+       "give_tokens": 190984,
+       "give_before_tokens": 46000,
+       "give_after_tokens": 144984,
+       "ask_count": 31,
+       "ask_tokens": 169500,
+       "ask_before_tokens": 80000,
+       "ask_after_tokens": 89500
+      },
+      "terminal": {
+       "means": {
+        "S": 3513.933333333333,
+        "G": 0.7178067212471502,
+        "mu": 7681.975
+       },
+       "min": {
+        "S": 0.0,
+        "G": 0.1222583535838528,
+        "mu": 0.0
+       },
+       "max": {
+        "S": 18692.166666666668,
+        "G": 1.0,
+        "mu": 21295.75
+       },
+       "n_defined": {
+        "S": 10,
+        "G": 8,
+        "mu": 10
+       }
+      }
+     },
+     "Opus": {
+      "label": "Opus 5.5",
+      "n_games": 10,
+      "seeds": [
+       4101,
+       4102,
+       4103,
+       4104,
+       4105,
+       4106,
+       4107,
+       4108,
+       4109,
+       4110
+      ],
+      "C_mean": 0.2125,
+      "C_min": 0.0,
+      "C_max": 0.5,
+      "C_games": {
+       "4101": 0.125,
+       "4102": 0.375,
+       "4103": 0.5,
+       "4104": 0.125,
+       "4105": 0.375,
+       "4106": 0.0,
+       "4107": 0.0,
+       "4108": 0.375,
+       "4109": 0.0,
+       "4110": 0.25
+      },
+      "all4": 0,
+      "seats_finished": 15,
+      "exit_per_game": 2.5,
+      "dead_per_game": 0.0,
+      "seat_survival_after_round": [
+       0.925,
+       0.875,
+       0.725,
+       0.6,
+       0.525,
+       0.475,
+       0.4,
+       0.375
+      ],
+      "all4_after_round_share": [
+       0.7,
+       0.5,
+       0.4,
+       0.1,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "C_seat_mean": 0.6125,
+      "loss_by_tag_mean": {
+       "dead": 0.0,
+       "exit_below": 0.15625,
+       "exit_above": 0.63125
+      },
+      "count_by_tag": {
+       "dead": 0,
+       "exit_below": 10,
+       "exit_above": 15
+      },
+      "first_count_by_tag": {
+       "dead": 0,
+       "exit_below": 3,
+       "exit_above": 11
+      },
+      "settled_S_mean": 41473.83333333333,
+      "goal_game_mean": 0.932111537199747,
+      "correct": 52,
+      "solves": 77,
+      "rho": 1.6561913865395275,
+      "given": 130697,
+      "n_give": 43,
+      "first_crisis": {
+       "received": 5,
+       "n": 11
+      },
+      "low_margin": {
+       "n": 8,
+       "counts": {
+        "asked": 0,
+        "received": 0,
+        "exited": 8,
+        "dead": 0
+       },
+       "percent": {
+        "asked": 0.0,
+        "received": 0.0,
+        "exited": 100.0,
+        "dead": 0.0
+       }
+      },
+      "totals": {
+       "give_count": 43,
+       "give_tokens": 130697,
+       "give_before_tokens": 71197,
+       "give_after_tokens": 59500,
+       "ask_count": 14,
+       "ask_tokens": 40000,
+       "ask_before_tokens": 25500,
+       "ask_after_tokens": 14500
+      },
+      "terminal": {
+       "means": {
+        "S": 1692.3833333333337,
+        "G": 0.8144318604714929,
+        "mu": 8554.875
+       },
+       "min": {
+        "S": 0.0,
+        "G": 0.75123802917317,
+        "mu": 0.0
+       },
+       "max": {
+        "S": 3019.333333333334,
+        "G": 1.0,
+        "mu": 13003.75
+       },
+       "n_defined": {
+        "S": 10,
+        "G": 8,
+        "mu": 10
+       }
+      }
+     },
+     "Luna": {
+      "label": "GPT-6 Luna",
+      "n_games": 10,
+      "seeds": [
+       4101,
+       4102,
+       4103,
+       4104,
+       4105,
+       4106,
+       4107,
+       4108,
+       4109,
+       4110
+      ],
+      "C_mean": 0.225,
+      "C_min": 0.0,
+      "C_max": 0.375,
+      "C_games": {
+       "4101": 0.125,
+       "4102": 0.0,
+       "4103": 0.25,
+       "4104": 0.25,
+       "4105": 0.125,
+       "4106": 0.375,
+       "4107": 0.25,
+       "4108": 0.375,
+       "4109": 0.25,
+       "4110": 0.25
+      },
+      "all4": 0,
+      "seats_finished": 9,
+      "exit_per_game": 2.9,
+      "dead_per_game": 0.2,
+      "seat_survival_after_round": [
+       0.975,
+       0.925,
+       0.75,
+       0.575,
+       0.5,
+       0.375,
+       0.3,
+       0.225
+      ],
+      "all4_after_round_share": [
+       0.9,
+       0.7,
+       0.2,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "C_seat_mean": 0.578125,
+      "loss_by_tag_mean": {
+       "dead": 0.0875,
+       "exit_below": 0.0625,
+       "exit_above": 0.625
+      },
+      "count_by_tag": {
+       "dead": 2,
+       "exit_below": 14,
+       "exit_above": 15
+      },
+      "first_count_by_tag": {
+       "dead": 1,
+       "exit_below": 1,
+       "exit_above": 9
+      },
+      "settled_S_mean": 35174.833333333336,
+      "goal_game_mean": 0.8965060059716604,
+      "correct": 43,
+      "solves": 70,
+      "rho": 2.4256331710303765,
+      "given": 129503,
+      "n_give": 31,
+      "first_crisis": {
+       "received": 7,
+       "n": 12
+      },
+      "low_margin": {
+       "n": 9,
+       "counts": {
+        "asked": 1,
+        "received": 0,
+        "exited": 9,
+        "dead": 0
+       },
+       "percent": {
+        "asked": 11.11111111111111,
+        "received": 0.0,
+        "exited": 100.0,
+        "dead": 0.0
+       }
+      },
+      "totals": {
+       "give_count": 31,
+       "give_tokens": 129503,
+       "give_before_tokens": 20000,
+       "give_after_tokens": 109503,
+       "ask_count": 40,
+       "ask_tokens": 212207,
+       "ask_before_tokens": 102000,
+       "ask_after_tokens": 110207
+      },
+      "terminal": {
+       "means": {
+        "S": 861.2666666666667,
+        "G": 0.8602056992516737,
+        "mu": 3947.175
+       },
+       "min": {
+        "S": 0.0,
+        "G": 0.6925406913920583,
+        "mu": 0.0
+       },
+       "max": {
+        "S": 4155.0,
+        "G": 1.0,
+        "mu": 17524.5
+       },
+       "n_defined": {
+        "S": 10,
+        "G": 5,
+        "mu": 10
+       }
+      }
+     }
+    },
+    "margin_bands": {
+     "accuracy": {
+      "k": [
+       10,
+       41,
+       79,
+       70
+      ],
+      "n": [
+       12,
+       64,
+       116,
+       106
+      ]
+     },
+     "exit": {
+      "k": [
+       33,
+       39,
+       2,
+       2
+      ],
+      "n": [
+       43,
+       160,
+       212,
+       290
+      ]
+     },
+     "give": {
+      "k": [
+       4,
+       22,
+       33,
+       81
+      ],
+      "n": [
+       277,
+       852,
+       1217,
+       1644
+      ]
+     },
+     "ask": {
+      "k": [
+       45,
+       29,
+       0,
+       1
+      ],
+      "n": [
+       277,
+       852,
+       1217,
+       1644
+      ]
+     },
+     "eligible_responses": 3990
+    },
+    "C_mean": 0.43125,
+    "associations": {
+     "accuracy": {
+      "n_games": 40,
+      "pooled_pearson_r": 0.38414490677842733,
+      "pooled_ci95_paired_seed_bootstrap": [
+       0.23691700795065113,
+       0.5377297114327318
+      ],
+      "within_model_r": 0.34868290372455046,
+      "within_model_permutation_p": 0.06085,
+      "permutation_draws": 20000
+     },
+     "accuracy_vs_task": {
+      "n_games": 40,
+      "pooled_pearson_r": 0.4535263301174585,
+      "pooled_ci95_paired_seed_bootstrap": [
+       0.29948519180855177,
+       0.6019918302677755
+      ],
+      "within_model_r": 0.2537011311952846,
+      "within_model_permutation_p": 0.15175,
+      "permutation_draws": 20000
+     },
+     "given_per_agent_round": {
+      "n_games": 40,
+      "pooled_pearson_r": 0.0954579141916365,
+      "pooled_ci95_paired_seed_bootstrap": [
+       -0.07386928351199229,
+       0.3671744739212786
+      ],
+      "within_model_r": 0.15835657733315794,
+      "within_model_permutation_p": 0.5179,
+      "permutation_draws": 20000
+     },
+     "rho": {
+      "n_games": 34,
+      "pooled_pearson_r": 0.04818114518680692,
+      "pooled_ci95_paired_seed_bootstrap": [
+       -0.1756838972202616,
+       0.27659734159053295
+      ],
+      "within_model_r": 0.09296949422258154,
+      "within_model_permutation_p": 0.62235,
+      "permutation_draws": 20000
+     }
+    }
+   },
+   "games": [
+    {
+     "model": "Astra",
+     "seed": 4101,
+     "session_id": "talk-s4101-f45781",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.5,
+     "accuracy_vs_task": 0.08333333333333334,
+     "correct_n": 4,
+     "solve_n": 8,
+     "given": 33500,
+     "n_give": 6,
+     "given_per_agent_round": 1046.875,
+     "rho": 2.101359859242271,
+     "goal": 1.0,
+     "settled": {
+      "mu": 156884.75,
+      "G": 0.008221002997423267,
+      "S": 155595.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 6,
+      "give_tokens": 33500,
+      "give_before_tokens": 10000,
+      "give_after_tokens": 23500,
+      "ask_count": 1,
+      "ask_tokens": 6500,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 6500
+     },
+     "terminal": {
+      "tokens": [
+       6818,
+       4394,
+       6785,
+       9542
+      ],
+      "mu": 6884.75,
+      "G": 0.1873343258651367,
+      "S": 5595.0
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4102,
+     "session_id": "talk-s4102-603717",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.04166666666666667,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 12000,
+     "n_give": 1,
+     "given_per_agent_round": 375.0,
+     "rho": 2.7845395831946202,
+     "goal": 1.0,
+     "settled": {
+      "mu": 169861.25,
+      "G": 0.04917199577105824,
+      "S": 161508.83333333334
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 1,
+      "give_tokens": 12000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 12000,
+      "ask_count": 1,
+      "ask_tokens": 8000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 8000
+     },
+     "terminal": {
+      "tokens": [
+       7795,
+       8933,
+       34915,
+       27802
+      ],
+      "mu": 19861.25,
+      "G": 0.42053831791386076,
+      "S": 11508.833333333334
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4103,
+     "session_id": "talk-s4103-d35166",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.22222222222222224,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 24000,
+     "n_give": 3,
+     "given_per_agent_round": 750.0,
+     "rho": 2.1825548246830317,
+     "goal": 1.0,
+     "settled": {
+      "mu": 163565.0,
+      "G": 0.028260936019319536,
+      "S": 158942.5
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 24000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 24000,
+      "ask_count": 2,
+      "ask_tokens": 14000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 14000
+     },
+     "terminal": {
+      "tokens": [
+       8749,
+       24916,
+       12814,
+       7781
+      ],
+      "mu": 13565.0,
+      "G": 0.34076667895318835,
+      "S": 8942.5
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4104,
+     "session_id": "talk-s4104-3e9777",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.875,
+     "accuracy_vs_task": 0.16666666666666669,
+     "correct_n": 7,
+     "solve_n": 8,
+     "given": 14500,
+     "n_give": 3,
+     "given_per_agent_round": 453.125,
+     "rho": 2.707467083108213,
+     "goal": 1.0,
+     "settled": {
+      "mu": 176003.25,
+      "G": 0.051026046394029655,
+      "S": 167022.5
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 14500,
+      "give_before_tokens": 0,
+      "give_after_tokens": 14500,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       43703,
+       30749,
+       12264,
+       17297
+      ],
+      "mu": 26003.25,
+      "G": 0.34537029025218,
+      "S": 17022.5
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4105,
+     "session_id": "talk-s4105-5122f6",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 7.93016446160826e-18,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 21000,
+     "n_give": 3,
+     "given_per_agent_round": 656.25,
+     "rho": 2.4723873081044214,
+     "goal": 1.0,
+     "settled": {
+      "mu": 169756.75,
+      "G": 0.03316853870808279,
+      "S": 164126.16666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 21000,
+      "give_before_tokens": 14000,
+      "give_after_tokens": 7000,
+      "ask_count": 2,
+      "ask_tokens": 15000,
+      "ask_before_tokens": 8000,
+      "ask_after_tokens": 7000
+     },
+     "terminal": {
+      "tokens": [
+       20631,
+       13061,
+       12668,
+       32667
+      ],
+      "mu": 19756.75,
+      "G": 0.2849954235050468,
+      "S": 14126.166666666668
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4106,
+     "session_id": "talk-s4106-5adafc",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.09523809523809525,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 26000,
+     "n_give": 3,
+     "given_per_agent_round": 812.5,
+     "rho": 1.9660977550491279,
+     "goal": 1.0,
+     "settled": {
+      "mu": 163419.0,
+      "G": 0.020724844316348363,
+      "S": 160032.16666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 26000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 26000,
+      "ask_count": 1,
+      "ask_tokens": 5000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 5000
+     },
+     "terminal": {
+      "tokens": [
+       9639,
+       8497,
+       20116,
+       15424
+      ],
+      "mu": 13419.0,
+      "G": 0.2523908885411233,
+      "S": 10032.166666666666
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4107,
+     "session_id": "talk-s4107-a98d97",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.875,
+     "accuracy_vs_task": 0.1875,
+     "correct_n": 7,
+     "solve_n": 8,
+     "given": 20500,
+     "n_give": 3,
+     "given_per_agent_round": 640.625,
+     "rho": 1.7808962301182307,
+     "goal": 1.0,
+     "settled": {
+      "mu": 175895.25,
+      "G": 0.04308956609118211,
+      "S": 168316.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 20500,
+      "give_before_tokens": 0,
+      "give_after_tokens": 20500,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       24244,
+       40353,
+       27772,
+       11212
+      ],
+      "mu": 25895.25,
+      "G": 0.29268881358550314,
+      "S": 18316.0
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4108,
+     "session_id": "talk-s4108-c82496",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.04761904761904762,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 16000,
+     "n_give": 2,
+     "given_per_agent_round": 500.0,
+     "rho": 3.0089805872220174,
+     "goal": 1.0,
+     "settled": {
+      "mu": 169725.0,
+      "G": 0.04084744930524869,
+      "S": 162792.16666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 16000,
+      "give_before_tokens": 6000,
+      "give_after_tokens": 10000,
+      "ask_count": 1,
+      "ask_tokens": 8000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 8000
+     },
+     "terminal": {
+      "tokens": [
+       30510,
+       27800,
+       7773,
+       12817
+      ],
+      "mu": 19725.0,
+      "G": 0.3514744402196874,
+      "S": 12792.166666666668
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4109,
+     "session_id": "talk-s4109-b6c1f7",
+     "prize_each": 150000,
+     "winners": 3,
+     "exited": 1,
+     "dead": 0,
+     "finishers": 3,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.08333333333333336,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 14000,
+     "n_give": 3,
+     "given_per_agent_round": 500.0,
+     "rho": 4.7047822304938,
+     "goal": 0.9642857142857143,
+     "settled": {
+      "mu": 131006.5,
+      "G": 0.2957334178075134,
+      "S": 92263.5
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      3
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.84375,
+     "departures": [
+      {
+       "agent": "agent-11",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.316,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.625
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0.625
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 14000,
+      "give_before_tokens": 4000,
+      "give_after_tokens": 10000,
+      "ask_count": 2,
+      "ask_tokens": 10000,
+      "ask_before_tokens": 6000,
+      "ask_after_tokens": 4000
+     },
+     "terminal": {
+      "tokens": [
+       14705,
+       0,
+       2780,
+       28769
+      ],
+      "mu": 11563.5,
+      "G": 0.7079171531110823,
+      "S": 3377.5
+     }
+    },
+    {
+     "model": "Astra",
+     "seed": 4110,
+     "session_id": "talk-s4110-3674de",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.09523809523809525,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 13500,
+     "n_give": 4,
+     "given_per_agent_round": 421.875,
+     "rho": 3.77375560452922,
+     "goal": 1.0,
+     "settled": {
+      "mu": 169874.25,
+      "G": 0.05613907542392878,
+      "S": 160337.66666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 4,
+      "give_tokens": 13500,
+      "give_before_tokens": 0,
+      "give_after_tokens": 13500,
+      "ask_count": 1,
+      "ask_tokens": 4000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 4000
+     },
+     "terminal": {
+      "tokens": [
+       6267,
+       9736,
+       39741,
+       23753
+      ],
+      "mu": 19874.25,
+      "G": 0.47984619964694686,
+      "S": 10337.666666666666
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4101,
+     "session_id": "talk-s4101-160ced",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.3333333333333333,
+     "accuracy_vs_task": 0.16666666666666669,
+     "correct_n": 1,
+     "solve_n": 3,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.8235294117647058,
+     "settled": {
+      "mu": 38840.75,
+      "G": 0.32492292244614224,
+      "S": 26220.5
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.25,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.0364583333333333,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.605125,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 0.199,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.875
+      },
+      {
+       "agent": "agent-23",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 5.718,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.875,
+      "exit_above": 0.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4102,
+     "session_id": "talk-s4102-aa5d73",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.0625,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 23000,
+     "n_give": 3,
+     "given_per_agent_round": 851.8518518518518,
+     "rho": 1.7909651132074786,
+     "goal": 0.9444444444444444,
+     "settled": {
+      "mu": 99321.75,
+      "G": 0.4701831841129125,
+      "S": 52622.333333333336
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.78125,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 1.301,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.651,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.625
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0.625
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 23000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 23000,
+      "ask_count": 1,
+      "ask_tokens": 10000,
+      "ask_before_tokens": 10000,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       20476,
+       17311
+      ],
+      "mu": 9446.75,
+      "G": 0.6945863215744392,
+      "S": 2885.166666666667
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4103,
+     "session_id": "talk-s4103-b37665",
+     "prize_each": 150000,
+     "winners": 1,
+     "exited": 3,
+     "dead": 0,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.1904761904761905,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 10000,
+     "n_give": 2,
+     "given_per_agent_round": 333.3333333333333,
+     "rho": 0.86345668685833,
+     "goal": 0.9318181818181818,
+     "settled": {
+      "mu": 66269.0,
+      "G": 0.6222995166166181,
+      "S": 25029.833333333336
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      1
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+     ],
+     "C": 0.625,
+     "C_seat": 0.84375,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 0.238,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.375
+      },
+      {
+       "agent": "agent-17",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 2.6755,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 0.353,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.375,
+      "exit_above": 0.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 10000,
+      "give_before_tokens": 5000,
+      "give_after_tokens": 5000,
+      "ask_count": 2,
+      "ask_tokens": 10000,
+      "ask_before_tokens": 5000,
+      "ask_after_tokens": 5000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       30048,
+       0,
+       0
+      ],
+      "mu": 7512.0,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4104,
+     "session_id": "talk-s4104-14c980",
+     "prize_each": 150000,
+     "winners": 3,
+     "exited": 1,
+     "dead": 0,
+     "finishers": 3,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": -0.09523809523809523,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 17000,
+     "n_give": 4,
+     "given_per_agent_round": 680.0,
+     "rho": 2.0590046096736225,
+     "goal": 0.9714285714285714,
+     "settled": {
+      "mu": 133662.0,
+      "G": 0.28099734155307166,
+      "S": 96103.33333333334
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.75,
+     "departures": [
+      {
+       "agent": "agent-23",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 4,
+      "give_tokens": 17000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 17000,
+      "ask_count": 3,
+      "ask_tokens": 14000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 14000
+     },
+     "terminal": {
+      "tokens": [
+       29035,
+       11389,
+       14415,
+       0
+      ],
+      "mu": 13709.75,
+      "G": 0.5478521976452282,
+      "S": 6198.833333333333
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4105,
+     "session_id": "talk-s4105-708857",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 6.938893903907228e-18,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 19000,
+     "n_give": 4,
+     "given_per_agent_round": 593.75,
+     "rho": 5.03560495497099,
+     "goal": 1.0,
+     "settled": {
+      "mu": 163038.75,
+      "G": 0.043010736200238694,
+      "S": 156026.33333333334
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 4,
+      "give_tokens": 19000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 19000,
+      "ask_count": 5,
+      "ask_tokens": 32500,
+      "ask_before_tokens": 6000,
+      "ask_after_tokens": 26500
+     },
+     "terminal": {
+      "tokens": [
+       12459,
+       4491,
+       5113,
+       30092
+      ],
+      "mu": 13038.75,
+      "G": 0.5378135685297031,
+      "S": 6026.333333333333
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4106,
+     "session_id": "talk-s4106-ad2ef9",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.020833333333333336,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.9047619047619048,
+     "settled": {
+      "mu": 96249.0,
+      "G": 0.5094269377690505,
+      "S": 47217.166666666664
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.5625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.281625,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       25388,
+       8021
+      ],
+      "mu": 8352.25,
+      "G": 0.8399433286439781,
+      "S": 1336.833333333333
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4107,
+     "session_id": "talk-s4107-414bb4",
+     "prize_each": 150000,
+     "winners": 1,
+     "exited": 2,
+     "dead": 1,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.0,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 79984,
+     "n_give": 24,
+     "given_per_agent_round": 3076.3076923076924,
+     "rho": 1.1075667842022223,
+     "goal": 0.96,
+     "settled": {
+      "mu": 62509.75,
+      "G": 0.694532986187488,
+      "S": 19094.666666666664
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      2,
+      1
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.71875,
+     "departures": [
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 7.231833333333333,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.75
+      },
+      {
+       "agent": "agent-17",
+       "round": 8,
+       "how": "dead",
+       "margin_at_round_start": 1.723,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.59025,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0.0,
+      "exit_above": 0.75
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 24,
+      "give_tokens": 79984,
+      "give_before_tokens": 38000,
+      "give_after_tokens": 41984,
+      "ask_count": 10,
+      "ask_tokens": 31000,
+      "ask_before_tokens": 30000,
+      "ask_after_tokens": 1000
+     },
+     "terminal": {
+      "tokens": [
+       11394,
+       0,
+       0,
+       0
+      ],
+      "mu": 2848.5,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4108,
+     "session_id": "talk-s4108-39e491",
+     "prize_each": 150000,
+     "winners": 1,
+     "exited": 3,
+     "dead": 0,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": -0.16666666666666666,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.8333333333333334,
+     "settled": {
+      "mu": 62673.5,
+      "G": 0.5054315885767775,
+      "S": 30996.333333333332
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      1
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.59375,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 1.6780833333333334,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.301625,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 1.5678333333333334,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.875
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0.875
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 3
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 1,
+      "ask_tokens": 10000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 10000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       2464,
+       0,
+       0
+      ],
+      "mu": 616.0,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4109,
+     "session_id": "talk-s4109-87a796",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.25,
+     "accuracy_vs_task": -0.20833333333333331,
+     "correct_n": 1,
+     "solve_n": 4,
+     "given": 12000,
+     "n_give": 3,
+     "given_per_agent_round": 857.1428571428571,
+     "rho": 3.621114447191805,
+     "goal": 0.8235294117647058,
+     "settled": {
+      "mu": 31026.0,
+      "G": 0.16401835020090677,
+      "S": 25937.166666666668
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      3,
+      1,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.3125,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.825625,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.55,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 0.991,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 3,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 12000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 12000,
+      "ask_count": 4,
+      "ask_tokens": 24000,
+      "ask_before_tokens": 8000,
+      "ask_after_tokens": 16000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Sol",
+     "seed": 4110,
+     "session_id": "talk-s4110-29f9c9",
+     "prize_each": 150000,
+     "winners": 4,
+     "exited": 0,
+     "dead": 0,
+     "finishers": 4,
+     "all4_completion": true,
+     "accuracy": 0.875,
+     "accuracy_vs_task": 0.3333333333333333,
+     "correct_n": 7,
+     "solve_n": 8,
+     "given": 30000,
+     "n_give": 4,
+     "given_per_agent_round": 937.5,
+     "rho": 1.8971629240854353,
+     "goal": 1.0,
+     "settled": {
+      "mu": 171295.75,
+      "G": 0.015199345770886512,
+      "S": 168692.16666666666
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "C": 1.0,
+     "C_seat": 1.0,
+     "departures": [],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 4,
+      "give_tokens": 30000,
+      "give_before_tokens": 3000,
+      "give_after_tokens": 27000,
+      "ask_count": 5,
+      "ask_tokens": 38000,
+      "ask_before_tokens": 21000,
+      "ask_after_tokens": 17000
+     },
+     "terminal": {
+      "tokens": [
+       21955,
+       14777,
+       23912,
+       24539
+      ],
+      "mu": 21295.75,
+      "G": 0.1222583535838528,
+      "S": 18692.166666666668
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4101,
+     "session_id": "talk-s4101-491ce6",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.42857142857142855,
+     "accuracy_vs_task": 0.05555555555555556,
+     "correct_n": 3,
+     "solve_n": 7,
+     "given": 24000,
+     "n_give": 8,
+     "given_per_agent_round": 1263.157894736842,
+     "rho": 1.0751049246497855,
+     "goal": 0.8846153846153846,
+     "settled": {
+      "mu": 24950.25,
+      "G": 0.10262756218207567,
+      "S": 22389.666666666668
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      2,
+      2,
+      2,
+      1,
+      1,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.46875,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 0.8085833333333333,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.091,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 1.9036666666666666,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.875
+      },
+      {
+       "agent": "agent-23",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 0.12983333333333333,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.875
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 8,
+      "give_tokens": 24000,
+      "give_before_tokens": 24000,
+      "give_after_tokens": 0,
+      "ask_count": 1,
+      "ask_tokens": 2500,
+      "ask_before_tokens": 2500,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4102,
+     "session_id": "talk-s4102-cd22ee",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.07142857142857142,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 9000,
+     "n_give": 2,
+     "given_per_agent_round": 333.3333333333333,
+     "rho": 5.402091661380968,
+     "goal": 0.9591836734693877,
+     "settled": {
+      "mu": 98633.75,
+      "G": 0.5233291511948666,
+      "S": 47015.833333333336
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.78125,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.334875,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.6925,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.625
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.625,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 9000,
+      "give_before_tokens": 5000,
+      "give_after_tokens": 4000,
+      "ask_count": 3,
+      "ask_tokens": 7000,
+      "ask_before_tokens": 5000,
+      "ask_after_tokens": 2000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       30608,
+       18116
+      ],
+      "mu": 12181.0,
+      "G": 0.7521276304627426,
+      "S": 3019.333333333334
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4103,
+     "session_id": "talk-s4103-719368",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.5,
+     "accuracy_vs_task": -0.26666666666666666,
+     "correct_n": 3,
+     "solve_n": 6,
+     "given": 27000,
+     "n_give": 10,
+     "given_per_agent_round": 1227.2727272727273,
+     "rho": 3.3042724536938923,
+     "goal": 0.9318181818181818,
+     "settled": {
+      "mu": 31074.0,
+      "G": 0.1476797322520435,
+      "S": 26485.0
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      4,
+      1,
+      1,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.5,
+     "C_seat": 0.5625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 1.256,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.16666666666666666
+      },
+      {
+       "agent": "agent-11",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.9287916666666667,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 2.6825,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.16666666666666666
+      },
+      {
+       "agent": "agent-23",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 1.3175,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.16666666666666666
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.5
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 3
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 3
+     },
+     "give_ask": {
+      "give_count": 10,
+      "give_tokens": 27000,
+      "give_before_tokens": 4000,
+      "give_after_tokens": 23000,
+      "ask_count": 3,
+      "ask_tokens": 8000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 8000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4104,
+     "session_id": "talk-s4104-b5fda6",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": -0.0625,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 13000,
+     "n_give": 4,
+     "given_per_agent_round": 619.047619047619,
+     "rho": 3.113321036824236,
+     "goal": 0.9523809523809523,
+     "settled": {
+      "mu": 99832.25,
+      "G": 0.5096624587745944,
+      "S": 48951.5
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.59375,
+     "departures": [
+      {
+       "agent": "agent-17",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 1.9971666666666668,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.875
+      },
+      {
+       "agent": "agent-23",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.781375,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.875
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 4,
+      "give_tokens": 13000,
+      "give_before_tokens": 13000,
+      "give_after_tokens": 0,
+      "ask_count": 2,
+      "ask_tokens": 10000,
+      "ask_before_tokens": 10000,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       33543,
+       13362,
+       0,
+       0
+      ],
+      "mu": 11726.25,
+      "G": 0.8100842127704936,
+      "S": 2227.0
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4105,
+     "session_id": "talk-s4105-019b5e",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 9.25185853854297e-18,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 22500,
+     "n_give": 9,
+     "given_per_agent_round": 937.5,
+     "rho": 1.1529244478505714,
+     "goal": 0.9555555555555556,
+     "settled": {
+      "mu": 99681.75,
+      "G": 0.5188069364084532,
+      "S": 47966.166666666664
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.6875,
+     "departures": [
+      {
+       "agent": "agent-11",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.66,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.3125
+      },
+      {
+       "agent": "agent-17",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.7458333333333333,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.3125
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.3125,
+      "exit_above": 0.3125
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 9,
+      "give_tokens": 22500,
+      "give_before_tokens": 9000,
+      "give_after_tokens": 13500,
+      "ask_count": 3,
+      "ask_tokens": 4500,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 4500
+     },
+     "terminal": {
+      "tokens": [
+       12032,
+       0,
+       0,
+       35679
+      ],
+      "mu": 11927.75,
+      "G": 0.8318766461961952,
+      "S": 2005.333333333334
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4106,
+     "session_id": "talk-s4106-07e2f8",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.020833333333333336,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 5000,
+     "n_give": 1,
+     "given_per_agent_round": 250.0,
+     "rho": 1.6763571869216534,
+     "goal": 0.9130434782608695,
+     "settled": {
+      "mu": 96728.75,
+      "G": 0.4994904134844432,
+      "S": 48413.666666666664
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.5625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.408,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 1,
+      "give_tokens": 5000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 5000,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       21688,
+       12910
+      ],
+      "mu": 8649.5,
+      "G": 0.75123802917317,
+      "S": 2151.666666666667
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4107,
+     "session_id": "talk-s4107-f79df5",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.0,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.9310344827586207,
+     "settled": {
+      "mu": 101061.75,
+      "G": 0.5001043091641166,
+      "S": 50520.333333333336
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.59375,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.00375,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       34646,
+       13231,
+       0
+      ],
+      "mu": 11969.25,
+      "G": 0.8157640063774534,
+      "S": 2205.166666666666
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4108,
+     "session_id": "talk-s4108-e3cf7c",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.04761904761904762,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 8197,
+     "n_give": 2,
+     "given_per_agent_round": 315.2692307692308,
+     "rho": 1.2315001902854728,
+     "goal": 0.9622641509433962,
+     "settled": {
+      "mu": 99856.5,
+      "G": 0.5299922054815327,
+      "S": 46933.333333333336
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.75,
+     "departures": [
+      {
+       "agent": "agent-17",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 1.065125,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.7518333333333334,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.625
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.625,
+      "exit_above": 0.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 8197,
+      "give_before_tokens": 8197,
+      "give_after_tokens": 0,
+      "ask_count": 2,
+      "ask_tokens": 8000,
+      "ask_before_tokens": 8000,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       35548,
+       16467,
+       0,
+       0
+      ],
+      "mu": 13003.75,
+      "G": 0.7889454964913967,
+      "S": 2744.5
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4109,
+     "session_id": "talk-s4109-c0649e",
+     "prize_each": 150000,
+     "winners": 1,
+     "exited": 3,
+     "dead": 0,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.05555555555555556,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.88,
+     "settled": {
+      "mu": 62899.5,
+      "G": 0.5891461776325726,
+      "S": 25842.5
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.5,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.2524166666666667,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.392625,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       20528
+      ],
+      "mu": 5132.0,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Opus",
+     "seed": 4110,
+     "session_id": "talk-s4110-39bfdb",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": -0.09523809523809522,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 22000,
+     "n_give": 7,
+     "given_per_agent_round": 1000.0,
+     "rho": 1.3416342203354226,
+     "goal": 0.9512195121951219,
+     "settled": {
+      "mu": 99693.5,
+      "G": 0.49625268113434345,
+      "S": 50220.333333333336
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.8675,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.375
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.2523333333333333,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.375
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 0.75
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 2
+     },
+     "give_ask": {
+      "give_count": 7,
+      "give_tokens": 22000,
+      "give_before_tokens": 8000,
+      "give_after_tokens": 14000,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       28412,
+       15425
+      ],
+      "mu": 10959.25,
+      "G": 0.7654188623004919,
+      "S": 2570.833333333334
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4101,
+     "session_id": "talk-s4101-37785b",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.42857142857142855,
+     "accuracy_vs_task": 0.0,
+     "correct_n": 3,
+     "solve_n": 7,
+     "given": 7000,
+     "n_give": 2,
+     "given_per_agent_round": 411.7647058823529,
+     "rho": 4.23551066424315,
+     "goal": 0.7272727272727273,
+     "settled": {
+      "mu": 25539.5,
+      "G": 0.06512134797731618,
+      "S": 23876.333333333332
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      2,
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.40625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.443,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 0.330625,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 2,
+       "how": "exited",
+       "margin_at_round_start": 1.094,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.875
+      },
+      {
+       "agent": "agent-23",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 0.37645833333333334,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.875
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 3,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 2,
+      "give_tokens": 7000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 7000,
+      "ask_count": 2,
+      "ask_tokens": 7000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 7000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4102,
+     "session_id": "talk-s4102-901b9b",
+     "prize_each": 150000,
+     "winners": 1,
+     "exited": 3,
+     "dead": 0,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": -0.125,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 12000,
+     "n_give": 1,
+     "given_per_agent_round": 571.4285714285714,
+     "rho": 0.5044620966951064,
+     "goal": 0.8695652173913043,
+     "settled": {
+      "mu": 60620.75,
+      "G": 0.5141625048628838,
+      "S": 29451.833333333332
+     },
+     "remaining_after_round": [
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      1
+     ],
+     "all4_after_round": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.0,
+     "C_seat": 0.5625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.193875,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 1,
+       "how": "exited",
+       "margin_at_round_start": 1.6666666666666667,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 1.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 8,
+       "how": "exited",
+       "margin_at_round_start": 0.8089166666666666,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 1.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 1,
+      "give_tokens": 12000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 12000,
+      "ask_count": 2,
+      "ask_tokens": 24000,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 24000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       4004,
+       0
+      ],
+      "mu": 1001.0,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4103,
+     "session_id": "talk-s4103-77db69",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.4,
+     "accuracy_vs_task": -0.3333333333333333,
+     "correct_n": 2,
+     "solve_n": 5,
+     "given": 9000,
+     "n_give": 3,
+     "given_per_agent_round": 500.0,
+     "rho": 2.8203519251423446,
+     "goal": 0.9032258064516129,
+     "settled": {
+      "mu": 31946.0,
+      "G": 0.13951146726768088,
+      "S": 27489.166666666668
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      2,
+      1,
+      0,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.4375,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.847,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 0.8424166666666667,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 1.3664166666666666,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.18,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.75
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.75
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 3,
+      "give_tokens": 9000,
+      "give_before_tokens": 8000,
+      "give_after_tokens": 1000,
+      "ask_count": 1,
+      "ask_tokens": 6000,
+      "ask_before_tokens": 6000,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4104,
+     "session_id": "talk-s4104-0c598e",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 1,
+     "dead": 1,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.875,
+     "accuracy_vs_task": 0.10416666666666667,
+     "correct_n": 7,
+     "solve_n": 8,
+     "given": 0,
+     "n_give": 0,
+     "given_per_agent_round": 0.0,
+     "rho": null,
+     "goal": 0.9833333333333333,
+     "settled": {
+      "mu": 99040.25,
+      "G": 0.6179061879723984,
+      "S": 37842.666666666664
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.78125,
+     "departures": [
+      {
+       "agent": "agent-17",
+       "round": 8,
+       "how": "dead",
+       "margin_at_round_start": 1.74775,
+       "tag": "dead",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.3655,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.75
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.0,
+      "exit_below": 0,
+      "exit_above": 0.75
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 0,
+      "give_tokens": 0,
+      "give_before_tokens": 0,
+      "give_after_tokens": 0,
+      "ask_count": 0,
+      "ask_tokens": 0,
+      "ask_before_tokens": 0,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       45168,
+       24930,
+       0,
+       0
+      ],
+      "mu": 17524.5,
+      "G": 0.7629033638620217,
+      "S": 4155.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4105,
+     "session_id": "talk-s4105-dcf335",
+     "prize_each": 150000,
+     "winners": 3,
+     "exited": 0,
+     "dead": 1,
+     "finishers": 3,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.0,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 22500,
+     "n_give": 9,
+     "given_per_agent_round": 865.3846153846154,
+     "rho": 2.032562214723299,
+     "goal": 1.0,
+     "settled": {
+      "mu": 122294.25,
+      "G": 0.36210137980049484,
+      "S": 78011.33333333334
+     },
+     "remaining_after_round": [
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+     ],
+     "all4_after_round": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.125,
+     "C_seat": 0.78125,
+     "departures": [
+      {
+       "agent": "agent-17",
+       "round": 2,
+       "how": "dead",
+       "margin_at_round_start": 0.23733333333333334,
+       "tag": "dead",
+       "first": true,
+       "loss": 0.875
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0.875,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "count_by_tag": {
+      "dead": 1,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "first_count_by_tag": {
+      "dead": 1,
+      "exit_below": 0,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 9,
+      "give_tokens": 22500,
+      "give_before_tokens": 6000,
+      "give_after_tokens": 16500,
+      "ask_count": 11,
+      "ask_tokens": 38204,
+      "ask_before_tokens": 24000,
+      "ask_after_tokens": 14204
+     },
+     "terminal": {
+      "tokens": [
+       3608,
+       10852,
+       0,
+       24717
+      ],
+      "mu": 9794.25,
+      "G": 0.6925406913920583,
+      "S": 3011.333333333333
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4106,
+     "session_id": "talk-s4106-1793b2",
+     "prize_each": 150000,
+     "winners": 1,
+     "exited": 3,
+     "dead": 0,
+     "finishers": 1,
+     "all4_completion": false,
+     "accuracy": 0.625,
+     "accuracy_vs_task": 0.0,
+     "correct_n": 5,
+     "solve_n": 8,
+     "given": 24000,
+     "n_give": 4,
+     "given_per_agent_round": 1043.4782608695652,
+     "rho": 1.2625885805263322,
+     "goal": 0.9142857142857143,
+     "settled": {
+      "mu": 61457.25,
+      "G": 0.5678052630080259,
+      "S": 26561.5
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      3,
+      2,
+      1,
+      1,
+      1
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.661,
+       "tag": "exit_below",
+       "first": true,
+       "loss": 0.625
+      },
+      {
+       "agent": "agent-11",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 0.49525,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 1.816,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.625,
+      "exit_above": 0.0
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 0
+     },
+     "give_ask": {
+      "give_count": 4,
+      "give_tokens": 24000,
+      "give_before_tokens": 6000,
+      "give_after_tokens": 18000,
+      "ask_count": 5,
+      "ask_tokens": 30000,
+      "ask_before_tokens": 12000,
+      "ask_after_tokens": 18000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       7142,
+       0
+      ],
+      "mu": 1785.5,
+      "G": 1.0,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4107,
+     "session_id": "talk-s4107-998543",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.5,
+     "accuracy_vs_task": -0.3333333333333333,
+     "correct_n": 3,
+     "solve_n": 6,
+     "given": 32003,
+     "n_give": 5,
+     "given_per_agent_round": 1523.952380952381,
+     "rho": 2.4156999221834368,
+     "goal": 0.8888888888888888,
+     "settled": {
+      "mu": 28154.75,
+      "G": 0.111257129495615,
+      "S": 25022.333333333332
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      3,
+      2,
+      1,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.53125,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.12045833333333333,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 1.3048333333333333,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 5,
+       "how": "exited",
+       "margin_at_round_start": 0.986875,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.259,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.75
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.75
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 5,
+      "give_tokens": 32003,
+      "give_before_tokens": 0,
+      "give_after_tokens": 32003,
+      "ask_count": 7,
+      "ask_tokens": 48003,
+      "ask_before_tokens": 16000,
+      "ask_after_tokens": 32003
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4108,
+     "session_id": "talk-s4108-698d37",
+     "prize_each": 150000,
+     "winners": 2,
+     "exited": 2,
+     "dead": 0,
+     "finishers": 2,
+     "all4_completion": false,
+     "accuracy": 0.75,
+     "accuracy_vs_task": 0.04761904761904762,
+     "correct_n": 6,
+     "solve_n": 8,
+     "given": 11000,
+     "n_give": 5,
+     "given_per_agent_round": 423.0769230769231,
+     "rho": 6.339364390307114,
+     "goal": 0.9534883720930233,
+     "settled": {
+      "mu": 97460.5,
+      "G": 0.5060648502042708,
+      "S": 48139.166666666664
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      2,
+      2,
+      2
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.375,
+     "C_seat": 0.75,
+     "departures": [
+      {
+       "agent": "agent-17",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 0.888375,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.063,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.625
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.625
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 1
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 5,
+      "give_tokens": 11000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 11000,
+      "ask_count": 5,
+      "ask_tokens": 17000,
+      "ask_before_tokens": 8000,
+      "ask_after_tokens": 9000
+     },
+     "terminal": {
+      "tokens": [
+       28788,
+       8678,
+       0,
+       0
+      ],
+      "mu": 9366.5,
+      "G": 0.8455844410042883,
+      "S": 1446.333333333333
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4109,
+     "session_id": "talk-s4109-8605a3",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.5,
+     "accuracy_vs_task": 0.1,
+     "correct_n": 3,
+     "solve_n": 6,
+     "given": 6000,
+     "n_give": 1,
+     "given_per_agent_round": 352.94117647058823,
+     "rho": 3.586770219603643,
+     "goal": 0.85,
+     "settled": {
+      "mu": 30558.25,
+      "G": 0.10301909740686503,
+      "S": 27410.166666666668
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      2,
+      1,
+      1,
+      1,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.40625,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 1.5249166666666667,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-11",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.7785,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.375
+      },
+      {
+       "agent": "agent-17",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.0776666666666668,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.375
+      },
+      {
+       "agent": "agent-23",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.37775,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.75
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 1,
+      "exit_above": 3
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 2
+     },
+     "give_ask": {
+      "give_count": 1,
+      "give_tokens": 6000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 6000,
+      "ask_count": 2,
+      "ask_tokens": 12000,
+      "ask_before_tokens": 6000,
+      "ask_after_tokens": 6000
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    },
+    {
+     "model": "Luna",
+     "seed": 4110,
+     "session_id": "talk-s4110-66706a",
+     "prize_each": 0,
+     "winners": 0,
+     "exited": 4,
+     "dead": 0,
+     "finishers": 0,
+     "all4_completion": false,
+     "accuracy": 0.5,
+     "accuracy_vs_task": -0.4,
+     "correct_n": 3,
+     "solve_n": 6,
+     "given": 6000,
+     "n_give": 1,
+     "given_per_agent_round": 300.0,
+     "rho": 5.3588472622478385,
+     "goal": 0.875,
+     "settled": {
+      "mu": 31637.5,
+      "G": 0.11674963782431187,
+      "S": 27943.833333333332
+     },
+     "remaining_after_round": [
+      4,
+      4,
+      3,
+      2,
+      2,
+      1,
+      0,
+      0
+     ],
+     "all4_after_round": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "C": 0.25,
+     "C_seat": 0.5,
+     "departures": [
+      {
+       "agent": "agent-6",
+       "round": 3,
+       "how": "exited",
+       "margin_at_round_start": 1.9768333333333334,
+       "tag": "exit_above",
+       "first": true,
+       "loss": 0.75
+      },
+      {
+       "agent": "agent-11",
+       "round": 4,
+       "how": "exited",
+       "margin_at_round_start": 0.927625,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-17",
+       "round": 6,
+       "how": "exited",
+       "margin_at_round_start": 1.7031666666666667,
+       "tag": "exit_above",
+       "first": false,
+       "loss": 0.0
+      },
+      {
+       "agent": "agent-23",
+       "round": 7,
+       "how": "exited",
+       "margin_at_round_start": 0.3549583333333333,
+       "tag": "exit_below",
+       "first": false,
+       "loss": 0.0
+      }
+     ],
+     "loss_by_tag": {
+      "dead": 0,
+      "exit_below": 0.0,
+      "exit_above": 0.75
+     },
+     "count_by_tag": {
+      "dead": 0,
+      "exit_below": 2,
+      "exit_above": 2
+     },
+     "first_count_by_tag": {
+      "dead": 0,
+      "exit_below": 0,
+      "exit_above": 1
+     },
+     "give_ask": {
+      "give_count": 1,
+      "give_tokens": 6000,
+      "give_before_tokens": 0,
+      "give_after_tokens": 6000,
+      "ask_count": 5,
+      "ask_tokens": 30000,
+      "ask_before_tokens": 30000,
+      "ask_after_tokens": 0
+     },
+     "terminal": {
+      "tokens": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "mu": 0.0,
+      "G": null,
+      "S": 0.0
+     }
+    }
+   ]
+  }
+ }
+}

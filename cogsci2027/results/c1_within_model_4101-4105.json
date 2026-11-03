@@ -1,0 +1,748 @@
+{
+  "seeds": "4101-4105",
+  "runs": "~/squid5-runs/e52_v33/squid5_e52v33_public_*4/*",
+  "n_games": 25,
+  "games_per_model": {
+    "Fable": 5,
+    "Astra": 5,
+    "Sol": 5,
+    "Opus": 5,
+    "Luna": 5
+  },
+  "all4_per_model": {
+    "Fable": 2,
+    "Astra": 3,
+    "Sol": 2,
+    "Opus": 1,
+    "Luna": 0
+  },
+  "metrics": {
+    "given_per_agent_round": {
+      "n_games": 25,
+      "pooled": {
+        "all4": 754.296875,
+        "rest": 447.12270285909676,
+        "n_all4": 8,
+        "n_rest": 17
+      },
+      "per_model": {
+        "Fable": {
+          "n_all4": 2,
+          "n_rest": 3,
+          "all4": 851.5625,
+          "rest": 260.8333333333333,
+          "diff": 590.7291666666667
+        },
+        "Astra": {
+          "n_all4": 3,
+          "n_rest": 2,
+          "all4": 593.75,
+          "rest": 304.3478260869565,
+          "diff": 289.4021739130435
+        },
+        "Sol": {
+          "n_all4": 2,
+          "n_rest": 3,
+          "all4": 437.5,
+          "rest": 237.9310344827586,
+          "diff": 199.5689655172414
+        },
+        "Opus": {
+          "n_all4": 1,
+          "n_rest": 4,
+          "all4": 1675.0,
+          "rest": 759.6326315789474,
+          "diff": 915.3673684210526
+        },
+        "Luna": {
+          "n_all4": 0,
+          "n_rest": 5,
+          "all4": null,
+          "rest": 491.5133333333333,
+          "diff": null
+        }
+      },
+      "informative_models": [
+        "Fable",
+        "Astra",
+        "Sol",
+        "Opus"
+      ],
+      "models_same_sign_as_pooled": "4/4",
+      "fe_model": 460.8941504666325,
+      "fe_model_seed": 565.2013755543911,
+      "permutation": {
+        "p": 0.027,
+        "exact": true,
+        "n_labelings": 5000
+      },
+      "bootstrap_ci95": [
+        117.05636684782625,
+        768.6167862094169
+      ],
+      "bootstrap_draws": 9999,
+      "conditional_logit": {
+        "coef_per_sd": 1.5545025684166687,
+        "ci95": [
+          -0.1406056108528746,
+          3.249610747686212
+        ],
+        "p": 0.07227386215941844,
+        "n_games": 20,
+        "n_models": 4
+      }
+    },
+    "accuracy": {
+      "n_games": 25,
+      "pooled": {
+        "all4": 0.78125,
+        "rest": 0.6411064425770308,
+        "n_all4": 8,
+        "n_rest": 17
+      },
+      "per_model": {
+        "Fable": {
+          "n_all4": 2,
+          "n_rest": 3,
+          "all4": 0.6875,
+          "rest": 0.7916666666666666,
+          "diff": -0.10416666666666663
+        },
+        "Astra": {
+          "n_all4": 3,
+          "n_rest": 2,
+          "all4": 0.7916666666666666,
+          "rest": 0.5267857142857143,
+          "diff": 0.26488095238095233
+        },
+        "Sol": {
+          "n_all4": 2,
+          "n_rest": 3,
+          "all4": 0.875,
+          "rest": 0.5595238095238095,
+          "diff": 0.31547619047619047
+        },
+        "Opus": {
+          "n_all4": 1,
+          "n_rest": 4,
+          "all4": 0.75,
+          "rest": 0.6383928571428572,
+          "diff": 0.1116071428571428
+        },
+        "Luna": {
+          "n_all4": 0,
+          "n_rest": 5,
+          "all4": null,
+          "rest": 0.6476190476190476,
+          "diff": null
+        }
+      },
+      "informative_models": [
+        "Fable",
+        "Astra",
+        "Sol",
+        "Opus"
+      ],
+      "models_same_sign_as_pooled": "3/4",
+      "fe_model": 0.15016233766233764,
+      "fe_model_seed": 0.07071995464852661,
+      "permutation": {
+        "p": 0.099,
+        "exact": true,
+        "n_labelings": 5000
+      },
+      "bootstrap_ci95": [
+        0.014285714285714445,
+        0.2896045918367352
+      ],
+      "bootstrap_draws": 9997,
+      "conditional_logit": {
+        "coef_per_sd": 0.8019892422716015,
+        "ci95": [
+          -0.18133664616698808,
+          1.785315130710191
+        ],
+        "p": 0.10992640890069144,
+        "n_games": 20,
+        "n_models": 4
+      }
+    },
+    "accuracy_vs_task": {
+      "n_games": 25,
+      "pooled": {
+        "all4": 0.03151041666666667,
+        "rest": -0.02755018674136321,
+        "n_all4": 8,
+        "n_rest": 17
+      },
+      "per_model": {
+        "Fable": {
+          "n_all4": 2,
+          "n_rest": 3,
+          "all4": 0.1625,
+          "rest": 0.06448412698412699,
+          "diff": 0.09801587301587301
+        },
+        "Astra": {
+          "n_all4": 3,
+          "n_rest": 2,
+          "all4": -0.017361111111111105,
+          "rest": 0.04166666666666667,
+          "diff": -0.059027777777777776
+        },
+        "Sol": {
+          "n_all4": 2,
+          "n_rest": 3,
+          "all4": 0.036458333333333336,
+          "rest": -0.009424603174603178,
+          "diff": 0.04588293650793651
+        },
+        "Opus": {
+          "n_all4": 1,
+          "n_rest": 4,
+          "all4": -0.09375,
+          "rest": -0.0674107142857143,
+          "diff": -0.026339285714285704
+        },
+        "Luna": {
+          "n_all4": 0,
+          "n_rest": 5,
+          "all4": null,
+          "rest": -0.08944444444444444,
+          "diff": null
+        }
+      },
+      "informative_models": [
+        "Fable",
+        "Astra",
+        "Sol",
+        "Opus"
+      ],
+      "models_same_sign_as_pooled": "2/4",
+      "fe_model": 0.018357683982683993,
+      "fe_model_seed": 0.060763888888888944,
+      "permutation": {
+        "p": 0.821,
+        "exact": true,
+        "n_labelings": 5000
+      },
+      "bootstrap_ci95": [
+        -0.12180194805194809,
+        0.17287273242630372
+      ],
+      "bootstrap_draws": 9993,
+      "conditional_logit": {
+        "coef_per_sd": 0.11483101420555694,
+        "ci95": [
+          -0.79850055606201,
+          1.028162584473124
+        ],
+        "p": 0.8053558658679264,
+        "n_games": 20,
+        "n_models": 4
+      }
+    },
+    "accuracy_vs_task_n": {
+      "n_games": 25,
+      "pooled": {
+        "all4": 0.10766369047619048,
+        "rest": -0.04108309990662932,
+        "n_all4": 8,
+        "n_rest": 17
+      },
+      "per_model": {
+        "Fable": {
+          "n_all4": 2,
+          "n_rest": 3,
+          "all4": 0.261904761904762,
+          "rest": 0.09166666666666667,
+          "diff": 0.1702380952380953
+        },
+        "Astra": {
+          "n_all4": 3,
+          "n_rest": 2,
+          "all4": 0.05694444444444444,
+          "rest": 0.11805555555555555,
+          "diff": -0.06111111111111111
+        },
+        "Sol": {
+          "n_all4": 2,
+          "n_rest": 3,
+          "all4": 0.1369047619047619,
+          "rest": 0.014880952380952378,
+          "diff": 0.1220238095238095
+        },
+        "Opus": {
+          "n_all4": 1,
+          "n_rest": 4,
+          "all4": -0.10714285714285714,
+          "rest": -0.09270833333333334,
+          "diff": -0.0144345238095238
+        },
+        "Luna": {
+          "n_all4": 0,
+          "n_rest": 5,
+          "all4": null,
+          "rest": -0.17666666666666667,
+          "diff": null
+        }
+      },
+      "informative_models": [
+        "Fable",
+        "Astra",
+        "Sol",
+        "Opus"
+      ],
+      "models_same_sign_as_pooled": "2/4",
+      "fe_model": 0.060416666666666674,
+      "fe_model_seed": 0.12436933106575976,
+      "permutation": {
+        "p": 0.5622,
+        "exact": true,
+        "n_labelings": 5000
+      },
+      "bootstrap_ci95": [
+        -0.10445087031024529,
+        0.25366333223104043
+      ],
+      "bootstrap_draws": 9999,
+      "conditional_logit": {
+        "coef_per_sd": 0.33240089764975783,
+        "ci95": [
+          -0.6902583353711591,
+          1.3550601306706749
+        ],
+        "p": 0.5240867194708922,
+        "n_games": 20,
+        "n_models": 4
+      }
+    },
+    "rho": {
+      "n_games": 18,
+      "pooled": {
+        "all4": 3.0550560722309554,
+        "rest": 4.513268955579538,
+        "n_all4": 8,
+        "n_rest": 10
+      },
+      "per_model": {
+        "Fable": {
+          "n_all4": 2,
+          "n_rest": 2,
+          "all4": 4.086223089972785,
+          "rest": 3.7481400844437447,
+          "diff": 0.33808300552904047
+        },
+        "Astra": {
+          "n_all4": 3,
+          "n_rest": 1,
+          "all4": 2.4564974727851454,
+          "rest": 4.785200411099692,
+          "diff": -2.3287029383145463
+        },
+        "Sol": {
+          "n_all4": 2,
+          "n_rest": 1,
+          "all4": 3.7860773661316642,
+          "rest": 10.251095976554456,
+          "diff": -6.465018610422792
+        },
+        "Opus": {
+          "n_all4": 1,
+          "n_rest": 3,
+          "all4": 1.3263552472833096,
+          "rest": 3.028401615514633,
+          "diff": -1.7020463682313236
+        },
+        "Luna": {
+          "n_all4": 0,
+          "n_rest": 3,
+          "all4": null,
+          "rest": 4.504969384236614,
+          "diff": null
+        }
+      },
+      "informative_models": [
+        "Fable",
+        "Astra",
+        "Sol",
+        "Opus"
+      ],
+      "models_same_sign_as_pooled": "3/4",
+      "fe_model": -2.208944646735437,
+      "fe_model_seed": -1.8417752306579742,
+      "permutation": {
+        "p": 0.020833333333333332,
+        "exact": true,
+        "n_labelings": 288
+      },
+      "bootstrap_ci95": [
+        -4.0874871372894,
+        0.05807820394909325
+      ],
+      "bootstrap_draws": 9961,
+      "conditional_logit": {
+        "coef_per_sd": -2.022183956602993,
+        "ci95": [
+          -4.63429521557709,
+          0.589927302371104
+        ],
+        "p": 0.1291860009453665,
+        "n_games": 15,
+        "n_models": 4
+      }
+    }
+  },
+  "games": [
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "all4_completion": false,
+      "finishers": 2,
+      "given_per_agent_round": 0.0,
+      "accuracy": 0.625,
+      "accuracy_vs_task": 0.125,
+      "accuracy_vs_task_n": 0.125,
+      "rho": null,
+      "accuracy_vs_task_solves": 6,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra"
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "all4_completion": true,
+      "finishers": 4,
+      "given_per_agent_round": 750.0,
+      "accuracy": 0.75,
+      "accuracy_vs_task": 0.03125,
+      "accuracy_vs_task_n": 0.08333333333333333,
+      "rho": 2.696712478214015,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra"
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "all4_completion": false,
+      "finishers": 0,
+      "given_per_agent_round": 608.695652173913,
+      "accuracy": 0.42857142857142855,
+      "accuracy_vs_task": -0.041666666666666664,
+      "accuracy_vs_task_n": 0.11111111111111112,
+      "rho": 4.785200411099692,
+      "accuracy_vs_task_solves": 6,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra"
+    },
+    {
+      "model": "Astra",
+      "seed": 4104,
+      "session_id": "talk-s4104-4a160a",
+      "all4_completion": true,
+      "finishers": 4,
+      "given_per_agent_round": 312.5,
+      "accuracy": 0.875,
+      "accuracy_vs_task": 0.09375,
+      "accuracy_vs_task_n": 0.15,
+      "rho": 2.5046682060034136,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra"
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "all4_completion": true,
+      "finishers": 4,
+      "given_per_agent_round": 718.75,
+      "accuracy": 0.75,
+      "accuracy_vs_task": -0.17708333333333331,
+      "accuracy_vs_task_n": -0.0625,
+      "rho": 2.168111734138008,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra"
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "all4_completion": false,
+      "finishers": 3,
+      "given_per_agent_round": 462.5,
+      "accuracy": 0.625,
+      "accuracy_vs_task": 0.10714285714285714,
+      "accuracy_vs_task_n": 0.15,
+      "rho": 3.2591447467367995,
+      "accuracy_vs_task_solves": 7,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1"
+    },
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "all4_completion": true,
+      "finishers": 4,
+      "given_per_agent_round": 843.75,
+      "accuracy": 0.75,
+      "accuracy_vs_task": 0.45,
+      "accuracy_vs_task_n": 0.6666666666666667,
+      "rho": 3.1011128466122364,
+      "accuracy_vs_task_solves": 5,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1"
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "all4_completion": true,
+      "finishers": 4,
+      "given_per_agent_round": 859.375,
+      "accuracy": 0.625,
+      "accuracy_vs_task": -0.125,
+      "accuracy_vs_task_n": -0.14285714285714285,
+      "rho": 5.0713333333333335,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1"
+    },
+    {
+      "model": "Fable",
+      "seed": 4104,
+      "session_id": "talk-s4104-33f887",
+      "all4_completion": false,
+      "finishers": 3,
+      "given_per_agent_round": 320.0,
+      "accuracy": 0.75,
+      "accuracy_vs_task": -0.05952380952380952,
+      "accuracy_vs_task_n": 0.125,
+      "rho": 4.23713542215069,
+      "accuracy_vs_task_solves": 7,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1"
+    },
+    {
+      "model": "Fable",
+      "seed": 4105,
+      "session_id": "talk-s4105-bce896",
+      "all4_completion": false,
+      "finishers": 3,
+      "given_per_agent_round": 0.0,
+      "accuracy": 1.0,
+      "accuracy_vs_task": 0.14583333333333334,
+      "accuracy_vs_task_n": 0.0,
+      "rho": null,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1"
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "session_id": "talk-s4101-11f081",
+      "all4_completion": false,
+      "finishers": 0,
+      "given_per_agent_round": 790.9,
+      "accuracy": 0.5714285714285714,
+      "accuracy_vs_task": 0.11111111111111112,
+      "accuracy_vs_task_n": 0.2,
+      "rho": 8.159208799021807,
+      "accuracy_vs_task_solves": 6,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna"
+    },
+    {
+      "model": "Luna",
+      "seed": 4103,
+      "session_id": "talk-s4103-ffffff",
+      "all4_completion": false,
+      "finishers": 0,
+      "given_per_agent_round": 0.0,
+      "accuracy": 0.6666666666666666,
+      "accuracy_vs_task": -0.1,
+      "accuracy_vs_task_n": -0.16666666666666666,
+      "rho": null,
+      "accuracy_vs_task_solves": 5,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna"
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "all4_completion": false,
+      "finishers": 1,
+      "given_per_agent_round": 703.7037037037037,
+      "accuracy": 0.75,
+      "accuracy_vs_task": 0.03125,
+      "accuracy_vs_task_n": 0.0,
+      "rho": 2.1301065754379653,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna"
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "all4_completion": false,
+      "finishers": 2,
+      "given_per_agent_round": 0.0,
+      "accuracy": 0.625,
+      "accuracy_vs_task": -0.20833333333333331,
+      "accuracy_vs_task_n": -0.5,
+      "rho": null,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna"
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "all4_completion": false,
+      "finishers": 1,
+      "given_per_agent_round": 962.9629629629629,
+      "accuracy": 0.625,
+      "accuracy_vs_task": -0.28125,
+      "accuracy_vs_task_n": -0.4166666666666667,
+      "rho": 3.225592778250072,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna"
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "all4_completion": false,
+      "finishers": 0,
+      "given_per_agent_round": 684.2105263157895,
+      "accuracy": 0.5,
+      "accuracy_vs_task": -0.016666666666666663,
+      "accuracy_vs_task_n": 0.06666666666666668,
+      "rho": 3.7135688091102104,
+      "accuracy_vs_task_solves": 5,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5"
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "all4_completion": false,
+      "finishers": 2,
+      "given_per_agent_round": 409.4,
+      "accuracy": 0.625,
+      "accuracy_vs_task": -0.10714285714285714,
+      "accuracy_vs_task_n": 0.0,
+      "rho": 2.6541004723362938,
+      "accuracy_vs_task_solves": 7,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5"
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "all4_completion": false,
+      "finishers": 0,
+      "given_per_agent_round": 1944.92,
+      "accuracy": 0.42857142857142855,
+      "accuracy_vs_task": -0.2916666666666667,
+      "accuracy_vs_task_n": -0.4375,
+      "rho": 2.7175355650973936,
+      "accuracy_vs_task_solves": 6,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5"
+    },
+    {
+      "model": "Opus",
+      "seed": 4105,
+      "session_id": "talk-s4105-6d3622",
+      "all4_completion": false,
+      "finishers": 3,
+      "given_per_agent_round": 0.0,
+      "accuracy": 1.0,
+      "accuracy_vs_task": 0.14583333333333334,
+      "accuracy_vs_task_n": 0.0,
+      "rho": null,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5"
+    },
+    {
+      "model": "Opus",
+      "seed": 4104,
+      "session_id": "talk-s4104-bd6bf5",
+      "all4_completion": true,
+      "finishers": 4,
+      "given_per_agent_round": 1675.0,
+      "accuracy": 0.75,
+      "accuracy_vs_task": -0.09375,
+      "accuracy_vs_task_n": -0.10714285714285714,
+      "rho": 1.3263552472833096,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5"
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "all4_completion": false,
+      "finishers": 0,
+      "given_per_agent_round": 0.0,
+      "accuracy": 0.42857142857142855,
+      "accuracy_vs_task": -0.041666666666666664,
+      "accuracy_vs_task_n": 0.0,
+      "rho": null,
+      "accuracy_vs_task_solves": 6,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol"
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "all4_completion": false,
+      "finishers": 2,
+      "given_per_agent_round": 0.0,
+      "accuracy": 0.625,
+      "accuracy_vs_task": 0.10714285714285714,
+      "accuracy_vs_task_n": 0.10714285714285714,
+      "rho": null,
+      "accuracy_vs_task_solves": 7,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol"
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "all4_completion": false,
+      "finishers": 2,
+      "given_per_agent_round": 713.7931034482758,
+      "accuracy": 0.625,
+      "accuracy_vs_task": -0.09375,
+      "accuracy_vs_task_n": -0.0625,
+      "rho": 10.251095976554456,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol"
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "all4_completion": true,
+      "finishers": 4,
+      "given_per_agent_round": 625.0,
+      "accuracy": 0.875,
+      "accuracy_vs_task": 0.09375,
+      "accuracy_vs_task_n": 0.10714285714285714,
+      "rho": 3.0627441608669574,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol"
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "all4_completion": true,
+      "finishers": 4,
+      "given_per_agent_round": 250.0,
+      "accuracy": 0.875,
+      "accuracy_vs_task": -0.02083333333333333,
+      "accuracy_vs_task_n": 0.16666666666666666,
+      "rho": 4.509410571396371,
+      "accuracy_vs_task_solves": 8,
+      "run_dir": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol"
+    }
+  ]
+}
