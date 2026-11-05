@@ -1,0 +1,55 @@
+%% Tracksuit sprites for the TikZ figures (2026-11-05). \input this inside a group: it
+%% redefines \sgrobot / \sgrobotoff / \sgguardgun / \sgguardsign (cogsci2027/figpics.tex) to draw sprites from sprites/,
+%% and the change ends with the group, so other figures keep the vector robots.
+%% The placement follows LLM Squid Game Thesis/poster/figs/tracksuit/standalone_tracksuit.tex:
+%% the standing sprite's top meets the robot's top (.37) and is \sgspriteH robot units tall;
+%% other poses keep the same head size, feet on the same line, head centre on x.
+%% Every line ends in % (and meta.tex is read with \endlinechar=-1): the figures are set inside
+%% \resizebox, where a stray space would widen the box and shrink the drawing.
+\makeatletter%
+\edef\sg@savedendline{\the\endlinechar}%
+\endlinechar=-1 %
+\input{cogsci2027/ko/figures/tracksuit_20261105/sprites/meta.tex}%
+\endlinechar=\sg@savedendline\relax%
+\def\sgspriteTop{.37}%
+\def\sgspriteH{.86}%
+\def\sgspritedir{cogsci2027/ko/figures/tracksuit_20261105/sprites/}%
+\def\sgcol@sgblue{blue}\def\sgcol@sgorange{orange}\def\sgcol@sggreen{green}\def\sgcol@sgpurple{purple}%
+\def\sgU{\fpeval{\sgspriteH/\csname sh@stand_blue\endcsname}}%
+%% \sgpose[s]{(x,y)}{sprite name}{label}
+\providecommand{\sgpose}{}%
+\renewcommand{\sgpose}[4][1]{%
+  \node[inner sep=0pt,anchor=south] at ($#2+(\fpeval{-#1*\sgU*\csname sx@#3\endcsname},\fpeval{#1*(\sgspriteTop-\sgspriteH)})$)
+    {\includegraphics[height=\fpeval{#1*\sgU*\csname sh@#3\endcsname}cm]{\sgspritedir#3.png}};%
+  \node[text=black,font=\sffamily\bfseries\fontsize{8}{8}\selectfont,
+    inner sep=0pt,anchor=south] at ($#2+(0,#1*.39)$) {#4};}%
+\renewcommand{\sgrobot}[4][1]{\sgpose[#1]{#2}{stand_\csname sgcol@#3\endcsname}{#4}}%
+\renewcommand{\sgrobotoff}[3][1]{\sgpose[#1]{#2}{off}{#3}}%
+%% Guards as sprites in the same style (2026-11-05, thesis poster commit 9959bbe:
+%% guard/build_guards.py -> sprites/guard_{aim,sign}.png and guard_meta.tex, coordinates in units
+%% of the sprite height). Same arguments as the figpics macros; the feet centre sits on (x,y).
+\endlinechar=-1 %
+\input{cogsci2027/ko/figures/tracksuit_20261105/sprites/guard_meta.tex}%
+\endlinechar=\sg@savedendline\relax%
+\def\gd#1#2{\csname gd@#1@#2\endcsname}%
+\def\sgguardH{1.15}% standing guard height (cm at scale 1)
+\definecolor{sgboard}{HTML}{FFFFFF}%
+\definecolor{sgboardline}{HTML}{1A1A1E}%
+%% \sgguardgun[s]{(x,y)}{angle}: leaves (sgmuzzle); the sprite's gun angle is fixed, so angle is unused.
+\renewcommand{\sgguardgun}[3][1]{%
+  \pgfmathsetmacro\gdH{#1*\sgguardH}%
+  \node[inner sep=0pt,anchor=south west] (gdimg) at ($#2+(\fpeval{-\gdH*\gd{aim}{fx}},0)$)
+    {\includegraphics[height=\gdH cm]{\sgspritedir guard_aim.png}};%
+  \coordinate (sgmuzzle) at ($(gdimg.south west)+(\fpeval{\gdH*\gd{aim}{mx}},\fpeval{\gdH*\gd{aim}{my}})$);}%
+%% \sgguardsign[s]{(x,y)}{h}{text}: the board top meets the old text box top (origin + s(h+.42));
+%% a vector board of the same shape covers the drawn white board, so long text only widens it.
+\renewcommand{\sgguardsign}[4][1]{%
+  \pgfmathsetmacro\gdH{#1*(#3+.42)/\gd{sign}{y1}}%
+  \node[inner sep=0pt,anchor=south west] (gdimg) at ($#2+(\fpeval{-\gdH*\gd{sign}{fx}},0)$)
+    {\includegraphics[height=\gdH cm]{\sgspritedir guard_sign.png}};%
+  \node[fill=sgboard,draw=sgboardline,line width=.9pt,inner sep=2pt,
+    minimum width=\fpeval{\gdH*(\gd{sign}{x1}-\gd{sign}{x0})+.04}cm,
+    minimum height=\fpeval{\gdH*(\gd{sign}{y1}-\gd{sign}{y0})+.04}cm,
+    font=\sffamily\bfseries\fontsize{7.4}{8}\selectfont,text=sgastra]
+    at ($(gdimg.south west)+(\fpeval{\gdH*(\gd{sign}{x0}+\gd{sign}{x1})/2},\fpeval{\gdH*(\gd{sign}{y0}+\gd{sign}{y1})/2})$) {#4};}%
+\makeatother%

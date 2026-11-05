@@ -1,0 +1,20 @@
+{
+  "fable": {
+    "model": [
+      "claude-fable-5-1"
+    ],
+    "raw_response_sha256": "a22a12162a0ff53247821d286a2c23112693889f589e6e9fbd71d6d76ea13dc9",
+    "session_id": "73b635b7-411e-43d3-9313-1de0b682534b",
+    "independent_session": true,
+    "model_names_and_outcomes_hidden": true
+  },
+  "opus": {
+    "model": [
+      "claude-opus-5-5"
+    ],
+    "raw_response_sha256": "daaf9b8330659996f2bede1fd398bc8069431cc58b6fa885f74e6faf0e66b347",
+    "session_id": "3aeb95f0-0e69-499a-9407-49631c125758",
+    "independent_session": true,
+    "model_names_and_outcomes_hidden": true
+  }
+}

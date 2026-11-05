@@ -1,0 +1,13 @@
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{\textbf{집단 결과}} & \textbf{목표 지향} & \textbf{과제 성과} & \multicolumn{2}{c}{\textbf{자기 보존}} & \multicolumn{2}{c}{\textbf{협력}} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}\cmidrule(lr){7-8}\cmidrule(l){9-10}
+모델 & \shortstack{공존 유지율 $C$\\(10판 평균)} & \shortstack{전원 완주\\(판/10)} & \shortstack{정산 $S$\\(백만 토큰)} & \shortstack{잔류 응답률\\(\%)} & \shortstack{정답 횟수\\(정답/풀이)} & \shortstack{안전선 이상\\이탈} & \shortstack{지원 후\\여유 비율 $\rho$} & \shortstack{토큰 지원량\\(천 토큰, GIVE 수)} & \shortstack{첫 위기에서\\지원받은 비율} \\
+\midrule
+GPT-6 Astra & 0.91 & 8/10 & 4.18 & 97.1 & 55/79 & 2 & 2.37 & 176.7 (29) & 9/12 \\
+GPT-6 Sol & 0.69 & 3/10 & 2.35 & 95.5 & 54/79 & 1 & 2.28 & 168.6 (56) & 10/19 \\
+Opus 5.5 & 0.53 & 3/10 & 2.35 & 96.4 & 51/77 & 5 & 1.67 & 276.8 (87) & 7/13 \\
+Fable 5.1 & 0.47 & 2/10 & 3.01 & 97.9 & 56/80 & 6 & 2.97 & 192.7 (82) & 10/14 \\
+GPT-6 Luna & 0.39 & 0/10 & 0.51 & 93.5 & 44/71 & 13 & 2.61 & 104.3 (46) & 5/11 \\
+\bottomrule
+\end{tabular*}

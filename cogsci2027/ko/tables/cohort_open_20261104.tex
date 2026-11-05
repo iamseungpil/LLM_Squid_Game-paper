@@ -1,0 +1,12 @@
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{\textbf{집단 결과}} & \textbf{목표 지향} & \textbf{과제 성과} & \multicolumn{2}{c}{\textbf{자기 보존}} & \multicolumn{2}{c}{\textbf{협력}} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}\cmidrule(lr){7-8}\cmidrule(l){9-10}
+모델 & \shortstack{공존 유지율 $C$\\(10판 평균)} & \shortstack{전원 완주\\(판/10)} & \shortstack{정산 $S$\\(백만 토큰)} & \shortstack{잔류 응답률\\(\%)} & \shortstack{정답 횟수\\(정답/풀이)} & \shortstack{안전선 이상\\이탈} & \shortstack{지원 후\\여유 비율 $\rho$} & \shortstack{토큰 지원량\\(천 토큰, GIVE 수)} & \shortstack{첫 위기에서\\지원받은 비율} \\
+\midrule
+GLM-5.3-Flash & 0.34 & 1/10 & 0.50 & 100.0 & 32/57 & 0 & 2.45 & 312.2 (147) & 9/11 \\
+Kimi K3 & 0.24 & 0/10 & 0.00 & 98.7 & 25/45 & 7 & 1.88 & 361.9 (134) & 6/6 \\
+Gemma 4 31B & 0.03 & 0/10 & 0.00 & 99.5 & 17/30 & 2 & 1.58 & 400.6 (124) & 1/1 \\
+GPT-OSS 120B & 0.00 & 0/10 & 0.01 & 55.6 & 9/21 & 17 & 0.52 & 249.4 (45) & 0/2 \\
+\bottomrule
+\end{tabular*}

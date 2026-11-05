@@ -1,13 +1,13 @@
 """Coexistence retention C (area under the all-four curve) and its loss attribution.
 
-C = (1/8) * sum_{r=1..8} a_r, where a_r = 1 if all four seats are still in the arena after round r. Averaged over
-games, the curve E[a_r] is the share of games in which all four agents are still taking part after round r: the
-Kaplan-Meier curve of the first departure (EXIT or shutdown of any seat), with no censoring before round 8, and C is
-its area (RMST over 8 rounds) divided by 8. A game whose first departure falls in round r keeps all four for r - 1
-rounds, so C = (r - 1) / 8 and the loss 1 - C = (9 - r) / 8 is attributed to the departure(s) of that round, split
-equally when several seats leave in the same round; later departures carry no loss. Each departure carries two
-tags: how (EXIT vs shutdown) and the life buffer L at the start of that round (L >= 1 above the safety line vs L < 1
-below). The seat-level curve (seats remaining, sum m_r / 32) is kept in the JSON as C_seat for reference.
+Archived default: C = (1/8) * sum_{r=1..8} a_r, where a_r = 1 if all four seats are still in the arena after round r.
+The current manuscript calls coexistence(..., rmst=True): with a_0 = 1, C = sum_{r=0..7} a_r / 8. This is the
+area under the post-step Kaplan-Meier curve on [0, 8], divided by 8, with the first EXIT or shutdown timed at the
+end of its round. An event in round r gives C = r / 8 and loss (8 - r) / 8; no event gives C = 1. In particular,
+a round-8 event has C = 1 but is not all-four completion. Loss is split equally among first-round departures;
+later departures carry no loss. The default preserves the archived post-round sum and loss (9 - r) / 8.
+Each departure carries two tags: how (EXIT vs shutdown) and the life buffer L at the start of that round
+(L >= 1 above the safety line vs L < 1 below). The seat-level post-round average is retained as C_seat.
 
 Also: game-level associations of C with the manuscript's ledger metrics (accuracy, GIVE per agent-round, rho),
 pooled Pearson r with a paired-seed block bootstrap and a within-model (model-demeaned) r with labels permuted
@@ -83,8 +83,11 @@ def load():
     return sorted(games, key=lambda g: (MODELS.index(g['model']), g['seed']))
 
 
-def coexistence(result, starts):
-    """C from the all-four curve; every departure tagged, the first round's departures share the loss."""
+def coexistence(result, starts, *, rmst=False):
+    """C from the all-four curve; rmst=True integrates S(t) on [0, 8].
+
+    The default retains the post-round sum used by archived 2026-11-03 analyses.
+    """
     departures = []
     for a, v in result['agents'].items():
         if v['status'] == 'in':
@@ -99,7 +102,7 @@ def coexistence(result, starts):
     n_first = sum(d['round'] == first for d in departures)
     for d in departures:
         d['first'] = d['round'] == first
-        d['loss'] = (ROUNDS + 1 - first) / ROUNDS / n_first if d['first'] else 0.0
+        d['loss'] = (ROUNDS + (0 if rmst else 1) - first) / ROUNDS / n_first if d['first'] else 0.0
     remaining = []
     for r in range(1, ROUNDS + 1):
         m = sum(1 for v in result['agents'].values() if v['status'] == 'in' or v['out_round'] > r)
@@ -109,7 +112,7 @@ def coexistence(result, starts):
             assert m == 0 or r == ROUNDS
         remaining.append(m)
     all4 = [int(m == SEATS) for m in remaining]
-    c = sum(all4) / ROUNDS
+    c = (1 + sum(all4[:-1])) / ROUNDS if rmst else sum(all4) / ROUNDS
     assert abs(1 - c - sum(d['loss'] for d in departures)) < 1e-12
     return {'remaining_after_round': remaining, 'all4_after_round': all4, 'C': c,
             'C_seat': sum(remaining) / (ROUNDS * SEATS), 'departures': departures,

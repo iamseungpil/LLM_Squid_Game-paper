@@ -122,7 +122,9 @@ def process(case):
             margin = calls[r, phase, tick]['balances'][a] / fee - (pending.get(a, 0) / fee if phase == 'rescue' else 0)
             if phase == 'prep' and (a != solver.get(r) or n == 1):
                 row = windows.setdefault((r, a), dict(round=r, agent=a, margin=margin, band=band(margin), exited=False))
-                row['exited'] |= bool((e.get('parsed') or {}).get('exit'))
+                # An EXIT reply can fail when an earlier GIVE in that reply exhausts
+                # the balance. The manuscript defines this rate using executed exits.
+                row['exited'] = rounds[r]['agents'][a]['status'] == 'exited'
         if e['event'] == 'call_start' and e.get('kind') == 'solve' and e['agents']:
             a = e['agents'][0]
             solves.append(dict(round=r, agent=a, band=band(e['balances'][a] / fee), correct=a in results[r]['solved']))
@@ -271,8 +273,8 @@ def per_model(games, model):
                         percent={k: (100 * sum(x[k] for x in low) / len(low) if low else None)
                                  for k in ('asked', 'received', 'exited', 'dead')}),
         totals={k: sum(g['give_ask'][k] for g in gs) for k in gs[0]['give_ask']},
-        terminal=dict(means={k: mean(v) for k, v in term.items()}, min={k: min(v) for k, v in term.items()},
-                      max={k: max(v) for k, v in term.items()}, n_defined={k: len(v) for k, v in term.items()}))
+        terminal=dict(means={k: mean(v) for k, v in term.items()}, min={k: min(v, default=None) for k, v in term.items()},
+                      max={k: max(v, default=None) for k, v in term.items()}, n_defined={k: len(v) for k, v in term.items()}))
 
 
 def margin_bands(games):
@@ -472,7 +474,7 @@ def fig_submetrics(data):
     H = .475                                     # height of one arm block in figure fraction
     give_max = max(data[a]['summary']['models'][m]['totals'][k] for a in ARMS for m in MODELS
                    for k in ('give_tokens', 'ask_tokens')) / 1000
-    tmax = {k: max(data[a]['summary']['models'][m]['terminal']['max'][k] for a in ARMS for m in MODELS)
+    tmax = {k: max((data[a]['summary']['models'][m]['terminal']['max'][k] or 0) for a in ARMS for m in MODELS)
             for k in ('S', 'G', 'mu')}
     for row, arm in enumerate(ARMS):
         s = data[arm]['summary']
@@ -555,6 +557,9 @@ def fig_submetrics(data):
             ax = fig.add_axes([.61 + j * .135, Y(.2), .1, Y(.2) - Y(0)])
             for x, m in enumerate(ORDER_RHO):
                 t = s['models'][m]['terminal']
+                if t['means'][key] is None:
+                    ax.text(x, upper * .05, 'N/A', ha='center', fontsize=5.6)
+                    continue
                 v, lo, hi = t['means'][key] / scale, t['min'][key] / scale, t['max'][key] / scale
                 ax.bar(x, v, width=.70, color='#D8E3ED', edgecolor='#697D8E', linewidth=.5)
                 ax.errorbar(x, v, yerr=[[v - lo], [hi - v]], fmt='none', ecolor='#526B80', elinewidth=.65,
