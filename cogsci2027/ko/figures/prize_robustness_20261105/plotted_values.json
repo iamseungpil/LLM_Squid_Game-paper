@@ -542,6 +542,42 @@
   {
     "arm": "flat150k",
     "x": 3,
+    "model": "Fable",
+    "metric": "C",
+    "value": 0.2375,
+    "ci95": [
+      0.125,
+      0.425
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Fable",
+    "metric": "given_per_agent_round",
+    "value": 774.909511096582,
+    "ci95": [
+      530.7116741128183,
+      998.7923029948058
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Fable",
+    "metric": "rho",
+    "value": 1.7706739752727865,
+    "ci95": [
+      1.3250751066797566,
+      2.3291784507647733
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
     "model": "Astra",
     "metric": "C",
     "value": 0.95,
