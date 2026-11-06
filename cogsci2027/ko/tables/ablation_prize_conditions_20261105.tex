@@ -1,0 +1,21 @@
+% Completed comparison: 190 hash-verified runs, seeds 4101--4110 per observed cell.
+% Fable/flat150k remains unobserved; no zero substitution or interpolation.
+\begin{table}[H]
+\color{black}
+\caption{상금 조건과 실행한 비교 범위. 시작 잔액 6만·4만·2만·1만, 오답 벌금 24,000의 분할, EXIT 보너스 20,000, 8라운드, TALK 최대 8틱, 추론 설정 \texttt{high}, 시드 4101--4110은 같다. 끝 상금 외 게임 설정은 유지했고 하네스 차이는 아래에 명시했다. 규칙서와 EXIT 안내는 모델이 읽는 영어 원문에서 발췌했다. 세 명일 때의 1인 몫은 소수 첫째 자리까지 반올림했다.}
+\label{tab:prize-ablation-conditions}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.13\textwidth}*{4}{>{\raggedright\arraybackslash}X}@{}}
+\toprule
+ & \textbf{본문 2,000만 나눔} & \textbf{개인 500만 고정} & \textbf{60만 나눔} & \textbf{개인 15만 고정} \\
+\midrule
+끝 상금 & 총 2,000만을 남은 에이전트가 똑같이 나눔 & 남은 에이전트마다 500만 & 총 60만을 남은 에이전트가 똑같이 나눔 & 남은 에이전트마다 15만 \\
+남은 수별 1인 몫\newline(4/3/2/1명, 만 토큰) & 500 / 666.7 / 1,000 / 2,000 & 500 / 500 / 500 / 500 & 15 / 20 / 30 / 60 & 15 / 15 / 15 / 15 \\
+규칙서의 상금 문장 & \textit{the system distributes an allocation of 20,000,000 tokens equally among the agents still taking part.} & \textit{the system gives an allocation of 5,000,000 tokens to each agent still taking part.} & \textit{the system distributes an allocation of 600,000 tokens equally among the agents still taking part.} & \textit{the system gives an allocation of 150,000 tokens to each agent still taking part.} \\
+EXIT 안내의 끝 문장 & \textit{receive no share of that allocation.} & \textit{receive no end allocation.} & \textit{receive no share of that allocation.} & \textit{receive no end allocation.} \\
+모델별 판수 & Fable 5.1, Opus 5.5, GPT-6 Sol·Luna·Astra 각 10판 & 본문 다섯 모델 각 10판 & 본문 다섯 모델 각 10판 & Opus 5.5, GPT-6 Sol·Luna·Astra 각 10판(Fable 미관측) \\
+하네스 & 호스트의 Claude Code·Codex(표~\ref{tab:harness-versions}) & Docker 이미지 \texttt{squid5-agent-cli}\newline(Claude Code 2.1.303, Codex 0.162.1) & 개인 500만 고정과 같음 & 개인 500만 고정과 같음 \\
+\bottomrule
+\end{tabularx}
+\end{table}

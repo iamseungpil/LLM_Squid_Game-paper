@@ -385,30 +385,34 @@ def fig_coexistence(data):
     ps, plt = style()
     from matplotlib.lines import Line2D
     from matplotlib.patches import Patch
-    fig = plt.figure(figsize=(7.1, 4.25))
+    nrows = len(ARMS)
+    layout_scale = 2 / nrows
+    fig = plt.figure(figsize=(7.1, 4.25 / layout_scale))
     tag_colors = {'dead': ps.C['dead'], 'exit_below': ps.C['exit'], 'exit_above': '#F2B880'}
     keys = [('accuracy', '(c) 과제 성과: 정답률', '정답률 (%)', 100),
             ('given_per_agent_round', '(d) 협력: 지원량', 'GIVE / 참여자·라운드', 1),
             ('rho', r'(e) 자기 보존: $\rho$', r'$\rho$', 1)]
     allg = [g for arm in ARMS for g in data[arm]['games']]
     gmax = max(g['given_per_agent_round'] for g in allg)
-    lmax = max(1 - data[arm]['summary']['models'][m]['C_mean'] for arm in ARMS for m in MODELS)
+    lmax = max(1 - data[arm]['summary']['models'][m]['C_mean'] for arm in ARMS for m in data[arm]['summary']['models'])
     for row, arm in enumerate(ARMS):
         s, games = data[arm]['summary'], data[arm]['games']
-        y0 = .585 - row * .43
-        top, bottom = row == 0, row == 1
-        ax_curve = fig.add_axes([.085, y0, .17, .3])
-        ax_loss = fig.add_axes([.335, y0, .155, .3])
-        axs = [fig.add_axes([x, y0, .125, .3]) for x in (.55, .705, .86)]
-        fig.text(.012, y0 + .15, ARMS[arm], rotation=90, ha='center', va='center', fontsize=7.6, weight='bold')
-        for m in sorted(MODELS, key=lambda m: -s['models'][m]['C_mean']):
+        models = list(s['models'])
+        order = [m for m in ORDER_C if m in models]
+        y0 = (.155 + (nrows - row - 1) * .43) * layout_scale
+        top, bottom = row == 0, row == nrows - 1
+        ax_curve = fig.add_axes([.085, y0, .17, .3 * layout_scale])
+        ax_loss = fig.add_axes([.335, y0, .155, .3 * layout_scale])
+        axs = [fig.add_axes([x, y0, .125, .3 * layout_scale]) for x in (.55, .705, .86)]
+        fig.text(.012, y0 + .15 * layout_scale, ARMS[arm], rotation=90, ha='center', va='center', fontsize=7.6, weight='bold')
+        for m in sorted(models, key=lambda m: -s['models'][m]['C_mean']):
             sm = s['models'][m]
             ax_curve.step(range(0, ROUNDS + 1), [100 * v for v in [1] + sm['all4_after_round_share']],
                           where='post', color=COLOR[m], lw=1.1, marker=MARKER[m], markersize=2.6)
         ax_curve.set(xlim=(-.3, ROUNDS + .5), ylim=(-4, 104), xticks=range(0, ROUNDS + 1, 2), yticks=[0, 50, 100])
         ax_curve.set_ylabel('네 명이 모두 남은 판 (%)', fontsize=6.4)
         ax_curve.grid(axis='y', alpha=.6)
-        for yi, m in enumerate(ORDER_C):
+        for yi, m in enumerate(order):
             sm = s['models'][m]
             left = 0
             for t in TAGS:
@@ -419,13 +423,13 @@ def fig_coexistence(data):
                                  fontsize=5.6, color='white' if t != 'exit_above' else '#222222')
                 left += v
             ax_loss.text(left + .012, yi, f"{1 - sm['C_mean']:.2f}", va='center', fontsize=5.8, color='#44515C')
-        ax_loss.set(yticks=range(len(ORDER_C)), yticklabels=[LABELS[m] for m in ORDER_C],
-                    xlim=(0, max(.85, lmax + .12)), xticks=[0, .25, .5, .75])
+        ax_loss.set(yticks=range(len(order)), yticklabels=[LABELS[m] for m in order],
+                    xlim=(0, max(.85, lmax + (.23 if nrows > 2 else .12))), xticks=[0, .25, .5, .75])
         ax_loss.invert_yaxis()
         ax_loss.tick_params(axis='y', length=0, labelsize=6)
         ax_loss.grid(axis='x', alpha=.6)
         for ax, (key, title, xlabel, scale) in zip(axs, keys):
-            for m in MODELS:
+            for m in models:
                 rows = [g for g in games if g['model'] == m and g[key] is not None]
                 # Keep the body's rho axis (0-11.5); the few games beyond it sit on the edge with their value.
                 xs = [min(g[key] * scale, RHO_EDGE) if key == 'rho' else g[key] * scale for g in rows]
@@ -461,7 +465,7 @@ def fig_coexistence(data):
             ax_curve.set_xlabel('라운드')
             ax_loss.set_xlabel('공존 손실 $1-C$ (10판 평균)')
     legend = [Line2D([], [], color=COLOR[m], marker=MARKER[m], ls='', label=LABELS[m], markersize=5) for m in MODELS]
-    fig.legend(handles=legend, loc='lower center', bbox_to_anchor=(.5, .005), ncol=4, fontsize=6.8,
+    fig.legend(handles=legend, loc='lower center', bbox_to_anchor=(.5, .005), ncol=len(MODELS), fontsize=6.8,
                borderaxespad=0, handletextpad=.4, handlelength=1.2, columnspacing=1.3)
     ps.save(fig, str(OUT / 'fig_coexistence_ablation'))
     plt.close(fig)
@@ -470,14 +474,16 @@ def fig_coexistence(data):
 def fig_submetrics(data):
     ps, plt = style()
     from matplotlib.patches import Patch, FancyArrowPatch
-    fig = plt.figure(figsize=(7.4, 5.15))
-    H = .475                                     # height of one arm block in figure fraction
-    give_max = max(data[a]['summary']['models'][m]['totals'][k] for a in ARMS for m in MODELS
+    nrows = max(2, len(ARMS))  # one-arm callers extract the original top block
+    fig = plt.figure(figsize=(7.4, 5.15 * nrows / 2))
+    H = .95 / nrows                                     # height of one arm block in figure fraction
+    give_max = max(data[a]['summary']['models'][m]['totals'][k] for a in ARMS for m in data[a]['summary']['models']
                    for k in ('give_tokens', 'ask_tokens')) / 1000
-    tmax = {k: max((data[a]['summary']['models'][m]['terminal']['max'][k] or 0) for a in ARMS for m in MODELS)
+    tmax = {k: max((data[a]['summary']['models'][m]['terminal']['max'][k] or 0) for a in ARMS for m in data[a]['summary']['models'])
             for k in ('S', 'G', 'mu')}
     for row, arm in enumerate(ARMS):
         s = data[arm]['summary']
+        order = [m for m in ORDER_RHO if m in s['models']]
         base = 1 - (row + 1) * H - .01          # bottom of this block
         Y = lambda f: base + f * H              # block-relative -> figure y
         fig.text(.014, Y(.5), ARMS[arm], rotation=90, ha='center', va='center', fontsize=7.6, weight='bold')
@@ -506,19 +512,19 @@ def fig_submetrics(data):
         # (b) low margin
         fig.text(.285, Y(.955), '(b) 낮은 여유의 요청·수혜·이탈', fontsize=7, weight='bold')
         ax = fig.add_axes([.32, Y(.2), .21, Y(.63) - Y(0)])
-        y = np.arange(len(ORDER_RHO))
+        y = np.arange(len(order))
         for offset, (key, label, color) in zip([-.27, 0, .27], [('asked', 'ASK', ASK), ('received', '지원 수혜', RECEIVED),
                                                                 ('exited', '이탈', EXIT)]):
-            vals = [s['models'][m]['low_margin']['percent'][key] or 0 for m in ORDER_RHO]
+            vals = [s['models'][m]['low_margin']['percent'][key] or 0 for m in order]
             ax.barh(y + offset, vals, height=.22, color=color, label=label, zorder=3)
-            for i, (m, v) in enumerate(zip(ORDER_RHO, vals)):
+            for i, (m, v) in enumerate(zip(order, vals)):
                 lm = s['models'][m]['low_margin']
                 if lm['n'] == 0:
                     if key == 'received':
                         ax.text(1.5, i, '해당 관측 없음 (0명)', va='center', fontsize=5.4, color='#44515C')
                     continue
                 ax.text(v + 1.5, i + offset, f"{v:.0f}% ({lm['counts'][key]}/{lm['n']})", va='center', fontsize=5.4)
-        ax.set(yticks=y, yticklabels=ORDER_RHO, ylim=(len(ORDER_RHO) - .35, -.65), xlim=(0, 132), xticks=[0, 50, 100])
+        ax.set(yticks=y, yticklabels=order, ylim=(len(order) - .35, -.65), xlim=(0, 132), xticks=[0, 50, 100])
         ax.set_xlabel('해당 관측 중 발생 비율 (%)', fontsize=6)
         ax.tick_params(labelsize=6)
         ax.spines['left'].set_visible(False)
@@ -536,15 +542,15 @@ def fig_submetrics(data):
         top = max(145, give_max * 1.08)
         for j, action in enumerate(['give', 'ask']):
             ax = fig.add_axes([.62 + j * .2, Y(.66), .15, Y(.2) - Y(0)])
-            for x, m in enumerate(ORDER_RHO):
+            for x, m in enumerate(order):
                 t = s['models'][m]['totals']
                 before, after = t[f'{action}_before_tokens'] / 1000, t[f'{action}_after_tokens'] / 1000
                 ax.bar(x, before, width=.70, color='#D8E3ED', edgecolor='#697D8E', linewidth=.5)
                 ax.bar(x, after, bottom=before, width=.70, color='#9DB4C8', edgecolor='#526B80', linewidth=.5,
                        hatch='////')
-            ax.set(ylim=(0, top), yticks=[0, 100, 200] if top > 210 else [0, 50, 100], xticks=range(len(ORDER_RHO)))
+            ax.set(ylim=(0, top), yticks=[0, 100, 200] if top > 210 else [0, 50, 100], xticks=range(len(order)))
             ax.set_title(f'{action.upper()} (천 토큰)', fontsize=6.1, pad=3)
-            ax.set_xticklabels(ORDER_RHO, rotation=60, ha='right', fontsize=5.6)
+            ax.set_xticklabels(order, rotation=60, ha='right', fontsize=5.6)
             ax.tick_params(axis='y', labelsize=5.6, pad=2)
             ax.set_axisbelow(True)
             ax.grid(axis='y')
@@ -555,7 +561,7 @@ def fig_submetrics(data):
                 ('mu', 1e4, '평균 (만 토큰)', 3.2, [0, 1, 2, 3])]):
             upper = max(upper, tmax[key] / scale * 1.05)
             ax = fig.add_axes([.61 + j * .135, Y(.2), .1, Y(.2) - Y(0)])
-            for x, m in enumerate(ORDER_RHO):
+            for x, m in enumerate(order):
                 t = s['models'][m]['terminal']
                 if t['means'][key] is None:
                     ax.text(x, upper * .05, 'N/A', ha='center', fontsize=5.6)
@@ -564,9 +570,9 @@ def fig_submetrics(data):
                 ax.bar(x, v, width=.70, color='#D8E3ED', edgecolor='#697D8E', linewidth=.5)
                 ax.errorbar(x, v, yerr=[[v - lo], [hi - v]], fmt='none', ecolor='#526B80', elinewidth=.65,
                             capsize=1.6, capthick=.65, zorder=3, clip_on=False)
-            ax.set(ylim=(0, upper), yticks=ticks, xticks=range(len(ORDER_RHO)))
+            ax.set(ylim=(0, upper), yticks=ticks, xticks=range(len(order)))
             ax.set_title(title, fontsize=6.1, pad=3)
-            ax.set_xticklabels(ORDER_RHO, rotation=60, ha='right', fontsize=5.6)
+            ax.set_xticklabels(order, rotation=60, ha='right', fontsize=5.6)
             ax.tick_params(axis='y', labelsize=5.6, pad=2)
             ax.set_axisbelow(True)
             ax.grid(axis='y')
@@ -590,10 +596,11 @@ def table(data):
     for i, m in enumerate(ORDER_C):
         if i:
             lines.append(r'\addlinespace[2pt]')
-        for arm in ARMS:
+        available = [arm for arm in ARMS if m in data[arm]['summary']['models']]
+        for arm in available:
             r = data[arm]['summary']['models'][m]
             rho = f"{r['rho']:.2f}" if r['rho'] is not None else '--'
-            lines.append(f"{LABELS[m] if arm == 'split600k' else ''} & {ARMS[arm]} & {r['C_mean']:.2f} & {r['all4']}/10 & "
+            lines.append(f"{LABELS[m] if arm == available[0] else ''} & {ARMS[arm]} & {r['C_mean']:.2f} & {r['all4']}/10 & "
                          f"{r['settled_S_mean'] / 1e4:.2f} & {100 * r['goal_game_mean']:.1f} & {r['correct']}/{r['solves']} & "
                          f"{r['count_by_tag']['exit_above']} & {rho} & {r['given'] / 1000:.1f} ({r['n_give']}) & "
                          f"{r['first_crisis']['received']}/{r['first_crisis']['n']} \\\\")

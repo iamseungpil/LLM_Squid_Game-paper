@@ -13,6 +13,7 @@ from unittest.mock import patch
 import numpy as np
 
 import update_cohorts_20261104 as old
+import table1_metrics_20261105 as table1
 
 ROOT, ab, cx, fb = old.ROOT, old.ab, old.cx, old.fb
 STAMP = '20261105'
@@ -75,7 +76,10 @@ def main():
         payload[name] = data
         (ROOT / f'results/cohort_{name}_{STAMP}.json').write_text(json.dumps(data, ensure_ascii=False, indent=1))
         if name in ('public', 'open'):
-            (ROOT / f'ko/tables/cohort_{name}_{STAMP}.tex').write_text(old.table(data))
+            if name == 'public':
+                table1.write(data)
+            else:
+                (ROOT / f'ko/tables/cohort_{name}_{STAMP}.tex').write_text(old.table(data))
             with patch.object(old, 'OUT', OUT):
                 old.figures(data, name)
         print(name, 'C', data['summary']['C_mean'], flush=True)

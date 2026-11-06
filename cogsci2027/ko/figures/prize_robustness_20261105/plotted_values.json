@@ -1,0 +1,686 @@
+[
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Fable",
+    "metric": "C",
+    "value": 0.475,
+    "ci95": [
+      0.2625,
+      0.7125
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Fable",
+    "metric": "given_per_agent_round",
+    "value": 707.4036130536131,
+    "ci95": [
+      426.6456351981352,
+      1045.1239495920745
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Fable",
+    "metric": "rho",
+    "value": 2.9724513728587074,
+    "ci95": [
+      2.271496195994965,
+      4.097623859364417
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Astra",
+    "metric": "C",
+    "value": 0.9125,
+    "ci95": [
+      0.7625,
+      1.0
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Astra",
+    "metric": "given_per_agent_round",
+    "value": 569.3070652173913,
+    "ci95": [
+      357.7445652173913,
+      771.4945652173913
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Astra",
+    "metric": "rho",
+    "value": 2.3737671456317564,
+    "ci95": [
+      2.0765588228755423,
+      2.9864660445402023
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Sol",
+    "metric": "C",
+    "value": 0.6875,
+    "ci95": [
+      0.5125,
+      0.85
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Sol",
+    "metric": "given_per_agent_round",
+    "value": 576.6329770114942,
+    "ci95": [
+      281.96755517241377,
+      881.8802083333333
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Sol",
+    "metric": "rho",
+    "value": 2.2779408807095884,
+    "ci95": [
+      1.5695503121201384,
+      4.086524830366455
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Opus",
+    "metric": "C",
+    "value": 0.525,
+    "ci95": [
+      0.3125,
+      0.7375
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Opus",
+    "metric": "given_per_agent_round",
+    "value": 988.3206452241715,
+    "ci95": [
+      562.5334461500975,
+      1405.0518707602337
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Opus",
+    "metric": "rho",
+    "value": 1.6650946410943603,
+    "ci95": [
+      1.2936442986237267,
+      2.5566765393361846
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Luna",
+    "metric": "C",
+    "value": 0.3875,
+    "ci95": [
+      0.325,
+      0.45
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Luna",
+    "metric": "given_per_agent_round",
+    "value": 486.1352331002331,
+    "ci95": [
+      201.18804454804453,
+      790.7913021885519
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "main",
+    "x": 0,
+    "model": "Luna",
+    "metric": "rho",
+    "value": 2.6052149067749366,
+    "ci95": [
+      1.339980004195855,
+      4.682452081554081
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Fable",
+    "metric": "C",
+    "value": 0.7125,
+    "ci95": [
+      0.5,
+      0.9125
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Fable",
+    "metric": "given_per_agent_round",
+    "value": 1334.0261754930802,
+    "ci95": [
+      923.2152173913043,
+      1785.7323534719953
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Fable",
+    "metric": "rho",
+    "value": 2.0328570790733322,
+    "ci95": [
+      1.6656189202837308,
+      2.637983115555753
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Astra",
+    "metric": "C",
+    "value": 1.0,
+    "ci95": [
+      1.0,
+      1.0
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Astra",
+    "metric": "given_per_agent_round",
+    "value": 817.1875,
+    "ci95": [
+      625.0,
+      1023.4375
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Astra",
+    "metric": "rho",
+    "value": 1.903629280035767,
+    "ci95": [
+      1.604092404540516,
+      2.3073312657839873
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Sol",
+    "metric": "C",
+    "value": 0.7,
+    "ci95": [
+      0.5,
+      0.8875
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Sol",
+    "metric": "given_per_agent_round",
+    "value": 733.97049689441,
+    "ci95": [
+      399.09326475155274,
+      1098.8874999999998
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Sol",
+    "metric": "rho",
+    "value": 2.1021926383620912,
+    "ci95": [
+      1.8478461267483601,
+      2.832845711523746
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Opus",
+    "metric": "C",
+    "value": 0.5625,
+    "ci95": [
+      0.3875,
+      0.7375
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Opus",
+    "metric": "given_per_agent_round",
+    "value": 1313.2813691383858,
+    "ci95": [
+      930.5147767088677,
+      1673.6792513964322
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Opus",
+    "metric": "rho",
+    "value": 1.625404848567976,
+    "ci95": [
+      1.3503232627647268,
+      2.1369055762597657
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Luna",
+    "metric": "C",
+    "value": 0.375,
+    "ci95": [
+      0.275,
+      0.5125
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Luna",
+    "metric": "given_per_agent_round",
+    "value": 402.18434171209105,
+    "ci95": [
+      137.73715909090913,
+      703.3452773579787
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat5m",
+    "x": 1,
+    "model": "Luna",
+    "metric": "rho",
+    "value": 2.3988257115555918,
+    "ci95": [
+      1.3738609544390405,
+      3.9016335089438283
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Fable",
+    "metric": "C",
+    "value": 0.1625,
+    "ci95": [
+      0.125,
+      0.2
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Fable",
+    "metric": "given_per_agent_round",
+    "value": 506.1333333333333,
+    "ci95": [
+      190.74395833333332,
+      870.5804166666662
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Fable",
+    "metric": "rho",
+    "value": 1.4061960656327146,
+    "ci95": [
+      1.1770062019621732,
+      2.3897185388151296
+    ],
+    "defined_draws": 9999
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Astra",
+    "metric": "C",
+    "value": 1.0,
+    "ci95": [
+      1.0,
+      1.0
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Astra",
+    "metric": "given_per_agent_round",
+    "value": 689.0625,
+    "ci95": [
+      525.0,
+      860.9375
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Astra",
+    "metric": "rho",
+    "value": 2.3088156857038387,
+    "ci95": [
+      2.0841714273314262,
+      2.7057654562616893
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Sol",
+    "metric": "C",
+    "value": 0.3625,
+    "ci95": [
+      0.275,
+      0.45
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Sol",
+    "metric": "given_per_agent_round",
+    "value": 149.3915343915344,
+    "ci95": [
+      22.22222222222222,
+      311.9312169312169
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Sol",
+    "metric": "rho",
+    "value": 4.624017982526853,
+    "ci95": [
+      3.3173588183684095,
+      11.371875508953707
+    ],
+    "defined_draws": 9940
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Opus",
+    "metric": "C",
+    "value": 0.5125,
+    "ci95": [
+      0.325,
+      0.7125
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Opus",
+    "metric": "given_per_agent_round",
+    "value": 833.7638868315593,
+    "ci95": [
+      599.4104325738915,
+      1074.6313238557418
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Opus",
+    "metric": "rho",
+    "value": 2.2122071299627963,
+    "ci95": [
+      1.754243954773097,
+      2.938124144317467
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Luna",
+    "metric": "C",
+    "value": 0.3125,
+    "ci95": [
+      0.225,
+      0.4
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Luna",
+    "metric": "given_per_agent_round",
+    "value": 489.2915113871635,
+    "ci95": [
+      160.90600414078676,
+      887.717463768116
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "split600k",
+    "x": 2,
+    "model": "Luna",
+    "metric": "rho",
+    "value": 1.741826986378836,
+    "ci95": [
+      0.9566752934308899,
+      2.8137102698645218
+    ],
+    "defined_draws": 9999
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Astra",
+    "metric": "C",
+    "value": 0.95,
+    "ci95": [
+      0.85,
+      1.0
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Astra",
+    "metric": "given_per_agent_round",
+    "value": 615.625,
+    "ci95": [
+      503.125,
+      746.875
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Astra",
+    "metric": "rho",
+    "value": 2.4133807328074552,
+    "ci95": [
+      2.133383661803572,
+      2.8600303220756467
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Sol",
+    "metric": "C",
+    "value": 0.45,
+    "ci95": [
+      0.2625,
+      0.6625
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Sol",
+    "metric": "given_per_agent_round",
+    "value": 732.9885734635734,
+    "ci95": [
+      297.96999007936506,
+      1339.1620993589743
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Sol",
+    "metric": "rho",
+    "value": 1.6566234313957202,
+    "ci95": [
+      1.2343417138875845,
+      2.5103036419634934
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Opus",
+    "metric": "C",
+    "value": 0.3375,
+    "ci95": [
+      0.225,
+      0.45
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Opus",
+    "metric": "given_per_agent_round",
+    "value": 594.5580805159752,
+    "ci95": [
+      313.66130494505495,
+      882.7185862383229
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Opus",
+    "metric": "rho",
+    "value": 1.6561913865395275,
+    "ci95": [
+      1.212348862304637,
+      2.6725251677796664
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Luna",
+    "metric": "C",
+    "value": 0.35,
+    "ci95": [
+      0.275,
+      0.4125
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Luna",
+    "metric": "given_per_agent_round",
+    "value": 599.2026634064997,
+    "ci95": [
+      366.8016708355583,
+      874.2871071170945
+    ],
+    "defined_draws": 10000
+  },
+  {
+    "arm": "flat150k",
+    "x": 3,
+    "model": "Luna",
+    "metric": "rho",
+    "value": 2.4256331710303765,
+    "ci95": [
+      1.7386333159155778,
+      3.651188577211818
+    ],
+    "defined_draws": 10000
+  }
+]
