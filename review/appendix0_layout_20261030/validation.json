@@ -1,0 +1,14 @@
+{
+  "full_pages": 62,
+  "body_pages": 7,
+  "historical_appendix_pages_pixel_and_text_equal": 53,
+  "changed_tex": [
+    "paper/cogsci2027/ko/sections/03_analysis.tex",
+    "paper/cogsci2027/ko/sections/00_appendix0_section32.tex"
+  ],
+  "main_outside_table_unchanged": true,
+  "delivery_pdfs": [
+    "ko_cogsci2027_2026-10-30.pdf",
+    "ko_cogsci2027_2026-10-30_no_appendix.pdf"
+  ]
+}

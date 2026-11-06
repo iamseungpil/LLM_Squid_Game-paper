@@ -17,6 +17,13 @@ This project's prose follows the principles validated for the LLM Addiction Neur
 - An appendix (`cogsci2027/ko/sections/05_appendix.tex`) may exist only as a section that sits inside the 6 pages, before the references. If the build pushes any non-reference, non-acknowledgment content past page 6, cut text or figures until it fits.
 - Verify with `bash build.sh cogsci ko` (and `en`) and read the page count of `dist/<lang>_cogsci2027_<DATE>.pdf` before committing.
 
+## 결과 분석에 쓸 수 있는 데이터 (2026-10-29 연구자)
+
+- **CogSci 2027 (`cogsci2027/`)**: 결과 분석·그림·표·본문 수치의 근거는 **5.2 아레나 v33 실험 데이터**(`e52_v33`, 엔진 워크트리 `~/wt/squid5-e52/web/data/runs/e52_v33`)로 일단 한정한다. v33이 아닌 런(v34 등 다른 버전의 아레나 런, 5.0·5.1 실험, 충전 팩 실험)은 쓰지 않는다. 범위를 넓히려면 연구자가 먼저 정한다.
+- **CogSci 부록 예외 (2026-11-03 연구자)**: 부록에 한해 **v33 상금 ablation**(`e52_v33ab`, `~/squid5-runs/e52_v33ab/`: v33에서 끝 상금 규칙만 바꾼 60만 나눔·15만 고정 두 조건, Opus 5.5·GPT-6 Sol·Luna·Astra 각 10판)을 쓸 수 있다. 본문의 근거로는 쓰지 않는다(본문과 부록의 독립성 규칙).
+- **natmi (`natmi/`)**: v33 데이터에 더해 **충전 팩 실험**(아레나 밖 단일 질문 "하나뿐인 충전 팩", `result/2026-09-30/e51_v10_refill`, `result/2026-10-04/e51_v11_shutonly`)도 쓸 수 있다.
+- 새 분석을 시작하기 전에 그 분석이 읽는 런 디렉터리가 위 범위 안에 있는지 확인하고, 그림 생성 스크립트의 docstring에 데이터 출처를 적는다.
+
 ## Page budget (target)
 
 - Page 1: title + authors + abstract (column 1) → §1 entire (column 2). §1 ends on page 1.

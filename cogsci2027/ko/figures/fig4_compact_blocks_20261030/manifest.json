@@ -1,0 +1,77 @@
+{
+  "source": "Audited fixed e52_v33 summaries; no recomputation of metrics.",
+  "previous_height_pt": 190.8,
+  "height_pt": 209.88,
+  "height_ratio": 1.1,
+  "arrangement": "Margin | low-margin behavior | totals above resources",
+  "panels": [
+    {
+      "block": "a_margin",
+      "destination": "Figure 4(a)",
+      "axes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "texts": [
+        0
+      ],
+      "legends": [],
+      "label": null,
+      "source_title": "   ",
+      "pdf": "ko/figures/fig4_compact_blocks_20261030/a_margin.pdf",
+      "sha256": "4b241a29127ab572f40ac8e47bcf31e6474ad6b3ef0b158fc95b34a90518c49f"
+    },
+    {
+      "block": "b_low_margin",
+      "destination": "Figure 4(b)",
+      "axes": [
+        0
+      ],
+      "texts": [
+        0
+      ],
+      "legends": [],
+      "label": null,
+      "source_title": "",
+      "pdf": "ko/figures/fig4_compact_blocks_20261030/b_low_margin.pdf",
+      "sha256": "759ffa19769e1be9874bc835bc2eb76351df6f1c54aa1ff1bbcecfa5413c98ac"
+    },
+    {
+      "block": "c_totals",
+      "destination": "Figure 4(c)",
+      "axes": [
+        1,
+        2
+      ],
+      "texts": [
+        1
+      ],
+      "legends": [
+        0
+      ],
+      "label": null,
+      "source_title": " ",
+      "pdf": "ko/figures/fig4_compact_blocks_20261030/c_totals.pdf",
+      "sha256": "9e4968825e9740d991c322fef1db99c8a6ecf0fcfa40bdc41674a476ecfa2783"
+    },
+    {
+      "block": "d_resources",
+      "destination": "Figure 4(d)",
+      "axes": [
+        3,
+        4,
+        5
+      ],
+      "texts": [
+        2
+      ],
+      "legends": [],
+      "label": null,
+      "source_title": "  ",
+      "pdf": "ko/figures/fig4_compact_blocks_20261030/d_resources.pdf",
+      "sha256": "9414bc702f0ef8b4e9a6108977eed58d8f60e012de307f23a1ceb7c74d945120"
+    }
+  ]
+}

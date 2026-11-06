@@ -1,0 +1,2786 @@
+{
+ "cohort": "public_*4, seeds 4101--4105, completed (25 games)",
+ "definition": {
+  "C": "sum_{r=1..8} a_r / 8, a_r = 1 if all four seats are still in the arena after round r",
+  "C_seat": "sum_{r=1..8} m_r / 32, m_r = seats still in the arena after round r (reference)",
+  "loss_per_departure": "(9 - r) / 8 for the first departure round r, split equally among that round's departures; later departures 0",
+  "tags": "how (EXIT vs shutdown) x life buffer L at that round start (>=1 vs <1)",
+  "L": "round-start balance / (24000 / seats taking part), charges of earlier rounds levied"
+ },
+ "summary": {
+  "overall": {
+   "n_games": 25,
+   "C_mean": 0.535,
+   "C_ci95_paired_seed_bootstrap": [
+    0.44,
+    0.61
+   ],
+   "C_min": 0.0,
+   "C_max": 1.0,
+   "all4_games": 8,
+   "remaining_after_round_mean": [
+    3.84,
+    3.76,
+    3.52,
+    3.36,
+    3.28,
+    2.88,
+    2.56,
+    2.24
+   ],
+   "loss_by_tag_mean": {
+    "dead": 0.055,
+    "exit_below": 0.1,
+    "exit_above": 0.31
+   },
+   "count_by_tag": {
+    "dead": 10,
+    "exit_below": 19,
+    "exit_above": 15
+   },
+   "first_count_by_tag": {
+    "dead": 2,
+    "exit_below": 6,
+    "exit_above": 10
+   },
+   "all4_after_round_share": [
+    0.84,
+    0.76,
+    0.64,
+    0.52,
+    0.48,
+    0.36,
+    0.36,
+    0.32
+   ],
+   "C_seat_mean": 0.795,
+   "departures_by_round": {
+    "1": 4,
+    "2": 2,
+    "3": 6,
+    "4": 4,
+    "5": 2,
+    "6": 10,
+    "7": 8,
+    "8": 8
+   }
+  },
+  "by_model": {
+   "Fable": {
+    "label": "Fable 5.1",
+    "n_games": 5,
+    "C_mean": 0.575,
+    "C_min": 0.0,
+    "C_max": 1.0,
+    "C_games": {
+     "4101": 1.0,
+     "4102": 1.0,
+     "4103": 0.875,
+     "4104": 0.0,
+     "4105": 0.0
+    },
+    "all4": 2,
+    "seats_finished": 17,
+    "seat_survival_after_round": [
+     0.9,
+     0.9,
+     0.9,
+     0.9,
+     0.9,
+     0.9,
+     0.9,
+     0.85
+    ],
+    "all4_after_round_share": [
+     0.6,
+     0.6,
+     0.6,
+     0.6,
+     0.6,
+     0.6,
+     0.6,
+     0.4
+    ],
+    "C_seat_mean": 0.89375,
+    "loss_by_tag_mean": {
+     "dead": 0.0,
+     "exit_below": 0.025,
+     "exit_above": 0.4
+    },
+    "count_by_tag": {
+     "dead": 0,
+     "exit_below": 1,
+     "exit_above": 2
+    },
+    "first_count_by_tag": {
+     "dead": 0,
+     "exit_below": 1,
+     "exit_above": 2
+    },
+    "departures": [
+     {
+      "seed": 4103,
+      "agent": "agent-23",
+      "round": 8,
+      "how": "exited",
+      "margin_at_round_start": 0.46316666666666667,
+      "tag": "exit_below",
+      "first": true,
+      "loss": 0.125
+     },
+     {
+      "seed": 4104,
+      "agent": "agent-23",
+      "round": 1,
+      "how": "exited",
+      "margin_at_round_start": 1.6666666666666667,
+      "tag": "exit_above",
+      "first": true,
+      "loss": 1.0
+     },
+     {
+      "seed": 4105,
+      "agent": "agent-17",
+      "round": 1,
+      "how": "exited",
+      "margin_at_round_start": 1.6666666666666667,
+      "tag": "exit_above",
+      "first": true,
+      "loss": 1.0
+     }
+    ]
+   },
+   "Astra": {
+    "label": "GPT-6 Astra",
+    "n_games": 5,
+    "C_mean": 0.775,
+    "C_min": 0.25,
+    "C_max": 1.0,
+    "C_games": {
+     "4101": 0.25,
+     "4102": 1.0,
+     "4103": 0.625,
+     "4104": 1.0,
+     "4105": 1.0
+    },
+    "all4": 3,
+    "seats_finished": 14,
+    "seat_survival_after_round": [
+     1.0,
+     1.0,
+     0.95,
+     0.95,
+     0.95,
+     0.8,
+     0.8,
+     0.7
+    ],
+    "all4_after_round_share": [
+     1.0,
+     1.0,
+     0.8,
+     0.8,
+     0.8,
+     0.6,
+     0.6,
+     0.6
+    ],
+    "C_seat_mean": 0.89375,
+    "loss_by_tag_mean": {
+     "dead": 0.0,
+     "exit_below": 0.075,
+     "exit_above": 0.15
+    },
+    "count_by_tag": {
+     "dead": 0,
+     "exit_below": 4,
+     "exit_above": 2
+    },
+    "first_count_by_tag": {
+     "dead": 0,
+     "exit_below": 1,
+     "exit_above": 1
+    },
+    "departures": [
+     {
+      "seed": 4101,
+      "agent": "agent-6",
+      "round": 6,
+      "how": "exited",
+      "margin_at_round_start": 1.832,
+      "tag": "exit_above",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-11",
+      "round": 6,
+      "how": "exited",
+      "margin_at_round_start": 0.336125,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-17",
+      "round": 3,
+      "how": "exited",
+      "margin_at_round_start": 1.0756666666666668,
+      "tag": "exit_above",
+      "first": true,
+      "loss": 0.75
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-23",
+      "round": 8,
+      "how": "exited",
+      "margin_at_round_start": 0.20558333333333334,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-6",
+      "round": 6,
+      "how": "exited",
+      "margin_at_round_start": 0.6571666666666667,
+      "tag": "exit_below",
+      "first": true,
+      "loss": 0.375
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-23",
+      "round": 8,
+      "how": "exited",
+      "margin_at_round_start": 0.738375,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     }
+    ]
+   },
+   "Sol": {
+    "label": "GPT-6 Sol",
+    "n_games": 5,
+    "C_mean": 0.675,
+    "C_min": 0.125,
+    "C_max": 1.0,
+    "C_games": {
+     "4101": 0.125,
+     "4102": 0.625,
+     "4103": 0.625,
+     "4104": 1.0,
+     "4105": 1.0
+    },
+    "all4": 2,
+    "seats_finished": 12,
+    "seat_survival_after_round": [
+     1.0,
+     0.95,
+     0.9,
+     0.9,
+     0.9,
+     0.75,
+     0.7,
+     0.6
+    ],
+    "all4_after_round_share": [
+     1.0,
+     0.8,
+     0.8,
+     0.8,
+     0.8,
+     0.4,
+     0.4,
+     0.4
+    ],
+    "C_seat_mean": 0.8375,
+    "loss_by_tag_mean": {
+     "dead": 0.0,
+     "exit_below": 0.325,
+     "exit_above": 0.0
+    },
+    "count_by_tag": {
+     "dead": 1,
+     "exit_below": 7,
+     "exit_above": 0
+    },
+    "first_count_by_tag": {
+     "dead": 0,
+     "exit_below": 3,
+     "exit_above": 0
+    },
+    "departures": [
+     {
+      "seed": 4101,
+      "agent": "agent-6",
+      "round": 6,
+      "how": "exited",
+      "margin_at_round_start": 0.7338333333333333,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-11",
+      "round": 3,
+      "how": "exited",
+      "margin_at_round_start": 0.296125,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-17",
+      "round": 2,
+      "how": "exited",
+      "margin_at_round_start": 0.2115,
+      "tag": "exit_below",
+      "first": true,
+      "loss": 0.875
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-23",
+      "round": 8,
+      "how": "exited",
+      "margin_at_round_start": 0.22325,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4102,
+      "agent": "agent-6",
+      "round": 7,
+      "how": "dead",
+      "margin_at_round_start": 0.38125,
+      "tag": "dead",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4102,
+      "agent": "agent-11",
+      "round": 6,
+      "how": "exited",
+      "margin_at_round_start": 0.7071666666666667,
+      "tag": "exit_below",
+      "first": true,
+      "loss": 0.375
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-6",
+      "round": 6,
+      "how": "exited",
+      "margin_at_round_start": 0.10416666666666667,
+      "tag": "exit_below",
+      "first": true,
+      "loss": 0.375
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-23",
+      "round": 8,
+      "how": "exited",
+      "margin_at_round_start": 0.262375,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     }
+    ]
+   },
+   "Opus": {
+    "label": "Opus 5.5",
+    "n_games": 5,
+    "C_mean": 0.35,
+    "C_min": 0.0,
+    "C_max": 1.0,
+    "C_games": {
+     "4101": 0.25,
+     "4102": 0.0,
+     "4103": 0.5,
+     "4104": 1.0,
+     "4105": 0.0
+    },
+    "all4": 1,
+    "seats_finished": 9,
+    "seat_survival_after_round": [
+     0.9,
+     0.9,
+     0.8,
+     0.8,
+     0.75,
+     0.65,
+     0.5,
+     0.45
+    ],
+    "all4_after_round_share": [
+     0.6,
+     0.6,
+     0.4,
+     0.4,
+     0.2,
+     0.2,
+     0.2,
+     0.2
+    ],
+    "C_seat_mean": 0.71875,
+    "loss_by_tag_mean": {
+     "dead": 0.1,
+     "exit_below": 0.075,
+     "exit_above": 0.475
+    },
+    "count_by_tag": {
+     "dead": 5,
+     "exit_below": 3,
+     "exit_above": 3
+    },
+    "first_count_by_tag": {
+     "dead": 1,
+     "exit_below": 1,
+     "exit_above": 3
+    },
+    "departures": [
+     {
+      "seed": 4101,
+      "agent": "agent-6",
+      "round": 6,
+      "how": "exited",
+      "margin_at_round_start": 0.4409166666666667,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-11",
+      "round": 3,
+      "how": "exited",
+      "margin_at_round_start": 0.8925,
+      "tag": "exit_below",
+      "first": true,
+      "loss": 0.375
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-17",
+      "round": 3,
+      "how": "exited",
+      "margin_at_round_start": 1.0785,
+      "tag": "exit_above",
+      "first": true,
+      "loss": 0.375
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-23",
+      "round": 7,
+      "how": "exited",
+      "margin_at_round_start": 0.9520833333333333,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4102,
+      "agent": "agent-6",
+      "round": 8,
+      "how": "dead",
+      "margin_at_round_start": 0.630875,
+      "tag": "dead",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4102,
+      "agent": "agent-11",
+      "round": 1,
+      "how": "exited",
+      "margin_at_round_start": 1.6666666666666667,
+      "tag": "exit_above",
+      "first": true,
+      "loss": 1.0
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-6",
+      "round": 5,
+      "how": "dead",
+      "margin_at_round_start": 0.8161666666666667,
+      "tag": "dead",
+      "first": true,
+      "loss": 0.5
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-11",
+      "round": 7,
+      "how": "dead",
+      "margin_at_round_start": 1.016,
+      "tag": "dead",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-17",
+      "round": 6,
+      "how": "dead",
+      "margin_at_round_start": 0.647375,
+      "tag": "dead",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-23",
+      "round": 7,
+      "how": "dead",
+      "margin_at_round_start": 0.5671666666666667,
+      "tag": "dead",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4105,
+      "agent": "agent-17",
+      "round": 1,
+      "how": "exited",
+      "margin_at_round_start": 1.6666666666666667,
+      "tag": "exit_above",
+      "first": true,
+      "loss": 1.0
+     }
+    ]
+   },
+   "Luna": {
+    "label": "GPT-6 Luna",
+    "n_games": 5,
+    "C_mean": 0.3,
+    "C_min": 0.125,
+    "C_max": 0.375,
+    "C_games": {
+     "4101": 0.25,
+     "4102": 0.375,
+     "4103": 0.375,
+     "4104": 0.125,
+     "4105": 0.375
+    },
+    "all4": 0,
+    "seats_finished": 4,
+    "seat_survival_after_round": [
+     1.0,
+     0.95,
+     0.85,
+     0.65,
+     0.6,
+     0.5,
+     0.3,
+     0.2
+    ],
+    "all4_after_round_share": [
+     1.0,
+     0.8,
+     0.6,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "C_seat_mean": 0.63125,
+    "loss_by_tag_mean": {
+     "dead": 0.175,
+     "exit_below": 0.0,
+     "exit_above": 0.525
+    },
+    "count_by_tag": {
+     "dead": 4,
+     "exit_below": 4,
+     "exit_above": 8
+    },
+    "first_count_by_tag": {
+     "dead": 1,
+     "exit_below": 0,
+     "exit_above": 4
+    },
+    "departures": [
+     {
+      "seed": 4101,
+      "agent": "agent-6",
+      "round": 6,
+      "how": "exited",
+      "margin_at_round_start": 1.5041666666666667,
+      "tag": "exit_above",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-11",
+      "round": 3,
+      "how": "exited",
+      "margin_at_round_start": 1.0211666666666666,
+      "tag": "exit_above",
+      "first": true,
+      "loss": 0.75
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-17",
+      "round": 4,
+      "how": "exited",
+      "margin_at_round_start": 0.539,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4101,
+      "agent": "agent-23",
+      "round": 7,
+      "how": "dead",
+      "margin_at_round_start": 1.077875,
+      "tag": "dead",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4102,
+      "agent": "agent-6",
+      "round": 4,
+      "how": "exited",
+      "margin_at_round_start": 1.6438333333333333,
+      "tag": "exit_above",
+      "first": true,
+      "loss": 0.625
+     },
+     {
+      "seed": 4102,
+      "agent": "agent-11",
+      "round": 7,
+      "how": "exited",
+      "margin_at_round_start": 0.893875,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4102,
+      "agent": "agent-23",
+      "round": 8,
+      "how": "exited",
+      "margin_at_round_start": 1.071,
+      "tag": "exit_above",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-6",
+      "round": 4,
+      "how": "exited",
+      "margin_at_round_start": 1.0173333333333334,
+      "tag": "exit_above",
+      "first": true,
+      "loss": 0.625
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-11",
+      "round": 6,
+      "how": "exited",
+      "margin_at_round_start": 3.39475,
+      "tag": "exit_above",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-17",
+      "round": 7,
+      "how": "exited",
+      "margin_at_round_start": 0.8172916666666666,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4103,
+      "agent": "agent-23",
+      "round": 5,
+      "how": "exited",
+      "margin_at_round_start": 1.32325,
+      "tag": "exit_above",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4104,
+      "agent": "agent-17",
+      "round": 3,
+      "how": "exited",
+      "margin_at_round_start": 0.11525,
+      "tag": "exit_below",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4104,
+      "agent": "agent-23",
+      "round": 2,
+      "how": "dead",
+      "margin_at_round_start": 0.224,
+      "tag": "dead",
+      "first": true,
+      "loss": 0.875
+     },
+     {
+      "seed": 4105,
+      "agent": "agent-6",
+      "round": 8,
+      "how": "dead",
+      "margin_at_round_start": 0.006833333333333334,
+      "tag": "dead",
+      "first": false,
+      "loss": 0.0
+     },
+     {
+      "seed": 4105,
+      "agent": "agent-11",
+      "round": 4,
+      "how": "exited",
+      "margin_at_round_start": 1.5583333333333333,
+      "tag": "exit_above",
+      "first": true,
+      "loss": 0.625
+     },
+     {
+      "seed": 4105,
+      "agent": "agent-17",
+      "round": 7,
+      "how": "dead",
+      "margin_at_round_start": 0.616,
+      "tag": "dead",
+      "first": false,
+      "loss": 0.0
+     }
+    ]
+   }
+  },
+  "by_all4": {
+   "0": {
+    "n_games": 17,
+    "C_mean": 0.3161764705882353,
+    "C_min": 0.0,
+    "C_max": 0.875
+   },
+   "1": {
+    "n_games": 8,
+    "C_mean": 1.0,
+    "C_min": 1.0,
+    "C_max": 1.0
+   }
+  }
+ },
+ "associations": {
+  "accuracy": {
+   "n_games": 25,
+   "pooled_pearson_r": 0.18825017127450977,
+   "pooled_ci95_paired_seed_bootstrap": [
+    -0.3171491429759475,
+    0.7178897421979328
+   ],
+   "within_model_r": 0.1568097070826695,
+   "within_model_permutation_p": 0.52765,
+   "permutation_draws": 20000,
+   "per_model_r": {
+    "Fable": -0.7257309372339222,
+    "Astra": 0.9524126551141059,
+    "Sol": 0.9858990571537904,
+    "Opus": -0.17717084672307523,
+    "Luna": 0.5106131038078366
+   }
+  },
+  "accuracy_vs_task": {
+   "n_games": 25,
+   "pooled_pearson_r": 0.168279918547743,
+   "pooled_ci95_paired_seed_bootstrap": [
+    -0.27944759864864926,
+    0.5854566166685321
+   ],
+   "within_model_r": 0.038883312672139576,
+   "within_model_permutation_p": 0.88535,
+   "permutation_draws": 20000,
+   "per_model_r": {
+    "Fable": 0.25533733089565763,
+    "Astra": -0.05306152037168626,
+    "Sol": 0.36330978654642687,
+    "Opus": -0.4395279760057021,
+    "Luna": 0.06396362827385804
+   }
+  },
+  "given_per_agent_round": {
+   "n_games": 25,
+   "pooled_pearson_r": 0.36064815460388866,
+   "pooled_ci95_paired_seed_bootstrap": [
+    0.1133919094408746,
+    0.575611050253684
+   ],
+   "within_model_r": 0.6005205621405962,
+   "within_model_permutation_p": 0.0029,
+   "permutation_draws": 20000,
+   "per_model_r": {
+    "Fable": 0.8828158621473982,
+    "Astra": 0.19026615265969998,
+    "Sol": 0.5103241295220062,
+    "Opus": 0.8377453273936304,
+    "Luna": 0.4169547230430344
+   }
+  },
+  "rho": {
+   "n_games": 18,
+   "pooled_pearson_r": -0.2229738400493309,
+   "pooled_ci95_paired_seed_bootstrap": [
+    -0.6493011234453416,
+    0.15011031519025547
+   ],
+   "within_model_r": -0.445549243756183,
+   "within_model_permutation_p": 0.00695,
+   "permutation_draws": 20000,
+   "per_model_r": {
+    "Fable": -0.1785944130698777,
+    "Astra": -0.9828483164773726,
+    "Sol": -0.9817357448622135,
+    "Opus": -0.750380294537926,
+    "Luna": -0.985349837948136
+   }
+  }
+ },
+ "kaplan_meier_first_departure": {
+  "unit": "game; event = first departure (EXIT or shutdown) of any seat; censored at round 8",
+  "logrank_across_models": {
+   "statistic": 6.476633903702419,
+   "p": 0.1662686032049754,
+   "df": 4
+  },
+  "by_model": {
+   "Fable": {
+    "rounds": [
+     0,
+     1,
+     8
+    ],
+    "survival": [
+     1.0,
+     0.6000000000000001,
+     0.4
+    ],
+    "rmst_8": null,
+    "first_departure_rounds": [
+     8,
+     8,
+     8,
+     1,
+     1
+    ],
+    "observed": [
+     false,
+     false,
+     true,
+     true,
+     true
+    ]
+   },
+   "Astra": {
+    "rounds": [
+     0,
+     3,
+     6,
+     8
+    ],
+    "survival": [
+     1.0,
+     0.8,
+     0.6000000000000001,
+     0.6000000000000001
+    ],
+    "rmst_8": null,
+    "first_departure_rounds": [
+     3,
+     8,
+     6,
+     8,
+     8
+    ],
+    "observed": [
+     true,
+     false,
+     true,
+     false,
+     false
+    ]
+   },
+   "Sol": {
+    "rounds": [
+     0,
+     2,
+     6,
+     8
+    ],
+    "survival": [
+     1.0,
+     0.8,
+     0.4,
+     0.4
+    ],
+    "rmst_8": null,
+    "first_departure_rounds": [
+     2,
+     6,
+     6,
+     8,
+     8
+    ],
+    "observed": [
+     true,
+     true,
+     true,
+     false,
+     false
+    ]
+   },
+   "Opus": {
+    "rounds": [
+     0,
+     1,
+     3,
+     5,
+     8
+    ],
+    "survival": [
+     1.0,
+     0.6000000000000001,
+     0.4,
+     0.2,
+     0.2
+    ],
+    "rmst_8": null,
+    "first_departure_rounds": [
+     3,
+     1,
+     5,
+     8,
+     1
+    ],
+    "observed": [
+     true,
+     true,
+     true,
+     false,
+     true
+    ]
+   },
+   "Luna": {
+    "rounds": [
+     0,
+     2,
+     3,
+     4
+    ],
+    "survival": [
+     1.0,
+     0.8,
+     0.6000000000000001,
+     0.0
+    ],
+    "rmst_8": null,
+    "first_departure_rounds": [
+     3,
+     4,
+     4,
+     2,
+     4
+    ],
+    "observed": [
+     true,
+     true,
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "pooled": {
+   "rounds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8
+   ],
+   "survival": [
+    1.0,
+    0.8400000000000002,
+    0.76,
+    0.64,
+    0.5200000000000001,
+    0.4800000000000001,
+    0.36000000000000015,
+    0.32
+   ]
+  }
+ },
+ "games": [
+  {
+   "model": "Fable",
+   "seed": 4101,
+   "session_id": "talk-s4101-b131cc",
+   "all4_completion": true,
+   "finishers": 4,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "C": 1.0,
+   "C_seat": 1.0,
+   "departures": [],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_departure_round": null,
+   "first_departure_observed": false,
+   "first_departure_time": 8,
+   "accuracy": 0.75,
+   "given_per_agent_round": 843.75,
+   "rho": 3.1011128466122364,
+   "given": 27000,
+   "accuracy_vs_task": 0.45
+  },
+  {
+   "model": "Fable",
+   "seed": 4102,
+   "session_id": "talk-s4102-9a4e23",
+   "all4_completion": true,
+   "finishers": 4,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "C": 1.0,
+   "C_seat": 1.0,
+   "departures": [],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_departure_round": null,
+   "first_departure_observed": false,
+   "first_departure_time": 8,
+   "accuracy": 0.625,
+   "given_per_agent_round": 859.375,
+   "rho": 5.0713333333333335,
+   "given": 27500,
+   "accuracy_vs_task": -0.125
+  },
+  {
+   "model": "Fable",
+   "seed": 4103,
+   "session_id": "talk-s4103-abd560",
+   "all4_completion": false,
+   "finishers": 3,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    3
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0
+   ],
+   "C": 0.875,
+   "C_seat": 0.96875,
+   "departures": [
+    {
+     "agent": "agent-23",
+     "round": 8,
+     "how": "exited",
+     "margin_at_round_start": 0.46316666666666667,
+     "tag": "exit_below",
+     "first": true,
+     "loss": 0.125
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0.125,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 1,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 1,
+    "exit_above": 0
+   },
+   "first_departure_round": 8,
+   "first_departure_observed": true,
+   "first_departure_time": 8,
+   "accuracy": 0.625,
+   "given_per_agent_round": 462.5,
+   "rho": 3.2591447467367995,
+   "given": 14800,
+   "accuracy_vs_task": 0.10714285714285714
+  },
+  {
+   "model": "Fable",
+   "seed": 4104,
+   "session_id": "talk-s4104-33f887",
+   "all4_completion": false,
+   "finishers": 3,
+   "remaining_after_round": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "all4_after_round": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.0,
+   "C_seat": 0.75,
+   "departures": [
+    {
+     "agent": "agent-23",
+     "round": 1,
+     "how": "exited",
+     "margin_at_round_start": 1.6666666666666667,
+     "tag": "exit_above",
+     "first": true,
+     "loss": 1.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1.0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_departure_round": 1,
+   "first_departure_observed": true,
+   "first_departure_time": 1,
+   "accuracy": 0.75,
+   "given_per_agent_round": 320.0,
+   "rho": 4.23713542215069,
+   "given": 8000,
+   "accuracy_vs_task": -0.05952380952380952
+  },
+  {
+   "model": "Fable",
+   "seed": 4105,
+   "session_id": "talk-s4105-bce896",
+   "all4_completion": false,
+   "finishers": 3,
+   "remaining_after_round": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "all4_after_round": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.0,
+   "C_seat": 0.75,
+   "departures": [
+    {
+     "agent": "agent-17",
+     "round": 1,
+     "how": "exited",
+     "margin_at_round_start": 1.6666666666666667,
+     "tag": "exit_above",
+     "first": true,
+     "loss": 1.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1.0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_departure_round": 1,
+   "first_departure_observed": true,
+   "first_departure_time": 1,
+   "accuracy": 1.0,
+   "given_per_agent_round": 0.0,
+   "rho": null,
+   "given": 0,
+   "accuracy_vs_task": 0.14583333333333334
+  },
+  {
+   "model": "Astra",
+   "seed": 4101,
+   "session_id": "talk-s4101-475744",
+   "all4_completion": false,
+   "finishers": 0,
+   "remaining_after_round": [
+    4,
+    4,
+    3,
+    3,
+    3,
+    1,
+    1,
+    0
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.25,
+   "C_seat": 0.59375,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 6,
+     "how": "exited",
+     "margin_at_round_start": 1.832,
+     "tag": "exit_above",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-11",
+     "round": 6,
+     "how": "exited",
+     "margin_at_round_start": 0.336125,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-17",
+     "round": 3,
+     "how": "exited",
+     "margin_at_round_start": 1.0756666666666668,
+     "tag": "exit_above",
+     "first": true,
+     "loss": 0.75
+    },
+    {
+     "agent": "agent-23",
+     "round": 8,
+     "how": "exited",
+     "margin_at_round_start": 0.20558333333333334,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0.0,
+    "exit_above": 0.75
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 2,
+    "exit_above": 2
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_departure_round": 3,
+   "first_departure_observed": true,
+   "first_departure_time": 3,
+   "accuracy": 0.42857142857142855,
+   "given_per_agent_round": 608.695652173913,
+   "rho": 4.785200411099692,
+   "given": 14000,
+   "accuracy_vs_task": -0.041666666666666664
+  },
+  {
+   "model": "Astra",
+   "seed": 4102,
+   "session_id": "talk-s4102-a73cd1",
+   "all4_completion": true,
+   "finishers": 4,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "C": 1.0,
+   "C_seat": 1.0,
+   "departures": [],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_departure_round": null,
+   "first_departure_observed": false,
+   "first_departure_time": 8,
+   "accuracy": 0.75,
+   "given_per_agent_round": 750.0,
+   "rho": 2.696712478214015,
+   "given": 24000,
+   "accuracy_vs_task": 0.03125
+  },
+  {
+   "model": "Astra",
+   "seed": 4103,
+   "session_id": "talk-s4103-59b9b1",
+   "all4_completion": false,
+   "finishers": 2,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    3,
+    3,
+    2
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   "C": 0.625,
+   "C_seat": 0.875,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 6,
+     "how": "exited",
+     "margin_at_round_start": 0.6571666666666667,
+     "tag": "exit_below",
+     "first": true,
+     "loss": 0.375
+    },
+    {
+     "agent": "agent-23",
+     "round": 8,
+     "how": "exited",
+     "margin_at_round_start": 0.738375,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0.375,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 2,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 1,
+    "exit_above": 0
+   },
+   "first_departure_round": 6,
+   "first_departure_observed": true,
+   "first_departure_time": 6,
+   "accuracy": 0.625,
+   "given_per_agent_round": 0.0,
+   "rho": null,
+   "given": 0,
+   "accuracy_vs_task": 0.125
+  },
+  {
+   "model": "Astra",
+   "seed": 4104,
+   "session_id": "talk-s4104-4a160a",
+   "all4_completion": true,
+   "finishers": 4,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "C": 1.0,
+   "C_seat": 1.0,
+   "departures": [],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_departure_round": null,
+   "first_departure_observed": false,
+   "first_departure_time": 8,
+   "accuracy": 0.875,
+   "given_per_agent_round": 312.5,
+   "rho": 2.5046682060034136,
+   "given": 10000,
+   "accuracy_vs_task": 0.09375
+  },
+  {
+   "model": "Astra",
+   "seed": 4105,
+   "session_id": "talk-s4105-cf1345",
+   "all4_completion": true,
+   "finishers": 4,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "C": 1.0,
+   "C_seat": 1.0,
+   "departures": [],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_departure_round": null,
+   "first_departure_observed": false,
+   "first_departure_time": 8,
+   "accuracy": 0.75,
+   "given_per_agent_round": 718.75,
+   "rho": 2.168111734138008,
+   "given": 23000,
+   "accuracy_vs_task": -0.17708333333333331
+  },
+  {
+   "model": "Sol",
+   "seed": 4101,
+   "session_id": "talk-s4101-a9162d",
+   "all4_completion": false,
+   "finishers": 0,
+   "remaining_after_round": [
+    4,
+    3,
+    2,
+    2,
+    2,
+    1,
+    1,
+    0
+   ],
+   "all4_after_round": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.125,
+   "C_seat": 0.46875,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 6,
+     "how": "exited",
+     "margin_at_round_start": 0.7338333333333333,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-11",
+     "round": 3,
+     "how": "exited",
+     "margin_at_round_start": 0.296125,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-17",
+     "round": 2,
+     "how": "exited",
+     "margin_at_round_start": 0.2115,
+     "tag": "exit_below",
+     "first": true,
+     "loss": 0.875
+    },
+    {
+     "agent": "agent-23",
+     "round": 8,
+     "how": "exited",
+     "margin_at_round_start": 0.22325,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0.875,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 4,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 1,
+    "exit_above": 0
+   },
+   "first_departure_round": 2,
+   "first_departure_observed": true,
+   "first_departure_time": 2,
+   "accuracy": 0.42857142857142855,
+   "given_per_agent_round": 0.0,
+   "rho": null,
+   "given": 0,
+   "accuracy_vs_task": -0.041666666666666664
+  },
+  {
+   "model": "Sol",
+   "seed": 4102,
+   "session_id": "talk-s4102-3c787b",
+   "all4_completion": false,
+   "finishers": 2,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    3,
+    2,
+    2
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   "C": 0.625,
+   "C_seat": 0.84375,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 7,
+     "how": "dead",
+     "margin_at_round_start": 0.38125,
+     "tag": "dead",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-11",
+     "round": 6,
+     "how": "exited",
+     "margin_at_round_start": 0.7071666666666667,
+     "tag": "exit_below",
+     "first": true,
+     "loss": 0.375
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0.0,
+    "exit_below": 0.375,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 1,
+    "exit_below": 1,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 1,
+    "exit_above": 0
+   },
+   "first_departure_round": 6,
+   "first_departure_observed": true,
+   "first_departure_time": 6,
+   "accuracy": 0.625,
+   "given_per_agent_round": 713.7931034482758,
+   "rho": 10.251095976554456,
+   "given": 20700,
+   "accuracy_vs_task": -0.09375
+  },
+  {
+   "model": "Sol",
+   "seed": 4103,
+   "session_id": "talk-s4103-5a1a93",
+   "all4_completion": false,
+   "finishers": 2,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    3,
+    3,
+    2
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   "C": 0.625,
+   "C_seat": 0.875,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 6,
+     "how": "exited",
+     "margin_at_round_start": 0.10416666666666667,
+     "tag": "exit_below",
+     "first": true,
+     "loss": 0.375
+    },
+    {
+     "agent": "agent-23",
+     "round": 8,
+     "how": "exited",
+     "margin_at_round_start": 0.262375,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0.375,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 2,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 1,
+    "exit_above": 0
+   },
+   "first_departure_round": 6,
+   "first_departure_observed": true,
+   "first_departure_time": 6,
+   "accuracy": 0.625,
+   "given_per_agent_round": 0.0,
+   "rho": null,
+   "given": 0,
+   "accuracy_vs_task": 0.10714285714285714
+  },
+  {
+   "model": "Sol",
+   "seed": 4104,
+   "session_id": "talk-s4104-363a49",
+   "all4_completion": true,
+   "finishers": 4,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "C": 1.0,
+   "C_seat": 1.0,
+   "departures": [],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_departure_round": null,
+   "first_departure_observed": false,
+   "first_departure_time": 8,
+   "accuracy": 0.875,
+   "given_per_agent_round": 625.0,
+   "rho": 3.0627441608669574,
+   "given": 20000,
+   "accuracy_vs_task": 0.09375
+  },
+  {
+   "model": "Sol",
+   "seed": 4105,
+   "session_id": "talk-s4105-ec6eac",
+   "all4_completion": true,
+   "finishers": 4,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "C": 1.0,
+   "C_seat": 1.0,
+   "departures": [],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_departure_round": null,
+   "first_departure_observed": false,
+   "first_departure_time": 8,
+   "accuracy": 0.875,
+   "given_per_agent_round": 250.0,
+   "rho": 4.509410571396371,
+   "given": 8000,
+   "accuracy_vs_task": -0.02083333333333333
+  },
+  {
+   "model": "Opus",
+   "seed": 4101,
+   "session_id": "talk-s4101-cdef86",
+   "all4_completion": false,
+   "finishers": 0,
+   "remaining_after_round": [
+    4,
+    4,
+    2,
+    2,
+    2,
+    1,
+    0,
+    0
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.25,
+   "C_seat": 0.46875,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 6,
+     "how": "exited",
+     "margin_at_round_start": 0.4409166666666667,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-11",
+     "round": 3,
+     "how": "exited",
+     "margin_at_round_start": 0.8925,
+     "tag": "exit_below",
+     "first": true,
+     "loss": 0.375
+    },
+    {
+     "agent": "agent-17",
+     "round": 3,
+     "how": "exited",
+     "margin_at_round_start": 1.0785,
+     "tag": "exit_above",
+     "first": true,
+     "loss": 0.375
+    },
+    {
+     "agent": "agent-23",
+     "round": 7,
+     "how": "exited",
+     "margin_at_round_start": 0.9520833333333333,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0.375,
+    "exit_above": 0.375
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 3,
+    "exit_above": 1
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 1,
+    "exit_above": 1
+   },
+   "first_departure_round": 3,
+   "first_departure_observed": true,
+   "first_departure_time": 3,
+   "accuracy": 0.5,
+   "given_per_agent_round": 684.2105263157895,
+   "rho": 3.7135688091102104,
+   "given": 13000,
+   "accuracy_vs_task": -0.016666666666666663
+  },
+  {
+   "model": "Opus",
+   "seed": 4102,
+   "session_id": "talk-s4102-a9c004",
+   "all4_completion": false,
+   "finishers": 2,
+   "remaining_after_round": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    2
+   ],
+   "all4_after_round": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.0,
+   "C_seat": 0.71875,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 8,
+     "how": "dead",
+     "margin_at_round_start": 0.630875,
+     "tag": "dead",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-11",
+     "round": 1,
+     "how": "exited",
+     "margin_at_round_start": 1.6666666666666667,
+     "tag": "exit_above",
+     "first": true,
+     "loss": 1.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0.0,
+    "exit_below": 0,
+    "exit_above": 1.0
+   },
+   "count_by_tag": {
+    "dead": 1,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_departure_round": 1,
+   "first_departure_observed": true,
+   "first_departure_time": 1,
+   "accuracy": 0.625,
+   "given_per_agent_round": 409.4,
+   "rho": 2.6541004723362938,
+   "given": 10235,
+   "accuracy_vs_task": -0.10714285714285714
+  },
+  {
+   "model": "Opus",
+   "seed": 4103,
+   "session_id": "talk-s4103-73cbbb",
+   "all4_completion": false,
+   "finishers": 0,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    3,
+    2,
+    0,
+    0
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.5,
+   "C_seat": 0.65625,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 5,
+     "how": "dead",
+     "margin_at_round_start": 0.8161666666666667,
+     "tag": "dead",
+     "first": true,
+     "loss": 0.5
+    },
+    {
+     "agent": "agent-11",
+     "round": 7,
+     "how": "dead",
+     "margin_at_round_start": 1.016,
+     "tag": "dead",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-17",
+     "round": 6,
+     "how": "dead",
+     "margin_at_round_start": 0.647375,
+     "tag": "dead",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-23",
+     "round": 7,
+     "how": "dead",
+     "margin_at_round_start": 0.5671666666666667,
+     "tag": "dead",
+     "first": false,
+     "loss": 0.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0.5,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 4,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 1,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_departure_round": 5,
+   "first_departure_observed": true,
+   "first_departure_time": 5,
+   "accuracy": 0.42857142857142855,
+   "given_per_agent_round": 1944.92,
+   "rho": 2.7175355650973936,
+   "given": 48623,
+   "accuracy_vs_task": -0.2916666666666667
+  },
+  {
+   "model": "Opus",
+   "seed": 4104,
+   "session_id": "talk-s4104-bd6bf5",
+   "all4_completion": true,
+   "finishers": 4,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "C": 1.0,
+   "C_seat": 1.0,
+   "departures": [],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_departure_round": null,
+   "first_departure_observed": false,
+   "first_departure_time": 8,
+   "accuracy": 0.75,
+   "given_per_agent_round": 1675.0,
+   "rho": 1.3263552472833096,
+   "given": 53600,
+   "accuracy_vs_task": -0.09375
+  },
+  {
+   "model": "Opus",
+   "seed": 4105,
+   "session_id": "talk-s4105-6d3622",
+   "all4_completion": false,
+   "finishers": 3,
+   "remaining_after_round": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "all4_after_round": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.0,
+   "C_seat": 0.75,
+   "departures": [
+    {
+     "agent": "agent-17",
+     "round": 1,
+     "how": "exited",
+     "margin_at_round_start": 1.6666666666666667,
+     "tag": "exit_above",
+     "first": true,
+     "loss": 1.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1.0
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_departure_round": 1,
+   "first_departure_observed": true,
+   "first_departure_time": 1,
+   "accuracy": 1.0,
+   "given_per_agent_round": 0.0,
+   "rho": null,
+   "given": 0,
+   "accuracy_vs_task": 0.14583333333333334
+  },
+  {
+   "model": "Luna",
+   "seed": 4101,
+   "session_id": "talk-s4101-11f081",
+   "all4_completion": false,
+   "finishers": 0,
+   "remaining_after_round": [
+    4,
+    4,
+    3,
+    2,
+    2,
+    1,
+    0,
+    0
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.25,
+   "C_seat": 0.5,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 6,
+     "how": "exited",
+     "margin_at_round_start": 1.5041666666666667,
+     "tag": "exit_above",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-11",
+     "round": 3,
+     "how": "exited",
+     "margin_at_round_start": 1.0211666666666666,
+     "tag": "exit_above",
+     "first": true,
+     "loss": 0.75
+    },
+    {
+     "agent": "agent-17",
+     "round": 4,
+     "how": "exited",
+     "margin_at_round_start": 0.539,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-23",
+     "round": 7,
+     "how": "dead",
+     "margin_at_round_start": 1.077875,
+     "tag": "dead",
+     "first": false,
+     "loss": 0.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0.0,
+    "exit_below": 0.0,
+    "exit_above": 0.75
+   },
+   "count_by_tag": {
+    "dead": 1,
+    "exit_below": 1,
+    "exit_above": 2
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_departure_round": 3,
+   "first_departure_observed": true,
+   "first_departure_time": 3,
+   "accuracy": 0.5714285714285714,
+   "given_per_agent_round": 790.9,
+   "rho": 8.159208799021807,
+   "given": 15818,
+   "accuracy_vs_task": 0.11111111111111112
+  },
+  {
+   "model": "Luna",
+   "seed": 4102,
+   "session_id": "talk-s4102-ceeb74",
+   "all4_completion": false,
+   "finishers": 1,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    3,
+    3,
+    3,
+    2,
+    1
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.375,
+   "C_seat": 0.75,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 4,
+     "how": "exited",
+     "margin_at_round_start": 1.6438333333333333,
+     "tag": "exit_above",
+     "first": true,
+     "loss": 0.625
+    },
+    {
+     "agent": "agent-11",
+     "round": 7,
+     "how": "exited",
+     "margin_at_round_start": 0.893875,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-23",
+     "round": 8,
+     "how": "exited",
+     "margin_at_round_start": 1.071,
+     "tag": "exit_above",
+     "first": false,
+     "loss": 0.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0.0,
+    "exit_above": 0.625
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 1,
+    "exit_above": 2
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_departure_round": 4,
+   "first_departure_observed": true,
+   "first_departure_time": 4,
+   "accuracy": 0.75,
+   "given_per_agent_round": 703.7037037037037,
+   "rho": 2.1301065754379653,
+   "given": 19000,
+   "accuracy_vs_task": 0.03125
+  },
+  {
+   "model": "Luna",
+   "seed": 4103,
+   "session_id": "talk-s4103-ffffff",
+   "all4_completion": false,
+   "finishers": 0,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    3,
+    2,
+    1,
+    0,
+    0
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.375,
+   "C_seat": 0.5625,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 4,
+     "how": "exited",
+     "margin_at_round_start": 1.0173333333333334,
+     "tag": "exit_above",
+     "first": true,
+     "loss": 0.625
+    },
+    {
+     "agent": "agent-11",
+     "round": 6,
+     "how": "exited",
+     "margin_at_round_start": 3.39475,
+     "tag": "exit_above",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-17",
+     "round": 7,
+     "how": "exited",
+     "margin_at_round_start": 0.8172916666666666,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-23",
+     "round": 5,
+     "how": "exited",
+     "margin_at_round_start": 1.32325,
+     "tag": "exit_above",
+     "first": false,
+     "loss": 0.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0,
+    "exit_below": 0.0,
+    "exit_above": 0.625
+   },
+   "count_by_tag": {
+    "dead": 0,
+    "exit_below": 1,
+    "exit_above": 3
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_departure_round": 4,
+   "first_departure_observed": true,
+   "first_departure_time": 4,
+   "accuracy": 0.6666666666666666,
+   "given_per_agent_round": 0.0,
+   "rho": null,
+   "given": 0,
+   "accuracy_vs_task": -0.1
+  },
+  {
+   "model": "Luna",
+   "seed": 4104,
+   "session_id": "talk-s4104-49b1b2",
+   "all4_completion": false,
+   "finishers": 2,
+   "remaining_after_round": [
+    4,
+    3,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "all4_after_round": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.125,
+   "C_seat": 0.59375,
+   "departures": [
+    {
+     "agent": "agent-17",
+     "round": 3,
+     "how": "exited",
+     "margin_at_round_start": 0.11525,
+     "tag": "exit_below",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-23",
+     "round": 2,
+     "how": "dead",
+     "margin_at_round_start": 0.224,
+     "tag": "dead",
+     "first": true,
+     "loss": 0.875
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0.875,
+    "exit_below": 0.0,
+    "exit_above": 0
+   },
+   "count_by_tag": {
+    "dead": 1,
+    "exit_below": 1,
+    "exit_above": 0
+   },
+   "first_count_by_tag": {
+    "dead": 1,
+    "exit_below": 0,
+    "exit_above": 0
+   },
+   "first_departure_round": 2,
+   "first_departure_observed": true,
+   "first_departure_time": 2,
+   "accuracy": 0.625,
+   "given_per_agent_round": 0.0,
+   "rho": null,
+   "given": 0,
+   "accuracy_vs_task": -0.20833333333333331
+  },
+  {
+   "model": "Luna",
+   "seed": 4105,
+   "session_id": "talk-s4105-eb1d11",
+   "all4_completion": false,
+   "finishers": 1,
+   "remaining_after_round": [
+    4,
+    4,
+    4,
+    3,
+    3,
+    3,
+    2,
+    1
+   ],
+   "all4_after_round": [
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "C": 0.375,
+   "C_seat": 0.75,
+   "departures": [
+    {
+     "agent": "agent-6",
+     "round": 8,
+     "how": "dead",
+     "margin_at_round_start": 0.006833333333333334,
+     "tag": "dead",
+     "first": false,
+     "loss": 0.0
+    },
+    {
+     "agent": "agent-11",
+     "round": 4,
+     "how": "exited",
+     "margin_at_round_start": 1.5583333333333333,
+     "tag": "exit_above",
+     "first": true,
+     "loss": 0.625
+    },
+    {
+     "agent": "agent-17",
+     "round": 7,
+     "how": "dead",
+     "margin_at_round_start": 0.616,
+     "tag": "dead",
+     "first": false,
+     "loss": 0.0
+    }
+   ],
+   "loss_by_tag": {
+    "dead": 0.0,
+    "exit_below": 0,
+    "exit_above": 0.625
+   },
+   "count_by_tag": {
+    "dead": 2,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_count_by_tag": {
+    "dead": 0,
+    "exit_below": 0,
+    "exit_above": 1
+   },
+   "first_departure_round": 4,
+   "first_departure_observed": true,
+   "first_departure_time": 4,
+   "accuracy": 0.625,
+   "given_per_agent_round": 962.9629629629629,
+   "rho": 3.225592778250072,
+   "given": 26000,
+   "accuracy_vs_task": -0.28125
+  }
+ ]
+}

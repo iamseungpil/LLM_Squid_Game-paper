@@ -1,0 +1,122 @@
+{
+ "Astra": {
+  "C": {
+   "flat_minus_split": -0.0625,
+   "ci95": [
+    -0.1875,
+    0.0
+   ]
+  },
+  "exited": {
+   "flat_minus_split": 0.1,
+   "ci95": [
+    0.0,
+    0.3
+   ]
+  },
+  "dead": {
+   "flat_minus_split": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "given_per_agent_round": {
+   "flat_minus_split": -73.4375,
+   "ci95": [
+    -225.0,
+    73.4375
+   ]
+  }
+ },
+ "Sol": {
+  "C": {
+   "flat_minus_split": 0.1125,
+   "ci95": [
+    -0.075,
+    0.325
+   ]
+  },
+  "exited": {
+   "flat_minus_split": 0.0,
+   "ci95": [
+    -0.8,
+    0.8
+   ]
+  },
+  "dead": {
+   "flat_minus_split": -0.3,
+   "ci95": [
+    -0.6,
+    0.0
+   ]
+  },
+  "given_per_agent_round": {
+   "flat_minus_split": 583.597039072039,
+   "ci95": [
+    44.641351241351245,
+    1227.5974168192915
+   ]
+  }
+ },
+ "Opus": {
+  "C": {
+   "flat_minus_split": -0.2,
+   "ci95": [
+    -0.375,
+    -0.0125
+   ]
+  },
+  "exited": {
+   "flat_minus_split": 1.2,
+   "ci95": [
+    0.6,
+    1.8
+   ]
+  },
+  "dead": {
+   "flat_minus_split": -0.5,
+   "ci95": [
+    -0.9,
+    -0.1
+   ]
+  },
+  "given_per_agent_round": {
+   "flat_minus_split": -239.205806315584,
+   "ci95": [
+    -602.7556137899459,
+    95.48082931757439
+   ]
+  }
+ },
+ "Luna": {
+  "C": {
+   "flat_minus_split": 0.0375,
+   "ci95": [
+    -0.0625,
+    0.1375
+   ]
+  },
+  "exited": {
+   "flat_minus_split": 0.1,
+   "ci95": [
+    -0.5,
+    0.6
+   ]
+  },
+  "dead": {
+   "flat_minus_split": -0.2,
+   "ci95": [
+    -0.6,
+    0.2
+   ]
+  },
+  "given_per_agent_round": {
+   "flat_minus_split": 109.91115201933617,
+   "ci95": [
+    -412.24793213606506,
+    607.9275401899888
+   ]
+  }
+ }
+}

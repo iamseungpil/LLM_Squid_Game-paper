@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "full_pages": 64,
+  "body_pages": 7,
+  "body_text_and_pixels_unchanged": true,
+  "changed_full_pages": [
+    8,
+    9,
+    10,
+    11
+  ],
+  "historical_appendix_pages_12_64_unchanged": true,
+  "ASK_GIVE_eligible_responses": 2887,
+  "ASK": {
+    "responses": 71,
+    "events": 90,
+    "by_margin": [
+      52,
+      19,
+      0,
+      0
+    ]
+  },
+  "GIVE": {
+    "responses": 120,
+    "events": 130,
+    "by_margin": [
+      9,
+      5,
+      36,
+      70
+    ]
+  },
+  "denominator_by_margin": [
+    260,
+    610,
+    759,
+    1258
+  ],
+  "low_margin_baseline_observations": 28,
+  "figure3_4_5_caption_characters": [
+    206,
+    125,
+    192
+  ],
+  "figure_labels": [
+    "fig:appendix0-completion-overview",
+    "fig:appendix0-margin",
+    "fig:appendix0-behavior",
+    "fig:appendix0-crisis-followup",
+    "fig:appendix0-give-ask"
+  ],
+  "latex_errors": [],
+  "main_application": "Pending user scope clarification; appendix draft applied only",
+  "M1": "Reviewed only; recommend considering a compact panel b for Section 3.3",
+  "rubric_sha256": "4069c7e8d3ffffc0c7c81058c30be740575d1cb9b8933baf3311e59714043579",
+  "bounded_audit_goals": [
+    "G02",
+    "G07",
+    "G08"
+  ]
+}

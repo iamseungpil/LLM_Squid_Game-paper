@@ -1,0 +1,13 @@
+{
+  "full_pages": 64,
+  "body_pages": 7,
+  "copied_figure3_page": 8,
+  "figure4_page": 9,
+  "figure5_page": 10,
+  "figure6_page": 11,
+  "body_text_pixels_unchanged": true,
+  "all_55_pages_after_original_figure4_identical_at_shifted_positions": true,
+  "figure3_assets_byte_identical_to_main": true,
+  "figure3_caption_unchanged": true,
+  "figure4_layout_same_except_section_heading_moved_to_new_page8": true
+}

@@ -1,0 +1,11 @@
+{
+  "target_count": 16,
+  "targets_present_once": true,
+  "fixed_context_unchanged": true,
+  "only_allowed_prose_changed": true,
+  "source_sha256": {
+    "sections/03_analysis.tex": "734d9a2551771960465d421df12ee5a46d74ea191627d420d846bba22b5ea015",
+    "sections/05_appendix.tex": "4369ef1c12ff97c7668f091ad340ab6cbaf621f19cdbb221b0189134aa78cff0",
+    "tables/ablation_prize_conditions_20261105.tex": "8b8f8420a6573709510476997bdb5358ae764ad3a1ab5f88e523291416009721"
+  }
+}

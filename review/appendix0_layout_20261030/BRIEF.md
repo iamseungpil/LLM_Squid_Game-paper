@@ -1,0 +1,19 @@
+# Appendix 0 layout and Table 1 revision
+Profile: juhyeon-ko-academic; writer gpt-6-astra high. Explicit user permits overwrite of sources and only two canonical full/body PDFs. Prior originals preserved here. Korean only; no stylistic changes outside scope. One bounded writing pass with factual correction as needed; prior same-section style loop did not converge, do not sacrifice caveats to scores.
+
+## Scope
+Write draft appendix0.tex and analysis.tex in this review directory. Read original copies. All prose by writer. Appendix must align six-panel new figure; main analysis ONLY Table 1 environment may change, byte-preserve everything outside. Preserve blue wrappers, labels and subsection title.
+
+## Figure and content ledger
+First row (a) 지원 직후 양쪽의 여유; (b) 생존 여유별 행동 (actual ACTION accuracy, EXIT, GIVE); (c) 첫 위기 이후 개인 완주; (d) 첫 위기 이후 전원 완주. Second row (e) 모델별 끝 상태, reuses main Figure4(a); (f) 종료 시 아레나 자원 분배, reuses main Figure4(d,e,f): Sen, Gini, mean tokens, same bars/points/missingness, horizontally compressed. No transfer timing panel, no average finishers panel. Reshape opening and remove obsolete timing paragraph/reference.
+(a)130 completed GIVE;119/120 giver above safety before remains so after;74 recipients below before;24 reach safety with both>=1. State no guarantee.
+(b) Bands <1,1–2,2–4,>=4. Accuracy3/6,23/42,48/61,59/83 (133/192); EXIT19/32,14/108,1/137,0/214 (34/491). GIVE9/262,5/614,36/764,70/1258:3.44%,0.81%,4.71%,5.56%. Correct definition: response-start margin, only rounds starting with >=2 participants.120 responses contain130 completed transfers (110x1+10x2). Exclude11 singleton responses =>2898 eligible. Caption must distinguish units/timepoints: solves pre-cost; EXIT window start; GIVE response start, one or more completed transfers. Do not interpret aggregate observations as pure capability, causal margin change, inner motivation. Rates need eligible denominator, not 130 event numerator.
+(c)34 agents19 games first crisis: start41 exclude last4 and round-startsingleton3, retains immediate deaths. none16 outcomes0/13/3; short7 outcomes2/1/4;lifted11 outcomes7/3/1. All7 finishers' donors also finish. After-support margin at end rescue talk after pending fine and costs. Safety not necessary/sufficient.
+(d) earliest eligible crisis with4 remaining16games (exclude3 already3): all crisis people helped and above safety at endtalk8games=>6allfour; gap8=>0. Exposure uses no later information. Confounded model/resources/timing/performance; descriptive.
+(e) each20agents5games. [finish,EXIT>=1,EXIT<1,dead]: Fable17/2/1/0,Astra14/2/4/0,Sol12/0/7/1,Opus9/3/3/5,Luna4/8/4/4. Total44 nonfinish34exit10dead. EXIT margin at decision window start. Use endstates to discuss finishers (e.g17vs14), no need average finish counts.
+(f)four original seats, finishers preprizebalance, EXIT/dead0, excludes prize/exitbonus, not all personal holdings. Per-game metrics then model mean; G normalized max1, allzero excluded n5/4/4/3/3. S/mu all5 inclzero. Unit in plot S/mu=만 토큰. Fable mu15537 G.5720 S6927;Astra15824 G.4242 S9668. Retain comparison coexistence vs distribution, no causal assistance effect.
+
+## Main Table1
+Delete personal end state column. Self-preservation replace safety maintenance with rho.9columns=lcccccccc; four groups2each; cmidrule2-3,4-5,6-7,8-9. rho Fable3.68,Astra2.70,Sol4.24,Opus1.83,Luna3.17. Caption define pooled model five-game transfers, ratio sum(g*L_giver_after)/sum(g*L_receiver_after) current §2.2; NOT arithmetic mean of game ratios. No-GIVE game undefined, not zero (7games), all pooled models defined. Remove old endstate/maintenance caption definitions. Rest table unchanged.
+
+Evidence: cogsci2027/results/appendix0_{process,integrated}_20261030.json and section32_behavior_20261029.json, terminal_distribution_20261029.json. Independent original raw audit matched4765 lines. Do not read obsolete reciprocal rho_axis as current metric.

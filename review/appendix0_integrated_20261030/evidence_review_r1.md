@@ -1,0 +1,2 @@
+Independent evidence review PASS; no Critical. Recomputed original25cases; timing130gifts383276tokens, terminal means/n, EXITwindows491, solves133/192, firstcrisis34/19, landmark16 and6/8vs0/8 all match. Points within axes; sixpanels no clipping.
+Warnings: caption(b) hollowblue24 needs receiver<1before and both>=1after condition; (e) label should specify crisis agents, not all4recipients. Add onepoint=onegame and topcounts=allfour/total.

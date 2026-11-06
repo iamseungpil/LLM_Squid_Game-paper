@@ -96,7 +96,7 @@ def load_sources(historic):
     return sources, by_run
 
 
-def game_metrics(events, result, model):
+def game_metrics(events, result, model, *, include_singleton=False):
     starts = [e for e in events if e['event'] == 'session_start']
     assert len(starts) == 1
     start = starts[0]
@@ -118,7 +118,8 @@ def game_metrics(events, result, model):
         balances = {(e.get('phase'), e.get('tick')): e['balances'] for e in rows
                     if e['event'] == 'call_start' and e['kind'] == 'talk'}
         for e in rows:
-            if e['event'] == 'call' and e['kind'] == 'talk' and e.get('phase') == 'prep' and e['agent'] != solver and n > 1:
+            can_exit = (e.get('agent') != solver and n > 1) or (include_singleton and n == 1)
+            if e['event'] == 'call' and e['kind'] == 'talk' and e.get('phase') == 'prep' and can_exit:
                 b = balances.get(('prep', e.get('tick')), {}).get(e['agent'])
                 if b is not None:
                     p = e.get('parsed') or {}

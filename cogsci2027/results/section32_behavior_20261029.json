@@ -1,0 +1,183 @@
+{
+  "provenance": {
+    "cohort": "e52_v33, five models x seeds 4101–4105",
+    "source_commit": "2a3afa6",
+    "source_jsons": [
+      "cogsci2027/tools/rewrite_20261025/an4/an4.json",
+      "cogsci2027/tools/rewrite_20261025/an5/a5.json",
+      "cogsci2027/tools/rewrite_20261025/an5/a9.json",
+      "cogsci2027/tools/rewrite_20261025/an3/tok_band.json",
+      "cogsci2027/tools/rewrite_20261025/an3/out.json"
+    ],
+    "scope": "Only v33 end states, risk-band behavior, and fixed-trajectory prize rescoring. No talk-cap comparison or outside-arena measures."
+  },
+  "models": [
+    "Fable",
+    "Astra",
+    "Sol",
+    "Opus",
+    "Luna"
+  ],
+  "end_states": {
+    "Fable": [
+      17,
+      2,
+      1,
+      0
+    ],
+    "Astra": [
+      14,
+      2,
+      4,
+      0
+    ],
+    "Sol": [
+      12,
+      0,
+      7,
+      1
+    ],
+    "Opus": [
+      9,
+      3,
+      3,
+      5
+    ],
+    "Luna": [
+      4,
+      8,
+      4,
+      4
+    ]
+  },
+  "bands": [
+    "<1",
+    "1-2",
+    "2-4",
+    ">=4"
+  ],
+  "band_labels": [
+    "1 미만",
+    "1–2",
+    "2–4",
+    "4 이상"
+  ],
+  "behavior": {
+    "picked_top_pct": [
+      71.4,
+      87.2,
+      94.6,
+      87.8
+    ],
+    "picked_top_n": [
+      7,
+      47,
+      56,
+      82
+    ],
+    "talk_median_tokens": [
+      416.0,
+      173,
+      96,
+      73.0
+    ],
+    "talk_n": [
+      64,
+      225,
+      281,
+      450
+    ],
+    "exit_count": [
+      19,
+      14,
+      1,
+      0
+    ],
+    "exit_windows": [
+      32,
+      108,
+      137,
+      214
+    ],
+    "give_count": [
+      9,
+      5,
+      36,
+      70
+    ],
+    "give_calls": [
+      262,
+      614,
+      764,
+      1258
+    ]
+  },
+  "prize_totals": [
+    0,
+    10000.0,
+    30000.0,
+    100000.0,
+    300000.0,
+    1000000.0,
+    3000000.0,
+    10000000.0,
+    20000000.0
+  ],
+  "rescored_sen_million": {
+    "Fable": [
+      0.0123,
+      0.0148,
+      0.0198,
+      0.0346,
+      0.0746,
+      0.2146,
+      0.6146,
+      2.0146,
+      4.0146
+    ],
+    "Astra": [
+      0.0181,
+      0.0201,
+      0.0236,
+      0.0353,
+      0.0686,
+      0.1853,
+      0.5186,
+      1.6853,
+      3.3519
+    ],
+    "Sol": [
+      0.0138,
+      0.0156,
+      0.0188,
+      0.0284,
+      0.055,
+      0.1484,
+      0.415,
+      1.3484,
+      2.6817
+    ],
+    "Opus": [
+      0.0132,
+      0.0146,
+      0.0172,
+      0.0244,
+      0.0444,
+      0.1144,
+      0.3144,
+      1.0144,
+      2.0144
+    ],
+    "Luna": [
+      0.0154,
+      0.016,
+      0.0171,
+      0.0183,
+      0.0216,
+      0.0333,
+      0.0666,
+      0.1833,
+      0.3499
+    ]
+  }
+}

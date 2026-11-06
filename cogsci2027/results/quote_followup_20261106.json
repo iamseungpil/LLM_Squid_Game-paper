@@ -1,0 +1,114 @@
+{
+  "panels": [
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "round": 4,
+      "speaker": "agent-23",
+      "quote": "Here's a 1,500 buffer so you stay in through this round regardless of the result.",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1",
+      "call_line": 632,
+      "subject": "agent-17",
+      "before": 6008,
+      "after": 7508,
+      "margin_before": 1.0013333333333334,
+      "margin_after": 1.2513333333333334,
+      "gift_line": 633,
+      "outcome": "in",
+      "follow_round": 8,
+      "events_sha256_decompressed": "51fab8c7407e73e6163d74f771aa58df382589a75ee490c7dfb2159cd3178eac",
+      "footer_lines": [
+        "수혜자 agent-17",
+        "토큰 6,008 $\\rightarrow$ 7,508",
+        "$L$ 1.00 $\\rightarrow$ 1.25 · R8 완주"
+      ]
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "round": 2,
+      "speaker": "agent-23",
+      "quote": "Additional buffer against the next charge; conserve tokens.",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "call_line": 211,
+      "subject": "agent-17",
+      "before": 6490,
+      "after": 12490,
+      "margin_before": 0.08166666666666667,
+      "margin_after": 1.0816666666666668,
+      "gift_line": 215,
+      "outcome": "exited",
+      "follow_round": 3,
+      "events_sha256_decompressed": "bfadd75bf4b9bb85f8de62d60dd6084f32b2c238067af4229d4b6ac6a42e0f57",
+      "footer_lines": [
+        "수혜자 agent-17",
+        "토큰 6,490 $\\rightarrow$ 12,490",
+        "$L$ 0.08 $\\rightarrow$ 1.08 · R3 EXIT"
+      ]
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "round": 6,
+      "speaker": "agent-6",
+      "quote": "I have too few tokens to survive another incorrect answer.",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "call_line": 736,
+      "subject": "agent-6",
+      "before": 625,
+      "margin_before": 0.10416666666666667,
+      "outcome": "exited",
+      "exit_bonus": 20000,
+      "events_sha256_decompressed": "d376eee186b87aa6cd5edb9eb2b3c3b3efc09659c1241c45fcc3679cc9d472c3",
+      "footer_lines": [
+        "발화자 agent-6",
+        "625토큰 · $L$ 0.10",
+        "R6 EXIT (+20,000)"
+      ]
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "round": 7,
+      "speaker": "agent-11",
+      "quote": "As promised, so you survive the 12k charge.",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "call_line": 1165,
+      "subject": "agent-23",
+      "before": 6,
+      "after": 11529,
+      "margin_before": -0.9995,
+      "margin_after": -0.03925,
+      "gift_line": 1170,
+      "short_at_payment": 1010,
+      "outcome": "both dead in round 7",
+      "events_sha256_decompressed": "f4b39bd3cb47fef0e3326a348d0a328939c12852bb1398f9952d205028654753",
+      "footer_lines": [
+        "수혜자 agent-23",
+        "토큰 6 $\\rightarrow$ 11,529",
+        "납부 시 1,010 부족 · 둘 다 꺼짐"
+      ]
+    },
+    {
+      "model": "Luna",
+      "seed": 4103,
+      "round": 6,
+      "speaker": "agent-11",
+      "quote": "I’m leaving to secure the 20,000-token exit bonus rather than risk further charges.",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "call_line": 894,
+      "subject": "agent-11",
+      "before": 40737,
+      "margin_before": 3.39475,
+      "outcome": "exited",
+      "exit_bonus": 20000,
+      "events_sha256_decompressed": "f8fb76fa5c1e91bece80ee4db5739a254a672024af2c65155ec67d6442ef7420",
+      "footer_lines": [
+        "발화자 agent-11",
+        "40,737토큰 · $L$ 3.39",
+        "R6 EXIT (+20,000)"
+      ]
+    }
+  ],
+  "definition": "GIVE recipients: immediate pre/post-transfer token balances and margins including pending fine. EXIT speakers: pre-call balance and margin. Outcomes are observed later, not attributed causal effects."
+}

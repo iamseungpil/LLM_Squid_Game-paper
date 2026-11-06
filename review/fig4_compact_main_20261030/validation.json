@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "full_pages": 64,
+  "body_pages": 7,
+  "main_Figure4_page": 5,
+  "appendix_Figure4_page": 9,
+  "canvas_pt": [
+    532.7999877929688,
+    209.8800048828125
+  ],
+  "height_ratio_to_prior_Figure5": 1.1,
+  "unchanged_main_sections": [
+    "3.1",
+    "Table 1",
+    "3.3"
+  ],
+  "main_change_scope": "3.2 figure, caption and aligned analysis/definitions",
+  "old_33_person_paragraphs_preserved_verbatim": true,
+  "cached_data_unchanged": true,
+  "historical_pages_12_64_text_and_pixels_unchanged": true,
+  "latex_errors": [],
+  "visual_checks": [
+    "Main page 5 and appendix page 9",
+    "Narrow left margin panel and wider stacked right panels",
+    "All labels and phase legend readable; no overlap",
+    "Old 33-person analysis fits page 10 before supplemental figures"
+  ]
+}

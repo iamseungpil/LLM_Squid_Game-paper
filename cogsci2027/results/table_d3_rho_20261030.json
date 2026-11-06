@@ -1,0 +1,58 @@
+{
+  "definition": "Update D.3 rho from the frozen e52_v33 cohort, seeds 4101--4105.\n\nUse current post-GIVE margins after pending fines; pool transfer-weighted sums.\nResample five whole games (including no-GIVE games) 2000 times, seed 1919.\nOmit draws with no GIVE or zero denominator; keep negative margins.\nOther table columns retain arena_v33.json's verified historical values.\n",
+  "source": "results/appendix0_process_20261030.json",
+  "source_sha256": "290986bcdc734c1211304a19d40d98c0d12633f612071404daf0c3c69133ac66",
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 1919,
+    "unit": "whole game",
+    "percentile_method": "same order statistics as legacy arena_v33.interval"
+  },
+  "models": {
+    "Fable": {
+      "rho": 3.6775984705861022,
+      "ci95": [
+        3.1338586955172767,
+        4.948224231432624
+      ],
+      "valid_bootstrap": 1999,
+      "omitted_bootstrap": 1
+    },
+    "Astra": {
+      "rho": 2.700880489772436,
+      "ci95": [
+        2.2425726520785023,
+        3.7846776506580833
+      ],
+      "valid_bootstrap": 2000,
+      "omitted_bootstrap": 0
+    },
+    "Sol": {
+      "rho": 4.237785775741088,
+      "ci95": [
+        3.062744160866957,
+        10.251095976554456
+      ],
+      "valid_bootstrap": 1976,
+      "omitted_bootstrap": 24
+    },
+    "Opus": {
+      "rho": 1.8333454804405251,
+      "ci95": [
+        1.3567590979145605,
+        3.545770187402876
+      ],
+      "valid_bootstrap": 1999,
+      "omitted_bootstrap": 1
+    },
+    "Luna": {
+      "rho": 3.1716779605576186,
+      "ci95": [
+        2.1301065754379653,
+        8.159208799021807
+      ],
+      "valid_bootstrap": 1986,
+      "omitted_bootstrap": 14
+    }
+  }
+}

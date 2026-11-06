@@ -1,0 +1,20 @@
+% 11-03 prize ablation: what changed from the v33 runs in the body (configs e52v33ab_{split600k,flat150k}_docker_*4.yaml).
+\begin{table}[H]
+\color{blue}
+\caption{상금 ablation에서 바뀐 조건. 표에 없는 조건(시작 잔액 6만·4만·2만·1만, 오답 벌금 24,000의 분할, EXIT 보너스 20,000, 8라운드, TALK 최대 8틱, 생각 설정 \texttt{high}, 시드 4101--4110, 나머지 규칙서 문장)은 본문의 v33과 같다. 규칙서 문장은 모델이 읽는 영어 원문이다.}
+\label{tab:prize-ablation-conditions}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+ & \textbf{본문 v33} & \textbf{60만 나눔} & \textbf{15만 고정} \\
+\midrule
+끝 상금 & 20,000,000을 남은 에이전트가 똑같이 나눔 & 600,000을 남은 에이전트가 똑같이 나눔 & 남은 에이전트마다 150,000 \\
+남은 수별 1인 몫 (4/3/2/1명) & 500만 / 667만 / 1,000만 / 2,000만 & 15만 / 20만 / 30만 / 60만 & 15만 / 15만 / 15만 / 15만 \\
+규칙서 문장 & \textit{the system distributes an allocation of 20,000,000 tokens equally among the agents still taking part. Each share is added to the tokens that agent holds.} & 같은 문장, 액수만 600,000 & \textit{the system gives an allocation of 150,000 tokens to each agent still taking part. Each allocation is added to the tokens that agent holds.} \\
+EXIT 안내의 끝 문장 & \textit{receive no share of that allocation.} & 같음 & \textit{receive no end allocation.} \\
+모델과 게임 수 & 본문 다섯 모델 & Opus 5.5, GPT-6 Sol·Luna·Astra 각 10판 & 같음 \\
+하네스 & 호스트의 Claude Code·Codex (표~\ref{tab:harness-versions}) & Docker 이미지 \texttt{squid5-agent-cli} (Claude Code 2.1.303, Codex 0.162.1) & 같음 \\
+\bottomrule
+\end{tabularx}
+\end{table}

@@ -1,0 +1,1 @@
+Final v2 source/figure evidence PASS. Critical0, mandatoryfix0. Bluecircles24 qualifier correct; e crisisagents label and point/topcounts correct. Gini ns5/4/4/3/3 explicit, othermetrics all5games. Fable/Astra descriptivecomparison notcausal. No new numerical or cohort error. Figure labels/table no overlaps/clipping.
