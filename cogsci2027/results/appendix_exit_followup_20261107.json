@@ -1,0 +1,30 @@
+{
+  "n_windows": 960,
+  "n_stay_windows": 899,
+  "bands": [
+    {
+      "band": 0,
+      "n": 31,
+      "finished": 10,
+      "exited": 34
+    },
+    {
+      "band": 1,
+      "n": 211,
+      "finished": 131,
+      "exited": 24
+    },
+    {
+      "band": 2,
+      "n": 267,
+      "finished": 189,
+      "exited": 3
+    },
+    {
+      "band": 3,
+      "n": 390,
+      "finished": 335,
+      "exited": 0
+    }
+  ]
+}

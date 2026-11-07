@@ -1,8 +1,8 @@
 """Compare v33 prize rules using complete, matched ten-seed cohorts only.
 
-Sources: ~/squid5-runs/e52_v33ab (flat5m: five models; split600k: five
-models, including the Fable top-up) and the hash-verified public and
-flat150k cohorts frozen on 2026-11-05. Fable has no flat150k run.
+Sources: ~/squid5-runs/e52_v33ab (flat5m, split600k and flat150k: five
+models, including the authorized Fable top-ups) and the hash-verified
+public cohort frozen on 2026-11-05. All 200 games must be complete.
 The historical public runs are a descriptive reference: execution dates
 and CLI versions are recorded separately from the matched game settings.
 No model calls, manuscript prose writes, or incomplete-cohort estimates.
@@ -23,7 +23,7 @@ ROOT, ab, cx, fb = old.ROOT, old.ab, old.cx, old.fb
 MODELS = old.PUBLIC
 SEEDS = old.SEEDS
 PATTERNS = {arm: str(Path.home() / 'squid5-runs/e52_v33ab' / f'squid5_e52v33ab_{arm}_docker_*4/*')
-            for arm in ['flat5m', 'split600k']}
+            for arm in ['flat5m', 'split600k', 'flat150k']}
 
 
 def ready():
@@ -144,7 +144,7 @@ def main():
         raise SystemExit('Incomplete cohorts: no estimates or manuscript assets written.')
     if args.check_only:
         return
-    arms = {'main': frozen('public'), 'flat150k': frozen('flat150k')}
+    arms = {'main': frozen('public')}
     baseline = {(c['model'], c['seed']): c for c in ab.raw_cases(ab.V33, SEEDS)}
     assert set(baseline) == {(m, s) for m in MODELS for s in SEEDS}
     raw_audit = {}
@@ -173,9 +173,11 @@ def main():
     for data in arms.values():
         for model, row in data['summary']['models'].items():
             row['cooperation_mean'] = estimate([g for g in data['games'] if g['model'] == model], 'given_per_agent_round')
+    # Preserve the previous JSON block order so only changed evidence appears in the diff.
+    arms = {name: arms[name] for name in ['main', 'flat150k', 'flat5m', 'split600k']}
     result = dict(seeds=SEEDS, models=MODELS, arms=arms, comparisons=comparisons,
                   raw_audit=raw_audit,
-                  missing_cells=[dict(arm='flat150k', model='Fable', reason='Not part of the requested top-up')],
+                  missing_cells=[],
                   uncertainty='10,000 paired seed bootstrap draws; rho pooled by GIVE amount in each draw')
     path = ROOT / 'results/prize_robustness_20261105.json'
     path.write_text(json.dumps(result, ensure_ascii=False, indent=1))

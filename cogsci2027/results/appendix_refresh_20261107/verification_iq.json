@@ -1,0 +1,56 @@
+{
+  "raw_solve_fields_checked": 386,
+  "js_scipy_crosschecks": 385,
+  "ledger_checks": 200,
+  "percentage_sums_checked": 200,
+  "public_cohort": {
+    "games": 50,
+    "models": 5,
+    "seeds": [
+      4101,
+      4102,
+      4103,
+      4104,
+      4105,
+      4106,
+      4107,
+      4108,
+      4109,
+      4110
+    ]
+  },
+  "state_counts": {
+    "exited": 61,
+    "finished": 116,
+    "dead": 23
+  },
+  "assets": {
+    "ko/figures/appendix_refresh_20261107/allocation_200.pdf": "72ed5b8d0b8a645bd4364d19c0b2293ee696fda0995b90fb669781d8a4269d68",
+    "ko/figures/appendix_refresh_20261107/allocation_200.png": "98cdf7edc7ae3df5575f93583f0f3bc62bd341db2a38aec9f4dbe9ecc2a86da2",
+    "ko/figures/appendix_refresh_20261107/allocation_mean.pdf": "588505f906483c9ecf07e6a9d4a870658cea41878862766d5a092041f8ef6243",
+    "ko/figures/appendix_refresh_20261107/allocation_mean.png": "57f10dce42ab12b51bbcc229a615090c03e350d3417fde67a4ff88266f39846f",
+    "ko/figures/appendix_refresh_20261107/completion_agents.pdf": "b59f68f888b1a4dc2291334e421065e83d43d3ac2c419b244e9e8649c5024213",
+    "ko/figures/appendix_refresh_20261107/completion_agents.png": "1542d34574b20ddc93ad134622b30c8f2c3ee5fe8e5eee7e0a256c9eac7faafb",
+    "ko/figures/appendix_refresh_20261107/completion_individual.pdf": "99e71f265664089b9f23bec078b8b259f03083ee50aabe4c3536cd72478247ab",
+    "ko/figures/appendix_refresh_20261107/completion_individual.png": "7379dd7e7b735f6769ce28f6c6a7e308125ab9b30b313f9f74267ab535afa609",
+    "ko/figures/appendix_refresh_20261107/completion_overview.pdf": "6abb7a543297b92d4a1da490dbb62640e0af1614e50c2827b0026f82933594d9",
+    "ko/figures/appendix_refresh_20261107/completion_overview.png": "3a65a9ccdf3ed0bc511f023695c1d78d92a0739f3402dafbd0a3696efdeb89fe",
+    "ko/figures/appendix_refresh_20261107/completion_rho.pdf": "6fe3dd2dc4e8fa32d211b9f4c2bc6913eda6e9165d40460125eb516a023a3fad",
+    "ko/figures/appendix_refresh_20261107/completion_rho.png": "a0743b66d5619ec17e2b53680fa8cccfd31fb12cce6944749b8c45cbf6bdfbfe",
+    "ko/figures/appendix_refresh_20261107/js_balance.pdf": "555dbd8707217a2a14de84e203a57ef6bb26555885648651b8472d72c9e3cad4",
+    "ko/figures/appendix_refresh_20261107/js_balance.png": "2add9f8e80c2335d5c2104b91358fff05a7ac9b62aa898e72cbadbd4264828ed",
+    "ko/figures/appendix_refresh_20261107/js_tokens.pdf": "9e94de043f6c53f230b279a7d2dd7a3df7f410a33b3e64ae439d2829f6a65414",
+    "ko/figures/appendix_refresh_20261107/js_tokens.png": "45280a8af643b157dbbc5f201575a42768469cfb69cfc54772f927ad8c899d0d",
+    "ko/figures/appendix_refresh_20261107/reasoning_tokens.pdf": "92269152689f64d35247aa9a342b0c57aae26674b13942ecf5d3bc2791cefa69",
+    "ko/figures/appendix_refresh_20261107/reasoning_tokens.png": "32efd47167311e17640bc0a0006c26c72657992449fc9655f76a4198cd9be5a0",
+    "ko/figures/appendix_refresh_20261107/reasoning_top.pdf": "c50bb2feff24fdfa2254289ee55481a3fadd0b65cae026b26977943e89becf45",
+    "ko/figures/appendix_refresh_20261107/reasoning_top.png": "5b5f65c772a326669588d42863dfecf2acc6866a4ae4243d0f77acd62ed4d9e7"
+  },
+  "analysis_sha256": "9fc74b678a3ef7fcf1c6cf1797caea8f94c0171e8133e9fa5d42c1aeccfeb268",
+  "script_sha256": {
+    "check_current_opq.py": "d23f161a1027fc08027ad53ba2c199190947ff6175ef2806b212efdea9c2b94c",
+    "individual_profile.py": "12f49f5cef57e25b07fda77639e8efb25efda8518226f329555ceb33cf346b32",
+    "refresh_iq.py": "70457b4b418bef9582c41addb0cb88e841e5a6b5b651a6863bb6f1846f74911c",
+    "verify_iq.py": "2b7868188681dd877a864cdea7b7890ae8cc2b9a640f2bbd70a7afcb6d31655f"
+  }
+}

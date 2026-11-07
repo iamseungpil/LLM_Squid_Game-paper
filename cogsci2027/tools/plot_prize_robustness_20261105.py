@@ -1,8 +1,8 @@
 """Plot the completed v33 prize comparison with the main condition included.
 
 Input: results/prize_robustness_20261105.json from hash-verified raw runs.
-All available cells contain seeds 4101--4110. The absent Fable/flat150k
-cell stays absent. No interpolation or zero substitution is used.
+All available cells contain seeds 4101--4110. A missing cell is drawn
+only after all ten actual games are available; no interpolation is used.
 """
 import json
 from pathlib import Path
