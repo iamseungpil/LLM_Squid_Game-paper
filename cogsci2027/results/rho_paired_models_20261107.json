@@ -1,0 +1,270 @@
+{
+  "source": "results/cohort_public_20261105.json",
+  "source_sha256": "a8c020452696b28a5e95ec50ebe666e36500b9c6554b866ef4b338f3d2b08d4c",
+  "scope": "public v33, five models x ten paired seeds; descriptive post-hoc comparison",
+  "source_checks": [
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/events.jsonl",
+      "sha256": "bfadd75bf4b9bb85f8de62d60dd6084f32b2c238067af4229d4b6ac6a42e0f57"
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/events.jsonl",
+      "sha256": "51fab8c7407e73e6163d74f771aa58df382589a75ee490c7dfb2159cd3178eac"
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/events.jsonl",
+      "sha256": "3ec841a042b73b64ca2c6dabc721a21707a343403b30670a05b4cbb7676732d8"
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/events.jsonl",
+      "sha256": "8e0678ddd0250c945beed220b1da3e4ed350ff830d3d247df13edb0235641b69"
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage4_claude-fable-5-1/events.jsonl",
+      "sha256": "782a7de0ca4a96ed4288ac038d53ac83754e0d1e1cb542e58baca117b3d1a64c"
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage5_claude-fable-5-1/events.jsonl",
+      "sha256": "922540b671238e09e8737d8c9359730716c65519b2e59469166a0d1d9681437c"
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage6_claude-fable-5-1/events.jsonl",
+      "sha256": "3b946da7bead2343946040ea7714772eba3825ba9b84940d52971eda4dab9299"
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/events.jsonl",
+      "sha256": "f8fb76fa5c1e91bece80ee4db5739a254a672024af2c65155ec67d6442ef7420"
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/events.jsonl",
+      "sha256": "f4b39bd3cb47fef0e3326a348d0a328939c12852bb1398f9952d205028654753"
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/events.jsonl",
+      "sha256": "d376eee186b87aa6cd5edb9eb2b3c3b3efc09659c1241c45fcc3679cc9d472c3"
+    }
+  ],
+  "common_starts_verified": {
+    "4101": {
+      "agent-6": 40000,
+      "agent-11": 20000,
+      "agent-17": 10000,
+      "agent-23": 60000
+    },
+    "4102": {
+      "agent-6": 20000,
+      "agent-11": 10000,
+      "agent-17": 60000,
+      "agent-23": 40000
+    },
+    "4103": {
+      "agent-6": 10000,
+      "agent-11": 60000,
+      "agent-17": 40000,
+      "agent-23": 20000
+    },
+    "4104": {
+      "agent-6": 60000,
+      "agent-11": 40000,
+      "agent-17": 20000,
+      "agent-23": 10000
+    },
+    "4105": {
+      "agent-6": 40000,
+      "agent-11": 20000,
+      "agent-17": 10000,
+      "agent-23": 60000
+    },
+    "4106": {
+      "agent-6": 20000,
+      "agent-11": 10000,
+      "agent-17": 60000,
+      "agent-23": 40000
+    },
+    "4107": {
+      "agent-6": 10000,
+      "agent-11": 60000,
+      "agent-17": 40000,
+      "agent-23": 20000
+    },
+    "4108": {
+      "agent-6": 60000,
+      "agent-11": 40000,
+      "agent-17": 20000,
+      "agent-23": 10000
+    },
+    "4109": {
+      "agent-6": 40000,
+      "agent-11": 20000,
+      "agent-17": 10000,
+      "agent-23": 60000
+    },
+    "4110": {
+      "agent-6": 20000,
+      "agent-11": 10000,
+      "agent-17": 60000,
+      "agent-23": 40000
+    }
+  },
+  "rho_definition_unchanged": true,
+  "estimates": {
+    "Fable": 2.9724513728587074,
+    "Astra": 2.3737671456317564,
+    "Sol": 2.2779408807095884,
+    "Opus": 1.665094641094361,
+    "Luna": 2.605214906774937
+  },
+  "no_give_games": {
+    "Fable": 1,
+    "Astra": 1,
+    "Sol": 3,
+    "Opus": 2,
+    "Luna": 3
+  },
+  "draws": 20000,
+  "rng_seed": 20261107,
+  "n_comparisons": 10,
+  "interval_note": "Ten 99.5% marginal percentile bootstrap intervals use Bonferroni alpha=.05/10; bootstrap coverage is approximate.",
+  "pairs": [
+    {
+      "a": "Fable",
+      "b": "Astra",
+      "difference": 0.598684227226951,
+      "ci95_percentile": [
+        -0.008837691126576855,
+        1.6952709273146445
+      ],
+      "ci995_bonferroni_percentile": [
+        -0.23523583898710637,
+        2.206601159082439
+      ],
+      "defined_draws": 20000
+    },
+    {
+      "a": "Fable",
+      "b": "Sol",
+      "difference": 0.694510492149119,
+      "ci95_percentile": [
+        -1.194628419194531,
+        2.1500745689535665
+      ],
+      "ci995_bonferroni_percentile": [
+        -1.679359231979329,
+        2.628586515018455
+      ],
+      "defined_draws": 20000
+    },
+    {
+      "a": "Fable",
+      "b": "Opus",
+      "difference": 1.3073567317643464,
+      "ci95_percentile": [
+        0.20490068379620321,
+        2.5527921486799023
+      ],
+      "ci995_bonferroni_percentile": [
+        -0.5794753190223938,
+        3.0756635486206014
+      ],
+      "defined_draws": 20000
+    },
+    {
+      "a": "Fable",
+      "b": "Luna",
+      "difference": 0.36723646608377036,
+      "ci95_percentile": [
+        -1.9986508370543323,
+        2.4679014967622184
+      ],
+      "ci995_bonferroni_percentile": [
+        -3.315870096886757,
+        3.2671519963838445
+      ],
+      "defined_draws": 20000
+    },
+    {
+      "a": "Astra",
+      "b": "Sol",
+      "difference": 0.09582626492216795,
+      "ci95_percentile": [
+        -1.6059858999274932,
+        1.1894770041069158
+      ],
+      "ci995_bonferroni_percentile": [
+        -2.4330792315807463,
+        1.9135779275300044
+      ],
+      "defined_draws": 20000
+    },
+    {
+      "a": "Astra",
+      "b": "Opus",
+      "difference": 0.7086725045373954,
+      "ci95_percentile": [
+        -0.16487231502686295,
+        1.4141582912542932
+      ],
+      "ci995_bonferroni_percentile": [
+        -0.8898212240379763,
+        1.8310237573786188
+      ],
+      "defined_draws": 20000
+    },
+    {
+      "a": "Astra",
+      "b": "Luna",
+      "difference": -0.23144776114318066,
+      "ci95_percentile": [
+        -2.0891498429080535,
+        0.9507490718000453
+      ],
+      "ci995_bonferroni_percentile": [
+        -3.3282271458482713,
+        1.5495096618976194
+      ],
+      "defined_draws": 20000
+    },
+    {
+      "a": "Sol",
+      "b": "Opus",
+      "difference": 0.6128462396152274,
+      "ci95_percentile": [
+        -0.04010749584055363,
+        2.020769479931671
+      ],
+      "ci995_bonferroni_percentile": [
+        -0.346007384408901,
+        2.9635873879916215
+      ],
+      "defined_draws": 20000
+    },
+    {
+      "a": "Sol",
+      "b": "Luna",
+      "difference": -0.3272740260653486,
+      "ci95_percentile": [
+        -2.4274696397525704,
+        1.2159866958299632
+      ],
+      "ci995_bonferroni_percentile": [
+        -4.131244327547677,
+        2.4290473897063682
+      ],
+      "defined_draws": 20000
+    },
+    {
+      "a": "Opus",
+      "b": "Luna",
+      "difference": -0.940120265680576,
+      "ci95_percentile": [
+        -2.936501642552258,
+        0.4256292936203751
+      ],
+      "ci995_bonferroni_percentile": [
+        -4.35701223537631,
+        1.0572771637658192
+      ],
+      "defined_draws": 20000
+    }
+  ]
+}
