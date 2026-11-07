@@ -9,7 +9,7 @@
 # CogSci uses biblatex + biber; NatMI uses BibTeX with sn-nature.bst. latexmkrc puts the venue
 # style folders on TEXINPUTS / BSTINPUTS (so Overleaf finds them as well).
 # Output: dist/<lang>_<venue folder>_<DATE>.pdf and the matching _no_appendix.pdf.
-# (venue folder: cogsci2027 | natmi). DATE defaults to today; set PAPER_DATE to override.
+# DATE is today's YYYY-MM-DD; rebuilding replaces the same two files per language/venue.
 # PDF export requires Python 3 with PyMuPDF (python3 -m pip install pymupdf).
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -29,7 +29,7 @@ for selection in "${@:-ko}"; do
     *) echo "language must be 1/ko, 2/en, or 3/both" >&2; exit 2 ;;
   esac
 done
-DATE="${PAPER_DATE:-$(date +%F)}"
+DATE="$(date +%F)"
 mkdir -p "build/$dir" dist
 for lang in "${langs[@]}"; do
   case "$lang" in ko) engine=-xelatex ;; en) engine=-pdf ;; *) echo "language must be ko or en" >&2; exit 2 ;; esac

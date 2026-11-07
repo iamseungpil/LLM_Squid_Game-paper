@@ -1,0 +1,239 @@
+{
+  "n_crises": 73,
+  "n_crisis_games": 43,
+  "counts": {
+    "none": {
+      "in": 2,
+      "exited": 20,
+      "dead": 9
+    },
+    "short": {
+      "in": 2,
+      "exited": 5,
+      "dead": 8
+    },
+    "lifted": {
+      "in": 18,
+      "exited": 6,
+      "dead": 3
+    }
+  },
+  "first_crisis_four_present_games": [
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "recovered": false,
+      "finishers": 3
+    },
+    {
+      "model": "Fable",
+      "seed": 4106,
+      "recovered": true,
+      "finishers": 2
+    },
+    {
+      "model": "Fable",
+      "seed": 4108,
+      "recovered": true,
+      "finishers": 2
+    },
+    {
+      "model": "Fable",
+      "seed": 4109,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Fable",
+      "seed": 4110,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "recovered": true,
+      "finishers": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Astra",
+      "seed": 4106,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Astra",
+      "seed": 4107,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Astra",
+      "seed": 4108,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Astra",
+      "seed": 4109,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Astra",
+      "seed": 4110,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "recovered": false,
+      "finishers": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Sol",
+      "seed": 4106,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Sol",
+      "seed": 4107,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Sol",
+      "seed": 4108,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Sol",
+      "seed": 4109,
+      "recovered": true,
+      "finishers": 1
+    },
+    {
+      "model": "Sol",
+      "seed": 4110,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "recovered": false,
+      "finishers": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "recovered": false,
+      "finishers": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4106,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Opus",
+      "seed": 4107,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Opus",
+      "seed": 4110,
+      "recovered": true,
+      "finishers": 4
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "recovered": true,
+      "finishers": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Luna",
+      "seed": 4106,
+      "recovered": false,
+      "finishers": 2
+    },
+    {
+      "model": "Luna",
+      "seed": 4107,
+      "recovered": true,
+      "finishers": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4108,
+      "recovered": false,
+      "finishers": 2
+    }
+  ]
+}

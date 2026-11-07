@@ -1,0 +1,23 @@
+{
+  "finished": {
+    "agents": 116,
+    "comparable_solves": 252,
+    "correct": 184,
+    "reference_accuracy": 0.7123015873015873,
+    "givers": 68
+  },
+  "exited": {
+    "agents": 61,
+    "comparable_solves": 71,
+    "correct": 37,
+    "reference_accuracy": 0.5997652582159625,
+    "givers": 22
+  },
+  "dead": {
+    "agents": 23,
+    "comparable_solves": 42,
+    "correct": 20,
+    "reference_accuracy": 0.625,
+    "givers": 19
+  }
+}

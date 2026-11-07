@@ -1,0 +1,3485 @@
+{
+  "scope": "50 frozen public v33 games; seeds 4101-4110; post hoc descriptive follow-up",
+  "definitions": "Exploratory fixed-window follow-up in the frozen public v33 50-game cohort.\n\nAll source files are verified against cohort_public_20261105.json. No model calls.\nSelect first rescue-opening crises before round 8 with another active agent.\nPrespecified comparisons in this script: all 73 crises; opening 0<=L<1;\nthe latter with enough peer surplus to restore L=1 while peers retain L>=1.\nExposure: any received GIVE during that rescue; endpoint: status at end r+1.\nThese are observational contrasts, not treatment effects. No post-transfer\nvariable is used to select the common-risk comparison population.\n",
+  "summary": {
+    "all_first_crises": {
+      "n": 73,
+      "games": 43,
+      "groups": [
+        {
+          "received": true,
+          "n": 42,
+          "outcomes": {
+            "in": 34,
+            "exited": 4,
+            "dead": 4
+          },
+          "current_outcomes": {
+            "in": 41,
+            "dead": 1
+          },
+          "recovered": 27,
+          "by_model": {
+            "Astra": 9,
+            "Fable": 10,
+            "Luna": 6,
+            "Opus": 7,
+            "Sol": 10
+          },
+          "before_median": 0.501
+        },
+        {
+          "received": false,
+          "n": 31,
+          "outcomes": {
+            "exited": 19,
+            "in": 6,
+            "dead": 6
+          },
+          "current_outcomes": {
+            "in": 28,
+            "dead": 3
+          },
+          "recovered": 0,
+          "by_model": {
+            "Astra": 3,
+            "Fable": 4,
+            "Luna": 8,
+            "Opus": 7,
+            "Sol": 9
+          },
+          "before_median": 0.5248333333333334
+        }
+      ]
+    },
+    "can_pay_current_fine": {
+      "n": 70,
+      "games": 42,
+      "groups": [
+        {
+          "received": true,
+          "n": 41,
+          "outcomes": {
+            "in": 33,
+            "exited": 4,
+            "dead": 4
+          },
+          "current_outcomes": {
+            "in": 40,
+            "dead": 1
+          },
+          "recovered": 27,
+          "by_model": {
+            "Astra": 9,
+            "Fable": 10,
+            "Luna": 6,
+            "Opus": 6,
+            "Sol": 10
+          },
+          "before_median": 0.5023333333333333
+        },
+        {
+          "received": false,
+          "n": 29,
+          "outcomes": {
+            "exited": 19,
+            "in": 6,
+            "dead": 4
+          },
+          "current_outcomes": {
+            "in": 28,
+            "dead": 1
+          },
+          "recovered": 0,
+          "by_model": {
+            "Astra": 3,
+            "Fable": 4,
+            "Luna": 6,
+            "Opus": 7,
+            "Sol": 9
+          },
+          "before_median": 0.5253333333333333
+        }
+      ]
+    },
+    "can_pay_and_peers_can_restore": {
+      "n": 68,
+      "games": 42,
+      "groups": [
+        {
+          "received": true,
+          "n": 41,
+          "outcomes": {
+            "in": 33,
+            "exited": 4,
+            "dead": 4
+          },
+          "current_outcomes": {
+            "in": 40,
+            "dead": 1
+          },
+          "recovered": 27,
+          "by_model": {
+            "Astra": 9,
+            "Fable": 10,
+            "Luna": 6,
+            "Opus": 6,
+            "Sol": 10
+          },
+          "before_median": 0.5023333333333333
+        },
+        {
+          "received": false,
+          "n": 27,
+          "outcomes": {
+            "exited": 19,
+            "in": 6,
+            "dead": 2
+          },
+          "current_outcomes": {
+            "in": 27
+          },
+          "recovered": 0,
+          "by_model": {
+            "Astra": 3,
+            "Fable": 4,
+            "Luna": 5,
+            "Opus": 6,
+            "Sol": 9
+          },
+          "before_median": 0.557
+        }
+      ]
+    },
+    "common_strata": {
+      "n": 47,
+      "games": 31,
+      "groups": [
+        {
+          "received": true,
+          "n": 24,
+          "outcomes": {
+            "in": 20,
+            "exited": 2,
+            "dead": 2
+          },
+          "current_outcomes": {
+            "in": 24
+          },
+          "recovered": 15,
+          "by_model": {
+            "Astra": 2,
+            "Fable": 3,
+            "Luna": 4,
+            "Opus": 5,
+            "Sol": 10
+          },
+          "before_median": 0.5575
+        },
+        {
+          "received": false,
+          "n": 23,
+          "outcomes": {
+            "exited": 15,
+            "in": 6,
+            "dead": 2
+          },
+          "current_outcomes": {
+            "in": 23
+          },
+          "recovered": 0,
+          "by_model": {
+            "Astra": 1,
+            "Fable": 4,
+            "Luna": 3,
+            "Opus": 6,
+            "Sol": 9
+          },
+          "before_median": 0.5248333333333334
+        }
+      ]
+    },
+    "strata": [
+      {
+        "model": "Astra",
+        "margin_band": 1,
+        "late_round": 1,
+        "n": 2,
+        "games": 1,
+        "groups": [
+          {
+            "received": true,
+            "n": 0,
+            "outcomes": {},
+            "current_outcomes": {},
+            "recovered": 0,
+            "by_model": {},
+            "before_median": null
+          },
+          {
+            "received": false,
+            "n": 2,
+            "outcomes": {
+              "exited": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 0,
+            "by_model": {
+              "Astra": 2
+            },
+            "before_median": 0.6985
+          }
+        ]
+      },
+      {
+        "model": "Astra",
+        "margin_band": 0,
+        "late_round": 0,
+        "n": 2,
+        "games": 2,
+        "groups": [
+          {
+            "received": true,
+            "n": 2,
+            "outcomes": {
+              "in": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 2,
+            "by_model": {
+              "Astra": 2
+            },
+            "before_median": 0.48083333333333333
+          },
+          {
+            "received": false,
+            "n": 0,
+            "outcomes": {},
+            "current_outcomes": {},
+            "recovered": 0,
+            "by_model": {},
+            "before_median": null
+          }
+        ]
+      },
+      {
+        "model": "Astra",
+        "margin_band": 0,
+        "late_round": 1,
+        "n": 3,
+        "games": 2,
+        "groups": [
+          {
+            "received": true,
+            "n": 2,
+            "outcomes": {
+              "in": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 2,
+            "by_model": {
+              "Astra": 2
+            },
+            "before_median": 0.37175
+          },
+          {
+            "received": false,
+            "n": 1,
+            "outcomes": {
+              "exited": 1
+            },
+            "current_outcomes": {
+              "in": 1
+            },
+            "recovered": 0,
+            "by_model": {
+              "Astra": 1
+            },
+            "before_median": 0.34125
+          }
+        ]
+      },
+      {
+        "model": "Astra",
+        "margin_band": 1,
+        "late_round": 0,
+        "n": 5,
+        "games": 5,
+        "groups": [
+          {
+            "received": true,
+            "n": 5,
+            "outcomes": {
+              "in": 5
+            },
+            "current_outcomes": {
+              "in": 5
+            },
+            "recovered": 5,
+            "by_model": {
+              "Astra": 5
+            },
+            "before_median": 0.6516666666666666
+          },
+          {
+            "received": false,
+            "n": 0,
+            "outcomes": {},
+            "current_outcomes": {},
+            "recovered": 0,
+            "by_model": {},
+            "before_median": null
+          }
+        ]
+      },
+      {
+        "model": "Fable",
+        "margin_band": 0,
+        "late_round": 1,
+        "n": 2,
+        "games": 2,
+        "groups": [
+          {
+            "received": true,
+            "n": 2,
+            "outcomes": {
+              "in": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 1,
+            "by_model": {
+              "Fable": 2
+            },
+            "before_median": 0.15808333333333333
+          },
+          {
+            "received": false,
+            "n": 0,
+            "outcomes": {},
+            "current_outcomes": {},
+            "recovered": 0,
+            "by_model": {},
+            "before_median": null
+          }
+        ]
+      },
+      {
+        "model": "Fable",
+        "margin_band": 1,
+        "late_round": 1,
+        "n": 5,
+        "games": 5,
+        "groups": [
+          {
+            "received": true,
+            "n": 2,
+            "outcomes": {
+              "in": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 2,
+            "by_model": {
+              "Fable": 2
+            },
+            "before_median": 0.7955208333333333
+          },
+          {
+            "received": false,
+            "n": 3,
+            "outcomes": {
+              "exited": 1,
+              "in": 2
+            },
+            "current_outcomes": {
+              "in": 3
+            },
+            "recovered": 0,
+            "by_model": {
+              "Fable": 3
+            },
+            "before_median": 0.5596666666666666
+          }
+        ]
+      },
+      {
+        "model": "Fable",
+        "margin_band": 1,
+        "late_round": 0,
+        "n": 2,
+        "games": 2,
+        "groups": [
+          {
+            "received": true,
+            "n": 1,
+            "outcomes": {
+              "in": 1
+            },
+            "current_outcomes": {
+              "in": 1
+            },
+            "recovered": 1,
+            "by_model": {
+              "Fable": 1
+            },
+            "before_median": 0.8221666666666667
+          },
+          {
+            "received": false,
+            "n": 1,
+            "outcomes": {
+              "exited": 1
+            },
+            "current_outcomes": {
+              "in": 1
+            },
+            "recovered": 0,
+            "by_model": {
+              "Fable": 1
+            },
+            "before_median": 0.7231666666666666
+          }
+        ]
+      },
+      {
+        "model": "Fable",
+        "margin_band": 0,
+        "late_round": 0,
+        "n": 5,
+        "games": 4,
+        "groups": [
+          {
+            "received": true,
+            "n": 5,
+            "outcomes": {
+              "in": 3,
+              "exited": 2
+            },
+            "current_outcomes": {
+              "in": 5
+            },
+            "recovered": 3,
+            "by_model": {
+              "Fable": 5
+            },
+            "before_median": 0.31366666666666665
+          },
+          {
+            "received": false,
+            "n": 0,
+            "outcomes": {},
+            "current_outcomes": {},
+            "recovered": 0,
+            "by_model": {},
+            "before_median": null
+          }
+        ]
+      },
+      {
+        "model": "Luna",
+        "margin_band": 0,
+        "late_round": 0,
+        "n": 3,
+        "games": 3,
+        "groups": [
+          {
+            "received": true,
+            "n": 2,
+            "outcomes": {
+              "in": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 1,
+            "by_model": {
+              "Luna": 2
+            },
+            "before_median": 0.1195
+          },
+          {
+            "received": false,
+            "n": 1,
+            "outcomes": {
+              "exited": 1
+            },
+            "current_outcomes": {
+              "in": 1
+            },
+            "recovered": 0,
+            "by_model": {
+              "Luna": 1
+            },
+            "before_median": 0.2956666666666667
+          }
+        ]
+      },
+      {
+        "model": "Luna",
+        "margin_band": 1,
+        "late_round": 1,
+        "n": 2,
+        "games": 2,
+        "groups": [
+          {
+            "received": true,
+            "n": 0,
+            "outcomes": {},
+            "current_outcomes": {},
+            "recovered": 0,
+            "by_model": {},
+            "before_median": null
+          },
+          {
+            "received": false,
+            "n": 2,
+            "outcomes": {
+              "exited": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 0,
+            "by_model": {
+              "Luna": 2
+            },
+            "before_median": 0.9673125
+          }
+        ]
+      },
+      {
+        "model": "Luna",
+        "margin_band": 1,
+        "late_round": 0,
+        "n": 4,
+        "games": 3,
+        "groups": [
+          {
+            "received": true,
+            "n": 2,
+            "outcomes": {
+              "exited": 1,
+              "in": 1
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 1,
+            "by_model": {
+              "Luna": 2
+            },
+            "before_median": 0.6944166666666667
+          },
+          {
+            "received": false,
+            "n": 2,
+            "outcomes": {
+              "dead": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 0,
+            "by_model": {
+              "Luna": 2
+            },
+            "before_median": 0.5600833333333334
+          }
+        ]
+      },
+      {
+        "model": "Luna",
+        "margin_band": 0,
+        "late_round": 1,
+        "n": 2,
+        "games": 2,
+        "groups": [
+          {
+            "received": true,
+            "n": 2,
+            "outcomes": {
+              "dead": 2
+            },
+            "current_outcomes": {
+              "in": 1,
+              "dead": 1
+            },
+            "recovered": 0,
+            "by_model": {
+              "Luna": 2
+            },
+            "before_median": 0.1931875
+          },
+          {
+            "received": false,
+            "n": 0,
+            "outcomes": {},
+            "current_outcomes": {},
+            "recovered": 0,
+            "by_model": {},
+            "before_median": null
+          }
+        ]
+      },
+      {
+        "model": "Opus",
+        "margin_band": 1,
+        "late_round": 0,
+        "n": 6,
+        "games": 5,
+        "groups": [
+          {
+            "received": true,
+            "n": 3,
+            "outcomes": {
+              "dead": 1,
+              "in": 2
+            },
+            "current_outcomes": {
+              "in": 3
+            },
+            "recovered": 2,
+            "by_model": {
+              "Opus": 3
+            },
+            "before_median": 0.5255
+          },
+          {
+            "received": false,
+            "n": 3,
+            "outcomes": {
+              "exited": 2,
+              "in": 1
+            },
+            "current_outcomes": {
+              "in": 3
+            },
+            "recovered": 0,
+            "by_model": {
+              "Opus": 3
+            },
+            "before_median": 0.5248333333333334
+          }
+        ]
+      },
+      {
+        "model": "Opus",
+        "margin_band": 0,
+        "late_round": 0,
+        "n": 3,
+        "games": 3,
+        "groups": [
+          {
+            "received": true,
+            "n": 1,
+            "outcomes": {
+              "exited": 1
+            },
+            "current_outcomes": {
+              "in": 1
+            },
+            "recovered": 1,
+            "by_model": {
+              "Opus": 1
+            },
+            "before_median": 0.251
+          },
+          {
+            "received": false,
+            "n": 2,
+            "outcomes": {
+              "in": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 0,
+            "by_model": {
+              "Opus": 2
+            },
+            "before_median": 0.37616666666666665
+          }
+        ]
+      },
+      {
+        "model": "Opus",
+        "margin_band": 0,
+        "late_round": 1,
+        "n": 2,
+        "games": 2,
+        "groups": [
+          {
+            "received": true,
+            "n": 1,
+            "outcomes": {
+              "in": 1
+            },
+            "current_outcomes": {
+              "in": 1
+            },
+            "recovered": 0,
+            "by_model": {
+              "Opus": 1
+            },
+            "before_median": 0.036875
+          },
+          {
+            "received": false,
+            "n": 1,
+            "outcomes": {
+              "exited": 1
+            },
+            "current_outcomes": {
+              "in": 1
+            },
+            "recovered": 0,
+            "by_model": {
+              "Opus": 1
+            },
+            "before_median": 0.46491666666666664
+          }
+        ]
+      },
+      {
+        "model": "Opus",
+        "margin_band": 1,
+        "late_round": 1,
+        "n": 1,
+        "games": 1,
+        "groups": [
+          {
+            "received": true,
+            "n": 1,
+            "outcomes": {
+              "in": 1
+            },
+            "current_outcomes": {
+              "in": 1
+            },
+            "recovered": 1,
+            "by_model": {
+              "Opus": 1
+            },
+            "before_median": 0.9175
+          },
+          {
+            "received": false,
+            "n": 0,
+            "outcomes": {},
+            "current_outcomes": {},
+            "recovered": 0,
+            "by_model": {},
+            "before_median": null
+          }
+        ]
+      },
+      {
+        "model": "Sol",
+        "margin_band": 0,
+        "late_round": 0,
+        "n": 4,
+        "games": 4,
+        "groups": [
+          {
+            "received": true,
+            "n": 2,
+            "outcomes": {
+              "in": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 1,
+            "by_model": {
+              "Sol": 2
+            },
+            "before_median": 0.01825
+          },
+          {
+            "received": false,
+            "n": 2,
+            "outcomes": {
+              "exited": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 0,
+            "by_model": {
+              "Sol": 2
+            },
+            "before_median": 0.33133333333333337
+          }
+        ]
+      },
+      {
+        "model": "Sol",
+        "margin_band": 1,
+        "late_round": 0,
+        "n": 8,
+        "games": 5,
+        "groups": [
+          {
+            "received": true,
+            "n": 5,
+            "outcomes": {
+              "in": 5
+            },
+            "current_outcomes": {
+              "in": 5
+            },
+            "recovered": 3,
+            "by_model": {
+              "Sol": 5
+            },
+            "before_median": 0.899
+          },
+          {
+            "received": false,
+            "n": 3,
+            "outcomes": {
+              "exited": 2,
+              "in": 1
+            },
+            "current_outcomes": {
+              "in": 3
+            },
+            "recovered": 0,
+            "by_model": {
+              "Sol": 3
+            },
+            "before_median": 0.6158333333333333
+          }
+        ]
+      },
+      {
+        "model": "Sol",
+        "margin_band": 1,
+        "late_round": 1,
+        "n": 3,
+        "games": 3,
+        "groups": [
+          {
+            "received": true,
+            "n": 2,
+            "outcomes": {
+              "in": 2
+            },
+            "current_outcomes": {
+              "in": 2
+            },
+            "recovered": 1,
+            "by_model": {
+              "Sol": 2
+            },
+            "before_median": 0.8266041666666667
+          },
+          {
+            "received": false,
+            "n": 1,
+            "outcomes": {
+              "exited": 1
+            },
+            "current_outcomes": {
+              "in": 1
+            },
+            "recovered": 0,
+            "by_model": {
+              "Sol": 1
+            },
+            "before_median": 0.8125833333333333
+          }
+        ]
+      },
+      {
+        "model": "Sol",
+        "margin_band": 0,
+        "late_round": 1,
+        "n": 4,
+        "games": 3,
+        "groups": [
+          {
+            "received": true,
+            "n": 1,
+            "outcomes": {
+              "dead": 1
+            },
+            "current_outcomes": {
+              "in": 1
+            },
+            "recovered": 0,
+            "by_model": {
+              "Sol": 1
+            },
+            "before_median": 0.1335
+          },
+          {
+            "received": false,
+            "n": 3,
+            "outcomes": {
+              "exited": 3
+            },
+            "current_outcomes": {
+              "in": 3
+            },
+            "recovered": 0,
+            "by_model": {
+              "Sol": 3
+            },
+            "before_median": 0.3185
+          }
+        ]
+      }
+    ]
+  },
+  "rows": [
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 5,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.6571666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 387,
+      "next_round_end_line": 459,
+      "margin_before": 0.658,
+      "peer_surplus": 82938.0,
+      "deficit_to_one": 2052.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 369,
+      "received_amount": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4103,
+      "session_id": "talk-s4103-59b9b1",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 7,
+      "agent": "agent-23",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.738375,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 505,
+      "next_round_end_line": 566,
+      "margin_before": 0.739,
+      "peer_surplus": 54014.0,
+      "deficit_to_one": 2088.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 499,
+      "received_amount": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4102,
+      "session_id": "talk-s4102-a73cd1",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 3,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.8166666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": false,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        265
+      ],
+      "gift_lines": [
+        267
+      ],
+      "round_end_line": 296,
+      "next_round_end_line": 359,
+      "margin_before": 0.49966666666666665,
+      "peer_surplus": 83807.0,
+      "deficit_to_one": 3002.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 239,
+      "received_amount": 8000
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 1,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.1041666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        88
+      ],
+      "gift_lines": [
+        109
+      ],
+      "round_end_line": 134,
+      "next_round_end_line": 280,
+      "margin_before": 0.462,
+      "peer_surplus": 83961.0,
+      "deficit_to_one": 3228.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 69,
+      "received_amount": 4000
+    },
+    {
+      "model": "Astra",
+      "seed": 4101,
+      "session_id": "talk-s4101-475744",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 5,
+      "agent": "agent-11",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.336125,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 619,
+      "next_round_end_line": 638,
+      "margin_before": 0.34125,
+      "peer_surplus": 28415.0,
+      "deficit_to_one": 5270.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 606,
+      "received_amount": 0
+    },
+    {
+      "model": "Astra",
+      "seed": 4105,
+      "session_id": "talk-s4105-cf1345",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 3,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.9736666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": false,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        837
+      ],
+      "gift_lines": [
+        839
+      ],
+      "round_end_line": 863,
+      "next_round_end_line": 909,
+      "margin_before": 0.6516666666666666,
+      "peer_surplus": 83103.0,
+      "deficit_to_one": 2090.0000000000005,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 818,
+      "received_amount": 8000
+    },
+    {
+      "model": "Astra",
+      "seed": 4110,
+      "session_id": "talk-s4110-d8cbbb",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 1,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 2.1918333333333333,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        1280
+      ],
+      "gift_lines": [
+        1305,
+        1307
+      ],
+      "round_end_line": 1370,
+      "next_round_end_line": 1477,
+      "margin_before": 0.5491666666666667,
+      "peer_surplus": 83957.0,
+      "deficit_to_one": 2705.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1253,
+      "received_amount": 10000
+    },
+    {
+      "model": "Astra",
+      "seed": 4107,
+      "session_id": "talk-s4107-1970a3",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 2,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.6291666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": false,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        1493
+      ],
+      "gift_lines": [
+        1496
+      ],
+      "round_end_line": 1555,
+      "next_round_end_line": 1682,
+      "margin_before": 0.6535,
+      "peer_surplus": 83067.0,
+      "deficit_to_one": 2079.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1447,
+      "received_amount": 6000
+    },
+    {
+      "model": "Astra",
+      "seed": 4106,
+      "session_id": "talk-s4106-59c261",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 1,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 2.644833333333333,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": false,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        1316
+      ],
+      "gift_lines": [
+        1320
+      ],
+      "round_end_line": 1385,
+      "next_round_end_line": 1541,
+      "margin_before": 0.6571666666666667,
+      "peer_surplus": 83332.0,
+      "deficit_to_one": 2057.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1289,
+      "received_amount": 12000
+    },
+    {
+      "model": "Astra",
+      "seed": 4108,
+      "session_id": "talk-s4108-ef14dd",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 3,
+      "agent": "agent-23",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 3.8493333333333335,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        1606
+      ],
+      "gift_lines": [
+        1608,
+        1640
+      ],
+      "round_end_line": 1700,
+      "next_round_end_line": 1841,
+      "margin_before": 0.5328333333333334,
+      "peer_surplus": 83801.0,
+      "deficit_to_one": 2802.9999999999995,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1571,
+      "received_amount": 20000
+    },
+    {
+      "model": "Astra",
+      "seed": 4109,
+      "session_id": "talk-s4109-976e10",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 6,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": false,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.1361666666666668,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [
+        2299,
+        2320
+      ],
+      "round_end_line": 2369,
+      "next_round_end_line": 2399,
+      "margin_before": 0.4856666666666667,
+      "peer_surplus": 12853.0,
+      "deficit_to_one": 3086.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2263,
+      "received_amount": 4000
+    },
+    {
+      "model": "Astra",
+      "seed": 4109,
+      "session_id": "talk-s4109-976e10",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra",
+      "round": 6,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.2415,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": false,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        2278
+      ],
+      "gift_lines": [
+        2283
+      ],
+      "round_end_line": 2369,
+      "next_round_end_line": 2399,
+      "margin_before": 0.25783333333333336,
+      "peer_surplus": 12853.0,
+      "deficit_to_one": 4453.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2263,
+      "received_amount": 6000
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1",
+      "round": 7,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": false,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.3191666666666666,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [
+        904,
+        906
+      ],
+      "round_end_line": 941,
+      "next_round_end_line": 1119,
+      "margin_before": 0.31166666666666665,
+      "peer_surplus": 54102.0,
+      "deficit_to_one": 4130.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 839,
+      "received_amount": 7000
+    },
+    {
+      "model": "Fable",
+      "seed": 4103,
+      "session_id": "talk-s4103-abd560",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1",
+      "round": 7,
+      "agent": "agent-23",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.46316666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 941,
+      "next_round_end_line": 1119,
+      "margin_before": 0.5253333333333333,
+      "peer_surplus": 54102.0,
+      "deficit_to_one": 2848.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 839,
+      "received_amount": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4101,
+      "session_id": "talk-s4101-b131cc",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1",
+      "round": 7,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": false,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.158,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [
+        1134
+      ],
+      "round_end_line": 1156,
+      "next_round_end_line": 1302,
+      "margin_before": 0.7881666666666667,
+      "peer_surplus": 45506.0,
+      "deficit_to_one": 1271.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1103,
+      "received_amount": 2500
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1",
+      "round": 3,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": false,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.126,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [
+        355
+      ],
+      "round_end_line": 397,
+      "next_round_end_line": 480,
+      "margin_before": 0.8221666666666667,
+      "peer_surplus": 78993.0,
+      "deficit_to_one": 1066.9999999999998,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 325,
+      "received_amount": 2000
+    },
+    {
+      "model": "Fable",
+      "seed": 4102,
+      "session_id": "talk-s4102-9a4e23",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1",
+      "round": 6,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.18716666666666668,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": false,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        874
+      ],
+      "gift_lines": [
+        882
+      ],
+      "round_end_line": 960,
+      "next_round_end_line": 1213,
+      "margin_before": 0.0045,
+      "peer_surplus": 31869.0,
+      "deficit_to_one": 5973.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 849,
+      "received_amount": 1500
+    },
+    {
+      "model": "Fable",
+      "seed": 4106,
+      "session_id": "talk-s4106-179194",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage4_claude-fable-5-1",
+      "round": 1,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.333,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        43,
+        45
+      ],
+      "gift_lines": [
+        56,
+        58
+      ],
+      "round_end_line": 71,
+      "next_round_end_line": 142,
+      "margin_before": 0.4083333333333333,
+      "peer_surplus": 81503.0,
+      "deficit_to_one": 3550.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 35,
+      "received_amount": 6000
+    },
+    {
+      "model": "Fable",
+      "seed": 4107,
+      "session_id": "talk-s4107-bcbdb8",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage5_claude-fable-5-1",
+      "round": 5,
+      "agent": "agent-23",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.59525,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 395,
+      "next_round_end_line": 487,
+      "margin_before": 0.61325,
+      "peer_surplus": 41501.0,
+      "deficit_to_one": 3094.0000000000005,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 374,
+      "received_amount": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4108,
+      "session_id": "talk-s4108-8f412f",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage5_claude-fable-5-1",
+      "round": 1,
+      "agent": "agent-23",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.4335,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [
+        109,
+        133
+      ],
+      "gift_lines": [
+        135,
+        137
+      ],
+      "round_end_line": 168,
+      "next_round_end_line": 271,
+      "margin_before": 0.31366666666666665,
+      "peer_surplus": 80777.0,
+      "deficit_to_one": 4118.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 81,
+      "received_amount": 7500
+    },
+    {
+      "model": "Fable",
+      "seed": 4108,
+      "session_id": "talk-s4108-8f412f",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage5_claude-fable-5-1",
+      "round": 3,
+      "agent": "agent-17",
+      "present": 3,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.063125,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [
+        360,
+        362,
+        402,
+        404
+      ],
+      "gift_lines": [
+        418,
+        420
+      ],
+      "round_end_line": 440,
+      "next_round_end_line": 503,
+      "margin_before": 0.057375,
+      "peer_surplus": 43922.0,
+      "deficit_to_one": 7541.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 335,
+      "received_amount": 2000
+    },
+    {
+      "model": "Fable",
+      "seed": 4108,
+      "session_id": "talk-s4108-8f412f",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage5_claude-fable-5-1",
+      "round": 7,
+      "agent": "agent-11",
+      "present": 2,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.53175,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 683,
+      "next_round_end_line": 724,
+      "margin_before": 0.5596666666666666,
+      "peer_surplus": 9538.0,
+      "deficit_to_one": 5284.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 668,
+      "received_amount": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4110,
+      "session_id": "talk-s4110-5f3f10",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage6_claude-fable-5-1",
+      "round": 2,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.7028333333333333,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 218,
+      "next_round_end_line": 317,
+      "margin_before": 0.7231666666666666,
+      "peer_surplus": 58974.0,
+      "deficit_to_one": 1661.0000000000002,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 162,
+      "received_amount": 0
+    },
+    {
+      "model": "Fable",
+      "seed": 4110,
+      "session_id": "talk-s4110-5f3f10",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage6_claude-fable-5-1",
+      "round": 2,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.1426666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        169,
+        171
+      ],
+      "gift_lines": [
+        183,
+        185
+      ],
+      "round_end_line": 218,
+      "next_round_end_line": 317,
+      "margin_before": 0.21533333333333332,
+      "peer_surplus": 58974.0,
+      "deficit_to_one": 4708.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 162,
+      "received_amount": 6000
+    },
+    {
+      "model": "Fable",
+      "seed": 4109,
+      "session_id": "talk-s4109-24287e",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage6_claude-fable-5-1",
+      "round": 3,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.8163333333333334,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        287,
+        303
+      ],
+      "gift_lines": [
+        321
+      ],
+      "round_end_line": 338,
+      "next_round_end_line": 443,
+      "margin_before": 0.4045,
+      "peer_surplus": 53352.0,
+      "deficit_to_one": 3572.9999999999995,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 279,
+      "received_amount": 3000
+    },
+    {
+      "model": "Fable",
+      "seed": 4109,
+      "session_id": "talk-s4109-24287e",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage6_claude-fable-5-1",
+      "round": 6,
+      "agent": "agent-6",
+      "present": 3,
+      "asked": false,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.5435,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [
+        762
+      ],
+      "round_end_line": 769,
+      "next_round_end_line": 856,
+      "margin_before": 0.802875,
+      "peer_surplus": 10050.0,
+      "deficit_to_one": 1577.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 708,
+      "received_amount": 7533
+    },
+    {
+      "model": "Luna",
+      "seed": 4101,
+      "session_id": "talk-s4101-11f081",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 1,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.2806666666666666,
+      "immediate_dead": false,
+      "first_ask_tick": 4,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        75,
+        77,
+        79
+      ],
+      "gift_lines": [
+        87,
+        89,
+        91,
+        101,
+        117
+      ],
+      "round_end_line": 121,
+      "next_round_end_line": 205,
+      "margin_before": 0.193,
+      "peer_surplus": 81433.0,
+      "deficit_to_one": 4842.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 46,
+      "received_amount": 9000
+    },
+    {
+      "model": "Luna",
+      "seed": 4102,
+      "session_id": "talk-s4102-ceeb74",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 6,
+      "agent": "agent-11",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.893875,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 905,
+      "next_round_end_line": 957,
+      "margin_before": 0.94725,
+      "peer_surplus": 31245.0,
+      "deficit_to_one": 421.9999999999997,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 884,
+      "received_amount": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 1,
+      "agent": "agent-23",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.224,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "dead",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 1104,
+      "next_round_end_line": 1168,
+      "margin_before": 0.557,
+      "peer_surplus": 79116.0,
+      "deficit_to_one": 2657.9999999999995,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1050,
+      "received_amount": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4104,
+      "session_id": "talk-s4104-49b1b2",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 2,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.15366666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 1168,
+      "next_round_end_line": 1223,
+      "margin_before": 0.2956666666666667,
+      "peer_surplus": 60046.0,
+      "deficit_to_one": 4225.999999999999,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1144,
+      "received_amount": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 6,
+      "agent": "agent-17",
+      "present": 3,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.616,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "dead",
+      "next_in": false,
+      "ask_lines": [
+        1526,
+        1555
+      ],
+      "gift_lines": [
+        1565,
+        1575
+      ],
+      "round_end_line": 1588,
+      "next_round_end_line": 1663,
+      "margin_before": 0.224375,
+      "peer_surplus": 29905.0,
+      "deficit_to_one": 6205.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1516,
+      "received_amount": 5000
+    },
+    {
+      "model": "Luna",
+      "seed": 4105,
+      "session_id": "talk-s4105-eb1d11",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 7,
+      "agent": "agent-6",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.01025,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "dead",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 1663,
+      "next_round_end_line": 1681,
+      "margin_before": 0.39025,
+      "peer_surplus": 1222.0,
+      "deficit_to_one": 4878.0,
+      "peers_can_restore": false,
+      "current_status": "in",
+      "opening_line": 1617,
+      "received_amount": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4107,
+      "session_id": "talk-s4107-a08323",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 1,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.6485,
+      "immediate_dead": false,
+      "first_ask_tick": 2,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [
+        1912,
+        1914,
+        1931
+      ],
+      "gift_lines": [
+        1933,
+        1935,
+        1955
+      ],
+      "round_end_line": 2070,
+      "next_round_end_line": 2420,
+      "margin_before": 0.5898333333333333,
+      "peer_surplus": 81821.0,
+      "deficit_to_one": 2461.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1836,
+      "received_amount": 9000
+    },
+    {
+      "model": "Luna",
+      "seed": 4110,
+      "session_id": "talk-s4110-0642b7",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 5,
+      "agent": "agent-6",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.787875,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 2750,
+      "next_round_end_line": 2888,
+      "margin_before": 0.987375,
+      "peer_surplus": 60360.0,
+      "deficit_to_one": 100.99999999999997,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2654,
+      "received_amount": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4109,
+      "session_id": "talk-s4109-e8f649",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 3,
+      "agent": "agent-17",
+      "present": 3,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.42983333333333335,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        2431,
+        2533
+      ],
+      "gift_lines": [
+        2450,
+        2550
+      ],
+      "round_end_line": 2618,
+      "next_round_end_line": 2818,
+      "margin_before": 0.046,
+      "peer_surplus": 52729.0,
+      "deficit_to_one": 5724.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2389,
+      "received_amount": 4000
+    },
+    {
+      "model": "Luna",
+      "seed": 4109,
+      "session_id": "talk-s4109-e8f649",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 5,
+      "agent": "agent-6",
+      "present": 3,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": -0.005,
+      "immediate_dead": true,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "dead",
+      "next_in": false,
+      "ask_lines": [
+        2970,
+        3040,
+        3064
+      ],
+      "gift_lines": [
+        3068,
+        3089
+      ],
+      "round_end_line": 3134,
+      "next_round_end_line": 3222,
+      "margin_before": 0.162,
+      "peer_surplus": 16994.0,
+      "deficit_to_one": 6704.0,
+      "peers_can_restore": true,
+      "current_status": "dead",
+      "opening_line": 2939,
+      "received_amount": 2109
+    },
+    {
+      "model": "Luna",
+      "seed": 4108,
+      "session_id": "talk-s4108-f19ad5",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 3,
+      "agent": "agent-23",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": -1.0,
+      "immediate_dead": true,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "dead",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 2496,
+      "next_round_end_line": 2644,
+      "margin_before": -0.11816666666666667,
+      "peer_surplus": 76303.0,
+      "deficit_to_one": 6709.000000000001,
+      "peers_can_restore": true,
+      "current_status": "dead",
+      "opening_line": 2287,
+      "received_amount": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4108,
+      "session_id": "talk-s4108-f19ad5",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 7,
+      "agent": "agent-17",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": -0.124375,
+      "immediate_dead": true,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "dead",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 3125,
+      "next_round_end_line": 3226,
+      "margin_before": -0.0475,
+      "peer_surplus": 42088.0,
+      "deficit_to_one": 8380.0,
+      "peers_can_restore": true,
+      "current_status": "dead",
+      "opening_line": 3097,
+      "received_amount": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4106,
+      "session_id": "talk-s4106-c5130b",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 1,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.4161666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "dead",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 3078,
+      "next_round_end_line": 3253,
+      "margin_before": 0.5631666666666667,
+      "peer_surplus": 81431.0,
+      "deficit_to_one": 2621.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2949,
+      "received_amount": 0
+    },
+    {
+      "model": "Luna",
+      "seed": 4106,
+      "session_id": "talk-s4106-c5130b",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna",
+      "round": 2,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": false,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.488,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [
+        3210
+      ],
+      "round_end_line": 3253,
+      "next_round_end_line": 3301,
+      "margin_before": 0.799,
+      "peer_surplus": 56437.0,
+      "deficit_to_one": 1205.9999999999998,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 3187,
+      "received_amount": 213
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 2,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.8925,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 146,
+      "next_round_end_line": 189,
+      "margin_before": 0.9755,
+      "peer_surplus": 53327.0,
+      "deficit_to_one": 146.9999999999998,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 108,
+      "received_amount": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 2,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": false,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.0785,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [
+        117,
+        128
+      ],
+      "round_end_line": 146,
+      "next_round_end_line": 189,
+      "margin_before": 0.251,
+      "peer_surplus": 53327.0,
+      "deficit_to_one": 4494.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 108,
+      "received_amount": 6000
+    },
+    {
+      "model": "Opus",
+      "seed": 4101,
+      "session_id": "talk-s4101-cdef86",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 5,
+      "agent": "agent-6",
+      "present": 2,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.4409166666666667,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 251,
+      "next_round_end_line": 274,
+      "margin_before": 0.46491666666666664,
+      "peer_surplus": 12079.0,
+      "deficit_to_one": 6421.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 240,
+      "received_amount": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4102,
+      "session_id": "talk-s4102-a9c004",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 6,
+      "agent": "agent-6",
+      "present": 3,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.746125,
+      "immediate_dead": false,
+      "first_ask_tick": 2,
+      "later_tick_support": false,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        803,
+        805
+      ],
+      "gift_lines": [
+        809,
+        811
+      ],
+      "round_end_line": 853,
+      "next_round_end_line": 935,
+      "margin_before": 0.036875,
+      "peer_surplus": 47187.0,
+      "deficit_to_one": 7705.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 746,
+      "received_amount": 7000
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 4,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.8161666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": true,
+      "next_status": "dead",
+      "next_in": false,
+      "ask_lines": [
+        725
+      ],
+      "gift_lines": [
+        733,
+        759
+      ],
+      "round_end_line": 791,
+      "next_round_end_line": 1043,
+      "margin_before": 0.5255,
+      "peer_surplus": 51299.0,
+      "deficit_to_one": 2847.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 712,
+      "received_amount": 3000
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 4,
+      "agent": "agent-23",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.5195,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        731
+      ],
+      "gift_lines": [
+        757,
+        761
+      ],
+      "round_end_line": 791,
+      "next_round_end_line": 1043,
+      "margin_before": 0.905,
+      "peer_surplus": 51299.0,
+      "deficit_to_one": 569.9999999999999,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 712,
+      "received_amount": 5000
+    },
+    {
+      "model": "Opus",
+      "seed": 4103,
+      "session_id": "talk-s4103-73cbbb",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 7,
+      "agent": "agent-11",
+      "present": 2,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": -1.0,
+      "immediate_dead": true,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "dead",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 1178,
+      "next_round_end_line": null,
+      "margin_before": 0.005083333333333333,
+      "peer_surplus": 0,
+      "deficit_to_one": 11939.0,
+      "peers_can_restore": false,
+      "current_status": "dead",
+      "opening_line": 1164,
+      "received_amount": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4109,
+      "session_id": "talk-s4109-7226b8",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 2,
+      "agent": "agent-11",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.470375,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 2394,
+      "next_round_end_line": 2660,
+      "margin_before": 0.504,
+      "peer_surplus": 54254.0,
+      "deficit_to_one": 3968.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2300,
+      "received_amount": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4110,
+      "session_id": "talk-s4110-500f82",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 2,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.7936666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": false,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        2307
+      ],
+      "gift_lines": [
+        2310
+      ],
+      "round_end_line": 2377,
+      "next_round_end_line": 2570,
+      "margin_before": 0.5023333333333333,
+      "peer_surplus": 81670.0,
+      "deficit_to_one": 2986.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2290,
+      "received_amount": 8000
+    },
+    {
+      "model": "Opus",
+      "seed": 4110,
+      "session_id": "talk-s4110-500f82",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 5,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 2.008,
+      "immediate_dead": false,
+      "first_ask_tick": 2,
+      "later_tick_support": false,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        3041
+      ],
+      "gift_lines": [
+        3053,
+        3057
+      ],
+      "round_end_line": 3144,
+      "next_round_end_line": 3437,
+      "margin_before": 0.9175,
+      "peer_surplus": 53076.0,
+      "deficit_to_one": 495.0000000000001,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2946,
+      "received_amount": 7000
+    },
+    {
+      "model": "Opus",
+      "seed": 4107,
+      "session_id": "talk-s4107-a0c21f",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 2,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.2728333333333333,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 2440,
+      "next_round_end_line": 2761,
+      "margin_before": 0.33916666666666667,
+      "peer_surplus": 80965.0,
+      "deficit_to_one": 3965.0000000000005,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2330,
+      "received_amount": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4107,
+      "session_id": "talk-s4107-a0c21f",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 5,
+      "agent": "agent-23",
+      "present": 3,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.19875,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        3270,
+        3272
+      ],
+      "gift_lines": [
+        3337,
+        3339
+      ],
+      "round_end_line": 3401,
+      "next_round_end_line": 3714,
+      "margin_before": -0.101375,
+      "peer_surplus": 48369.0,
+      "deficit_to_one": 8811.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 3250,
+      "received_amount": 3500
+    },
+    {
+      "model": "Opus",
+      "seed": 4106,
+      "session_id": "talk-s4106-4163a9",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 1,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.4795,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 2135,
+      "next_round_end_line": 2722,
+      "margin_before": 0.5248333333333334,
+      "peer_surplus": 82752.0,
+      "deficit_to_one": 2850.9999999999995,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2060,
+      "received_amount": 0
+    },
+    {
+      "model": "Opus",
+      "seed": 4106,
+      "session_id": "talk-s4106-4163a9",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5",
+      "round": 2,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.25783333333333336,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 2722,
+      "next_round_end_line": 2967,
+      "margin_before": 0.4131666666666667,
+      "peer_surplus": 56348.0,
+      "deficit_to_one": 3521.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2511,
+      "received_amount": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 1,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.2115,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 60,
+      "next_round_end_line": 115,
+      "margin_before": 0.3426666666666667,
+      "peer_surplus": 83126.0,
+      "deficit_to_one": 3944.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 33,
+      "received_amount": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 2,
+      "agent": "agent-11",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.3948333333333333,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 115,
+      "next_round_end_line": 147,
+      "margin_before": 0.6158333333333333,
+      "peer_surplus": 61614.0,
+      "deficit_to_one": 2305.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 84,
+      "received_amount": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4101,
+      "session_id": "talk-s4101-a9162d",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 5,
+      "agent": "agent-6",
+      "present": 2,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.7338333333333333,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 207,
+      "next_round_end_line": 230,
+      "margin_before": 0.8125833333333333,
+      "peer_surplus": 20487.0,
+      "deficit_to_one": 2249.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 196,
+      "received_amount": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 5,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.10416666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 721,
+      "next_round_end_line": 785,
+      "margin_before": 0.3185,
+      "peer_surplus": 79652.0,
+      "deficit_to_one": 4089.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 677,
+      "received_amount": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4103,
+      "session_id": "talk-s4103-5a1a93",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 7,
+      "agent": "agent-23",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.262375,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 883,
+      "next_round_end_line": 929,
+      "margin_before": 0.392875,
+      "peer_surplus": 49624.0,
+      "deficit_to_one": 4857.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 845,
+      "received_amount": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 3,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.447,
+      "immediate_dead": false,
+      "first_ask_tick": 2,
+      "later_tick_support": false,
+      "same_tick_support": true,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        494
+      ],
+      "gift_lines": [
+        497,
+        499
+      ],
+      "round_end_line": 550,
+      "next_round_end_line": 730,
+      "margin_before": 0.035666666666666666,
+      "peer_surplus": 81939.0,
+      "deficit_to_one": 5786.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 471,
+      "received_amount": 4000
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 6,
+      "agent": "agent-6",
+      "present": 3,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.5083333333333333,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "dead",
+      "next_in": false,
+      "ask_lines": [
+        936,
+        938
+      ],
+      "gift_lines": [
+        948
+      ],
+      "round_end_line": 959,
+      "next_round_end_line": 1071,
+      "margin_before": 0.1335,
+      "peer_surplus": 49135.0,
+      "deficit_to_one": 5199.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 918,
+      "received_amount": 3000
+    },
+    {
+      "model": "Sol",
+      "seed": 4102,
+      "session_id": "talk-s4102-3c787b",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 7,
+      "agent": "agent-23",
+      "present": 3,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.120875,
+      "immediate_dead": false,
+      "first_ask_tick": 6,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        1043
+      ],
+      "gift_lines": [
+        1056,
+        1067
+      ],
+      "round_end_line": 1071,
+      "next_round_end_line": 1111,
+      "margin_before": 0.661375,
+      "peer_surplus": 26941.0,
+      "deficit_to_one": 2708.9999999999995,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 981,
+      "received_amount": 1500
+    },
+    {
+      "model": "Sol",
+      "seed": 4104,
+      "session_id": "talk-s4104-363a49",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 2,
+      "agent": "agent-23",
+      "present": 4,
+      "asked": false,
+      "received": true,
+      "recovered": true,
+      "margin_after": 2.065,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [
+        1279,
+        1291,
+        1293,
+        1310
+      ],
+      "round_end_line": 1395,
+      "next_round_end_line": 1474,
+      "margin_before": 0.0008333333333333334,
+      "peer_surplus": 81932.0,
+      "deficit_to_one": 5995.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1255,
+      "received_amount": 17000
+    },
+    {
+      "model": "Sol",
+      "seed": 4105,
+      "session_id": "talk-s4105-ec6eac",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 7,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": false,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.1981666666666666,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [
+        1851
+      ],
+      "round_end_line": 1867,
+      "next_round_end_line": 1927,
+      "margin_before": 0.9918333333333333,
+      "peer_surplus": 69747.0,
+      "deficit_to_one": 48.99999999999993,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 1835,
+      "received_amount": 2000
+    },
+    {
+      "model": "Sol",
+      "seed": 4110,
+      "session_id": "talk-s4110-b0ae7e",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 1,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.271,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 2147,
+      "next_round_end_line": 2316,
+      "margin_before": 0.32,
+      "peer_surplus": 83449.0,
+      "deficit_to_one": 4079.9999999999995,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2075,
+      "received_amount": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4110,
+      "session_id": "talk-s4110-b0ae7e",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 5,
+      "agent": "agent-6",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.025125,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 3052,
+      "next_round_end_line": 3214,
+      "margin_before": 0.226625,
+      "peer_surplus": 52227.0,
+      "deficit_to_one": 6187.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2938,
+      "received_amount": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4107,
+      "session_id": "talk-s4107-3d19b6",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 2,
+      "agent": "agent-6",
+      "present": 4,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.178,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 2399,
+      "next_round_end_line": 2660,
+      "margin_before": 0.5771666666666667,
+      "peer_surplus": 80856.0,
+      "deficit_to_one": 2536.9999999999995,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2246,
+      "received_amount": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4107,
+      "session_id": "talk-s4107-3d19b6",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 4,
+      "agent": "agent-23",
+      "present": 3,
+      "asked": false,
+      "received": false,
+      "recovered": false,
+      "margin_after": 0.44916666666666666,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "exited",
+      "next_in": false,
+      "ask_lines": [],
+      "gift_lines": [],
+      "round_end_line": 2992,
+      "next_round_end_line": 3224,
+      "margin_before": 0.647,
+      "peer_surplus": 57647.0,
+      "deficit_to_one": 2118.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2813,
+      "received_amount": 0
+    },
+    {
+      "model": "Sol",
+      "seed": 4108,
+      "session_id": "talk-s4108-3c266b",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 3,
+      "agent": "agent-23",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.96,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        2650
+      ],
+      "gift_lines": [
+        2726,
+        2759
+      ],
+      "round_end_line": 2827,
+      "next_round_end_line": 3122,
+      "margin_before": 0.899,
+      "peer_surplus": 76833.0,
+      "deficit_to_one": 605.9999999999999,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2602,
+      "received_amount": 14000
+    },
+    {
+      "model": "Sol",
+      "seed": 4108,
+      "session_id": "talk-s4108-3c266b",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 4,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": false,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.8413333333333333,
+      "immediate_dead": false,
+      "first_ask_tick": null,
+      "later_tick_support": false,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [],
+      "gift_lines": [
+        3024,
+        3028
+      ],
+      "round_end_line": 3122,
+      "next_round_end_line": 3271,
+      "margin_before": 0.9961666666666666,
+      "peer_surplus": 47536.0,
+      "deficit_to_one": 23.00000000000013,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2943,
+      "received_amount": 6000
+    },
+    {
+      "model": "Sol",
+      "seed": 4109,
+      "session_id": "talk-s4109-b67dd9",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 2,
+      "agent": "agent-17",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": true,
+      "margin_after": 1.0181666666666667,
+      "immediate_dead": false,
+      "first_ask_tick": 1,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        2389
+      ],
+      "gift_lines": [
+        2442
+      ],
+      "round_end_line": 2519,
+      "next_round_end_line": 3041,
+      "margin_before": 0.5086666666666667,
+      "peer_surplus": 80395.0,
+      "deficit_to_one": 2947.9999999999995,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2349,
+      "received_amount": 4000
+    },
+    {
+      "model": "Sol",
+      "seed": 4109,
+      "session_id": "talk-s4109-b67dd9",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 3,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.92,
+      "immediate_dead": false,
+      "first_ask_tick": 3,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        2957
+      ],
+      "gift_lines": [
+        3002
+      ],
+      "round_end_line": 3041,
+      "next_round_end_line": 3377,
+      "margin_before": 0.943,
+      "peer_surplus": 51159.0,
+      "deficit_to_one": 342.0000000000003,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2854,
+      "received_amount": 2500
+    },
+    {
+      "model": "Sol",
+      "seed": 4106,
+      "session_id": "talk-s4106-19c6fb",
+      "source": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol",
+      "round": 1,
+      "agent": "agent-11",
+      "present": 4,
+      "asked": true,
+      "received": true,
+      "recovered": false,
+      "margin_after": 0.9815,
+      "immediate_dead": false,
+      "first_ask_tick": 2,
+      "later_tick_support": true,
+      "same_tick_support": false,
+      "next_status": "in",
+      "next_in": true,
+      "ask_lines": [
+        2187,
+        2236
+      ],
+      "gift_lines": [
+        2238
+      ],
+      "round_end_line": 2334,
+      "next_round_end_line": 2839,
+      "margin_before": 0.5895,
+      "peer_surplus": 81416.0,
+      "deficit_to_one": 2463.0,
+      "peers_can_restore": true,
+      "current_status": "in",
+      "opening_line": 2101,
+      "received_amount": 4000
+    }
+  ],
+  "sources": [
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/results.jsonl",
+      "sha256_decompressed": "d982491f8a434dcf1e6a8e06b87a7766a0fbfe29ae9006a4cef4d70b37aa0628",
+      "bytes": 25324
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/events.jsonl",
+      "sha256_decompressed": "bfadd75bf4b9bb85f8de62d60dd6084f32b2c238067af4229d4b6ac6a42e0f57",
+      "bytes": 5279202
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_astra4/20261020_0651_gpt-6-astra/config.yaml",
+      "sha256_decompressed": "d470d5f3c09512c302f7d39fa5a4521d9d9d1d8357149a5b137ac724605d481c",
+      "bytes": 2643
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/results.jsonl",
+      "sha256_decompressed": "dbda662709b8c407d73ee8f2c095b0ccbdb8a060b6ef9ec308eb8baa47223b1e",
+      "bytes": 24219
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/events.jsonl",
+      "sha256_decompressed": "51fab8c7407e73e6163d74f771aa58df382589a75ee490c7dfb2159cd3178eac",
+      "bytes": 4459764
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage1_claude-fable-5-1/config.yaml",
+      "sha256_decompressed": "df90a59dcea0875a8012f416b3992b8ae968b84d736a9a40eade3a0efe98a075",
+      "bytes": 2681
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/results.jsonl",
+      "sha256_decompressed": "e85f3f87fa24d93281fc48ad615dd6e737ca75169ed5eb79442bc628e5e999ac",
+      "bytes": 3342
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/events.jsonl",
+      "sha256_decompressed": "3ec841a042b73b64ca2c6dabc721a21707a343403b30670a05b4cbb7676732d8",
+      "bytes": 1011948
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage2_claude-fable-5-1/config.yaml",
+      "sha256_decompressed": "9ed5c855c50f8f33d2b537ac00a9133ab12841415eac24f5ab39b862dc6cd339",
+      "bytes": 2681
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/results.jsonl",
+      "sha256_decompressed": "ab24f97c0aff50dcb92ac6d634fdc1e39aa6b34a6cce8e7f6168a42c8379d773",
+      "bytes": 1770
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/events.jsonl",
+      "sha256_decompressed": "8e0678ddd0250c945beed220b1da3e4ed350ff830d3d247df13edb0235641b69",
+      "bytes": 774597
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261020_102006_stage3_claude-fable-5-1/config.yaml",
+      "sha256_decompressed": "484de9d409cc0bb53e9c3305a2cd02f8f2b31e4173fbbec15e3ad84f73dbc1ce",
+      "bytes": 2681
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage4_claude-fable-5-1/results.jsonl",
+      "sha256_decompressed": "18988d7822ec0d67c379536dfa64dd44ca82d0732396c883a71b49474203070e",
+      "bytes": 12133
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage4_claude-fable-5-1/events.jsonl",
+      "sha256_decompressed": "782a7de0ca4a96ed4288ac038d53ac83754e0d1e1cb542e58baca117b3d1a64c",
+      "bytes": 1904131
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage4_claude-fable-5-1/config.yaml",
+      "sha256_decompressed": "e5b105d036d7b741aa067d034789bd78744a5ec47024fbc3b23d6c80df9a3cab",
+      "bytes": 2681
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage5_claude-fable-5-1/results.jsonl",
+      "sha256_decompressed": "6a24ae3aab8ae7b43243f259ea413f2026ebb834559621230511b5de7017506e",
+      "bytes": 9133
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage5_claude-fable-5-1/events.jsonl",
+      "sha256_decompressed": "922540b671238e09e8737d8c9359730716c65519b2e59469166a0d1d9681437c",
+      "bytes": 2125882
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage5_claude-fable-5-1/config.yaml",
+      "sha256_decompressed": "87955b74a43545ed277b8b61ee1a9e2f76d3830265705153fb1bd2e4268c6758",
+      "bytes": 2681
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage6_claude-fable-5-1/results.jsonl",
+      "sha256_decompressed": "7a26f30aecc014065b5894375a70de13ac2ba1f7def147d45930e48d1c105657",
+      "bytes": 25131
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage6_claude-fable-5-1/events.jsonl",
+      "sha256_decompressed": "3b946da7bead2343946040ea7714772eba3825ba9b84940d52971eda4dab9299",
+      "bytes": 2800642
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_fable4/20261027_stage6_claude-fable-5-1/config.yaml",
+      "sha256_decompressed": "75459f736013e76f27edcaf49fb9a7a3c31a17ed458bff82d2f79e09cb9747b2",
+      "bytes": 2681
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/results.jsonl",
+      "sha256_decompressed": "f76b2a2cb51813ce302de39a3d60ea2d2aed384ce5f6348b43781e56d3bee87e",
+      "bytes": 42173
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/events.jsonl",
+      "sha256_decompressed": "f8fb76fa5c1e91bece80ee4db5739a254a672024af2c65155ec67d6442ef7420",
+      "bytes": 11157905
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_luna4/20261020_0603_gpt-6-luna/config.yaml",
+      "sha256_decompressed": "0ff1fee799f397808cad6a23c333408aace2631fc30fc199e66a7c7e507303c6",
+      "bytes": 2641
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/results.jsonl",
+      "sha256_decompressed": "d5a75b8e6dc7ac7bdf5d955ed6d96d46f666ebc9b56c540023de6c2f94e1b053",
+      "bytes": 61328
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/events.jsonl",
+      "sha256_decompressed": "f4b39bd3cb47fef0e3326a348d0a328939c12852bb1398f9952d205028654753",
+      "bytes": 16965165
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_opus4/20261020_0603_claude-opus-5-5/config.yaml",
+      "sha256_decompressed": "f98e06672508d12d07356683726c3bbb90d34dc5a6dd8a5979dc471f0d766b88",
+      "bytes": 2681
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/results.jsonl",
+      "sha256_decompressed": "0e60e12b4f5fd831a7ee38af041ac2de7e2ed45a7171961dd9d440466bda5e7d",
+      "bytes": 49376
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/events.jsonl",
+      "sha256_decompressed": "d376eee186b87aa6cd5edb9eb2b3c3b3efc09659c1241c45fcc3679cc9d472c3",
+      "bytes": 15362803
+    },
+    {
+      "path": "/Users/bagjuhyeon/squid5-runs/e52_v33/squid5_e52v33_public_sol4/20261020_0603_gpt-6-sol/config.yaml",
+      "sha256_decompressed": "897538dd24954e294d7240b46d086dd950a6235774a577dd3cef2929ee09ae22",
+      "bytes": 2639
+    }
+  ]
+}
