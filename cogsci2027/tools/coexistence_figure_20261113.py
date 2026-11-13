@@ -105,15 +105,16 @@ def main():
     open_order = sorted(opened, key=lambda m: -opened[m]['C'])
 
     fig = plt.figure(figsize=(7.1, 1.82))
-    y0, h = .215, .5
-    ax_curve = fig.add_axes([.052, y0, .155, h])
-    ax_s = fig.add_axes([.277, y0, .105, h])
-    ax_t = fig.add_axes([.394, y0, .105, h])
-    ax_loss = fig.add_axes([.598, y0, .17, h])
-    ax_exit = fig.add_axes([.842, y0 + .29, .15, .21])
-    ax_ask = fig.add_axes([.842, y0, .15, .21])
+    # 2026-11-13: same canvas, larger plot areas (the margins between the panels and around the titles are tightened)
+    y0, h = .17, .625
+    ax_curve = fig.add_axes([.046, y0, .182, h])
+    ax_s = fig.add_axes([.266, y0, .118, h])
+    ax_t = fig.add_axes([.394, y0, .118, h])
+    ax_loss = fig.add_axes([.59, y0, .19, h])
+    ax_exit = fig.add_axes([.832, y0 + .345, .16, .28])
+    ax_ask = fig.add_axes([.832, y0, .16, .28])
     title = dict(fontsize=7, weight='bold', va='bottom')
-    ytitle = y0 + h + .075
+    ytitle = y0 + h + .035
 
     # (a) all-four curve, closed models
     for m in order:
@@ -138,13 +139,13 @@ def main():
         ax.bar(range(4), vals, color='#3F7FC1', width=.72)
         for i, (a, b) in enumerate(cells):
             ax.text(i, vals[i] + 2, f'{a}\n/{b}', ha='center', va='bottom', fontsize=4.3, linespacing=.9)
-        ax.set(xticks=range(4), xticklabels=labels_x, ylim=(0, 125), yticks=[0, 50, 100])
+        ax.set(xticks=range(4), xticklabels=labels_x, ylim=(0, 112), yticks=[0, 50, 100])
         if ax is ax_t:
             ax.set_yticklabels([])
         ax.set_xlabel(xlabel, fontsize=6.2, labelpad=1)
         ax.tick_params(labelsize=5.6, length=2)
         ax.grid(axis='y', alpha=.5)
-    fig.text(.243, ytitle, '(b) 요청 뒤 지원한 비율 (%)', **title)
+    fig.text(.236, ytitle, '(b) 요청 뒤 지원한 비율 (%)', **title)
 
     # (c) what ended four-way coexistence, nine models
     tag_colors = {'dead': ps.C['dead'], 'exit_below': ps.C['exit'], 'exit_above': '#F2B880'}
@@ -167,7 +168,7 @@ def main():
     ax_loss.tick_params(axis='y', length=0, labelsize=5.2)
     ax_loss.tick_params(axis='x', labelsize=5.8, length=2)
     ax_loss.grid(axis='x', alpha=.6)
-    fig.text(.528, ytitle, '(c) 공존을 끝낸 사건', **title)
+    fig.text(.526, ytitle, '(c) 공존을 끝낸 사건', **title)
     fig.legend(handles=[Patch(color=tag_colors[t], label=tag_labels[t]) for t in cx.TAGS], loc='upper right',
                bbox_to_anchor=(1.0, 1.012), ncol=3, fontsize=6, frameon=False, handlelength=.9, columnspacing=1.0, handletextpad=.4)
 
@@ -178,12 +179,12 @@ def main():
         ax.bar(range(4), vals, color=color, width=.72)
         for i, (a, b) in enumerate(zip(bands[key]['k'], bands[key]['n'])):
             ax.text(i, vals[i] + 3, f'{a}/{b}', ha='center', va='bottom', fontsize=4.3)
-        ax.set(xticks=range(4), xticklabels=xl if ax is ax_ask else [], ylim=(0, 82), yticks=[0, 50])
+        ax.set(xticks=range(4), xticklabels=xl if ax is ax_ask else [], ylim=(0, 72), yticks=[0, 50])
         ax.text(.98, .93, name, transform=ax.transAxes, ha='right', va='top', fontsize=5.6)
         ax.tick_params(labelsize=5.6, length=2)
         ax.grid(axis='y', alpha=.5)
     ax_ask.set_xlabel('자기 여유 $L$', fontsize=6.2, labelpad=1)
-    fig.text(.805, ytitle, '(d) 여유별 이탈과 요청', **title)
+    fig.text(.802, ytitle, '(d) 여유별 이탈과 요청', **title)
 
     for ext in ('pdf', 'png'):
         fig.savefig(cb.DEST / f'coexistence_process_20261113.{ext}', dpi=240)
