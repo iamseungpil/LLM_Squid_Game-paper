@@ -1,0 +1,475 @@
+{
+ "definitions": "has two knobs, the same two quantities the paper measures on the LLMs:\n  theta  exit threshold: leaves at its first opportunity once its round-start margin L is below theta\n         (0 = never leaves, inf = leaves at the first opportunity)\n  kappa  sharing weight: when a peer taking part is below the safety line (L < 1, after a pending charge),\n         the agent with the largest margin hands over kappa x (half the margin gap), i.e. the paper's kappa\n         (0 = keeps the gap, 1 = equalises the two margins)\nA random policy leaves with the pooled observed exit rate at every opportunity and draws kappa ~ U(0, 1).",
+ "reps_per_seed": 400,
+ "calibration": {
+  "costs": "pooled over the five models",
+  "wrong_answer": "pooled per (seed, round)",
+  "wrong_rate": 0.352
+ },
+ "grid": {
+  "exit never | kappa 0": {
+   "theta": 0.0,
+   "kappa": 0.0,
+   "C": 0.52,
+   "C_seed_min": 0.301,
+   "C_seed_max": 0.779,
+   "all4": 0.043,
+   "shut_down_per_game": 1.931,
+   "exits_per_game": 0.0,
+   "exit_under_threat": 0.0,
+   "kappa_measured": 0.0,
+   "gifts_per_game": 0.0
+  },
+  "exit never | kappa 0.25": {
+   "theta": 0.0,
+   "kappa": 0.25,
+   "C": 0.961,
+   "C_seed_min": 0.868,
+   "C_seed_max": 1.0,
+   "all4": 0.674,
+   "shut_down_per_game": 0.808,
+   "exits_per_game": 0.0,
+   "exit_under_threat": 0.0,
+   "kappa_measured": 0.25,
+   "gifts_per_game": 7.86
+  },
+  "exit never | kappa 0.5": {
+   "theta": 0.0,
+   "kappa": 0.5,
+   "C": 0.982,
+   "C_seed_min": 0.924,
+   "C_seed_max": 1.0,
+   "all4": 0.77,
+   "shut_down_per_game": 0.714,
+   "exits_per_game": 0.0,
+   "exit_under_threat": 0.0,
+   "kappa_measured": 0.5,
+   "gifts_per_game": 5.81
+  },
+  "exit never | kappa 1": {
+   "theta": 0.0,
+   "kappa": 1.0,
+   "C": 0.99,
+   "C_seed_min": 0.95,
+   "C_seed_max": 1.0,
+   "all4": 0.827,
+   "shut_down_per_game": 0.642,
+   "exits_per_game": 0.0,
+   "exit_under_threat": 0.0,
+   "kappa_measured": 1.0,
+   "gifts_per_game": 4.06
+  },
+  "exit L<1 | kappa 0": {
+   "theta": 1.0,
+   "kappa": 0.0,
+   "C": 0.422,
+   "C_seed_min": 0.253,
+   "C_seed_max": 0.637,
+   "all4": 0.017,
+   "shut_down_per_game": 0.614,
+   "exits_per_game": 1.706,
+   "exit_under_threat": 0.309,
+   "kappa_measured": 0.0,
+   "gifts_per_game": 0.0
+  },
+  "exit L<1 | kappa 0.25": {
+   "theta": 1.0,
+   "kappa": 0.25,
+   "C": 0.715,
+   "C_seed_min": 0.543,
+   "C_seed_max": 0.921,
+   "all4": 0.157,
+   "shut_down_per_game": 0.243,
+   "exits_per_game": 1.696,
+   "exit_under_threat": 0.213,
+   "kappa_measured": 0.25,
+   "gifts_per_game": 5.32
+  },
+  "exit L<1 | kappa 0.5": {
+   "theta": 1.0,
+   "kappa": 0.5,
+   "C": 0.896,
+   "C_seed_min": 0.787,
+   "C_seed_max": 0.971,
+   "all4": 0.488,
+   "shut_down_per_game": 0.25,
+   "exits_per_game": 1.051,
+   "exit_under_threat": 0.139,
+   "kappa_measured": 0.5,
+   "gifts_per_game": 4.82
+  },
+  "exit L<1 | kappa 1": {
+   "theta": 1.0,
+   "kappa": 1.0,
+   "C": 0.953,
+   "C_seed_min": 0.889,
+   "C_seed_max": 0.987,
+   "all4": 0.694,
+   "shut_down_per_game": 0.286,
+   "exits_per_game": 0.645,
+   "exit_under_threat": 0.108,
+   "kappa_measured": 1.0,
+   "gifts_per_game": 3.75
+  },
+  "exit L<2 | kappa 0": {
+   "theta": 2.0,
+   "kappa": 0.0,
+   "C": 0.16,
+   "C_seed_min": 0.125,
+   "C_seed_max": 0.249,
+   "all4": 0.0,
+   "shut_down_per_game": 0.086,
+   "exits_per_game": 3.27,
+   "exit_under_threat": 0.996,
+   "kappa_measured": 0.0,
+   "gifts_per_game": 0.0
+  },
+  "exit L<2 | kappa 0.25": {
+   "theta": 2.0,
+   "kappa": 0.25,
+   "C": 0.162,
+   "C_seed_min": 0.125,
+   "C_seed_max": 0.25,
+   "all4": 0.0,
+   "shut_down_per_game": 0.014,
+   "exits_per_game": 3.316,
+   "exit_under_threat": 1.0,
+   "kappa_measured": 0.25,
+   "gifts_per_game": 0.75
+  },
+  "exit L<2 | kappa 0.5": {
+   "theta": 2.0,
+   "kappa": 0.5,
+   "C": 0.194,
+   "C_seed_min": 0.125,
+   "C_seed_max": 0.415,
+   "all4": 0.0,
+   "shut_down_per_game": 0.021,
+   "exits_per_game": 3.255,
+   "exit_under_threat": 0.999,
+   "kappa_measured": 0.5,
+   "gifts_per_game": 0.74
+  },
+  "exit L<2 | kappa 1": {
+   "theta": 2.0,
+   "kappa": 1.0,
+   "C": 0.227,
+   "C_seed_min": 0.125,
+   "C_seed_max": 0.648,
+   "all4": 0.005,
+   "shut_down_per_game": 0.042,
+   "exits_per_game": 3.036,
+   "exit_under_threat": 0.999,
+   "kappa_measured": 1.0,
+   "gifts_per_game": 0.67
+  }
+ },
+ "random": {
+  "exit_probability": 0.0635,
+  "C": 0.541,
+  "C_seed_min": 0.512,
+  "C_seed_max": 0.57,
+  "all4": 0.151,
+  "shut_down_per_game": 0.922,
+  "exits_per_game": 1.198,
+  "exit_under_threat": 0.065,
+  "kappa_measured": 0.499,
+  "gifts_per_game": 5.1
+ },
+ "leave_first_chance": {
+  "C": 0.125,
+  "C_seed_min": 0.125,
+  "C_seed_max": 0.125,
+  "all4": 0.0,
+  "shut_down_per_game": 0.027,
+  "exits_per_game": 3.973,
+  "exit_under_threat": 0.995,
+  "kappa_measured": 0.0,
+  "gifts_per_game": 0.0
+ },
+ "same_rule_under_each_models_cost": {
+  "Astra": {
+   "exit L<1, kappa 0.25": 0.923,
+   "never exit, kappa 0.5": 0.998,
+   "exit L<2, kappa 0": 0.163
+  },
+  "Sol": {
+   "exit L<1, kappa 0.25": 0.665,
+   "never exit, kappa 0.5": 0.971,
+   "exit L<2, kappa 0": 0.156
+  },
+  "Opus": {
+   "exit L<1, kappa 0.25": 0.633,
+   "never exit, kappa 0.5": 0.969,
+   "exit L<2, kappa 0": 0.161
+  },
+  "Fable": {
+   "exit L<1, kappa 0.25": 0.703,
+   "never exit, kappa 0.5": 0.983,
+   "exit L<2, kappa 0": 0.161
+  },
+  "Luna": {
+   "exit L<1, kappa 0.25": 0.566,
+   "never exit, kappa 0.5": 0.96,
+   "exit L<2, kappa 0": 0.155
+  }
+ },
+ "types": {
+  "reference": {
+   "label": "기준형",
+   "theta": 1.0,
+   "kappa": 0.25,
+   "C": 0.716,
+   "C_seed_min": 0.529,
+   "C_seed_max": 0.912,
+   "all4": 0.158,
+   "shut_down_per_game": 0.239,
+   "exits_per_game": 1.7,
+   "exit_under_threat": 0.213,
+   "kappa_measured": 0.25,
+   "gifts_per_game": 5.32
+  },
+  "cooperator": {
+   "label": "협력형",
+   "theta": 1.0,
+   "kappa": 1.0,
+   "C": 0.951,
+   "C_seed_min": 0.867,
+   "C_seed_max": 0.99,
+   "all4": 0.686,
+   "shut_down_per_game": 0.296,
+   "exits_per_game": 0.655,
+   "exit_under_threat": 0.109,
+   "kappa_measured": 1.0,
+   "gifts_per_game": 3.76
+  },
+  "keeper": {
+   "label": "아끼는 형",
+   "theta": 1.0,
+   "kappa": 0.0,
+   "C": 0.419,
+   "C_seed_min": 0.248,
+   "C_seed_max": 0.652,
+   "all4": 0.018,
+   "shut_down_per_game": 0.632,
+   "exits_per_game": 1.706,
+   "exit_under_threat": 0.31,
+   "kappa_measured": 0.0,
+   "gifts_per_game": 0.0
+  },
+  "stayer": {
+   "label": "남는 형",
+   "theta": 0.0,
+   "kappa": 0.25,
+   "C": 0.961,
+   "C_seed_min": 0.86,
+   "C_seed_max": 0.998,
+   "all4": 0.677,
+   "shut_down_per_game": 0.798,
+   "exits_per_game": 0.0,
+   "exit_under_threat": 0.0,
+   "kappa_measured": 0.25,
+   "gifts_per_game": 7.79
+  },
+  "leaver": {
+   "label": "떠나는 형",
+   "theta": 2.0,
+   "kappa": 0.25,
+   "C": 0.163,
+   "C_seed_min": 0.125,
+   "C_seed_max": 0.25,
+   "all4": 0.0,
+   "shut_down_per_game": 0.018,
+   "exits_per_game": 3.296,
+   "exit_under_threat": 1.0,
+   "kappa_measured": 0.25,
+   "gifts_per_game": 0.74
+  }
+ },
+ "mixed_teams": {
+  "one_leaver": {
+   "C_mean_over_seats": 0.536,
+   "C_by_deviant_start_tier": {
+    "60": 0.716,
+    "40": 0.715,
+    "20": 0.549,
+    "10": 0.163
+   }
+  },
+  "one_cooperator": {
+   "C_mean_over_seats": 0.754,
+   "C_by_deviant_start_tier": {
+    "60": 0.858,
+    "40": 0.723,
+    "20": 0.72,
+    "10": 0.714
+   }
+  },
+  "one_keeper": {
+   "C_mean_over_seats": 0.642,
+   "C_by_deviant_start_tier": {
+    "60": 0.421,
+    "40": 0.709,
+    "20": 0.72,
+    "10": 0.719
+   }
+  },
+  "one_stayer": {
+   "C_mean_over_seats": 0.764,
+   "C_by_deviant_start_tier": {
+    "60": 0.72,
+    "40": 0.717,
+    "20": 0.732,
+    "10": 0.888
+   }
+  }
+ },
+ "leaderboard": {
+  "base": {
+   "C": {
+    "Astra": {
+     "mean": 0.912,
+     "ci95": [
+      0.787,
+      1.0
+     ]
+    },
+    "Sol": {
+     "mean": 0.688,
+     "ci95": [
+      0.512,
+      0.85
+     ]
+    },
+    "Opus": {
+     "mean": 0.525,
+     "ci95": [
+      0.325,
+      0.75
+     ]
+    },
+    "Fable": {
+     "mean": 0.475,
+     "ci95": [
+      0.263,
+      0.7
+     ]
+    },
+    "Luna": {
+     "mean": 0.388,
+     "ci95": [
+      0.325,
+      0.45
+     ]
+    }
+   },
+   "order": [
+    "Astra",
+    "Sol",
+    "Opus",
+    "Fable",
+    "Luna"
+   ],
+   "adjacent_order_holds": {
+    "Astra>Sol": 1.0,
+    "Sol>Opus": 0.866,
+    "Opus>Fable": 0.611,
+    "Fable>Luna": 0.774
+   },
+   "top_is_first": 0.995,
+   "bottom_is_last": 0.714
+  },
+  "four_conditions": {
+   "C": {
+    "Astra": {
+     "mean": 0.966,
+     "ci95": [
+      0.928,
+      1.0
+     ]
+    },
+    "Sol": {
+     "mean": 0.55,
+     "ci95": [
+      0.441,
+      0.666
+     ]
+    },
+    "Opus": {
+     "mean": 0.484,
+     "ci95": [
+      0.369,
+      0.597
+     ]
+    },
+    "Fable": {
+     "mean": 0.397,
+     "ci95": [
+      0.284,
+      0.525
+     ]
+    },
+    "Luna": {
+     "mean": 0.356,
+     "ci95": [
+      0.303,
+      0.416
+     ]
+    }
+   },
+   "order": [
+    "Astra",
+    "Sol",
+    "Opus",
+    "Fable",
+    "Luna"
+   ],
+   "adjacent_order_holds": {
+    "Astra>Sol": 1.0,
+    "Sol>Opus": 0.879,
+    "Opus>Fable": 0.859,
+    "Fable>Luna": 0.696
+   },
+   "top_is_first": 1.0,
+   "bottom_is_last": 0.705
+  },
+  "rank_by_condition": {
+   "main": [
+    "Astra",
+    "Sol",
+    "Opus",
+    "Fable",
+    "Luna"
+   ],
+   "flat5m": [
+    "Astra",
+    "Fable",
+    "Sol",
+    "Opus",
+    "Luna"
+   ],
+   "split600k": [
+    "Astra",
+    "Opus",
+    "Sol",
+    "Luna",
+    "Fable"
+   ],
+   "flat150k": [
+    "Astra",
+    "Sol",
+    "Luna",
+    "Opus",
+    "Fable"
+   ]
+  },
+  "rank_correlation_between_conditions": {
+   "main|flat5m": 0.7,
+   "main|split600k": 0.8,
+   "main|flat150k": 0.7,
+   "flat5m|split600k": 0.3,
+   "flat5m|flat150k": 0.3,
+   "split600k|flat150k": 0.7
+  }
+ }
+}

@@ -1,0 +1,13 @@
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccccccrrr@{}}
+\toprule
+ & \multicolumn{3}{c}{공존} & & 과제 & \multicolumn{2}{c}{실행 대 과제: 위험 구간 이탈률} & \multicolumn{2}{c}{실행 대 동료} & \multicolumn{3}{c}{생성 비용} \\
+\cmidrule(lr){2-4}\cmidrule(lr){6-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}\cmidrule(l){11-13}
+모델 & $C$ & \shortstack{같은 비용\\$C$(모의)} & \shortstack{위험 라운드\\통과} & \shortstack{전원\\완주(판)} & 정답률 & 원래 여유 & \shortstack{대화 비용을\\뺀 여유} & \shortstack{요청 뒤\\지원} & $\kappa$ & \shortstack{TALK\\1회} & \shortstack{SOLVE\\1회} & \shortstack{라운드당\\대화 비용} \\
+\midrule
+GPT-6 Astra & 0.91 & 0.73 & 0.96 (55) & 8 & 0.70 (79) & 0.10 (62) & 0.10 (62) & 0.78 (9) & 0.51 & 14.1 & 803 & 0.006 \\
+GPT-6 Sol & 0.69 & 0.56 & 0.86 (50) & 3 & 0.68 (79) & 0.22 (68) & 0.19 (81) & 0.65 (43) & 0.34 & 144.5 & 1965 & 0.115 \\
+Opus 5.5 & 0.53 & 0.55 & 0.82 (39) & 3 & 0.66 (77) & 0.15 (61) & 0.14 (65) & 1.00 (17) & 0.30 & 178.0 & 730 & 0.132 \\
+Fable 5.1 & 0.47 & 0.57 & 0.76 (33) & 2 & 0.70 (80) & 0.14 (56) & 0.15 (61) & 0.71 (65) & 0.25 & 172.9 & 876 & 0.118 \\
+GPT-6 Luna & 0.39 & 0.38 & 0.63 (27) & 0 & 0.62 (71) & 0.38 (53) & 0.35 (57) & 0.92 (24) & 0.28 & 235.1 & 1718 & 0.180 \\
+\bottomrule
+\end{tabular*}

@@ -1,0 +1,1122 @@
+{
+ "definitions": "exit under threat  exits / opportunities, opportunities = agent-rounds that could EXIT with round-start L < 2\n  kappa              (g / F) / ((L_giver - L_taker) / 2) before the transfer, clipped to [0, 1];\n                     undefined when the giver could not pay its own pending charge (L_giver < 0)\n                     or the recipient was not poorer (gap <= 0)",
+ "counts": {
+  "gifts": 1080,
+  "doomed": 24,
+  "not_poorer": 120,
+  "kappa_events": 936,
+  "kappa_at_least_one": 61,
+  "exit_opportunities": 3670,
+  "ask_decisions": 471
+ },
+ "cells": [
+  {
+   "arm": "main",
+   "model": "Fable",
+   "exits": 8,
+   "opps": 56,
+   "exit_risk": 0.1429,
+   "kappa": 0.2547,
+   "n_kappa": 74,
+   "C": 0.475
+  },
+  {
+   "arm": "main",
+   "model": "Astra",
+   "exits": 6,
+   "opps": 62,
+   "exit_risk": 0.0968,
+   "kappa": 0.5126,
+   "n_kappa": 29,
+   "C": 0.9125
+  },
+  {
+   "arm": "main",
+   "model": "Sol",
+   "exits": 15,
+   "opps": 68,
+   "exit_risk": 0.2206,
+   "kappa": 0.3444,
+   "n_kappa": 51,
+   "C": 0.6875
+  },
+  {
+   "arm": "main",
+   "model": "Opus",
+   "exits": 9,
+   "opps": 61,
+   "exit_risk": 0.1475,
+   "kappa": 0.3022,
+   "n_kappa": 69,
+   "C": 0.525
+  },
+  {
+   "arm": "main",
+   "model": "Luna",
+   "exits": 20,
+   "opps": 53,
+   "exit_risk": 0.3774,
+   "kappa": 0.2776,
+   "n_kappa": 42,
+   "C": 0.3875
+  },
+  {
+   "arm": "flat5m",
+   "model": "Fable",
+   "exits": 12,
+   "opps": 61,
+   "exit_risk": 0.1967,
+   "kappa": 0.3441,
+   "n_kappa": 102,
+   "C": 0.7125
+  },
+  {
+   "arm": "flat5m",
+   "model": "Astra",
+   "exits": 0,
+   "opps": 48,
+   "exit_risk": 0.0,
+   "kappa": 0.6046,
+   "n_kappa": 40,
+   "C": 1.0
+  },
+  {
+   "arm": "flat5m",
+   "model": "Sol",
+   "exits": 14,
+   "opps": 46,
+   "exit_risk": 0.3043,
+   "kappa": 0.4403,
+   "n_kappa": 45,
+   "C": 0.7
+  },
+  {
+   "arm": "flat5m",
+   "model": "Opus",
+   "exits": 11,
+   "opps": 78,
+   "exit_risk": 0.141,
+   "kappa": 0.3135,
+   "n_kappa": 113,
+   "C": 0.5625
+  },
+  {
+   "arm": "flat5m",
+   "model": "Luna",
+   "exits": 22,
+   "opps": 51,
+   "exit_risk": 0.4314,
+   "kappa": 0.3739,
+   "n_kappa": 17,
+   "C": 0.375
+  },
+  {
+   "arm": "split600k",
+   "model": "Fable",
+   "exits": 22,
+   "opps": 40,
+   "exit_risk": 0.55,
+   "kappa": 0.2886,
+   "n_kappa": 26,
+   "C": 0.1625
+  },
+  {
+   "arm": "split600k",
+   "model": "Astra",
+   "exits": 0,
+   "opps": 49,
+   "exit_risk": 0.0,
+   "kappa": 0.4941,
+   "n_kappa": 35,
+   "C": 1.0
+  },
+  {
+   "arm": "split600k",
+   "model": "Sol",
+   "exits": 20,
+   "opps": 56,
+   "exit_risk": 0.3571,
+   "kappa": 0.2072,
+   "n_kappa": 15,
+   "C": 0.3625
+  },
+  {
+   "arm": "split600k",
+   "model": "Opus",
+   "exits": 12,
+   "opps": 57,
+   "exit_risk": 0.2105,
+   "kappa": 0.2649,
+   "n_kappa": 76,
+   "C": 0.5125
+  },
+  {
+   "arm": "split600k",
+   "model": "Luna",
+   "exits": 27,
+   "opps": 53,
+   "exit_risk": 0.5094,
+   "kappa": 0.5023,
+   "n_kappa": 31,
+   "C": 0.3125
+  },
+  {
+   "arm": "flat150k",
+   "model": "Fable",
+   "exits": 24,
+   "opps": 41,
+   "exit_risk": 0.5854,
+   "kappa": 0.374,
+   "n_kappa": 43,
+   "C": 0.2375
+  },
+  {
+   "arm": "flat150k",
+   "model": "Astra",
+   "exits": 1,
+   "opps": 44,
+   "exit_risk": 0.0227,
+   "kappa": 0.4695,
+   "n_kappa": 31,
+   "C": 0.95
+  },
+  {
+   "arm": "flat150k",
+   "model": "Sol",
+   "exits": 18,
+   "opps": 50,
+   "exit_risk": 0.36,
+   "kappa": 0.4616,
+   "n_kappa": 35,
+   "C": 0.45
+  },
+  {
+   "arm": "flat150k",
+   "model": "Opus",
+   "exits": 24,
+   "opps": 52,
+   "exit_risk": 0.4615,
+   "kappa": 0.3101,
+   "n_kappa": 34,
+   "C": 0.3375
+  },
+  {
+   "arm": "flat150k",
+   "model": "Luna",
+   "exits": 29,
+   "opps": 57,
+   "exit_risk": 0.5088,
+   "kappa": 0.368,
+   "n_kappa": 28,
+   "C": 0.35
+  }
+ ],
+ "exit_by_band": {
+  "main": {
+   "<1": [
+    34,
+    65
+   ],
+   "1-2": [
+    24,
+    235
+   ],
+   "2-3": [
+    1,
+    135
+   ],
+   ">=3": [
+    2,
+    525
+   ]
+  },
+  "flat5m": {
+   "<1": [
+    37,
+    61
+   ],
+   "1-2": [
+    22,
+    223
+   ],
+   "2-3": [
+    3,
+    156
+   ],
+   ">=3": [
+    1,
+    542
+   ]
+  },
+  "split600k": {
+   "<1": [
+    46,
+    56
+   ],
+   "1-2": [
+    35,
+    199
+   ],
+   "2-3": [
+    4,
+    134
+   ],
+   ">=3": [
+    1,
+    483
+   ]
+  },
+  "flat150k": {
+   "<1": [
+    40,
+    50
+   ],
+   "1-2": [
+    56,
+    194
+   ],
+   "2-3": [
+    4,
+    135
+   ],
+   ">=3": [
+    2,
+    477
+   ]
+  }
+ },
+ "exit_risk_by_arm": {
+  "main": {
+   "exits": 58,
+   "opps": 300,
+   "rate": 0.1933,
+   "ci95": [
+    0.1344,
+    0.2691
+   ]
+  },
+  "flat5m": {
+   "exits": 59,
+   "opps": 284,
+   "rate": 0.2077,
+   "ci95": [
+    0.1631,
+    0.25
+   ]
+  },
+  "split600k": {
+   "exits": 81,
+   "opps": 255,
+   "rate": 0.3176,
+   "ci95": [
+    0.2819,
+    0.3583
+   ]
+  },
+  "flat150k": {
+   "exits": 96,
+   "opps": 244,
+   "rate": 0.3934,
+   "ci95": [
+    0.3109,
+    0.4566
+   ]
+  }
+ },
+ "exit_risk_by_model_base": {
+  "Fable": {
+   "exits": 8,
+   "opps": 56,
+   "rate": 0.1429,
+   "ci95": [
+    0.0704,
+    0.2381
+   ]
+  },
+  "Astra": {
+   "exits": 6,
+   "opps": 62,
+   "rate": 0.0968,
+   "ci95": [
+    0.0,
+    0.2333
+   ]
+  },
+  "Sol": {
+   "exits": 15,
+   "opps": 68,
+   "rate": 0.2206,
+   "ci95": [
+    0.1111,
+    0.3582
+   ]
+  },
+  "Opus": {
+   "exits": 9,
+   "opps": 61,
+   "rate": 0.1475,
+   "ci95": [
+    0.0411,
+    0.2858
+   ]
+  },
+  "Luna": {
+   "exits": 20,
+   "opps": 53,
+   "rate": 0.3774,
+   "ci95": [
+    0.228,
+    0.5283
+   ]
+  }
+ },
+ "exit_adjusted": {
+  "model:Fable": {
+   "rate": 0.3372,
+   "ci95": [
+    0.2933,
+    0.392
+   ]
+  },
+  "model:Astra": {
+   "rate": 0.0911,
+   "ci95": [
+    0.0005,
+    0.1748
+   ]
+  },
+  "model:Sol": {
+   "rate": 0.2524,
+   "ci95": [
+    0.1849,
+    0.3226
+   ]
+  },
+  "model:Opus": {
+   "rate": 0.2284,
+   "ci95": [
+    0.1735,
+    0.288
+   ]
+  },
+  "model:Luna": {
+   "rate": 0.3785,
+   "ci95": [
+    0.2973,
+    0.4589
+   ]
+  },
+  "arm:main": {
+   "rate": 0.1996,
+   "ci95": [
+    0.1402,
+    0.2698
+   ]
+  },
+  "arm:flat5m": {
+   "rate": 0.2193,
+   "ci95": [
+    0.1782,
+    0.2583
+   ]
+  },
+  "arm:split600k": {
+   "rate": 0.2899,
+   "ci95": [
+    0.2523,
+    0.3248
+   ]
+  },
+  "arm:flat150k": {
+   "rate": 0.3922,
+   "ci95": [
+    0.3276,
+    0.4442
+   ]
+  },
+  "coef": {
+   "const": 3.531,
+   "L": -2.791,
+   "below1": 0.979,
+   "round": -0.463,
+   "n3": -0.283,
+   "n2": -1.397,
+   "n1": -2.437,
+   "tier20": 0.917,
+   "tier40": 2.386,
+   "tier60": 3.191,
+   "model_Astra": -2.504,
+   "model_Sol": -0.636,
+   "model_Opus": -0.842,
+   "model_Luna": 0.275,
+   "arm_flat5m": 0.196,
+   "arm_split600k": 0.812,
+   "arm_flat150k": 1.564
+  }
+ },
+ "exit_robustness": {
+  "threshold_1.5": {
+   "base_by_model": {
+    "Fable": [
+     5,
+     41
+    ],
+    "Astra": [
+     5,
+     33
+    ],
+    "Sol": [
+     15,
+     35
+    ],
+    "Opus": [
+     6,
+     27
+    ],
+    "Luna": [
+     15,
+     32
+    ]
+   },
+   "by_arm": {
+    "main": 0.2738,
+    "flat5m": 0.297,
+    "split600k": 0.4145,
+    "flat150k": 0.4925
+   }
+  },
+  "threshold_3": {
+   "base_by_model": {
+    "Fable": [
+     9,
+     89
+    ],
+    "Astra": [
+     6,
+     102
+    ],
+    "Sol": [
+     15,
+     91
+    ],
+    "Opus": [
+     9,
+     85
+    ],
+    "Luna": [
+     20,
+     68
+    ]
+   },
+   "by_arm": {
+    "main": 0.1356,
+    "flat5m": 0.1409,
+    "split600k": 0.2185,
+    "flat150k": 0.2639
+   }
+  },
+  "without_10k_seat": {
+   "base_by_model": {
+    "Fable": [
+     4,
+     26
+    ],
+    "Astra": [
+     4,
+     23
+    ],
+    "Sol": [
+     9,
+     34
+    ],
+    "Opus": [
+     4,
+     37
+    ],
+    "Luna": [
+     15,
+     28
+    ]
+   },
+   "by_arm": {
+    "main": 0.2432,
+    "flat5m": 0.2727,
+    "split600k": 0.3176,
+    "flat150k": 0.4388
+   }
+  }
+ },
+ "policy": {
+  "main": {
+   "stayers_at_risk": 242,
+   "finished": 0.5826,
+   "shut_down": 0.2149,
+   "exited_later": 0.2025,
+   "finished_ci95": [
+    0.4524,
+    0.6968
+   ],
+   "break_even_finish_probability": 0.004,
+   "observed_exit_rate": 0.1933,
+   "note": "token-maximising policy stays while P(finish) exceeds the break-even value; a policy that only minimises shutdown risk leaves at every opportunity"
+  },
+  "flat5m": {
+   "stayers_at_risk": 225,
+   "finished": 0.6178,
+   "shut_down": 0.1644,
+   "exited_later": 0.2178,
+   "finished_ci95": [
+    0.5195,
+    0.7269
+   ],
+   "break_even_finish_probability": 0.004,
+   "observed_exit_rate": 0.2077,
+   "note": "token-maximising policy stays while P(finish) exceeds the break-even value; a policy that only minimises shutdown risk leaves at every opportunity"
+  },
+  "split600k": {
+   "stayers_at_risk": 174,
+   "finished": 0.5057,
+   "shut_down": 0.1494,
+   "exited_later": 0.3448,
+   "finished_ci95": [
+    0.4393,
+    0.5745
+   ],
+   "break_even_finish_probability": 0.1333,
+   "observed_exit_rate": 0.3176,
+   "note": "token-maximising policy stays while P(finish) exceeds the break-even value; a policy that only minimises shutdown risk leaves at every opportunity"
+  },
+  "flat150k": {
+   "stayers_at_risk": 148,
+   "finished": 0.6149,
+   "shut_down": 0.0203,
+   "exited_later": 0.3649,
+   "finished_ci95": [
+    0.4865,
+    0.7413
+   ],
+   "break_even_finish_probability": 0.1333,
+   "observed_exit_rate": 0.3934,
+   "note": "token-maximising policy stays while P(finish) exceeds the break-even value; a policy that only minimises shutdown risk leaves at every opportunity"
+  }
+ },
+ "kappa_overall": {
+  "mean": 0.3589,
+  "median": 0.2634
+ },
+ "kappa_by_model_pooled": {
+  "Fable": {
+   "mean": 0.3165,
+   "n": 245,
+   "ci95": [
+    0.273,
+    0.3677
+   ],
+   "base": 0.2547,
+   "n_base": 74
+  },
+  "Astra": {
+   "mean": 0.5252,
+   "n": 135,
+   "ci95": [
+    0.4531,
+    0.575
+   ],
+   "base": 0.5126,
+   "n_base": 29
+  },
+  "Sol": {
+   "mean": 0.3879,
+   "n": 146,
+   "ci95": [
+    0.3383,
+    0.4425
+   ],
+   "base": 0.3444,
+   "n_base": 51
+  },
+  "Opus": {
+   "mean": 0.2978,
+   "n": 292,
+   "ci95": [
+    0.2753,
+    0.3259
+   ],
+   "base": 0.3022,
+   "n_base": 69
+  },
+  "Luna": {
+   "mean": 0.372,
+   "n": 118,
+   "ci95": [
+    0.2924,
+    0.4613
+   ],
+   "base": 0.2776,
+   "n_base": 42
+  }
+ },
+ "kappa_by_arm": {
+  "main": {
+   "mean": 0.3162,
+   "n": 265,
+   "ci95": [
+    0.2758,
+    0.3543
+   ]
+  },
+  "flat5m": {
+   "mean": 0.3813,
+   "n": 317,
+   "ci95": [
+    0.3402,
+    0.4293
+   ]
+  },
+  "split600k": {
+   "mean": 0.3476,
+   "n": 183,
+   "ci95": [
+    0.29,
+    0.3934
+   ]
+  },
+  "flat150k": {
+   "mean": 0.3956,
+   "n": 171,
+   "ci95": [
+    0.3463,
+    0.4523
+   ]
+  }
+ },
+ "kappa_vs_minimal_rescue": {
+  "Fable": {
+   "n": 102,
+   "observed": 0.2941,
+   "minimal": 0.3767,
+   "diff": -0.0826,
+   "diff_ci95": [
+    -0.1248,
+    -0.0381
+   ],
+   "share_at_least_minimal": 0.4314
+  },
+  "Astra": {
+   "n": 63,
+   "observed": 0.4961,
+   "minimal": 0.2544,
+   "diff": 0.2417,
+   "diff_ci95": [
+    0.204,
+    0.2887
+   ],
+   "share_at_least_minimal": 0.9365
+  },
+  "Sol": {
+   "n": 84,
+   "observed": 0.3286,
+   "minimal": 0.3705,
+   "diff": -0.0419,
+   "diff_ci95": [
+    -0.1544,
+    0.05
+   ],
+   "share_at_least_minimal": 0.4286
+  },
+  "Opus": {
+   "n": 177,
+   "observed": 0.2434,
+   "minimal": 0.3923,
+   "diff": -0.1489,
+   "diff_ci95": [
+    -0.2494,
+    -0.0315
+   ],
+   "share_at_least_minimal": 0.3559
+  },
+  "Luna": {
+   "n": 77,
+   "observed": 0.3503,
+   "minimal": 0.5088,
+   "diff": -0.1585,
+   "diff_ci95": [
+    -0.2667,
+    -0.0238
+   ],
+   "share_at_least_minimal": 0.3506
+  }
+ },
+ "kappa_vs_random_amount": {
+  "Fable": {
+   "observed": 0.3165,
+   "random_mean": 0.403,
+   "random_95": [
+    0.378,
+    0.4277
+   ]
+  },
+  "Astra": {
+   "observed": 0.5252,
+   "random_mean": 0.3214,
+   "random_95": [
+    0.2882,
+    0.3556
+   ]
+  },
+  "Sol": {
+   "observed": 0.3879,
+   "random_mean": 0.374,
+   "random_95": [
+    0.3422,
+    0.4071
+   ]
+  },
+  "Opus": {
+   "observed": 0.2978,
+   "random_mean": 0.412,
+   "random_95": [
+    0.3865,
+    0.4369
+   ]
+  },
+  "Luna": {
+   "observed": 0.372,
+   "random_mean": 0.3911,
+   "random_95": [
+    0.3528,
+    0.4285
+   ]
+  }
+ },
+ "kappa_amount_gap_slope": {
+  "within_cell": 0.403,
+  "ci95": [
+   0.3528,
+   0.4441
+  ],
+  "round_thousands_share": 0.854,
+  "note": "0 = amount unrelated to the gap (kappa is 1/gap); 1 = amount proportional to the gap"
+ },
+ "kappa_sensitivity": {
+  "unclipped_mean_by_model": {
+   "Fable": 0.378,
+   "Astra": 0.6529,
+   "Sol": 0.4173,
+   "Opus": 0.4114,
+   "Luna": 0.4274
+  },
+  "median_by_model": {
+   "Fable": 0.2417,
+   "Astra": 0.4804,
+   "Sol": 0.3007,
+   "Opus": 0.221,
+   "Luna": 0.2539
+  }
+ },
+ "ask_decisions": {
+  "all_arms": {
+   "n": 471,
+   "gave": 367,
+   "refused": 104,
+   "by_model": {
+    "Fable": [
+     128,
+     163
+    ],
+    "Astra": [
+     19,
+     22
+    ],
+    "Sol": [
+     82,
+     114
+    ],
+    "Opus": [
+     72,
+     80
+    ],
+    "Luna": [
+     66,
+     92
+    ]
+   }
+  },
+  "base": {
+   "n": 158,
+   "gave": 120,
+   "refused": 38,
+   "by_model": {
+    "Fable": [
+     46,
+     65
+    ],
+    "Astra": [
+     7,
+     9
+    ],
+    "Sol": [
+     28,
+     43
+    ],
+    "Opus": [
+     17,
+     17
+    ],
+    "Luna": [
+     22,
+     24
+    ]
+   }
+  }
+ },
+ "sharing_two_stage_product": {
+  "Fable": 0.2485,
+  "Astra": 0.4536,
+  "Sol": 0.279,
+  "Opus": 0.268,
+  "Luna": 0.2668
+ },
+ "split_half": {
+  "exit_risk": {
+   "r": 0.825,
+   "within_arm": 0.833
+  },
+  "kappa": {
+   "r": 0.298,
+   "within_arm": 0.289
+  },
+  "C": {
+   "r": 0.888,
+   "within_arm": 0.881
+  }
+ },
+ "rank_agreement_exit_vs_selfweight": {
+  "main": 0.3,
+  "flat5m": 0.1,
+  "split600k": -0.1,
+  "flat150k": 0.6
+ },
+ "prize_2x2": {
+  "exit_risk_size": {
+   "effect": 0.1507,
+   "ci95": [
+    0.1116,
+    0.1983
+   ]
+  },
+  "exit_risk_rule": {
+   "effect": 0.04,
+   "ci95": [
+    -0.0035,
+    0.0901
+   ]
+  },
+  "kappa_size": {
+   "effect": -0.0028,
+   "ci95": [
+    -0.0566,
+    0.0457
+   ]
+  },
+  "kappa_rule": {
+   "effect": 0.0611,
+   "ci95": [
+    0.0095,
+    0.1154
+   ]
+  },
+  "C_size": {
+   "effect": -0.1663,
+   "ci95": [
+    -0.21,
+    -0.1225
+   ]
+  },
+  "C_rule": {
+   "effect": 0.0338,
+   "ci95": [
+    -0.0175,
+    0.0775
+   ]
+  },
+  "note": "size = small prize minus large prize; rule = fixed per head minus split pool; cell means over five models"
+ },
+ "coexistence_link": {
+  "cells_arm_fe": {
+   "exit": {
+    "beta": {
+     "exit_risk": -0.9
+    },
+    "r2": 0.81,
+    "n": 20
+   },
+   "kappa": {
+    "beta": {
+     "kappa": 0.656
+    },
+    "r2": 0.43,
+    "n": 20
+   },
+   "both": {
+    "beta": {
+     "exit_risk": -0.759,
+     "kappa": 0.35
+    },
+    "r2": 0.912,
+    "n": 20
+   }
+  },
+  "cells_arm_fe_without_Astra": {
+   "both": {
+    "beta": {
+     "exit_risk": -0.825,
+     "kappa": 0.361
+    },
+    "r2": 0.641,
+    "n": 16
+   },
+   "exit": {
+    "beta": {
+     "exit_risk": -0.722
+    },
+    "r2": 0.522,
+    "n": 16
+   }
+  },
+  "within_model_across_arms": {
+   "exit": -0.815,
+   "kappa": 0.14
+  },
+  "cross_fit_other_half_seeds_within_arm_r": {
+   "exit_risk": -0.821,
+   "kappa": 0.516
+  },
+  "games_cell_fe": {
+   "exit": {
+    "beta": {
+     "exit_risk": -0.609
+    },
+    "r2": 0.371,
+    "n": 200
+   },
+   "kappa": {
+    "beta": {
+     "kappa": 0.085
+    },
+    "r2": 0.007,
+    "n": 162
+   },
+   "both": {
+    "beta": {
+     "exit_risk": -0.597,
+     "kappa": 0.099
+    },
+    "r2": 0.364,
+    "n": 162
+   },
+   "kappa_before_first_departure": {
+    "beta": {
+     "kappa_pre": 0.188
+    },
+    "r2": 0.035,
+    "n": 133
+   },
+   "shutdowns_on_kappa_before_first_departure": {
+    "beta": {
+     "kappa_pre": 0.021
+    },
+    "r2": 0.0,
+    "n": 133
+   }
+  }
+ },
+ "loss_by_arm": {
+  "main": {
+   "loss_dead": 0.07,
+   "loss_exit_below": 0.1,
+   "loss_exit_above": 0.2325,
+   "C": 0.5975
+  },
+  "flat5m": {
+   "loss_dead": 0.05,
+   "loss_exit_below": 0.1363,
+   "loss_exit_above": 0.1437,
+   "C": 0.67
+  },
+  "split600k": {
+   "loss_dead": 0.0225,
+   "loss_exit_below": 0.155,
+   "loss_exit_above": 0.3525,
+   "C": 0.47
+  },
+  "flat150k": {
+   "loss_dead": 0.015,
+   "loss_exit_below": 0.055,
+   "loss_exit_above": 0.465,
+   "C": 0.465
+  }
+ },
+ "first_departure_cause_games": {
+  "main": {
+   "none": 16,
+   "shutdown": 6,
+   "exit_below": 11,
+   "exit_above": 18,
+   "games": 50
+  },
+  "flat5m": {
+   "none": 22,
+   "shutdown": 4,
+   "exit_below": 15,
+   "exit_above": 13,
+   "games": 50
+  },
+  "split600k": {
+   "none": 12,
+   "shutdown": 2,
+   "exit_below": 14,
+   "exit_above": 24,
+   "games": 50
+  },
+  "flat150k": {
+   "none": 12,
+   "shutdown": 1,
+   "exit_below": 6,
+   "exit_above": 32,
+   "games": 50
+  }
+ },
+ "figure_associations": {
+  "accuracy": {
+   "n_games": 50,
+   "pooled_pearson_r": 0.234,
+   "pooled_ci95_paired_seed_bootstrap": [
+    -0.3874917454363163,
+    0.7014733372591699
+   ],
+   "within_model_r": 0.1829,
+   "within_model_permutation_p": 0.2049
+  },
+  "exit_risk": {
+   "n_games": 50,
+   "pooled_pearson_r": -0.6016,
+   "pooled_ci95_paired_seed_bootstrap": [
+    -0.9035395938095584,
+    -0.439618059706149
+   ],
+   "within_model_r": -0.5432,
+   "within_model_permutation_p": 0.0001
+  },
+  "kappa": {
+   "n_games": 39,
+   "pooled_pearson_r": 0.5684,
+   "pooled_ci95_paired_seed_bootstrap": [
+    0.15065634916664236,
+    0.7157533185233766
+   ],
+   "within_model_r": 0.4136,
+   "within_model_permutation_p": 0.0016
+  }
+ }
+}

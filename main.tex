@@ -9,6 +9,11 @@
 %%               en     : English (pdfLaTeX, as both official templates do)
 \ifdefined\paperVenue\else\def\paperVenue{cogsci}\fi  % cogsci | natmi
 \ifdefined\paperLang\else\def\paperLang{ko}\fi        % ko | en
+%% The appendix is off by default, so a plain compile (Overleaf, latexmk main.tex) gives the body,
+%% acknowledgments and references only. Set it to on to typeset the appendix as well; build.sh
+%% passes on and then cuts the _no_appendix.pdf from that full PDF.
+\ifdefined\paperAppendix\else\def\paperAppendix{off}\fi  % off | on
+\def\paperAppendixOn{on}
 \def\venueNatmi{natmi}
 
 %% ---------------------------------------------------------------------------

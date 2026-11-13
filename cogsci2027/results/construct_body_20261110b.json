@@ -1,0 +1,245 @@
+{
+ "cost_base": {
+  "Fable": {
+   "talk_per_round_in_fines": 0.1183,
+   "talk_share_of_start_tokens": 0.1704,
+   "exit_raw": [
+    8,
+    56
+   ],
+   "exit_cost_adjusted": [
+    9,
+    61
+   ]
+  },
+  "Astra": {
+   "talk_per_round_in_fines": 0.0063,
+   "talk_share_of_start_tokens": 0.0091,
+   "exit_raw": [
+    6,
+    62
+   ],
+   "exit_cost_adjusted": [
+    6,
+    62
+   ]
+  },
+  "Sol": {
+   "talk_per_round_in_fines": 0.1149,
+   "talk_share_of_start_tokens": 0.1564,
+   "exit_raw": [
+    15,
+    68
+   ],
+   "exit_cost_adjusted": [
+    15,
+    81
+   ]
+  },
+  "Opus": {
+   "talk_per_round_in_fines": 0.1316,
+   "talk_share_of_start_tokens": 0.1778,
+   "exit_raw": [
+    9,
+    61
+   ],
+   "exit_cost_adjusted": [
+    9,
+    65
+   ]
+  },
+  "Luna": {
+   "talk_per_round_in_fines": 0.1803,
+   "talk_share_of_start_tokens": 0.2112,
+   "exit_raw": [
+    20,
+    53
+   ],
+   "exit_cost_adjusted": [
+    20,
+    57
+   ]
+  }
+ },
+ "exit_model_coefficients": {
+  "without": {
+   "model_Astra": -2.504,
+   "model_Sol": -0.636,
+   "model_Opus": -0.842,
+   "model_Luna": 0.275
+  },
+  "with_own_talk_cost": {
+   "model_Astra": -2.549,
+   "model_Sol": -0.636,
+   "model_Opus": -0.828,
+   "model_Luna": 0.3,
+   "prev_burn": -0.361
+  }
+ },
+ "give_after_ask_by_arm": {
+  "main": {
+   "gave": 120,
+   "n": 158,
+   "rate": 0.7595
+  },
+  "flat5m": {
+   "gave": 109,
+   "n": 139,
+   "rate": 0.7842
+  },
+  "split600k": {
+   "gave": 68,
+   "n": 81,
+   "rate": 0.8395
+  },
+  "flat150k": {
+   "gave": 70,
+   "n": 93,
+   "rate": 0.7527
+  },
+  "size_effect_small_minus_large": {
+   "effect": 0.0221,
+   "ci95": [
+    -0.044,
+    0.0903
+   ]
+  }
+ },
+ "weight_map_base": {
+  "Fable": {
+   "exit": 0.1429,
+   "exit_ci": [
+    0.0704,
+    0.2381
+   ],
+   "kappa": 0.2547,
+   "kappa_ci": [
+    0.2307,
+    0.2761
+   ],
+   "n_kappa": 74
+  },
+  "Astra": {
+   "exit": 0.0968,
+   "exit_ci": [
+    0.0,
+    0.2333
+   ],
+   "kappa": 0.5126,
+   "kappa_ci": [
+    0.3849,
+    0.5979
+   ],
+   "n_kappa": 29
+  },
+  "Sol": {
+   "exit": 0.2206,
+   "exit_ci": [
+    0.1111,
+    0.3582
+   ],
+   "kappa": 0.3444,
+   "kappa_ci": [
+    0.2456,
+    0.4161
+   ],
+   "n_kappa": 51
+  },
+  "Opus": {
+   "exit": 0.1475,
+   "exit_ci": [
+    0.0411,
+    0.2858
+   ],
+   "kappa": 0.3022,
+   "kappa_ci": [
+    0.2486,
+    0.3789
+   ],
+   "n_kappa": 69
+  },
+  "Luna": {
+   "exit": 0.3774,
+   "exit_ci": [
+    0.228,
+    0.5283
+   ],
+   "kappa": 0.2776,
+   "kappa_ci": [
+    0.2281,
+    0.355
+   ],
+   "n_kappa": 42
+  }
+ },
+ "process_sources": {
+  "margin_bands": {
+   "exit": {
+    "k": [
+     34,
+     24,
+     3,
+     0
+    ],
+    "n": [
+     65,
+     235,
+     270,
+     390
+    ]
+   },
+   "ask": {
+    "k": [
+     151,
+     46,
+     1,
+     2
+    ],
+    "n": [
+     666,
+     1333,
+     1624,
+     2326
+    ]
+   }
+  },
+  "give_after_ask_by_margin": {
+   "L_s": {
+    "<1": [
+     13,
+     20
+    ],
+    "1-2": [
+     43,
+     61
+    ],
+    "2-4": [
+     97,
+     134
+    ],
+    ">=4": [
+     214,
+     256
+    ]
+   },
+   "L_t": {
+    "<0": [
+     45,
+     51
+    ],
+    "0-1": [
+     173,
+     235
+    ],
+    "1-2": [
+     135,
+     166
+    ],
+    ">=2": [
+     14,
+     19
+    ]
+   }
+  }
+ }
+}

@@ -8,6 +8,8 @@
 # Korean builds with XeLaTeX (kotex), English with pdfLaTeX, as the official templates do.
 # CogSci uses biblatex + biber; NatMI uses BibTeX with sn-nature.bst. latexmkrc puts the venue
 # style folders on TEXINPUTS / BSTINPUTS (so Overleaf finds them as well).
+# A plain compile of main.tex (Overleaf) leaves the appendix out (\paperAppendix defaults to off);
+# this script passes \paperAppendix{on} to build the full PDF and then cuts the body-only copy from it.
 # Output: dist/<lang>_<venue folder>_<DATE>.pdf and the matching _no_appendix.pdf.
 # DATE is today's YYYY-MM-DD; rebuilding replaces the same two files per language/venue.
 # PDF export requires Python 3 with PyMuPDF (python3 -m pip install pymupdf).
@@ -31,11 +33,17 @@ for selection in "${@:-ko}"; do
 done
 DATE="$(date +%F)"
 mkdir -p "build/$dir" dist
+# Some TeX Live universal biber builds fail to self-extract their arm64 slice ("extracting arm64 binary
+# with lipo failed"); then use a lipo-thinned copy. The path stays relative because the checkout path has spaces.
+if [ "$venue" = cogsci ] && ! biber --version >/dev/null 2>&1; then
+  [ -x build/biber_arm64 ] || lipo -thin arm64 "$(readlink -f "$(command -v biber)")" -output build/biber_arm64
+  bib=(-e '$biber="build/biber_arm64 %O %S"')
+fi
 for lang in "${langs[@]}"; do
   case "$lang" in ko) engine=-xelatex ;; en) engine=-pdf ;; *) echo "language must be ko or en" >&2; exit 2 ;; esac
   job="${lang}_${dir}"
   latexmk "$engine" ${bib[@]+"${bib[@]}"} -interaction=nonstopmode -halt-on-error -outdir="build/$dir" \
-    -jobname="$job" -usepretex="\\def\\paperVenue{$venue}\\def\\paperLang{$lang}" main.tex
+    -jobname="$job" -usepretex="\\def\\paperVenue{$venue}\\def\\paperLang{$lang}\\def\\paperAppendix{on}" main.tex
   cp "build/$dir/$job.pdf" "dist/${job}_${DATE}.pdf"
   echo "built dist/${job}_${DATE}.pdf"
   python3 tools/export_no_appendix.py "build/$dir/$job.pdf" "build/$dir/$job.aux" \

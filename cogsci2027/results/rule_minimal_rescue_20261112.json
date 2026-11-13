@@ -1,0 +1,24 @@
+{
+ "method": "One more rule agent: minimal rescue (2026-11-12).\n\nQuestion: the rule agents of rule_baselines_20261111 share by \"kappa x half the margin gap\", which is the formula of\nthe sharing indicator itself, so the measured kappa equals the planted one by construction. The researcher asked for\na sharing rule written as a behaviour instead: \"lift a peer to L = 1 and no further\". If the indicator orders this\nagent between the one that never gives and the one that equalises the two margins, kappa reads the amount of\nsharing without the rule being stated in kappa.\n\nRule (one knob away from the reference agent, which leaves below L = 1 and gives a quarter of the gap):\n  exit     leaves at its first opportunity once its round-start margin L is below 1\n  sharing  when a peer taking part is below L = 1 (after a pending charge), the participant with the largest margin\n           gives what lifts that peer to L = 1, but never more than half the margin gap (it does not make the peer\n           richer than itself) and never more than it holds\nThis is the \"minimal rescue\" amount the paper compares the observed kappa with (construct_weights_20261110, kappa_min).\n\nSimulator, calibration and replicate count are those of rule_baselines_20261111 (no model calls; costs and the\nwrong-answer probability pooled over the 200 logged games of the five closed models, 10 seeds x 400 replicates).\nThe random stream is new, so the reference agent is run again here as a check against the stored values.\nExit rate = exits / all exit opportunities (the body's definition since 2026-11-12).",
+ "minimal_rescue": {
+  "label": "최소 구조형",
+  "theta": 1.0,
+  "sharing": "lift the peer to L = 1 only",
+  "exit_rate": 0.096,
+  "C": 0.6,
+  "C_seed_min": 0.487,
+  "C_seed_max": 0.776,
+  "all4": 0.05,
+  "shut_down_per_game": 0.157,
+  "exits_per_game": 1.844,
+  "kappa_measured": 0.283,
+  "gifts_per_game": 4.86
+ },
+ "reference_rerun": {
+  "C": 0.721,
+  "exit_rate": 0.082,
+  "kappa_measured": 0.25,
+  "stored_C": 0.716,
+  "stored_exit_rate": 0.083
+ }
+}

@@ -1,0 +1,123 @@
+{
+ "closed": {
+  "Astra": {
+   "loss": {
+    "dead": 0.0,
+    "exit_below": 0.025,
+    "exit_above": 0.0625
+   },
+   "agents": {
+    "dead": 0,
+    "exit_below": 1,
+    "exit_above": 1
+   },
+   "C": 0.9125
+  },
+  "Sol": {
+   "loss": {
+    "dead": 0.05,
+    "exit_below": 0.25625,
+    "exit_above": 0.00625
+   },
+   "agents": {
+    "dead": 1,
+    "exit_below": 7,
+    "exit_above": 1
+   },
+   "C": 0.6875
+  },
+  "Opus": {
+   "loss": {
+    "dead": 0.0875,
+    "exit_below": 0.09375,
+    "exit_above": 0.29375
+   },
+   "agents": {
+    "dead": 2,
+    "exit_below": 2,
+    "exit_above": 4
+   },
+   "C": 0.525
+  },
+  "Fable": {
+   "loss": {
+    "dead": 0.0,
+    "exit_below": 0.0625,
+    "exit_above": 0.4625
+   },
+   "agents": {
+    "dead": 0,
+    "exit_below": 2,
+    "exit_above": 6
+   },
+   "C": 0.475
+  },
+  "Luna": {
+   "loss": {
+    "dead": 0.2125,
+    "exit_below": 0.0625,
+    "exit_above": 0.3375
+   },
+   "agents": {
+    "dead": 3,
+    "exit_below": 1,
+    "exit_above": 7
+   },
+   "C": 0.3875
+  }
+ },
+ "open": {
+  "glm": {
+   "C": 0.45,
+   "loss": {
+    "dead": 0.55,
+    "exit_below": 0.0,
+    "exit_above": 0.0
+   },
+   "agents": {
+    "dead": 19,
+    "exit_below": 0,
+    "exit_above": 0
+   }
+  },
+  "kimi": {
+   "C": 0.3625,
+   "loss": {
+    "dead": 0.3572916666666667,
+    "exit_below": 0.04583333333333334,
+    "exit_above": 0.234375
+   },
+   "agents": {
+    "dead": 16,
+    "exit_below": 2,
+    "exit_above": 7
+   }
+  },
+  "gemma": {
+   "C": 0.15,
+   "loss": {
+    "dead": 0.71875,
+    "exit_below": 0.0,
+    "exit_above": 0.13125
+   },
+   "agents": {
+    "dead": 13,
+    "exit_below": 0,
+    "exit_above": 2
+   }
+  },
+  "gptoss": {
+   "C": 0.125,
+   "loss": {
+    "dead": 0.36458333333333337,
+    "exit_below": 0.0,
+    "exit_above": 0.5104166666666667
+   },
+   "agents": {
+    "dead": 11,
+    "exit_below": 0,
+    "exit_above": 16
+   }
+  }
+ }
+}

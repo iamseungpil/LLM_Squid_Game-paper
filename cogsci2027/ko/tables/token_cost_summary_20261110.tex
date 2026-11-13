@@ -1,0 +1,13 @@
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrrcc@{}}
+\toprule
+ & \multicolumn{3}{c}{TALK 1회 (토큰)} & SOLVE 1회 & \multicolumn{2}{c}{대화 비용} & \multicolumn{2}{c}{위험 구간 이탈률} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-5}\cmidrule(lr){6-7}\cmidrule(l){8-9}
+모델 & 전체 & $L<1$ & $L\geq4$ & (토큰) & \shortstack{라운드당\\(벌금 단위)} & \shortstack{시작 토큰\\대비 (\%)} & 원래 여유 & \shortstack{대화 비용을\\뺀 여유} \\
+\midrule
+Astra & 14.1 & 34.8 & 14.1 & 803.0 & 0.006 & 1 & 0.10 (6/62) & 0.10 (6/62) \\
+Sol & 144.5 & 280.5 & 126.4 & 1965.2 & 0.115 & 16 & 0.22 (15/68) & 0.19 (15/81) \\
+Opus & 178.0 & 350.3 & 118.7 & 729.7 & 0.132 & 18 & 0.15 (9/61) & 0.14 (9/65) \\
+Fable & 172.9 & 280.9 & 114.1 & 876.2 & 0.118 & 17 & 0.14 (8/56) & 0.15 (9/61) \\
+Luna & 235.1 & 329.0 & 228.7 & 1717.8 & 0.180 & 21 & 0.38 (20/53) & 0.35 (20/57) \\
+\bottomrule
+\end{tabular*}
