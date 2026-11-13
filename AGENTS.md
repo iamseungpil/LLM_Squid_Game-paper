@@ -41,6 +41,17 @@ This project's prose follows the principles validated for the LLM Addiction Neur
 - **[review/review_defense.md](review/review_defense.md)**: 저자의 입장이 정해진 지적의 방어(D1–D6). 본문에는 이 입장과 어긋나는 문장을 쓰지 않는다. 블라인드 리뷰의 둘째 단계에서 "리뷰어에게 주는 응답"을 리뷰어에게 주고 다시 판단하게 한다(`blind-paper-review` 스킬).
 - 리뷰 원문은 `review/<주제>_<날짜>/`에 둔다. 장부에 옮긴 뒤 지운 파일의 목록은 `review/deleted_files_20261111.txt`에 있다.
 
+## 이 저장소에 두는 것과 두지 않는 것 (2026-11-13 연구자)
+
+`main`은 Overleaf와 동기화되고 Overleaf는 `main`의 파일을 모두 가져간다. 그래서 이 저장소에는 컴파일에 쓰는 것과 글쓰기 규칙만 둔다.
+
+- **둔다**: `main.tex`, `build.sh`, `references.bib`, `cogsci2027/`(원고, 그림, 표, 스타일, 검증 부록, 분석 스크립트와 결과), `figures/`, `natmi/`, 이 파일, 리뷰 장부와 방어 기록, 지금 쓰는 리뷰 기록(`review/construct_validity_20261110/`, `review/feedback1`–`3` 등).
+- **`dist/`는 git이 무시한다.** 빌드한 PDF는 디스크에만 남는다. 커밋하지 않는다.
+- **포스터**는 바깥 저장소의 `docs/poster/`에 있다(옛 `paper/poster/`).
+- **끝난 리뷰 회차의 폴더**(렌더 이미지, PDF 사본, 회차별 기록 32개)는 바깥 저장소의 `docs/history/paper-cogsci-review-2026-11-13/`에 있다(옛 `paper/review/<주제>_<날짜>/`). 디스크에만 두고 바깥 저장소의 git은 무시한다. 리뷰 장부가 가리키는 `<주제>_<날짜>/…` 경로 가운데 `review/`에 없는 것은 그 폴더 아래에서 찾는다.
+- 새 리뷰 회차를 시작하면 글 기록은 `review/<주제>_<날짜>/`에 두고, 렌더 이미지와 PDF 사본처럼 큰 파일은 처음부터 바깥 저장소 쪽에 둔다.
+- 분석 스크립트(`cogsci2027/tools`)와 결과(`cogsci2027/results`)는 경로가 이 저장소 기준이어서 그대로 둔다.
+
 ## Page budget (target)
 
 - Page 1: title + authors + abstract (column 1) → §1 entire (column 2). §1 ends on page 1.
