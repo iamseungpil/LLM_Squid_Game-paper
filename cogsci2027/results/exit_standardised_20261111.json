@@ -1,0 +1,300 @@
+{
+ "method": "Standardised exit probability by condition and by model, with support received held fixed (2026-11-11).\n\nReview ledger R-23 and R-08.\n  R-23  One exit raises the per-head charge and lowers everyone's margin, so the raw exit rate under threat can differ\n        between prize conditions through the margin distribution alone. The logistic model of construct_weights_20261110\n        (margin, below the safety line, round, head count, seat, model, condition) already standardises the condition\n        effect; here the size and rule contrasts of those standardised probabilities get seed-bootstrap intervals.\n  R-08  The exit rate also depends on how much peers give. Two covariates are added to the same model:\n          recv_prev  support the agent received in earlier rounds, in units of that round's per-head charge (cumulative)\n          recv_now   support it received in the pre-solve talk of the current round (same unit)\n        and the model-standardised probabilities are recomputed. recv_now can follow an announced exit (support for a\n        promised exit), so the model with recv_prev only is the main one and the one with both is a sensitivity check.\n\nStandardisation: every at-risk opportunity (round-start margin L < 2, 3,670 opportunities' at-risk subset) keeps its own\ncovariates and only the factor of interest is set to each level; the mean predicted probability is reported.\nIntervals: seed-cluster bootstrap (ten seeds resampled jointly over models and conditions, refit each draw), 1,000 draws.",
+ "n_opportunities": 3670,
+ "n_at_risk": 1083,
+ "support": {
+  "recv_prev_mean_by_model": {
+   "Fable": 0.722,
+   "Astra": 0.9,
+   "Sol": 0.529,
+   "Opus": 0.873,
+   "Luna": 0.361
+  },
+  "recv_now_mean_by_model": {
+   "Fable": 0.121,
+   "Astra": 0.065,
+   "Sol": 0.042,
+   "Opus": 0.029,
+   "Luna": 0.01
+  }
+ },
+ "base": {
+  "model:Fable": {
+   "value": 0.3372,
+   "ci95": [
+    0.289,
+    0.3947
+   ]
+  },
+  "model:Astra": {
+   "value": 0.0911,
+   "ci95": [
+    0.0004,
+    0.1767
+   ]
+  },
+  "model:Sol": {
+   "value": 0.2524,
+   "ci95": [
+    0.1794,
+    0.3252
+   ]
+  },
+  "model:Opus": {
+   "value": 0.2284,
+   "ci95": [
+    0.1742,
+    0.2861
+   ]
+  },
+  "model:Luna": {
+   "value": 0.3785,
+   "ci95": [
+    0.2951,
+    0.4519
+   ]
+  },
+  "arm:main": {
+   "value": 0.1996,
+   "ci95": [
+    0.136,
+    0.2765
+   ]
+  },
+  "arm:flat5m": {
+   "value": 0.2193,
+   "ci95": [
+    0.1717,
+    0.2602
+   ]
+  },
+  "arm:split600k": {
+   "value": 0.2899,
+   "ci95": [
+    0.2499,
+    0.3266
+   ]
+  },
+  "arm:flat150k": {
+   "value": 0.3922,
+   "ci95": [
+    0.3202,
+    0.4441
+   ]
+  },
+  "size": {
+   "value": 0.1316,
+   "ci95": [
+    0.0894,
+    0.1802
+   ]
+  },
+  "rule": {
+   "value": 0.061,
+   "ci95": [
+    0.0177,
+    0.0996
+   ]
+  },
+  "Luna_minus_Astra": {
+   "value": 0.2874,
+   "ci95": [
+    0.1897,
+    0.3835
+   ]
+  }
+ },
+ "with_recv_prev": {
+  "model:Fable": {
+   "value": 0.3395,
+   "ci95": [
+    0.2909,
+    0.397
+   ]
+  },
+  "model:Astra": {
+   "value": 0.091,
+   "ci95": [
+    0.0004,
+    0.1765
+   ]
+  },
+  "model:Sol": {
+   "value": 0.2497,
+   "ci95": [
+    0.1758,
+    0.3227
+   ]
+  },
+  "model:Opus": {
+   "value": 0.2314,
+   "ci95": [
+    0.1781,
+    0.2872
+   ]
+  },
+  "model:Luna": {
+   "value": 0.3759,
+   "ci95": [
+    0.2909,
+    0.4507
+   ]
+  },
+  "arm:main": {
+   "value": 0.1989,
+   "ci95": [
+    0.1357,
+    0.2747
+   ]
+  },
+  "arm:flat5m": {
+   "value": 0.2233,
+   "ci95": [
+    0.1765,
+    0.2621
+   ]
+  },
+  "arm:split600k": {
+   "value": 0.2862,
+   "ci95": [
+    0.2451,
+    0.3268
+   ]
+  },
+  "arm:flat150k": {
+   "value": 0.3916,
+   "ci95": [
+    0.3198,
+    0.4448
+   ]
+  },
+  "size": {
+   "value": 0.1278,
+   "ci95": [
+    0.088,
+    0.1769
+   ]
+  },
+  "rule": {
+   "value": 0.0649,
+   "ci95": [
+    0.0195,
+    0.1028
+   ]
+  },
+  "Luna_minus_Astra": {
+   "value": 0.2849,
+   "ci95": [
+    0.1869,
+    0.3847
+   ]
+  },
+  "coef:recv_prev": {
+   "value": -0.1762,
+   "ci95": [
+    -0.3723,
+    0.1218
+   ]
+  }
+ },
+ "with_recv_prev_and_now": {
+  "model:Fable": {
+   "value": 0.3508,
+   "ci95": [
+    0.3036,
+    0.4097
+   ]
+  },
+  "model:Astra": {
+   "value": 0.0929,
+   "ci95": [
+    0.0006,
+    0.1752
+   ]
+  },
+  "model:Sol": {
+   "value": 0.2478,
+   "ci95": [
+    0.1766,
+    0.3202
+   ]
+  },
+  "model:Opus": {
+   "value": 0.2295,
+   "ci95": [
+    0.174,
+    0.2872
+   ]
+  },
+  "model:Luna": {
+   "value": 0.3677,
+   "ci95": [
+    0.2848,
+    0.4402
+   ]
+  },
+  "arm:main": {
+   "value": 0.2013,
+   "ci95": [
+    0.138,
+    0.2785
+   ]
+  },
+  "arm:flat5m": {
+   "value": 0.2245,
+   "ci95": [
+    0.1756,
+    0.2653
+   ]
+  },
+  "arm:split600k": {
+   "value": 0.2843,
+   "ci95": [
+    0.2421,
+    0.325
+   ]
+  },
+  "arm:flat150k": {
+   "value": 0.3871,
+   "ci95": [
+    0.3159,
+    0.4411
+   ]
+  },
+  "size": {
+   "value": 0.1228,
+   "ci95": [
+    0.083,
+    0.1734
+   ]
+  },
+  "rule": {
+   "value": 0.063,
+   "ci95": [
+    0.0161,
+    0.1041
+   ]
+  },
+  "Luna_minus_Astra": {
+   "value": 0.2749,
+   "ci95": [
+    0.1796,
+    0.3712
+   ]
+  },
+  "coef:recv_prev": {
+   "value": -0.1819,
+   "ci95": [
+    -0.3746,
+    0.1216
+   ]
+  },
+  "coef:recv_now": {
+   "value": -1.5703,
+   "ci95": [
+    -4.8968,
+    -0.3546
+   ]
+  }
+ }
+}

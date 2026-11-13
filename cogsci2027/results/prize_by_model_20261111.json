@@ -1,0 +1,362 @@
+{
+ "Fable": {
+  "size_small_minus_large": {
+   "exit": {
+    "effect": 0.397,
+    "ci95": [
+     0.259,
+     0.503
+    ]
+   },
+   "kappa": {
+    "effect": 0.035,
+    "ci95": [
+     -0.024,
+     0.117
+    ]
+   },
+   "C": {
+    "effect": -0.394,
+    "ci95": [
+     -0.556,
+     -0.238
+    ]
+   }
+  },
+  "rule_fixed_minus_equal": {
+   "exit": {
+    "effect": 0.04,
+    "ci95": [
+     -0.091,
+     0.168
+    ]
+   },
+   "kappa": {
+    "effect": 0.089,
+    "ci95": [
+     -0.006,
+     0.175
+    ]
+   },
+   "C": {
+    "effect": 0.156,
+    "ci95": [
+     0.05,
+     0.269
+    ]
+   }
+  },
+  "exit_by_size": {
+   "large": 0.171,
+   "small": 0.568,
+   "n_large": 117,
+   "n_small": 81
+  },
+  "exit_by_arm": {
+   "main": [
+    8,
+    56
+   ],
+   "flat5m": [
+    12,
+    61
+   ],
+   "split600k": [
+    22,
+    40
+   ],
+   "flat150k": [
+    24,
+    41
+   ]
+  }
+ },
+ "Astra": {
+  "size_small_minus_large": {
+   "exit": {
+    "effect": -0.044,
+    "ci95": [
+     -0.122,
+     0.022
+    ]
+   },
+   "kappa": {
+    "effect": -0.083,
+    "ci95": [
+     -0.154,
+     0.013
+    ]
+   },
+   "C": {
+    "effect": 0.019,
+    "ci95": [
+     -0.062,
+     0.1
+    ]
+   }
+  },
+  "rule_fixed_minus_equal": {
+   "exit": {
+    "effect": -0.043,
+    "ci95": [
+     -0.126,
+     0.022
+    ]
+   },
+   "kappa": {
+    "effect": 0.043,
+    "ci95": [
+     -0.044,
+     0.123
+    ]
+   },
+   "C": {
+    "effect": 0.019,
+    "ci95": [
+     -0.062,
+     0.106
+    ]
+   }
+  },
+  "exit_by_size": {
+   "large": 0.055,
+   "small": 0.011,
+   "n_large": 110,
+   "n_small": 93
+  },
+  "exit_by_arm": {
+   "main": [
+    6,
+    62
+   ],
+   "flat5m": [
+    0,
+    48
+   ],
+   "split600k": [
+    0,
+    49
+   ],
+   "flat150k": [
+    1,
+    44
+   ]
+  }
+ },
+ "Sol": {
+  "size_small_minus_large": {
+   "exit": {
+    "effect": 0.104,
+    "ci95": [
+     0.011,
+     0.212
+    ]
+   },
+   "kappa": {
+    "effect": -0.004,
+    "ci95": [
+     -0.144,
+     0.101
+    ]
+   },
+   "C": {
+    "effect": -0.287,
+    "ci95": [
+     -0.394,
+     -0.175
+    ]
+   }
+  },
+  "rule_fixed_minus_equal": {
+   "exit": {
+    "effect": 0.051,
+    "ci95": [
+     -0.084,
+     0.199
+    ]
+   },
+   "kappa": {
+    "effect": 0.136,
+    "ci95": [
+     -0.026,
+     0.284
+    ]
+   },
+   "C": {
+    "effect": 0.05,
+    "ci95": [
+     -0.15,
+     0.262
+    ]
+   }
+  },
+  "exit_by_size": {
+   "large": 0.254,
+   "small": 0.358,
+   "n_large": 114,
+   "n_small": 106
+  },
+  "exit_by_arm": {
+   "main": [
+    15,
+    68
+   ],
+   "flat5m": [
+    14,
+    46
+   ],
+   "split600k": [
+    20,
+    56
+   ],
+   "flat150k": [
+    18,
+    50
+   ]
+  }
+ },
+ "Opus": {
+  "size_small_minus_large": {
+   "exit": {
+    "effect": 0.186,
+    "ci95": [
+     0.08,
+     0.286
+    ]
+   },
+   "kappa": {
+    "effect": -0.03,
+    "ci95": [
+     -0.095,
+     0.054
+    ]
+   },
+   "C": {
+    "effect": -0.119,
+    "ci95": [
+     -0.325,
+     0.094
+    ]
+   }
+  },
+  "rule_fixed_minus_equal": {
+   "exit": {
+    "effect": 0.091,
+    "ci95": [
+     0.013,
+     0.17
+    ]
+   },
+   "kappa": {
+    "effect": 0.03,
+    "ci95": [
+     -0.059,
+     0.101
+    ]
+   },
+   "C": {
+    "effect": -0.069,
+    "ci95": [
+     -0.144,
+     0.012
+    ]
+   }
+  },
+  "exit_by_size": {
+   "large": 0.144,
+   "small": 0.33,
+   "n_large": 139,
+   "n_small": 109
+  },
+  "exit_by_arm": {
+   "main": [
+    9,
+    61
+   ],
+   "flat5m": [
+    11,
+    78
+   ],
+   "split600k": [
+    12,
+    57
+   ],
+   "flat150k": [
+    24,
+    52
+   ]
+  }
+ },
+ "Luna": {
+  "size_small_minus_large": {
+   "exit": {
+    "effect": 0.105,
+    "ci95": [
+     0.036,
+     0.174
+    ]
+   },
+   "kappa": {
+    "effect": 0.133,
+    "ci95": [
+     -0.022,
+     0.265
+    ]
+   },
+   "C": {
+    "effect": -0.05,
+    "ci95": [
+     -0.131,
+     0.025
+    ]
+   }
+  },
+  "rule_fixed_minus_equal": {
+   "exit": {
+    "effect": 0.029,
+    "ci95": [
+     -0.076,
+     0.128
+    ]
+   },
+   "kappa": {
+    "effect": -0.003,
+    "ci95": [
+     -0.121,
+     0.123
+    ]
+   },
+   "C": {
+    "effect": 0.013,
+    "ci95": [
+     -0.056,
+     0.081
+    ]
+   }
+  },
+  "exit_by_size": {
+   "large": 0.404,
+   "small": 0.509,
+   "n_large": 104,
+   "n_small": 110
+  },
+  "exit_by_arm": {
+   "main": [
+    20,
+    53
+   ],
+   "flat5m": [
+    22,
+    51
+   ],
+   "split600k": [
+    27,
+    53
+   ],
+   "flat150k": [
+    29,
+    57
+   ]
+  }
+ }
+}

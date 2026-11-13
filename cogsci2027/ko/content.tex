@@ -14,6 +14,8 @@
 \input{cogsci2027/\paperLang/sections/90_acknowledgments}
 \printbibliography
 \end{refsection}
+%% The appendix is typeset only when main.tex has \paperAppendix set to on (default: off).
+\ifx\paperAppendix\paperAppendixOn
 \clearpage
 \begin{refsection}
 \appendix
@@ -33,3 +35,4 @@
 \setcounter{secnumdepth}{0}
 \printbibliography[title={부록 참고문헌}]
 \end{refsection}
+\fi

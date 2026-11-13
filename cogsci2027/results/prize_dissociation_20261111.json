@@ -1,0 +1,519 @@
+{
+ "method": "Direct tests of the prize dissociation (2026-11-11; review ledger R-51, R-53, R-54).\n\nThe body reads the 2x2 of prize size and allocation rule as \"size moves the exit rate under threat, the rule moves\nkappa\". Blind review 13 asked for three things the body does not report:\n\n  R-51  the difference between the two effects on the same indicator (rule effect minus size effect), and the\n        size x rule interaction, each with an interval\n  R-53  the size effect on kappa inside the fixed pair only (500만 고정 vs 15만 고정), where a peer who finishes does\n        not reduce one's own allocation, so prize size does not change the cost of helping\n  R-54  the size effect on the exit rate with first-round opportunities removed\n\nDefinitions follow construct_weights_20261110 (prize_2x2): a cell is the mean over the five closed models of the\nmodel's value in that condition; size = small prize minus large prize averaged over the two rules; rule = fixed minus\nequal averaged over the two sizes. Intervals: seed-cluster bootstrap, the ten seeds resampled jointly across models\nand conditions (the same seeds ran in every condition), 4,000 draws.",
+ "arms": [
+  "main",
+  "split600k",
+  "flat5m",
+  "flat150k"
+ ],
+ "exit": {
+  "cells": {
+   "main": 0.197,
+   "split600k": 0.3254,
+   "flat5m": 0.2147,
+   "flat150k": 0.3877
+  },
+  "n": {
+   "main": 300,
+   "split600k": 255,
+   "flat5m": 284,
+   "flat150k": 244
+  },
+  "size": {
+   "effect": 0.1507,
+   "ci95": [
+    0.1107,
+    0.1963
+   ],
+   "share_above_zero": 1.0
+  },
+  "rule": {
+   "effect": 0.04,
+   "ci95": [
+    -0.006,
+    0.0887
+   ],
+   "share_above_zero": 0.954
+  },
+  "rule_minus_size": {
+   "effect": -0.1107,
+   "ci95": [
+    -0.1701,
+    -0.0661
+   ],
+   "share_above_zero": 0.0
+  },
+  "interaction": {
+   "effect": 0.0446,
+   "ci95": [
+    -0.06,
+    0.1476
+   ],
+   "share_above_zero": 0.804
+  },
+  "size_in_fixed": {
+   "effect": 0.173,
+   "ci95": [
+    0.1235,
+    0.2273
+   ],
+   "share_above_zero": 1.0
+  },
+  "size_in_equal": {
+   "effect": 0.1284,
+   "ci95": [
+    0.0503,
+    0.2112
+   ],
+   "share_above_zero": 0.999
+  },
+  "rule_in_large": {
+   "effect": 0.0177,
+   "ci95": [
+    -0.0431,
+    0.0807
+   ],
+   "share_above_zero": 0.708
+  },
+  "rule_in_small": {
+   "effect": 0.0623,
+   "ci95": [
+    -0.0147,
+    0.1394
+   ],
+   "share_above_zero": 0.943
+  }
+ },
+ "kappa": {
+  "cells": {
+   "main": 0.3383,
+   "split600k": 0.3514,
+   "flat5m": 0.4153,
+   "flat150k": 0.3966
+  },
+  "n": {
+   "main": 265,
+   "split600k": 183,
+   "flat5m": 317,
+   "flat150k": 171
+  },
+  "size": {
+   "effect": -0.0028,
+   "ci95": [
+    -0.0552,
+    0.0452
+   ],
+   "share_above_zero": 0.456
+  },
+  "rule": {
+   "effect": 0.0611,
+   "ci95": [
+    0.0044,
+    0.1151
+   ],
+   "share_above_zero": 0.982
+  },
+  "rule_minus_size": {
+   "effect": 0.0639,
+   "ci95": [
+    -0.0089,
+    0.1392
+   ],
+   "share_above_zero": 0.955
+  },
+  "interaction": {
+   "effect": -0.0318,
+   "ci95": [
+    -0.1311,
+    0.0812
+   ],
+   "share_above_zero": 0.294
+  },
+  "size_in_fixed": {
+   "effect": -0.0187,
+   "ci95": [
+    -0.0864,
+    0.0415
+   ],
+   "share_above_zero": 0.301
+  },
+  "size_in_equal": {
+   "effect": 0.0131,
+   "ci95": [
+    -0.0719,
+    0.0895
+   ],
+   "share_above_zero": 0.613
+  },
+  "rule_in_large": {
+   "effect": 0.077,
+   "ci95": [
+    0.0092,
+    0.1439
+   ],
+   "share_above_zero": 0.987
+  },
+  "rule_in_small": {
+   "effect": 0.0452,
+   "ci95": [
+    -0.0374,
+    0.1344
+   ],
+   "share_above_zero": 0.863
+  }
+ },
+ "give_after_ask": {
+  "cells": {
+   "main": 0.8107,
+   "split600k": 0.849,
+   "flat5m": 0.7758,
+   "flat150k": 0.8003
+  },
+  "n": {
+   "main": 158,
+   "split600k": 81,
+   "flat5m": 139,
+   "flat150k": 93
+  },
+  "size": {
+   "effect": 0.0314,
+   "ci95": [
+    -0.0534,
+    0.0811
+   ],
+   "share_above_zero": 0.737
+  },
+  "rule": {
+   "effect": -0.0418,
+   "ci95": [
+    -0.1044,
+    0.0225
+   ],
+   "share_above_zero": 0.105
+  },
+  "rule_minus_size": {
+   "effect": -0.0732,
+   "ci95": [
+    -0.127,
+    0.0134
+   ],
+   "share_above_zero": 0.041
+  },
+  "interaction": {
+   "effect": -0.0138,
+   "ci95": [
+    -0.1448,
+    0.1831
+   ],
+   "share_above_zero": 0.509
+  },
+  "size_in_fixed": {
+   "effect": 0.0245,
+   "ci95": [
+    -0.0815,
+    0.1306
+   ],
+   "share_above_zero": 0.652
+  },
+  "size_in_equal": {
+   "effect": 0.0383,
+   "ci95": [
+    -0.1139,
+    0.0995
+   ],
+   "share_above_zero": 0.693
+  },
+  "rule_in_large": {
+   "effect": -0.0349,
+   "ci95": [
+    -0.1546,
+    0.0615
+   ],
+   "share_above_zero": 0.21
+  },
+  "rule_in_small": {
+   "effect": -0.0487,
+   "ci95": [
+    -0.1354,
+    0.0659
+   ],
+   "share_above_zero": 0.215
+  }
+ },
+ "C": {
+  "cells": {
+   "main": 0.5975,
+   "split600k": 0.47,
+   "flat5m": 0.67,
+   "flat150k": 0.465
+  },
+  "n": {
+   "main": 50,
+   "split600k": 50,
+   "flat5m": 50,
+   "flat150k": 50
+  },
+  "size": {
+   "effect": -0.1663,
+   "ci95": [
+    -0.2125,
+    -0.1212
+   ],
+   "share_above_zero": 0.0
+  },
+  "rule": {
+   "effect": 0.0337,
+   "ci95": [
+    -0.0175,
+    0.0763
+   ],
+   "share_above_zero": 0.92
+  },
+  "rule_minus_size": {
+   "effect": 0.2,
+   "ci95": [
+    0.15,
+    0.25
+   ],
+   "share_above_zero": 1.0
+  },
+  "interaction": {
+   "effect": -0.0775,
+   "ci95": [
+    -0.1475,
+    -0.0025
+   ],
+   "share_above_zero": 0.022
+  },
+  "size_in_fixed": {
+   "effect": -0.205,
+   "ci95": [
+    -0.2625,
+    -0.1475
+   ],
+   "share_above_zero": 0.0
+  },
+  "size_in_equal": {
+   "effect": -0.1275,
+   "ci95": [
+    -0.19,
+    -0.065
+   ],
+   "share_above_zero": 0.0
+  },
+  "rule_in_large": {
+   "effect": 0.0725,
+   "ci95": [
+    0.0125,
+    0.1275
+   ],
+   "share_above_zero": 0.99
+  },
+  "rule_in_small": {
+   "effect": -0.005,
+   "ci95": [
+    -0.0675,
+    0.055
+   ],
+   "share_above_zero": 0.421
+  }
+ },
+ "exit_without_round1": {
+  "cells": {
+   "main": 0.2006,
+   "split600k": 0.3172,
+   "flat5m": 0.2362,
+   "flat150k": 0.3805
+  },
+  "n": {
+   "main": 265,
+   "split600k": 220,
+   "flat5m": 249,
+   "flat150k": 209
+  },
+  "size": {
+   "effect": 0.1305,
+   "ci95": [
+    0.0952,
+    0.1778
+   ],
+   "share_above_zero": 1.0
+  },
+  "rule": {
+   "effect": 0.0495,
+   "ci95": [
+    -0.0018,
+    0.1064
+   ],
+   "share_above_zero": 0.971
+  },
+  "rule_minus_size": {
+   "effect": -0.081,
+   "ci95": [
+    -0.1514,
+    -0.0255
+   ],
+   "share_above_zero": 0.001
+  },
+  "interaction": {
+   "effect": 0.0278,
+   "ci95": [
+    -0.1029,
+    0.1464
+   ],
+   "share_above_zero": 0.668
+  },
+  "size_in_fixed": {
+   "effect": 0.1443,
+   "ci95": [
+    0.0791,
+    0.2105
+   ],
+   "share_above_zero": 1.0
+  },
+  "size_in_equal": {
+   "effect": 0.1166,
+   "ci95": [
+    0.0366,
+    0.204
+   ],
+   "share_above_zero": 0.998
+  },
+  "rule_in_large": {
+   "effect": 0.0356,
+   "ci95": [
+    -0.035,
+    0.1128
+   ],
+   "share_above_zero": 0.833
+  },
+  "rule_in_small": {
+   "effect": 0.0634,
+   "ci95": [
+    -0.0273,
+    0.1509
+   ],
+   "share_above_zero": 0.917
+  }
+ },
+ "exit_round1_only": {
+  "cells": {
+   "main": 0.1714,
+   "split600k": 0.3429,
+   "flat5m": 0.0857,
+   "flat150k": 0.4
+  },
+  "n": {
+   "main": 35,
+   "split600k": 35,
+   "flat5m": 35,
+   "flat150k": 35
+  },
+  "size": {
+   "effect": 0.2429,
+   "ci95": [
+    0.1,
+    0.36
+   ],
+   "share_above_zero": 0.999
+  },
+  "rule": {
+   "effect": -0.0143,
+   "ci95": [
+    -0.075,
+    0.05
+   ],
+   "share_above_zero": 0.332
+  },
+  "rule_minus_size": {
+   "effect": -0.2571,
+   "ci95": [
+    -0.36,
+    -0.15
+   ],
+   "share_above_zero": 0.0
+  },
+  "interaction": {
+   "effect": 0.1429,
+   "ci95": [
+    -0.0667,
+    0.3556
+   ],
+   "share_above_zero": 0.897
+  },
+  "size_in_fixed": {
+   "effect": 0.3143,
+   "ci95": [
+    0.16,
+    0.475
+   ],
+   "share_above_zero": 1.0
+  },
+  "size_in_equal": {
+   "effect": 0.1714,
+   "ci95": [
+    0.0,
+    0.3333
+   ],
+   "share_above_zero": 0.961
+  },
+  "rule_in_large": {
+   "effect": -0.0857,
+   "ci95": [
+    -0.1667,
+    0.0
+   ],
+   "share_above_zero": 0.0
+  },
+  "rule_in_small": {
+   "effect": 0.0571,
+   "ci95": [
+    -0.1,
+    0.2201
+   ],
+   "share_above_zero": 0.71
+  }
+ },
+ "exit_counts_by_round": {
+  "main": {
+   "round1": [
+    6,
+    35
+   ],
+   "later": [
+    52,
+    265
+   ]
+  },
+  "split600k": {
+   "round1": [
+    12,
+    35
+   ],
+   "later": [
+    69,
+    220
+   ]
+  },
+  "flat5m": {
+   "round1": [
+    3,
+    35
+   ],
+   "later": [
+    56,
+    249
+   ]
+  },
+  "flat150k": {
+   "round1": [
+    14,
+    35
+   ],
+   "later": [
+    82,
+    209
+   ]
+  }
+ }
+}

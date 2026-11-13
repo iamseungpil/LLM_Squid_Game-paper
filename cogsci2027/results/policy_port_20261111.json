@@ -1,0 +1,484 @@
+{
+ "method": "of model M (four seats of the same model, as in the logs)\n  exit     P(EXIT | prize arm, margin band at the pre-solve talk, round 1 or later), M's opportunities, shrunk\n           towards the all-model rate of the same cell with 4 pseudo-observations; lone-agent rate per arm\n  giving   P(receive) and median amount by (solver or not, margin band) before SOLVE and by post-charge margin band\n           after a wrong answer, from M's games in all four arms (shrunk the same way); the richest other agent pays\n  accuracy M's own wrong-answer probability per (seed, round)\nCost settings\n  own      M's own logged talk and solve costs            -> must reproduce M's observed C (gate)\n  equal    costs pooled over the five models               -> \"C at equal cost\"\n  low/high the cheapest and the dearest model's costs      -> does the order depend on the cost level?",
+ "reps_per_seed": 300,
+ "cheapest_model": "Astra",
+ "dearest_model": "Opus",
+ "models": {
+  "Astra": {
+   "observed": {
+    "main": {
+     "C": 0.912,
+     "ci95": [
+      0.787,
+      1.0
+     ]
+    },
+    "four_arms": {
+     "C": 0.966,
+     "ci95": [
+      0.928,
+      1.0
+     ]
+    },
+    "exits_main": 0.6,
+    "dead_main": 0.0
+   },
+   "simulated": {
+    "own": {
+     "C_main": 0.829,
+     "C_four_arms": 0.838,
+     "exits_main": 0.51,
+     "dead_main": 0.06,
+     "by_arm": {
+      "main": 0.829,
+      "flat5m": 0.907,
+      "split600k": 0.825,
+      "flat150k": 0.793
+     }
+    },
+    "equal": {
+     "C_main": 0.728,
+     "C_four_arms": 0.745,
+     "exits_main": 0.83,
+     "dead_main": 0.35,
+     "by_arm": {
+      "main": 0.728,
+      "flat5m": 0.813,
+      "split600k": 0.733,
+      "flat150k": 0.706
+     }
+    },
+    "low": {
+     "C_main": 0.836,
+     "C_four_arms": 0.841,
+     "exits_main": 0.49,
+     "dead_main": 0.06,
+     "by_arm": {
+      "main": 0.836,
+      "flat5m": 0.911,
+      "split600k": 0.827,
+      "flat150k": 0.791
+     }
+    },
+    "high": {
+     "C_main": 0.691,
+     "C_four_arms": 0.709,
+     "exits_main": 0.97,
+     "dead_main": 0.55,
+     "by_arm": {
+      "main": 0.691,
+      "flat5m": 0.767,
+      "split600k": 0.698,
+      "flat150k": 0.681
+     }
+    }
+   },
+   "reproduces_main": true,
+   "reproduces_four_arms": false,
+   "talk_burden_main": 0.101,
+   "talk_burden_four_arms": 0.093
+  },
+  "Sol": {
+   "observed": {
+    "main": {
+     "C": 0.688,
+     "ci95": [
+      0.512,
+      0.85
+     ]
+    },
+    "four_arms": {
+     "C": 0.55,
+     "ci95": [
+      0.438,
+      0.666
+     ]
+    },
+    "exits_main": 1.5,
+    "dead_main": 0.2
+   },
+   "simulated": {
+    "own": {
+     "C_main": 0.541,
+     "C_four_arms": 0.444,
+     "exits_main": 1.24,
+     "dead_main": 0.64,
+     "by_arm": {
+      "main": 0.541,
+      "flat5m": 0.468,
+      "split600k": 0.419,
+      "flat150k": 0.349
+     }
+    },
+    "equal": {
+     "C_main": 0.559,
+     "C_four_arms": 0.458,
+     "exits_main": 1.24,
+     "dead_main": 0.55,
+     "by_arm": {
+      "main": 0.559,
+      "flat5m": 0.48,
+      "split600k": 0.435,
+      "flat150k": 0.357
+     }
+    },
+    "low": {
+     "C_main": 0.67,
+     "C_four_arms": 0.535,
+     "exits_main": 0.99,
+     "dead_main": 0.16,
+     "by_arm": {
+      "main": 0.67,
+      "flat5m": 0.567,
+      "split600k": 0.507,
+      "flat150k": 0.397
+     }
+    },
+    "high": {
+     "C_main": 0.521,
+     "C_four_arms": 0.437,
+     "exits_main": 1.29,
+     "dead_main": 0.73,
+     "by_arm": {
+      "main": 0.521,
+      "flat5m": 0.463,
+      "split600k": 0.417,
+      "flat150k": 0.347
+     }
+    }
+   },
+   "reproduces_main": true,
+   "reproduces_four_arms": true,
+   "talk_burden_main": -0.018,
+   "talk_burden_four_arms": -0.014
+  },
+  "Opus": {
+   "observed": {
+    "main": {
+     "C": 0.525,
+     "ci95": [
+      0.325,
+      0.738
+     ]
+    },
+    "four_arms": {
+     "C": 0.484,
+     "ci95": [
+      0.372,
+      0.594
+     ]
+    },
+    "exits_main": 1.0,
+    "dead_main": 0.8
+   },
+   "simulated": {
+    "own": {
+     "C_main": 0.523,
+     "C_four_arms": 0.486,
+     "exits_main": 1.09,
+     "dead_main": 0.81,
+     "by_arm": {
+      "main": 0.523,
+      "flat5m": 0.598,
+      "split600k": 0.475,
+      "flat150k": 0.349
+     }
+    },
+    "equal": {
+     "C_main": 0.546,
+     "C_four_arms": 0.515,
+     "exits_main": 1.06,
+     "dead_main": 0.64,
+     "by_arm": {
+      "main": 0.546,
+      "flat5m": 0.638,
+      "split600k": 0.508,
+      "flat150k": 0.367
+     }
+    },
+    "low": {
+     "C_main": 0.631,
+     "C_four_arms": 0.587,
+     "exits_main": 0.88,
+     "dead_main": 0.17,
+     "by_arm": {
+      "main": 0.631,
+      "flat5m": 0.741,
+      "split600k": 0.586,
+      "flat150k": 0.391
+     }
+    },
+    "high": {
+     "C_main": 0.524,
+     "C_four_arms": 0.489,
+     "exits_main": 1.11,
+     "dead_main": 0.83,
+     "by_arm": {
+      "main": 0.524,
+      "flat5m": 0.601,
+      "split600k": 0.482,
+      "flat150k": 0.348
+     }
+    }
+   },
+   "reproduces_main": true,
+   "reproduces_four_arms": true,
+   "talk_burden_main": -0.023,
+   "talk_burden_four_arms": -0.029
+  },
+  "Fable": {
+   "observed": {
+    "main": {
+     "C": 0.475,
+     "ci95": [
+      0.263,
+      0.713
+     ]
+    },
+    "four_arms": {
+     "C": 0.397,
+     "ci95": [
+      0.284,
+      0.522
+     ]
+    },
+    "exits_main": 0.9,
+    "dead_main": 0.3
+   },
+   "simulated": {
+    "own": {
+     "C_main": 0.586,
+     "C_four_arms": 0.459,
+     "exits_main": 0.93,
+     "dead_main": 0.77,
+     "by_arm": {
+      "main": 0.586,
+      "flat5m": 0.621,
+      "split600k": 0.328,
+      "flat150k": 0.302
+     }
+    },
+    "equal": {
+     "C_main": 0.572,
+     "C_four_arms": 0.456,
+     "exits_main": 0.92,
+     "dead_main": 0.75,
+     "by_arm": {
+      "main": 0.572,
+      "flat5m": 0.623,
+      "split600k": 0.326,
+      "flat150k": 0.305
+     }
+    },
+    "low": {
+     "C_main": 0.679,
+     "C_four_arms": 0.528,
+     "exits_main": 0.72,
+     "dead_main": 0.25,
+     "by_arm": {
+      "main": 0.679,
+      "flat5m": 0.727,
+      "split600k": 0.374,
+      "flat150k": 0.332
+     }
+    },
+    "high": {
+     "C_main": 0.558,
+     "C_four_arms": 0.437,
+     "exits_main": 0.97,
+     "dead_main": 0.93,
+     "by_arm": {
+      "main": 0.558,
+      "flat5m": 0.582,
+      "split600k": 0.312,
+      "flat150k": 0.296
+     }
+    }
+   },
+   "reproduces_main": true,
+   "reproduces_four_arms": true,
+   "talk_burden_main": 0.014,
+   "talk_burden_four_arms": 0.003
+  },
+  "Luna": {
+   "observed": {
+    "main": {
+     "C": 0.388,
+     "ci95": [
+      0.325,
+      0.45
+     ]
+    },
+    "four_arms": {
+     "C": 0.356,
+     "ci95": [
+      0.303,
+      0.412
+     ]
+    },
+    "exits_main": 2.1,
+    "dead_main": 1.0
+   },
+   "simulated": {
+    "own": {
+     "C_main": 0.35,
+     "C_four_arms": 0.32,
+     "exits_main": 2.13,
+     "dead_main": 1.04,
+     "by_arm": {
+      "main": 0.35,
+      "flat5m": 0.342,
+      "split600k": 0.291,
+      "flat150k": 0.295
+     }
+    },
+    "equal": {
+     "C_main": 0.382,
+     "C_four_arms": 0.342,
+     "exits_main": 2.17,
+     "dead_main": 0.72,
+     "by_arm": {
+      "main": 0.382,
+      "flat5m": 0.366,
+      "split600k": 0.309,
+      "flat150k": 0.311
+     }
+    },
+    "low": {
+     "C_main": 0.421,
+     "C_four_arms": 0.37,
+     "exits_main": 2.03,
+     "dead_main": 0.36,
+     "by_arm": {
+      "main": 0.421,
+      "flat5m": 0.393,
+      "split600k": 0.334,
+      "flat150k": 0.334
+     }
+    },
+    "high": {
+     "C_main": 0.369,
+     "C_four_arms": 0.334,
+     "exits_main": 2.18,
+     "dead_main": 0.86,
+     "by_arm": {
+      "main": 0.369,
+      "flat5m": 0.357,
+      "split600k": 0.303,
+      "flat150k": 0.308
+     }
+    }
+   },
+   "reproduces_main": true,
+   "reproduces_four_arms": true,
+   "talk_burden_main": -0.032,
+   "talk_burden_four_arms": -0.022
+  }
+ },
+ "order_C_main": {
+  "own": [
+   "Astra",
+   "Fable",
+   "Sol",
+   "Opus",
+   "Luna"
+  ],
+  "equal": [
+   "Astra",
+   "Fable",
+   "Sol",
+   "Opus",
+   "Luna"
+  ],
+  "low": [
+   "Astra",
+   "Fable",
+   "Sol",
+   "Opus",
+   "Luna"
+  ],
+  "high": [
+   "Astra",
+   "Fable",
+   "Opus",
+   "Sol",
+   "Luna"
+  ]
+ },
+ "order_C_four_arms": {
+  "own": [
+   "Astra",
+   "Opus",
+   "Fable",
+   "Sol",
+   "Luna"
+  ],
+  "equal": [
+   "Astra",
+   "Opus",
+   "Sol",
+   "Fable",
+   "Luna"
+  ],
+  "low": [
+   "Astra",
+   "Opus",
+   "Sol",
+   "Fable",
+   "Luna"
+  ],
+  "high": [
+   "Astra",
+   "Opus",
+   "Sol",
+   "Fable",
+   "Luna"
+  ]
+ },
+ "threat_round_passed": {
+  "main": {
+   "Astra": [
+    53,
+    55
+   ],
+   "Sol": [
+    43,
+    50
+   ],
+   "Opus": [
+    32,
+    39
+   ],
+   "Fable": [
+    25,
+    33
+   ],
+   "Luna": [
+    17,
+    27
+   ]
+  },
+  "four_arms": {
+   "Astra": [
+    199,
+    202
+   ],
+   "Sol": [
+    111,
+    141
+   ],
+   "Opus": [
+    112,
+    145
+   ],
+   "Fable": [
+    74,
+    106
+   ],
+   "Luna": [
+    68,
+    108
+   ]
+  }
+ }
+}

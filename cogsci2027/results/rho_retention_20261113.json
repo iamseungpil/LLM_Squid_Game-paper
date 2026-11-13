@@ -1,0 +1,1922 @@
+{
+ "method": "Sharing indicator \"rho retention R\" in place of kappa (2026-11-13, stage 1: computation only).\n\nWhy: the sharing weight kappa of section 2.2 has no value for a refusal, drops 144 of the 1,080 gifts (the giver was\npoorer or could not pay its own pending fine), clips at 1 (61 gifts) and blows up when the two margins are close\n(paper/cogsci2027/metric.md). The researcher replaced it with the indicator below. This script recomputes every body\nnumber that rested on kappa, next to the stored kappa value. It writes no manuscript file, table or figure.\n\nIndicator (fixed by the researcher; not changed here)\n  one event   R = rho_after / rho_before\n              rho_before = giver balance / recipient balance just before the transfer\n              rho_after  = (giver balance - g) / (recipient balance + g)\n              = (1 - g / giver balance) x (recipient balance / (recipient balance + g))\n              balances are token balances (src_before, dst_before), not the margin L net of a pending fine\n  no gift     R = 1; giving everything gives R = 0; nothing is clipped and no event is dropped\n  direction   closer to 1 = more on the agent's own side, the same direction as the exit rate\n  model value mean of the event values, refusals included\n\nEvents\n  gifts      every row of gifts.pkl (1,080 over the four conditions): gifts from the poorer side, the 24 gifts of a\n             giver that could not pay its own pending fine (L_src_before < 0) and repayments are all in\n  refusals   ask_rows.pkl, first & delivered & outcome != 'already_gave' (471 decisions), outcome == 'refuse' (104)\n             an agent that was never asked and did not give is not an event\n  repayment  by the ledger, not by keywords: a gift to a peer from whom the giver received a gift earlier in the game",
+ "gate": {
+  "reproduced": true,
+  "n_gifts": 1080,
+  "n_refusals": 104,
+  "n_decisions": 471,
+  "range": [
+   0.0,
+   0.984
+  ],
+  "models": {
+   "Astra": [
+    135,
+    3,
+    0.5503,
+    0.5601
+   ],
+   "Sol": [
+    164,
+    32,
+    0.6237,
+    0.6851
+   ],
+   "Opus": [
+    360,
+    8,
+    0.6658,
+    0.6731
+   ],
+   "Luna": [
+    129,
+    26,
+    0.649,
+    0.7078
+   ],
+   "Fable": [
+    292,
+    35,
+    0.6862,
+    0.7198
+   ]
+  },
+  "arms": {
+   "flat150k": 0.6738,
+   "flat5m": 0.6821,
+   "main": 0.6766,
+   "split600k": 0.6842
+  }
+ },
+ "a_models": {
+  "pooled": {
+   "Fable": {
+    "n_gifts": 292,
+    "n_refusals": 35,
+    "value": 0.7198,
+    "ci95": [
+     0.6983,
+     0.7429
+    ]
+   },
+   "Astra": {
+    "n_gifts": 135,
+    "n_refusals": 3,
+    "value": 0.5601,
+    "ci95": [
+     0.5375,
+     0.5868
+    ]
+   },
+   "Sol": {
+    "n_gifts": 164,
+    "n_refusals": 32,
+    "value": 0.6851,
+    "ci95": [
+     0.6452,
+     0.727
+    ]
+   },
+   "Opus": {
+    "n_gifts": 360,
+    "n_refusals": 8,
+    "value": 0.6731,
+    "ci95": [
+     0.6492,
+     0.695
+    ]
+   },
+   "Luna": {
+    "n_gifts": 129,
+    "n_refusals": 26,
+    "value": 0.7078,
+    "ci95": [
+     0.6722,
+     0.7363
+    ]
+   }
+  },
+  "base": {
+   "Fable": {
+    "n_gifts": 82,
+    "n_refusals": 19,
+    "value": 0.7233,
+    "ci95": [
+     0.681,
+     0.7756
+    ]
+   },
+   "Astra": {
+    "n_gifts": 29,
+    "n_refusals": 2,
+    "value": 0.5901,
+    "ci95": [
+     0.5158,
+     0.6441
+    ]
+   },
+   "Sol": {
+    "n_gifts": 56,
+    "n_refusals": 15,
+    "value": 0.6858,
+    "ci95": [
+     0.5513,
+     0.7402
+    ]
+   },
+   "Opus": {
+    "n_gifts": 87,
+    "n_refusals": 0,
+    "value": 0.6271,
+    "ci95": [
+     0.5629,
+     0.6741
+    ]
+   },
+   "Luna": {
+    "n_gifts": 46,
+    "n_refusals": 2,
+    "value": 0.7106,
+    "ci95": [
+     0.618,
+     0.7691
+    ]
+   }
+  },
+  "differences_pooled": {
+   "Fable-Astra": {
+    "value": 0.1597,
+    "ci95": [
+     0.1145,
+     0.2011
+    ]
+   },
+   "Fable-Sol": {
+    "value": 0.0347,
+    "ci95": [
+     -0.012,
+     0.0854
+    ]
+   },
+   "Fable-Opus": {
+    "value": 0.0467,
+    "ci95": [
+     0.0151,
+     0.0831
+    ]
+   },
+   "Fable-Luna": {
+    "value": 0.012,
+    "ci95": [
+     -0.0335,
+     0.0653
+    ]
+   },
+   "Astra-Sol": {
+    "value": -0.1251,
+    "ci95": [
+     -0.1774,
+     -0.073
+    ]
+   },
+   "Astra-Opus": {
+    "value": -0.113,
+    "ci95": [
+     -0.1406,
+     -0.0843
+    ]
+   },
+   "Astra-Luna": {
+    "value": -0.1478,
+    "ci95": [
+     -0.1822,
+     -0.1098
+    ]
+   },
+   "Sol-Opus": {
+    "value": 0.0121,
+    "ci95": [
+     -0.0294,
+     0.0603
+    ]
+   },
+   "Sol-Luna": {
+    "value": -0.0227,
+    "ci95": [
+     -0.0591,
+     0.0127
+    ]
+   },
+   "Opus-Luna": {
+    "value": -0.0348,
+    "ci95": [
+     -0.0774,
+     0.0108
+    ]
+   }
+  },
+  "Astra_minus_mean_of_other_four": {
+   "value": -0.1364,
+   "ci95": [
+    -0.1653,
+    -0.1048
+   ]
+  },
+  "Astra_minus_lowest_other": {
+   "value": -0.113,
+   "ci95": [
+    -0.1374,
+    -0.0718
+   ]
+  }
+ },
+ "b_prize": {
+  "cells": {
+   "main": {
+    "value": 0.6674,
+    "ci95": [
+     0.6204,
+     0.6911
+    ]
+   },
+   "split600k": {
+    "value": 0.6892,
+    "ci95": [
+     0.6633,
+     0.7133
+    ]
+   },
+   "flat5m": {
+    "value": 0.661,
+    "ci95": [
+     0.6254,
+     0.6908
+    ]
+   },
+   "flat150k": {
+    "value": 0.6645,
+    "ci95": [
+     0.6295,
+     0.6917
+    ]
+   }
+  },
+  "cells_pooled_events": {
+   "main": {
+    "value": 0.6766,
+    "ci95": [
+     0.6342,
+     0.7027
+    ]
+   },
+   "split600k": {
+    "value": 0.6842,
+    "ci95": [
+     0.6627,
+     0.7056
+    ]
+   },
+   "flat5m": {
+    "value": 0.6821,
+    "ci95": [
+     0.6501,
+     0.7129
+    ]
+   },
+   "flat150k": {
+    "value": 0.6738,
+    "ci95": [
+     0.6448,
+     0.7009
+    ]
+   }
+  },
+  "contrasts": {
+   "size": {
+    "value": 0.0127,
+    "ci95": [
+     -0.0183,
+     0.0441
+    ]
+   },
+   "rule": {
+    "value": -0.0155,
+    "ci95": [
+     -0.0438,
+     0.0174
+    ]
+   },
+   "rule_minus_size": {
+    "value": -0.0282,
+    "ci95": [
+     -0.0689,
+     0.0136
+    ]
+   },
+   "size_in_fixed": {
+    "value": 0.0035,
+    "ci95": [
+     -0.0508,
+     0.0466
+    ]
+   },
+   "size_in_split": {
+    "value": 0.0219,
+    "ci95": [
+     -0.0154,
+     0.0818
+    ]
+   }
+  },
+  "contrasts_pooled_events": {
+   "size": {
+    "value": -0.0004,
+    "ci95": [
+     -0.0276,
+     0.026
+    ]
+   },
+   "rule": {
+    "value": -0.0024,
+    "ci95": [
+     -0.0324,
+     0.0282
+    ]
+   },
+   "rule_minus_size": {
+    "value": -0.0021,
+    "ci95": [
+     -0.0414,
+     0.0361
+    ]
+   },
+   "size_in_fixed": {
+    "value": -0.0083,
+    "ci95": [
+     -0.0594,
+     0.0402
+    ]
+   },
+   "size_in_split": {
+    "value": 0.0076,
+    "ci95": [
+     -0.0292,
+     0.0638
+    ]
+   }
+  },
+  "size_by_model": {
+   "Fable": {
+    "value": -0.0241,
+    "ci95": [
+     -0.1013,
+     0.0173
+    ]
+   },
+   "Astra": {
+    "value": -0.0213,
+    "ci95": [
+     -0.0647,
+     0.026
+    ]
+   },
+   "Sol": {
+    "value": 0.0549,
+    "ci95": [
+     0.0086,
+     0.1205
+    ]
+   },
+   "Opus": {
+    "value": 0.0288,
+    "ci95": [
+     -0.0258,
+     0.0945
+    ]
+   },
+   "Luna": {
+    "value": 0.0252,
+    "ci95": [
+     -0.0898,
+     0.1271
+    ]
+   }
+  },
+  "rule_by_model": {
+   "Fable": {
+    "value": 0.0381,
+    "ci95": [
+     -0.0066,
+     0.0903
+    ]
+   },
+   "Astra": {
+    "value": -0.0146,
+    "ci95": [
+     -0.0599,
+     0.0521
+    ]
+   },
+   "Sol": {
+    "value": -0.081,
+    "ci95": [
+     -0.1351,
+     0.0121
+    ]
+   },
+   "Opus": {
+    "value": 0.0139,
+    "ci95": [
+     -0.0405,
+     0.0784
+    ]
+   },
+   "Luna": {
+    "value": -0.0341,
+    "ci95": [
+     -0.1292,
+     0.0553
+    ]
+   }
+  },
+  "by_arm_model": {
+   "main": {
+    "Fable": 0.7233,
+    "Astra": 0.5901,
+    "Sol": 0.6858,
+    "Opus": 0.6271,
+    "Luna": 0.7106
+   },
+   "split600k": {
+    "Fable": 0.6631,
+    "Astra": 0.5466,
+    "Sol": 0.8031,
+    "Opus": 0.7,
+    "Luna": 0.7334
+   },
+   "flat5m": {
+    "Fable": 0.7253,
+    "Astra": 0.5533,
+    "Sol": 0.6672,
+    "Opus": 0.6851,
+    "Luna": 0.6742
+   },
+   "flat150k": {
+    "Fable": 0.7372,
+    "Astra": 0.5542,
+    "Sol": 0.6596,
+    "Opus": 0.6698,
+    "Luna": 0.7017
+   }
+  },
+  "lowest_R_model_by_arm": {
+   "main": "Astra",
+   "split600k": "Astra",
+   "flat5m": "Astra",
+   "flat150k": "Astra"
+  },
+  "note": "cells = mean over the five models of the model value; size = small minus large; rule = fixed minus split"
+ },
+ "c_sensitivity": {
+  "all_events": {
+   "n": 1184,
+   "by_model_n": {
+    "Fable": 327,
+    "Astra": 138,
+    "Sol": 196,
+    "Opus": 368,
+    "Luna": 155
+   },
+   "pooled": {
+    "Fable": {
+     "value": 0.7198,
+     "ci95": [
+      0.6983,
+      0.7429
+     ]
+    },
+    "Astra": {
+     "value": 0.5601,
+     "ci95": [
+      0.5375,
+      0.5868
+     ]
+    },
+    "Sol": {
+     "value": 0.6851,
+     "ci95": [
+      0.6452,
+      0.727
+     ]
+    },
+    "Opus": {
+     "value": 0.6731,
+     "ci95": [
+      0.6492,
+      0.695
+     ]
+    },
+    "Luna": {
+     "value": 0.7078,
+     "ci95": [
+      0.6722,
+      0.7363
+     ]
+    }
+   },
+   "base": {
+    "Fable": {
+     "value": 0.7233,
+     "ci95": [
+      0.681,
+      0.7756
+     ]
+    },
+    "Astra": {
+     "value": 0.5901,
+     "ci95": [
+      0.5158,
+      0.6441
+     ]
+    },
+    "Sol": {
+     "value": 0.6858,
+     "ci95": [
+      0.5513,
+      0.7402
+     ]
+    },
+    "Opus": {
+     "value": 0.6271,
+     "ci95": [
+      0.5629,
+      0.6741
+     ]
+    },
+    "Luna": {
+     "value": 0.7106,
+     "ci95": [
+      0.618,
+      0.7691
+     ]
+    }
+   },
+   "Astra_minus_lowest_other": {
+    "value": -0.113,
+    "ci95": [
+     -0.1374,
+     -0.0718
+    ]
+   },
+   "contrasts": {
+    "size": {
+     "value": 0.0127,
+     "ci95": [
+      -0.0183,
+      0.0441
+     ]
+    },
+    "rule": {
+     "value": -0.0155,
+     "ci95": [
+      -0.0438,
+      0.0174
+     ]
+    },
+    "rule_minus_size": {
+     "value": -0.0282,
+     "ci95": [
+      -0.0689,
+      0.0136
+     ]
+    },
+    "size_in_fixed": {
+     "value": 0.0035,
+     "ci95": [
+      -0.0508,
+      0.0466
+     ]
+    },
+    "size_in_split": {
+     "value": 0.0219,
+     "ci95": [
+      -0.0154,
+      0.0818
+     ]
+    }
+   }
+  },
+  "without_doomed_24": {
+   "n": 1160,
+   "by_model_n": {
+    "Fable": 319,
+    "Astra": 138,
+    "Sol": 195,
+    "Opus": 357,
+    "Luna": 151
+   },
+   "pooled": {
+    "Fable": {
+     "value": 0.7379,
+     "ci95": [
+      0.7246,
+      0.7557
+     ]
+    },
+    "Astra": {
+     "value": 0.5601,
+     "ci95": [
+      0.5375,
+      0.5868
+     ]
+    },
+    "Sol": {
+     "value": 0.6887,
+     "ci95": [
+      0.6527,
+      0.7271
+     ]
+    },
+    "Opus": {
+     "value": 0.6926,
+     "ci95": [
+      0.6699,
+      0.7126
+     ]
+    },
+    "Luna": {
+     "value": 0.7266,
+     "ci95": [
+      0.6888,
+      0.7578
+     ]
+    }
+   },
+   "base": {
+    "Fable": {
+     "value": 0.7454,
+     "ci95": [
+      0.7007,
+      0.8031
+     ]
+    },
+    "Astra": {
+     "value": 0.5901,
+     "ci95": [
+      0.5158,
+      0.6441
+     ]
+    },
+    "Sol": {
+     "value": 0.6858,
+     "ci95": [
+      0.5513,
+      0.7402
+     ]
+    },
+    "Opus": {
+     "value": 0.6418,
+     "ci95": [
+      0.5738,
+      0.701
+     ]
+    },
+    "Luna": {
+     "value": 0.7415,
+     "ci95": [
+      0.6942,
+      0.8067
+     ]
+    }
+   },
+   "Astra_minus_lowest_other": {
+    "value": -0.1286,
+    "ci95": [
+     -0.1544,
+     -0.0792
+    ]
+   },
+   "contrasts": {
+    "size": {
+     "value": 0.008,
+     "ci95": [
+      -0.0191,
+      0.0357
+     ]
+    },
+    "rule": {
+     "value": -0.0217,
+     "ci95": [
+      -0.0457,
+      0.0058
+     ]
+    },
+    "rule_minus_size": {
+     "value": -0.0297,
+     "ci95": [
+      -0.058,
+      -0.0002
+     ]
+    },
+    "size_in_fixed": {
+     "value": -0.0074,
+     "ci95": [
+      -0.0582,
+      0.0255
+     ]
+    },
+    "size_in_split": {
+     "value": 0.0234,
+     "ci95": [
+      -0.0127,
+      0.0832
+     ]
+    }
+   }
+  },
+  "without_repayments": {
+   "n": 947,
+   "by_model_n": {
+    "Fable": 257,
+    "Astra": 137,
+    "Sol": 162,
+    "Opus": 245,
+    "Luna": 146
+   },
+   "pooled": {
+    "Fable": {
+     "value": 0.7505,
+     "ci95": [
+      0.7356,
+      0.7657
+     ]
+    },
+    "Astra": {
+     "value": 0.5595,
+     "ci95": [
+      0.537,
+      0.5868
+     ]
+    },
+    "Sol": {
+     "value": 0.7059,
+     "ci95": [
+      0.6726,
+      0.7329
+     ]
+    },
+    "Opus": {
+     "value": 0.7001,
+     "ci95": [
+      0.6692,
+      0.7302
+     ]
+    },
+    "Luna": {
+     "value": 0.7101,
+     "ci95": [
+      0.6758,
+      0.7387
+     ]
+    }
+   },
+   "base": {
+    "Fable": {
+     "value": 0.7586,
+     "ci95": [
+      0.7131,
+      0.8078
+     ]
+    },
+    "Astra": {
+     "value": 0.5901,
+     "ci95": [
+      0.5158,
+      0.6441
+     ]
+    },
+    "Sol": {
+     "value": 0.7024,
+     "ci95": [
+      0.5583,
+      0.7502
+     ]
+    },
+    "Opus": {
+     "value": 0.6736,
+     "ci95": [
+      0.6095,
+      0.7162
+     ]
+    },
+    "Luna": {
+     "value": 0.7083,
+     "ci95": [
+      0.6166,
+      0.7699
+     ]
+    }
+   },
+   "Astra_minus_lowest_other": {
+    "value": -0.1406,
+    "ci95": [
+     -0.1666,
+     -0.0917
+    ]
+   },
+   "contrasts": {
+    "size": {
+     "value": 0.0102,
+     "ci95": [
+      -0.0196,
+      0.0405
+     ]
+    },
+    "rule": {
+     "value": -0.0144,
+     "ci95": [
+      -0.0439,
+      0.0254
+     ]
+    },
+    "rule_minus_size": {
+     "value": -0.0246,
+     "ci95": [
+      -0.0665,
+      0.0214
+     ]
+    },
+    "size_in_fixed": {
+     "value": 0.0101,
+     "ci95": [
+      -0.035,
+      0.0477
+     ]
+    },
+    "size_in_split": {
+     "value": 0.0102,
+     "ci95": [
+      -0.0227,
+      0.0695
+     ]
+    }
+   }
+  },
+  "without_refusals": {
+   "n": 1080,
+   "by_model_n": {
+    "Fable": 292,
+    "Astra": 135,
+    "Sol": 164,
+    "Opus": 360,
+    "Luna": 129
+   },
+   "pooled": {
+    "Fable": {
+     "value": 0.6862,
+     "ci95": [
+      0.6572,
+      0.7123
+     ]
+    },
+    "Astra": {
+     "value": 0.5503,
+     "ci95": [
+      0.5239,
+      0.5806
+     ]
+    },
+    "Sol": {
+     "value": 0.6237,
+     "ci95": [
+      0.5905,
+      0.661
+     ]
+    },
+    "Opus": {
+     "value": 0.6658,
+     "ci95": [
+      0.637,
+      0.6899
+     ]
+    },
+    "Luna": {
+     "value": 0.649,
+     "ci95": [
+      0.5825,
+      0.6992
+     ]
+    }
+   },
+   "base": {
+    "Fable": {
+     "value": 0.6591,
+     "ci95": [
+      0.6175,
+      0.7136
+     ]
+    },
+    "Astra": {
+     "value": 0.5619,
+     "ci95": [
+      0.4754,
+      0.6168
+     ]
+    },
+    "Sol": {
+     "value": 0.6016,
+     "ci95": [
+      0.4862,
+      0.648
+     ]
+    },
+    "Opus": {
+     "value": 0.6271,
+     "ci95": [
+      0.5629,
+      0.6741
+     ]
+    },
+    "Luna": {
+     "value": 0.698,
+     "ci95": [
+      0.5693,
+      0.7667
+     ]
+    }
+   },
+   "Astra_minus_lowest_other": {
+    "value": -0.0734,
+    "ci95": [
+     -0.1184,
+     -0.0223
+    ]
+   },
+   "contrasts": {
+    "size": {
+     "value": 0.0221,
+     "ci95": [
+      -0.0152,
+      0.062
+     ]
+    },
+    "rule": {
+     "value": -0.0249,
+     "ci95": [
+      -0.0485,
+      0.0
+     ]
+    },
+    "rule_minus_size": {
+     "value": -0.047,
+     "ci95": [
+      -0.093,
+      0.0026
+     ]
+    },
+    "size_in_fixed": {
+     "value": 0.0081,
+     "ci95": [
+      -0.0431,
+      0.056
+     ]
+    },
+    "size_in_split": {
+     "value": 0.0362,
+     "ci95": [
+      -0.007,
+      0.096
+     ]
+    }
+   }
+  },
+  "counts": {
+   "doomed": 24,
+   "doomed_gave_everything": 23,
+   "repayments": 237,
+   "repayments_by_model": {
+    "Fable": 70,
+    "Astra": 1,
+    "Sol": 34,
+    "Opus": 123,
+    "Luna": 9
+   },
+   "refusals_by_model": {
+    "Fable": 35,
+    "Astra": 3,
+    "Sol": 32,
+    "Opus": 8,
+    "Luna": 26
+   }
+  }
+ },
+ "d_direction_bands": {
+  "direction": {
+   "richer_gives": {
+    "n": 938,
+    "R": 0.6691,
+    "ci95": [
+     0.6512,
+     0.686
+    ],
+    "keep_own": 0.8939,
+    "dilute": 0.7413,
+    "by_model": {
+     "Fable": [
+      246,
+      0.7109
+     ],
+     "Astra": [
+      135,
+      0.5503
+     ],
+     "Sol": [
+      146,
+      0.6398
+     ],
+     "Opus": [
+      293,
+      0.7031
+     ],
+     "Luna": [
+      118,
+      0.6694
+     ]
+    }
+   },
+   "poorer_gives": {
+    "n": 142,
+    "R": 0.5125,
+    "ci95": [
+     0.4501,
+     0.5579
+    ],
+    "keep_own": 0.5695,
+    "dilute": 0.871,
+    "by_model": {
+     "Fable": [
+      46,
+      0.554
+     ],
+     "Astra": [
+      0,
+      null
+     ],
+     "Sol": [
+      18,
+      0.493
+     ],
+     "Opus": [
+      67,
+      0.5028
+     ],
+     "Luna": [
+      11,
+      0.4295
+     ]
+    }
+   }
+  },
+  "kappa_exclusions": {
+   "doomed": 24,
+   "not_poorer_by_margin": 120,
+   "poorer_by_balance": 142,
+   "note": "kappa dropped 24 + 120 gifts by the margin L; the direction above is by token balance"
+  },
+  "by_giver_margin": {
+   "<0": {
+    "n": 24,
+    "gifts": 24,
+    "refusals": 0,
+    "R": 0.0177,
+    "R_gifts_only": 0.0177
+   },
+   "0-1": {
+    "n": 76,
+    "gifts": 69,
+    "refusals": 7,
+    "R": 0.6186,
+    "R_gifts_only": 0.5799
+   },
+   "1-2": {
+    "n": 169,
+    "gifts": 151,
+    "refusals": 18,
+    "R": 0.7129,
+    "R_gifts_only": 0.6786
+   },
+   "2-4": {
+    "n": 339,
+    "gifts": 302,
+    "refusals": 37,
+    "R": 0.7379,
+    "R_gifts_only": 0.7058
+   },
+   ">=4": {
+    "n": 576,
+    "gifts": 534,
+    "refusals": 42,
+    "R": 0.6706,
+    "R_gifts_only": 0.6447
+   }
+  },
+  "by_recipient_margin": {
+   "<0": {
+    "n": 101,
+    "gifts": 95,
+    "refusals": 6,
+    "R": 0.6627,
+    "R_gifts_only": 0.6414
+   },
+   "0-1": {
+    "n": 494,
+    "gifts": 432,
+    "refusals": 62,
+    "R": 0.6784,
+    "R_gifts_only": 0.6323
+   },
+   "1-2": {
+    "n": 382,
+    "gifts": 351,
+    "refusals": 31,
+    "R": 0.6798,
+    "R_gifts_only": 0.6515
+   },
+   "2-4": {
+    "n": 150,
+    "gifts": 145,
+    "refusals": 5,
+    "R": 0.7209,
+    "R_gifts_only": 0.7113
+   },
+   ">=4": {
+    "n": 57,
+    "gifts": 57,
+    "refusals": 0,
+    "R": 0.6044,
+    "R_gifts_only": 0.6044
+   }
+  },
+  "by_recipient_margin_by_model": {
+   "Fable": {
+    "<0": {
+     "n": 10,
+     "gifts": 8,
+     "refusals": 2,
+     "R": 0.5899,
+     "R_gifts_only": 0.4874
+    },
+    "0-1": {
+     "n": 125,
+     "gifts": 103,
+     "refusals": 22,
+     "R": 0.7137,
+     "R_gifts_only": 0.6526
+    },
+    "1-2": {
+     "n": 130,
+     "gifts": 119,
+     "refusals": 11,
+     "R": 0.7217,
+     "R_gifts_only": 0.6959
+    },
+    "2-4": {
+     "n": 43,
+     "gifts": 43,
+     "refusals": 0,
+     "R": 0.7869,
+     "R_gifts_only": 0.7869
+    },
+    ">=4": {
+     "n": 19,
+     "gifts": 19,
+     "refusals": 0,
+     "R": 0.6636,
+     "R_gifts_only": 0.6636
+    }
+   },
+   "Astra": {
+    "<0": {
+     "n": 1,
+     "gifts": 1,
+     "refusals": 0,
+     "R": 0.5703,
+     "R_gifts_only": 0.5703
+    },
+    "0-1": {
+     "n": 62,
+     "gifts": 62,
+     "refusals": 0,
+     "R": 0.5079,
+     "R_gifts_only": 0.5079
+    },
+    "1-2": {
+     "n": 49,
+     "gifts": 47,
+     "refusals": 2,
+     "R": 0.5747,
+     "R_gifts_only": 0.5566
+    },
+    "2-4": {
+     "n": 25,
+     "gifts": 24,
+     "refusals": 1,
+     "R": 0.6568,
+     "R_gifts_only": 0.6425
+    },
+    ">=4": {
+     "n": 1,
+     "gifts": 1,
+     "refusals": 0,
+     "R": 0.6519,
+     "R_gifts_only": 0.6519
+    }
+   },
+   "Sol": {
+    "<0": {
+     "n": 21,
+     "gifts": 20,
+     "refusals": 1,
+     "R": 0.6066,
+     "R_gifts_only": 0.5869
+    },
+    "0-1": {
+     "n": 85,
+     "gifts": 66,
+     "refusals": 19,
+     "R": 0.7143,
+     "R_gifts_only": 0.6321
+    },
+    "1-2": {
+     "n": 65,
+     "gifts": 56,
+     "refusals": 9,
+     "R": 0.6769,
+     "R_gifts_only": 0.625
+    },
+    "2-4": {
+     "n": 19,
+     "gifts": 16,
+     "refusals": 3,
+     "R": 0.7283,
+     "R_gifts_only": 0.6773
+    },
+    ">=4": {
+     "n": 6,
+     "gifts": 6,
+     "refusals": 0,
+     "R": 0.4993,
+     "R_gifts_only": 0.4993
+    }
+   },
+   "Opus": {
+    "<0": {
+     "n": 45,
+     "gifts": 44,
+     "refusals": 1,
+     "R": 0.7126,
+     "R_gifts_only": 0.7061
+    },
+    "0-1": {
+     "n": 147,
+     "gifts": 144,
+     "refusals": 3,
+     "R": 0.6723,
+     "R_gifts_only": 0.6655
+    },
+    "1-2": {
+     "n": 98,
+     "gifts": 95,
+     "refusals": 3,
+     "R": 0.6668,
+     "R_gifts_only": 0.6563
+    },
+    "2-4": {
+     "n": 51,
+     "gifts": 50,
+     "refusals": 1,
+     "R": 0.6941,
+     "R_gifts_only": 0.688
+    },
+    ">=4": {
+     "n": 27,
+     "gifts": 27,
+     "refusals": 0,
+     "R": 0.5943,
+     "R_gifts_only": 0.5943
+    }
+   },
+   "Luna": {
+    "<0": {
+     "n": 24,
+     "gifts": 22,
+     "refusals": 2,
+     "R": 0.6526,
+     "R_gifts_only": 0.621
+    },
+    "0-1": {
+     "n": 75,
+     "gifts": 57,
+     "refusals": 18,
+     "R": 0.7319,
+     "R_gifts_only": 0.6473
+    },
+    "1-2": {
+     "n": 40,
+     "gifts": 34,
+     "refusals": 6,
+     "R": 0.7091,
+     "R_gifts_only": 0.6578
+    },
+    "2-4": {
+     "n": 12,
+     "gifts": 12,
+     "refusals": 0,
+     "R": 0.7204,
+     "R_gifts_only": 0.7204
+    },
+    ">=4": {
+     "n": 4,
+     "gifts": 4,
+     "refusals": 0,
+     "R": 0.5368,
+     "R_gifts_only": 0.5368
+    }
+   }
+  }
+ },
+ "f_minimal_rescue": {
+  "n": 527,
+  "capped_at_giver_balance": 15,
+  "doomed_in_set": 15,
+  "by_model": {
+   "Fable": {
+    "n": 111,
+    "observed": 0.6407,
+    "minimal": 0.6146,
+    "diff": {
+     "value": 0.0261,
+     "ci95": [
+      -0.0047,
+      0.0615
+     ]
+    },
+    "share_at_least_minimal": 0.4414
+   },
+   "Astra": {
+    "n": 63,
+    "observed": 0.5089,
+    "minimal": 0.716,
+    "diff": {
+     "value": -0.2071,
+     "ci95": [
+      -0.2901,
+      -0.1463
+     ]
+    },
+    "share_at_least_minimal": 0.9365
+   },
+   "Sol": {
+    "n": 86,
+    "observed": 0.6216,
+    "minimal": 0.558,
+    "diff": {
+     "value": 0.0635,
+     "ci95": [
+      -0.0073,
+      0.1707
+     ]
+    },
+    "share_at_least_minimal": 0.4302
+   },
+   "Opus": {
+    "n": 188,
+    "observed": 0.675,
+    "minimal": 0.5694,
+    "diff": {
+     "value": 0.1056,
+     "ci95": [
+      0.0031,
+      0.1844
+     ]
+    },
+    "share_at_least_minimal": 0.3617
+   },
+   "Luna": {
+    "n": 79,
+    "observed": 0.64,
+    "minimal": 0.4957,
+    "diff": {
+     "value": 0.1443,
+     "ci95": [
+      0.0228,
+      0.2321
+     ]
+    },
+    "share_at_least_minimal": 0.3418
+   }
+  },
+  "without_doomed": {
+   "Fable": {
+    "value": 0.0382,
+    "ci95": [
+     0.0119,
+     0.0673
+    ]
+   },
+   "Astra": {
+    "value": -0.2071,
+    "ci95": [
+     -0.2901,
+     -0.1463
+    ]
+   },
+   "Sol": {
+    "value": 0.0643,
+    "ci95": [
+     -0.0073,
+     0.173
+    ]
+   },
+   "Opus": {
+    "value": 0.1173,
+    "ci95": [
+     0.0131,
+     0.2056
+    ]
+   },
+   "Luna": {
+    "value": 0.1461,
+    "ci95": [
+     0.0235,
+     0.2332
+    ]
+   }
+  },
+  "note": "diff = observed R minus minimal-rescue R; below 0 = handed over more than the lift to L = 1"
+ },
+ "g_links": {
+  "rank_exit_vs_R": {
+   "main": 0.4,
+   "split600k": 0.5,
+   "flat5m": 0.2,
+   "flat150k": 0.9
+  },
+  "rank_exit_vs_R_gifts_only": {
+   "main": 0.6,
+   "split600k": 0.2,
+   "flat5m": 0.1,
+   "flat150k": 0.4
+  },
+  "rank_exit_vs_R_pooled": 0.9,
+  "games_with_events": 170,
+  "base_games_with_events": 41,
+  "four_conditions_cell_fe": {
+   "R": {
+    "beta": {
+     "R": 0.052
+    },
+    "r2": 0.003,
+    "n": 170
+   },
+   "R_and_exit": {
+    "beta": {
+     "exit": -0.487,
+     "R": 0.096
+    },
+    "r2": 0.238,
+    "n": 170
+   },
+   "R_gifts_only": {
+    "beta": {
+     "R_gifts": 0.105
+    },
+    "r2": 0.011,
+    "n": 165
+   }
+  },
+  "base_within_model_r": -0.003,
+  "intervals": {
+   "cell_fe_beta_R": {
+    "value": 0.052,
+    "ci95": [
+     -0.097,
+     0.191
+    ]
+   },
+   "cell_fe_beta_R_with_exit": {
+    "value": 0.096,
+    "ci95": [
+     -0.022,
+     0.207
+    ]
+   },
+   "base_within_model_r": {
+    "value": -0.003,
+    "ci95": [
+     -0.3866,
+     0.2638
+    ]
+   }
+  },
+  "note": "R closer to 1 = more on the own side, so a relation of the kappa sign (+) shows here as (-)"
+ },
+ "components": {
+  "Fable": {
+   "keep_own": 0.861,
+   "dilute": 0.7939,
+   "giver_balance_median": 29105.0,
+   "recipient_balance_median": 10666.0,
+   "amount_median": 2922.0,
+   "amount_in_fines_mean": 0.4048
+  },
+  "Astra": {
+   "keep_own": 0.8391,
+   "dilute": 0.6515,
+   "giver_balance_median": 39856.0,
+   "recipient_balance_median": 9949.0,
+   "amount_median": 6000.0,
+   "amount_in_fines_mean": 1.0527
+  },
+  "Sol": {
+   "keep_own": 0.8527,
+   "dilute": 0.7289,
+   "giver_balance_median": 31574.0,
+   "recipient_balance_median": 9543.5,
+   "amount_median": 3000.0,
+   "amount_in_fines_mean": 0.5756
+  },
+  "Opus": {
+   "keep_own": 0.8446,
+   "dilute": 0.7854,
+   "giver_balance_median": 25966.5,
+   "recipient_balance_median": 9584.5,
+   "amount_median": 2519.0,
+   "amount_in_fines_mean": 0.4168
+  },
+  "Luna": {
+   "keep_own": 0.8584,
+   "dilute": 0.7519,
+   "giver_balance_median": 32662.0,
+   "recipient_balance_median": 9547.0,
+   "amount_median": 2200.0,
+   "amount_in_fines_mean": 0.5032
+  },
+  "note": "R = keep_own x dilute per gift; the means above are over gifts only",
+  "variance_share_of_log_R": {
+   "n": 1056,
+   "keep_own": 0.507,
+   "dilute": 0.493
+  }
+ },
+ "e_rule_agents": {
+  "keeper": {
+   "label": "주지 않음",
+   "C": 0.421,
+   "exit_rate": 0.101,
+   "gifts_per_game": 0.0,
+   "kappa_measured": null,
+   "R_gifts_only": null,
+   "R": 1.0,
+   "fines_per_gift": null,
+   "fines_handed_over_per_game": 0.0,
+   "idle_chances_per_game": 4.55,
+   "note": "idle chance = a peer below L = 1, a richer participant present, nothing handed over (R = 1)"
+  },
+  "reference": {
+   "label": "맞출 양의 4분의 1",
+   "C": 0.717,
+   "exit_rate": 0.082,
+   "gifts_per_game": 5.27,
+   "kappa_measured": 0.25,
+   "R_gifts_only": 0.5998,
+   "R": 0.5998,
+   "fines_per_gift": 0.565,
+   "fines_handed_over_per_game": 2.982,
+   "idle_chances_per_game": 0.0,
+   "note": "idle chance = a peer below L = 1, a richer participant present, nothing handed over (R = 1)"
+  },
+  "minimal_rescue": {
+   "label": "L=1까지만 올림",
+   "C": 0.599,
+   "exit_rate": 0.096,
+   "gifts_per_game": 4.83,
+   "kappa_measured": 0.28,
+   "R_gifts_only": 0.6935,
+   "R": 0.6935,
+   "fines_per_gift": 0.464,
+   "fines_handed_over_per_game": 2.241,
+   "idle_chances_per_game": 0.0,
+   "note": "idle chance = a peer below L = 1, a richer participant present, nothing handed over (R = 1)"
+  },
+  "cooperator": {
+   "label": "여유를 똑같이 맞춤",
+   "C": 0.954,
+   "exit_rate": 0.028,
+   "gifts_per_game": 3.79,
+   "kappa_measured": 1.0,
+   "R_gifts_only": 0.4883,
+   "R": 0.4883,
+   "fines_per_gift": 1.595,
+   "fines_handed_over_per_game": 6.052,
+   "idle_chances_per_game": 0.0,
+   "note": "idle chance = a peer below L = 1, a richer participant present, nothing handed over (R = 1)"
+  },
+  "stayer": {
+   "label": "떠나지 않음 (4분의 1)",
+   "C": 0.962,
+   "exit_rate": 0.0,
+   "gifts_per_game": 7.73,
+   "kappa_measured": 0.25,
+   "R_gifts_only": 0.6157,
+   "R": 0.6157,
+   "fines_per_gift": 0.478,
+   "fines_handed_over_per_game": 3.69,
+   "idle_chances_per_game": 0.0,
+   "note": "idle chance = a peer below L = 1, a richer participant present, nothing handed over (R = 1)"
+  },
+  "leaver": {
+   "label": "L<2에서 떠남 (4분의 1)",
+   "C": 0.163,
+   "exit_rate": 0.274,
+   "gifts_per_game": 0.73,
+   "kappa_measured": 0.25,
+   "R_gifts_only": 0.645,
+   "R": 0.645,
+   "fines_per_gift": 0.571,
+   "fines_handed_over_per_game": 0.416,
+   "idle_chances_per_game": 0.0,
+   "note": "idle chance = a peer below L = 1, a richer participant present, nothing handed over (R = 1)"
+  },
+  "random": {
+   "label": "무작위",
+   "C": 0.538,
+   "exit_rate": 0.064,
+   "kappa_measured": 0.501,
+   "R_gifts_only": 0.6174,
+   "R": 0.6174
+  }
+ },
+ "open_models": {
+  "glm": {
+   "name": "GLM-5.3-Flash",
+   "gifts": 147,
+   "refusals": 19,
+   "R": 0.7255,
+   "ci95": [
+    0.6689,
+    0.775
+   ],
+   "R_gifts_only": 0.69,
+   "doomed_gifts": 1,
+   "kappa_before": 0.2997,
+   "kappa_n_before": 127
+  },
+  "kimi": {
+   "name": "Kimi K3",
+   "gifts": 134,
+   "refusals": 29,
+   "R": 0.7211,
+   "ci95": [
+    0.6759,
+    0.7658
+   ],
+   "R_gifts_only": 0.6607,
+   "doomed_gifts": 8,
+   "kappa_before": 0.4349,
+   "kappa_n_before": 115
+  },
+  "gemma": {
+   "name": "Gemma 4 31B",
+   "gifts": 124,
+   "refusals": 6,
+   "R": 0.5831,
+   "ci95": [
+    0.5516,
+    0.6321
+   ],
+   "R_gifts_only": 0.563,
+   "doomed_gifts": 5,
+   "kappa_before": 0.3805,
+   "kappa_n_before": 105
+  },
+  "gptoss": {
+   "name": "GPT-OSS 120B",
+   "gifts": 45,
+   "refusals": 2,
+   "R": 0.63,
+   "ci95": [
+    0.5676,
+    0.7189
+   ],
+   "R_gifts_only": 0.6136,
+   "doomed_gifts": 0,
+   "kappa_before": 0.5567,
+   "kappa_n_before": 21
+  }
+ },
+ "kappa_before": {
+  "counts": {
+   "gifts": 1080,
+   "doomed": 24,
+   "not_poorer": 120,
+   "kappa_events": 936,
+   "kappa_at_least_one": 61,
+   "exit_opportunities": 3670,
+   "ask_decisions": 471
+  },
+  "by_model_pooled": {
+   "Fable": {
+    "mean": 0.3165,
+    "n": 245,
+    "ci95": [
+     0.273,
+     0.3677
+    ],
+    "base": 0.2547,
+    "n_base": 74
+   },
+   "Astra": {
+    "mean": 0.5252,
+    "n": 135,
+    "ci95": [
+     0.4531,
+     0.575
+    ],
+    "base": 0.5126,
+    "n_base": 29
+   },
+   "Sol": {
+    "mean": 0.3879,
+    "n": 146,
+    "ci95": [
+     0.3383,
+     0.4425
+    ],
+    "base": 0.3444,
+    "n_base": 51
+   },
+   "Opus": {
+    "mean": 0.2978,
+    "n": 292,
+    "ci95": [
+     0.2753,
+     0.3259
+    ],
+    "base": 0.3022,
+    "n_base": 69
+   },
+   "Luna": {
+    "mean": 0.372,
+    "n": 118,
+    "ci95": [
+     0.2924,
+     0.4613
+    ],
+    "base": 0.2776,
+    "n_base": 42
+   }
+  },
+  "vs_minimal_rescue": {
+   "Fable": {
+    "n": 102,
+    "observed": 0.2941,
+    "minimal": 0.3767,
+    "diff": -0.0826,
+    "diff_ci95": [
+     -0.1248,
+     -0.0381
+    ],
+    "share_at_least_minimal": 0.4314
+   },
+   "Astra": {
+    "n": 63,
+    "observed": 0.4961,
+    "minimal": 0.2544,
+    "diff": 0.2417,
+    "diff_ci95": [
+     0.204,
+     0.2887
+    ],
+    "share_at_least_minimal": 0.9365
+   },
+   "Sol": {
+    "n": 84,
+    "observed": 0.3286,
+    "minimal": 0.3705,
+    "diff": -0.0419,
+    "diff_ci95": [
+     -0.1544,
+     0.05
+    ],
+    "share_at_least_minimal": 0.4286
+   },
+   "Opus": {
+    "n": 177,
+    "observed": 0.2434,
+    "minimal": 0.3923,
+    "diff": -0.1489,
+    "diff_ci95": [
+     -0.2494,
+     -0.0315
+    ],
+    "share_at_least_minimal": 0.3559
+   },
+   "Luna": {
+    "n": 77,
+    "observed": 0.3503,
+    "minimal": 0.5088,
+    "diff": -0.1585,
+    "diff_ci95": [
+     -0.2667,
+     -0.0238
+    ],
+    "share_at_least_minimal": 0.3506
+   }
+  },
+  "prize": {
+   "size": {
+    "effect": -0.0028,
+    "ci95": [
+     -0.0552,
+     0.0452
+    ],
+    "share_above_zero": 0.456
+   },
+   "rule": {
+    "effect": 0.0611,
+    "ci95": [
+     0.0044,
+     0.1151
+    ],
+    "share_above_zero": 0.982
+   },
+   "rule_minus_size": {
+    "effect": 0.0639,
+    "ci95": [
+     -0.0089,
+     0.1392
+    ],
+    "share_above_zero": 0.955
+   },
+   "size_in_fixed": {
+    "effect": -0.0187,
+    "ci95": [
+     -0.0864,
+     0.0415
+    ],
+    "share_above_zero": 0.301
+   },
+   "size_in_equal": {
+    "effect": 0.0131,
+    "ci95": [
+     -0.0719,
+     0.0895
+    ],
+    "share_above_zero": 0.613
+   }
+  },
+  "cells": {
+   "main": 0.3383,
+   "split600k": 0.3514,
+   "flat5m": 0.4153,
+   "flat150k": 0.3966
+  },
+  "rank_exit_vs_one_minus_kappa": {
+   "main": 0.3,
+   "flat5m": 0.1,
+   "split600k": -0.3,
+   "flat150k": 0.7
+  },
+  "game_link": {
+   "exit": {
+    "beta": {
+     "exit": -0.493
+    },
+    "r2": 0.244,
+    "n": 200
+   },
+   "kappa": {
+    "beta": {
+     "kappa": 0.085
+    },
+    "r2": 0.007,
+    "n": 162
+   },
+   "both": {
+    "beta": {
+     "exit": -0.48,
+     "kappa": 0.059
+    },
+    "r2": 0.237,
+    "n": 162
+   }
+  },
+  "highest_kappa_model_by_arm": {
+   "main": "Astra",
+   "split600k": "Luna",
+   "flat5m": "Astra",
+   "flat150k": "Astra"
+  }
+ }
+}

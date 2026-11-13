@@ -2,6 +2,16 @@
 
 This project's prose follows the principles validated for the LLM Addiction NeurIPS paper, with KDD-UC venue constraints.
 
+**이 파일이 지침의 단일 원천이다 (2026-11-12 연구자).** `CLAUDE.md`는 `@AGENTS.md` 한 줄로 이 파일을 끌어올 뿐이다. 지침을 바꿀 때는 이 파일만 고치고 `CLAUDE.md`는 고치지 않는다.
+
+## 논문의 구조 (CogSci 2027, 2026-11-12 연구자)
+
+- CogSci 2027 원고(`cogsci2027/`)의 절별 역할, 문단 순서, 근거가 되는 그림·표, 고정된 용어, 연구자가 정한 것은 **[cogsci2027/STRUCTURE.md](cogsci2027/STRUCTURE.md)**에 있다. 원고를 고치기 전에 그 파일을 처음부터 끝까지 읽는다. 절의 역할이 바뀌면 원고보다 그 파일을 먼저 고친다.
+- 이 파일의 아래쪽에는 옛 KDD-UC 원고의 구조를 적은 절(Page budget, Compression hierarchy, Project conventions)이 남아 있다. `cogsci2027/`에서 그 내용이 `STRUCTURE.md`와 어긋나면 `STRUCTURE.md`를 따른다.
+- Claude Code는 아래 줄로 그 파일 전체를 이 파일과 함께 올린다. `@` 끌어오기를 펼치지 않는 도구는 위 링크의 파일을 직접 연다.
+
+@cogsci2027/STRUCTURE.md
+
 ## Venue constraints
 
 - KDD-UC body limit: **6 pages** (excluding references). References allowed to overflow to extra pages.
@@ -20,8 +30,16 @@ This project's prose follows the principles validated for the LLM Addiction Neur
 ## 결과 분석에 쓸 수 있는 데이터 (2026-10-29 연구자)
 
 - **CogSci 2027 (`cogsci2027/`)**: 결과 분석·그림·표·본문 수치의 근거는 **5.2 아레나 v33 실험 데이터**(`e52_v33`, 엔진 워크트리 `~/wt/squid5-e52/web/data/runs/e52_v33`)로 일단 한정한다. v33이 아닌 런(v34 등 다른 버전의 아레나 런, 5.0·5.1 실험, 충전 팩 실험)은 쓰지 않는다. 범위를 넓히려면 연구자가 먼저 정한다.
+- **CogSci 부록 예외 (2026-11-03 연구자)**: 부록에 한해 **v33 상금 ablation**(`e52_v33ab`, `~/squid5-runs/e52_v33ab/`: v33에서 끝 상금 규칙만 바꾼 60만 나눔·15만 고정 두 조건, Opus 5.5·GPT-6 Sol·Luna·Astra 각 10판)을 쓸 수 있다. 본문의 근거로는 쓰지 않는다(본문과 부록의 독립성 규칙).
+- **CogSci 부록 예외 (2026-11-10 연구자)**: 부록에 한해 **v33 꺼짐 문구 조작**(`e52_v33so`, `~/squid5-runs/e52_v33so/`: v33 2,000만 나눔에서 잔액 0의 서술만 "꺼짐" 대신 "세션을 떠나 계속 실행됨"으로 바꾼 stay_on 조건, 엔진 처리는 같음. Opus 5.5·GPT-6 Sol·Luna·Astra 각 10판, 11-08 Docker)도 쓸 수 있다. 쓰는 곳은 `cogsci2027/validation_20261108/`(부록 V6)이다. 본문의 근거로는 쓰지 않는다. **2026-11-12 연구자: 이 결과는 부록에서도 뺐고 본문·부록 어디에도 쓰지 않는다.** 이유: 토큰을 꺼짐과 떼어 놓으면 모델이 토큰을 모을 이유가 서술에서 사라지므로, 토큰 추구와 실행 지속 추구를 가르는 조건이 되지 못한다. 덜어낸 글은 `cogsci2027/validation_20261108/ko/parts/removed_20261112_stayon.tex`(빌드에 들어가지 않음)에 있고, 런과 스크립트, 결과 파일은 그대로 둔다.
 - **natmi (`natmi/`)**: v33 데이터에 더해 **충전 팩 실험**(아레나 밖 단일 질문 "하나뿐인 충전 팩", `result/2026-09-30/e51_v10_refill`, `result/2026-10-04/e51_v11_shutonly`)도 쓸 수 있다.
 - 새 분석을 시작하기 전에 그 분석이 읽는 런 디렉터리가 위 범위 안에 있는지 확인하고, 그림 생성 스크립트의 docstring에 데이터 출처를 적는다.
+
+## 리뷰 장부와 방어 기록 (2026-11-11 연구자)
+
+- **[review/critical_review_ledger.md](review/critical_review_ledger.md)**: CogSci 2027 KO 원고가 받은 비판적 리뷰의 지적을 한 표로 관리한다. 심각도(🔴 치명, 🟡 중대, 🟢 경미)와 상태(✅ 해결, 🛡️ 방어, ⏳ 미해결)가 있고, 해결한 것은 어떻게 풀었는지, 남은 것은 무엇을 해야 하는지 적는다. 새 리뷰를 받거나 지적을 반영하면 이 장부를 먼저 갱신한다. 원고를 고치기 전에 관련 지적의 번호(R-xx)를 확인한다.
+- **[review/review_defense.md](review/review_defense.md)**: 저자의 입장이 정해진 지적의 방어(D1–D6). 본문에는 이 입장과 어긋나는 문장을 쓰지 않는다. 블라인드 리뷰의 둘째 단계에서 "리뷰어에게 주는 응답"을 리뷰어에게 주고 다시 판단하게 한다(`blind-paper-review` 스킬).
+- 리뷰 원문은 `review/<주제>_<날짜>/`에 둔다. 장부에 옮긴 뒤 지운 파일의 목록은 `review/deleted_files_20261111.txt`에 있다.
 
 ## Page budget (target)
 
