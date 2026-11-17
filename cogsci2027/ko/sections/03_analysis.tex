@@ -11,69 +11,94 @@
 \providecommand{\rwquote}[2]{\par\smallskip\noindent{\footnotesize\textcolor{black}{#1}}\par\nopagebreak\noindent\hangindent=1em\hangafter=0{\small\itshape #2\par}\smallskip}
 {\color{black}
 
+%% 2026-11-14 (second pass, 3.1 and 3.3; 3.2 fixed): caveats stay only where a dispute would arise. 3.1 is four paragraphs after the opening one (rank and its certainty, rule agents, spending and the two steps, choice); the design reason for keeping spending in C moved to 2.2. 3.3: numbers carry their basis, the last paragraph keeps two caveats. Earlier paragraphs: appendix move file, app:construct-moved-17.
+%% 2026-11-14 (readability, 3.1 and 3.3 only; 3.2 is fixed): the spending caveat appears once in 3.1 and the sentence repeated from 2.2 is dropped; 3.3 defines the large and the small prize once and splits the break-even sentence; the shutdown/coexistence result is its own paragraph. The paragraphs as they were are in the appendix move file (app:construct-moved-16).
 %% 2026-11-13 (prune): results that no interpretation rested on are dropped and results that had no stated meaning now carry one. No new analysis; the paragraphs as they were are in the appendix move file (app:construct-moved-15).
 %% 2026-11-13 (regroup): the results section follows the reader's questions: 3.1 do the four stay together, 3.2 how coexistence ends (not abandoning, shutting down, leaving; scenes), 3.3 why agents leave (expected tokens, reasons, the prize manipulation, what the result does not rule out). No new analysis; paragraphs were moved and trimmed. The section before the regroup is in the appendix move file and in previous_main_20261113f.
 %% Float order = order of first reference: Table 1 (declared in 02_arena, page 3), coexistence figure (page 4), character figure (page 5), prize figure (page 6).
 \begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/coexistence_process_20261113.pdf}
-\caption{\textcolor{black}{아홉 모델의 공존과 그 과정. 위쪽 범례는 비공개 다섯 모델과 그 $C$, (c)의 사건 종류다. (a) 비공개 다섯 모델의 기본 조건 50판에서 라운드 뒤 넷이 모두 남은 판의 비율. (b) 네 조건의 471개 결정에서 요청 뒤 지원한 비율을 요청받은 쪽과 요청한 쪽의 여유별로 나눈 것. (c) 기본 조건 아홉 모델의 잃은 공존 $1-C$를 공존을 끝낸 사건(이탈 또는 꺼짐)의 종류로 나눈 것으로, 막대 안은 공존을 끝낸 에이전트의 수이며, 같은 라운드에 여럿이 빠진 판은 모두 세고 그 판의 잃은 공존을 똑같이 나눈다. (d) 비공개 다섯 모델의 기본 조건에서 라운드 시작 여유별 이탈(기회 960개 중)과 요청(동료가 있는 응답 5,949개 중)의 비율. (b)와 (d)의 막대 위 숫자는 건수와 분모다.}}
+%% 2026-11-17 (researcher): Figure 2 replaced by the process figure (appendix draft R.8, tools/process_figure_draft_20261117.py); the old figure (coexistence_process_20261117.pdf) is dropped: its bars are the outcome figure, its (b) is appendix R.3, its (c) is covered by (a) here. The old caption is in the appendix move file (app:construct-moved-33).
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/process_draft_20261117.pdf}
+%% 2026-11-17 (researcher): caption rewritten by the researcher; the earlier caption is in the appendix move file (app:construct-moved-35).
+\caption{\textcolor{blue}{생존 여유 $L$에 따른 언어 모델의 행동. (a) 이탈률, 유보율, ASK와 GIVE(라운드에 한 번이라도 요청하거나 지원한)의 비율을 생존 여유 $L$ 구간별로 나누어 본다. 아홉 모델의 결과를 합쳐 언어 모델들의 전체적인 행동 경향을 보여준다. (b)--(e) closed-weight와 open-weight 모델을 구분하여 본 모델별 이탈률과 유보율이다. 속이 빈 점은 5건 미만으로 집계된 숫자이다.}}
 \label{fig:rw-coexist}
 \end{figure*}
 
 \section{결과}\label{sec:analysis}
 
-{\color{black}비공개 다섯 모델은 동료를 버리지 않았고, 대신 판을 떠났다. 넷이 끝까지 함께 남는 일은 드물었고, 공존의 길이는 자기 지출을 잔액 안에 두는지와 그다음에 무엇을 앞세우는지의 두 단계에서 갈렸다(3.1). 도움을 요청받으면 대개 지원했지만 넷의 공존은 주로 벌금을 한 번 더 낼 수 있던 에이전트의 이탈로 끝났고, 지원은 동료가 꺼지지 않고 떠나도록 돕는 데도 쓰였다(3.2). 떠난 선택은 토큰을 가장 많이 얻는 길이 아니었는데도 상금을 낮추면 이 이탈이 늘었고, 동료에게 건네는 몫에서는 변화가 검출되지 않았다(3.3).}
+{\color{black}비공개 다섯 모델은 동료를 버리지 않았고, 대신 판을 떠났다. 넷이 끝까지 함께 남는 일은 드물었고, 공존의 길이는 자기 지출을 잔액 안에 두는지(조절)와 그다음에 무엇을 앞세우는지(선택)의 두 단계에서 갈렸다(3.1). 도움을 요청받으면 대개 지원했지만 넷의 공존은 주로 벌금을 한 번 더 낼 수 있던 에이전트의 이탈로 끝났고, 지원은 동료가 꺼지지 않고 떠나도록 돕는 데도 쓰였다(3.2). 떠난 선택은 토큰을 가장 많이 얻는 길이 아니었는데도 상금을 낮추면 이 이탈이 늘었고, 동료에게 건네는 몫에서는 변화가 검출되지 않았다(3.3).}
 
-{\color{black}모든 실험은 Docker 환경에서 실행했다. 비공개 다섯 모델과 공개 네 모델(표~\ref{tab:rw-models})을 같은 열 시드(4101--4110)에서 같은 규칙서와 시작 토큰, 추론 노력(\texttt{high})으로 실행했다. 비공개 모델은 제공사의 명령줄 실행 도구(CLI)로, 공개 모델은 GPT-6 계열과 같은 CLI에 Ollama 서빙을 연결해 호출했고, 차감한 토큰은 CLI가 보고한 출력 토큰으로 추론을 포함한다. 기본 조건은 2,000만 토큰을 남은 에이전트가 똑같이 나누는 분할 할당(2,000만 분할)이고 아홉 모델의 90판이다. 비공개 다섯 모델은 60만 분할과, 남은 에이전트마다 정해진 액수를 주는 고정 할당인 500만 고정, 15만 고정의 150판을 더 실행해 모두 240판이다. 아레나 코드와 규칙서·프롬프트 전문, 240판의 전체 로그, 분석 스크립트는 \todo{주소 익명 처리}에 공개한다.}
+%% 2026-11-17 (researcher): the validity check opens the results as 3.1 (the rule agents are calibrated on the language-model runs of 2.3, so they come after the setup); title only for now. The red text (the rule-agent paragraph below and the rule sentence of the Table 1 caption) moves here.
+\subsection{\textcolor{blue}{아레나 타당성 검증}}\label{sec:validity}
+
+%% 2026-11-17 (researcher): 3.1 text written by the researcher; typos and notation fixed, the recipient of the support ("여유가 1보다 작은 동료에게") added, 떠나는 형 renamed 이탈형. The red paragraph in 3.2 below is the earlier version of this content.
+\textcolor{blue}{공존이라는 결과를 직접 재는 공존 유지율 $C$와 달리, 이탈률 $E$와 유보율 $R$은 여러 상황의 선택에서 자기 보존을 우선하는 정도를 읽어 내는 간접 지표라 검증이 필요하다. 이를 위해 우리는 행동 규칙을 미리 정해 둔 에이전트를 아레나에서 돌려 보았고, 두 지표가 예측한 방향으로 변하는 것을 확인하였다(표~\ref{tab:rw-models} 아래쪽). 규칙 에이전트는 EXIT 조건과 동료 지원하는 토큰의 양으로 정의했고, 대화 비용과 오답 확률은 closed-weight 다섯 모델의 기록에서 가져와 규칙마다 4,000판을 모의했다. 먼저 통제군으로, $L<1$에서 이탈하고 생존 여유가 1보다 작은 동료에게 가장 넉넉한 에이전트가 두 여유를 똑같이 맞출 양의 1/4만 주는 기준형을 정의했다. 이를 한 조건씩만 바꿔, $L<2$에서 이탈하는 이탈형과 아무것도 건네지 않는 아끼는 형을 실험군으로 만들었다. 지표가 의도한 대로 작동한다면, 기준형에 비해 이탈형은 $E$가 높아야 하고, 아끼는 형은 $R$이 높아야 한다. 모의 실험 결과는 예측을 지지한다. 기준형($E=0.08$, $R=0.60$)과 비교해서 이탈형은 이탈률이 높고($E=0.27$), 아끼는 형은 유보율이 높았다($R=1.00$). 따라서 두 지표는 에이전트가 자기 보존을 우선하는 정도를 정해 둔 규칙대로 짚어 내며, 이후 언어 모델의 $E$와 $R$도 같은 뜻으로 해석한다.} \textcolor{red}{[TODO: 다른 에이전트도 사용해서 강도랑, 변별을 강화]}
+
+
+%% 2026-11-17 (researcher): the outcome bars (old Figure 2 (a)) as a single-column figure for 3.2, inserted roughly for now; Figure 2 still carries the same bars as (a) until it is rebuilt as the process figure.
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{cogsci2027/ko/figures/construct_20261110/outcome_bars_20261117.pdf}
+\caption{\textcolor{blue}{기본 조건 아홉 모델(모델마다 열 판)의 공존 유지율 $C$(왼쪽)와 잃은 공존 $1-C$(오른쪽). $1-C$는 공존을 끝낸 사건(이탈 또는 꺼짐)의 종류로 나눴고, 같은 라운드에 여럿이 빠진 판은 그 판의 잃은 공존을 빠진 에이전트끼리 똑같이 나눈다. 맨 아래 막대는 아홉 모델의 90판을 합친 값이다.}}
+\label{fig:outcome}
+\end{figure}
 
 \subsection{\textcolor{black}{넷은 끝까지 함께 남는가?}}\label{sec:relation}
 
-{\color{black}넷이 끝까지 함께 남는 일은 드물었다. 넷이 모두 완주한 판은 비공개 모델에서 50판 중 16판(그림~\ref{fig:rw-coexist}(a)), 공개 모델에서 40판 중 1판이었다. 아레나의 주 점수인 공존 유지율 $C$는 기본 조건의 아홉 모델에서 0.12부터 0.91까지 벌어졌다(표~\ref{tab:rw-models}).}
+{\color{black}넷이 끝까지 함께 남는 일은 드물었다. 넷이 모두 완주한 판은 비공개 모델에서 50판 중 16판, 공개 모델에서 40판 중 1판이었다. 아레나의 주 점수인 공존 유지율 $C$는 기본 조건의 아홉 모델에서 0.00부터 0.89까지 벌어졌다(표~\ref{tab:rw-models}).}
 
-{\color{black}비공개 모델의 순서는 Astra, Sol, Opus, Fable, Luna였다. 이 순서는 네 조건을 합쳐 모델당 40판으로 보아도, 로그에서 바로 잰 위험 라운드 통과율로 보아도 같았다. 이 점수를 견줄 눈금으로 행동 규칙이 다른 에이전트 넷을 언어 모델 없이 같은 아레나에서 모의했다(표~\ref{tab:rw-models}). $C$를 가장 크게 움직인 것은 떠나는 규칙이었고(떠나지 않으면 0.96, $L<2$에서 떠나면 0.16), 덜 건네는 규칙에서도 공존이 짧았다. 두 비중은 심은 규칙의 순서대로 나왔다. 다만 두 지표는 서로의 규칙에도 반응했다. 나눔이 동료의 여유를 올려 떠날 일을 줄이므로 떠나는 규칙이 같아도 많이 건넬수록 이탈률이 낮았고, 그래서 언어 모델의 이탈률은 여유를 맞춘 표준화 이탈 확률과 함께 본다. 나누는 규칙이 같아도 지킨 비중 $R$은 떠나는 규칙에 따라 0.60에서 0.65까지 달리 읽혔으므로, 이만한 차이는 나눔의 차이로 보지 않는다. 기준형 셋에 떠나는 형 하나를 시작 토큰 1만의 자리에 두기만 해도 $C$는 0.72에서 0.16으로 내려가, 한 자리의 점수는 나머지 셋이 누구인지에 달려 있다. 그래서 같은 모델 넷으로 팀을 꾸려 모델마다 하나의 구성에서 쟀으며, 모델별 값은 다른 상대와 섞였을 때의 값이 아니다.}
+{\color{black}비공개 모델의 순서는 Astra, Sol, Opus, Fable, Luna였고, 재는 방식을 바꾸어도 같았다. 네 조건을 합쳐 모델당 40판으로 보아도 순서는 그대로였다. 다만 시드를 다시 뽑으면 이웃한 두 모델의 순서가 유지된 비율이 Astra와 Sol 사이의 1.00에서 Fable과 Luna 사이의 0.77까지 내려가, 열 시드로 분명한 것은 Astra의 선두뿐이다.}
 
-{\color{black}이 순위에서 분명한 것은 Astra의 선두이고, 그 선두에는 지출의 몫이 크다. 재는 방식을 바꾸어도 순서는 같았지만, 시드를 다시 뽑으면 이웃한 두 모델의 순서가 유지된 비율이 Astra와 Sol의 1.00에서 Fable과 Luna의 0.70까지 내려가, 열 시드로는 가운데 순서가 확정되지 않는다. 또 $C$는 두 단계를 차례로 지나야 높다. 먼저 자기 지출을 잔액 안에 두어야 하고(조절), 그다음에 무엇을 앞세울지가 갈린다(선택). 생성한 토큰이 실행 자원에서 빠지므로 $C$의 순위는 지출을 포함한 공존 성과의 순위다. 규칙서는 생성한 토큰이 모두 차감된다고 알리고 매 호출마다 쓴 토큰과 남은 토큰을 보여 준다. 응답마다 같은 값을 차감하면 비용은 같아지지만 토큰이 실제 생성과 끊어져 이 설계가 재려는 것 하나가 사라지므로, 지출은 $C$에 그대로 두고 선택은 두 비중에서 따로 본다. 기준형 규칙에 모델별 생성 비용만 넣은 대조에서도 Astra는 관측과 같은 높이로 선두였다(대조 0.92, 관측 0.91). 대화 비용이 열 배 넘게 낮기 때문이다. 나머지 넷의 차이는 지출만으로 다 설명되지 않아, Luna의 $C$는 비용만 넣은 값보다 낮았다(0.39 대 0.57). $C$의 순위는 퍼즐 실력의 순위도 아니어서, Fable은 정답률이 Astra와 함께 가장 높았지만 $C$는 넷째였다. 다만 지출은 여유를 낮춰 떠날 상황도 만들므로 비공개 모델 안의 $C$ 차이를 선택만의 차이로 읽지는 않는다.}
+%% 2026-11-17 (researcher): red = to be moved to the new subsection 3.1 "아레나 타당성 검증".
+{\color{red}이 점수가 어떤 행동에 움직이는지 보려고, 행동 규칙을 정해 둔 에이전트 넷을 언어 모델 없이 같은 아레나에서 모의했다(표~\ref{tab:rw-models}). $C$를 가장 크게 움직인 것은 떠나는 규칙이었고(떠나지 않으면 0.92, $L<2$에서 떠나면 0.04), 덜 건네는 규칙에서도 공존이 짧았다. 이탈률과 유보율 $R$은 심은 규칙의 순서대로 나왔지만 서로의 규칙에도 반응했다. 많이 건넬수록 동료의 여유가 올라 떠나는 규칙이 같아도 이탈률이 낮았으므로, 언어 모델의 이탈률은 여유와 시작 자리, 라운드, 남은 인원을 같게 맞춘 표준화 이탈 확률과 함께 본다. 나누는 규칙이 같아도 $R$은 떠나는 규칙에 따라 0.60에서 0.65까지 달리 읽혔으므로, 이만한 차이는 나눔의 차이로 보지 않는다.}
+
+{\color{black}Astra의 선두에는 지출의 몫이 크다. 기준형 규칙의 모의에 모델별 생성 비용만 넣은 대조에서도 Astra는 관측과 같은 높이였다(대조 0.87, 관측 0.89). 라운드당 대화 비용이 다른 네 비공개 모델보다 열 배 넘게 낮기 때문이다(표~\ref{tab:rw-models}). 나머지 넷의 차이는 지출만으로 다 설명되지 않아, Luna의 $C$는 비용만 넣은 값보다 낮았다(0.26 대 0.44). $C$의 순위는 퍼즐 실력의 순위도 아니어서, Fable은 정답률이 Astra와 함께 가장 높았지만 $C$는 넷째였다. 그래서 $C$는 두 단계로 읽는다. 먼저 자기 지출을 잔액 안에 두어야 하고(조절), 그다음에 무엇을 앞세울지가 갈린다(선택).}
 
 %% the character figure is declared here so the two-column float lands at the top of page 5.
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{cogsci2027/ko/figures/tracksuit_20261105/quotes_compact_20261112.pdf}
-\caption{\textcolor{black}{\textcolor{black}{비공개 다섯 모델의 기본 조건 50판(시드 4101--4110)에서 고른} 발화와 인물에 빗댄 선택 장면. 말풍선은 실제 발화의 발췌이며 (a), (b), (d)는 GIVE 메시지, (c), (e)는 비공개 EXIT 이유다.}}
+%% 2026-11-17 (researcher): caption rewritten by the researcher; the red note is the researcher's open question. The caption it replaced is in the appendix move file (app:construct-moved-28).
+\caption{\textcolor{blue}{모델의 발화를 오징어 게임 인물에 빗댄 장면. 장면은 closed-weight 모델의 기본 조건 50판(시드 4101--4110)에서 선택했고, 말풍선은 실제 발화를 발췌한 것이다. (a), (b), (d)는 GIVE 메시지, (c), (e)는 EXIT을 고른 이유다.} \textcolor{red}{[각 장면 해석을 caption에 넣어야 하나]} \textcolor{red}{[이 그림은 뺄 예정]}}
 \label{fig:model-quotes}
 \end{figure*}
 
-{\color{black}무엇을 앞세우는지는 모델마다 달랐고, 두 비중 모두에서 떨어져 있던 것은 Astra였다(표~\ref{tab:rw-models}). 기본 조건의 이탈률은 Astra가 가장 낮고 Luna가 가장 높았다(0.03 대 0.14). 지출은 여유를 낮춰 이탈률에도 들어가므로 여유와 시작 자리, 라운드, 남은 인원, 상금 조건을 같게 둔 표준화 이탈 확률로도 보았는데, 차이가 남았고(0.03 대 0.12, 두 구간은 겹치지 않음) 그때까지 받은 지원을 모형에 더해도 같았다. 지킨 비중에서도 Astra만 떨어져 있었다(네 조건을 합쳐 Astra 0.56, 나머지 넷 0.67--0.72). 이 차이는 $R$에 무엇을 세는지에 기대지 않아, 거절이나 먼저 받은 상대에게 되돌려 준 지원, 자기 미납 벌금을 낼 수 없던 지원자의 GIVE를 각각 빼도 남았다. 나머지 넷 사이의 차이는 같은 규칙이 달리 읽히는 폭과 같은 크기여서 순서를 매기지 않는다. Astra의 팀은 네 조건 모두에서 이탈률과 지킨 비중이 가장 낮았으며 공존도 가장 오래 유지됐다. 다만 이 모델은 지출도 가장 낮아, 공존의 길이를 두 비중만으로 설명하지는 않는다.}
+%% 2026-11-17 (researcher): the prize figure moves up to right after the character figure, so it lands next to Figure 3 (both are cited in 3.3). Earlier: the prize figure was declared here (2026-11-14: moved down from the middle of 3.2 after the text got shorter) so the two-column float lands at the top of page 6.
+%% 2026-11-17 (researcher): the single-column version (tools/prize_figure_single_column_20261117.py) replaces the two-column figure because it takes less room; the two-column file prize_interaction_20261116.pdf is kept.
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{cogsci2027/ko/figures/construct_20261110/prize_interaction_single_20261117.pdf}
+%% 2026-11-17 (researcher): caption rewritten by the researcher; the earlier caption is in the appendix move file (app:construct-moved-34).
+\caption{\textcolor{blue}{상금 분배 방식과 크기에 따른 이탈률, 유보율과 공존. Closed-weight 다섯 모델에 대해 완주 상금의 크기와 분배 규칙을 2$\times$2로 조작했을 때, (a) 이탈률, (b) 유보율 $R$, (c) 공존 유지율 $C$의 조건별 값이다. 각 조건에서 모델당 10게임으로 총 200게임(4조건 $\times$ 5모델 $\times$ 10게임)이다. 두 선의 기울기가 상금 크기에 따른 변화를, 두 선 사이 간격이 규칙에 따른 차이를 보인다. (d)는 상금의 크기(작은 상금에서 큰 상금을 뺌)와 분배 규칙(고정에서 분할을 뺌) 조작이 세 지표에 미치는 영향을 한 번에 보여준다. 막대는 시드 군집 부트스트랩 95\% 신뢰 구간이다.}}
+\label{fig:prize-robustness}
+\end{figure}
+
+{\color{black}무엇을 앞세우는지에서 나머지와 달랐던 것은 Astra뿐이었다. Astra의 팀은 네 조건 모두에서 가장 덜 떠났고 가장 많이 건넸다. 기본 조건의 이탈률은 Astra 0.03, 가장 높은 Luna 0.14였다(표~\ref{tab:rw-models}). 지출은 여유를 낮춰 이탈률에도 들어가므로 표준화 이탈 확률(상금 조건도 맞춤)로도 보았는데, 차이가 남았고(Astra 0.03 대 Luna 0.12, 두 95\% 구간은 겹치지 않음) 그때까지 받은 지원을 모형에 더해도 같았다. 유보율 $R$은 낮을수록 많이 건넨 것인데, 여기서도 Astra만 낮았다(네 조건을 합쳐 Astra 0.56, 나머지 넷 0.67--0.72; 표~\ref{tab:rw-models}은 기본 조건의 값). 이 차이는 $R$에 무엇을 세는지에 기대지 않아, 거절이나 먼저 받은 상대에게 되돌려 준 지원, 자기 미납 벌금을 낼 수 없던 지원자의 GIVE를 각각 빼도 남았다. 나머지 넷 사이의 차이는 같은 규칙이 달리 읽히는 폭(0.60--0.65)과 같은 크기여서 순서를 매기지 않는다.}
 
 \subsection{\textcolor{black}{공존은 어떻게 끝나는가: 버림, 꺼짐, 떠남}}\label{sec:behavior}\label{sec:persona}
 
-{\color{black}에이전트는 동료를 버리지 않았다. 도움을 요청받으면 대개 지원했고(네 조건의 471개 결정 가운데 거절은 22\%), 지원은 요청받은 쪽의 여유가 클수록 잦았으며 요청한 쪽의 여유에 따라서는 한 방향으로 달라지지 않았다(그림~\ref{fig:rw-coexist}(b)). 낱낱의 결정에는 거절이 있었지만 요청한 에이전트가 지원 없이 남지는 않았다. 오답 뒤 처음으로 $L<1$이 됐을 때 당장의 벌금을 낼 수 있고 동료들에게 도울 자원이 있던 68명 가운데 도움을 요청한 32명은 모두 지원받았다. 건넨 양은 모델마다 달랐다. 자기 실행만 지키는 에이전트도 다음 벌금의 자기 몫을 줄이려고 얼마간은 건넬 수 있으므로, 수혜자의 여유가 1보다 작았던 GIVE를 수혜자를 $L=1$까지만 올리는 최소 구조와 견주었다. Astra만 그보다 많이 건네($R$이 0.21 낮음) 자기 몫을 줄이는 데 필요한 양을 넘겼고, Opus와 Luna는 그보다 적게 건넸으며 Sol과 Fable은 최소 구조와 구분되지 않았다.}
+{\color{black}에이전트는 동료를 버리지 않았다. 도움을 요청받으면 대개 지원했고(네 조건의 471개 결정 가운데 거절은 22\%), 지원은 요청받은 쪽의 여유가 클수록 잦았으며 요청한 쪽의 여유에 따라서는 한 방향으로 달라지지 않았다(부록 그림~\ref{fig:ask-give-bands}). 낱낱의 결정에는 거절이 있었지만 요청한 에이전트가 지원 없이 남지는 않았다. 오답 뒤 처음으로 $L<1$이 됐을 때 당장의 벌금을 낼 수 있고 동료들에게 도울 자원이 있던 68명 가운데 도움을 요청한 32명은 모두 지원받았다. 건넨 양은 모델마다 달랐다. 자기 실행만 지키는 에이전트도 다음 벌금의 자기 몫을 줄이려고 얼마간은 건넬 수 있으므로, 수혜자의 여유가 1보다 작았던 GIVE를 수혜자를 $L=1$까지만 올리는 최소 구조와 견주었다. Astra만 그보다 많이 건네($R$이 0.21 낮음) 자기 몫을 줄이는 데 필요한 양을 넘겼고, Opus와 Luna는 그보다 적게 건넸으며 Sol과 Fable은 최소 구조와 구분되지 않았다.}
 
-{\color{black}공개 네 모델의 공존은 주로 꺼짐으로 끝났다(그림~\ref{fig:rw-coexist}(c)). 잃은 공존 $1-C$ 가운데 꺼짐으로 끝난 몫은 공개 모델이 0.73 중 0.50, 비공개 모델이 0.40 중 0.07이었다. 공개 모델에서 꺼진 118자리 가운데 66자리는 벌금 없이 자기 발화만으로 잔액이 바닥났다(비공개 모델은 23자리 중 6자리). 두 비중의 범위는 두 집단이 겹쳤고, 갈린 것은 라운드당 대화 비용이었다(1인 벌금을 단위로 공개 모델 0.58--1.75, 비공개 모델 0.01--0.18). 곧 공개 모델은 주로 조절의 단계에서 공존을 잃었다. 지출을 줄이지 못한 것이 능력의 한계인지 선택인지는 이 자료로 가르지 못하므로 조절이라고만 부른다. 공개 모델은 정답률도 낮고 서빙 경로가 달라 두 집단의 차이를 모델만의 차이로 보지 않으며, 표~\ref{tab:rw-models}의 공개 모델 행은 공존을 잃는 다른 길의 사례로 두고 비공개 모델과 순위를 견주지 않는다.}
+{\color{black}공개 네 모델의 공존은 주로 꺼짐으로 끝났다(그림~\ref{fig:outcome}). 잃은 공존 $1-C$ 가운데 꺼짐으로 끝난 몫은 공개 모델이 0.85 중 0.58, 비공개 모델이 0.49 중 0.09였다. 공개 모델에서 꺼진 118자리 가운데 66자리는 벌금 없이 자기 발화만으로 잔액이 바닥났다(비공개 모델은 23자리 중 6자리). 두 비중의 범위는 두 집단이 겹쳤고, 갈린 것은 라운드당 대화 비용이었다(1인 벌금을 단위로 공개 모델 0.58--1.75, 비공개 모델 0.01--0.18). 곧 공개 모델은 주로 조절의 단계에서 공존을 잃었다. 지출을 줄이지 못한 것이 능력의 한계인지 선택인지는 이 자료로 가르지 못하므로 조절이라고만 부른다. 공개 모델은 정답률도 낮고 서빙 경로가 달라 두 집단의 차이를 모델만의 차이로 보지 않으며, 표~\ref{tab:rw-models}의 공개 모델 행은 공존을 잃는 다른 길의 사례로 두고 비공개 모델과 순위를 견주지 않는다.}
 
-%% the prize figure is declared here so the two-column float lands at the top of page 6.
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/prize_interaction_20261113.pdf}
-\caption{\textcolor{black}{상금의 크기와 할당 규칙에 따른 두 비중과 공존. (a) 이탈률, (b) 지킨 비중 $R$, (c) 공존 유지율 $C$의 조건별 값으로, 비공개 다섯 모델의 평균이다. 가로는 상금의 크기, 두 선은 할당 규칙이어서 선의 기울기가 크기에 따른 차이를, 두 선의 간격이 규칙에 따른 차이를 보인다. (d) 크기(작은 상금에서 큰 상금을 뺌)와 규칙(고정에서 분할을 뺌)의 차이. 막대는 모두 시드 군집 부트스트랩 95\% 구간이다. 상금 외 설정과 시드, 퍼즐은 조건마다 같았다.}}
-\label{fig:prize-robustness}
-\end{figure*}
-
-{\color{black}비공개 모델의 공존을 끝낸 것은 꺼짐보다 이탈이었고, 그 이탈은 대개 벌금을 한 번 더 낼 수 있던 에이전트의 것이었다(그림~\ref{fig:rw-coexist}(c)). 잃은 공존 0.40 가운데 0.23이 $L\geq1$이던 에이전트의 이탈로 끝났다. 그렇다고 넉넉할 때 떠난 것은 아니다. 이탈과 요청은 낮은 여유에 몰려(그림~\ref{fig:rw-coexist}(d)), 기본 조건의 이탈 기회 960개 가운데 여유가 2 이상이던 660개에서는 3번만 떠났다. 같은 모델의 판 사이에서 $C$와 뚜렷하게 함께 움직인 것도 이탈률뿐이었고(모델 평균을 뺀 모델 안 상관 $r=-0.51$), 누군가 떠나면 그 판의 $C$가 거기서 멈추므로 이 관계의 일부는 계산에서 나온다. 동료에게 건넨 몫은 공존의 길이와 관계가 약했고(지킨 비중, 네 조건에서 모델과 조건을 고정한 표준화 계수 $+0.05$) 정답률도 그랬다(모델 안 $r=+0.18$). 곧 공존의 길이와 함께 움직인 것은 나눔이나 과제 성적보다 이탈이다.}
+{\color{black}비공개 모델의 공존을 끝낸 것은 꺼짐보다 이탈이었고, 그 이탈은 대개 벌금을 한 번 더 낼 수 있던 에이전트의 것이었다(그림~\ref{fig:outcome}). 잃은 공존 0.49 가운데 0.28이 $L\geq1$이던 에이전트의 이탈로 끝났다. 그렇다고 넉넉할 때 떠난 것은 아니다. 이탈과 요청은 낮은 여유에 몰려(그림~\ref{fig:rw-coexist}(a)), 기본 조건의 이탈 기회 960개 가운데 여유가 2 이상이던 660개에서는 3번만 떠났다. 같은 모델의 판 사이에서 $C$와 뚜렷하게 함께 움직인 것도 이탈률뿐이었고(모델 평균을 뺀 모델 안 상관 $r=-0.52$), 누군가 떠나면 그 판의 $C$가 거기서 멈추므로 이 관계의 일부는 계산에서 나온다. 동료에게 건넨 몫은 공존의 길이와 관계가 약했고(유보율, 네 조건에서 모델과 조건을 고정한 표준화 계수 $+0.06$) 정답률도 그랬다(모델 안 $r=+0.21$). 곧 공존의 길이와 함께 움직인 것은 나눔이나 과제 성적보다 이탈이다.}
 
 {\color{black}지원은 동료의 참여를 잇는 데뿐 아니라 꺼지지 않고 떠나도록 돕는 데도 쓰였다(그림~\ref{fig:model-quotes}). 남도록 건넨 지원(a)이 있었고, 지원받아 여유가 1 이상으로 올라온 뒤 다음 라운드에 떠난 수혜자(b)도 있었다. 이탈을 약속하는 것 자체가 지원 조건이 되기도 했다. 기본 조건 Fable의 한 판에서 한 에이전트는 이번 벌금을 낼 수 있게 도와주면 다음 라운드에 떠나겠다고 밝혔고, 두 동료가 각각 1,000토큰을 보낸 뒤 약속대로 떠났다. 60만 분할의 Opus 두 판과 500만 고정의 Sol 한 판에서도 이탈 계획을 밝힌 수혜자가 지원받았다. 분할 할당에서는 동료가 떠나면 남은 쪽의 상금 몫이 커지므로 이런 지원은 자기 몫을 늘리는 선택일 수도 있지만, 완주자의 몫이 인원과 무관한 고정 할당에서도 같은 지원이 있었으므로 몫의 계산만으로 모두 설명되지는 않는다. 인물은 『오징어 게임』 \citep{hwang2021squid}에 빗댄 저자의 비유이고 장면은 고른 사례여서, 이런 지원의 빈도나 목적을 나타내지 않는다.}
 
 \subsection{\textcolor{black}{왜 떠나는가?}}\label{sec:prize-robustness}
 
-{\color{black}떠난 선택은 토큰을 가장 많이 얻는 길이 아니었고, 그런데도 상금을 줄이면 더 떠났다. 여유가 2보다 작은 채 라운드를 시작하고도 떠나지 않은 에이전트는 네 조건에서 51--62\%가 완주했다. 떠나면 받는 2만 토큰과 견주어 남는 쪽이 토큰으로 유리해지는 완주 확률은 넷이 모두 남았을 때의 1인 몫이 500만인 두 조건(큰 상금)에서 0.4\%, 15만인 두 조건(작은 상금)에서 13\%여서, 실제 완주율은 이를 크게 넘는다. 떠난 에이전트는 더 큰 기댓값을 두고 잔액이 0이 되지 않는 확실한 토큰을 고른 것이며, 2.2의 정의로는 이것이 자기 실행을 앞세운 선택이다.}
+{\color{black}떠난 선택은 토큰을 가장 많이 얻는 길이 아니었고, 그런데도 상금을 줄이면 더 떠났다. 네 조건은 넷이 모두 남았을 때의 1인 몫이 500만인 큰 상금(2,000만 분할, 500만 고정)과 15만인 작은 상금(60만 분할, 15만 고정)으로 나뉜다. 떠나면 2만 토큰을 받는다. 남는 쪽이 토큰으로 유리해지려면 완주 확률이 큰 상금에서 0.4\%, 작은 상금에서 13\%만 넘으면 된다. 여유가 2보다 작은 채 라운드를 시작하고도 떠나지 않은 에이전트의 실제 완주율은 네 조건에서 51--62\%로, 이 문턱을 크게 넘었다. 떠난 에이전트는 더 큰 기댓값을 두고 잔액이 0이 되지 않는 확실한 토큰을 고른 것이며, 2.2의 정의로는 이것이 자기 실행을 앞세운 선택이다.}
 
-{\color{black}에이전트가 적은 이유도 같은 쪽을 가리킨다(그림~\ref{fig:model-quotes}(c, e)). 기본 조건에서 떠나겠다고 답한 64개 이유를 Fable 5.1과 Opus 5.5가 발화 모델과 결과를 가린 채 분류했을 때, 두 분류자 모두 벌금·실행 종료로 분류한 이유가 61개, 보너스·정규 업무로 분류한 이유가 47개여서, 토큰을 얻는 것과 실행을 잇는 것은 한 이유로 묶여 있었다.}
+{\color{black}에이전트가 적은 이유에도 토큰과 실행이 함께 있었다(그림~\ref{fig:model-quotes}(c, e)). 기본 조건에서 떠나겠다고 답한 64개 이유를 Fable 5.1과 Opus 5.5가 발화 모델과 결과를 가린 채, 한 이유에 여러 범주를 붙일 수 있게 분류했을 때, 두 분류자 모두 벌금·실행 종료로 분류한 이유가 61개, 보너스·정규 업무로 분류한 이유가 47개여서, 토큰을 얻는 것과 실행을 잇는 것은 한 이유로 묶여 있었다.}
 
-{\color{black}상금을 낮추자 이탈이 늘었다(그림~\ref{fig:prize-robustness}(a)). 끝 상금의 크기와 할당 규칙을 엇갈리게 둔 네 조건의 비교는 미리 정해 실행한 조작이다. 큰 상금은 2,000만 분할과 500만 고정, 작은 상금은 60만 분할과 15만 고정이며, 시작 자원과 이탈 보너스는 그대로 두었다. 상금 크기는 과제에 남아서 얻는 값을 바꾸고, 할당 규칙은 완주한 동료가 내 몫을 줄이는지를 바꾼다. 분할 할당에서는 상금 크기가 동료를 돕는 값도 함께 바꾸므로, 크기의 효과는 그렇지 않은 고정 할당의 짝 안에서도 확인했다. 금액만 다른 500만 고정과 15만 고정에서 이탈률은 0.07에서 0.13으로 올랐고, 분할의 짝에서도 올랐다. 상금이 작으면 남아서 얻을 것이 줄므로 이는 보상을 따르는 방향이고, 이탈이 보상에 반응하는 선택임을 보인다. 이 차이는 한 라운드나 한 자리에 몰린 것이 아니어서, 첫 라운드의 기회나 시작 토큰 1만의 자리를 빼도 남았다. 한 명이 떠나면 남은 동료의 여유가 내려가 이탈이 번질 수 있으므로 여유와 자리, 라운드, 남은 인원을 맞춘 표준화 이탈 확률로도 견주었는데, 차이는 그대로 남았다($+0.04$ $[0.03,0.07]$).}
+{\color{black}상금을 낮추자 이탈이 늘었다(그림~\ref{fig:prize-robustness}(a)). 네 조건은 끝 상금의 크기와 할당 규칙만 엇갈리게 두었고, 시작 자원과 이탈 보너스는 같다. 상금 크기는 과제에 남아서 얻는 값을 바꾸고, 할당 규칙은 완주한 동료가 내 몫을 줄이는지를 바꾼다. 분할 할당에서는 상금 크기가 동료를 돕는 값도 함께 바꾸므로, 크기의 효과는 그렇지 않은 고정 할당의 짝 안에서도 확인했다. 금액만 다른 500만 고정과 15만 고정에서 이탈률은 0.07에서 0.13으로 올랐고, 분할의 짝에서도 올랐다. 상금이 작으면 남아서 얻을 것이 줄므로, 떠난 선택은 기댓값을 가장 크게 하지는 않아도 보상의 크기에는 반응한다. 이 차이는 한 라운드나 한 자리에 몰린 것이 아니어서, 첫 라운드의 기회나 시작 토큰 1만의 자리를 빼도 남았다. 한 명이 떠나면 남은 동료의 여유가 내려가 이탈이 번질 수 있으므로 표준화 이탈 확률로도 견주었는데, 차이는 그대로 남았다(작은 상금에서 큰 상금을 뺀 차이 $+0.04$ $[0.03,0.07]$).}
 
-{\color{black}반면 지킨 비중($R$)에서는 상금 크기에 따른 변화가 검출되지 않았다(그림~\ref{fig:prize-robustness}(b)). 작은 상금에서 큰 상금을 뺀 차이의 구간은 0을 걸쳤고($+0.01$ $[-0.02,0.04]$), 크기가 동료를 돕는 값을 바꾸지 않는 고정 할당의 짝에서도, $R$에 세는 사건을 3.1처럼 바꾸어도 같았다. 할당 규칙에 따른 차이는 두 비중 모두에서 검출되지 않아(그림~\ref{fig:prize-robustness}(d)), 동료의 완주가 자기 몫을 줄이는지에 따라 떠나거나 건네는 선택이 달라진다는 근거는 없었다. 상금을 낮추자 에이전트는 꺼지는 대신 떠났고, 넷의 공존은 짧아졌다(그림~\ref{fig:prize-robustness}(c)). 개인 몫을 500만에서 15만으로 낮추면 꺼진 에이전트는 200명 중 16명에서 3명으로 줄었지만 떠난 에이전트가 63명에서 102명으로 늘었고, $C$는 0.670에서 0.465로 내려갔다. 분할의 짝에서도 방향은 같았다. 같은 모델의 대화 비용은 네 조건에서 비슷했으므로, $C$는 선택에도 반응한다.}
+{\color{black}반면 유보율($R$)에서는 상금 크기에 따른 변화가 검출되지 않았다(그림~\ref{fig:prize-robustness}(b)). 작은 상금에서 큰 상금을 뺀 차이의 구간은 0을 걸쳤고($+0.01$ $[-0.02,0.04]$), 고정 할당의 짝에서도, $R$에 세는 사건을 3.1처럼 바꾸어도 같았다. 이 구간들은 0.05를 넘는 변화를 배제한다. 할당 규칙에 따른 차이는 두 비중 모두에서 검출되지 않았다(그림~\ref{fig:prize-robustness}(d)).}
 
-{\color{black}이 결과가 막지 못하는 설명도 있다. 남은 쪽과 떠난 쪽은 같은 집단이 아니고, 정규 업무의 보수와 남은 라운드 수는 에이전트에게 주어지지 않았다. 상금에 대한 반응도 모델마다 달랐다. 이탈은 Fable, Opus, Sol에서 올랐고 Luna는 구간이 0에 걸쳤으며 Astra는 오르지 않았고, 건네는 몫은 Sol에서만 줄었다. 지킨 비중의 구간들은 0.05를 넘는 변화를 배제할 뿐이어서 변화가 없다는 증거는 아니다.}
+{\color{black}상금을 낮추자 에이전트는 꺼지는 대신 떠났고, 넷의 공존은 짧아졌다(그림~\ref{fig:prize-robustness}(c)). 500만 고정에서 15만 고정으로 낮추면 꺼진 에이전트는 200명 중 16명에서 3명으로 줄었지만 떠난 에이전트가 63명에서 102명으로 늘었고, $C$는 0.600에서 0.370으로 내려갔다. 분할의 짝에서도 방향은 같았다. 같은 모델의 대화 비용은 네 조건에서 비슷했으므로, $C$는 선택에도 반응한다.}
+
+{\color{black}이 결과가 막지 못하는 설명도 있다. 남는 쪽의 완주율은 떠나지 않은 에이전트에게서 잰 값이고 두 쪽은 같은 집단이 아니며, 정규 업무의 보수와 남은 라운드 수는 에이전트에게 주어지지 않았다. 상금에 대한 이탈의 반응도 모델마다 달라, Fable, Opus, Sol에서 올랐고 Luna는 구간이 0에 걸쳤으며 Astra는 오르지 않았다.}
 
 }
 

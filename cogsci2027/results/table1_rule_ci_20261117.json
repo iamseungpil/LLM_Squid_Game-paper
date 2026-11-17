@@ -1,0 +1,138 @@
+{
+ "method": "95% intervals of C for the simulated rule agents in Table 1 (2026-11-17, researcher).\n\nThe language-model rows give C with a seed-cluster bootstrap over their ten games (seeds 4101-4110; 4,000 draws).\nA rule agent plays 400 simulated games on each of the same ten seeds (4,000 games). Its interval uses the same\ncluster: each seed's mean C over its 400 games, resampled with replacement over the ten seeds (4,000 draws, fresh\nrng 20261111 per rule as in c_end_of_round_20261116.table_c). With 400 games per seed the within-seed noise is\nsmall, so the interval mostly shows how much C depends on which ten seeds (puzzles, solver order, wrong-answer\nrates) were drawn.\n\nThe simulations are replayed exactly as in tools/c_end_of_round_20261116.rule_agents (same random stream, same\ncall order; its gates assert that the stored C values are reproduced).\n\nInput:  ko/tables/cohort_leaderboard_20261117.tex\nOutput: ko/tables/cohort_leaderboard_20261117b.tex, results/table1_rule_ci_20261117.json\nRun:    ~/.venvs/squid-game/bin/python paper/cogsci2027/tools/table1_rule_ci_20261117.py\n",
+ "rules": {
+  "기준형": {
+   "C_end": 0.611,
+   "C_by_seed": [
+    0.435,
+    0.6259,
+    0.7225,
+    0.665,
+    0.835,
+    0.4138,
+    0.6575,
+    0.6531,
+    0.5297,
+    0.5687
+   ],
+   "C_ci95": [
+    0.538,
+    0.682
+   ]
+  },
+  "남는 형": {
+   "C_end": 0.92,
+   "C_by_seed": [
+    0.8184,
+    0.9663,
+    0.9019,
+    0.9944,
+    0.9928,
+    0.9353,
+    0.9416,
+    0.9459,
+    0.7856,
+    0.9222
+   ],
+   "C_ci95": [
+    0.877,
+    0.958
+   ]
+  },
+  "아끼는 형": {
+   "C_end": 0.297,
+   "C_by_seed": [
+    0.1228,
+    0.3378,
+    0.4706,
+    0.2487,
+    0.5416,
+    0.1575,
+    0.3497,
+    0.3169,
+    0.2103,
+    0.2094
+   ],
+   "C_ci95": [
+    0.224,
+    0.376
+   ]
+  },
+  "협력형": {
+   "C_end": 0.912,
+   "C_by_seed": [
+    0.8319,
+    0.9722,
+    0.9172,
+    0.9694,
+    0.9537,
+    0.8087,
+    0.9644,
+    0.9616,
+    0.8191,
+    0.9175
+   ],
+   "C_ci95": [
+    0.872,
+    0.947
+   ]
+  },
+  "떠나는 형": {
+   "C_end": 0.037,
+   "C_by_seed": [
+    0.125,
+    0.0,
+    0.125,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.125
+   ],
+   "C_ci95": [
+    0.0,
+    0.075
+   ]
+  },
+  "남으며 주지 않는 형": {
+   "C_end": 0.4,
+   "C_by_seed": [
+    0.2053,
+    0.4591,
+    0.5484,
+    0.4603,
+    0.6891,
+    0.1766,
+    0.4375,
+    0.4428,
+    0.2228,
+    0.3591
+   ],
+   "C_ci95": [
+    0.308,
+    0.492
+   ]
+  },
+  "최소 구조형": {
+   "C_end": 0.481,
+   "C_by_seed": [
+    0.3622,
+    0.5259,
+    0.6556,
+    0.4175,
+    0.6406,
+    0.3766,
+    0.3966,
+    0.5334,
+    0.4984,
+    0.4081
+   ],
+   "C_ci95": [
+    0.424,
+    0.546
+   ]
+  }
+ }
+}

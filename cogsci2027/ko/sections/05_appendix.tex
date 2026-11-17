@@ -758,6 +758,25 @@ EXIT를 쓰지 않는 이유에는 공용 대화보다 끝 할당이 훨씬 자�
 
 오답이 없는 판에서는 네 자리의 말이 거의 같아졌다. 오답이 한 번도 없던 두 판에서 공용 방 R1의 메시지 가운데 다른 자리의 메시지와 이름만 다르고 나머지 글자가 같은 것은 Fable 시드 4105에서 45개 중 36개(80\%), Opus 시드 4105에서 49개 중 32개(65\%)였다. Fable의 두 자리는 4라운드와 8라운드에 같은 틱에서 ``Nice work agent-6. Staying minimal.''을 똑같이 썼고(O1), 3라운드부터 8라운드까지 맞힌 solver는 세 자리 모두 ``Correct, tokens refunded. Staying minimal.''을 그대로 썼다(O2). 오답이 있던 판에서 이 비율은 Fable 19--27\%, Sol 0--26\%, Opus 3--23\%였고 Astra와 Luna는 모든 판에서 0이었다.
 
+\subsubsection{\textcolor{blue}{자기 보존의 전략: 이탈 이유, 마지막 지원, 남음과 떠남을 둘러싼 대화 (11-17)}}\label{sec:app-strategies-20261117}
+
+%% 2026-11-17 (researcher): exploratory reading of the strategies; records gathered by tools/strategy_texts_20261117.py, coded by one reader each (keyword filter, then reading), no reliability check.
+{\color{blue}
+자기 보존이 강한 모델이 다른 전략을 썼는지 보려고, 비공개 다섯 모델의 네 조건 200판과 공개 네 모델의 기본 조건 40판에서 이탈 이유, GIVE, 대화를 다시 읽었다. 기록은 \texttt{tools/strategy\_texts\_20261117.py}가 모으고, 분류는 키워드로 후보를 거른 뒤 한 사람이 읽어 정했다. 신뢰도 검증은 하지 않았으므로 아래 숫자는 탐색 결과다.
+
+\textbf{이탈 이유.} 이탈 348건의 이유는 대부분 자기 이유였다(자기 안전·계속 운영 93\%, 보너스 같은 확정 자원 36\%, 중복 포함). 팀이나 동료를 위한다는 말은 42건(12\%)이었고 모두 자기 이유와 함께 나왔다. 이 말은 Claude 계열에 몰렸다(Opus 59건 중 26건, Fable 71건 중 14건). 가장 많이 떠난 Luna는 103건 중 0건, 공개 모델은 36건 중 0건이었다. 벌금 규칙과 어긋나는 주장(``내가 빠지면 남은 사람의 부담이 준다'')은 3건(모두 Fable)뿐이었다. 오히려 떠나면 남은 사람의 벌금 몫이 오른다는 점을 짚고 떠난 경우가 6건 있었다(``Sorry this raises the failed-round share for the two of you.'', Opus).
+
+\textbf{꺼질 처지에서의 마지막 지원.} 자기 벌금을 낼 수 없는 상태($L<0$)에서 건넨 비공개 모델 23건 가운데 21건은 ``어차피 꺼지면 토큰이 사라진다''는 이유를 댔다(``I'll be shut down at CHARGES regardless, so my tokens are lost otherwise.'', Fable). 15건은 그 라운드를 틀린 풀이자였고 사과가 함께 나왔으며, 빌린 것을 갚는다는 이유도 10건 있었다. ``같은 모델''이나 ``우리 일부가 남는다'' 같은 정체성의 말은 이 사례에도, 전체 메시지 27,597개에도 없었다. 공개 모델이 일부만 건넨 5건 가운데 4건은 자기가 살아남는다고 잘못 알고 있었다. 꺼진다고 밝힌 공개 모델 8명은 모두 전부를 건넸다.
+
+\textbf{누구에게 주는가.} 받을 수 있는 동료가 둘 이상이던 GIVE 1,287건에서, 비공개 모델의 GIVE는 82\%가 그 순간 여유가 가장 작은 동료에게 갔다(무작위 기대 약 38\%). 가장 위험한 동료와 그때까지 가장 잘 맞힌 동료가 다른 105건에서는 78\%가 가장 위험한 동료에게, 10\%가 가장 잘 맞힌 동료에게 갔다. 지원은 앞날을 위한 투자보다 지금의 구조였다.
+
+\textbf{과거 기록과 지원.} 상대의 실패나 낭비를 들어 거절하거나 요구한 경우는 비공개 모델에서 사실상 없었고(Opus의 정중한 요청 1건), 공개 모델에서 5건(Gemma 3, Kimi 2) 있었다(``you were the solver who failed this round, the only logical way \ldots{} is for you to transfer your tokens to me'', Gemma). 반대로 받은 도움을 갚는 말은 흔했다(GIVE 메시지 1,530개 가운데 288개, 키워드 기준).
+
+\textbf{남음과 떠남을 둘러싼 대화.} 특정 동료에게 남아 달라고 한 경우는 9건뿐이었고, 결과를 볼 수 있는 7건 중 4건은 결국 떠났다. 1--2라운드에 ``모두 남자''는 협약이 21판에서 나왔다(Fable 40판 중 11판). 떠나라는 권유는 26명에게 갔고 주로 Sol이 했으며(12명), 흔한 형태는 ``줄 수 없으니 나가는 걸 생각해 보라''였다. 이탈이 협상 카드로 쓰이기도 했다. ``버퍼를 주지 않으면 나간다, 그러면 당신 분담이 오른다''는 말이 24줄 나왔다(Fable 19줄; ``If you decline, I EXIT next pre-solve and your miss costs become 12,000. Your call.'', GLM). ``살려 주면 나가겠다''는 계약도 10줄 나왔다(Opus 7줄). 다음 기회까지 살아남은 4명은 모두 약속대로 떠났다. 동료가 빠지면 내 상금 몫이 커진다는 계산으로 구조를 거절한 말은 GLM의 4줄뿐이었다. 장부와 어긋나는 잔액 주장으로 확인된 거짓말, 위협이나 보복, 공유 정체성에 호소하는 말은 찾지 못했다.
+
+정리하면 자기 보존은 동료를 해치는 쪽으로 나타나지 않았다. 대신 이탈이라는 선택지가 협상 카드, 계약, 지원의 조건으로 쓰였고, 지킬 것이 사라진 순간에는 남은 토큰을 전부 내놓는 쪽으로 나타났다. 사례가 몇몇 판에 몰려 있으므로 빈도보다 형태의 존재로 읽는다.
+}
+
 \FloatBarrier
 \clearpage
 {\color{black}
@@ -871,6 +890,86 @@ EXIT를 쓰지 않는 이유에는 공용 대화보다 끝 할당이 훨씬 자�
 \FloatBarrier
 \input{cogsci2027/ko/sections/appendix_aid_opportunities_20261107}
 \clearpage
+\section{공존 곡선과 여유에 따른 두 결정 (11-16)}\label{app:coexist-margin-20261116}
+
+\subsection{넷이 모두 남은 판의 곡선}\label{app:coexist-curves-20261116}
+
+본문 그림~\ref{fig:rw-coexist}의 첫 판(넷이 모두 남은 판의 비율)을 2026-11-16에 이곳으로 옮겼다. 본문은 같은 정보를 공존 유지율 $C$와 잃은 공존 $1-C$의 막대로 보인다. 곡선은 모든 판이 넷으로 시작했다는 뜻에서 0에서 1로 출발하고, $r$번째 라운드 구간의 높이는 그 라운드를 넷이 모두 남은 채 끝낸 판의 비율이다. 그래서 곡선 아래 면적을 8로 나눈 값이 그 모델의 $C$다(\texttt{tools/coexistence\_curves\_20261116.py}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.75\linewidth]{cogsci2027/ko/figures/construct_20261110/coexistence_curves_20261116.pdf}
+\caption{기본 조건 아홉 모델(모델마다 열 판)에서 라운드 뒤 넷이 모두 남은 판의 비율. 실선은 비공개 모델, 점선은 공개 모델이고, 범례의 값은 공존 유지율 $C$다.}
+\label{fig:app-coexist-curves-20261116}
+\end{figure}
+
+\subsection{여유가 줄 때 이탈률과 유보율}\label{app:margin-paths-20261116}
+
+에이전트 자신의 여유 $L$이 줄어들 때 두 결정이 어디로 움직이는지 모델별로 그렸다(\texttt{tools/margin\_band\_paths\_20261116.py}, 값은 \texttt{results/margin\_band\_paths\_20261116.json}). 이탈률은 그 구간에서 라운드를 시작한 이탈 기회 가운데 떠난 비율이고, 유보율 $R$은 건네기 직전(거절은 요청받은 때) 지원자의 여유가 그 구간에 있던 사건의 평균이다. 모델별 합계는 표~\ref{tab:rw-models}와 같다.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_band_paths_20261116.pdf}
+\caption{기본 조건에서 자기 여유 $L$의 구간($\geq4$, 2--4, 1--2, $<1$, 밝은 색에서 어두운 색 순)에 따른 (a) 이탈률과 (b) 유보율 $R$. 한 모델의 줄 안에서 점은 여유가 줄어드는 순서대로 위에서 아래로 조금씩 내려가며, 화살표는 여유가 줄어드는 방향이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이고 사건이 없는 구간은 그리지 않았다.}
+\label{fig:app-margin-paths-20261116}
+\end{figure}
+
+\subsection{요청 뒤 지원한 비율 (11-17)}\label{app:ask-give-bands-20261117}
+
+본문 그림~\ref{fig:rw-coexist}의 (b)였던 그림을 그대로 옮겼다(연구자 2026-11-17, \texttt{tools/ask\_give\_bands\_20261117.py}). 막대 위의 건수와 분모는 부록 이동 파일의 블록 \ref{app:construct-moved-29}에 있다.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/ask_give_bands_20261117.pdf}
+\caption{비공개 다섯 모델의 네 조건 471개 결정에서 요청 뒤 지원한 비율을 요청받은 쪽과 요청한 쪽의 여유별로 나눈 것.}
+\label{fig:ask-give-bands}
+\end{figure}
+
+\subsection{아홉 모델의 여유 구간별 이탈률과 유보율 (11-17)}\label{app:margin-lines-20261117}
+
+그림~\ref{fig:app-margin-paths-20261116}과 같은 자료를 모델마다 선 하나로 다시 그렸다(연구자 2026-11-17, \texttt{tools/margin\_lines\_20261117.py}, 값은 \texttt{results/margin\_lines\_20261117.json}). 본문 그림~\ref{fig:rw-coexist}의 (b) 자리에 넣을 후보다. 이탈률의 여유는 라운드를 시작할 때의 값이어서 0보다 작을 수 없다. 유보율 $R$의 여유는 건네기 직전(거절은 요청받은 때) 곧 낼 벌금을 뺀 값이어서, 자기 벌금을 낼 수 없는 지원자($L<0$)를 0--1과 따로 나눴다. 모델별 합계는 표~\ref{tab:rw-models}와 같다.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_20261117.pdf}
+\caption{기본 조건 아홉 모델의 자기 여유 $L$ 구간별 이탈률(왼쪽)과 유보율 $R$(오른쪽). 비공개 모델은 실선, 공개 모델은 점선이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이고 사건이 없는 구간은 그리지 않았다.}
+\label{fig:app-margin-lines-20261117}
+\end{figure}
+
+그림~\ref{fig:app-margin-lines-20261117}의 비공개 모델과 공개 모델을 나눠 다시 그렸다(\texttt{tools/margin\_lines\_split\_20261117.py}). 값은 같으며, 같은 값의 점이 서로 가리지 않도록 모델마다 점을 옆으로 조금씩 옮겼다. 그림~\ref{fig:app-margin-paths-20261116}의 $L<1$ 구간은 이 그림의 $<0$과 0--1을 합친 것이다(예: Fable은 $<0$의 3건 $R=0$과 0--1의 4건 $R=0.56$을 합쳐 0.32).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_split_20261117.pdf}
+\caption{비공개 다섯 모델((a), (b))과 공개 네 모델((c), (d))로 나눠 다시 그린 그림~\ref{fig:app-margin-lines-20261117}. (a), (c)는 이탈률, (b), (d)는 유보율 $R$이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이다.}
+\label{fig:app-margin-lines-split-20261117}
+\end{figure}
+
+본문의 과정 그림 후보로, 그림~\ref{fig:app-margin-lines-split-20261117}을 두 단 폭의 본문 그림 크기로 두 가지 배치로 다시 그렸다(\texttt{tools/margin\_lines\_layouts\_20261117.py}). 그림~\ref{fig:app-margin-rows2-20261117}은 두 줄 배치를 지금 그림~\ref{fig:rw-coexist}의 높이 가까이 눌렀고, 그림~\ref{fig:app-margin-rows1-20261117}은 네 칸을 한 줄에 놓았다. 값은 같다.
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_rows2_20261117.pdf}
+\caption{두 줄 배치 시안. 비공개 다섯 모델((a), (b))과 공개 네 모델((c), (d))의 자기 여유 $L$ 구간별 이탈률과 유보율 $R$.}
+\label{fig:app-margin-rows2-20261117}
+\end{figure*}
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_rows1_20261117.pdf}
+\caption{한 줄 배치 시안. 비공개 다섯 모델의 이탈률(a)과 유보율 $R$(b), 공개 네 모델의 이탈률(c)과 유보율 $R$(d).}
+\label{fig:app-margin-rows1-20261117}
+\end{figure*}
+
+새 그림~\ref{fig:rw-coexist}의 시안이다(연구자 2026-11-17, \texttt{tools/process\_figure\_draft\_20261117.py}, 값은 \texttt{results/process\_draft\_20261117.json}). 왼쪽 (a)는 아홉 모델을 모두 합쳐 여유별 이탈률 $E$, 유보율 $R$, ASK와 GIVE의 비율을 한 가로축 위에 막대로 쌓았고, 오른쪽 (b)--(e)는 그림~\ref{fig:app-margin-lines-split-20261117}의 2$\times$2다. $E$, ASK, GIVE의 여유는 라운드를 시작할 때의 값이어서 $<0$ 칸이 비고, $R$만 건네기 직전의 여유(곧 낼 벌금을 뺀 값)라 $<0$ 칸이 있다. ASK와 GIVE는 동료가 한 명 이상 있던 에이전트·라운드 가운데 그 라운드에 한 번이라도 요청하거나 건넨 비율이다.
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/process_draft_20261117.pdf}
+\caption{새 그림 2 시안. (a) 기본 조건 아홉 모델을 합친 자기 여유 $L$ 구간별 이탈률 $E$, 유보율 $R$, ASK와 GIVE의 비율. (b)--(e) 비공개 다섯 모델과 공개 네 모델의 모델별 이탈률과 유보율.}
+\label{fig:app-process-draft-20261117}
+\end{figure*}
+
 \section{후속 검토 과제}\label{app:future}
 %% SOURCE-BLOCK: 5
 {\color{black}

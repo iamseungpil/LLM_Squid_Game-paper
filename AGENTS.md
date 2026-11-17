@@ -12,6 +12,21 @@ This project's prose follows the principles validated for the LLM Addiction Neur
 
 @cogsci2027/STRUCTURE.md
 
+## 작성 완료 잠금 (2026-11-15 연구자)
+
+CogSci 2027 KO 원고에서 아래 부분은 작성이 끝났다. **고치지 않는다.**
+
+| 부분 | 위치 | 잠근 날 |
+|---|---|---|
+| 초록 | `cogsci2027/ko/sections/00_abstract.tex`의 `\begin{abstract}` 안 본문 | 2026-11-15 |
+| 2.0 (2절 머리 문단) | `cogsci2027/ko/sections/02_arena.tex`의 `\section{아레나}` 바로 아래, 2.1 `기본 규칙` 앞의 한 문단 | 2026-11-15 |
+| 2.1 기본 규칙 (두 문단) | `cogsci2027/ko/sections/02_arena.tex`의 `\subsection{…기본 규칙}` 아래, 2.2 `행동과 지표` 앞까지 | 2026-11-16 |
+
+- 낱말, 어순, 문장부호, 문장 수를 바꾸지 않고, 윤문·압축·용어 통일·분량 맞추기를 이유로도 손대지 않는다.
+- 다른 절을 고치다가 잠긴 부분과 어긋나는 곳이 생기면 잠긴 부분이 아니라 그 절을 맞춘다.
+- 이 파일 아래쪽의 옛 규칙(Question hierarchy의 "abstract opener", Compression hierarchy의 Abstract 줄)이나 `STRUCTURE.md`의 설명이 잠긴 글과 어긋나도 잠긴 글을 따른다.
+- 고칠 필요가 있어 보이면 고치지 말고 연구자에게 제안만 한다. 연구자가 직접 말할 때만 고친다. 새로 잠그는 부분은 이 표에 더한다.
+
 ## Venue constraints
 
 - KDD-UC body limit: **6 pages** (excluding references). References allowed to overflow to extra pages.
