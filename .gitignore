@@ -44,3 +44,7 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 build/
+
+# Built PDFs (bash build.sh writes dist/<lang>_<venue>_<DATE>.pdf). Kept on disk only since 2026-11-13:
+# Overleaf compiles main.tex itself, and the dated copies made the Overleaf project heavy.
+dist/

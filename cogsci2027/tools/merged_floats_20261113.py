@@ -54,7 +54,7 @@ def write_table():
              r' & \multicolumn{2}{c}{공존} & \multicolumn{2}{c}{지출} & 과제 & 실행 대 과제 & 실행 대 동료 \\',
              r'\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-6}\cmidrule(lr){7-7}\cmidrule(l){8-8}',
              r' & $C$ & \shortstack{위험 라운드\\통과} & \shortstack{꺼진 자리\\(/40)} & \shortstack{라운드당\\대화 비용} & 정답률 & '
-             r'이탈률 & \shortstack{지킨 비중\\$R$} \\', r'\midrule']
+             r'이탈률 & \shortstack{유보율\\$R$} \\', r'\midrule']
     for group, label in ((mf.CLOSED, '비공개 모델'), (mf.OPEN, '공개 모델')):
         lines.append(rf'\multicolumn{{8}}{{l}}{{\textit{{{label}}}}} \\')
         for m, name in group.items():
@@ -100,7 +100,7 @@ def prize_figure():
         eff[f'R_{kind}'] = dict(effect=RHO['b_prize']['contrasts'][kind]['value'], ci95=RHO['b_prize']['contrasts'][kind]['ci95'])
     rules = [('분할', ('main', 'split600k'), '#1F6FB2', 'o', ('2,000만', '60만')),
              ('고정', ('flat5m', 'flat150k'), '#C2571A', 's', ('500만', '15만'))]
-    cols = [('exit', '(a) 이탈률', (0, .2)), ('R', '(b) 지킨 비중 $R$', (.5, .9)), ('C', '(c) 공존 유지율 $C$', (.3, .8))]
+    cols = [('exit', '(a) 이탈률', (0, .2)), ('R', '(b) 유보율 $R$', (.5, .9)), ('C', '(c) 공존 유지율 $C$', (.3, .8))]
     fig = plt.figure(figsize=(7.1, 1.85))
     for ci_, (key, title, ylim) in enumerate(cols):
         ax = fig.add_axes([.06 + .235 * ci_, .2, .165, .56])

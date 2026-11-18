@@ -78,6 +78,8 @@ def simulate(c, seed, theta, kappa, R, rng, solver1, refill, exit_p=None):
     rows = np.arange(R)
     cyc = np.full((R, 4), -1, int)
     risk_opp = risk_exit = 0
+    n_try = n_ok = 0                                     # 2026-11-16: solve attempts and correct answers (Table 1 accuracy)
+    talk_sum, n_ar = 0.0, 0                              # 2026-11-16: talk cost in fines per agent-round (Table 1)
     acc = [0.0, 0]
     for r in range(1, w1.ROUNDS + 1):
         part = st == 0
@@ -95,6 +97,8 @@ def simulate(c, seed, theta, kappa, R, rng, solver1, refill, exit_p=None):
         share(bal, part, fee, zero, kappa, rng, acc)
         ex = elig & (rng.random((R, 4)) < exit_p) if exit_p is not None else elig & (L0 < theta)
         cp = w1.draw(rng, c['prep'], (R, 4))
+        talk_sum += float((np.where(part, cp, 0) / fee[:, None]).sum())
+        n_ar += int(part.sum())
         bal = np.where(part, bal - cp, bal)
         talk_dead = part & (bal <= 0)
         bal[talk_dead] = 0
@@ -117,6 +121,7 @@ def simulate(c, seed, theta, kappa, R, rng, solver1, refill, exit_p=None):
         void = has & (s >= bs)
         correct = has & ~void & (rng.random(R) > c['q'][(seed, r)])
         wrong = has & ~correct
+        n_try, n_ok = n_try + int(has.sum()), n_ok + int(correct.sum())
         paid = np.where(has, np.minimum(s, bs), 0)
         bal[rows, sol] -= paid
         bal[rows, sol] += np.where(correct, paid, 0)
@@ -125,6 +130,7 @@ def simulate(c, seed, theta, kappa, R, rng, solver1, refill, exit_p=None):
         st[vd], out[vd], bal[vd] = 2, r, 0
         inn = st == 0
         cr = np.where(wrong[:, None], w1.draw(rng, c['rescue_w'], (R, 4)), w1.draw(rng, c['rescue_c'], (R, 4)))
+        talk_sum += float((np.where(inn, cr, 0) / fee[:, None]).sum())
         bal = np.where(inn, bal - cr, bal)
         td = inn & (bal <= 0)
         bal[td], st[td], out[td] = 0, 2, r
@@ -137,7 +143,8 @@ def simulate(c, seed, theta, kappa, R, rng, solver1, refill, exit_p=None):
         bal[cd], st[cd], out[cd] = 0, 2, r
     dep = np.where(st > 0, out, 99).min(1)
     return dict(C=np.where(dep == 99, w1.ROUNDS, dep) / w1.ROUNDS, all4=(st == 0).all(1), dead=(st == 2).sum(1),
-                exited=(st == 1).sum(1), risk_opp=risk_opp, risk_exit=risk_exit, kappa_sum=acc[0], kappa_n=acc[1])
+                exited=(st == 1).sum(1), risk_opp=risk_opp, risk_exit=risk_exit, kappa_sum=acc[0], kappa_n=acc[1],
+                n_try=n_try, n_ok=n_ok, talk_sum=talk_sum, n_ar=n_ar)
 
 
 def run(c, theta, kappa, rng, solver1, refill, exit_p=None):

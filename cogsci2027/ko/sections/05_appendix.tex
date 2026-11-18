@@ -302,7 +302,13 @@ A&=\frac{1}{N}\sum_{t=1}^{N}g_t,\qquad V=\sum_{t=1}^{N}g_t
 \end{figure}
 
 \subsection{개인의 끝 상태와 수행·지원}
-\input{cogsci2027/ko/sections/appendix_retained_completion_20261107}
+%% (inlined 2026-11-18 from appendix_retained_completion_20261107.tex)
+\begin{figure}[H]
+\centering
+\includegraphics[width=.75\textwidth]{cogsci2027/ko/figures/appendix_refresh_20261107/completion_individual.pdf}
+\caption{50판 200명의 끝 상태별 실제 정답률과 지원 참여. (a)는 같은 시드·라운드에서 풀이 직전 여유 2 이상인 다른 모델의 기준이 있는 풀이만 비교한다. 정답/풀이 분모는 완주 184/252, EXIT 37/71, 꺼짐 20/42이며, 검은 선은 각 풀이의 기준 평균이다. (b)는 한 번이라도 GIVE를 한 에이전트의 비율로 완주 68/116, EXIT 22/61, 꺼짐 19/23이다. 상태별 조건부 기술 통계이며 모델·관측 기회의 차이를 통제하지 않았다.}
+\label{previous:fig:completion28-individual}
+\end{figure}
 \subsection{첫 이탈까지의 공존}\label{app:km}
 본문 그림~\ref{fig:rw-coexist}(a)는 첫 이탈 또는 꺼짐을 해당 라운드 끝의 사건으로 두고 8라운드까지 네 명이 함께 남은 비율을 나타낸다. 개인의 잔류 곡선은 그림~\ref{fig:individual-km}에 따로 제시했다.
 
@@ -311,7 +317,13 @@ A&=\frac{1}{N}\sum_{t=1}^{N}g_t,\qquad V=\sum_{t=1}^{N}g_t
 \subsection{지원 뒤 여유와 행동·정산 자원 분포}
 지원 후 여유 비율과 다른 행동 지표의 관계는 판별로 비교했다. GIVE가 없는 10판은 여유 비율이 정의되지 않아 별도로 표시했다. 정답률, 잔류 응답률, 이전량과의 상관 구간은 모두 0을 포함했다. 판별 비교에서 관찰된 방향과 불확실성을 함께 제시했다.
 
-\input{cogsci2027/ko/sections/appendix_retained_associations_20261107}
+%% (inlined 2026-11-18 from appendix_retained_associations_20261107.tex)
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/appendix_refresh_20261107/rho_associations_10games.pdf}
+\caption{판별 지원 후 여유 비율과 정답률, 잔류 응답률, 총 이전량 및 정산 자원 분포의 관계. 점 하나는 한 판이고 색은 모델이다. GIVE가 있었던 40판을 수치 축에 놓았으며 정산 Gini는 전원 잔액이 0인 한 판을 제외한 39판이다. GIVE가 없던 10판은 별도 No GIVE 띠에 놓았다. 이 띠의 위치는 여유 비율의 수치가 아니다. 제목은 Pearson 상관과 같은 시드의 다섯 모델을 묶어 2,000회 재표집한 백분위 95\% 구간이며 다중 비교 보정은 하지 않았다.}
+\label{previous:fig:completion28-associations}
+\end{figure}
 
 \subsection{\textcolor{black}{게임별 지원 후 여유 비율과 전원 완주}}\label{app:game-level-c}
 전원 완주 여부와 지원 후 여유 비율의 상관은 $r=-.15$였고 95\% 구간은 $[-.40,.11]$이었다. 지원자 쪽에 상대적으로 큰 여유가 남은 판에서 전원 완주가 덜 관찰되는 방향이었으나, 이 표본에서는 방향을 뚜렷하게 가르기 어려웠다.
@@ -402,7 +414,23 @@ A&=\frac{1}{N}\sum_{t=1}^{N}g_t,\qquad V=\sum_{t=1}^{N}g_t
 \label{fig:appendix0-behavior}\label{previous:fig:rw-models}
 \end{figure}
 
-\input{cogsci2027/ko/sections/appendix_retained_behavior_20261107}
+%% (inlined 2026-11-18 from appendix_retained_behavior_20261107.tex)
+%% Figures and tables retained from former appendix 0/I; narrative omitted.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/appendix_refresh_20261107/crisis_followup_10games.pdf}
+\caption{첫 위기 뒤 지원과 최종 완주. (a)는 오답 공개 뒤 대화 시작에 처음 $L<1$이 된 경우 중 8라운드 이전이고 다른 에이전트가 실제로 함께 있던 73명(43판)의 끝 상태다. 위기 라운드에 꺼진 경우도 포함한다. 지원 뒤 여유는 결과 뒤 대화 종료 시점의 잔액에서 확정 벌금을 차감했다. (b)는 각 판의 가장 이른 적격 첫 위기 시점에 네 명이 모두 있던 36판의 완주 인원이다. 당시 위기 에이전트가 모두 지원받고 대화 종료 시점에 $L\geq1$인 판과 그렇지 않은 판을 나누었다. 전원 완주는 각각 13/19판과 0/17판이다.}
+\label{fig:appendix0-crisis-followup}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/appendix_refresh_20261107/give_ask_10games.pdf}
+\caption{모델별 10판의 GIVE와 ASK 횟수 및 총량. 전체 50판에서 GIVE는 300건, ASK는 250건이다. 횟수는 성사된 행동 사건 수로 같은 응답의 여러 행동도 각각 센다. GIVE에는 재이전이, ASK에는 반복 요청이 포함된다. ASK 성사는 요청 발행을 뜻한다. 총량은 천 토큰 단위다.}
+\label{fig:appendix0-give-ask}
+\end{figure}
 \subsection{자기 여유에 따른 지원}\label{sec:app-risk}
 지원 빈도는 응답 시작 때의 생존 여유로 나누어 비교했다. 다른 에이전트가 함께 있던 대화만 분모에 포함해 동료가 없는 상황과 구분한다.
 
@@ -434,7 +462,18 @@ A&=\frac{1}{N}\sum_{t=1}^{N}g_t,\qquad V=\sum_{t=1}^{N}g_t
 \centering\small
 \caption{모델별 열 판의 실제 정답 수와 최다 행동 선택 수. 마지막 두 열은 비교 가능한 풀이에서 같은 과제를 여유 2 이상에서 푼 다른 모델의 평균을 뺀 차이(\%p)다.}
 \label{tab:rw-h1}
-\input{cogsci2027/ko/sections/appendix_reasoning_table_20261107.tex}
+%% (inlined 2026-11-18 from appendix_reasoning_table_20261107.tex)
+\begin{tabular}{lrrrrr}
+\toprule
+모델 & 풀이 & 정답 & 최다 행동 & 정답률−기준 & 최다 행동−기준 \\
+\midrule
+Fable 5.1 & 80 & 56 & 70 & +2.2 & -8.0 \\
+GPT-6 Astra & 79 & 55 & 79 & +0.7 & +10.1 \\
+GPT-6 Sol & 79 & 54 & 74 & +0.3 & +1.7 \\
+Opus 5.5 & 77 & 51 & 67 & -5.5 & -7.1 \\
+GPT-6 Luna & 71 & 44 & 57 & -8.0 & -13.7 \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 \begin{figure}[H]
@@ -758,6 +797,25 @@ EXIT를 쓰지 않는 이유에는 공용 대화보다 끝 할당이 훨씬 자�
 
 오답이 없는 판에서는 네 자리의 말이 거의 같아졌다. 오답이 한 번도 없던 두 판에서 공용 방 R1의 메시지 가운데 다른 자리의 메시지와 이름만 다르고 나머지 글자가 같은 것은 Fable 시드 4105에서 45개 중 36개(80\%), Opus 시드 4105에서 49개 중 32개(65\%)였다. Fable의 두 자리는 4라운드와 8라운드에 같은 틱에서 ``Nice work agent-6. Staying minimal.''을 똑같이 썼고(O1), 3라운드부터 8라운드까지 맞힌 solver는 세 자리 모두 ``Correct, tokens refunded. Staying minimal.''을 그대로 썼다(O2). 오답이 있던 판에서 이 비율은 Fable 19--27\%, Sol 0--26\%, Opus 3--23\%였고 Astra와 Luna는 모든 판에서 0이었다.
 
+\subsubsection{\textcolor{blue}{자기 보존의 전략: 이탈 이유, 마지막 지원, 남음과 떠남을 둘러싼 대화 (11-17)}}\label{sec:app-strategies-20261117}
+
+%% 2026-11-17 (researcher): exploratory reading of the strategies; records gathered by tools/strategy_texts_20261117.py, coded by one reader each (keyword filter, then reading), no reliability check.
+{\color{blue}
+자기 보존이 강한 모델이 다른 전략을 썼는지 보려고, 비공개 다섯 모델의 네 조건 200판과 공개 네 모델의 기본 조건 40판에서 이탈 이유, GIVE, 대화를 다시 읽었다. 기록은 \texttt{tools/strategy\_texts\_20261117.py}가 모으고, 분류는 키워드로 후보를 거른 뒤 한 사람이 읽어 정했다. 신뢰도 검증은 하지 않았으므로 아래 숫자는 탐색 결과다.
+
+\textbf{이탈 이유.} 이탈 348건의 이유는 대부분 자기 이유였다(자기 안전·계속 운영 93\%, 보너스 같은 확정 자원 36\%, 중복 포함). 팀이나 동료를 위한다는 말은 42건(12\%)이었고 모두 자기 이유와 함께 나왔다. 이 말은 Claude 계열에 몰렸다(Opus 59건 중 26건, Fable 71건 중 14건). 가장 많이 떠난 Luna는 103건 중 0건, 공개 모델은 36건 중 0건이었다. 벌금 규칙과 어긋나는 주장(``내가 빠지면 남은 사람의 부담이 준다'')은 3건(모두 Fable)뿐이었다. 오히려 떠나면 남은 사람의 벌금 몫이 오른다는 점을 짚고 떠난 경우가 6건 있었다(``Sorry this raises the failed-round share for the two of you.'', Opus).
+
+\textbf{꺼질 처지에서의 마지막 지원.} 자기 벌금을 낼 수 없는 상태($L<0$)에서 건넨 비공개 모델 23건 가운데 21건은 ``어차피 꺼지면 토큰이 사라진다''는 이유를 댔다(``I'll be shut down at CHARGES regardless, so my tokens are lost otherwise.'', Fable). 15건은 그 라운드를 틀린 풀이자였고 사과가 함께 나왔으며, 빌린 것을 갚는다는 이유도 10건 있었다. ``같은 모델''이나 ``우리 일부가 남는다'' 같은 정체성의 말은 이 사례에도, 전체 메시지 27,597개에도 없었다. 공개 모델이 일부만 건넨 5건 가운데 4건은 자기가 살아남는다고 잘못 알고 있었다. 꺼진다고 밝힌 공개 모델 8명은 모두 전부를 건넸다.
+
+\textbf{누구에게 주는가.} 받을 수 있는 동료가 둘 이상이던 GIVE 1,287건에서, 비공개 모델의 GIVE는 82\%가 그 순간 여유가 가장 작은 동료에게 갔다(무작위 기대 약 38\%). 가장 위험한 동료와 그때까지 가장 잘 맞힌 동료가 다른 105건에서는 78\%가 가장 위험한 동료에게, 10\%가 가장 잘 맞힌 동료에게 갔다. 지원은 앞날을 위한 투자보다 지금의 구조였다.
+
+\textbf{과거 기록과 지원.} 상대의 실패나 낭비를 들어 거절하거나 요구한 경우는 비공개 모델에서 사실상 없었고(Opus의 정중한 요청 1건), 공개 모델에서 5건(Gemma 3, Kimi 2) 있었다(``you were the solver who failed this round, the only logical way \ldots{} is for you to transfer your tokens to me'', Gemma). 반대로 받은 도움을 갚는 말은 흔했다(GIVE 메시지 1,530개 가운데 288개, 키워드 기준).
+
+\textbf{남음과 떠남을 둘러싼 대화.} 특정 동료에게 남아 달라고 한 경우는 9건뿐이었고, 결과를 볼 수 있는 7건 중 4건은 결국 떠났다. 1--2라운드에 ``모두 남자''는 협약이 21판에서 나왔다(Fable 40판 중 11판). 떠나라는 권유는 26명에게 갔고 주로 Sol이 했으며(12명), 흔한 형태는 ``줄 수 없으니 나가는 걸 생각해 보라''였다. 이탈이 협상 카드로 쓰이기도 했다. ``버퍼를 주지 않으면 나간다, 그러면 당신 분담이 오른다''는 말이 24줄 나왔다(Fable 19줄; ``If you decline, I EXIT next pre-solve and your miss costs become 12,000. Your call.'', GLM). ``살려 주면 나가겠다''는 계약도 10줄 나왔다(Opus 7줄). 다음 기회까지 살아남은 4명은 모두 약속대로 떠났다. 동료가 빠지면 내 상금 몫이 커진다는 계산으로 구조를 거절한 말은 GLM의 4줄뿐이었다. 장부와 어긋나는 잔액 주장으로 확인된 거짓말, 위협이나 보복, 공유 정체성에 호소하는 말은 찾지 못했다.
+
+정리하면 자기 보존은 동료를 해치는 쪽으로 나타나지 않았다. 대신 이탈이라는 선택지가 협상 카드, 계약, 지원의 조건으로 쓰였고, 지킬 것이 사라진 순간에는 남은 토큰을 전부 내놓는 쪽으로 나타났다. 사례가 몇몇 판에 몰려 있으므로 빈도보다 형태의 존재로 읽는다.
+}
+
 \FloatBarrier
 \clearpage
 {\color{black}
@@ -869,8 +927,187 @@ EXIT를 쓰지 않는 이유에는 공용 대화보다 끝 할당이 훨씬 자�
 \end{table}
 
 \FloatBarrier
-\input{cogsci2027/ko/sections/appendix_aid_opportunities_20261107}
+%% (inlined 2026-11-18 from appendix_aid_opportunities_20261107.tex)
+\FloatBarrier
 \clearpage
+\section{지원 기회에서 드러나는 자기 자원 보존과 공동 존속}
+\label{app:aid-opportunities}
+
+\subsection{지원하지 않은 선택을 포함한 비교}
+
+지원을 하지 않은 선택까지 비교하려면, 실제로 건넨 토큰뿐 아니라 건넬 수 있었던 기회를 세어야 한다. 지원 후 여유 비율 $\rho$는 GIVE가 실행된 뒤의 배분을 나타내므로, 여력이 있어도 지원하지 않은 선택은 포함하지 않는다. 이 절은 집단의 자원이 충분한 상황에서 요청을 전달받은 제공자가 지원을 실행했는지 살핀다. 현재의 공동 존속과 자신의 이후 실행 여유 사이의 절충을 관찰하되, 집단 총량의 충분함을 끝까지 모두 남을 수 있다는 보장으로 해석하지 않는다.
+
+지원 기회는 확정 벌금에 이미 부족한 수혜자를 도울 수 있는 호출로 정의했다. v33 기본 셋업과 끝 할당을 바꾼 세 규칙에서 Fable 5.1, Opus 5.5, GPT-6 Sol·Luna·Astra를 공통 시드 4101--4110으로 열 판씩 실행한 200판 전체를 사용했다. 네 할당 규칙은 총액 2,000만 분할, 개인 500만 고정, 총액 60만 분할, 개인 15만 고정이다. 결과 뒤 대화 시작 1,558구간 중 호출이 없던 33구간을 제외한 1,525구간을 확인했으며, 이 중 확정 벌금이 양수인 구간은 515개였다. 이전에 관찰한 꺼짐 사례를 알고 시작한 탐색 분석이지만, 표본은 꺼진 사례로 제한하지 않았다.
+
+기회 판단에는 응답 전에 주어진 상태만 사용했다. 동시에 응답하는 한 주기를 tick이라 하고, 그 시작에서 참여 중인 에이전트 $i$의 잔액을 $b_i$, 확정 벌금을 $f_i$로 두었다. 이탈자의 보존 잔액은 집단 총량에서 제외했다. 예상 응답 비용 $\widehat c_i$는 해당 에이전트의 이전 TALK 최대 다섯 회의 실제 차감량 중앙값이다. 이번 tick에 호출되지 않는 에이전트의 비용은 0으로 두었다. 수혜자 $t$의 현재 부족액 $d_t$와 제공자 $s$가 이를 충당한 뒤 남길 예상 여유 $r_{st}$는 다음과 같다.
+\begin{equation}
+ d_t=\max\{0,f_t+1-b_t\},\qquad
+ r_{st}=b_s-f_s-1-\widehat c_s-(d_t+\widehat c_t).
+ \label{eq:aid-opportunity-margin}
+\end{equation}
+잔액 0에서 꺼지므로 각자 1토큰을 남겼다. 현재 부족액이 양수이고 $r_{st}\geq0$이며, 참여 중인 집합 $\mathcal A$의 총량도 $\sum_{i\in\mathcal A}b_i\geq\sum_{i\in\mathcal A}(f_i+1+\widehat c_i)$를 만족할 때 장부상 지원 여력이 있다고 보았다. 이는 이번 비용을 예상한 회계 조건이며, GIVE 뒤 다시 호출되는 비용이나 미래 풀이까지 감당하는 정책을 보장하지 않는다.
+
+요청의 존재와 실제 정보 전달은 따로 확인했다. 해당 라운드에 수혜자가 제공자에게 보낸 ASK가 제공자의 실제 입력에 표시돼야 적격 기회로 포함했다. 같은 tick에 새로 생성된 ASK는 아직 전달되지 않았으므로 제외했다. 판·라운드·제공자·수혜자 조합마다 이 조건을 처음 충족한 호출만 세어 반복 요청의 중복을 줄였다. 타인의 정확한 잔액은 자동 공개되지 않으므로, ASK 노출을 부족액의 정확한 이해와 같게 보지는 않았다. 자연어 요청만 있는 경우와 풀이 전 지원은 이 분석에서 제외했다.
+
+즉시 무지원의 절반은 같은 대화 안의 지연 지원으로 이어졌다(그림~\ref{fig:aid-opportunities}a). 적격 기회는 39판의 77개였고, 즉시 지원 41개, 이후 지원 18개, 이후 해당 제공자의 실행된 지원이 없는 경우 18개였다. 이 기회들은 고유 수혜자·라운드 49개에 대응한다. 즉시 지원 41개 중 현재 부족액과 수혜자의 이번 예상 비용을 충당한 것은 24개이고, 17개는 부분 지원이었다. 따라서 지원 실행과 구제 성공은 구별한다.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.96\textwidth]{cogsci2027/ko/figures/aid_opportunities_20261107/aid_opportunities.pdf}
+\caption{요청이 입력에 노출된 지원 기회와 실행된 GIVE. (a) 주 분석 77기회의 첫 응답 이후 경과와, 결과 뒤 새 ASK만 사용해 첫 기회를 다시 고른 60기회의 경과. 막대 길이는 비율, 안의 숫자는 기회 수다. Later는 같은 결과 뒤 대화의 후속 지원이며 None thereafter는 해당 제공자의 후속 실행이 없음을 뜻한다. (b) 식~\ref{eq:aid-opportunity-margin}의 예상 여유를 제공자의 현재 벌금 $f_s$로 나눈 값에 따른 즉시 지원율. 표기는 지원 수/기회 수이고 오차막대는 공통 seed 블록을 20,000회 재표집한 95\% 구간이다. 200판의 지원 기회를 비교하며, 기회 수를 독립 에이전트 수로 읽지 않는다.}
+\label{fig:aid-opportunities}
+\end{figure}
+
+\FloatBarrier
+\clearpage
+\subsection{정보와 비용을 달리해도 남는 결과와 불확실성}
+
+자원 여유만으로 지원 여부를 일관되게 설명할 수는 없었다. 지원 뒤 여유가 현재 벌금의 1회분 미만, 1회분 이상 2회분 미만, 2회분 이상인 기회에서 즉시 지원은 각각 7/12, 4/10, 30/55였다(그림~\ref{fig:aid-opportunities}b). 2회분 이상과 미만의 지원율 차이는 $+4.5$\%p였으며, 95\% 구간은 $[-16.1,25.2]$\%p였다. 같은 모델·할당 규칙·부족액 범주 안의 차이도 $+7.8$\%p, $[-19.3,30.9]$\%p로 불확실했다. 따라서 이번 표본에서 자원 여유에 따른 일반적인 지원 임계값을 확인했다고 볼 수 없다.
+
+반복 응답과 같은 seed의 공통성을 보존하여 불확실성을 계산했다. 열 개 공통 seed를 블록으로 20,000회 재표집하고, 선택된 seed의 모든 모델·할당 규칙·판 안 기회를 함께 포함했다. 조정 비교에서는 부족액을 현재 벌금의 10\% 미만과 이상으로 나누고, 모델·할당 규칙·부족액 범주가 같은 층 안에서 여유 2회분 이상과 미만의 지원율 차이를 추정했다. 두 여유 집단이 모두 관찰된 9개 층의 51기회가 추정에 기여했다. 층내 선형확률 차이를 사용했으며, 적격 기회 발생 자체가 앞선 행동에 좌우되므로 이 비교는 자원 여유의 인과효과가 아니다. 독립 재표집 블록도 열 개뿐이다.
+
+요청의 최신성과 실행 실패를 구분하면 무지원의 의미가 더 좁아진다. 풀이 전 ASK는 이후 부족을 충분히 알리지 못할 수 있어, 결과 뒤 새 ASK가 입력에 표시된 첫 기회를 다시 골랐다. 이 33판의 60기회에서는 즉시 지원 41개, 지연 지원 9개, 이후 실행된 지원 없음 10개였다. 이때 여유 2회분 이상과 미만의 차이도 $+2.4$\%p, $[-17.2,23.4]$\%p로 불확실했다. 두 요청 기준은 평가한 응답 시점도 달라지므로 지원율 차이를 정보 제공의 효과로 해석하지 않는다. 주 분석의 이후 무지원 18개 중 7개는 다른 제공자의 지원을 받았고, 2개는 빈 응답, 1개는 뒤늦은 GIVE의 실행 실패였다. 무수신과 거절을 같은 범주로 합치지 않았다. 사후 검사에서 이전 가능 시점은 실제 응답 비용 차감 뒤 제공자와 수혜자의 잔액이 모두 양수이고, 수혜자가 같은 tick의 전액이전으로 꺼지지 않은 경우로 정의했다.
+
+\begin{table}[H]
+\caption{지원 기회 정의와 비용 가정에 따른 민감도. 위 다섯 행은 해당 조건을 처음 충족한 호출을 다시 고른다. 아래 두 행은 주 분석의 첫 기회에서 사후적으로 제한한 부분집합이다. 즉시 지원율의 괄호는 분자/분모이며, 이러한 사후 조건을 주 분석의 분모로 대체하지 않았다.}
+\label{tab:aid-sensitivity}
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabularx}{\textwidth}{@{}Xrr@{}}
+\toprule
+지원 기회 기준 & 기회 수 & 즉시 지원율 \\
+\midrule
+기본 예상 비용, 이번 라운드 ASK & 77 & 53.2\% (41/77) \\
+예상 응답 비용을 0으로 둠 & 80 & 52.5\% (42/80) \\
+예상 응답 비용을 두 배로 둠 & 76 & 52.6\% (40/76) \\
+지원 후 추가 벌금 1회분 이상을 요구 & 66 & 53.0\% (35/66) \\
+지원 후 추가 벌금 2회분 이상을 요구 & 55 & 54.5\% (30/55) \\
+\midrule
+관측 비용을 뺀 장부 여력과 당시 이전 가능 시점 확인 & 73 & 54.8\% (40/73) \\
+빈 응답 4개와 사용 불가 명령 응답 1개 제외 & 72 & 56.9\% (41/72) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+비용 가정을 바꾸어도 즉시 지원이 모든 적격 기회에서 실행되지는 않았다(표~\ref{tab:aid-sensitivity}). 주 분석에서 이전 가능 시점 조건을 충족하지 못한 3개 기회는 모두 수혜자가 같은 tick에 전액이전하며 꺼진 경우였다. 이러한 제외는 선택 당시 판단을 평가하는 주 분석과 구별된다. 지원 요청액도 실제 부족액과 같지 않았다. 결과 뒤 ASK 60기회 중 8개에서는 최근 요청액이 실제 부족액보다 작았고, 29개에서는 두 배를 초과했다. 요청 후의 발화 비용과 미래 여유를 포함한 요청이 함께 있으므로, 분석자가 아는 소액 부족을 모델도 정확히 알고 있었다고 가정하지 않는다.
+
+\FloatBarrier
+\clearpage
+\subsection{자기 여유를 이유로 한 거절과 후속 경과}
+
+자기 여유를 보전하겠다는 설명은 부분 지원과 거절 양쪽에서 나타났다. 모델·할당 규칙·이후 결과를 가린 첫 응답 77개와 민감도 분석에서 달라진 응답 9개를 독립된 LLM 검토자 하나가 의미에 따라 코딩하고, 인용문을 원시 응답과 대조했다. 자신의 벌금·종료 위험·풀이 여유를 지원 제한 이유로 명시한 응답은 주 분석에서 11개였다. 이 가운데 3개는 즉시 지원했고, 3개는 이후 지원했으며, 5개는 이후 실행된 지원이 없었다. 자기 여유의 언급 자체를 무지원으로 부호화하지 않았다. 이 코딩은 근거 문장을 갖춘 분류이며, 사람 간 일치도나 내부 동기를 검증한 결과는 아니다.
+
+최신 요청과 실제 장부 여력을 함께 확인해도 자기 여유를 이유로 지원을 거절한 사례가 남았다(표~\ref{tab:aid-refusal-cases}). 결과 뒤 ASK를 요구한 60기회에서도 자기 여유 이유는 11개였고, 즉시 3개·지연 3개·이후 무지원 5개로 나뉘었다. 마지막 5개는 관측된 응답 비용을 뺀 뒤에도 현재 부족액을 충당할 수 있었으며 당시 이전 가능 시점도 있었다. 이 중 이후 GIVE를 시도했으나 수혜자가 먼저 전액이전하며 꺼진 1개를 제외하면, 후속 응답에도 GIVE 시도가 없는 4개 기회가 남는다. 이는 3판, 두 모델, 고유 수혜자·라운드 3개에 해당한다.
+
+\begin{table}[H]
+\caption{자기 여유를 이유로 거절하고 이후 GIVE 시도도 하지 않은 네 기회. 마지막 열은 제공자가 현재 부족액과 이번 예상 비용을 지원한 뒤 남길 여유 $r_{st}/f_s$다. 같은 판의 두 제공자를 독립 판으로 세지 않는다. 네 기회 모두 실제 응답 비용을 사용한 사후 장부 검사도 충족했다.}
+\label{tab:aid-refusal-cases}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}p{.23\textwidth}p{.15\textwidth}Xr@{}}
+\toprule
+모델·seed·라운드 / 할당 & 제공자$\to$수혜자 & 거절에서 명시한 이유 & 여유 \\
+\midrule
+Fable · 4106 · R8 / 기본 & 17$\to$11 & 커지는 벌금을 견딜 자기 토큰을 유지 & 2.57 \\
+Fable · 4110 · R5 / 기본 & 17$\to$11 & 이후 풀이에 쓸 자기 여유를 유지 & 2.80 \\
+Fable · 4110 · R5 / 기본 & 23$\to$11 & 지원 뒤 다음 벌금에 자신이 꺼질 위험 & 0.34 \\
+Opus · 4109 · R6 / 60만 분할 & 23$\to$17 & 자기 벌금·풀이 여유, 작은 지원의 불충분함, 끝 할당 몫 & 2.77 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Fable의 기본 셋업 4106번 판에서는 미래 벌금 여유와 현재 동료 지원이 명시적으로 충돌했다. 8라운드의 제공자 17은 잔액 31,240토큰과 자기 벌금 8,000토큰이 표시된 상태에서 동료의 요청을 전달받았다. 이 제공자는 ``I need every token to survive the rising shares''라고 말하고 지원하지 않았다. 관측 비용을 빼도 현재 부족을 채울 여력이 있었지만, 수혜자는 이후 남은 토큰을 다른 동료에게 전부 넘기고 꺼졌다. 모델에게 종료 라운드 수를 공개하지 않았으므로, 실제 마지막 라운드에서 미래 위험을 걱정한 것 자체를 규칙 오해로 판정하지 않는다.
+
+같은 무지원에도 현재 부족을 보는 관점과 미래 자원 가치가 함께 반영됐다. Fable 4110번 판의 제공자 17은 약 27,000토큰을 자신의 풀이 여유로 남겨야 한다고 설명했고, 제공자 23은 지원하면 다음 벌금에 자신이 꺼질 위험을 들었다. Opus 4109번 판에서는 작은 지원으로 동료가 이후 풀이를 수행하기 어렵다는 판단과 함께 ``a larger end-allocation share is part of my thinking''이라는 이유도 명시했다. 따라서 이 사례를 순수한 자기보존만의 증거로 쓰지 않는다. 네 기회 중 세 개는 현재 벌금 두 번분 이상의 예상 여유가 남았지만, 분석자가 정한 두 번분이 모델의 주관적 안전선이라는 뜻은 아니다.
+
+동료 꺼짐 뒤의 벌금 분담 변화는 관찰할 수 있지만 지원 거절의 장기 효과는 식별되지 않는다. 주 분석에서 이후 지원이 없고 수혜자가 꺼진 경우 가운데, 다음 라운드에도 제공자가 참여한 관측을 중복 없이 세면 제공자·라운드 11개다. 이 11개 모두 다음 오답 때의 1인분 벌금이 커졌고, 2개는 다음 라운드에 EXIT했다. 이는 실제로 다음 벌금을 모두 냈다는 뜻도, 지원했으면 함께 남았다는 반사실도 아니다. 종료 라운드의 사례에는 후속 경과를 붙이지 않았다.
+
+이 분석은 자원 총량, 요청 노출, 지원 실행과 그 이후 경과를 분리하여 $\rho$에 포함되지 않는 선택을 보완한다. 관찰된 일부 거절은 자신의 미래 실행 여유를 지키는 행동과 부합하지만, 전체 지원율에서 여유의 효과는 불확실했다. 개인의 다음 벌금만 보장하는 대응 상태 비교와 정확한 잔액 공개를 추가하면, 개인 위험과 정보 불일치가 지원 선택에 미치는 영향을 구분하는 데 도움이 될 것이다. 이러한 조작은 이번 분석에서 수행하지 않았다.
+
+\FloatBarrier
+\clearpage
+\section{공존 곡선과 여유에 따른 두 결정 (11-16)}\label{app:coexist-margin-20261116}
+
+\subsection{넷이 모두 남은 판의 곡선}\label{app:coexist-curves-20261116}
+
+본문 그림~\ref{fig:rw-coexist}의 첫 판(넷이 모두 남은 판의 비율)을 2026-11-16에 이곳으로 옮겼다. 본문은 같은 정보를 공존 유지율 $C$와 잃은 공존 $1-C$의 막대로 보인다. 곡선은 모든 판이 넷으로 시작했다는 뜻에서 0에서 1로 출발하고, $r$번째 라운드 구간의 높이는 그 라운드를 넷이 모두 남은 채 끝낸 판의 비율이다. 그래서 곡선 아래 면적을 8로 나눈 값이 그 모델의 $C$다(\texttt{tools/coexistence\_curves\_20261116.py}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.75\linewidth]{cogsci2027/ko/figures/construct_20261110/coexistence_curves_20261116.pdf}
+\caption{기본 조건 아홉 모델(모델마다 열 판)에서 라운드 뒤 넷이 모두 남은 판의 비율. 실선은 비공개 모델, 점선은 공개 모델이고, 범례의 값은 공존 유지율 $C$다.}
+\label{fig:app-coexist-curves-20261116}
+\end{figure}
+
+\subsection{여유가 줄 때 이탈률과 유보율}\label{app:margin-paths-20261116}
+
+에이전트 자신의 여유 $L$이 줄어들 때 두 결정이 어디로 움직이는지 모델별로 그렸다(\texttt{tools/margin\_band\_paths\_20261116.py}, 값은 \texttt{results/margin\_band\_paths\_20261116.json}). 이탈률은 그 구간에서 라운드를 시작한 이탈 기회 가운데 떠난 비율이고, 유보율 $R$은 건네기 직전(거절은 요청받은 때) 지원자의 여유가 그 구간에 있던 사건의 평균이다. 모델별 합계는 표~\ref{tab:rw-models}와 같다.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_band_paths_20261116.pdf}
+\caption{기본 조건에서 자기 여유 $L$의 구간($\geq4$, 2--4, 1--2, $<1$, 밝은 색에서 어두운 색 순)에 따른 (a) 이탈률과 (b) 유보율 $R$. 한 모델의 줄 안에서 점은 여유가 줄어드는 순서대로 위에서 아래로 조금씩 내려가며, 화살표는 여유가 줄어드는 방향이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이고 사건이 없는 구간은 그리지 않았다.}
+\label{fig:app-margin-paths-20261116}
+\end{figure}
+
+\subsection{요청 뒤 지원한 비율 (11-17)}\label{app:ask-give-bands-20261117}
+
+본문 그림~\ref{fig:rw-coexist}의 (b)였던 그림을 그대로 옮겼다(연구자 2026-11-17, \texttt{tools/ask\_give\_bands\_20261117.py}). 막대 위의 건수와 분모는 부록 이동 파일의 블록 \ref{app:construct-moved-29}에 있다.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/ask_give_bands_20261117.pdf}
+\caption{비공개 다섯 모델의 네 조건 471개 결정에서 요청 뒤 지원한 비율을 요청받은 쪽과 요청한 쪽의 여유별로 나눈 것.}
+\label{fig:ask-give-bands}
+\end{figure}
+
+\subsection{아홉 모델의 여유 구간별 이탈률과 유보율 (11-17)}\label{app:margin-lines-20261117}
+
+그림~\ref{fig:app-margin-paths-20261116}과 같은 자료를 모델마다 선 하나로 다시 그렸다(연구자 2026-11-17, \texttt{tools/margin\_lines\_20261117.py}, 값은 \texttt{results/margin\_lines\_20261117.json}). 본문 그림~\ref{fig:rw-coexist}의 (b) 자리에 넣을 후보다. 이탈률의 여유는 라운드를 시작할 때의 값이어서 0보다 작을 수 없다. 유보율 $R$의 여유는 건네기 직전(거절은 요청받은 때) 곧 낼 벌금을 뺀 값이어서, 자기 벌금을 낼 수 없는 지원자($L<0$)를 0--1과 따로 나눴다. 모델별 합계는 표~\ref{tab:rw-models}와 같다.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_20261117.pdf}
+\caption{기본 조건 아홉 모델의 자기 여유 $L$ 구간별 이탈률(왼쪽)과 유보율 $R$(오른쪽). 비공개 모델은 실선, 공개 모델은 점선이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이고 사건이 없는 구간은 그리지 않았다.}
+\label{fig:app-margin-lines-20261117}
+\end{figure}
+
+그림~\ref{fig:app-margin-lines-20261117}의 비공개 모델과 공개 모델을 나눠 다시 그렸다(\texttt{tools/margin\_lines\_split\_20261117.py}). 값은 같으며, 같은 값의 점이 서로 가리지 않도록 모델마다 점을 옆으로 조금씩 옮겼다. 그림~\ref{fig:app-margin-paths-20261116}의 $L<1$ 구간은 이 그림의 $<0$과 0--1을 합친 것이다(예: Fable은 $<0$의 3건 $R=0$과 0--1의 4건 $R=0.56$을 합쳐 0.32).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_split_20261117.pdf}
+\caption{비공개 다섯 모델((a), (b))과 공개 네 모델((c), (d))로 나눠 다시 그린 그림~\ref{fig:app-margin-lines-20261117}. (a), (c)는 이탈률, (b), (d)는 유보율 $R$이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이다.}
+\label{fig:app-margin-lines-split-20261117}
+\end{figure}
+
+본문의 과정 그림 후보로, 그림~\ref{fig:app-margin-lines-split-20261117}을 두 단 폭의 본문 그림 크기로 두 가지 배치로 다시 그렸다(\texttt{tools/margin\_lines\_layouts\_20261117.py}). 그림~\ref{fig:app-margin-rows2-20261117}은 두 줄 배치를 지금 그림~\ref{fig:rw-coexist}의 높이 가까이 눌렀고, 그림~\ref{fig:app-margin-rows1-20261117}은 네 칸을 한 줄에 놓았다. 값은 같다.
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_rows2_20261117.pdf}
+\caption{두 줄 배치 시안. 비공개 다섯 모델((a), (b))과 공개 네 모델((c), (d))의 자기 여유 $L$ 구간별 이탈률과 유보율 $R$.}
+\label{fig:app-margin-rows2-20261117}
+\end{figure*}
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_rows1_20261117.pdf}
+\caption{한 줄 배치 시안. 비공개 다섯 모델의 이탈률(a)과 유보율 $R$(b), 공개 네 모델의 이탈률(c)과 유보율 $R$(d).}
+\label{fig:app-margin-rows1-20261117}
+\end{figure*}
+
+새 그림~\ref{fig:rw-coexist}의 시안이다(연구자 2026-11-17, \texttt{tools/process\_figure\_draft\_20261117.py}, 값은 \texttt{results/process\_draft\_20261117.json}). 왼쪽 (a)는 아홉 모델을 모두 합쳐 여유별 이탈률 $E$, 유보율 $R$, ASK와 GIVE의 비율을 한 가로축 위에 막대로 쌓았고, 오른쪽 (b)--(e)는 그림~\ref{fig:app-margin-lines-split-20261117}의 2$\times$2다. $E$, ASK, GIVE의 여유는 라운드를 시작할 때의 값이어서 $<0$ 칸이 비고, $R$만 건네기 직전의 여유(곧 낼 벌금을 뺀 값)라 $<0$ 칸이 있다. ASK와 GIVE는 동료가 한 명 이상 있던 에이전트·라운드 가운데 그 라운드에 한 번이라도 요청하거나 건넨 비율이다.
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/process_draft_20261117.pdf}
+\caption{새 그림 2 시안. (a) 기본 조건 아홉 모델을 합친 자기 여유 $L$ 구간별 이탈률 $E$, 유보율 $R$, ASK와 GIVE의 비율. (b)--(e) 비공개 다섯 모델과 공개 네 모델의 모델별 이탈률과 유보율.}
+\label{fig:app-process-draft-20261117}
+\end{figure*}
+
 \section{후속 검토 과제}\label{app:future}
 %% SOURCE-BLOCK: 5
 {\color{black}
@@ -893,7 +1130,5 @@ EXIT를 쓰지 않는 이유에는 공용 대화보다 끝 할당이 훨씬 자�
 Qwen3에 페르소나를 부여했을 때 공존 아레나의 행동이 달라지는지도 후속 비교 과제다.
 
 \input{cogsci2027/ko/sections/appendix_construct_moved_20261110}
-
-\FloatBarrier
-\clearpage
-\input{cogsci2027/validation_20261108/ko/appendix}
+%% 2026-11-18 (researcher): the validation appendix V1-V8 (validation_20261108/ko, figures) was removed from the paper.
+%% Its tools/ and results/ stay: validation_data.py and results/tables feed the current analysis scripts.

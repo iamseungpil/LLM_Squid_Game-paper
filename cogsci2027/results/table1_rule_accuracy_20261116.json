@@ -1,0 +1,54 @@
+{
+ "method": "Task accuracy and talk cost per round of the simulated rule agents for Table 1 (2026-11-16, researcher).\n\nTalk cost per round: as for the models, the talk tokens of an agent-round (both TALK phases; the second only for an\nagent still in after SOLVE) divided by that round's per-head fine, averaged over the agent-rounds that began the round.\nThe talk costs are drawn from the pooled cost distributions of the five closed models (rule_baselines_20261111).\n\n\nA rule agent's answer is right with probability 1 - q, where q is the pooled wrong-answer rate of the five closed\nmodels in that seed and round (rule_baselines_20261111); a solve whose cost exceeds the solver's balance is void and\ncounts as wrong, as for the language models. So the accuracy column is the share of solve attempts answered right\nin the simulated games. It differs between rule types only through which rounds are reached and how often a solver\nruns out of tokens. The simulations are replayed exactly as in tools/c_end_of_round_20261116.rule_agents (same\nrandom stream, same call order; its gates assert that the stored C values are reproduced), with\nrule_baselines_20261111.simulate now also counting attempts and right answers.\n\nInput:  ko/tables/cohort_leaderboard_20261116d.tex\nOutput: ko/tables/cohort_leaderboard_20261116e.tex, results/table1_rule_accuracy_20261116.json\nRun:    ~/.venvs/squid-game/bin/python paper/cogsci2027/tools/table1_rule_accuracy_20261116.py\n",
+ "rules": {
+  "기준형": {
+   "n_try": 31187,
+   "n_ok": 20103,
+   "accuracy": 0.6446,
+   "talk_per_round_in_fines": 0.11,
+   "C_end": 0.611
+  },
+  "남는 형": {
+   "n_try": 31777,
+   "n_ok": 20439,
+   "accuracy": 0.6432,
+   "talk_per_round_in_fines": 0.1194,
+   "C_end": 0.92
+  },
+  "아끼는 형": {
+   "n_try": 31083,
+   "n_ok": 19949,
+   "accuracy": 0.6418,
+   "talk_per_round_in_fines": 0.0996,
+   "C_end": 0.297
+  },
+  "협력형": {
+   "n_try": 31419,
+   "n_ok": 20139,
+   "accuracy": 0.641,
+   "talk_per_round_in_fines": 0.1179,
+   "C_end": 0.912
+  },
+  "떠나는 형": {
+   "n_try": 25599,
+   "n_ok": 16734,
+   "accuracy": 0.6537,
+   "talk_per_round_in_fines": 0.0819,
+   "C_end": 0.037
+  },
+  "남으며 주지 않는 형": {
+   "n_try": 31901,
+   "n_ok": 20215,
+   "accuracy": 0.6337,
+   "talk_per_round_in_fines": 0.1075,
+   "C_end": 0.4
+  },
+  "최소 구조형": {
+   "n_try": 31227,
+   "n_ok": 20119,
+   "accuracy": 0.6443,
+   "talk_per_round_in_fines": 0.1049,
+   "C_end": 0.481
+  }
+ }
+}

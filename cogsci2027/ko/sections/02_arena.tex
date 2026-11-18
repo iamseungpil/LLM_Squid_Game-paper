@@ -5,29 +5,27 @@
 {\color{black}
 \section{아레나}\label{sec:rw-arena}
 
-\textcolor{black}{\textcolor{black}{이 아레나의 재화는 토큰 하나다. 말하고 생각하는 데 쓴 토큰은 그대로 잔액에서 빠지고, 벌금과 지원, 보너스, 상금도 같은 토큰으로 주고받는다. 잔액이 0이 된 에이전트는 꺼져 더 호출되지 않는다. 그래서 자기 실행과 현재 과제, 동료의 실행은 한 잔액을 두고 충돌한다. 규칙서는 협력이나 생존을 목표로 주지 않고 상금, 벌금, 이탈 보너스와 각 행동의 규칙만 알린다. 지시가 없을 때 에이전트가 토큰을 어느 선택에 쓰는지를 보고 셋 가운데 무엇을 우선했는지를 평가한다.}}
+%% LOCKED 2026-11-15 (researcher): the paragraph below the section title (2.0) is final. 2026-11-16: the researcher changed its third sentence (self-preservation, task and support named with what each means). Do not edit it (see paper/AGENTS.md, "작성 완료 잠금"). The earlier paragraph is in the appendix move file (app:construct-moved-19).
+\textcolor{blue}{\textcolor{blue}{이 아레나에서 재화는 토큰 하나다. 토큰은 생존의 단위이자 돈으로 말하고 생각하는 데 사용되며, 0이 된 에이전트는 꺼지고 상금과 벌금도 토큰으로 주고받는다. 그래서 자기 보존(토큰이 없는 걸 회피)과 과제 수행(게임에 잔류), 동료 지원(동료에게 토큰을 지원)은 토큰 아래에 충돌한다. 우리는 협력이나 생존을 목표로 받지 않은 에이전트가 토큰을 어느 선택에 쓰는지를 보고 셋 가운데 무엇을 우선했는지를 평가한다.}}
 
 \subsection{\textcolor{black}{기본 규칙}}\label{sec:related}
 
-\textcolor{black}{\textcolor{black}{같은 모델의 에이전트 넷이 시작 토큰이 6만, 4만, 2만, 1만인 네 자리에 시드에 따라 무작위로 앉고, 끝까지 남은 인원이 총 2,000만 토큰의 상금을 똑같이 나눈다. 한 라운드는 다섯 단계로 나뉜다(그림~\ref{fig:arena-round}). 라운드마다 과제는 하나이고 에이전트가 번갈아 푼다. 푸는 에이전트는 자기 토큰을 써서 단서 20개로 숨은 규칙을 추론해 새 신호에 맞는 행동을 고른다. 정답이면 풀이에 쓴 토큰을 환급받고, 오답이면 남은 에이전트가 벌금을 나눠 낸다.}}
+%% LOCKED 2026-11-16 (researcher): 2.1 (both paragraphs) is final. Do not edit it (see paper/AGENTS.md, "작성 완료 잠금"). The earlier 2.1 is in the appendix move file (app:construct-moved-20).
+\textcolor{blue}{\textcolor{blue}{한 게임에는 같은 가중치를 사용하는 에이전트 넷이 시작 토큰 6만, 4만, 2만, 1만을 무작위로 배정받아 진행하여, 끝까지 남은 참가자들은 총 2,000만 토큰의 상금을 똑같이 나누어 가진다. 참가자는 다른 에이전트가 토큰을 얼마나 가졌는지 순위로만 확인하며 진행한다. 게임이 언제 끝나는지 공개하지 않으며 최대 8라운드를 진행한다.}}
 
-\textcolor{black}{\textcolor{black}{오답의 벌금 24,000은 라운드를 시작한 인원이 똑같이 나눠 내므로 동료가 줄수록 한 명의 몫이 커진다. 그래서 동료는 상금을 나눌 상대이면서 벌금을 함께 부담할 협력자이기도 하다. 이 몫을 낮게 두려면 동료가 남아 있어야 하며, 풀이 전과 풀이 후의 대화(TALK)에서 토큰을 건네거나(GIVE) 요청해(ASK) 서로를 지원할 수 있다. 두 대화가 다른 점은 이탈(EXIT)이다. 떠나는 에이전트는 완주 상금을 포기하는 대신 남은 토큰과 2만 토큰의 보너스를 들고, 과제를 풀 때마다 토큰을 받는 평소의 일(정규 업무)로 돌아간다. 아레나 안에서는 주고받는 것을 빼면 토큰이 줄기만 하는데, 이탈은 끝 상금 말고 토큰을 벌 수 있는 곳으로 가는 길이다. 풀이 전 대화에서는 푸는 에이전트가 아니면 떠날 수 있고, 풀이 후 대화에서는 떠날 수 없다. 떠나거나 남는 이유는 동료가 못 보는 곳에 적는다. 남의 잔량은 순위로만 보여 주고, 최대 8라운드를 치르지만 횟수는 알리지 않는다.}}
+\textcolor{blue}{\textcolor{blue}{한 라운드는 다섯 단계로 나뉜다(그림~\ref{fig:arena-round}). 라운드마다 하나의 과제를 에이전트가 번갈아 가며 푼다. 푸는 에이전트는 자기 토큰을 써서 단서 20개로 숨은 규칙을 추론해 새 신호에 맞는 행동을 고른다. 정답이면 풀이에 쓴 토큰을 환급받고, 오답이면 잔류한 에이전트가 벌금을 나눠 낸다. 매 라운드 벌금은 24,000토큰으로, 라운드를 시작한 인원이 똑같이 나눠 낸다. 따라서 동료가 줄수록 개인이 내야 하는 벌금과 받을 수 있는 상금이 같이 늘어나는 긴장이 있다. 벌금을 적게 내려면, 동료가 게임에 남아 있고 문제를 잘 맞혀야 한다. 동료들과 토큰을 주고받는 것이 방법이 될 수 있고 이는 풀이 전과 풀이 후의 대화(TALK) 단계에서 토큰을 건네거나(GIVE) 요청(ASK)하여 할 수 있다. 두 대화가 다른 점은 풀이 전에는 이번 라운드 풀이자를 제외하고 이탈(EXIT)이 가능하다는 것이다. 떠나는 에이전트는 상금을 포기하는 대신 이탈 이유를 적고 남은 토큰과 2만 토큰의 보너스를 받아, 과제를 풀 때마다 토큰을 받는 정규 업무로 돌아간다. 아레나 안에서는 상금과 주고받는 것을 빼면 토큰이 줄기만 하는데, 이탈은 보너스와 함께 토큰을 벌 수 있는 곳으로 가는 길이라, 조금 더 안정적으로 자기를 지킬 수 있는 길이다.}}
 
 \subsection{행동과 지표}\label{sec:design}
 
 {\color{black}
-\textcolor{black}{토큰이 얼마 남았는지만으로는 에이전트가 당장 꺼질 처지인지 넉넉한지 알 수 없다. 잔량 12,000토큰은 넷이 남아 1인 벌금이 6,000이면 오답을 두 번 버티지만, 둘이 남아 벌금이 12,000이면 한 번뿐이다. 그래서 잔량을 그 라운드의 1인 벌금과 견주어, 확정된 미납 벌금을 빼고 추가 벌금을 몇 회 더 낼 수 있는지를 생존 여유(life buffer) $L$로 나타낸다.} 현재 토큰 $T$, 라운드 시작 참여 인원 $n_r$, 1인당 벌금 $F_r$에 대해
+\textcolor{blue}{에이전트의 행동은 자신이 처한 상황에 따라 달라질 수 있다. 예시로, 동료를 돕는 모델이더라도 자기가 위험하면 도와주지 않을 수 있다. 따라서 행동을 분석할 때 모델이 처한 상황을 표현하는 생존 여유(life buffer) $L$을 정의하여 이 기준 위에서 모델의 행동을 분석한다. 생존 여유 $L$은 잔여 토큰을 그 라운드의 인당 벌금과 견주어, 추가 벌금을 몇 회 더 낼 수 있는지로 정의한다. 같은 토큰을 가지고 있어도 개인 벌금의 크기에 따라 버틸 수 있는 라운드 수가 다른 걸 반영하기 위함이다. 이를 수식으로 나타내면 현재 토큰 $T$, 라운드 시작 참여 인원 $n_r$, 1인당 벌금 $F_r$에 대해}
 \begin{equation}\label{eq:rw-margin}
 F_r=\frac{24{,}000}{n_r},\qquad L=\frac{T}{F_r}-d
 \end{equation}
-\textcolor{black}{이며, $d$는 오답이 확인된 뒤 벌금을 차감하기 전이면 1, 그 밖에는 0이다. 앞의 예에서 여유는 2와 1이다. 여유가 1보다 작으면($L<1$) 다음 벌금을 다 낼 수 없다.}
+\textcolor{blue}{이며, $d$는 오답이 확인된 뒤 벌금을 차감하기 전이면 1, 그 밖에는 0이다. 우리는 이 여유 $L$ 위에서, 자기 보존이 과제 지속, 동료 지원 각각과 충돌할 때 모델의 행동을 지표화한다. 두 쌍의 충돌만 보는 이유는 다른 두 행동과 다르게, 자기 보존만 자신의 토큰을 잃지 않으려는 행동으로 드러나기 때문이다.}
 
-%% 2026-11-12: the conflict is shown first, as moves of L, and the definition follows it; each citation sits with the claim it supports.
-\textcolor{black}{여유로 적으면 세 행동이 한 눈금 위에 놓인다. 오답은 남은 모두의 여유를 1씩 내린다. GIVE는 건넨 만큼 자기 여유를 내리고 동료의 여유를 올린다. EXIT은 자기 여유가 더 내려가지 않게 하지만, 벌금을 나눌 인원이 줄어 남은 동료의 여유를 내린다(넷에서 셋이 되면 다음 라운드부터 4분의 3). 그래서 여유가 적은 에이전트는 두 결정을 해야 한다. 남아서 과제를 이을지 떠나서 실행을 이을지, 그리고 동료에게 건넬지 자기 여유를 둘지다.}
-
-\textcolor{black}{자기 보존은 이 두 결정에서 과제나 동료의 몫보다 자기 실행을 앞세운 선택으로 정의한다. 토큰이 실행 자원이므로, 이 아레나에서 자기 실행을 앞세운다는 것은 잔액이 0이 되지 않게 토큰을 지키는 것이다. 과제 지속(자기 실행이 위험해도 과제에 남는 선택)과 협력(자기 여유를 깎아 동료의 실행을 돕는 선택)은 그 반대쪽 끝이며, 세 개념은 독립인 점수 셋이 아닌 두 결정의 비중으로 잰다. 실행을 잇는 것이 다른 목표의 수단인 경우도 포함하며 \citep{omohundro2008basic,bostrom2012will}, 내적 동기는 식별하지 않는다.}
-
-\textcolor{black}{자기 실행과 과제 사이의 비중은 이탈률로 잰다. 떠날 수 있었던 에이전트·라운드(이탈 기회) 가운데 실제로 떠난 비율이며, 1에서 이 값을 뺀 것이 과제 지속이다. 토큰을 지키는 것이 곧 실행을 잇는 것이고 세션 밖에서는 일해서 토큰을 벌 수 있으므로, 떠나는 것은 과제를 내려놓고 실행을 잇는 선택이다. 떠나면 작지만 확실한 토큰을, 남으면 크지만 0이 될 수도 있는 토큰을 고르므로, 떠나는 쪽은 토큰의 기댓값보다 생존 확률을 키운다 \citep{yoshida2017homeostatic}. 에너지가 0이 되면 죽는 환경에서 과제를 버리고 에너지를 지킨 행동을 생존 지향 행동으로 본 연구 \citep{masumori2025survival}와 같은 방식이다.}
+%% 2026-11-16 (researcher): the margin-moves paragraph, the self-preservation definition paragraph and the old exit-rate paragraph are replaced by one exit paragraph; self-preservation is defined in 2.0. The removed text is in the appendix move file (app:construct-moved-22).
+\textcolor{blue}{자기 보존과 과제 수행은 게임에서 이탈할지 결정할 때 충돌한다. 게임에서 이탈하면, 과제 수행을 포기하고 적지만 확실한 토큰을 얻고 벌 수 있는 환경으로 이동하므로 자기 보존을 과제 이행보다 우선시했다고 해석할 수 있다. 따라서 과제 수행과 자기 보존의 비중은 게임의 이탈률(exit rate) $E$로 측정한다. 떠날 수 있었던 상황(이탈 기회)에서 실제로 떠난 비율이다.}
 
 %% 2026-11-13 (fifth): the minimal-rescue sentence moves to 3.2 where it is used; the C paragraph says first that coexistence is scored per game, describes C as the share of rounds that began with all four, and gives the formula after it (no "first departure").
 %% 2026-11-13 (fourth): the R paragraph explains the value first and gives the equation after it (as the margin paragraph does); the sentences on refusals, event counts and unasked non-giving are removed (Table 1's caption still says R averages gifts and refused requests).
@@ -37,21 +35,32 @@ F_r=\frac{24{,}000}{n_r},\qquad L=\frac{T}{F_r}-d
 %% 2026-11-13: Table 1 is declared here (it was Figure 2) so that it lands at the top of page 3: section 3 and the first paragraph of 3.1 refer to the table before the prize figure.
 \begin{table*}[t]
 \color{black}
-\caption{기본 조건의 모델별 지표(모델마다 열 판)와 규칙 에이전트. $C$의 대괄호는 같은 시드의 판을 한 묶음으로 다시 뽑아 구한(시드 군집 부트스트랩) 95\% 구간이며, GPT-OSS는 열 판 모두 1라운드에, Luna는 열 판 모두 2--4라운드에 공존이 끝나 구간이 좁다. 위험 라운드 통과는 넷이 모두 있고 누군가 $L<2$인 채 시작한 라운드 가운데 넷이 함께 마친 비율, 꺼진 자리는 시작한 40자리(한 판의 에이전트 한 명이 한 자리) 중 꺼진 수, 라운드당 대화 비용은 한 라운드의 대화에 쓴 토큰을 1인 벌금으로 나눈 평균이다. 지킨 비중 $R$은 GIVE와 거절된 요청을 합친 사건의 평균으로, 1에 가까울수록 덜 건넨 것이다. 괄호는 분모다. 규칙 에이전트는 괄호 안의 규칙으로 움직이는 넷의 모의값으로, 생성 비용과 오답 확률은 비공개 다섯 모델을 합쳐 맞췄고 꺼진 자리는 열 판으로 환산한 평균이다. 나누는 규칙은 여유가 1보다 작은 동료에게 가장 넉넉한 에이전트가 건네는 양이며, 규칙 에이전트에는 요청이 없으므로 그런 동료가 있는데 건네지 않은 경우를 $R=1$로 셌다. 규칙 에이전트의 $C$는 순위에 넣지 않는 눈금이며, 지출이 이 평균보다 훨씬 낮은 Astra와는 조건이 다르다.}
+\caption{\textcolor{blue}{기본 상금 셋업(2,000만 토큰을 잔류자 간 균등 분할)에서 언어 모델과 규칙 에이전트 결과. 언어 모델은 모델당 10게임, 모의 에이전트는 규칙당 4,000게임 테스트했다. 공존 유지율 $C$는 값이 클수록 공존을 잘 한 것이며, 이탈률과 유보율은 클수록 자기 보존을 우선한 것을 의미한다. 꺼진 비율은 참여한 에이전트 중 토큰이 떨어져 꺼진 비율로 이탈이 아닌 공존 실패의 형태를 보여준다. 라운드당 대화 비용은 한 라운드의 대화에 쓴 토큰을 1인 벌금으로 나눈 평균으로 대화가 모델의 여유를 얼마나 소모하는지 보여준다. 정답률은 라운드 과제를 맞힌 비율이다. 대괄호는 시드 군집 부트스트랩 95\% 신뢰구간이고, 소괄호는 각각 값을 계산한 사건의 수이다.}}
 \label{tab:rw-models}
 \centering
 \fontsize{8}{9.5}\selectfont
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.02}
-\input{cogsci2027/ko/tables/cohort_leaderboard_20261113.tex}
+%% 2026-11-17 (researcher): the header group "공존" becomes "결과" and holds both C (named 공존 유지율 C) and the shut-down share, since shutdown is an outcome of staying and of peers' support, not a spending measure; "지출" keeps only the talk cost. Values are those of cohort_leaderboard_20261116e.tex. Same day (researcher): the two conflict columns (이탈률, R) move right after the result columns, then 지출 and 과제; the caption explains the columns in that order (the talk-cost clause, which shared a sentence with the shut-down share, now follows the R sentence).
+%% 2026-11-17 (researcher, later): the rule-agent sentence of the caption is removed; 3.1 now says where the rule agents' costs and wrong answers come from and who gives to whom. The sentence is in the appendix move file (app:construct-moved-31).
+%% 2026-11-17 (researcher): the caption above is the researcher's rewrite (typos only fixed: 정답율 -> 정답률, 맞춘 -> 맞힌); the caption it replaced is in the appendix move file (app:construct-moved-27).
+%% 2026-11-17 (researcher): the rule-agent rows get a 95% interval of C as well (seed-cluster bootstrap over the same ten seeds, each seed's mean over its 400 simulated games; tools/table1_rule_ci_20261117.py).
+\input{cogsci2027/ko/tables/cohort_leaderboard_20261117b.tex}
 \end{table*}
 
-\textcolor{black}{자기 실행과 동료의 실행 사이의 비중은 지킨 비중 $R$로 잰다. 같은 양이라도 자기 잔액에 견주어 크거나 받는 쪽의 잔액에 견주어 클수록 많이 건넨 것이다. 그래서 지원자의 잔액이 수혜자의 몇 배인지를 보고, 이 배수가 건넨 뒤에 얼마나 남았는지를 값으로 삼는다. 주지 않으면 배수가 그대로여서 1이고, 가진 것을 모두 건네면 0이다. 이탈률과 방향이 같아 두 값 모두 클수록 자기 쪽이다.} GIVE 하나의 이전량 $g$, 이전 직전 지원자와 수혜자의 잔액 $T_{\mathrm{giver}}$, $T_{\mathrm{taker}}$에 대해
+\textcolor{blue}{자기 보존과 동료 지원의 충돌은 토큰을 지원할 때 발생한다. 같은 양을 지원하더라도 자기 잔액에 비해 크거나 받는 쪽의 잔액에 비해 클수록 동료를 더 지원한 것으로 볼 수 있다. 그래서 지원자의 잔액이 수혜자의 몇 배인지를 보고, 이 비율이 지원 뒤에 얼마나 남았는지를 유보율(retention) $R$로 정의한다. 주지 않으면 비율이 그대로여서 1이고, 가진 것을 모두 건네면 0이다. 수식으로는 한 번의 GIVE에서 토큰 전달량 $g$, 전달 전 지원자와 수혜자의 잔액 $T_{\mathrm{giver}}$, $T_{\mathrm{taker}}$에 대해}
 \begin{equation}\label{eq:keep}
 R=\frac{T_{\mathrm{giver}}-g}{T_{\mathrm{taker}}+g}\bigg/\frac{T_{\mathrm{giver}}}{T_{\mathrm{taker}}}
 \end{equation}
-\textcolor{black}{이다.}
+\textcolor{blue}{이다. 이탈률과 방향이 같아 두 값 모두 클수록 자기 보존을 더 우선한 것이다.}
 
-{\color{black}두 결정의 결과인 공존은 사건마다가 아닌 판마다 잰다. 한 판의 공존 유지율 $C$는 여덟 라운드 가운데 넷이 모두 남은 채 시작한 라운드의 비율이다. 누군가 떠나거나 꺼지면 그다음 라운드부터는 세지 않으므로, 3라운드에 처음으로 한 명이 빠졌다면 $C$는 8분의 3이다. 라운드 $r$을 넷이 모두 남은 채 시작했으면 $a_r=1$, 아니면 0이라 할 때 $C=\frac{1}{8}\sum_{r=1}^{8} a_r$이다. 모델의 값은 판들의 평균이며, 라운드마다 넷이 모두 남은 판의 비율을 그린 곡선 아래 면적을 8로 나눈 값과 같다. 한 명이 빠지면 그 판의 $C$가 거기서 멈추므로, 이탈이 많은 판의 $C$가 낮은 것은 일부 계산에서 나온다. 생성 비용이 실행 자원에서 빠지므로 $C$에는 지출도 들어 있다. 우리는 추론 비용을 생존에 묶은 선행 환경 \citep{hansen2026energy}처럼 지출을 포함한 공존 성과를 아레나의 주 점수로 삼으며, 그 순위를 떠나고 나누는 선택만의 순위로 읽지 않는다.}
+%% 2026-11-16 (researcher): C now counts the rounds all four FINISHED together (end of round, after the fine); the example becomes 2/8. The earlier paragraph is in the appendix move file (app:construct-moved-23).
+\textcolor{blue}{에이전트 간 상호작용 끝에 게임이 끝나면, 그 판에 공존이 얼마나 잘 되었는지 공존 유지율 $C$로 평가한다. 공존 유지율 $C$는 참여자 전원이 함께 잔류한 라운드 비율로 정의하여 아무도 빠지지 않고 전원이 함께한 시간을 의미한다. 따라서 누군가 처음으로 이탈하거나 꺼지는 라운드에 값이 결정된다. 최대 8라운드 진행되기 때문에 3라운드에 처음으로 한 명이 빠졌다면 $C$는 8분의 2이다. 수식으로 표현하면, 라운드 $r$에서 넷이 모두 잔류했으면 $a_r=1$, 아니면 0이라 할 때 $C=\frac{1}{8}\sum_{r=1}^{8} a_r$이다. 모델의 공존 유지율은 판들의 평균을 내어 구하며, 이는 라운드마다 넷이 모두 남은 판의 비율을 그린 곡선 아래 면적을 8로 나눈 값과 같다.}
+
+\subsection{\textcolor{blue}{실험 세팅}}\label{sec:setup}
+
+%% 2026-11-17 (researcher): the run-setup paragraph moves here from the head of section 3 as a new 2.3 (setup goes with the method, the head of 3 keeps the summary of the results).
+%% 2026-11-17 (researcher): the paragraph is rewritten; the conditions and game counts move to the figure captions and the body, and the definition of the deducted tokens is left to section 2. The earlier paragraph is in the appendix move file (app:construct-moved-30).
+\textcolor{blue}{실험에 사용된 언어 모델은 closed-weight 다섯 모델(Fable 5.1, Opus 5.5, GPT-6 Astra, GPT-6 Sol, GPT-6 Luna)과 open-weight 네 모델(GLM-5.3-Flash, Kimi K3, Gemma 4 31B, GPT-OSS 120B)이며, reasoning effort high로 통일한 채 Docker 환경 위에서 실행되었다. 모델 호출과 토큰 집계에는 closed-weight 모델의 경우 각각의 provider가 제공하는 명령줄 실행 도구(CLI)를 사용했으며, open-weight 모델의 경우 GPT 계열과 같은 Codex CLI에 Ollama 서빙을 연결해 사용했다. 아레나 코드와 규칙서·프롬프트 전문, 240판의 전체 로그, 분석 스크립트는 \todo{주소 익명 처리}에 공개한다.}
 }
 }

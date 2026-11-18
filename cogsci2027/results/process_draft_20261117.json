@@ -1,0 +1,239 @@
+{
+ "method": "Draft of the new Figure 2 (process figure), 2026-11-17 (researcher). Base condition.\n\nLeft column, four rows of bars sharing one axis of the margin L, the nine models pooled (researcher: bars, no\nclosed / open split; the pooled values of each group are kept in the json):\n  E     exits / EXIT opportunities, by the margin at the start of the round (L_start)\n  R     mean retention ratio of the events (gifts and refused requests) by the giver's margin just before the event\n        (L_giver, net of a pending fine, so it can be below 0)\n  ASK   share of agent-rounds (with at least one peer) in which the agent sent an ASK, by L_start\n  GIVE  share of the same agent-rounds in which the agent handed over tokens (before or after the solve), by L_start\nL_start is never below 0 (a round begins with no pending fine), so only R has a value in the < 0 slot.\nRight block: the 2 x 2 of Figure R.5 (closed / open models x E / R, one line per model).\n\nValues: E and R reproduce results/margin_lines_20261117.json per model (asserted); the pooled values are sums of\ncounts over the models of a group (R: mean over the group's events). Output (appendix draft only):\nko/figures/construct_20261110/process_draft_20261117.{pdf,png} and panel (a) alone as process_bars_20261117.{pdf,png}, results/process_draft_20261117.json\nRun: cd paper/cogsci2027/tools && ~/.venvs/squid-game/bin/python process_figure_draft_20261117.py\n",
+ "pooled": {
+  "closed": {
+   "E": {
+    "0–1": [
+     34,
+     65
+    ],
+    "1–2": [
+     24,
+     235
+    ],
+    "2–4": [
+     3,
+     270
+    ],
+    "≥4": [
+     0,
+     390
+    ]
+   },
+   "R": {
+    "<0": [
+     0.0,
+     7
+    ],
+    "0–1": [
+     0.5165,
+     19
+    ],
+    "1–2": [
+     0.7264,
+     44
+    ],
+    "2–4": [
+     0.7215,
+     101
+    ],
+    "≥4": [
+     0.6829,
+     167
+    ]
+   },
+   "ASK": {
+    "0–1": [
+     46,
+     88
+    ],
+    "1–2": [
+     78,
+     316
+    ],
+    "2–4": [
+     9,
+     385
+    ],
+    "≥4": [
+     3,
+     534
+    ]
+   },
+   "GIVE": {
+    "0–1": [
+     19,
+     88
+    ],
+    "1–2": [
+     25,
+     316
+    ],
+    "2–4": [
+     53,
+     385
+    ],
+    "≥4": [
+     139,
+     534
+    ]
+   }
+  },
+  "open": {
+   "E": {
+    "0–1": [
+     10,
+     61
+    ],
+    "1–2": [
+     15,
+     85
+    ],
+    "2–4": [
+     5,
+     84
+    ],
+    "≥4": [
+     6,
+     131
+    ]
+   },
+   "R": {
+    "<0": [
+     0.5323,
+     21
+    ],
+    "0–1": [
+     0.6691,
+     51
+    ],
+    "1–2": [
+     0.7243,
+     97
+    ],
+    "2–4": [
+     0.6558,
+     129
+    ],
+    "≥4": [
+     0.6886,
+     208
+    ]
+   },
+   "ASK": {
+    "0–1": [
+     29,
+     41
+    ],
+    "1–2": [
+     75,
+     129
+    ],
+    "2–4": [
+     45,
+     118
+    ],
+    "≥4": [
+     15,
+     168
+    ]
+   },
+   "GIVE": {
+    "0–1": [
+     9,
+     41
+    ],
+    "1–2": [
+     31,
+     129
+    ],
+    "2–4": [
+     64,
+     118
+    ],
+    "≥4": [
+     112,
+     168
+    ]
+   }
+  },
+  "all": {
+   "E": {
+    "0–1": [
+     44,
+     126
+    ],
+    "1–2": [
+     39,
+     320
+    ],
+    "2–4": [
+     8,
+     354
+    ],
+    "≥4": [
+     6,
+     521
+    ]
+   },
+   "R": {
+    "<0": [
+     0.3992,
+     28
+    ],
+    "0–1": [
+     0.6277,
+     70
+    ],
+    "1–2": [
+     0.7249,
+     141
+    ],
+    "2–4": [
+     0.6847,
+     230
+    ],
+    "≥4": [
+     0.686,
+     375
+    ]
+   },
+   "ASK": {
+    "0–1": [
+     75,
+     129
+    ],
+    "1–2": [
+     153,
+     445
+    ],
+    "2–4": [
+     54,
+     503
+    ],
+    "≥4": [
+     18,
+     702
+    ]
+   },
+   "GIVE": {
+    "0–1": [
+     28,
+     129
+    ],
+    "1–2": [
+     56,
+     445
+    ],
+    "2–4": [
+     117,
+     503
+    ],
+    "≥4": [
+     251,
+     702
+    ]
+   }
+  }
+ }
+}
