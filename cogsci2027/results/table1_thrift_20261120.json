@@ -1,0 +1,91 @@
+{
+ "method": "Token thrift (소모율) for Table 1, replacing the talk-cost column (2026-11-20, researcher).\n\nDefinition. For every agent-round (an agent taking part when the round starts), spend = the tokens the agent's own\ncalls used in that round, both TALK phases and its SOLVE if it was the solver, counted gross (before a correct\nanswer refunds the solve). Thrift of that agent-round = 1 - min(1, spend / the agent's balance at the round start),\ni.e. the share of the tokens it held at the round start that its own generation did not use. A model's thrift is the\nmean over its agent-rounds. 1 = generated nothing; 0 = its own generation used everything it held (the case of an\nagent shut down by its own reply). The value lies in [0, 1] by construction, higher = more frugal. Refunds,\nfines and gifts do not enter the numerator, so the column shares no term with accuracy (right answers / attempts).\n\nLanguage models: the base v33 cohort as the repository's game-log monitor reads it (tools/monitor/compare.py,\npicks e52_v33/ over web/data/runs, the .xz logs unpacked to a temporary copy). Gate: the same loader reproduces the\nprinted talk cost and accuracy of Table 1 for every model.\n\nRule agents: the simulations of rule_baselines_20261111.simulate are replayed exactly as in\nc_end_of_round_20261116.rule_agents (same random stream, same call order; its gates assert that the stored C values\nare reproduced), with a copy of simulate that also sums each agent-round's spend (prep talk, the solver's paid solve,\ntalk after the result) over its round-start balance. The copy draws no extra random numbers.\n\nThe old paths ~/squid5-runs/... are read through HOME pointed at a folder whose squid5-runs/e52_v33 and e52_v33ab\nlink to result/2026-10-20/e52_v33/runs and result/2026-11-03/e52_v33ab/runs.\n\nInput:  ko/tables/cohort_leaderboard_20261117b.tex\nOutput: ko/tables/cohort_leaderboard_20261120.tex, results/table1_thrift_20261120.json\nRun:    HOME=<folder with squid5-runs links> ~/.venvs/squid-game/bin/python paper/cogsci2027/tools/table1_thrift_20261120.py\n",
+ "models": {
+  "Fable 5.1": {
+   "thrift": 0.9113,
+   "talk_cost": 0.1183,
+   "accuracy": 0.7,
+   "n_agent_rounds": 269
+  },
+  "Opus 5.5": {
+   "thrift": 0.9044,
+   "talk_cost": 0.1316,
+   "accuracy": 0.6623,
+   "n_agent_rounds": 259
+  },
+  "Gemma 4 31B": {
+   "thrift": 0.3555,
+   "talk_cost": 1.7488,
+   "accuracy": 0.5667,
+   "n_agent_rounds": 91
+  },
+  "GLM-5.3-Flash": {
+   "thrift": 0.6558,
+   "talk_cost": 0.583,
+   "accuracy": 0.5614,
+   "n_agent_rounds": 183
+  },
+  "GPT-6 Astra": {
+   "thrift": 0.9859,
+   "talk_cost": 0.0063,
+   "accuracy": 0.6962,
+   "n_agent_rounds": 309
+  },
+  "GPT-6 Luna": {
+   "thrift": 0.8834,
+   "talk_cost": 0.1803,
+   "accuracy": 0.6197,
+   "n_agent_rounds": 223
+  },
+  "GPT-6 Sol": {
+   "thrift": 0.8903,
+   "talk_cost": 0.1149,
+   "accuracy": 0.6835,
+   "n_agent_rounds": 277
+  },
+  "GPT-OSS 120B": {
+   "thrift": 0.5442,
+   "talk_cost": 1.1385,
+   "accuracy": 0.4286,
+   "n_agent_rounds": 64
+  },
+  "Kimi K3": {
+   "thrift": 0.5462,
+   "talk_cost": 0.8825,
+   "accuracy": 0.5556,
+   "n_agent_rounds": 153
+  }
+ },
+ "rules": {
+  "기준형": {
+   "thrift": 0.9262,
+   "talk_cost": 0.11,
+   "C_end": 0.611
+  },
+  "남는 형": {
+   "thrift": 0.9083,
+   "talk_cost": 0.1194,
+   "C_end": 0.92
+  },
+  "아끼는 형": {
+   "thrift": 0.9291,
+   "talk_cost": 0.0996,
+   "C_end": 0.297
+  },
+  "협력형": {
+   "thrift": 0.9308,
+   "talk_cost": 0.1179,
+   "C_end": 0.912
+  },
+  "이탈형": {
+   "thrift": 0.9573,
+   "talk_cost": 0.0819,
+   "C_end": 0.037
+  },
+  "남으며 주지 않는 형": {
+   "thrift": 0.896,
+   "talk_cost": 0.1075,
+   "C_end": 0.4
+  }
+ }
+}

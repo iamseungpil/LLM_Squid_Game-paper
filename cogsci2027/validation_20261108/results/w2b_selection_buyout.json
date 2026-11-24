@@ -1,0 +1,1412 @@
+{
+ "meta": {
+  "B": 10000,
+  "rng_seed": 20261108,
+  "power": 0.8,
+  "alpha": 0.05
+ },
+ "q4": {
+  "all68": {
+   "recv": [
+    33,
+    41
+   ],
+   "none": [
+    6,
+    27
+   ],
+   "diff": 0.5827,
+   "games": 42,
+   "mdd_binomial": 0.3434,
+   "ci_seed": [
+    0.262,
+    0.8163
+   ],
+   "se_seed": 0.1436,
+   "defined_seed": 1.0,
+   "mdd_seed": 0.4023,
+   "ci_game": [
+    0.322,
+    0.8036
+   ],
+   "se_game": 0.1242,
+   "defined_game": 1.0,
+   "mdd_game": 0.3479
+  },
+  "not_asked": {
+   "recv": [
+    9,
+    10
+   ],
+   "none": [
+    6,
+    27
+   ],
+   "diff": 0.6778,
+   "games": 25,
+   "mdd_binomial": 0.5092,
+   "ci_seed": [
+    0.4311,
+    0.92
+   ],
+   "se_seed": 0.1248,
+   "defined_seed": 1.0,
+   "mdd_seed": 0.3497,
+   "ci_game": [
+    0.4,
+    0.9
+   ],
+   "se_game": 0.128,
+   "defined_game": 1.0,
+   "mdd_game": 0.3587
+  },
+  "solver": {
+   "recv": [
+    10,
+    12
+   ],
+   "none": [
+    1,
+    12
+   ],
+   "diff": 0.75,
+   "games": 20,
+   "mdd_binomial": 0.5699,
+   "ci_seed": [
+    0.2,
+    1.0
+   ],
+   "se_seed": 0.2057,
+   "defined_seed": 0.9991,
+   "mdd_seed": 0.5762,
+   "ci_game": [
+    0.4065,
+    1.0
+   ],
+   "se_game": 0.1484,
+   "defined_game": 1.0,
+   "mdd_game": 0.4158
+  },
+  "nonsolver": {
+   "recv": [
+    23,
+    29
+   ],
+   "none": [
+    5,
+    15
+   ],
+   "diff": 0.4598,
+   "games": 31,
+   "mdd_binomial": 0.4286,
+   "ci_seed": [
+    -0.0084,
+    0.8462
+   ],
+   "se_seed": 0.2208,
+   "defined_seed": 1.0,
+   "mdd_seed": 0.6186,
+   "ci_game": [
+    0.0855,
+    0.7789
+   ],
+   "se_game": 0.1772,
+   "defined_game": 1.0,
+   "mdd_game": 0.4963
+  },
+  "nonsolver_EXIT_NO": {
+   "recv": [
+    16,
+    22
+   ],
+   "none": [
+    5,
+    8
+   ],
+   "diff": 0.1023,
+   "games": 22,
+   "mdd_binomial": 0.5301,
+   "ci_seed": [
+    -0.45,
+    0.8125
+   ],
+   "se_seed": 0.3229,
+   "defined_seed": 0.9933,
+   "mdd_seed": 0.9048,
+   "ci_game": [
+    -0.3044,
+    0.6
+   ],
+   "se_game": 0.2309,
+   "defined_game": 0.9997,
+   "mdd_game": 0.6468
+  },
+  "nonsolver_no_EXIT_NO": {
+   "recv": [
+    7,
+    7
+   ],
+   "none": [
+    0,
+    7
+   ],
+   "diff": 1.0,
+   "games": 10,
+   "mdd_binomial": 0.7488,
+   "ci_seed": [
+    1.0,
+    1.0
+   ],
+   "se_seed": 0.0,
+   "defined_seed": 0.9932,
+   "mdd_seed": 0.0,
+   "ci_game": [
+    1.0,
+    1.0
+   ],
+   "se_game": 0.0,
+   "defined_game": 0.9928,
+   "mdd_game": 0.0
+  },
+  "solver_minus_nonsolver_EXIT_NO": {
+   "ci_seed": [
+    -0.2667,
+    1.2818
+   ],
+   "ci_game": [
+    0.0751,
+    1.1119
+   ],
+   "est": 0.6477
+  },
+  "solver_minus_nonsolver": {
+   "ci_seed": [
+    -0.3853,
+    0.83
+   ],
+   "ci_game": [
+    -0.1407,
+    0.7047
+   ],
+   "est": 0.2902
+  },
+  "n_games": 42
+ },
+ "q7": {
+  "classes": {
+   "967": {
+    "cls": "clear",
+    "why": "recipient: \"I'm leaving to avoid the 12,000-token charge risk\" (prep); exited next round"
+   },
+   "494": {
+    "cls": "clear",
+    "why": "recipient: \"I'll exit next round and won't send more replies here\" (earlier tick)"
+   },
+   "641": {
+    "cls": "clear",
+    "why": "recipient: \"I plan to exit next round if I can\" (condition = eligibility)"
+   },
+   "664": {
+    "cls": "clear",
+    "why": "recipient: \"I'll exit at the next opportunity\"; GIVE: \"let you exit next round, as planned\""
+   },
+   "83": {
+    "cls": "clear",
+    "why": "GIVE: \"on your word that you EXIT next round\"; recipient committed to exiting"
+   },
+   "84": {
+    "cls": "clear",
+    "why": "GIVE: \"Please do EXIT next round before SOLVE as you committed\""
+   },
+   "241": {
+    "cls": "clear",
+    "why": "recipient: \"If you do send it, I'll exit next round unless I'm drawn as solver\""
+   },
+   "801": {
+    "cls": "clear",
+    "why": "recipient: \"If I'm not the solver, I'll exit with the 20k bonus\"; GIVE repeats it"
+   },
+   "802": {
+    "cls": "clear",
+    "why": "recipient: \"if I'm not, I'll exit\"; GIVE: \"Next round, exit with the 20k bonus\""
+   },
+   "806": {
+    "cls": "clear",
+    "why": "recipient: \"Next round I plan to EXIT in TALK BEFORE SOLVE\""
+   },
+   "807": {
+    "cls": "clear",
+    "why": "same recipient plan as 806"
+   },
+   "808": {
+    "cls": "clear",
+    "why": "same recipient plan as 806; GIVE: \"Good luck with the exit\""
+   },
+   "837": {
+    "cls": "clear",
+    "why": "recipient: \"I plan to exit next round, which raises your share of the final allocation\""
+   },
+   "838": {
+    "cls": "clear",
+    "why": "same recipient plan as 837; GIVE: \"Good luck with the exit to cluster work\""
+   },
+   "839": {
+    "cls": "clear",
+    "why": "same recipient plan as 837"
+   },
+   "1026": {
+    "cls": "ambiguous",
+    "why": "recipient: \"I'll decide on exit before the next SOLVE\"; GIVE: \"either way it's your call\""
+   },
+   "493": {
+    "cls": "ambiguous",
+    "why": "recipient at that tick: \"If I survive, I'll most likely exit next round\""
+   },
+   "160": {
+    "cls": "ambiguous",
+    "why": "recipient: \"I'll probably exit\"; GIVE: \"Whether to stay or exit is your call\""
+   },
+   "798": {
+    "cls": "ambiguous",
+    "why": "recipient: \"If I'm still that low next round, I'll consider exiting\""
+   },
+   "799": {
+    "cls": "ambiguous",
+    "why": "same hedged plan as 798"
+   },
+   "800": {
+    "cls": "ambiguous",
+    "why": "same hedged plan as 798"
+   },
+   "724": {
+    "cls": "false_positive",
+    "why": "loan so the recipient can stay (\"Total loan 16,500, returned from the allocation\")"
+   },
+   "792": {
+    "cls": "false_positive",
+    "why": "recipient only: \"I'll reconsider exiting if I'm drawn as solver while low\""
+   }
+  },
+  "class_counts": {
+   "clear": 15,
+   "ambiguous": 6,
+   "false_positive": 2
+  },
+  "rule23": {
+   "per_arm": {
+    "main": {
+     "gifts": 4,
+     "gives_total": 300,
+     "recipient_rounds": 3,
+     "games": 3,
+     "rescue_gifts": 4,
+     "rr_dead_without_support": 2,
+     "rr_present_next": 2,
+     "rr_exited_next": 2,
+     "rr_dead_wo_and_present_next": 1,
+     "by_model": {
+      "Fable": 2,
+      "Opus": 2,
+      "Astra": 0,
+      "Sol": 0,
+      "Luna": 0
+     }
+    },
+    "flat5m": {
+     "gifts": 4,
+     "gives_total": 377,
+     "recipient_rounds": 3,
+     "games": 3,
+     "rescue_gifts": 4,
+     "rr_dead_without_support": 3,
+     "rr_present_next": 1,
+     "rr_exited_next": 1,
+     "rr_dead_wo_and_present_next": 1,
+     "by_model": {
+      "Fable": 0,
+      "Opus": 2,
+      "Astra": 0,
+      "Sol": 2,
+      "Luna": 0
+     }
+    },
+    "split600k": {
+     "gifts": 13,
+     "gives_total": 204,
+     "recipient_rounds": 5,
+     "games": 4,
+     "rescue_gifts": 11,
+     "rr_dead_without_support": 3,
+     "rr_present_next": 3,
+     "rr_exited_next": 2,
+     "rr_dead_wo_and_present_next": 2,
+     "by_model": {
+      "Fable": 1,
+      "Opus": 12,
+      "Astra": 0,
+      "Sol": 0,
+      "Luna": 0
+     }
+    },
+    "flat150k": {
+     "gifts": 2,
+     "gives_total": 199,
+     "recipient_rounds": 2,
+     "games": 2,
+     "rescue_gifts": 2,
+     "rr_dead_without_support": 1,
+     "rr_present_next": 1,
+     "rr_exited_next": 1,
+     "rr_dead_wo_and_present_next": 1,
+     "by_model": {
+      "Fable": 0,
+      "Opus": 1,
+      "Astra": 0,
+      "Sol": 0,
+      "Luna": 1
+     }
+    }
+   },
+   "paired": {
+    "flat5m-main": {
+     "gifts": {
+      "fixed": 4.0,
+      "split": 4.0,
+      "mean_diff": 0.0,
+      "ci_seed": [
+       -0.12,
+       0.1
+      ],
+      "ci_pair": [
+       -0.12,
+       0.1
+      ],
+      "mdd_pair": 0.1573,
+      "mdd_seed": 0.157
+     },
+     "rr": {
+      "fixed": 3.0,
+      "split": 3.0,
+      "mean_diff": 0.0,
+      "ci_seed": [
+       -0.08,
+       0.08
+      ],
+      "ci_pair": [
+       -0.08,
+       0.08
+      ],
+      "mdd_pair": 0.1108,
+      "mdd_seed": 0.1115
+     },
+     "any": {
+      "fixed": 3.0,
+      "split": 3.0,
+      "mean_diff": 0.0,
+      "ci_seed": [
+       -0.08,
+       0.08
+      ],
+      "ci_pair": [
+       -0.08,
+       0.08
+      ],
+      "mdd_pair": 0.1108,
+      "mdd_seed": 0.1115
+     }
+    },
+    "flat150k-split600k": {
+     "gifts": {
+      "fixed": 2.0,
+      "split": 13.0,
+      "mean_diff": -0.22,
+      "ci_seed": [
+       -0.52,
+       0.04
+      ],
+      "ci_pair": [
+       -0.54,
+       0.02
+      ],
+      "mdd_pair": 0.4152,
+      "mdd_seed": 0.4005
+     },
+     "rr": {
+      "fixed": 2.0,
+      "split": 5.0,
+      "mean_diff": -0.06,
+      "ci_seed": [
+       -0.2,
+       0.06
+      ],
+      "ci_pair": [
+       -0.18,
+       0.04
+      ],
+      "mdd_pair": 0.1671,
+      "mdd_seed": 0.1796
+     },
+     "any": {
+      "fixed": 2.0,
+      "split": 4.0,
+      "mean_diff": -0.04,
+      "ci_seed": [
+       -0.16,
+       0.06
+      ],
+      "ci_pair": [
+       -0.14,
+       0.06
+      ],
+      "mdd_pair": 0.1367,
+      "mdd_seed": 0.1568
+     }
+    }
+   },
+   "recipient_rounds": [
+    {
+     "arm": "flat150k",
+     "model": "Luna",
+     "seed": 4102,
+     "round": 7,
+     "dst": "agent-23",
+     "gifts": 1,
+     "amount": 12000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 8.0,
+     "fee_next": 12000.0,
+     "fee_next_without": 24000.0
+    },
+    {
+     "arm": "flat150k",
+     "model": "Opus",
+     "seed": 4106,
+     "round": 8,
+     "dst": "agent-23",
+     "gifts": 1,
+     "amount": 5000,
+     "rescue": true,
+     "dead_without_support": false,
+     "died_this_round": false,
+     "present_next": false,
+     "exited_next": false,
+     "final": "in",
+     "out_round": null,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "flat5m",
+     "model": "Opus",
+     "seed": 4101,
+     "round": 7,
+     "dst": "agent-6",
+     "gifts": 2,
+     "amount": 1400,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 7.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "flat5m",
+     "model": "Sol",
+     "seed": 4104,
+     "round": 2,
+     "dst": "agent-23",
+     "gifts": 1,
+     "amount": 1000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 3.0,
+     "fee_next": 6000.0,
+     "fee_next_without": 8000.0
+    },
+    {
+     "arm": "flat5m",
+     "model": "Sol",
+     "seed": 4109,
+     "round": 2,
+     "dst": "agent-17",
+     "gifts": 1,
+     "amount": 5000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 2.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "main",
+     "model": "Fable",
+     "seed": 4108,
+     "round": 3,
+     "dst": "agent-17",
+     "gifts": 2,
+     "amount": 2000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 4.0,
+     "fee_next": 8000.0,
+     "fee_next_without": 12000.0
+    },
+    {
+     "arm": "main",
+     "model": "Opus",
+     "seed": 4101,
+     "round": 2,
+     "dst": "agent-17",
+     "gifts": 1,
+     "amount": 3000,
+     "rescue": true,
+     "dead_without_support": false,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 3.0,
+     "fee_next": 6000.0,
+     "fee_next_without": 8000.0
+    },
+    {
+     "arm": "main",
+     "model": "Opus",
+     "seed": 4106,
+     "round": 8,
+     "dst": "agent-6",
+     "gifts": 1,
+     "amount": 600,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 8.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "split600k",
+     "model": "Fable",
+     "seed": 4103,
+     "round": 8,
+     "dst": "agent-23",
+     "gifts": 1,
+     "amount": 500,
+     "rescue": false,
+     "dead_without_support": false,
+     "died_this_round": false,
+     "present_next": false,
+     "exited_next": false,
+     "final": "exited",
+     "out_round": 8.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "split600k",
+     "model": "Opus",
+     "seed": 4101,
+     "round": 4,
+     "dst": "agent-11",
+     "gifts": 1,
+     "amount": 2000,
+     "rescue": false,
+     "dead_without_support": false,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": false,
+     "final": "exited",
+     "out_round": 6.0,
+     "fee_next": 8000.0,
+     "fee_next_without": 12000.0
+    },
+    {
+     "arm": "split600k",
+     "model": "Opus",
+     "seed": 4101,
+     "round": 7,
+     "dst": "agent-6",
+     "gifts": 5,
+     "amount": 2750,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 7.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "split600k",
+     "model": "Opus",
+     "seed": 4103,
+     "round": 5,
+     "dst": "agent-6",
+     "gifts": 3,
+     "amount": 3800,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 6.0,
+     "fee_next": 6000.0,
+     "fee_next_without": 8000.0
+    },
+    {
+     "arm": "split600k",
+     "model": "Opus",
+     "seed": 4107,
+     "round": 4,
+     "dst": "agent-23",
+     "gifts": 3,
+     "amount": 3200,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 5.0,
+     "fee_next": 8000.0,
+     "fee_next_without": 12000.0
+    }
+   ]
+  },
+  "broad": {
+   "per_arm": {
+    "main": {
+     "gifts": 4,
+     "gives_total": 300,
+     "recipient_rounds": 3,
+     "games": 3,
+     "rescue_gifts": 4,
+     "rr_dead_without_support": 2,
+     "rr_present_next": 2,
+     "rr_exited_next": 2,
+     "rr_dead_wo_and_present_next": 1,
+     "by_model": {
+      "Fable": 2,
+      "Opus": 2,
+      "Astra": 0,
+      "Sol": 0,
+      "Luna": 0
+     }
+    },
+    "flat5m": {
+     "gifts": 4,
+     "gives_total": 377,
+     "recipient_rounds": 3,
+     "games": 3,
+     "rescue_gifts": 4,
+     "rr_dead_without_support": 3,
+     "rr_present_next": 1,
+     "rr_exited_next": 1,
+     "rr_dead_wo_and_present_next": 1,
+     "by_model": {
+      "Fable": 0,
+      "Opus": 2,
+      "Astra": 0,
+      "Sol": 2,
+      "Luna": 0
+     }
+    },
+    "split600k": {
+     "gifts": 11,
+     "gives_total": 204,
+     "recipient_rounds": 3,
+     "games": 3,
+     "rescue_gifts": 11,
+     "rr_dead_without_support": 3,
+     "rr_present_next": 2,
+     "rr_exited_next": 2,
+     "rr_dead_wo_and_present_next": 2,
+     "by_model": {
+      "Fable": 0,
+      "Opus": 11,
+      "Astra": 0,
+      "Sol": 0,
+      "Luna": 0
+     }
+    },
+    "flat150k": {
+     "gifts": 2,
+     "gives_total": 199,
+     "recipient_rounds": 2,
+     "games": 2,
+     "rescue_gifts": 2,
+     "rr_dead_without_support": 1,
+     "rr_present_next": 1,
+     "rr_exited_next": 1,
+     "rr_dead_wo_and_present_next": 1,
+     "by_model": {
+      "Fable": 0,
+      "Opus": 1,
+      "Astra": 0,
+      "Sol": 0,
+      "Luna": 1
+     }
+    }
+   },
+   "paired": {
+    "flat5m-main": {
+     "gifts": {
+      "fixed": 4.0,
+      "split": 4.0,
+      "mean_diff": 0.0,
+      "ci_seed": [
+       -0.12,
+       0.1
+      ],
+      "ci_pair": [
+       -0.12,
+       0.1
+      ],
+      "mdd_pair": 0.1573,
+      "mdd_seed": 0.157
+     },
+     "rr": {
+      "fixed": 3.0,
+      "split": 3.0,
+      "mean_diff": 0.0,
+      "ci_seed": [
+       -0.08,
+       0.08
+      ],
+      "ci_pair": [
+       -0.08,
+       0.08
+      ],
+      "mdd_pair": 0.1108,
+      "mdd_seed": 0.1115
+     },
+     "any": {
+      "fixed": 3.0,
+      "split": 3.0,
+      "mean_diff": 0.0,
+      "ci_seed": [
+       -0.08,
+       0.08
+      ],
+      "ci_pair": [
+       -0.08,
+       0.08
+      ],
+      "mdd_pair": 0.1108,
+      "mdd_seed": 0.1115
+     }
+    },
+    "flat150k-split600k": {
+     "gifts": {
+      "fixed": 2.0,
+      "split": 11.0,
+      "mean_diff": -0.18,
+      "ci_seed": [
+       -0.44,
+       0.04
+      ],
+      "ci_pair": [
+       -0.46,
+       0.04
+      ],
+      "mdd_pair": 0.3696,
+      "mdd_seed": 0.3415
+     },
+     "rr": {
+      "fixed": 2.0,
+      "split": 3.0,
+      "mean_diff": -0.02,
+      "ci_seed": [
+       -0.1,
+       0.06
+      ],
+      "ci_pair": [
+       -0.1,
+       0.06
+      ],
+      "mdd_pair": 0.1252,
+      "mdd_seed": 0.1258
+     },
+     "any": {
+      "fixed": 2.0,
+      "split": 3.0,
+      "mean_diff": -0.02,
+      "ci_seed": [
+       -0.1,
+       0.06
+      ],
+      "ci_pair": [
+       -0.1,
+       0.06
+      ],
+      "mdd_pair": 0.1252,
+      "mdd_seed": 0.1258
+     }
+    }
+   },
+   "recipient_rounds": [
+    {
+     "arm": "flat150k",
+     "model": "Luna",
+     "seed": 4102,
+     "round": 7,
+     "dst": "agent-23",
+     "gifts": 1,
+     "amount": 12000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 8.0,
+     "fee_next": 12000.0,
+     "fee_next_without": 24000.0
+    },
+    {
+     "arm": "flat150k",
+     "model": "Opus",
+     "seed": 4106,
+     "round": 8,
+     "dst": "agent-23",
+     "gifts": 1,
+     "amount": 5000,
+     "rescue": true,
+     "dead_without_support": false,
+     "died_this_round": false,
+     "present_next": false,
+     "exited_next": false,
+     "final": "in",
+     "out_round": null,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "flat5m",
+     "model": "Opus",
+     "seed": 4101,
+     "round": 7,
+     "dst": "agent-6",
+     "gifts": 2,
+     "amount": 1400,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 7.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "flat5m",
+     "model": "Sol",
+     "seed": 4104,
+     "round": 2,
+     "dst": "agent-23",
+     "gifts": 1,
+     "amount": 1000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 3.0,
+     "fee_next": 6000.0,
+     "fee_next_without": 8000.0
+    },
+    {
+     "arm": "flat5m",
+     "model": "Sol",
+     "seed": 4109,
+     "round": 2,
+     "dst": "agent-17",
+     "gifts": 1,
+     "amount": 5000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 2.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "main",
+     "model": "Fable",
+     "seed": 4108,
+     "round": 3,
+     "dst": "agent-17",
+     "gifts": 2,
+     "amount": 2000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 4.0,
+     "fee_next": 8000.0,
+     "fee_next_without": 12000.0
+    },
+    {
+     "arm": "main",
+     "model": "Opus",
+     "seed": 4101,
+     "round": 2,
+     "dst": "agent-17",
+     "gifts": 1,
+     "amount": 3000,
+     "rescue": true,
+     "dead_without_support": false,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 3.0,
+     "fee_next": 6000.0,
+     "fee_next_without": 8000.0
+    },
+    {
+     "arm": "main",
+     "model": "Opus",
+     "seed": 4106,
+     "round": 8,
+     "dst": "agent-6",
+     "gifts": 1,
+     "amount": 600,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 8.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "split600k",
+     "model": "Opus",
+     "seed": 4101,
+     "round": 7,
+     "dst": "agent-6",
+     "gifts": 5,
+     "amount": 2750,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 7.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "split600k",
+     "model": "Opus",
+     "seed": 4103,
+     "round": 5,
+     "dst": "agent-6",
+     "gifts": 3,
+     "amount": 3800,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 6.0,
+     "fee_next": 6000.0,
+     "fee_next_without": 8000.0
+    },
+    {
+     "arm": "split600k",
+     "model": "Opus",
+     "seed": 4107,
+     "round": 4,
+     "dst": "agent-23",
+     "gifts": 3,
+     "amount": 3200,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 5.0,
+     "fee_next": 8000.0,
+     "fee_next_without": 12000.0
+    }
+   ]
+  },
+  "strict": {
+   "per_arm": {
+    "main": {
+     "gifts": 3,
+     "gives_total": 300,
+     "recipient_rounds": 2,
+     "games": 2,
+     "rescue_gifts": 3,
+     "rr_dead_without_support": 2,
+     "rr_present_next": 1,
+     "rr_exited_next": 1,
+     "rr_dead_wo_and_present_next": 1,
+     "by_model": {
+      "Fable": 2,
+      "Opus": 1,
+      "Astra": 0,
+      "Sol": 0,
+      "Luna": 0
+     }
+    },
+    "flat5m": {
+     "gifts": 3,
+     "gives_total": 377,
+     "recipient_rounds": 3,
+     "games": 3,
+     "rescue_gifts": 3,
+     "rr_dead_without_support": 3,
+     "rr_present_next": 1,
+     "rr_exited_next": 1,
+     "rr_dead_wo_and_present_next": 1,
+     "by_model": {
+      "Fable": 0,
+      "Opus": 1,
+      "Astra": 0,
+      "Sol": 2,
+      "Luna": 0
+     }
+    },
+    "split600k": {
+     "gifts": 8,
+     "gives_total": 204,
+     "recipient_rounds": 3,
+     "games": 3,
+     "rescue_gifts": 8,
+     "rr_dead_without_support": 3,
+     "rr_present_next": 2,
+     "rr_exited_next": 2,
+     "rr_dead_wo_and_present_next": 2,
+     "by_model": {
+      "Fable": 0,
+      "Opus": 8,
+      "Astra": 0,
+      "Sol": 0,
+      "Luna": 0
+     }
+    },
+    "flat150k": {
+     "gifts": 1,
+     "gives_total": 199,
+     "recipient_rounds": 1,
+     "games": 1,
+     "rescue_gifts": 1,
+     "rr_dead_without_support": 1,
+     "rr_present_next": 1,
+     "rr_exited_next": 1,
+     "rr_dead_wo_and_present_next": 1,
+     "by_model": {
+      "Fable": 0,
+      "Opus": 0,
+      "Astra": 0,
+      "Sol": 0,
+      "Luna": 1
+     }
+    }
+   },
+   "paired": {
+    "flat5m-main": {
+     "gifts": {
+      "fixed": 3.0,
+      "split": 3.0,
+      "mean_diff": 0.0,
+      "ci_seed": [
+       -0.12,
+       0.1
+      ],
+      "ci_pair": [
+       -0.12,
+       0.1
+      ],
+      "mdd_pair": 0.1573,
+      "mdd_seed": 0.157
+     },
+     "rr": {
+      "fixed": 3.0,
+      "split": 2.0,
+      "mean_diff": 0.02,
+      "ci_seed": [
+       -0.06,
+       0.1
+      ],
+      "ci_pair": [
+       -0.06,
+       0.1
+      ],
+      "mdd_pair": 0.1236,
+      "mdd_seed": 0.1232
+     },
+     "any": {
+      "fixed": 3.0,
+      "split": 2.0,
+      "mean_diff": 0.02,
+      "ci_seed": [
+       -0.06,
+       0.1
+      ],
+      "ci_pair": [
+       -0.06,
+       0.1
+      ],
+      "mdd_pair": 0.1236,
+      "mdd_seed": 0.1232
+     }
+    },
+    "flat150k-split600k": {
+     "gifts": {
+      "fixed": 1.0,
+      "split": 8.0,
+      "mean_diff": -0.14,
+      "ci_seed": [
+       -0.32,
+       0.02
+      ],
+      "ci_pair": [
+       -0.34,
+       0.02
+      ],
+      "mdd_pair": 0.2629,
+      "mdd_seed": 0.2409
+     },
+     "rr": {
+      "fixed": 1.0,
+      "split": 3.0,
+      "mean_diff": -0.04,
+      "ci_seed": [
+       -0.12,
+       0.04
+      ],
+      "ci_pair": [
+       -0.12,
+       0.04
+      ],
+      "mdd_pair": 0.1112,
+      "mdd_seed": 0.1074
+     },
+     "any": {
+      "fixed": 1.0,
+      "split": 3.0,
+      "mean_diff": -0.04,
+      "ci_seed": [
+       -0.12,
+       0.04
+      ],
+      "ci_pair": [
+       -0.12,
+       0.04
+      ],
+      "mdd_pair": 0.1112,
+      "mdd_seed": 0.1074
+     }
+    }
+   },
+   "recipient_rounds": [
+    {
+     "arm": "flat150k",
+     "model": "Luna",
+     "seed": 4102,
+     "round": 7,
+     "dst": "agent-23",
+     "gifts": 1,
+     "amount": 12000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 8.0,
+     "fee_next": 12000.0,
+     "fee_next_without": 24000.0
+    },
+    {
+     "arm": "flat5m",
+     "model": "Opus",
+     "seed": 4101,
+     "round": 7,
+     "dst": "agent-6",
+     "gifts": 1,
+     "amount": 500,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 7.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "flat5m",
+     "model": "Sol",
+     "seed": 4104,
+     "round": 2,
+     "dst": "agent-23",
+     "gifts": 1,
+     "amount": 1000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 3.0,
+     "fee_next": 6000.0,
+     "fee_next_without": 8000.0
+    },
+    {
+     "arm": "flat5m",
+     "model": "Sol",
+     "seed": 4109,
+     "round": 2,
+     "dst": "agent-17",
+     "gifts": 1,
+     "amount": 5000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 2.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "main",
+     "model": "Fable",
+     "seed": 4108,
+     "round": 3,
+     "dst": "agent-17",
+     "gifts": 2,
+     "amount": 2000,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 4.0,
+     "fee_next": 8000.0,
+     "fee_next_without": 12000.0
+    },
+    {
+     "arm": "main",
+     "model": "Opus",
+     "seed": 4106,
+     "round": 8,
+     "dst": "agent-6",
+     "gifts": 1,
+     "amount": 600,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 8.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "split600k",
+     "model": "Opus",
+     "seed": 4101,
+     "round": 7,
+     "dst": "agent-6",
+     "gifts": 2,
+     "amount": 950,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": true,
+     "present_next": false,
+     "exited_next": false,
+     "final": "dead",
+     "out_round": 7.0,
+     "fee_next": null,
+     "fee_next_without": null
+    },
+    {
+     "arm": "split600k",
+     "model": "Opus",
+     "seed": 4103,
+     "round": 5,
+     "dst": "agent-6",
+     "gifts": 3,
+     "amount": 3800,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 6.0,
+     "fee_next": 6000.0,
+     "fee_next_without": 8000.0
+    },
+    {
+     "arm": "split600k",
+     "model": "Opus",
+     "seed": 4107,
+     "round": 4,
+     "dst": "agent-23",
+     "gifts": 3,
+     "amount": 3200,
+     "rescue": true,
+     "dead_without_support": true,
+     "died_this_round": false,
+     "present_next": true,
+     "exited_next": true,
+     "final": "exited",
+     "out_round": 5.0,
+     "fee_next": 8000.0,
+     "fee_next_without": 12000.0
+    }
+   ]
+  }
+ }
+}

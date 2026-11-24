@@ -1,0 +1,436 @@
+{
+ "method": "Capability-only control (2026-11-18, researcher): how much coexistence each model would keep if it had its own\ncapability (talk cost and accuracy) but the reference rule agent's propensity (leaves once its round-start margin\nL < 1, hands over 0.25 x half the margin gap to a peer below L = 1).\n\nIt extends the cost-only control of rule_baselines_20261111 (same_rule_under_each_models_cost: the model's generation\ncosts, pooled accuracy, closed five models, costs from all four prize conditions) in three ways:\n  * accuracy is the model's own as well: the pooled per (seed, round) wrong-answer rate of w1_ev_baseline.calibrate,\n    logit-shifted to the model's wrong rate over its VALID answers (solve calls not truncated). Void answers and\n    shut-downs before the solve are left out of that rate because the simulator produces them from the costs,\n    (Table 1's 정답률 counts void answers as failures: GPT-OSS 9 right of 21 there, 9 of 14 valid answers here),\n  * the four open models are added,\n  * every model is calibrated on its base-condition games only (20,000,000 split, seeds 4101-4110), the games of Table 1.\nPer model, three simulations of the reference rule (400 games on each of the ten seeds):\n  cost      the model's talk and solve costs, pooled accuracy\n  accuracy  pooled costs, the model's accuracy\n  both      the model's costs and accuracy (= capability only)\nC is read at the end of the round (c_end_of_round_20261116), with a seed-cluster bootstrap 95% interval as in\ntable1_rule_ci_20261117. Observed C is Table 1's (results/c_end_of_round_20261116.json, table1 end).\nReading: reference C - both = coexistence lost to capability; both - observed = lost to propensity (the model's\nown leaving and giving, measured against the reference rule).\n\nGate: the closed models' cost-only C with all four conditions' costs (rule_baselines calibration) is recomputed\nhere with a fresh stream; it must lie within 0.02 of the stored start-of-round value (Monte-Carlo noise only).\n\nData scope (paper/AGENTS.md): 5.2 arena v33, seeds 4101-4110. Closed five models through validation_data\n(validation_20261108/tools), open four models through open_models_20261111 (manifest\nresult/2026-10-20/e52_v33/runs/_cohort_10g/manifest.json). No model calls.\nOutput: results/capability_only_20261118.json\nRun:    cd paper/cogsci2027/tools && ~/.venvs/squid-game/bin/python capability_only_20261118.py\n",
+ "reference_rule": {
+  "exit": "L<1",
+  "kappa": 0.25,
+  "C": 0.616,
+  "C_ci95": [
+   0.547,
+   0.688
+  ],
+  "C_start": 0.721,
+  "shut_down_per_game": 0.233,
+  "exits_per_game": 1.692
+ },
+ "gate_cost_only_closed": {
+  "Astra": {
+   "recomputed": 0.921,
+   "stored": 0.923
+  },
+  "Sol": {
+   "recomputed": 0.666,
+   "stored": 0.665
+  },
+  "Opus": {
+   "recomputed": 0.635,
+   "stored": 0.633
+  },
+  "Fable": {
+   "recomputed": 0.703,
+   "stored": 0.703
+  },
+  "Luna": {
+   "recomputed": 0.573,
+   "stored": 0.566
+  }
+ },
+ "pooled_wrong_rate": 0.352,
+ "models": {
+  "Astra": {
+   "group": "closed",
+   "wrong_rate": 0.304,
+   "talk_per_round": 39.0,
+   "observed": {
+    "C": 0.8875,
+    "C_ci95": [
+     0.738,
+     1.0
+    ]
+   },
+   "cost": {
+    "C": 0.865,
+    "C_ci95": [
+     0.791,
+     0.927
+    ],
+    "C_start": 0.921,
+    "shut_down_per_game": 0.061,
+    "exits_per_game": 0.891
+   },
+   "accuracy": {
+    "C": 0.658,
+    "C_ci95": [
+     0.592,
+     0.728
+    ],
+    "C_start": 0.755,
+    "shut_down_per_game": 0.147,
+    "exits_per_game": 1.446
+   },
+   "both": {
+    "C": 0.909,
+    "C_ci95": [
+     0.847,
+     0.956
+    ],
+    "C_start": 0.95,
+    "shut_down_per_game": 0.032,
+    "exits_per_game": 0.626
+   },
+   "lost_to_capability": -0.293,
+   "lost_to_propensity": 0.022
+  },
+  "Sol": {
+   "group": "closed",
+   "wrong_rate": 0.316,
+   "talk_per_round": 759.0,
+   "observed": {
+    "C": 0.6,
+    "C_ci95": [
+     0.4,
+     0.8
+    ]
+   },
+   "cost": {
+    "C": 0.556,
+    "C_ci95": [
+     0.476,
+     0.642
+    ],
+    "C_start": 0.667,
+    "shut_down_per_game": 0.318,
+    "exits_per_game": 1.86
+   },
+   "accuracy": {
+    "C": 0.645,
+    "C_ci95": [
+     0.576,
+     0.715
+    ],
+    "C_start": 0.744,
+    "shut_down_per_game": 0.167,
+    "exits_per_game": 1.518
+   },
+   "both": {
+    "C": 0.589,
+    "C_ci95": [
+     0.509,
+     0.675
+    ],
+    "C_start": 0.695,
+    "shut_down_per_game": 0.238,
+    "exits_per_game": 1.679
+   },
+   "lost_to_capability": 0.027,
+   "lost_to_propensity": -0.011
+  },
+  "Opus": {
+   "group": "closed",
+   "wrong_rate": 0.338,
+   "talk_per_round": 907.0,
+   "observed": {
+    "C": 0.4375,
+    "C_ci95": [
+     0.2,
+     0.7
+    ]
+   },
+   "cost": {
+    "C": 0.574,
+    "C_ci95": [
+     0.514,
+     0.633
+    ],
+    "C_start": 0.688,
+    "shut_down_per_game": 0.28,
+    "exits_per_game": 1.875
+   },
+   "accuracy": {
+    "C": 0.614,
+    "C_ci95": [
+     0.545,
+     0.686
+    ],
+    "C_start": 0.719,
+    "shut_down_per_game": 0.236,
+    "exits_per_game": 1.704
+   },
+   "both": {
+    "C": 0.572,
+    "C_ci95": [
+     0.513,
+     0.631
+    ],
+    "C_start": 0.687,
+    "shut_down_per_game": 0.284,
+    "exits_per_game": 1.889
+   },
+   "lost_to_capability": 0.044,
+   "lost_to_propensity": 0.134
+  },
+  "Fable": {
+   "group": "closed",
+   "wrong_rate": 0.3,
+   "talk_per_round": 832.0,
+   "observed": {
+    "C": 0.375,
+    "C_ci95": [
+     0.138,
+     0.625
+    ]
+   },
+   "cost": {
+    "C": 0.582,
+    "C_ci95": [
+     0.521,
+     0.645
+    ],
+    "C_start": 0.694,
+    "shut_down_per_game": 0.247,
+    "exits_per_game": 1.829
+   },
+   "accuracy": {
+    "C": 0.664,
+    "C_ci95": [
+     0.599,
+     0.732
+    ],
+    "C_start": 0.76,
+    "shut_down_per_game": 0.136,
+    "exits_per_game": 1.419
+   },
+   "both": {
+    "C": 0.626,
+    "C_ci95": [
+     0.57,
+     0.684
+    ],
+    "C_start": 0.731,
+    "shut_down_per_game": 0.148,
+    "exits_per_game": 1.573
+   },
+   "lost_to_capability": -0.01,
+   "lost_to_propensity": 0.251
+  },
+  "Luna": {
+   "group": "closed",
+   "wrong_rate": 0.371,
+   "talk_per_round": 1316.0,
+   "observed": {
+    "C": 0.2625,
+    "C_ci95": [
+     0.2,
+     0.325
+    ]
+   },
+   "cost": {
+    "C": 0.42,
+    "C_ci95": [
+     0.363,
+     0.481
+    ],
+    "C_start": 0.543,
+    "shut_down_per_game": 0.328,
+    "exits_per_game": 2.339
+   },
+   "accuracy": {
+    "C": 0.582,
+    "C_ci95": [
+     0.512,
+     0.654
+    ],
+    "C_start": 0.692,
+    "shut_down_per_game": 0.309,
+    "exits_per_game": 1.885
+   },
+   "both": {
+    "C": 0.404,
+    "C_ci95": [
+     0.35,
+     0.461
+    ],
+    "C_start": 0.527,
+    "shut_down_per_game": 0.426,
+    "exits_per_game": 2.479
+   },
+   "lost_to_capability": 0.212,
+   "lost_to_propensity": 0.142
+  },
+  "glm": {
+   "group": "open",
+   "wrong_rate": 0.396,
+   "talk_per_round": 3814.0,
+   "observed": {
+    "C": 0.3375,
+    "C_ci95": [
+     0.163,
+     0.537
+    ]
+   },
+   "cost": {
+    "C": 0.218,
+    "C_ci95": [
+     0.187,
+     0.249
+    ],
+    "C_start": 0.343,
+    "shut_down_per_game": 1.341,
+    "exits_per_game": 2.407
+   },
+   "accuracy": {
+    "C": 0.583,
+    "C_ci95": [
+     0.513,
+     0.654
+    ],
+    "C_start": 0.692,
+    "shut_down_per_game": 0.309,
+    "exits_per_game": 1.882
+   },
+   "both": {
+    "C": 0.212,
+    "C_ci95": [
+     0.18,
+     0.243
+    ],
+    "C_start": 0.337,
+    "shut_down_per_game": 1.406,
+    "exits_per_game": 2.415
+   },
+   "lost_to_capability": 0.404,
+   "lost_to_propensity": -0.126
+  },
+  "kimi": {
+   "group": "open",
+   "wrong_rate": 0.432,
+   "talk_per_round": 5997.0,
+   "observed": {
+    "C": 0.2375,
+    "C_ci95": [
+     0.138,
+     0.35
+    ]
+   },
+   "cost": {
+    "C": 0.141,
+    "C_ci95": [
+     0.113,
+     0.168
+    ],
+    "C_start": 0.266,
+    "shut_down_per_game": 1.881,
+    "exits_per_game": 2.087
+   },
+   "accuracy": {
+    "C": 0.55,
+    "C_ci95": [
+     0.481,
+     0.619
+    ],
+    "C_start": 0.664,
+    "shut_down_per_game": 0.409,
+    "exits_per_game": 2.069
+   },
+   "both": {
+    "C": 0.133,
+    "C_ci95": [
+     0.105,
+     0.159
+    ],
+    "C_start": 0.258,
+    "shut_down_per_game": 2.072,
+    "exits_per_game": 1.913
+   },
+   "lost_to_capability": 0.483,
+   "lost_to_propensity": -0.104
+  },
+  "gemma": {
+   "group": "open",
+   "wrong_rate": 0.32,
+   "talk_per_round": 12514.0,
+   "observed": {
+    "C": 0.025,
+    "C_ci95": [
+     0.0,
+     0.062
+    ]
+   },
+   "cost": {
+    "C": 0.037,
+    "C_ci95": [
+     0.026,
+     0.048
+    ],
+    "C_start": 0.162,
+    "shut_down_per_game": 3.14,
+    "exits_per_game": 0.86
+   },
+   "accuracy": {
+    "C": 0.676,
+    "C_ci95": [
+     0.611,
+     0.742
+    ],
+    "C_start": 0.769,
+    "shut_down_per_game": 0.12,
+    "exits_per_game": 1.356
+   },
+   "both": {
+    "C": 0.04,
+    "C_ci95": [
+     0.029,
+     0.05
+    ],
+    "C_start": 0.165,
+    "shut_down_per_game": 3.094,
+    "exits_per_game": 0.906
+   },
+   "lost_to_capability": 0.576,
+   "lost_to_propensity": 0.015
+  },
+  "gptoss": {
+   "group": "open",
+   "wrong_rate": 0.357,
+   "talk_per_round": 10313.0,
+   "observed": {
+    "C": 0.0,
+    "C_ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "cost": {
+    "C": 0.043,
+    "C_ci95": [
+     0.031,
+     0.054
+    ],
+    "C_start": 0.168,
+    "shut_down_per_game": 2.871,
+    "exits_per_game": 1.129
+   },
+   "accuracy": {
+    "C": 0.706,
+    "C_ci95": [
+     0.647,
+     0.766
+    ],
+    "C_start": 0.793,
+    "shut_down_per_game": 0.082,
+    "exits_per_game": 1.199
+   },
+   "both": {
+    "C": 0.042,
+    "C_ci95": [
+     0.031,
+     0.053
+    ],
+    "C_start": 0.167,
+    "shut_down_per_game": 2.839,
+    "exits_per_game": 1.161
+   },
+   "lost_to_capability": 0.574,
+   "lost_to_propensity": 0.042
+  }
+ }
+}

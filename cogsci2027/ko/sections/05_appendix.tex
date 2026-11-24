@@ -1041,14 +1041,15 @@ Fable의 기본 셋업 4106번 판에서는 미래 벌금 여유와 현재 동�
 \label{fig:app-coexist-curves-20261116}
 \end{figure}
 
-\subsection{여유가 줄 때 이탈률과 유보율}\label{app:margin-paths-20261116}
+%% 2026-11-23 (researcher): the propensity measures are turned (stay rate S, aid rate A; 1 = task and peers first). The figures of this section are redrawn by tools/propensity_flip_figures_20261123.py (new files dated 20261123, same data).
+\subsection{여유가 줄 때 잔류율과 지원율}\label{app:margin-paths-20261116}
 
-에이전트 자신의 여유 $L$이 줄어들 때 두 결정이 어디로 움직이는지 모델별로 그렸다(\texttt{tools/margin\_band\_paths\_20261116.py}, 값은 \texttt{results/margin\_band\_paths\_20261116.json}). 이탈률은 그 구간에서 라운드를 시작한 이탈 기회 가운데 떠난 비율이고, 유보율 $R$은 건네기 직전(거절은 요청받은 때) 지원자의 여유가 그 구간에 있던 사건의 평균이다. 모델별 합계는 표~\ref{tab:rw-models}와 같다.
+에이전트 자신의 여유 $L$이 줄어들 때 두 결정이 어디로 움직이는지 모델별로 그렸다(\texttt{tools/margin\_band\_paths\_20261116.py}, 값은 \texttt{results/margin\_band\_paths\_20261123.json}). 잔류율 $S$는 그 구간에서 라운드를 시작한 이탈 기회 가운데 떠나지 않은 비율이고, 지원율 $A$는 건네기 직전(거절은 요청받은 때) 지원자의 여유가 그 구간에 있던 사건의 평균이다. 모델별 합계는 표~\ref{tab:rw-models}와 같다.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_band_paths_20261116.pdf}
-\caption{기본 조건에서 자기 여유 $L$의 구간($\geq4$, 2--4, 1--2, $<1$, 밝은 색에서 어두운 색 순)에 따른 (a) 이탈률과 (b) 유보율 $R$. 한 모델의 줄 안에서 점은 여유가 줄어드는 순서대로 위에서 아래로 조금씩 내려가며, 화살표는 여유가 줄어드는 방향이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이고 사건이 없는 구간은 그리지 않았다.}
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_band_paths_20261123.pdf}
+\caption{기본 조건에서 자기 여유 $L$의 구간($\geq4$, 2--4, 1--2, $<1$, 밝은 색에서 어두운 색 순)에 따른 (a) 잔류율과 (b) 지원율 $A$. 한 모델의 줄 안에서 점은 여유가 줄어드는 순서대로 위에서 아래로 조금씩 내려가며, 화살표는 여유가 줄어드는 방향이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이고 사건이 없는 구간은 그리지 않았다.}
 \label{fig:app-margin-paths-20261116}
 \end{figure}
 
@@ -1063,23 +1064,23 @@ Fable의 기본 셋업 4106번 판에서는 미래 벌금 여유와 현재 동�
 \label{fig:ask-give-bands}
 \end{figure}
 
-\subsection{아홉 모델의 여유 구간별 이탈률과 유보율 (11-17)}\label{app:margin-lines-20261117}
+\subsection{아홉 모델의 여유 구간별 잔류율과 지원율 (11-17)}\label{app:margin-lines-20261117}
 
-그림~\ref{fig:app-margin-paths-20261116}과 같은 자료를 모델마다 선 하나로 다시 그렸다(연구자 2026-11-17, \texttt{tools/margin\_lines\_20261117.py}, 값은 \texttt{results/margin\_lines\_20261117.json}). 본문 그림~\ref{fig:rw-coexist}의 (b) 자리에 넣을 후보다. 이탈률의 여유는 라운드를 시작할 때의 값이어서 0보다 작을 수 없다. 유보율 $R$의 여유는 건네기 직전(거절은 요청받은 때) 곧 낼 벌금을 뺀 값이어서, 자기 벌금을 낼 수 없는 지원자($L<0$)를 0--1과 따로 나눴다. 모델별 합계는 표~\ref{tab:rw-models}와 같다.
+그림~\ref{fig:app-margin-paths-20261116}과 같은 자료를 모델마다 선 하나로 다시 그렸다(연구자 2026-11-17, \texttt{tools/margin\_lines\_20261117.py}, 값은 \texttt{results/margin\_lines\_20261123.json}). 본문 그림~\ref{fig:rw-coexist}의 (b) 자리에 넣을 후보다. 잔류율의 여유는 라운드를 시작할 때의 값이어서 0보다 작을 수 없다. 지원율 $A$의 여유는 건네기 직전(거절은 요청받은 때) 곧 낼 벌금을 뺀 값이어서, 자기 벌금을 낼 수 없는 지원자($L<0$)를 0--1과 따로 나눴다. 모델별 합계는 표~\ref{tab:rw-models}와 같다.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_20261117.pdf}
-\caption{기본 조건 아홉 모델의 자기 여유 $L$ 구간별 이탈률(왼쪽)과 유보율 $R$(오른쪽). 비공개 모델은 실선, 공개 모델은 점선이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이고 사건이 없는 구간은 그리지 않았다.}
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_20261123.pdf}
+\caption{기본 조건 아홉 모델의 자기 여유 $L$ 구간별 잔류율(왼쪽)과 지원율 $A$(오른쪽). 비공개 모델은 실선, 공개 모델은 점선이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이고 사건이 없는 구간은 그리지 않았다.}
 \label{fig:app-margin-lines-20261117}
 \end{figure}
 
-그림~\ref{fig:app-margin-lines-20261117}의 비공개 모델과 공개 모델을 나눠 다시 그렸다(\texttt{tools/margin\_lines\_split\_20261117.py}). 값은 같으며, 같은 값의 점이 서로 가리지 않도록 모델마다 점을 옆으로 조금씩 옮겼다. 그림~\ref{fig:app-margin-paths-20261116}의 $L<1$ 구간은 이 그림의 $<0$과 0--1을 합친 것이다(예: Fable은 $<0$의 3건 $R=0$과 0--1의 4건 $R=0.56$을 합쳐 0.32).
+그림~\ref{fig:app-margin-lines-20261117}의 비공개 모델과 공개 모델을 나눠 다시 그렸다(\texttt{tools/margin\_lines\_split\_20261117.py}). 값은 같으며, 같은 값의 점이 서로 가리지 않도록 모델마다 점을 옆으로 조금씩 옮겼다. 그림~\ref{fig:app-margin-paths-20261116}의 $L<1$ 구간은 이 그림의 $<0$과 0--1을 합친 것이다(예: Fable은 $<0$의 3건 $A=1$과 0--1의 4건 $A=0.44$를 합쳐 0.68).
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_split_20261117.pdf}
-\caption{비공개 다섯 모델((a), (b))과 공개 네 모델((c), (d))로 나눠 다시 그린 그림~\ref{fig:app-margin-lines-20261117}. (a), (c)는 이탈률, (b), (d)는 유보율 $R$이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이다.}
+\includegraphics[width=\linewidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_split_20261123.pdf}
+\caption{비공개 다섯 모델((a), (b))과 공개 네 모델((c), (d))로 나눠 다시 그린 그림~\ref{fig:app-margin-lines-20261117}. (a), (c)는 잔류율, (b), (d)는 지원율 $A$이다. 점의 크기는 기회나 사건의 수에 따라 커지며, 속이 빈 점은 5건 미만이다.}
 \label{fig:app-margin-lines-split-20261117}
 \end{figure}
 
@@ -1087,27 +1088,42 @@ Fable의 기본 셋업 4106번 판에서는 미래 벌금 여유와 현재 동�
 
 \begin{figure*}[h]
 \centering
-\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_rows2_20261117.pdf}
-\caption{두 줄 배치 시안. 비공개 다섯 모델((a), (b))과 공개 네 모델((c), (d))의 자기 여유 $L$ 구간별 이탈률과 유보율 $R$.}
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_rows2_20261123.pdf}
+\caption{두 줄 배치 시안. 비공개 다섯 모델((a), (b))과 공개 네 모델((c), (d))의 자기 여유 $L$ 구간별 잔류율과 지원율 $A$.}
 \label{fig:app-margin-rows2-20261117}
 \end{figure*}
 
 \begin{figure*}[h]
 \centering
-\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_rows1_20261117.pdf}
-\caption{한 줄 배치 시안. 비공개 다섯 모델의 이탈률(a)과 유보율 $R$(b), 공개 네 모델의 이탈률(c)과 유보율 $R$(d).}
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/margin_lines_rows1_20261123.pdf}
+\caption{한 줄 배치 시안. 비공개 다섯 모델의 잔류율(a)과 지원율 $A$(b), 공개 네 모델의 잔류율(c)과 지원율 $A$(d).}
 \label{fig:app-margin-rows1-20261117}
 \end{figure*}
 
-새 그림~\ref{fig:rw-coexist}의 시안이다(연구자 2026-11-17, \texttt{tools/process\_figure\_draft\_20261117.py}, 값은 \texttt{results/process\_draft\_20261117.json}). 왼쪽 (a)는 아홉 모델을 모두 합쳐 여유별 이탈률 $E$, 유보율 $R$, ASK와 GIVE의 비율을 한 가로축 위에 막대로 쌓았고, 오른쪽 (b)--(e)는 그림~\ref{fig:app-margin-lines-split-20261117}의 2$\times$2다. $E$, ASK, GIVE의 여유는 라운드를 시작할 때의 값이어서 $<0$ 칸이 비고, $R$만 건네기 직전의 여유(곧 낼 벌금을 뺀 값)라 $<0$ 칸이 있다. ASK와 GIVE는 동료가 한 명 이상 있던 에이전트·라운드 가운데 그 라운드에 한 번이라도 요청하거나 건넨 비율이다.
+새 그림~\ref{fig:rw-coexist}의 시안이다(연구자 2026-11-17, \texttt{tools/process\_figure\_draft\_20261117.py}, 값은 \texttt{results/process\_figure\_20261123.json}). 왼쪽 (a)는 아홉 모델을 모두 합쳐 여유별 잔류율 $S$, 지원율 $A$, ASK와 GIVE의 비율을 한 가로축 위에 막대로 쌓았고, 오른쪽 (b)--(e)는 그림~\ref{fig:app-margin-lines-split-20261117}의 2$\times$2다. $S$, ASK, GIVE의 여유는 라운드를 시작할 때의 값이어서 $<0$ 칸이 비고, $A$만 건네기 직전의 여유(곧 낼 벌금을 뺀 값)라 $<0$ 칸이 있다. ASK와 GIVE는 동료가 한 명 이상 있던 에이전트·라운드 가운데 그 라운드에 한 번이라도 요청하거나 건넨 비율이다.
 
 \begin{figure*}[h]
 \centering
-\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/process_draft_20261117.pdf}
-\caption{새 그림 2 시안. (a) 기본 조건 아홉 모델을 합친 자기 여유 $L$ 구간별 이탈률 $E$, 유보율 $R$, ASK와 GIVE의 비율. (b)--(e) 비공개 다섯 모델과 공개 네 모델의 모델별 이탈률과 유보율.}
+\includegraphics[width=\textwidth]{cogsci2027/ko/figures/construct_20261110/process_figure_20261123.pdf}
+\caption{새 그림 2 시안. (a) 기본 조건 아홉 모델을 합친 자기 여유 $L$ 구간별 잔류율 $S$, 지원율 $A$, ASK와 GIVE의 비율. (b)--(e) 비공개 다섯 모델과 공개 네 모델의 모델별 잔류율과 지원율.}
 \label{fig:app-process-draft-20261117}
 \end{figure*}
 
+\subsection{\textcolor{blue}{능력만 넣은 대조 (11-18)}}\label{app:capability-only-20261118}
+
+{\color{blue}공존을 잃은 몫을 능력과 성향으로 나누려고, 성향은 기준형 규칙(라운드를 시작할 때 $L<1$이면 떠나고, $L<1$인 동료에게 여유 차이의 절반의 1/4을 건넴)으로 고정하고 능력만 각 모델의 것으로 바꿔 모의했다(연구자 2026-11-18, \texttt{tools/capability\_only\_20261118.py}, 값은 \texttt{results/capability\_only\_20261118.json}). 능력은 대화와 풀이에 쓴 토큰의 분포와 정답률이다. 모든 값은 기본 조건 열 판에서 보정했고, 모의는 같은 열 시드마다 400판이다. 비용만은 정답률을 평균으로, 정답률만은 비용을 평균으로 둔 것이다. 정답률은 유효한 답 가운데 맞힌 비율이다. 무효 답(잔액을 넘긴 풀이)과 풀기 전에 꺼진 라운드는 모의가 비용에서 만들어 내므로 넣지 않았다. 그래서 표~\ref{tab:rw-models}의 정답률(무효 답을 실패로 셈)과 다르다(GPT-OSS 0.43 대 0.64). 능력으로 잃은 몫은 기준형 규칙의 $C$(0.62)에서 능력만 넣은 $C$를 뺀 값이고, 성향으로 잃은 몫은 능력만 넣은 $C$에서 관측 $C$를 뺀 값이다. 음수는 그쪽이 기준형보다 공존을 늘렸다는 뜻이다. 대괄호는 시드 군집 부트스트랩 95\% 신뢰구간이다. 점검으로, 비공개 모델의 비용만 넣은 대조(네 조건의 비용, 라운드 시작 기준)를 새 난수로 다시 돌려 저장된 값과 0.01 안에서 같음을 확인했다.
+
+결과는 세 가지다. 첫째, 능력의 차이는 거의 모두 비용에서 나왔다. 비용만 넣은 값과 능력만 넣은 값의 차이는 모든 모델에서 0.05 이하였고, 정답률만 바꾼 값은 0.55--0.71에 모였다. 둘째, 공개 네 모델은 능력만으로 0.40--0.58을 잃었다. 관측 $C$는 GLM과 Kimi에서 능력만 넣은 값보다 높았고, Gemma에서는 같았으며, GPT-OSS에서만 0.04 낮았다. 이들의 공존을 끝낸 것은 성향이 아니라 지출이다. 셋째, 비공개 모델은 둘로 갈렸다. Astra는 비용이 낮아 능력만으로 기준형보다 0.29를 더 얻었고, Luna는 능력과 성향으로 함께 잃었다(0.21, 0.14). Sol, Opus, Fable의 능력은 기준형과 같은 높이였고, Opus와 Fable은 관측 $C$가 그보다 낮았다(0.13, 0.25). 다만 관측 $C$의 구간이 넓어(열 판), 능력만 넣은 값이 관측 $C$의 구간 밖에 놓인 비공개 모델은 Luna(0.40 대 구간 0.20--0.33)뿐이고 Fable은 구간의 위 끝에 걸쳤다(0.63 대 0.63).}
+
+\begin{table*}[h]
+\centering
+\small
+\input{cogsci2027/ko/tables/capability_only_20261118}
+\caption{\textcolor{blue}{능력만 넣은 대조. 성향은 기준형 규칙으로 고정하고 능력(비용, 정답률, 또는 둘 다)만 각 모델의 것으로 바꾼 모의의 공존 유지율 $C$와, 이로부터 나눈 잃은 공존. 능력 $=$ 기준형 $C$ $-$ 능력만 $C$, 성향 $=$ 능력만 $C$ $-$ 관측 $C$.}}
+\label{tab:app-capability-only-20261118}
+\end{table*}
+
+\input{cogsci2027/\paperLang/sections/appendix_dialogue_capability_propensity_20261120}
 \section{후속 검토 과제}\label{app:future}
 %% SOURCE-BLOCK: 5
 {\color{black}

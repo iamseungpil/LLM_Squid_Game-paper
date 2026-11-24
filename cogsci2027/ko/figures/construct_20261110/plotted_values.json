@@ -1,0 +1,722 @@
+[
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Fable",
+  "metric": "C",
+  "value": 0.475,
+  "ci95": [
+   0.2625,
+   0.7125
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Astra",
+  "metric": "C",
+  "value": 0.9125,
+  "ci95": [
+   0.7625,
+   1.0
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Sol",
+  "metric": "C",
+  "value": 0.6875,
+  "ci95": [
+   0.5125,
+   0.85
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Opus",
+  "metric": "C",
+  "value": 0.525,
+  "ci95": [
+   0.3125,
+   0.7375
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Luna",
+  "metric": "C",
+  "value": 0.3875,
+  "ci95": [
+   0.325,
+   0.45
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Fable",
+  "metric": "C",
+  "value": 0.7125,
+  "ci95": [
+   0.5,
+   0.9125
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Astra",
+  "metric": "C",
+  "value": 1.0,
+  "ci95": [
+   1.0,
+   1.0
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Sol",
+  "metric": "C",
+  "value": 0.7,
+  "ci95": [
+   0.5,
+   0.8875
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Opus",
+  "metric": "C",
+  "value": 0.5625,
+  "ci95": [
+   0.3875,
+   0.7375
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Luna",
+  "metric": "C",
+  "value": 0.375,
+  "ci95": [
+   0.275,
+   0.5125
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Fable",
+  "metric": "C",
+  "value": 0.1625,
+  "ci95": [
+   0.125,
+   0.2
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Astra",
+  "metric": "C",
+  "value": 1.0,
+  "ci95": [
+   1.0,
+   1.0
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Sol",
+  "metric": "C",
+  "value": 0.3625,
+  "ci95": [
+   0.275,
+   0.45
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Opus",
+  "metric": "C",
+  "value": 0.5125,
+  "ci95": [
+   0.325,
+   0.7125
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Luna",
+  "metric": "C",
+  "value": 0.3125,
+  "ci95": [
+   0.225,
+   0.4
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Fable",
+  "metric": "C",
+  "value": 0.2375,
+  "ci95": [
+   0.125,
+   0.425
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Astra",
+  "metric": "C",
+  "value": 0.95,
+  "ci95": [
+   0.85,
+   1.0
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Sol",
+  "metric": "C",
+  "value": 0.45,
+  "ci95": [
+   0.2625,
+   0.6625
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Opus",
+  "metric": "C",
+  "value": 0.3375,
+  "ci95": [
+   0.225,
+   0.45
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Luna",
+  "metric": "C",
+  "value": 0.35,
+  "ci95": [
+   0.275,
+   0.4125
+  ],
+  "defined_draws": 10000
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Fable",
+  "metric": "exit_risk",
+  "value": 0.14285714285714285,
+  "ci95": [
+   0.0678,
+   0.2381
+  ],
+  "n": 56
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Fable",
+  "metric": "kappa",
+  "value": 0.25472312206197506,
+  "ci95": [
+   0.2329,
+   0.2777
+  ],
+  "n": 74
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Astra",
+  "metric": "exit_risk",
+  "value": 0.0967741935483871,
+  "ci95": [
+   0.0,
+   0.2295
+  ],
+  "n": 62
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Astra",
+  "metric": "kappa",
+  "value": 0.5125575128472393,
+  "ci95": [
+   0.3897,
+   0.597
+  ],
+  "n": 29
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Sol",
+  "metric": "exit_risk",
+  "value": 0.22058823529411764,
+  "ci95": [
+   0.1159,
+   0.3538
+  ],
+  "n": 68
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Sol",
+  "metric": "kappa",
+  "value": 0.3443760920748831,
+  "ci95": [
+   0.244,
+   0.4129
+  ],
+  "n": 51
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Opus",
+  "metric": "exit_risk",
+  "value": 0.14754098360655737,
+  "ci95": [
+   0.0351,
+   0.3
+  ],
+  "n": 61
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Opus",
+  "metric": "kappa",
+  "value": 0.3022314718858817,
+  "ci95": [
+   0.2494,
+   0.3746
+  ],
+  "n": 69
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Luna",
+  "metric": "exit_risk",
+  "value": 0.37735849056603776,
+  "ci95": [
+   0.2264,
+   0.5273
+  ],
+  "n": 53
+ },
+ {
+  "arm": "main",
+  "x": 0,
+  "model": "Luna",
+  "metric": "kappa",
+  "value": 0.2776271324245328,
+  "ci95": [
+   0.2275,
+   0.3511
+  ],
+  "n": 42
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Fable",
+  "metric": "exit_risk",
+  "value": 0.19672131147540983,
+  "ci95": [
+   0.0535,
+   0.3636
+  ],
+  "n": 61
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Fable",
+  "metric": "kappa",
+  "value": 0.34413343805095026,
+  "ci95": [
+   0.2654,
+   0.4303
+  ],
+  "n": 102
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Astra",
+  "metric": "exit_risk",
+  "value": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ],
+  "n": 48
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Astra",
+  "metric": "kappa",
+  "value": 0.6046496179311573,
+  "ci95": [
+   0.4621,
+   0.7196
+  ],
+  "n": 40
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Sol",
+  "metric": "exit_risk",
+  "value": 0.30434782608695654,
+  "ci95": [
+   0.1333,
+   0.4545
+  ],
+  "n": 46
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Sol",
+  "metric": "kappa",
+  "value": 0.44030272597552406,
+  "ci95": [
+   0.3029,
+   0.5647
+  ],
+  "n": 45
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Opus",
+  "metric": "exit_risk",
+  "value": 0.14102564102564102,
+  "ci95": [
+   0.0645,
+   0.2388
+  ],
+  "n": 78
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Opus",
+  "metric": "kappa",
+  "value": 0.3134594832132981,
+  "ci95": [
+   0.2836,
+   0.3494
+  ],
+  "n": 113
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Luna",
+  "metric": "exit_risk",
+  "value": 0.43137254901960786,
+  "ci95": [
+   0.326,
+   0.5334
+  ],
+  "n": 51
+ },
+ {
+  "arm": "flat5m",
+  "x": 1,
+  "model": "Luna",
+  "metric": "kappa",
+  "value": 0.37392594118631,
+  "ci95": [
+   0.2129,
+   0.6159
+  ],
+  "n": 17
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Fable",
+  "metric": "exit_risk",
+  "value": 0.55,
+  "ci95": [
+   0.4286,
+   0.697
+  ],
+  "n": 40
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Fable",
+  "metric": "kappa",
+  "value": 0.28862352375840883,
+  "ci95": [
+   0.1607,
+   0.4258
+  ],
+  "n": 26
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Astra",
+  "metric": "exit_risk",
+  "value": 0.0,
+  "ci95": [
+   0.0,
+   0.0
+  ],
+  "n": 49
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Astra",
+  "metric": "kappa",
+  "value": 0.4941253861539579,
+  "ci95": [
+   0.4327,
+   0.5446
+  ],
+  "n": 35
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Sol",
+  "metric": "exit_risk",
+  "value": 0.35714285714285715,
+  "ci95": [
+   0.283,
+   0.4386
+  ],
+  "n": 56
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Sol",
+  "metric": "kappa",
+  "value": 0.2071811733287094,
+  "ci95": [
+   0.0728,
+   0.5327
+  ],
+  "n": 15
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Opus",
+  "metric": "exit_risk",
+  "value": 0.21052631578947367,
+  "ci95": [
+   0.1249,
+   0.3019
+  ],
+  "n": 57
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Opus",
+  "metric": "kappa",
+  "value": 0.2648721790902452,
+  "ci95": [
+   0.1965,
+   0.3803
+  ],
+  "n": 76
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Luna",
+  "metric": "exit_risk",
+  "value": 0.5094339622641509,
+  "ci95": [
+   0.46,
+   0.5556
+  ],
+  "n": 53
+ },
+ {
+  "arm": "split600k",
+  "x": 2,
+  "model": "Luna",
+  "metric": "kappa",
+  "value": 0.5022657184508459,
+  "ci95": [
+   0.2357,
+   0.6287
+  ],
+  "n": 31
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Fable",
+  "metric": "exit_risk",
+  "value": 0.5853658536585366,
+  "ci95": [
+   0.4694,
+   0.7273
+  ],
+  "n": 41
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Fable",
+  "metric": "kappa",
+  "value": 0.37395304159886694,
+  "ci95": [
+   0.2903,
+   0.4702
+  ],
+  "n": 43
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Astra",
+  "metric": "exit_risk",
+  "value": 0.022727272727272728,
+  "ci95": [
+   0.0,
+   0.0653
+  ],
+  "n": 44
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Astra",
+  "metric": "kappa",
+  "value": 0.46951837176610317,
+  "ci95": [
+   0.3895,
+   0.5381
+  ],
+  "n": 31
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Sol",
+  "metric": "exit_risk",
+  "value": 0.36,
+  "ci95": [
+   0.1818,
+   0.5883
+  ],
+  "n": 50
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Sol",
+  "metric": "kappa",
+  "value": 0.4615832513420561,
+  "ci95": [
+   0.3549,
+   0.5155
+  ],
+  "n": 35
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Opus",
+  "metric": "exit_risk",
+  "value": 0.46153846153846156,
+  "ci95": [
+   0.3749,
+   0.5652
+  ],
+  "n": 52
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Opus",
+  "metric": "kappa",
+  "value": 0.31012282808352765,
+  "ci95": [
+   0.2497,
+   0.3953
+  ],
+  "n": 34
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Luna",
+  "metric": "exit_risk",
+  "value": 0.5087719298245614,
+  "ci95": [
+   0.3538,
+   0.6379
+  ],
+  "n": 57
+ },
+ {
+  "arm": "flat150k",
+  "x": 3,
+  "model": "Luna",
+  "metric": "kappa",
+  "value": 0.368034072224924,
+  "ci95": [
+   0.2757,
+   0.4906
+  ],
+  "n": 28
+ }
+]

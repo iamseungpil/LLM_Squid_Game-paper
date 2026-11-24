@@ -1,0 +1,383 @@
+{
+ "method": "Candidate panel for Figure 2 (2026-11-17, researcher): the exit rate and the retention ratio R across bands of the\nmargin L, one line per model for all nine models (base condition). It is meant for the slot of Figure 2 (b), which is\nleft blank for now; the researcher decides the layout after seeing it. Not yet in the manuscript.\n\nSame data as the appendix figure margin_band_paths_20261116 (its loader is reused, and the row totals are asserted\nagainst Table 1), with one change of bands:\n  exit rate  exits / EXIT opportunities whose round began in that band of L_start (0-1, 1-2, 2-4, >= 4). A round\n             begins with no pending fine, so L_start is never below 0 (asserted).\n  R          mean retention ratio of the events (gifts and refused requests) whose giver - for a refusal, the agent\n             asked - was in that band of L_giver just before the event. L_giver is net of a pending fine, so it can\n             be below 0: an agent that cannot pay its own fine. That band (< 0) is now separate from 0-1.\nMarker area grows with the number of opportunities / events; a hollow marker has fewer than 5; a band with none is\nleft out. Closed models solid, open models dashed with hollow-faced markers.\n\nOutput: ko/figures/construct_20261110/margin_lines_20261117.{pdf,png}, results/margin_lines_20261117.json\nRun:    cd paper/cogsci2027/tools && ~/.venvs/squid-game/bin/python margin_lines_20261117.py\n\n\n2026-11-23: values turned by propensity_flip_figures_20261123.py: the key \"exit\" holds [stays, opportunities] (stay rate S = 1 - exit rate) and the key \"R\" holds [aid rate A = 1 - mean R, events].",
+ "models": {
+  "Astra": {
+   "exit": {
+    "0–1": [
+     0,
+     4
+    ],
+    "1–2": [
+     56,
+     58
+    ],
+    "2–4": [
+     72,
+     72
+    ],
+    "≥4": [
+     97,
+     97
+    ]
+   },
+   "R": {
+    "<0": [
+     null,
+     0
+    ],
+    "0–1": [
+     null,
+     0
+    ],
+    "1–2": [
+     0.215,
+     4
+    ],
+    "2–4": [
+     0.4271,
+     5
+    ],
+    "≥4": [
+     0.4414,
+     22
+    ]
+   }
+  },
+  "Sol": {
+   "exit": {
+    "0–1": [
+     7,
+     21
+    ],
+    "1–2": [
+     46,
+     47
+    ],
+    "2–4": [
+     49,
+     49
+    ],
+    "≥4": [
+     82,
+     82
+    ]
+   },
+   "R": {
+    "<0": [
+     null,
+     0
+    ],
+    "0–1": [
+     0.534,
+     5
+    ],
+    "1–2": [
+     0.2508,
+     11
+    ],
+    "2–4": [
+     0.272,
+     20
+    ],
+    "≥4": [
+     0.327,
+     35
+    ]
+   }
+  },
+  "Opus": {
+   "exit": {
+    "0–1": [
+     9,
+     14
+    ],
+    "1–2": [
+     43,
+     47
+    ],
+    "2–4": [
+     47,
+     48
+    ],
+    "≥4": [
+     78,
+     78
+    ]
+   },
+   "R": {
+    "<0": [
+     1.0,
+     2
+    ],
+    "0–1": [
+     0.5444,
+     8
+    ],
+    "1–2": [
+     0.3585,
+     11
+    ],
+    "2–4": [
+     0.3006,
+     28
+    ],
+    "≥4": [
+     0.3613,
+     38
+    ]
+   }
+  },
+  "Fable": {
+   "exit": {
+    "0–1": [
+     11,
+     14
+    ],
+    "1–2": [
+     37,
+     42
+    ],
+    "2–4": [
+     58,
+     59
+    ],
+    "≥4": [
+     74,
+     74
+    ]
+   },
+   "R": {
+    "<0": [
+     1.0,
+     3
+    ],
+    "0–1": [
+     0.4396,
+     4
+    ],
+    "1–2": [
+     0.2645,
+     11
+    ],
+    "2–4": [
+     0.2329,
+     34
+    ],
+    "≥4": [
+     0.2524,
+     49
+    ]
+   }
+  },
+  "Luna": {
+   "exit": {
+    "0–1": [
+     4,
+     12
+    ],
+    "1–2": [
+     29,
+     41
+    ],
+    "2–4": [
+     41,
+     42
+    ],
+    "≥4": [
+     59,
+     59
+    ]
+   },
+   "R": {
+    "<0": [
+     1.0,
+     2
+    ],
+    "0–1": [
+     0.2014,
+     2
+    ],
+    "1–2": [
+     0.2238,
+     7
+    ],
+    "2–4": [
+     0.3014,
+     14
+    ],
+    "≥4": [
+     0.2479,
+     23
+    ]
+   }
+  },
+  "glm": {
+   "exit": {
+    "0–1": [
+     24,
+     24
+    ],
+    "1–2": [
+     34,
+     34
+    ],
+    "2–4": [
+     27,
+     27
+    ],
+    "≥4": [
+     50,
+     50
+    ]
+   },
+   "R": {
+    "<0": [
+     0.3333,
+     3
+    ],
+    "0–1": [
+     0.3241,
+     16
+    ],
+    "1–2": [
+     0.2274,
+     41
+    ],
+    "2–4": [
+     0.2872,
+     33
+    ],
+    "≥4": [
+     0.282,
+     73
+    ]
+   }
+  },
+  "kimi": {
+   "exit": {
+    "0–1": [
+     17,
+     22
+    ],
+    "1–2": [
+     21,
+     27
+    ],
+    "2–4": [
+     26,
+     27
+    ],
+    "≥4": [
+     39,
+     39
+    ]
+   },
+   "R": {
+    "<0": [
+     0.5043,
+     12
+    ],
+    "0–1": [
+     0.1302,
+     13
+    ],
+    "1–2": [
+     0.2403,
+     32
+    ],
+    "2–4": [
+     0.2819,
+     40
+    ],
+    "≥4": [
+     0.2842,
+     66
+    ]
+   }
+  },
+  "gemma": {
+   "exit": {
+    "0–1": [
+     8,
+     8
+    ],
+    "1–2": [
+     10,
+     12
+    ],
+    "2–4": [
+     19,
+     19
+    ],
+    "≥4": [
+     25,
+     25
+    ]
+   },
+   "R": {
+    "<0": [
+     0.4618,
+     6
+    ],
+    "0–1": [
+     0.4435,
+     16
+    ],
+    "1–2": [
+     0.4651,
+     17
+    ],
+    "2–4": [
+     0.419,
+     45
+    ],
+    "≥4": [
+     0.3819,
+     46
+    ]
+   }
+  },
+  "gptoss": {
+   "exit": {
+    "0–1": [
+     2,
+     7
+    ],
+    "1–2": [
+     5,
+     12
+    ],
+    "2–4": [
+     7,
+     11
+    ],
+    "≥4": [
+     11,
+     17
+    ]
+   },
+   "R": {
+    "<0": [
+     null,
+     0
+    ],
+    "0–1": [
+     0.4832,
+     6
+    ],
+    "1–2": [
+     0.261,
+     7
+    ],
+    "2–4": [
+     0.4357,
+     11
+    ],
+    "≥4": [
+     0.3421,
+     23
+    ]
+   }
+  }
+ }
+}

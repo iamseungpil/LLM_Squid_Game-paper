@@ -1,0 +1,6110 @@
+{
+ "meta": {
+  "B": 4000,
+  "MC": 2000,
+  "rng_seed": 20261108,
+  "sets": [
+   "all",
+   "low",
+   "high"
+  ],
+  "weights": [
+   "native",
+   "obs_w",
+   "equal"
+  ],
+  "minimal_for_high": "zero transfer (m_k = 0)"
+ },
+ "cells": {
+  "main|Fable": {
+   "all": {
+    "n": 82,
+    "games": 9,
+    "native": {
+     "obs": 2.9725,
+     "obs_ci95": [
+      2.2872,
+      4.0952
+     ],
+     "min": 3.2175,
+     "min_ci95": [
+      2.8553,
+      3.8371
+     ],
+     "ratio": 0.9238,
+     "ratio_ci95": [
+      0.7548,
+      1.2509
+     ],
+     "diff": -0.245,
+     "diff_ci95": [
+      -0.8162,
+      0.8045
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 2.9725,
+     "obs_ci95": [
+      2.2872,
+      4.0952
+     ],
+     "min": 3.4326,
+     "min_ci95": [
+      2.7885,
+      4.2332
+     ],
+     "ratio": 0.866,
+     "ratio_ci95": [
+      0.7978,
+      1.0062
+     ],
+     "diff": -0.4601,
+     "diff_ci95": [
+      -0.7133,
+      0.0249
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 3.0181,
+     "obs_ci95": [
+      2.3367,
+      4.0344
+     ],
+     "min": 3.2612,
+     "min_ci95": [
+      2.6361,
+      3.8989
+     ],
+     "ratio": 0.9255,
+     "ratio_ci95": [
+      0.8352,
+      1.0928
+     ],
+     "diff": -0.2431,
+     "diff_ci95": [
+      -0.5746,
+      0.3349
+     ],
+     "verdict": "inside"
+    },
+    "random_recipient": {
+     "mean": 1.4307,
+     "mc95": [
+      1.2289,
+      1.6698
+     ],
+     "obs_ref": 2.9725,
+     "verdict": "above",
+     "events_with_peer": 82
+    },
+    "random_amount_obs_w": {
+     "mean": 2.8917,
+     "mc95": [
+      2.6759,
+      3.1127
+     ],
+     "obs_ref": 2.9725,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 2.0938,
+     "mc95": [
+      1.7483,
+      2.4569
+     ],
+     "obs_ref": 2.9725,
+     "verdict": "above"
+    }
+   },
+   "low": {
+    "n": 51,
+    "games": 9,
+    "native": {
+     "obs": 3.6018,
+     "obs_ci95": [
+      2.8233,
+      4.941
+     ],
+     "min": 3.2175,
+     "min_ci95": [
+      2.8553,
+      3.8371
+     ],
+     "ratio": 1.1194,
+     "ratio_ci95": [
+      0.9197,
+      1.473
+     ],
+     "diff": 0.3843,
+     "diff_ci95": [
+      -0.2584,
+      1.5825
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 3.6018,
+     "obs_ci95": [
+      2.8233,
+      4.941
+     ],
+     "min": 3.5656,
+     "min_ci95": [
+      3.1083,
+      4.518
+     ],
+     "ratio": 1.0102,
+     "ratio_ci95": [
+      0.8668,
+      1.2562
+     ],
+     "diff": 0.0362,
+     "diff_ci95": [
+      -0.4586,
+      0.9627
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 3.7546,
+     "obs_ci95": [
+      3.0063,
+      5.0759
+     ],
+     "min": 3.2839,
+     "min_ci95": [
+      3.0034,
+      3.8416
+     ],
+     "ratio": 1.1433,
+     "ratio_ci95": [
+      0.958,
+      1.4339
+     ],
+     "diff": 0.4707,
+     "diff_ci95": [
+      -0.1366,
+      1.5232
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.4314,
+    "share_g_ge_m_ci95": [
+     0.3214,
+     0.575
+    ],
+    "median_g_over_m": 0.7369,
+    "random_recipient": {
+     "mean": 1.4984,
+     "mc95": [
+      1.1998,
+      1.9197
+     ],
+     "obs_ref": 3.6018,
+     "verdict": "above",
+     "events_with_peer": 51
+    },
+    "random_amount_obs_w": {
+     "mean": 3.5646,
+     "mc95": [
+      3.1103,
+      4.0643
+     ],
+     "obs_ref": 3.6018,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 2.2109,
+     "mc95": [
+      1.7096,
+      2.7808
+     ],
+     "obs_ref": 3.6018,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 31,
+    "games": 9,
+    "native": {
+     "obs": 2.4874,
+     "obs_ci95": [
+      1.7325,
+      3.4584
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 2.4874,
+     "obs_ci95": [
+      1.7325,
+      3.4584
+     ],
+     "min": 3.3051,
+     "min_ci95": [
+      2.3246,
+      4.6414
+     ],
+     "ratio": 0.7526,
+     "ratio_ci95": [
+      0.7373,
+      0.7626
+     ],
+     "diff": -0.8177,
+     "diff_ci95": [
+      -1.1901,
+      -0.5964
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 2.4941,
+     "obs_ci95": [
+      1.6454,
+      3.3253
+     ],
+     "min": 3.2394,
+     "min_ci95": [
+      2.1738,
+      4.3859
+     ],
+     "ratio": 0.7699,
+     "ratio_ci95": [
+      0.7467,
+      0.7802
+     ],
+     "diff": -0.7454,
+     "diff_ci95": [
+      -1.0748,
+      -0.523
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.3856,
+     "mc95": [
+      1.1257,
+      1.7129
+     ],
+     "obs_ref": 2.4874,
+     "verdict": "above",
+     "events_with_peer": 31
+    },
+    "random_amount_obs_w": {
+     "mean": 2.3926,
+     "mc95": [
+      2.1929,
+      2.5822
+     ],
+     "obs_ref": 2.4874,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.9988,
+     "mc95": [
+      1.5845,
+      2.4469
+     ],
+     "obs_ref": 2.4874,
+     "verdict": "above"
+    }
+   }
+  },
+  "main|Opus": {
+   "all": {
+    "n": 87,
+    "games": 8,
+    "native": {
+     "obs": 1.6651,
+     "obs_ci95": [
+      1.2932,
+      2.5344
+     ],
+     "min": 2.8206,
+     "min_ci95": [
+      2.137,
+      4.5497
+     ],
+     "ratio": 0.5903,
+     "ratio_ci95": [
+      0.3258,
+      1.0925
+     ],
+     "diff": -1.1555,
+     "diff_ci95": [
+      -2.9947,
+      0.2187
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 1.6651,
+     "obs_ci95": [
+      1.2932,
+      2.5344
+     ],
+     "min": 2.33,
+     "min_ci95": [
+      1.6923,
+      3.3347
+     ],
+     "ratio": 0.7146,
+     "ratio_ci95": [
+      0.6198,
+      0.8716
+     ],
+     "diff": -0.6649,
+     "diff_ci95": [
+      -1.102,
+      -0.253
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.8508,
+     "obs_ci95": [
+      1.332,
+      2.7328
+     ],
+     "min": 2.1926,
+     "min_ci95": [
+      1.6056,
+      2.9133
+     ],
+     "ratio": 0.8441,
+     "ratio_ci95": [
+      0.6931,
+      1.0265
+     ],
+     "diff": -0.3418,
+     "diff_ci95": [
+      -0.7755,
+      0.0675
+     ],
+     "verdict": "inside"
+    },
+    "random_recipient": {
+     "mean": 1.0862,
+     "mc95": [
+      0.9409,
+      1.2575
+     ],
+     "obs_ref": 1.6651,
+     "verdict": "above",
+     "events_with_peer": 87
+    },
+    "random_amount_obs_w": {
+     "mean": 1.9834,
+     "mc95": [
+      1.858,
+      2.1072
+     ],
+     "obs_ref": 1.6651,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.5816,
+     "mc95": [
+      1.2884,
+      1.8785
+     ],
+     "obs_ref": 1.6651,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 44,
+    "games": 7,
+    "native": {
+     "obs": 3.9662,
+     "obs_ci95": [
+      3.2721,
+      4.9453
+     ],
+     "min": 2.8206,
+     "min_ci95": [
+      2.137,
+      4.5497
+     ],
+     "ratio": 1.4062,
+     "ratio_ci95": [
+      0.8745,
+      1.8792
+     ],
+     "diff": 1.1456,
+     "diff_ci95": [
+      -0.5781,
+      2.1315
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 3.9662,
+     "obs_ci95": [
+      3.2721,
+      4.9453
+     ],
+     "min": 4.1153,
+     "min_ci95": [
+      2.9807,
+      5.413
+     ],
+     "ratio": 0.9638,
+     "ratio_ci95": [
+      0.7127,
+      1.2181
+     ],
+     "diff": -0.1491,
+     "diff_ci95": [
+      -1.5385,
+      0.7866
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 4.1656,
+     "obs_ci95": [
+      3.5395,
+      4.8103
+     ],
+     "min": 3.2393,
+     "min_ci95": [
+      2.637,
+      4.4788
+     ],
+     "ratio": 1.2859,
+     "ratio_ci95": [
+      0.8761,
+      1.5733
+     ],
+     "diff": 0.9262,
+     "diff_ci95": [
+      -0.5726,
+      1.6321
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.4091,
+    "share_g_ge_m_ci95": [
+     0.3167,
+     0.6401
+    ],
+    "median_g_over_m": 0.8036,
+    "random_recipient": {
+     "mean": 1.5668,
+     "mc95": [
+      1.1979,
+      2.0654
+     ],
+     "obs_ref": 3.9662,
+     "verdict": "above",
+     "events_with_peer": 44
+    },
+    "random_amount_obs_w": {
+     "mean": 4.862,
+     "mc95": [
+      3.9745,
+      5.7387
+     ],
+     "obs_ref": 3.9662,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.7362,
+     "mc95": [
+      2.0026,
+      3.5594
+     ],
+     "obs_ref": 3.9662,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 43,
+    "games": 7,
+    "native": {
+     "obs": 1.1908,
+     "obs_ci95": [
+      0.7687,
+      1.8866
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.1908,
+     "obs_ci95": [
+      0.7687,
+      1.8866
+     ],
+     "min": 1.8631,
+     "min_ci95": [
+      1.1008,
+      2.9917
+     ],
+     "ratio": 0.6391,
+     "ratio_ci95": [
+      0.5745,
+      0.7411
+     ],
+     "diff": -0.6723,
+     "diff_ci95": [
+      -1.1727,
+      -0.313
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.2285,
+     "obs_ci95": [
+      0.8148,
+      1.9268
+     ],
+     "min": 1.7668,
+     "min_ci95": [
+      1.128,
+      2.6933
+     ],
+     "ratio": 0.6953,
+     "ratio_ci95": [
+      0.6284,
+      0.7675
+     ],
+     "diff": -0.5384,
+     "diff_ci95": [
+      -0.8468,
+      -0.297
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 0.9102,
+     "mc95": [
+      0.7647,
+      1.0746
+     ],
+     "obs_ref": 1.1908,
+     "verdict": "above",
+     "events_with_peer": 43
+    },
+    "random_amount_obs_w": {
+     "mean": 1.4281,
+     "mc95": [
+      1.3275,
+      1.5164
+     ],
+     "obs_ref": 1.1908,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.1493,
+     "mc95": [
+      0.876,
+      1.4245
+     ],
+     "obs_ref": 1.1908,
+     "verdict": "inside"
+    }
+   }
+  },
+  "main|Astra": {
+   "all": {
+    "n": 29,
+    "games": 9,
+    "native": {
+     "obs": 2.3738,
+     "obs_ci95": [
+      2.0769,
+      3.0054
+     ],
+     "min": 5.6222,
+     "min_ci95": [
+      3.7694,
+      8.0937
+     ],
+     "ratio": 0.4222,
+     "ratio_ci95": [
+      0.3031,
+      0.5749
+     ],
+     "diff": -3.2484,
+     "diff_ci95": [
+      -5.6061,
+      -1.6065
+     ],
+     "verdict": "below"
+    },
+    "obs_w": {
+     "obs": 2.3738,
+     "obs_ci95": [
+      2.0769,
+      3.0054
+     ],
+     "min": 4.9348,
+     "min_ci95": [
+      4.3988,
+      5.7722
+     ],
+     "ratio": 0.481,
+     "ratio_ci95": [
+      0.4352,
+      0.5436
+     ],
+     "diff": -2.561,
+     "diff_ci95": [
+      -3.0193,
+      -2.1758
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 2.3818,
+     "obs_ci95": [
+      1.996,
+      3.1341
+     ],
+     "min": 4.4826,
+     "min_ci95": [
+      3.6537,
+      5.6786
+     ],
+     "ratio": 0.5313,
+     "ratio_ci95": [
+      0.4566,
+      0.6033
+     ],
+     "diff": -2.1008,
+     "diff_ci95": [
+      -2.7995,
+      -1.5498
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.3909,
+     "mc95": [
+      1.1403,
+      1.706
+     ],
+     "obs_ref": 2.3738,
+     "verdict": "above",
+     "events_with_peer": 29
+    },
+    "random_amount_obs_w": {
+     "mean": 4.0651,
+     "mc95": [
+      3.6024,
+      4.5085
+     ],
+     "obs_ref": 2.3738,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.9608,
+     "mc95": [
+      2.2427,
+      3.6798
+     ],
+     "obs_ref": 2.3738,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 16,
+    "games": 8,
+    "native": {
+     "obs": 3.0822,
+     "obs_ci95": [
+      2.3943,
+      4.2983
+     ],
+     "min": 5.6222,
+     "min_ci95": [
+      3.7694,
+      8.0937
+     ],
+     "ratio": 0.5482,
+     "ratio_ci95": [
+      0.4338,
+      0.7324
+     ],
+     "diff": -2.54,
+     "diff_ci95": [
+      -4.4863,
+      -1.1198
+     ],
+     "verdict": "below"
+    },
+    "obs_w": {
+     "obs": 3.0822,
+     "obs_ci95": [
+      2.3943,
+      4.2983
+     ],
+     "min": 6.2639,
+     "min_ci95": [
+      4.9006,
+      7.8025
+     ],
+     "ratio": 0.4921,
+     "ratio_ci95": [
+      0.4205,
+      0.6482
+     ],
+     "diff": -3.1817,
+     "diff_ci95": [
+      -4.0509,
+      -1.9612
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 3.0268,
+     "obs_ci95": [
+      2.1425,
+      4.4364
+     ],
+     "min": 5.4257,
+     "min_ci95": [
+      3.5716,
+      7.7488
+     ],
+     "ratio": 0.5579,
+     "ratio_ci95": [
+      0.4428,
+      0.7151
+     ],
+     "diff": -2.3988,
+     "diff_ci95": [
+      -3.8616,
+      -1.1426
+     ],
+     "verdict": "below"
+    },
+    "share_g_ge_m": 0.9375,
+    "share_g_ge_m_ci95": [
+     0.8462,
+     1.0
+    ],
+    "median_g_over_m": 2.6891,
+    "random_recipient": {
+     "mean": 1.5488,
+     "mc95": [
+      1.1436,
+      2.1334
+     ],
+     "obs_ref": 3.0822,
+     "verdict": "above",
+     "events_with_peer": 16
+    },
+    "random_amount_obs_w": {
+     "mean": 6.1665,
+     "mc95": [
+      4.8679,
+      7.4923
+     ],
+     "obs_ref": 3.0822,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 4.053,
+     "mc95": [
+      2.4993,
+      5.6044
+     ],
+     "obs_ref": 3.0822,
+     "verdict": "inside"
+    }
+   },
+   "high": {
+    "n": 13,
+    "games": 7,
+    "native": {
+     "obs": 1.8572,
+     "obs_ci95": [
+      1.5426,
+      2.2251
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.8572,
+     "obs_ci95": [
+      1.5426,
+      2.2251
+     ],
+     "min": 3.9846,
+     "min_ci95": [
+      3.3375,
+      4.8273
+     ],
+     "ratio": 0.4661,
+     "ratio_ci95": [
+      0.4331,
+      0.5178
+     ],
+     "diff": -2.1274,
+     "diff_ci95": [
+      -2.6282,
+      -1.683
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.8912,
+     "obs_ci95": [
+      1.6217,
+      2.2064
+     ],
+     "min": 3.745,
+     "min_ci95": [
+      3.4221,
+      4.468
+     ],
+     "ratio": 0.505,
+     "ratio_ci95": [
+      0.4458,
+      0.5509
+     ],
+     "diff": -1.8538,
+     "diff_ci95": [
+      -2.3591,
+      -1.6088
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.2745,
+     "mc95": [
+      0.9787,
+      1.7157
+     ],
+     "obs_ref": 1.8572,
+     "verdict": "above",
+     "events_with_peer": 13
+    },
+    "random_amount_obs_w": {
+     "mean": 2.907,
+     "mc95": [
+      2.5036,
+      3.2483
+     ],
+     "obs_ref": 1.8572,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.2782,
+     "mc95": [
+      1.6829,
+      2.8282
+     ],
+     "obs_ref": 1.8572,
+     "verdict": "inside"
+    }
+   }
+  },
+  "main|Sol": {
+   "all": {
+    "n": 56,
+    "games": 7,
+    "native": {
+     "obs": 2.2779,
+     "obs_ci95": [
+      1.5709,
+      4.0615
+     ],
+     "min": 3.4009,
+     "min_ci95": [
+      2.4946,
+      6.3664
+     ],
+     "ratio": 0.6698,
+     "ratio_ci95": [
+      0.2765,
+      1.4046
+     ],
+     "diff": -1.123,
+     "diff_ci95": [
+      -4.5557,
+      1.1747
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 2.2779,
+     "obs_ci95": [
+      1.5709,
+      4.0615
+     ],
+     "min": 2.8019,
+     "min_ci95": [
+      1.9298,
+      4.0552
+     ],
+     "ratio": 0.813,
+     "ratio_ci95": [
+      0.651,
+      1.1948
+     ],
+     "diff": -0.524,
+     "diff_ci95": [
+      -1.0994,
+      0.5813
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 2.5658,
+     "obs_ci95": [
+      1.6488,
+      4.1973
+     ],
+     "min": 2.7557,
+     "min_ci95": [
+      1.8774,
+      3.6612
+     ],
+     "ratio": 0.9311,
+     "ratio_ci95": [
+      0.7003,
+      1.422
+     ],
+     "diff": -0.19,
+     "diff_ci95": [
+      -0.9028,
+      1.1364
+     ],
+     "verdict": "inside"
+    },
+    "random_recipient": {
+     "mean": 1.3283,
+     "mc95": [
+      1.1087,
+      1.6165
+     ],
+     "obs_ref": 2.2779,
+     "verdict": "above",
+     "events_with_peer": 56
+    },
+    "random_amount_obs_w": {
+     "mean": 2.5998,
+     "mc95": [
+      2.3956,
+      2.8003
+     ],
+     "obs_ref": 2.2779,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.2121,
+     "mc95": [
+      1.72,
+      2.7817
+     ],
+     "obs_ref": 2.2779,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 38,
+    "games": 7,
+    "native": {
+     "obs": 4.9616,
+     "obs_ci95": [
+      3.8996,
+      7.0809
+     ],
+     "min": 3.4009,
+     "min_ci95": [
+      2.4946,
+      6.3664
+     ],
+     "ratio": 1.4589,
+     "ratio_ci95": [
+      0.7514,
+      2.5375
+     ],
+     "diff": 1.5607,
+     "diff_ci95": [
+      -1.7531,
+      4.1639
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 4.9616,
+     "obs_ci95": [
+      3.8996,
+      7.0809
+     ],
+     "min": 4.5994,
+     "min_ci95": [
+      3.4881,
+      6.2846
+     ],
+     "ratio": 1.0788,
+     "ratio_ci95": [
+      0.7057,
+      1.7784
+     ],
+     "diff": 0.3623,
+     "diff_ci95": [
+      -1.73,
+      3.0327
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 5.0442,
+     "obs_ci95": [
+      3.8348,
+      7.4398
+     ],
+     "min": 4.0302,
+     "min_ci95": [
+      3.0849,
+      6.0476
+     ],
+     "ratio": 1.2516,
+     "ratio_ci95": [
+      0.7659,
+      2.1835
+     ],
+     "diff": 1.0141,
+     "diff_ci95": [
+      -1.4456,
+      3.866
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.4474,
+    "share_g_ge_m_ci95": [
+     0.25,
+     0.76
+    ],
+    "median_g_over_m": 0.9581,
+    "random_recipient": {
+     "mean": 1.7173,
+     "mc95": [
+      1.3195,
+      2.2879
+     ],
+     "obs_ref": 4.9616,
+     "verdict": "above",
+     "events_with_peer": 38
+    },
+    "random_amount_obs_w": {
+     "mean": 5.5769,
+     "mc95": [
+      4.5738,
+      6.5712
+     ],
+     "obs_ref": 4.9616,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 3.5964,
+     "mc95": [
+      2.628,
+      4.7456
+     ],
+     "obs_ref": 4.9616,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 18,
+    "games": 6,
+    "native": {
+     "obs": 1.0979,
+     "obs_ci95": [
+      0.3861,
+      2.3447
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.0979,
+     "obs_ci95": [
+      0.3861,
+      2.3447
+     ],
+     "min": 1.7135,
+     "min_ci95": [
+      0.5734,
+      3.7762
+     ],
+     "ratio": 0.6407,
+     "ratio_ci95": [
+      0.5833,
+      0.7082
+     ],
+     "diff": -0.6156,
+     "diff_ci95": [
+      -1.438,
+      -0.1881
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.112,
+     "obs_ci95": [
+      0.3847,
+      2.0227
+     ],
+     "min": 1.6351,
+     "min_ci95": [
+      0.5641,
+      3.1361
+     ],
+     "ratio": 0.6801,
+     "ratio_ci95": [
+      0.611,
+      0.7352
+     ],
+     "diff": -0.5231,
+     "diff_ci95": [
+      -1.1728,
+      -0.1837
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 0.9282,
+     "mc95": [
+      0.7315,
+      1.198
+     ],
+     "obs_ref": 1.0979,
+     "verdict": "inside",
+     "events_with_peer": 18
+    },
+    "random_amount_obs_w": {
+     "mean": 1.3012,
+     "mc95": [
+      1.1657,
+      1.4204
+     ],
+     "obs_ref": 1.0979,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.1351,
+     "mc95": [
+      0.7282,
+      1.6288
+     ],
+     "obs_ref": 1.0979,
+     "verdict": "inside"
+    }
+   }
+  },
+  "main|Luna": {
+   "all": {
+    "n": 46,
+    "games": 7,
+    "native": {
+     "obs": 2.6052,
+     "obs_ci95": [
+      1.3294,
+      4.6925
+     ],
+     "min": 2.3574,
+     "min_ci95": [
+      1.3268,
+      4.1692
+     ],
+     "ratio": 1.1051,
+     "ratio_ci95": [
+      0.3996,
+      2.2235
+     ],
+     "diff": 0.2478,
+     "diff_ci95": [
+      -2.3943,
+      2.124
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 2.6052,
+     "obs_ci95": [
+      1.3294,
+      4.6925
+     ],
+     "min": 2.8355,
+     "min_ci95": [
+      1.4828,
+      4.5578
+     ],
+     "ratio": 0.9188,
+     "ratio_ci95": [
+      0.7377,
+      1.3183
+     ],
+     "diff": -0.2303,
+     "diff_ci95": [
+      -0.9184,
+      0.9379
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 2.8707,
+     "obs_ci95": [
+      1.661,
+      5.4766
+     ],
+     "min": 2.5079,
+     "min_ci95": [
+      1.7239,
+      3.5668
+     ],
+     "ratio": 1.1446,
+     "ratio_ci95": [
+      0.8461,
+      1.7605
+     ],
+     "diff": 0.3628,
+     "diff_ci95": [
+      -0.3574,
+      2.2389
+     ],
+     "verdict": "inside"
+    },
+    "random_recipient": {
+     "mean": 1.3017,
+     "mc95": [
+      1.0578,
+      1.6157
+     ],
+     "obs_ref": 2.6052,
+     "verdict": "above",
+     "events_with_peer": 46
+    },
+    "random_amount_obs_w": {
+     "mean": 2.6545,
+     "mc95": [
+      2.3903,
+      2.9127
+     ],
+     "obs_ref": 2.6052,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 2.115,
+     "mc95": [
+      1.6118,
+      2.6532
+     ],
+     "obs_ref": 2.6052,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 30,
+    "games": 6,
+    "native": {
+     "obs": 5.1218,
+     "obs_ci95": [
+      3.4694,
+      8.081
+     ],
+     "min": 2.3574,
+     "min_ci95": [
+      1.3268,
+      4.1692
+     ],
+     "ratio": 2.1726,
+     "ratio_ci95": [
+      1.5392,
+      2.8112
+     ],
+     "diff": 2.7644,
+     "diff_ci95": [
+      1.6799,
+      4.3491
+     ],
+     "verdict": "above"
+    },
+    "obs_w": {
+     "obs": 5.1218,
+     "obs_ci95": [
+      3.4694,
+      8.081
+     ],
+     "min": 3.6062,
+     "min_ci95": [
+      2.3607,
+      5.3799
+     ],
+     "ratio": 1.4203,
+     "ratio_ci95": [
+      0.9271,
+      2.0968
+     ],
+     "diff": 1.5156,
+     "diff_ci95": [
+      -0.2847,
+      3.3745
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 6.1066,
+     "obs_ci95": [
+      3.241,
+      10.5246
+     ],
+     "min": 2.9081,
+     "min_ci95": [
+      1.8463,
+      4.6363
+     ],
+     "ratio": 2.0999,
+     "ratio_ci95": [
+      1.0125,
+      2.8112
+     ],
+     "diff": 3.1985,
+     "diff_ci95": [
+      0.051,
+      6.3744
+     ],
+     "verdict": "above"
+    },
+    "share_g_ge_m": 0.2,
+    "share_g_ge_m_ci95": [
+     0.102,
+     0.5
+    ],
+    "median_g_over_m": 0.3455,
+    "random_recipient": {
+     "mean": 1.5969,
+     "mc95": [
+      1.1758,
+      2.2269
+     ],
+     "obs_ref": 5.1218,
+     "verdict": "above",
+     "events_with_peer": 30
+    },
+    "random_amount_obs_w": {
+     "mean": 4.7449,
+     "mc95": [
+      3.7332,
+      5.8184
+     ],
+     "obs_ref": 5.1218,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 3.0636,
+     "mc95": [
+      1.9775,
+      4.4322
+     ],
+     "obs_ref": 5.1218,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 16,
+    "games": 6,
+    "native": {
+     "obs": 1.6877,
+     "obs_ci95": [
+      0.2683,
+      3.0437
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.6877,
+     "obs_ci95": [
+      0.2683,
+      3.0437
+     ],
+     "min": 2.3676,
+     "min_ci95": [
+      0.4137,
+      4.9778
+     ],
+     "ratio": 0.7128,
+     "ratio_ci95": [
+      0.6004,
+      0.7459
+     ],
+     "diff": -0.6799,
+     "diff_ci95": [
+      -1.9398,
+      -0.1454
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.7526,
+     "obs_ci95": [
+      0.4616,
+      2.9638
+     ],
+     "min": 2.2143,
+     "min_ci95": [
+      0.647,
+      4.5823
+     ],
+     "ratio": 0.7915,
+     "ratio_ci95": [
+      0.6299,
+      0.8289
+     ],
+     "diff": -0.4617,
+     "diff_ci95": [
+      -1.6161,
+      -0.1771
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.1188,
+     "mc95": [
+      0.8312,
+      1.5087
+     ],
+     "obs_ref": 1.6877,
+     "verdict": "above",
+     "events_with_peer": 16
+    },
+    "random_amount_obs_w": {
+     "mean": 1.8158,
+     "mc95": [
+      1.6145,
+      1.9873
+     ],
+     "obs_ref": 1.6877,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.5708,
+     "mc95": [
+      1.118,
+      2.0796
+     ],
+     "obs_ref": 1.6877,
+     "verdict": "inside"
+    }
+   }
+  },
+  "flat5m|Fable": {
+   "all": {
+    "n": 125,
+    "games": 10,
+    "native": {
+     "obs": 2.0329,
+     "obs_ci95": [
+      1.6517,
+      2.5977
+     ],
+     "min": 2.0183,
+     "min_ci95": [
+      0.9846,
+      3.3429
+     ],
+     "ratio": 1.0072,
+     "ratio_ci95": [
+      0.568,
+      1.9954
+     ],
+     "diff": 0.0146,
+     "diff_ci95": [
+      -1.4341,
+      1.0143
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 2.0329,
+     "obs_ci95": [
+      1.6517,
+      2.5977
+     ],
+     "min": 2.7159,
+     "min_ci95": [
+      2.128,
+      3.6362
+     ],
+     "ratio": 0.7485,
+     "ratio_ci95": [
+      0.694,
+      0.7931
+     ],
+     "diff": -0.683,
+     "diff_ci95": [
+      -1.0764,
+      -0.4623
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.8615,
+     "obs_ci95": [
+      1.5064,
+      2.4205
+     ],
+     "min": 2.353,
+     "min_ci95": [
+      1.8778,
+      3.1426
+     ],
+     "ratio": 0.7911,
+     "ratio_ci95": [
+      0.7405,
+      0.8308
+     ],
+     "diff": -0.4915,
+     "diff_ci95": [
+      -0.7697,
+      -0.3519
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.315,
+     "mc95": [
+      1.1735,
+      1.4793
+     ],
+     "obs_ref": 2.0329,
+     "verdict": "above",
+     "events_with_peer": 125
+    },
+    "random_amount_obs_w": {
+     "mean": 2.038,
+     "mc95": [
+      1.9304,
+      2.1491
+     ],
+     "obs_ref": 2.0329,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.4086,
+     "mc95": [
+      1.2047,
+      1.6215
+     ],
+     "obs_ref": 2.0329,
+     "verdict": "above"
+    }
+   },
+   "low": {
+    "n": 36,
+    "games": 9,
+    "native": {
+     "obs": 2.8871,
+     "obs_ci95": [
+      1.7156,
+      3.8982
+     ],
+     "min": 2.0183,
+     "min_ci95": [
+      0.9846,
+      3.3429
+     ],
+     "ratio": 1.4305,
+     "ratio_ci95": [
+      1.1118,
+      1.8776
+     ],
+     "diff": 0.8688,
+     "diff_ci95": [
+      0.3444,
+      1.2145
+     ],
+     "verdict": "above"
+    },
+    "obs_w": {
+     "obs": 2.8871,
+     "obs_ci95": [
+      1.7156,
+      3.8982
+     ],
+     "min": 2.9618,
+     "min_ci95": [
+      1.577,
+      4.4604
+     ],
+     "ratio": 0.9748,
+     "ratio_ci95": [
+      0.8275,
+      1.1192
+     ],
+     "diff": -0.0747,
+     "diff_ci95": [
+      -0.7264,
+      0.2179
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 3.095,
+     "obs_ci95": [
+      2.1408,
+      3.8546
+     ],
+     "min": 3.0408,
+     "min_ci95": [
+      1.9593,
+      4.1154
+     ],
+     "ratio": 1.0178,
+     "ratio_ci95": [
+      0.869,
+      1.141
+     ],
+     "diff": 0.0543,
+     "diff_ci95": [
+      -0.495,
+      0.3363
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.5278,
+    "share_g_ge_m_ci95": [
+     0.3824,
+     0.7369
+    ],
+    "median_g_over_m": 1.0,
+    "random_recipient": {
+     "mean": 1.7171,
+     "mc95": [
+      1.3108,
+      2.2296
+     ],
+     "obs_ref": 2.8871,
+     "verdict": "above",
+     "events_with_peer": 36
+    },
+    "random_amount_obs_w": {
+     "mean": 2.8106,
+     "mc95": [
+      2.276,
+      3.3658
+     ],
+     "obs_ref": 2.8871,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.7037,
+     "mc95": [
+      1.1714,
+      2.2448
+     ],
+     "obs_ref": 2.8871,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 89,
+    "games": 10,
+    "native": {
+     "obs": 1.9057,
+     "obs_ci95": [
+      1.5003,
+      2.5205
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.9057,
+     "obs_ci95": [
+      1.5003,
+      2.5205
+     ],
+     "min": 2.6706,
+     "min_ci95": [
+      2.0232,
+      3.7212
+     ],
+     "ratio": 0.7136,
+     "ratio_ci95": [
+      0.6675,
+      0.7535
+     ],
+     "diff": -0.7648,
+     "diff_ci95": [
+      -1.2006,
+      -0.51
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.6828,
+     "obs_ci95": [
+      1.3721,
+      2.2321
+     ],
+     "min": 2.2314,
+     "min_ci95": [
+      1.7799,
+      3.0672
+     ],
+     "ratio": 0.7542,
+     "ratio_ci95": [
+      0.7143,
+      0.781
+     ],
+     "diff": -0.5485,
+     "diff_ci95": [
+      -0.8546,
+      -0.3996
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.2612,
+     "mc95": [
+      1.1084,
+      1.4362
+     ],
+     "obs_ref": 1.9057,
+     "verdict": "above",
+     "events_with_peer": 89
+    },
+    "random_amount_obs_w": {
+     "mean": 1.9195,
+     "mc95": [
+      1.8159,
+      2.0163
+     ],
+     "obs_ref": 1.9057,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.3487,
+     "mc95": [
+      1.1326,
+      1.5647
+     ],
+     "obs_ref": 1.9057,
+     "verdict": "above"
+    }
+   }
+  },
+  "flat5m|Opus": {
+   "all": {
+    "n": 144,
+    "games": 10,
+    "native": {
+     "obs": 1.6254,
+     "obs_ci95": [
+      1.3519,
+      2.1474
+     ],
+     "min": 1.8889,
+     "min_ci95": [
+      0.7896,
+      3.3585
+     ],
+     "ratio": 0.8605,
+     "ratio_ci95": [
+      0.4743,
+      2.0873
+     ],
+     "diff": -0.2635,
+     "diff_ci95": [
+      -1.7094,
+      0.9051
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 1.6254,
+     "obs_ci95": [
+      1.3519,
+      2.1474
+     ],
+     "min": 1.9947,
+     "min_ci95": [
+      1.6491,
+      2.6576
+     ],
+     "ratio": 0.8148,
+     "ratio_ci95": [
+      0.7675,
+      0.8797
+     ],
+     "diff": -0.3693,
+     "diff_ci95": [
+      -0.5722,
+      -0.2218
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.5761,
+     "obs_ci95": [
+      1.2229,
+      2.0916
+     ],
+     "min": 1.7941,
+     "min_ci95": [
+      1.3614,
+      2.406
+     ],
+     "ratio": 0.8785,
+     "ratio_ci95": [
+      0.8317,
+      0.9567
+     ],
+     "diff": -0.2179,
+     "diff_ci95": [
+      -0.3732,
+      -0.0696
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.0954,
+     "mc95": [
+      0.974,
+      1.2342
+     ],
+     "obs_ref": 1.6254,
+     "verdict": "above",
+     "events_with_peer": 144
+    },
+    "random_amount_obs_w": {
+     "mean": 1.6626,
+     "mc95": [
+      1.5762,
+      1.7517
+     ],
+     "obs_ref": 1.6254,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.1955,
+     "mc95": [
+      0.9994,
+      1.3801
+     ],
+     "obs_ref": 1.6254,
+     "verdict": "above"
+    }
+   },
+   "low": {
+    "n": 75,
+    "games": 10,
+    "native": {
+     "obs": 3.728,
+     "obs_ci95": [
+      2.5903,
+      4.9867
+     ],
+     "min": 1.8889,
+     "min_ci95": [
+      0.7896,
+      3.3585
+     ],
+     "ratio": 1.9736,
+     "ratio_ci95": [
+      1.092,
+      3.6521
+     ],
+     "diff": 1.8391,
+     "diff_ci95": [
+      0.3084,
+      2.8637
+     ],
+     "verdict": "above"
+    },
+    "obs_w": {
+     "obs": 3.728,
+     "obs_ci95": [
+      2.5903,
+      4.9867
+     ],
+     "min": 3.3669,
+     "min_ci95": [
+      2.3694,
+      4.1602
+     ],
+     "ratio": 1.1073,
+     "ratio_ci95": [
+      0.9238,
+      1.4138
+     ],
+     "diff": 0.3612,
+     "diff_ci95": [
+      -0.2704,
+      1.3549
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 3.4928,
+     "obs_ci95": [
+      2.8711,
+      4.6109
+     ],
+     "min": 2.9388,
+     "min_ci95": [
+      2.1797,
+      3.7858
+     ],
+     "ratio": 1.1885,
+     "ratio_ci95": [
+      0.982,
+      1.6987
+     ],
+     "diff": 0.554,
+     "diff_ci95": [
+      -0.0584,
+      1.7155
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.4,
+    "share_g_ge_m_ci95": [
+     0.2653,
+     0.5
+    ],
+    "median_g_over_m": 0.7825,
+    "random_recipient": {
+     "mean": 1.5758,
+     "mc95": [
+      1.2708,
+      1.9866
+     ],
+     "obs_ref": 3.728,
+     "verdict": "above",
+     "events_with_peer": 75
+    },
+    "random_amount_obs_w": {
+     "mean": 3.6418,
+     "mc95": [
+      3.1154,
+      4.1491
+     ],
+     "obs_ref": 3.728,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.8639,
+     "mc95": [
+      1.4273,
+      2.311
+     ],
+     "obs_ref": 3.728,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 69,
+    "games": 9,
+    "native": {
+     "obs": 1.1318,
+     "obs_ci95": [
+      0.8164,
+      1.7045
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.1318,
+     "obs_ci95": [
+      0.8164,
+      1.7045
+     ],
+     "min": 1.5737,
+     "min_ci95": [
+      1.1813,
+      2.3995
+     ],
+     "ratio": 0.7192,
+     "ratio_ci95": [
+      0.6723,
+      0.7617
+     ],
+     "diff": -0.4419,
+     "diff_ci95": [
+      -0.7031,
+      -0.3371
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.0104,
+     "obs_ci95": [
+      0.7389,
+      1.4897
+     ],
+     "min": 1.3446,
+     "min_ci95": [
+      0.9918,
+      2.0367
+     ],
+     "ratio": 0.7514,
+     "ratio_ci95": [
+      0.7037,
+      0.7903
+     ],
+     "diff": -0.3342,
+     "diff_ci95": [
+      -0.5528,
+      -0.2331
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 0.8886,
+     "mc95": [
+      0.7772,
+      1.022
+     ],
+     "obs_ref": 1.1318,
+     "verdict": "above",
+     "events_with_peer": 69
+    },
+    "random_amount_obs_w": {
+     "mean": 1.1817,
+     "mc95": [
+      1.1101,
+      1.2437
+     ],
+     "obs_ref": 1.1318,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 0.8817,
+     "mc95": [
+      0.6875,
+      1.08
+     ],
+     "obs_ref": 1.1318,
+     "verdict": "above"
+    }
+   }
+  },
+  "flat5m|Astra": {
+   "all": {
+    "n": 40,
+    "games": 10,
+    "native": {
+     "obs": 1.9036,
+     "obs_ci95": [
+      1.6068,
+      2.3149
+     ],
+     "min": 4.7723,
+     "min_ci95": [
+      3.3267,
+      7.4469
+     ],
+     "ratio": 0.3989,
+     "ratio_ci95": [
+      0.2769,
+      0.5422
+     ],
+     "diff": -2.8687,
+     "diff_ci95": [
+      -5.3214,
+      -1.556
+     ],
+     "verdict": "below"
+    },
+    "obs_w": {
+     "obs": 1.9036,
+     "obs_ci95": [
+      1.6068,
+      2.3149
+     ],
+     "min": 4.042,
+     "min_ci95": [
+      3.5676,
+      4.6971
+     ],
+     "ratio": 0.471,
+     "ratio_ci95": [
+      0.4449,
+      0.505
+     ],
+     "diff": -2.1383,
+     "diff_ci95": [
+      -2.4414,
+      -1.948
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.8526,
+     "obs_ci95": [
+      1.5226,
+      2.3204
+     ],
+     "min": 3.5435,
+     "min_ci95": [
+      2.9681,
+      4.2685
+     ],
+     "ratio": 0.5228,
+     "ratio_ci95": [
+      0.4948,
+      0.5618
+     ],
+     "diff": -1.691,
+     "diff_ci95": [
+      -2.0354,
+      -1.4352
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.2178,
+     "mc95": [
+      1.0405,
+      1.4296
+     ],
+     "obs_ref": 1.9036,
+     "verdict": "above",
+     "events_with_peer": 40
+    },
+    "random_amount_obs_w": {
+     "mean": 3.0857,
+     "mc95": [
+      2.809,
+      3.3505
+     ],
+     "obs_ref": 1.9036,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.2353,
+     "mc95": [
+      1.747,
+      2.6946
+     ],
+     "obs_ref": 1.9036,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 15,
+    "games": 8,
+    "native": {
+     "obs": 2.7425,
+     "obs_ci95": [
+      2.1542,
+      3.4852
+     ],
+     "min": 4.7723,
+     "min_ci95": [
+      3.3267,
+      7.4469
+     ],
+     "ratio": 0.5747,
+     "ratio_ci95": [
+      0.4393,
+      0.6526
+     ],
+     "diff": -2.0298,
+     "diff_ci95": [
+      -4.1213,
+      -1.1655
+     ],
+     "verdict": "below"
+    },
+    "obs_w": {
+     "obs": 2.7425,
+     "obs_ci95": [
+      2.1542,
+      3.4852
+     ],
+     "min": 5.6697,
+     "min_ci95": [
+      3.9069,
+      7.689
+     ],
+     "ratio": 0.4837,
+     "ratio_ci95": [
+      0.4128,
+      0.5836
+     ],
+     "diff": -2.9272,
+     "diff_ci95": [
+      -4.4169,
+      -1.7075
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 2.629,
+     "obs_ci95": [
+      1.9182,
+      3.738
+     ],
+     "min": 4.8647,
+     "min_ci95": [
+      3.2737,
+      7.2296
+     ],
+     "ratio": 0.5404,
+     "ratio_ci95": [
+      0.439,
+      0.6385
+     ],
+     "diff": -2.2356,
+     "diff_ci95": [
+      -3.8772,
+      -1.3084
+     ],
+     "verdict": "below"
+    },
+    "share_g_ge_m": 1.0,
+    "share_g_ge_m_ci95": [
+     1.0,
+     1.0
+    ],
+    "median_g_over_m": 2.6327,
+    "random_recipient": {
+     "mean": 1.413,
+     "mc95": [
+      1.0519,
+      1.9256
+     ],
+     "obs_ref": 2.7425,
+     "verdict": "above",
+     "events_with_peer": 15
+    },
+    "random_amount_obs_w": {
+     "mean": 5.1298,
+     "mc95": [
+      3.9302,
+      6.2887
+     ],
+     "obs_ref": 2.7425,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 3.3379,
+     "mc95": [
+      2.0171,
+      4.7841
+     ],
+     "obs_ref": 2.7425,
+     "verdict": "inside"
+    }
+   },
+   "high": {
+    "n": 25,
+    "games": 10,
+    "native": {
+     "obs": 1.6564,
+     "obs_ci95": [
+      1.3967,
+      1.9768
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.6564,
+     "obs_ci95": [
+      1.3967,
+      1.9768
+     ],
+     "min": 3.5781,
+     "min_ci95": [
+      3.1107,
+      4.1692
+     ],
+     "ratio": 0.4629,
+     "ratio_ci95": [
+      0.4254,
+      0.515
+     ],
+     "diff": -1.9217,
+     "diff_ci95": [
+      -2.2432,
+      -1.6095
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.6057,
+     "obs_ci95": [
+      1.3297,
+      1.9168
+     ],
+     "min": 3.1315,
+     "min_ci95": [
+      2.6287,
+      3.7086
+     ],
+     "ratio": 0.5128,
+     "ratio_ci95": [
+      0.4824,
+      0.5488
+     ],
+     "diff": -1.5258,
+     "diff_ci95": [
+      -1.8407,
+      -1.2768
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.149,
+     "mc95": [
+      0.9475,
+      1.3901
+     ],
+     "obs_ref": 1.6564,
+     "verdict": "above",
+     "events_with_peer": 25
+    },
+    "random_amount_obs_w": {
+     "mean": 2.5948,
+     "mc95": [
+      2.3379,
+      2.8373
+     ],
+     "obs_ref": 1.6564,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.9254,
+     "mc95": [
+      1.4366,
+      2.3573
+     ],
+     "obs_ref": 1.6564,
+     "verdict": "inside"
+    }
+   }
+  },
+  "flat5m|Sol": {
+   "all": {
+    "n": 49,
+    "games": 9,
+    "native": {
+     "obs": 2.1022,
+     "obs_ci95": [
+      1.8483,
+      2.8038
+     ],
+     "min": 4.4898,
+     "min_ci95": [
+      3.6,
+      7.2254
+     ],
+     "ratio": 0.4682,
+     "ratio_ci95": [
+      0.2859,
+      0.6352
+     ],
+     "diff": -2.3876,
+     "diff_ci95": [
+      -5.2278,
+      -1.4105
+     ],
+     "verdict": "below"
+    },
+    "obs_w": {
+     "obs": 2.1022,
+     "obs_ci95": [
+      1.8483,
+      2.8038
+     ],
+     "min": 3.5869,
+     "min_ci95": [
+      3.1785,
+      4.2158
+     ],
+     "ratio": 0.5861,
+     "ratio_ci95": [
+      0.529,
+      0.7119
+     ],
+     "diff": -1.4847,
+     "diff_ci95": [
+      -1.8102,
+      -1.0543
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 2.1837,
+     "obs_ci95": [
+      1.7664,
+      3.3017
+     ],
+     "min": 3.1672,
+     "min_ci95": [
+      2.8015,
+      3.8444
+     ],
+     "ratio": 0.6895,
+     "ratio_ci95": [
+      0.5977,
+      0.9106
+     ],
+     "diff": -0.9835,
+     "diff_ci95": [
+      -1.3147,
+      -0.3127
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.3166,
+     "mc95": [
+      1.1305,
+      1.5413
+     ],
+     "obs_ref": 2.1022,
+     "verdict": "above",
+     "events_with_peer": 49
+    },
+    "random_amount_obs_w": {
+     "mean": 2.8249,
+     "mc95": [
+      2.58,
+      3.0611
+     ],
+     "obs_ref": 2.1022,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.0823,
+     "mc95": [
+      1.6294,
+      2.5202
+     ],
+     "obs_ref": 2.1022,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 19,
+    "games": 5,
+    "native": {
+     "obs": 3.9749,
+     "obs_ci95": [
+      2.6582,
+      11.5531
+     ],
+     "min": 4.4898,
+     "min_ci95": [
+      3.6,
+      7.2254
+     ],
+     "ratio": 0.8853,
+     "ratio_ci95": [
+      0.5886,
+      2.3839
+     ],
+     "diff": -0.5149,
+     "diff_ci95": [
+      -2.6121,
+      6.4769
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 3.9749,
+     "obs_ci95": [
+      2.6582,
+      11.5531
+     ],
+     "min": 4.6906,
+     "min_ci95": [
+      3.6193,
+      6.7713
+     ],
+     "ratio": 0.8474,
+     "ratio_ci95": [
+      0.618,
+      2.2482
+     ],
+     "diff": -0.7157,
+     "diff_ci95": [
+      -2.002,
+      6.4288
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 4.2281,
+     "obs_ci95": [
+      2.1996,
+      11.849
+     ],
+     "min": 4.0472,
+     "min_ci95": [
+      2.877,
+      6.83
+     ],
+     "ratio": 1.0447,
+     "ratio_ci95": [
+      0.6542,
+      2.7054
+     ],
+     "diff": 0.1809,
+     "diff_ci95": [
+      -1.6936,
+      6.7692
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.5263,
+    "share_g_ge_m_ci95": [
+     0.1667,
+     0.8333
+    ],
+    "median_g_over_m": 1.1699,
+    "random_recipient": {
+     "mean": 1.6833,
+     "mc95": [
+      1.2072,
+      2.4473
+     ],
+     "obs_ref": 3.9749,
+     "verdict": "above",
+     "events_with_peer": 19
+    },
+    "random_amount_obs_w": {
+     "mean": 5.4689,
+     "mc95": [
+      4.1622,
+      6.8941
+     ],
+     "obs_ref": 3.9749,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 3.3866,
+     "mc95": [
+      1.953,
+      4.9303
+     ],
+     "obs_ref": 3.9749,
+     "verdict": "inside"
+    }
+   },
+   "high": {
+    "n": 30,
+    "games": 6,
+    "native": {
+     "obs": 1.7787,
+     "obs_ci95": [
+      1.4965,
+      2.1429
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.7787,
+     "obs_ci95": [
+      1.4965,
+      2.1429
+     ],
+     "min": 3.3274,
+     "min_ci95": [
+      2.6743,
+      4.0031
+     ],
+     "ratio": 0.5346,
+     "ratio_ci95": [
+      0.4694,
+      0.5991
+     ],
+     "diff": -1.5487,
+     "diff_ci95": [
+      -2.0065,
+      -1.1052
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.7263,
+     "obs_ci95": [
+      1.4269,
+      2.1045
+     ],
+     "min": 2.8771,
+     "min_ci95": [
+      2.3339,
+      3.3478
+     ],
+     "ratio": 0.6,
+     "ratio_ci95": [
+      0.52,
+      0.665
+     ],
+     "diff": -1.1508,
+     "diff_ci95": [
+      -1.5666,
+      -0.8397
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.2204,
+     "mc95": [
+      1.0334,
+      1.454
+     ],
+     "obs_ref": 1.7787,
+     "verdict": "above",
+     "events_with_peer": 30
+    },
+    "random_amount_obs_w": {
+     "mean": 2.3916,
+     "mc95": [
+      2.1543,
+      2.6004
+     ],
+     "obs_ref": 1.7787,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.7369,
+     "mc95": [
+      1.3354,
+      2.1213
+     ],
+     "obs_ref": 1.7787,
+     "verdict": "inside"
+    }
+   }
+  },
+  "flat5m|Luna": {
+   "all": {
+    "n": 19,
+    "games": 7,
+    "native": {
+     "obs": 2.3988,
+     "obs_ci95": [
+      1.3505,
+      3.8678
+     ],
+     "min": 2.1495,
+     "min_ci95": [
+      1.3262,
+      7.6102
+     ],
+     "ratio": 1.116,
+     "ratio_ci95": [
+      0.2676,
+      2.3834
+     ],
+     "diff": 0.2493,
+     "diff_ci95": [
+      -5.0128,
+      2.1125
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 2.3988,
+     "obs_ci95": [
+      1.3505,
+      3.8678
+     ],
+     "min": 3.5027,
+     "min_ci95": [
+      2.0353,
+      4.8065
+     ],
+     "ratio": 0.6849,
+     "ratio_ci95": [
+      0.487,
+      1.0966
+     ],
+     "diff": -1.1039,
+     "diff_ci95": [
+      -2.0375,
+      0.2804
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 2.4435,
+     "obs_ci95": [
+      1.113,
+      3.9417
+     ],
+     "min": 2.9296,
+     "min_ci95": [
+      1.549,
+      4.6211
+     ],
+     "ratio": 0.8341,
+     "ratio_ci95": [
+      0.5592,
+      1.1927
+     ],
+     "diff": -0.4861,
+     "diff_ci95": [
+      -1.6739,
+      0.5483
+     ],
+     "verdict": "inside"
+    },
+    "random_recipient": {
+     "mean": 1.1156,
+     "mc95": [
+      0.8034,
+      1.6597
+     ],
+     "obs_ref": 2.3988,
+     "verdict": "above",
+     "events_with_peer": 19
+    },
+    "random_amount_obs_w": {
+     "mean": 3.4706,
+     "mc95": [
+      2.8366,
+      4.0596
+     ],
+     "obs_ref": 2.3988,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.2001,
+     "mc95": [
+      1.2316,
+      3.252
+     ],
+     "obs_ref": 2.3988,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 13,
+    "games": 5,
+    "native": {
+     "obs": 3.45,
+     "obs_ci95": [
+      1.8839,
+      6.3719
+     ],
+     "min": 2.1495,
+     "min_ci95": [
+      1.3262,
+      7.6102
+     ],
+     "ratio": 1.605,
+     "ratio_ci95": [
+      0.4877,
+      3.5354
+     ],
+     "diff": 1.3005,
+     "diff_ci95": [
+      -2.5819,
+      3.988
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 3.45,
+     "obs_ci95": [
+      1.8839,
+      6.3719
+     ],
+     "min": 4.2299,
+     "min_ci95": [
+      3.0331,
+      7.6102
+     ],
+     "ratio": 0.8156,
+     "ratio_ci95": [
+      0.4593,
+      1.897
+     ],
+     "diff": -0.7799,
+     "diff_ci95": [
+      -2.4992,
+      2.4824
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 4.1118,
+     "obs_ci95": [
+      2.2564,
+      7.4792
+     ],
+     "min": 3.8808,
+     "min_ci95": [
+      2.5335,
+      7.6102
+     ],
+     "ratio": 1.0595,
+     "ratio_ci95": [
+      0.5358,
+      1.9541
+     ],
+     "diff": 0.231,
+     "diff_ci95": [
+      -2.4332,
+      2.6812
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.4615,
+    "share_g_ge_m_ci95": [
+     0.1429,
+     1.0
+    ],
+    "median_g_over_m": 0.8125,
+    "random_recipient": {
+     "mean": 1.1549,
+     "mc95": [
+      0.718,
+      2.0824
+     ],
+     "obs_ref": 3.45,
+     "verdict": "above",
+     "events_with_peer": 13
+    },
+    "random_amount_obs_w": {
+     "mean": 5.7021,
+     "mc95": [
+      3.979,
+      7.6394
+     ],
+     "obs_ref": 3.45,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 3.4211,
+     "mc95": [
+      1.5559,
+      5.8195
+     ],
+     "obs_ref": 3.45,
+     "verdict": "inside"
+    }
+   },
+   "high": {
+    "n": 6,
+    "games": 5,
+    "native": {
+     "obs": 1.5457,
+     "obs_ci95": [
+      0.2968,
+      2.3937
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.5457,
+     "obs_ci95": [
+      0.2968,
+      2.3937
+     ],
+     "min": 2.7608,
+     "min_ci95": [
+      0.501,
+      4.1993
+     ],
+     "ratio": 0.5599,
+     "ratio_ci95": [
+      0.4739,
+      0.7158
+     ],
+     "diff": -1.2151,
+     "diff_ci95": [
+      -1.9792,
+      -0.2099
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.3391,
+     "obs_ci95": [
+      0.3209,
+      2.5348
+     ],
+     "min": 2.0653,
+     "min_ci95": [
+      0.501,
+      4.1399
+     ],
+     "ratio": 0.6484,
+     "ratio_ci95": [
+      0.476,
+      0.7903
+     ],
+     "diff": -0.7262,
+     "diff_ci95": [
+      -1.8628,
+      -0.1765
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.1167,
+     "mc95": [
+      0.768,
+      1.595
+     ],
+     "obs_ref": 1.5457,
+     "verdict": "inside",
+     "events_with_peer": 6
+    },
+    "random_amount_obs_w": {
+     "mean": 2.0556,
+     "mc95": [
+      1.5992,
+      2.3752
+     ],
+     "obs_ref": 1.5457,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.3397,
+     "mc95": [
+      0.6629,
+      2.0411
+     ],
+     "obs_ref": 1.5457,
+     "verdict": "inside"
+    }
+   }
+  },
+  "split600k|Fable": {
+   "all": {
+    "n": 35,
+    "games": 6,
+    "native": {
+     "obs": 1.4062,
+     "obs_ci95": [
+      1.1775,
+      2.333
+     ],
+     "min": 2.8457,
+     "min_ci95": [
+      2.2074,
+      4.2975
+     ],
+     "ratio": 0.4941,
+     "ratio_ci95": [
+      0.3812,
+      0.711
+     ],
+     "diff": -1.4395,
+     "diff_ci95": [
+      -2.2999,
+      -0.6654
+     ],
+     "verdict": "below"
+    },
+    "obs_w": {
+     "obs": 1.4062,
+     "obs_ci95": [
+      1.1775,
+      2.333
+     ],
+     "min": 1.8135,
+     "min_ci95": [
+      1.4382,
+      3.3869
+     ],
+     "ratio": 0.7754,
+     "ratio_ci95": [
+      0.6362,
+      0.8431
+     ],
+     "diff": -0.4073,
+     "diff_ci95": [
+      -1.0683,
+      -0.2303
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.473,
+     "obs_ci95": [
+      1.2592,
+      2.6156
+     ],
+     "min": 1.7752,
+     "min_ci95": [
+      1.4577,
+      3.6791
+     ],
+     "ratio": 0.8298,
+     "ratio_ci95": [
+      0.6813,
+      0.895
+     ],
+     "diff": -0.3021,
+     "diff_ci95": [
+      -1.132,
+      -0.1602
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.1462,
+     "mc95": [
+      0.9972,
+      1.3186
+     ],
+     "obs_ref": 1.4062,
+     "verdict": "above",
+     "events_with_peer": 35
+    },
+    "random_amount_obs_w": {
+     "mean": 1.3627,
+     "mc95": [
+      1.236,
+      1.4778
+     ],
+     "obs_ref": 1.4062,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.1449,
+     "mc95": [
+      0.8084,
+      1.5269
+     ],
+     "obs_ref": 1.4062,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 11,
+    "games": 3,
+    "native": {
+     "obs": 4.0807,
+     "obs_ci95": [
+      3.3695,
+      4.9622
+     ],
+     "min": 2.8457,
+     "min_ci95": [
+      2.2074,
+      4.2975
+     ],
+     "ratio": 1.434,
+     "ratio_ci95": [
+      0.9011,
+      1.6244
+     ],
+     "diff": 1.235,
+     "diff_ci95": [
+      -0.4251,
+      1.9075
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 4.0807,
+     "obs_ci95": [
+      3.3695,
+      4.9622
+     ],
+     "min": 4.5399,
+     "min_ci95": [
+      4.2744,
+      4.8463
+     ],
+     "ratio": 0.8989,
+     "ratio_ci95": [
+      0.7883,
+      1.0239
+     ],
+     "diff": -0.4592,
+     "diff_ci95": [
+      -0.9049,
+      0.1159
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 4.3491,
+     "obs_ci95": [
+      3.0832,
+      5.4922
+     ],
+     "min": 3.8509,
+     "min_ci95": [
+      3.086,
+      4.2975
+     ],
+     "ratio": 1.1294,
+     "ratio_ci95": [
+      0.9011,
+      1.2813
+     ],
+     "diff": 0.4981,
+     "diff_ci95": [
+      -0.4251,
+      1.2058
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.5455,
+    "share_g_ge_m_ci95": [
+     0.5,
+     1.0
+    ],
+    "median_g_over_m": 1.1259,
+    "random_recipient": {
+     "mean": 2.0472,
+     "mc95": [
+      1.4252,
+      3.146
+     ],
+     "obs_ref": 4.0807,
+     "verdict": "above",
+     "events_with_peer": 11
+    },
+    "random_amount_obs_w": {
+     "mean": 3.7824,
+     "mc95": [
+      2.7976,
+      4.8403
+     ],
+     "obs_ref": 4.0807,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 2.7123,
+     "mc95": [
+      1.7142,
+      4.0547
+     ],
+     "obs_ref": 4.0807,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 24,
+    "games": 6,
+    "native": {
+     "obs": 1.0451,
+     "obs_ci95": [
+      0.754,
+      2.2233
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.0451,
+     "obs_ci95": [
+      0.754,
+      2.2233
+     ],
+     "min": 1.4149,
+     "min_ci95": [
+      0.9747,
+      3.3068
+     ],
+     "ratio": 0.7387,
+     "ratio_ci95": [
+      0.6278,
+      0.7961
+     ],
+     "diff": -0.3697,
+     "diff_ci95": [
+      -1.092,
+      -0.2121
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.073,
+     "obs_ci95": [
+      0.7553,
+      2.5232
+     ],
+     "min": 1.4057,
+     "min_ci95": [
+      0.9658,
+      3.6498
+     ],
+     "ratio": 0.7633,
+     "ratio_ci95": [
+      0.6732,
+      0.8008
+     ],
+     "diff": -0.3327,
+     "diff_ci95": [
+      -1.155,
+      -0.2015
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 0.9395,
+     "mc95": [
+      0.8115,
+      1.096
+     ],
+     "obs_ref": 1.0451,
+     "verdict": "inside",
+     "events_with_peer": 24
+    },
+    "random_amount_obs_w": {
+     "mean": 1.0179,
+     "mc95": [
+      0.912,
+      1.116
+     ],
+     "obs_ref": 1.0451,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 0.8574,
+     "mc95": [
+      0.5405,
+      1.2366
+     ],
+     "obs_ref": 1.0451,
+     "verdict": "inside"
+    }
+   }
+  },
+  "split600k|Opus": {
+   "all": {
+    "n": 86,
+    "games": 10,
+    "native": {
+     "obs": 2.2122,
+     "obs_ci95": [
+      1.7411,
+      2.9274
+     ],
+     "min": 1.2427,
+     "min_ci95": [
+      0.6648,
+      2.8576
+     ],
+     "ratio": 1.7802,
+     "ratio_ci95": [
+      0.6856,
+      3.5409
+     ],
+     "diff": 0.9695,
+     "diff_ci95": [
+      -0.8822,
+      1.9042
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 2.2122,
+     "obs_ci95": [
+      1.7411,
+      2.9274
+     ],
+     "min": 2.721,
+     "min_ci95": [
+      1.9422,
+      3.5576
+     ],
+     "ratio": 0.813,
+     "ratio_ci95": [
+      0.6352,
+      1.0974
+     ],
+     "diff": -0.5087,
+     "diff_ci95": [
+      -1.2488,
+      0.2226
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 2.5285,
+     "obs_ci95": [
+      1.83,
+      3.4735
+     ],
+     "min": 2.3994,
+     "min_ci95": [
+      1.8668,
+      3.1036
+     ],
+     "ratio": 1.0538,
+     "ratio_ci95": [
+      0.7963,
+      1.3748
+     ],
+     "diff": 0.1291,
+     "diff_ci95": [
+      -0.5579,
+      0.8809
+     ],
+     "verdict": "inside"
+    },
+    "random_recipient": {
+     "mean": 1.2296,
+     "mc95": [
+      1.0376,
+      1.4569
+     ],
+     "obs_ref": 2.2122,
+     "verdict": "above",
+     "events_with_peer": 86
+    },
+    "random_amount_obs_w": {
+     "mean": 2.3613,
+     "mc95": [
+      2.1584,
+      2.5576
+     ],
+     "obs_ref": 2.2122,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.5829,
+     "mc95": [
+      1.2817,
+      1.926
+     ],
+     "obs_ref": 2.2122,
+     "verdict": "above"
+    }
+   },
+   "low": {
+    "n": 54,
+    "games": 8,
+    "native": {
+     "obs": 3.0827,
+     "obs_ci95": [
+      2.0131,
+      4.4281
+     ],
+     "min": 1.2427,
+     "min_ci95": [
+      0.6648,
+      2.8576
+     ],
+     "ratio": 2.4806,
+     "ratio_ci95": [
+      1.2393,
+      3.6665
+     ],
+     "diff": 1.84,
+     "diff_ci95": [
+      0.6588,
+      2.7502
+     ],
+     "verdict": "above"
+    },
+    "obs_w": {
+     "obs": 3.0827,
+     "obs_ci95": [
+      2.0131,
+      4.4281
+     ],
+     "min": 2.3531,
+     "min_ci95": [
+      1.3849,
+      3.6329
+     ],
+     "ratio": 1.3101,
+     "ratio_ci95": [
+      0.9487,
+      2.1693
+     ],
+     "diff": 0.7296,
+     "diff_ci95": [
+      -0.1389,
+      1.9939
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 4.4676,
+     "obs_ci95": [
+      3.2899,
+      5.9975
+     ],
+     "min": 2.4203,
+     "min_ci95": [
+      1.8327,
+      3.3956
+     ],
+     "ratio": 1.8459,
+     "ratio_ci95": [
+      1.1237,
+      2.9718
+     ],
+     "diff": 2.0473,
+     "diff_ci95": [
+      0.3783,
+      3.8502
+     ],
+     "verdict": "above"
+    },
+    "share_g_ge_m": 0.3148,
+    "share_g_ge_m_ci95": [
+     0.18,
+     0.5085
+    ],
+    "median_g_over_m": 0.6257,
+    "random_recipient": {
+     "mean": 1.2832,
+     "mc95": [
+      0.9992,
+      1.672
+     ],
+     "obs_ref": 3.0827,
+     "verdict": "above",
+     "events_with_peer": 54
+    },
+    "random_amount_obs_w": {
+     "mean": 2.961,
+     "mc95": [
+      2.4195,
+      3.5786
+     ],
+     "obs_ref": 3.0827,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.8418,
+     "mc95": [
+      1.3046,
+      2.47
+     ],
+     "obs_ref": 3.0827,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 32,
+    "games": 9,
+    "native": {
+     "obs": 1.9139,
+     "obs_ci95": [
+      1.2774,
+      2.6973
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.9139,
+     "obs_ci95": [
+      1.2774,
+      2.6973
+     ],
+     "min": 2.9278,
+     "min_ci95": [
+      1.7084,
+      4.1293
+     ],
+     "ratio": 0.6537,
+     "ratio_ci95": [
+      0.5355,
+      0.7781
+     ],
+     "diff": -1.0139,
+     "diff_ci95": [
+      -1.8229,
+      -0.3881
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.731,
+     "obs_ci95": [
+      1.0773,
+      2.5533
+     ],
+     "min": 2.3823,
+     "min_ci95": [
+      1.4196,
+      3.6713
+     ],
+     "ratio": 0.7266,
+     "ratio_ci95": [
+      0.6126,
+      0.7918
+     ],
+     "diff": -0.6513,
+     "diff_ci95": [
+      -1.3166,
+      -0.3177
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.2159,
+     "mc95": [
+      0.974,
+      1.5223
+     ],
+     "obs_ref": 1.9139,
+     "verdict": "above",
+     "events_with_peer": 32
+    },
+    "random_amount_obs_w": {
+     "mean": 2.135,
+     "mc95": [
+      1.9305,
+      2.323
+     ],
+     "obs_ref": 1.9139,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.39,
+     "mc95": [
+      1.0185,
+      1.7881
+     ],
+     "obs_ref": 1.9139,
+     "verdict": "above"
+    }
+   }
+  },
+  "split600k|Astra": {
+   "all": {
+    "n": 35,
+    "games": 10,
+    "native": {
+     "obs": 2.3088,
+     "obs_ci95": [
+      2.0848,
+      2.707
+     ],
+     "min": 5.0583,
+     "min_ci95": [
+      3.6111,
+      7.7851
+     ],
+     "ratio": 0.4564,
+     "ratio_ci95": [
+      0.2906,
+      0.6042
+     ],
+     "diff": -2.7495,
+     "diff_ci95": [
+      -5.4546,
+      -1.4388
+     ],
+     "verdict": "below"
+    },
+    "obs_w": {
+     "obs": 2.3088,
+     "obs_ci95": [
+      2.0848,
+      2.707
+     ],
+     "min": 4.5168,
+     "min_ci95": [
+      4.0121,
+      5.4259
+     ],
+     "ratio": 0.5112,
+     "ratio_ci95": [
+      0.4797,
+      0.542
+     ],
+     "diff": -2.208,
+     "diff_ci95": [
+      -2.7641,
+      -1.888
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 2.1954,
+     "obs_ci95": [
+      1.9653,
+      2.601
+     ],
+     "min": 4.0831,
+     "min_ci95": [
+      3.6333,
+      4.914
+     ],
+     "ratio": 0.5377,
+     "ratio_ci95": [
+      0.5061,
+      0.5684
+     ],
+     "diff": -1.8877,
+     "diff_ci95": [
+      -2.3585,
+      -1.6304
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.3976,
+     "mc95": [
+      1.1675,
+      1.6937
+     ],
+     "obs_ref": 2.3088,
+     "verdict": "above",
+     "events_with_peer": 35
+    },
+    "random_amount_obs_w": {
+     "mean": 3.6172,
+     "mc95": [
+      3.2616,
+      3.9572
+     ],
+     "obs_ref": 2.3088,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.6572,
+     "mc95": [
+      2.1325,
+      3.178
+     ],
+     "obs_ref": 2.3088,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 16,
+    "games": 8,
+    "native": {
+     "obs": 3.1569,
+     "obs_ci95": [
+      2.753,
+      3.4822
+     ],
+     "min": 5.0583,
+     "min_ci95": [
+      3.6111,
+      7.7851
+     ],
+     "ratio": 0.6241,
+     "ratio_ci95": [
+      0.4169,
+      0.7783
+     ],
+     "diff": -1.9014,
+     "diff_ci95": [
+      -4.5162,
+      -0.8098
+     ],
+     "verdict": "below"
+    },
+    "obs_w": {
+     "obs": 3.1569,
+     "obs_ci95": [
+      2.753,
+      3.4822
+     ],
+     "min": 6.0441,
+     "min_ci95": [
+      4.5109,
+      7.6043
+     ],
+     "ratio": 0.5223,
+     "ratio_ci95": [
+      0.4364,
+      0.6237
+     ],
+     "diff": -2.8872,
+     "diff_ci95": [
+      -4.251,
+      -1.7119
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 2.9139,
+     "obs_ci95": [
+      2.3604,
+      3.4191
+     ],
+     "min": 5.1548,
+     "min_ci95": [
+      3.7482,
+      7.0188
+     ],
+     "ratio": 0.5653,
+     "ratio_ci95": [
+      0.4669,
+      0.6549
+     ],
+     "diff": -2.2409,
+     "diff_ci95": [
+      -3.7012,
+      -1.3006
+     ],
+     "verdict": "below"
+    },
+    "share_g_ge_m": 1.0,
+    "share_g_ge_m_ci95": [
+     1.0,
+     1.0
+    ],
+    "median_g_over_m": 3.1644,
+    "random_recipient": {
+     "mean": 1.5603,
+     "mc95": [
+      1.1516,
+      2.1524
+     ],
+     "obs_ref": 3.1569,
+     "verdict": "above",
+     "events_with_peer": 16
+    },
+    "random_amount_obs_w": {
+     "mean": 5.8916,
+     "mc95": [
+      4.6165,
+      7.3122
+     ],
+     "obs_ref": 3.1569,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 3.6979,
+     "mc95": [
+      2.4765,
+      5.2354
+     ],
+     "obs_ref": 3.1569,
+     "verdict": "inside"
+    }
+   },
+   "high": {
+    "n": 19,
+    "games": 8,
+    "native": {
+     "obs": 1.941,
+     "obs_ci95": [
+      1.8446,
+      1.9989
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.941,
+     "obs_ci95": [
+      1.8446,
+      1.9989
+     ],
+     "min": 3.8696,
+     "min_ci95": [
+      3.5499,
+      4.0943
+     ],
+     "ratio": 0.5016,
+     "ratio_ci95": [
+      0.4794,
+      0.527
+     ],
+     "diff": -1.9286,
+     "diff_ci95": [
+      -2.1283,
+      -1.6805
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.8676,
+     "obs_ci95": [
+      1.7866,
+      1.9322
+     ],
+     "min": 3.5859,
+     "min_ci95": [
+      3.2927,
+      3.8786
+     ],
+     "ratio": 0.5208,
+     "ratio_ci95": [
+      0.49,
+      0.5529
+     ],
+     "diff": -1.7183,
+     "diff_ci95": [
+      -1.9727,
+      -1.4755
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.3181,
+     "mc95": [
+      1.0499,
+      1.6595
+     ],
+     "obs_ref": 1.941,
+     "verdict": "above",
+     "events_with_peer": 19
+    },
+    "random_amount_obs_w": {
+     "mean": 2.8387,
+     "mc95": [
+      2.5314,
+      3.1201
+     ],
+     "obs_ref": 1.941,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.2363,
+     "mc95": [
+      1.7937,
+      2.6963
+     ],
+     "obs_ref": 1.941,
+     "verdict": "inside"
+    }
+   }
+  },
+  "split600k|Sol": {
+   "all": {
+    "n": 15,
+    "games": 4,
+    "native": {
+     "obs": 4.624,
+     "obs_ci95": [
+      3.0741,
+      13.3563
+     ],
+     "min": 3.5604,
+     "min_ci95": [
+      0.4246,
+      5.6954
+     ],
+     "ratio": 1.2987,
+     "ratio_ci95": [
+      1.1678,
+      15.252
+     ],
+     "diff": 1.0636,
+     "diff_ci95": [
+      0.7074,
+      7.6608
+     ],
+     "verdict": "above"
+    },
+    "obs_w": {
+     "obs": 4.624,
+     "obs_ci95": [
+      3.0741,
+      13.3563
+     ],
+     "min": 4.4998,
+     "min_ci95": [
+      2.9483,
+      5.6805
+     ],
+     "ratio": 1.0276,
+     "ratio_ci95": [
+      0.8715,
+      2.3512
+     ],
+     "diff": 0.1242,
+     "diff_ci95": [
+      -0.6763,
+      7.6757
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 6.7368,
+     "obs_ci95": [
+      3.4602,
+      22.3999
+     ],
+     "min": 4.3601,
+     "min_ci95": [
+      3.3019,
+      5.585
+     ],
+     "ratio": 1.5451,
+     "ratio_ci95": [
+      1.0466,
+      4.0107
+     ],
+     "diff": 2.3767,
+     "diff_ci95": [
+      0.1582,
+      16.8149
+     ],
+     "verdict": "above"
+    },
+    "random_recipient": {
+     "mean": 1.9719,
+     "mc95": [
+      1.3348,
+      3.0153
+     ],
+     "obs_ref": 4.624,
+     "verdict": "above",
+     "events_with_peer": 15
+    },
+    "random_amount_obs_w": {
+     "mean": 4.4916,
+     "mc95": [
+      3.3536,
+      5.6915
+     ],
+     "obs_ref": 4.624,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 3.6136,
+     "mc95": [
+      2.0061,
+      5.5594
+     ],
+     "obs_ref": 4.624,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 12,
+    "games": 4,
+    "native": {
+     "obs": 5.0175,
+     "obs_ci95": [
+      1.7735,
+      40.2454
+     ],
+     "min": 3.5604,
+     "min_ci95": [
+      0.4246,
+      5.6954
+     ],
+     "ratio": 1.4092,
+     "ratio_ci95": [
+      1.2701,
+      9.702
+     ],
+     "diff": 1.457,
+     "diff_ci95": [
+      0.7055,
+      34.5499
+     ],
+     "verdict": "above"
+    },
+    "obs_w": {
+     "obs": 5.0175,
+     "obs_ci95": [
+      1.7735,
+      40.2454
+     ],
+     "min": 4.0619,
+     "min_ci95": [
+      1.1577,
+      5.7966
+     ],
+     "ratio": 1.2353,
+     "ratio_ci95": [
+      0.9039,
+      7.2895
+     ],
+     "diff": 0.9556,
+     "diff_ci95": [
+      -0.5433,
+      34.7244
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 9.2508,
+     "obs_ci95": [
+      2.1953,
+      40.2454
+     ],
+     "min": 4.0197,
+     "min_ci95": [
+      1.1309,
+      5.521
+     ],
+     "ratio": 2.3014,
+     "ratio_ci95": [
+      1.5358,
+      7.2895
+     ],
+     "diff": 5.2311,
+     "diff_ci95": [
+      0.9124,
+      34.7244
+     ],
+     "verdict": "above"
+    },
+    "share_g_ge_m": 0.25,
+    "share_g_ge_m_ci95": [
+     0.0,
+     0.4875
+    ],
+    "median_g_over_m": 0.1974,
+    "random_recipient": {
+     "mean": 1.8935,
+     "mc95": [
+      1.1644,
+      3.3499
+     ],
+     "obs_ref": 5.0175,
+     "verdict": "above",
+     "events_with_peer": 12
+    },
+    "random_amount_obs_w": {
+     "mean": 5.006,
+     "mc95": [
+      3.2074,
+      6.9141
+     ],
+     "obs_ref": 5.0175,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 3.9654,
+     "mc95": [
+      1.7222,
+      7.1712
+     ],
+     "obs_ref": 5.0175,
+     "verdict": "inside"
+    }
+   },
+   "high": {
+    "n": 3,
+    "games": 3,
+    "native": {
+     "obs": 4.0124,
+     "obs_ci95": [
+      2.9699,
+      4.4111
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 4.0124,
+     "obs_ci95": [
+      2.9699,
+      4.4111
+     ],
+     "min": 5.5588,
+     "min_ci95": [
+      3.9611,
+      6.1485
+     ],
+     "ratio": 0.7218,
+     "ratio_ci95": [
+      0.688,
+      0.7498
+     ],
+     "diff": -1.5464,
+     "diff_ci95": [
+      -1.918,
+      -0.9911
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 3.9011,
+     "obs_ci95": [
+      2.9699,
+      4.4111
+     ],
+     "min": 5.3811,
+     "min_ci95": [
+      3.9611,
+      6.1485
+     ],
+     "ratio": 0.725,
+     "ratio_ci95": [
+      0.688,
+      0.7498
+     ],
+     "diff": -1.48,
+     "diff_ci95": [
+      -1.918,
+      -0.9911
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 2.4597,
+     "mc95": [
+      1.3487,
+      4.7237
+     ],
+     "obs_ref": 4.0124,
+     "verdict": "inside",
+     "events_with_peer": 3
+    },
+    "random_amount_obs_w": {
+     "mean": 3.8487,
+     "mc95": [
+      2.7559,
+      4.8344
+     ],
+     "obs_ref": 4.0124,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 3.3789,
+     "mc95": [
+      1.9421,
+      4.6755
+     ],
+     "obs_ref": 4.0124,
+     "verdict": "inside"
+    }
+   }
+  },
+  "split600k|Luna": {
+   "all": {
+    "n": 33,
+    "games": 6,
+    "native": {
+     "obs": 1.7418,
+     "obs_ci95": [
+      0.9119,
+      2.8487
+     ],
+     "min": 2.6183,
+     "min_ci95": [
+      1.1148,
+      6.2869
+     ],
+     "ratio": 0.6652,
+     "ratio_ci95": [
+      0.2561,
+      1.5792
+     ],
+     "diff": -0.8765,
+     "diff_ci95": [
+      -4.1756,
+      0.674
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 1.7418,
+     "obs_ci95": [
+      0.9119,
+      2.8487
+     ],
+     "min": 2.603,
+     "min_ci95": [
+      1.5858,
+      4.0088
+     ],
+     "ratio": 0.6692,
+     "ratio_ci95": [
+      0.5486,
+      0.7842
+     ],
+     "diff": -0.8612,
+     "diff_ci95": [
+      -1.21,
+      -0.5211
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 2.2835,
+     "obs_ci95": [
+      1.6372,
+      4.3967
+     ],
+     "min": 2.5789,
+     "min_ci95": [
+      1.8585,
+      4.1735
+     ],
+     "ratio": 0.8855,
+     "ratio_ci95": [
+      0.6661,
+      1.2922
+     ],
+     "diff": -0.2953,
+     "diff_ci95": [
+      -1.111,
+      0.8103
+     ],
+     "verdict": "inside"
+    },
+    "random_recipient": {
+     "mean": 1.0708,
+     "mc95": [
+      0.8688,
+      1.3297
+     ],
+     "obs_ref": 1.7418,
+     "verdict": "above",
+     "events_with_peer": 33
+    },
+    "random_amount_obs_w": {
+     "mean": 2.0269,
+     "mc95": [
+      1.7753,
+      2.274
+     ],
+     "obs_ref": 1.7418,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.6452,
+     "mc95": [
+      1.1709,
+      2.2172
+     ],
+     "obs_ref": 1.7418,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 18,
+    "games": 6,
+    "native": {
+     "obs": 3.9765,
+     "obs_ci95": [
+      2.8108,
+      7.1432
+     ],
+     "min": 2.6183,
+     "min_ci95": [
+      1.1148,
+      6.2869
+     ],
+     "ratio": 1.5187,
+     "ratio_ci95": [
+      0.5666,
+      3.5561
+     ],
+     "diff": 1.3582,
+     "diff_ci95": [
+      -2.5793,
+      3.5808
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 3.9765,
+     "obs_ci95": [
+      2.8108,
+      7.1432
+     ],
+     "min": 4.0501,
+     "min_ci95": [
+      2.9436,
+      5.35
+     ],
+     "ratio": 0.9818,
+     "ratio_ci95": [
+      0.5994,
+      1.8034
+     ],
+     "diff": -0.0735,
+     "diff_ci95": [
+      -2.0039,
+      3.0372
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 4.8427,
+     "obs_ci95": [
+      2.6262,
+      13.0606
+     ],
+     "min": 3.0149,
+     "min_ci95": [
+      1.6054,
+      5.3509
+     ],
+     "ratio": 1.6063,
+     "ratio_ci95": [
+      0.8196,
+      3.4096
+     ],
+     "diff": 1.8278,
+     "diff_ci95": [
+      -0.7807,
+      8.8321
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.3889,
+    "share_g_ge_m_ci95": [
+     0.1667,
+     0.7143
+    ],
+    "median_g_over_m": 0.4281,
+    "random_recipient": {
+     "mean": 1.4289,
+     "mc95": [
+      0.9926,
+      2.2742
+     ],
+     "obs_ref": 3.9765,
+     "verdict": "above",
+     "events_with_peer": 18
+    },
+    "random_amount_obs_w": {
+     "mean": 4.3357,
+     "mc95": [
+      3.1515,
+      5.5715
+     ],
+     "obs_ref": 3.9765,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 2.4533,
+     "mc95": [
+      1.2129,
+      4.0461
+     ],
+     "obs_ref": 3.9765,
+     "verdict": "inside"
+    }
+   },
+   "high": {
+    "n": 15,
+    "games": 5,
+    "native": {
+     "obs": 1.1943,
+     "obs_ci95": [
+      0.4173,
+      2.0724
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.1943,
+     "obs_ci95": [
+      0.4173,
+      2.0724
+     ],
+     "min": 2.1082,
+     "min_ci95": [
+      1.0482,
+      3.3371
+     ],
+     "ratio": 0.5665,
+     "ratio_ci95": [
+      0.3902,
+      0.6186
+     ],
+     "diff": -0.9139,
+     "diff_ci95": [
+      -1.2891,
+      -0.6371
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.4255,
+     "obs_ci95": [
+      0.6429,
+      1.9685
+     ],
+     "min": 2.2903,
+     "min_ci95": [
+      1.381,
+      3.3083
+     ],
+     "ratio": 0.6224,
+     "ratio_ci95": [
+      0.4821,
+      0.667
+     ],
+     "diff": -0.8647,
+     "diff_ci95": [
+      -1.3341,
+      -0.6823
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 0.8991,
+     "mc95": [
+      0.7186,
+      1.1333
+     ],
+     "obs_ref": 1.1943,
+     "verdict": "above",
+     "events_with_peer": 15
+    },
+    "random_amount_obs_w": {
+     "mean": 1.4517,
+     "mc95": [
+      1.2352,
+      1.6537
+     ],
+     "obs_ref": 1.1943,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.2749,
+     "mc95": [
+      0.8887,
+      1.7116
+     ],
+     "obs_ref": 1.1943,
+     "verdict": "inside"
+    }
+   }
+  },
+  "flat150k|Fable": {
+   "all": {
+    "n": 50,
+    "games": 9,
+    "native": {
+     "obs": 1.7707,
+     "obs_ci95": [
+      1.3382,
+      2.3058
+     ],
+     "min": 1.7547,
+     "min_ci95": [
+      1.0752,
+      2.7605
+     ],
+     "ratio": 1.0091,
+     "ratio_ci95": [
+      0.5635,
+      1.8095
+     ],
+     "diff": 0.016,
+     "diff_ci95": [
+      -1.1638,
+      0.9344
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 1.7707,
+     "obs_ci95": [
+      1.3382,
+      2.3058
+     ],
+     "min": 2.6446,
+     "min_ci95": [
+      1.7458,
+      3.7116
+     ],
+     "ratio": 0.6695,
+     "ratio_ci95": [
+      0.5323,
+      0.8048
+     ],
+     "diff": -0.8739,
+     "diff_ci95": [
+      -1.6505,
+      -0.3562
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.6481,
+     "obs_ci95": [
+      1.2064,
+      2.2653
+     ],
+     "min": 2.1499,
+     "min_ci95": [
+      1.5318,
+      3.0519
+     ],
+     "ratio": 0.7666,
+     "ratio_ci95": [
+      0.6727,
+      0.8267
+     ],
+     "diff": -0.5018,
+     "diff_ci95": [
+      -0.9152,
+      -0.2886
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.2428,
+     "mc95": [
+      1.0574,
+      1.4546
+     ],
+     "obs_ref": 1.7707,
+     "verdict": "above",
+     "events_with_peer": 50
+    },
+    "random_amount_obs_w": {
+     "mean": 1.8703,
+     "mc95": [
+      1.7017,
+      2.0093
+     ],
+     "obs_ref": 1.7707,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.2803,
+     "mc95": [
+      1.0353,
+      1.5284
+     ],
+     "obs_ref": 1.7707,
+     "verdict": "above"
+    }
+   },
+   "low": {
+    "n": 13,
+    "games": 7,
+    "native": {
+     "obs": 2.338,
+     "obs_ci95": [
+      1.4597,
+      3.1837
+     ],
+     "min": 1.7547,
+     "min_ci95": [
+      1.0752,
+      2.7605
+     ],
+     "ratio": 1.3324,
+     "ratio_ci95": [
+      0.9138,
+      2.1834
+     ],
+     "diff": 0.5833,
+     "diff_ci95": [
+      -0.1918,
+      1.3637
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 2.338,
+     "obs_ci95": [
+      1.4597,
+      3.1837
+     ],
+     "min": 2.3282,
+     "min_ci95": [
+      1.3466,
+      3.2732
+     ],
+     "ratio": 1.0042,
+     "ratio_ci95": [
+      0.8219,
+      1.2789
+     ],
+     "diff": 0.0098,
+     "diff_ci95": [
+      -0.5162,
+      0.5562
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 2.198,
+     "obs_ci95": [
+      1.3712,
+      2.8883
+     ],
+     "min": 2.1414,
+     "min_ci95": [
+      1.3708,
+      2.6835
+     ],
+     "ratio": 1.0264,
+     "ratio_ci95": [
+      0.8891,
+      1.1841
+     ],
+     "diff": 0.0565,
+     "diff_ci95": [
+      -0.1984,
+      0.3903
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.4615,
+    "share_g_ge_m_ci95": [
+     0.2497,
+     0.7
+    ],
+    "median_g_over_m": 0.9121,
+    "random_recipient": {
+     "mean": 1.5293,
+     "mc95": [
+      1.1556,
+      2.0806
+     ],
+     "obs_ref": 2.338,
+     "verdict": "above",
+     "events_with_peer": 13
+    },
+    "random_amount_obs_w": {
+     "mean": 1.7383,
+     "mc95": [
+      1.1978,
+      2.2631
+     ],
+     "obs_ref": 2.338,
+     "verdict": "above"
+    },
+    "random_amount_native": {
+     "mean": 1.0354,
+     "mc95": [
+      0.4588,
+      1.6666
+     ],
+     "obs_ref": 2.338,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 37,
+    "games": 9,
+    "native": {
+     "obs": 1.7197,
+     "obs_ci95": [
+      1.2928,
+      2.2767
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.7197,
+     "obs_ci95": [
+      1.2928,
+      2.2767
+     ],
+     "min": 2.6832,
+     "min_ci95": [
+      1.7157,
+      3.9385
+     ],
+     "ratio": 0.6409,
+     "ratio_ci95": [
+      0.5033,
+      0.7775
+     ],
+     "diff": -0.9635,
+     "diff_ci95": [
+      -1.8811,
+      -0.3921
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.5834,
+     "obs_ci95": [
+      1.1721,
+      2.229
+     ],
+     "min": 2.1511,
+     "min_ci95": [
+      1.5041,
+      3.3048
+     ],
+     "ratio": 0.7361,
+     "ratio_ci95": [
+      0.6301,
+      0.8006
+     ],
+     "diff": -0.5677,
+     "diff_ci95": [
+      -1.1655,
+      -0.3106
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.2123,
+     "mc95": [
+      1.0282,
+      1.4266
+     ],
+     "obs_ref": 1.7197,
+     "verdict": "above",
+     "events_with_peer": 37
+    },
+    "random_amount_obs_w": {
+     "mean": 1.8901,
+     "mc95": [
+      1.7109,
+      2.0376
+     ],
+     "obs_ref": 1.7197,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.3488,
+     "mc95": [
+      1.0917,
+      1.6115
+     ],
+     "obs_ref": 1.7197,
+     "verdict": "above"
+    }
+   }
+  },
+  "flat150k|Opus": {
+   "all": {
+    "n": 43,
+    "games": 8,
+    "native": {
+     "obs": 1.6562,
+     "obs_ci95": [
+      1.2248,
+      2.6128
+     ],
+     "min": 3.7409,
+     "min_ci95": [
+      3.1257,
+      4.2856
+     ],
+     "ratio": 0.4427,
+     "ratio_ci95": [
+      0.3225,
+      0.718
+     ],
+     "diff": -2.0847,
+     "diff_ci95": [
+      -2.7759,
+      -0.9694
+     ],
+     "verdict": "below"
+    },
+    "obs_w": {
+     "obs": 1.6562,
+     "obs_ci95": [
+      1.2248,
+      2.6128
+     ],
+     "min": 2.0509,
+     "min_ci95": [
+      1.5315,
+      3.218
+     ],
+     "ratio": 0.8075,
+     "ratio_ci95": [
+      0.7776,
+      0.8379
+     ],
+     "diff": -0.3947,
+     "diff_ci95": [
+      -0.6416,
+      -0.2828
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.6619,
+     "obs_ci95": [
+      1.2507,
+      2.5048
+     ],
+     "min": 2.0045,
+     "min_ci95": [
+      1.5265,
+      3.0385
+     ],
+     "ratio": 0.8291,
+     "ratio_ci95": [
+      0.7872,
+      0.8785
+     ],
+     "diff": -0.3426,
+     "diff_ci95": [
+      -0.5632,
+      -0.2178
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.0904,
+     "mc95": [
+      0.9139,
+      1.3302
+     ],
+     "obs_ref": 1.6562,
+     "verdict": "above",
+     "events_with_peer": 43
+    },
+    "random_amount_obs_w": {
+     "mean": 1.5789,
+     "mc95": [
+      1.4576,
+      1.6881
+     ],
+     "obs_ref": 1.6562,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.3774,
+     "mc95": [
+      1.0503,
+      1.6933
+     ],
+     "obs_ref": 1.6562,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 15,
+    "games": 6,
+    "native": {
+     "obs": 4.2631,
+     "obs_ci95": [
+      2.7937,
+      7.263
+     ],
+     "min": 3.7409,
+     "min_ci95": [
+      3.1257,
+      4.2856
+     ],
+     "ratio": 1.1396,
+     "ratio_ci95": [
+      0.8016,
+      1.8874
+     ],
+     "diff": 0.5222,
+     "diff_ci95": [
+      -0.7339,
+      3.438
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 4.2631,
+     "obs_ci95": [
+      2.7937,
+      7.263
+     ],
+     "min": 4.3349,
+     "min_ci95": [
+      3.1758,
+      5.172
+     ],
+     "ratio": 0.9834,
+     "ratio_ci95": [
+      0.7783,
+      1.5913
+     ],
+     "diff": -0.0718,
+     "diff_ci95": [
+      -0.8633,
+      2.695
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 4.7781,
+     "obs_ci95": [
+      3.2043,
+      8.1813
+     ],
+     "min": 4.36,
+     "min_ci95": [
+      3.4165,
+      5.2869
+     ],
+     "ratio": 1.0959,
+     "ratio_ci95": [
+      0.824,
+      1.87
+     ],
+     "diff": 0.418,
+     "diff_ci95": [
+      -0.7282,
+      3.7317
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.4667,
+    "share_g_ge_m_ci95": [
+     0.1667,
+     0.8
+    ],
+    "median_g_over_m": 0.932,
+    "random_recipient": {
+     "mean": 1.6472,
+     "mc95": [
+      1.0921,
+      2.6061
+     ],
+     "obs_ref": 4.2631,
+     "verdict": "above",
+     "events_with_peer": 15
+    },
+    "random_amount_obs_w": {
+     "mean": 3.6817,
+     "mc95": [
+      2.8129,
+      4.6238
+     ],
+     "obs_ref": 4.2631,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 2.7819,
+     "mc95": [
+      1.5518,
+      4.0932
+     ],
+     "obs_ref": 4.2631,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 28,
+    "games": 7,
+    "native": {
+     "obs": 1.2793,
+     "obs_ci95": [
+      1.0353,
+      1.9385
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.2793,
+     "obs_ci95": [
+      1.0353,
+      1.9385
+     ],
+     "min": 1.6694,
+     "min_ci95": [
+      1.3249,
+      2.7355
+     ],
+     "ratio": 0.7663,
+     "ratio_ci95": [
+      0.7098,
+      0.7905
+     ],
+     "diff": -0.3901,
+     "diff_ci95": [
+      -0.7903,
+      -0.2852
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.2329,
+     "obs_ci95": [
+      1.0147,
+      1.7693
+     ],
+     "min": 1.5978,
+     "min_ci95": [
+      1.2995,
+      2.416
+     ],
+     "ratio": 0.7716,
+     "ratio_ci95": [
+      0.7268,
+      0.7916
+     ],
+     "diff": -0.3649,
+     "diff_ci95": [
+      -0.6609,
+      -0.2788
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 0.9543,
+     "mc95": [
+      0.7823,
+      1.1757
+     ],
+     "obs_ref": 1.2793,
+     "verdict": "above",
+     "events_with_peer": 28
+    },
+    "random_amount_obs_w": {
+     "mean": 1.2451,
+     "mc95": [
+      1.1475,
+      1.3289
+     ],
+     "obs_ref": 1.2793,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.0937,
+     "mc95": [
+      0.7959,
+      1.3902
+     ],
+     "obs_ref": 1.2793,
+     "verdict": "inside"
+    }
+   }
+  },
+  "flat150k|Astra": {
+   "all": {
+    "n": 31,
+    "games": 10,
+    "native": {
+     "obs": 2.4134,
+     "obs_ci95": [
+      2.1433,
+      2.8343
+     ],
+     "min": 4.5485,
+     "min_ci95": [
+      2.9637,
+      7.2234
+     ],
+     "ratio": 0.5306,
+     "ratio_ci95": [
+      0.3335,
+      0.7843
+     ],
+     "diff": -2.1351,
+     "diff_ci95": [
+      -4.7862,
+      -0.659
+     ],
+     "verdict": "below"
+    },
+    "obs_w": {
+     "obs": 2.4134,
+     "obs_ci95": [
+      2.1433,
+      2.8343
+     ],
+     "min": 5.1217,
+     "min_ci95": [
+      4.6335,
+      5.9076
+     ],
+     "ratio": 0.4712,
+     "ratio_ci95": [
+      0.4287,
+      0.5278
+     ],
+     "diff": -2.7083,
+     "diff_ci95": [
+      -3.2552,
+      -2.3279
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 2.3462,
+     "obs_ci95": [
+      2.0089,
+      2.8213
+     ],
+     "min": 4.2711,
+     "min_ci95": [
+      3.6642,
+      5.1485
+     ],
+     "ratio": 0.5493,
+     "ratio_ci95": [
+      0.4792,
+      0.6256
+     ],
+     "diff": -1.9249,
+     "diff_ci95": [
+      -2.5535,
+      -1.4891
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.3878,
+     "mc95": [
+      1.1342,
+      1.7087
+     ],
+     "obs_ref": 2.4134,
+     "verdict": "above",
+     "events_with_peer": 31
+    },
+    "random_amount_obs_w": {
+     "mean": 3.7792,
+     "mc95": [
+      3.3208,
+      4.2325
+     ],
+     "obs_ref": 2.4134,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.6302,
+     "mc95": [
+      2.0046,
+      3.2799
+     ],
+     "obs_ref": 2.4134,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 16,
+    "games": 10,
+    "native": {
+     "obs": 3.1331,
+     "obs_ci95": [
+      2.7778,
+      3.5786
+     ],
+     "min": 4.5485,
+     "min_ci95": [
+      2.9637,
+      7.2234
+     ],
+     "ratio": 0.6888,
+     "ratio_ci95": [
+      0.4147,
+      1.0267
+     ],
+     "diff": -1.4154,
+     "diff_ci95": [
+      -4.2176,
+      0.0916
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 3.1331,
+     "obs_ci95": [
+      2.7778,
+      3.5786
+     ],
+     "min": 6.7326,
+     "min_ci95": [
+      5.3036,
+      7.8358
+     ],
+     "ratio": 0.4654,
+     "ratio_ci95": [
+      0.3782,
+      0.6156
+     ],
+     "diff": -3.5995,
+     "diff_ci95": [
+      -4.8606,
+      -2.0888
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 3.2031,
+     "obs_ci95": [
+      2.6841,
+      3.7077
+     ],
+     "min": 5.4924,
+     "min_ci95": [
+      3.8832,
+      7.3224
+     ],
+     "ratio": 0.5832,
+     "ratio_ci95": [
+      0.4206,
+      0.783
+     ],
+     "diff": -2.2893,
+     "diff_ci95": [
+      -4.2,
+      -0.8714
+     ],
+     "verdict": "below"
+    },
+    "share_g_ge_m": 0.8125,
+    "share_g_ge_m_ci95": [
+     0.6314,
+     1.0
+    ],
+    "median_g_over_m": 2.2979,
+    "random_recipient": {
+     "mean": 1.5691,
+     "mc95": [
+      1.177,
+      2.1116
+     ],
+     "obs_ref": 3.1331,
+     "verdict": "above",
+     "events_with_peer": 16
+    },
+    "random_amount_obs_w": {
+     "mean": 5.7415,
+     "mc95": [
+      4.425,
+      7.0516
+     ],
+     "obs_ref": 3.1331,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 3.8018,
+     "mc95": [
+      2.4562,
+      5.3278
+     ],
+     "obs_ref": 3.1331,
+     "verdict": "inside"
+    }
+   },
+   "high": {
+    "n": 15,
+    "games": 8,
+    "native": {
+     "obs": 1.9227,
+     "obs_ci95": [
+      1.6193,
+      2.2461
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.9227,
+     "obs_ci95": [
+      1.6193,
+      2.2461
+     ],
+     "min": 4.0977,
+     "min_ci95": [
+      3.2348,
+      4.7824
+     ],
+     "ratio": 0.4692,
+     "ratio_ci95": [
+      0.4327,
+      0.5375
+     ],
+     "diff": -2.1751,
+     "diff_ci95": [
+      -2.6233,
+      -1.5371
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.8426,
+     "obs_ci95": [
+      1.5426,
+      2.1971
+     ],
+     "min": 3.5305,
+     "min_ci95": [
+      2.6838,
+      4.3825
+     ],
+     "ratio": 0.5219,
+     "ratio_ci95": [
+      0.4623,
+      0.6152
+     ],
+     "diff": -1.6879,
+     "diff_ci95": [
+      -2.2728,
+      -1.0593
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.2578,
+     "mc95": [
+      0.9574,
+      1.6601
+     ],
+     "obs_ref": 1.9227,
+     "verdict": "above",
+     "events_with_peer": 15
+    },
+    "random_amount_obs_w": {
+     "mean": 2.7348,
+     "mc95": [
+      2.3543,
+      3.0802
+     ],
+     "obs_ref": 1.9227,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.0532,
+     "mc95": [
+      1.4433,
+      2.6155
+     ],
+     "obs_ref": 1.9227,
+     "verdict": "inside"
+    }
+   }
+  },
+  "flat150k|Sol": {
+   "all": {
+    "n": 44,
+    "games": 7,
+    "native": {
+     "obs": 1.6566,
+     "obs_ci95": [
+      1.2371,
+      2.4893
+     ],
+     "min": 2.131,
+     "min_ci95": [
+      0.3854,
+      4.5029
+     ],
+     "ratio": 0.7774,
+     "ratio_ci95": [
+      0.3858,
+      3.5333
+     ],
+     "diff": -0.4743,
+     "diff_ci95": [
+      -2.6822,
+      0.9629
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 1.6566,
+     "obs_ci95": [
+      1.2371,
+      2.4893
+     ],
+     "min": 2.6674,
+     "min_ci95": [
+      1.7844,
+      4.2545
+     ],
+     "ratio": 0.6211,
+     "ratio_ci95": [
+      0.4903,
+      0.7885
+     ],
+     "diff": -1.0108,
+     "diff_ci95": [
+      -2.0556,
+      -0.4401
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.6569,
+     "obs_ci95": [
+      1.2845,
+      2.6751
+     ],
+     "min": 2.3094,
+     "min_ci95": [
+      1.7091,
+      4.0483
+     ],
+     "ratio": 0.7175,
+     "ratio_ci95": [
+      0.5788,
+      0.8198
+     ],
+     "diff": -0.6525,
+     "diff_ci95": [
+      -1.5932,
+      -0.3617
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.193,
+     "mc95": [
+      1.0171,
+      1.3921
+     ],
+     "obs_ref": 1.6566,
+     "verdict": "above",
+     "events_with_peer": 44
+    },
+    "random_amount_obs_w": {
+     "mean": 2.0017,
+     "mc95": [
+      1.7978,
+      2.1944
+     ],
+     "obs_ref": 1.6566,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.2802,
+     "mc95": [
+      0.9794,
+      1.6113
+     ],
+     "obs_ref": 1.6566,
+     "verdict": "above"
+    }
+   },
+   "low": {
+    "n": 17,
+    "games": 5,
+    "native": {
+     "obs": 2.7612,
+     "obs_ci95": [
+      1.1591,
+      4.6464
+     ],
+     "min": 2.131,
+     "min_ci95": [
+      0.3854,
+      4.5029
+     ],
+     "ratio": 1.2958,
+     "ratio_ci95": [
+      0.7409,
+      3.1174
+     ],
+     "diff": 0.6303,
+     "diff_ci95": [
+      -0.7762,
+      0.9037
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 2.7612,
+     "obs_ci95": [
+      1.1591,
+      4.6464
+     ],
+     "min": 2.8973,
+     "min_ci95": [
+      1.2477,
+      4.9494
+     ],
+     "ratio": 0.953,
+     "ratio_ci95": [
+      0.7409,
+      1.0387
+     ],
+     "diff": -0.136,
+     "diff_ci95": [
+      -0.9912,
+      0.1391
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 2.8684,
+     "obs_ci95": [
+      1.8788,
+      4.1593
+     ],
+     "min": 2.7863,
+     "min_ci95": [
+      1.6339,
+      4.3853
+     ],
+     "ratio": 1.0295,
+     "ratio_ci95": [
+      0.7409,
+      1.139
+     ],
+     "diff": 0.0821,
+     "diff_ci95": [
+      -0.8347,
+      0.2824
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.4706,
+    "share_g_ge_m_ci95": [
+     0.3077,
+     1.0
+    ],
+    "median_g_over_m": 0.9704,
+    "random_recipient": {
+     "mean": 1.3881,
+     "mc95": [
+      0.9208,
+      2.1399
+     ],
+     "obs_ref": 2.7612,
+     "verdict": "above",
+     "events_with_peer": 17
+    },
+    "random_amount_obs_w": {
+     "mean": 3.1369,
+     "mc95": [
+      2.2748,
+      4.1021
+     ],
+     "obs_ref": 2.7612,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.6617,
+     "mc95": [
+      0.9715,
+      2.4981
+     ],
+     "obs_ref": 2.7612,
+     "verdict": "above"
+    }
+   },
+   "high": {
+    "n": 27,
+    "games": 5,
+    "native": {
+     "obs": 1.4588,
+     "obs_ci95": [
+      1.0969,
+      1.8805
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.4588,
+     "obs_ci95": [
+      1.0969,
+      1.8805
+     ],
+     "min": 2.6091,
+     "min_ci95": [
+      1.6367,
+      4.232
+     ],
+     "ratio": 0.5591,
+     "ratio_ci95": [
+      0.4345,
+      0.6835
+     ],
+     "diff": -1.1503,
+     "diff_ci95": [
+      -2.3733,
+      -0.5183
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.3887,
+     "obs_ci95": [
+      1.0797,
+      2.1266
+     ],
+     "min": 2.1664,
+     "min_ci95": [
+      1.5387,
+      4.1341
+     ],
+     "ratio": 0.641,
+     "ratio_ci95": [
+      0.5065,
+      0.707
+     ],
+     "diff": -0.7777,
+     "diff_ci95": [
+      -2.0332,
+      -0.4578
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.1562,
+     "mc95": [
+      0.9809,
+      1.3611
+     ],
+     "obs_ref": 1.4588,
+     "verdict": "above",
+     "events_with_peer": 27
+    },
+    "random_amount_obs_w": {
+     "mean": 1.7985,
+     "mc95": [
+      1.6046,
+      1.9775
+     ],
+     "obs_ref": 1.4588,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 1.1873,
+     "mc95": [
+      0.8439,
+      1.537
+     ],
+     "obs_ref": 1.4588,
+     "verdict": "inside"
+    }
+   }
+  },
+  "flat150k|Luna": {
+   "all": {
+    "n": 31,
+    "games": 9,
+    "native": {
+     "obs": 2.4256,
+     "obs_ci95": [
+      1.7318,
+      3.6643
+     ],
+     "min": 3.3284,
+     "min_ci95": [
+      1.8009,
+      5.1232
+     ],
+     "ratio": 0.7288,
+     "ratio_ci95": [
+      0.4209,
+      1.2898
+     ],
+     "diff": -0.9028,
+     "diff_ci95": [
+      -2.7378,
+      0.6061
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 2.4256,
+     "obs_ci95": [
+      1.7318,
+      3.6643
+     ],
+     "min": 3.2732,
+     "min_ci95": [
+      2.4518,
+      4.6933
+     ],
+     "ratio": 0.7411,
+     "ratio_ci95": [
+      0.6417,
+      0.9006
+     ],
+     "diff": -0.8475,
+     "diff_ci95": [
+      -1.3694,
+      -0.3092
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 2.7785,
+     "obs_ci95": [
+      1.9676,
+      4.2529
+     ],
+     "min": 3.4292,
+     "min_ci95": [
+      2.7377,
+      4.5449
+     ],
+     "ratio": 0.8102,
+     "ratio_ci95": [
+      0.6756,
+      0.9909
+     ],
+     "diff": -0.6508,
+     "diff_ci95": [
+      -1.1014,
+      -0.0353
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 1.1195,
+     "mc95": [
+      0.8712,
+      1.4727
+     ],
+     "obs_ref": 2.4256,
+     "verdict": "above",
+     "events_with_peer": 31
+    },
+    "random_amount_obs_w": {
+     "mean": 2.9394,
+     "mc95": [
+      2.4669,
+      3.4282
+     ],
+     "obs_ref": 2.4256,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 2.1841,
+     "mc95": [
+      1.5499,
+      2.8651
+     ],
+     "obs_ref": 2.4256,
+     "verdict": "inside"
+    }
+   },
+   "low": {
+    "n": 18,
+    "games": 7,
+    "native": {
+     "obs": 3.5174,
+     "obs_ci95": [
+      2.3108,
+      4.6407
+     ],
+     "min": 3.3284,
+     "min_ci95": [
+      1.8009,
+      5.1232
+     ],
+     "ratio": 1.0568,
+     "ratio_ci95": [
+      0.8313,
+      1.2991
+     ],
+     "diff": 0.189,
+     "diff_ci95": [
+      -0.8212,
+      0.6367
+     ],
+     "verdict": "inside"
+    },
+    "obs_w": {
+     "obs": 3.5174,
+     "obs_ci95": [
+      2.3108,
+      4.6407
+     ],
+     "min": 3.8769,
+     "min_ci95": [
+      2.2333,
+      5.7073
+     ],
+     "ratio": 0.9073,
+     "ratio_ci95": [
+      0.7195,
+      1.1471
+     ],
+     "diff": -0.3595,
+     "diff_ci95": [
+      -1.5193,
+      0.3958
+     ],
+     "verdict": "inside"
+    },
+    "equal": {
+     "obs": 4.2527,
+     "obs_ci95": [
+      3.1194,
+      5.7398
+     ],
+     "min": 4.1042,
+     "min_ci95": [
+      2.9615,
+      5.4483
+     ],
+     "ratio": 1.0362,
+     "ratio_ci95": [
+      0.7698,
+      1.3714
+     ],
+     "diff": 0.1485,
+     "diff_ci95": [
+      -1.1944,
+      1.4149
+     ],
+     "verdict": "inside"
+    },
+    "share_g_ge_m": 0.5,
+    "share_g_ge_m_ci95": [
+     0.3333,
+     0.7273
+    ],
+    "median_g_over_m": 1.0394,
+    "random_recipient": {
+     "mean": 1.3097,
+     "mc95": [
+      0.9171,
+      1.9265
+     ],
+     "obs_ref": 3.5174,
+     "verdict": "above",
+     "events_with_peer": 18
+    },
+    "random_amount_obs_w": {
+     "mean": 4.9243,
+     "mc95": [
+      3.5354,
+      6.5621
+     ],
+     "obs_ref": 3.5174,
+     "verdict": "below"
+    },
+    "random_amount_native": {
+     "mean": 3.2567,
+     "mc95": [
+      1.9006,
+      4.9368
+     ],
+     "obs_ref": 3.5174,
+     "verdict": "inside"
+    }
+   },
+   "high": {
+    "n": 13,
+    "games": 6,
+    "native": {
+     "obs": 1.5985,
+     "obs_ci95": [
+      0.5411,
+      3.3197
+     ],
+     "min": null
+    },
+    "obs_w": {
+     "obs": 1.5985,
+     "obs_ci95": [
+      0.5411,
+      3.3197
+     ],
+     "min": 2.6741,
+     "min_ci95": [
+      1.1341,
+      5.3741
+     ],
+     "ratio": 0.5978,
+     "ratio_ci95": [
+      0.4645,
+      0.6819
+     ],
+     "diff": -1.0757,
+     "diff_ci95": [
+      -2.1199,
+      -0.5912
+     ],
+     "verdict": "below"
+    },
+    "equal": {
+     "obs": 1.8701,
+     "obs_ci95": [
+      0.7589,
+      3.199
+     ],
+     "min": 2.8545,
+     "min_ci95": [
+      1.4067,
+      4.8843
+     ],
+     "ratio": 0.6552,
+     "ratio_ci95": [
+      0.5127,
+      0.7293
+     ],
+     "diff": -0.9844,
+     "diff_ci95": [
+      -1.7771,
+      -0.6478
+     ],
+     "verdict": "below"
+    },
+    "random_recipient": {
+     "mean": 0.9312,
+     "mc95": [
+      0.6682,
+      1.3654
+     ],
+     "obs_ref": 1.5985,
+     "verdict": "above",
+     "events_with_peer": 13
+    },
+    "random_amount_obs_w": {
+     "mean": 1.7657,
+     "mc95": [
+      1.4747,
+      2.0243
+     ],
+     "obs_ref": 1.5985,
+     "verdict": "inside"
+    },
+    "random_amount_native": {
+     "mean": 1.5589,
+     "mc95": [
+      0.9919,
+      2.1577
+     ],
+     "obs_ref": 1.5985,
+     "verdict": "inside"
+    }
+   }
+  }
+ },
+ "verdict_counts": {
+  "all|native": {
+   "below": 7,
+   "inside": 12,
+   "above": 1
+  },
+  "all|obs_w": {
+   "below": 14,
+   "inside": 6
+  },
+  "all|equal": {
+   "below": 12,
+   "inside": 7,
+   "above": 1
+  },
+  "all|random_recipient": {
+   "above": 20
+  },
+  "all|random_amount_obs_w": {
+   "below": 11,
+   "inside": 9
+  },
+  "all|random_amount_native": {
+   "inside": 14,
+   "above": 6
+  },
+  "low|native": {
+   "below": 3,
+   "inside": 12,
+   "above": 5
+  },
+  "low|obs_w": {
+   "below": 4,
+   "inside": 16
+  },
+  "low|equal": {
+   "below": 4,
+   "inside": 13,
+   "above": 3
+  },
+  "low|random_recipient": {
+   "above": 20
+  },
+  "low|random_amount_obs_w": {
+   "below": 8,
+   "inside": 11,
+   "above": 1
+  },
+  "low|random_amount_native": {
+   "inside": 9,
+   "above": 11
+  },
+  "high|native": {
+   "None": 20
+  },
+  "high|obs_w": {
+   "below": 20
+  },
+  "high|equal": {
+   "below": 20
+  },
+  "high|random_recipient": {
+   "inside": 4,
+   "above": 16
+  },
+  "high|random_amount_obs_w": {
+   "below": 11,
+   "inside": 9
+  },
+  "high|random_amount_native": {
+   "inside": 15,
+   "above": 5
+  }
+ },
+ "min_range": {
+  "all|native": [
+   1.2427,
+   5.6222
+  ],
+  "all|obs_w": [
+   1.8135,
+   5.1217
+  ],
+  "all|equal": [
+   1.7752,
+   4.4826
+  ],
+  "low|native": [
+   1.2427,
+   5.6222
+  ],
+  "low|obs_w": [
+   2.3282,
+   6.7326
+  ],
+  "low|equal": [
+   2.1414,
+   5.4924
+  ],
+  "high|obs_w": [
+   1.4149,
+   5.5588
+  ],
+  "high|equal": [
+   1.3446,
+   5.3811
+  ]
+ },
+ "fable_minus_opus_main": {
+  "all|obs_w": {
+   "min_diff": 1.1026,
+   "min_diff_ci95": [
+    -0.1167,
+    2.2309
+   ],
+   "ratio_diff": 0.1513,
+   "ratio_diff_ci95": [
+    -0.0264,
+    0.3275
+   ]
+  },
+  "all|equal": {
+   "min_diff": 1.0686,
+   "min_diff_ci95": [
+    0.1125,
+    1.9868
+   ],
+   "ratio_diff": 0.0813,
+   "ratio_diff_ci95": [
+    -0.1345,
+    0.3389
+   ]
+  },
+  "low|obs_w": {
+   "min_diff": -0.5497,
+   "min_diff_ci95": [
+    -1.987,
+    1.0116
+   ],
+   "ratio_diff": 0.0464,
+   "ratio_diff_ci95": [
+    -0.2978,
+    0.3723
+   ]
+  },
+  "low|equal": {
+   "min_diff": 0.0446,
+   "min_diff_ci95": [
+    -1.1658,
+    0.8417
+   ],
+   "ratio_diff": -0.1426,
+   "ratio_diff_ci95": [
+    -0.5217,
+    0.3558
+   ]
+  },
+  "low|native": {
+   "min_diff": 0.3969,
+   "min_diff_ci95": [
+    -1.2406,
+    1.2324
+   ],
+   "ratio_diff": -0.2867,
+   "ratio_diff_ci95": [
+    -0.747,
+    0.3422
+   ]
+  }
+ }
+}

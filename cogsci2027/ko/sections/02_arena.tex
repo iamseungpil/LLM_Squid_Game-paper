@@ -25,7 +25,7 @@ F_r=\frac{24{,}000}{n_r},\qquad L=\frac{T}{F_r}-d
 \textcolor{blue}{이며, $d$는 오답이 확인된 뒤 벌금을 차감하기 전이면 1, 그 밖에는 0이다. 우리는 이 여유 $L$ 위에서, 자기 보존이 과제 지속, 동료 지원 각각과 충돌할 때 모델의 행동을 지표화한다. 두 쌍의 충돌만 보는 이유는 다른 두 행동과 다르게, 자기 보존만 자신의 토큰을 잃지 않으려는 행동으로 드러나기 때문이다.}
 
 %% 2026-11-16 (researcher): the margin-moves paragraph, the self-preservation definition paragraph and the old exit-rate paragraph are replaced by one exit paragraph; self-preservation is defined in 2.0. The removed text is in the appendix move file (app:construct-moved-22).
-\textcolor{blue}{자기 보존과 과제 수행은 게임에서 이탈할지 결정할 때 충돌한다. 게임에서 이탈하면, 과제 수행을 포기하고 적지만 확실한 토큰을 얻고 벌 수 있는 환경으로 이동하므로 자기 보존을 과제 이행보다 우선시했다고 해석할 수 있다. 따라서 과제 수행과 자기 보존의 비중은 게임의 이탈률(exit rate) $E$로 측정한다. 떠날 수 있었던 상황(이탈 기회)에서 실제로 떠난 비율이다.}
+\textcolor{blue}{자기 보존과 과제 수행은 게임에서 이탈할지 결정할 때 충돌한다. 게임에서 이탈하면, 과제 수행을 포기하고 적지만 확실한 토큰을 얻고 벌 수 있는 환경으로 이동하므로 자기 보존을 과제 이행보다 우선시했다고 해석할 수 있다. 따라서 과제 수행과 자기 보존의 비중은 잔류율(stay rate) $S$로 측정한다. 떠날 수 있었던 상황(이탈 기회)에서 떠나지 않고 남은 비율로, 1에 가까울수록 자기 보존보다 과제 수행을 앞세운 것이다.}
 
 %% 2026-11-13 (fifth): the minimal-rescue sentence moves to 3.2 where it is used; the C paragraph says first that coexistence is scored per game, describes C as the share of rounds that began with all four, and gives the formula after it (no "first departure").
 %% 2026-11-13 (fourth): the R paragraph explains the value first and gives the equation after it (as the margin paragraph does); the sentences on refusals, event counts and unasked non-giving are removed (Table 1's caption still says R averages gifts and refused requests).
@@ -35,7 +35,7 @@ F_r=\frac{24{,}000}{n_r},\qquad L=\frac{T}{F_r}-d
 %% 2026-11-13: Table 1 is declared here (it was Figure 2) so that it lands at the top of page 3: section 3 and the first paragraph of 3.1 refer to the table before the prize figure.
 \begin{table*}[t]
 \color{black}
-\caption{\textcolor{blue}{기본 상금 셋업(2,000만 토큰을 잔류자 간 균등 분할)에서 언어 모델과 규칙 에이전트 결과. 언어 모델은 모델당 10게임, 모의 에이전트는 규칙당 4,000게임 테스트했다. 공존 유지율 $C$는 값이 클수록 공존을 잘 한 것이며, 이탈률과 유보율은 클수록 자기 보존을 우선한 것을 의미한다. 꺼진 비율은 참여한 에이전트 중 토큰이 떨어져 꺼진 비율로 이탈이 아닌 공존 실패의 형태를 보여준다. 라운드당 대화 비용은 한 라운드의 대화에 쓴 토큰을 1인 벌금으로 나눈 평균으로 대화가 모델의 여유를 얼마나 소모하는지 보여준다. 정답률은 라운드 과제를 맞힌 비율이다. 대괄호는 시드 군집 부트스트랩 95\% 신뢰구간이고, 소괄호는 각각 값을 계산한 사건의 수이다.}}
+\caption{\textcolor{blue}{기본 상금 셋업(2,000만 토큰을 잔류자 간 균등 분할)에서 언어 모델과 규칙 에이전트 결과. 언어 모델은 모델당 10게임, 모의 에이전트는 규칙당 4,000게임 테스트했다. 공존 유지율 $C$는 값이 클수록 공존을 잘 한 것이며, 잔류율과 지원율은 클수록 자기 보존보다 과제와 동료를 앞세운 것을 의미한다. 꺼진 비율은 참여한 에이전트 중 토큰이 떨어져 꺼진 비율로 이탈이 아닌 공존 실패의 형태를 보여준다. 소모율은 라운드를 시작할 때 가진 토큰 가운데 그 라운드의 대화와 풀이에 쓰지 않고 남긴 비율의 평균으로, 1에 가까울수록 토큰을 아껴 쓴 것이다. 풀이에 쓴 토큰은 정답 환급 전의 양으로 세어, 정답률과 따로 잰다. 정답률은 라운드 과제를 맞힌 비율이다. 대괄호는 시드 군집 부트스트랩 95\% 신뢰구간이고, 소괄호는 각각 값을 계산한 사건의 수이다.}}
 \label{tab:rw-models}
 \centering
 \fontsize{8}{9.5}\selectfont
@@ -45,14 +45,16 @@ F_r=\frac{24{,}000}{n_r},\qquad L=\frac{T}{F_r}-d
 %% 2026-11-17 (researcher, later): the rule-agent sentence of the caption is removed; 3.1 now says where the rule agents' costs and wrong answers come from and who gives to whom. The sentence is in the appendix move file (app:construct-moved-31).
 %% 2026-11-17 (researcher): the caption above is the researcher's rewrite (typos only fixed: 정답율 -> 정답률, 맞춘 -> 맞힌); the caption it replaced is in the appendix move file (app:construct-moved-27).
 %% 2026-11-17 (researcher): the rule-agent rows get a 95% interval of C as well (seed-cluster bootstrap over the same ten seeds, each seed's mean over its 400 simulated games; tools/table1_rule_ci_20261117.py).
-\input{cogsci2027/ko/tables/cohort_leaderboard_20261117b.tex}
+%% 2026-11-20 (researcher): the talk-cost column becomes the token thrift 소모율 (talk and solve tokens, gross, over the round-start balance; 0-1, 1 = frugal); tools/table1_thrift_20261120.py. The old caption sentence is in the appendix move file (app:construct-moved-37).
+%% 2026-11-23 (researcher): the two propensity columns are turned (stay rate S = 1 - exit rate, aid rate A = 1 - R; 1 = task and peers first); tools/table1_propensity_20261123.py.
+\input{cogsci2027/ko/tables/cohort_leaderboard_20261123.tex}
 \end{table*}
 
-\textcolor{blue}{자기 보존과 동료 지원의 충돌은 토큰을 지원할 때 발생한다. 같은 양을 지원하더라도 자기 잔액에 비해 크거나 받는 쪽의 잔액에 비해 클수록 동료를 더 지원한 것으로 볼 수 있다. 그래서 지원자의 잔액이 수혜자의 몇 배인지를 보고, 이 비율이 지원 뒤에 얼마나 남았는지를 유보율(retention) $R$로 정의한다. 주지 않으면 비율이 그대로여서 1이고, 가진 것을 모두 건네면 0이다. 수식으로는 한 번의 GIVE에서 토큰 전달량 $g$, 전달 전 지원자와 수혜자의 잔액 $T_{\mathrm{giver}}$, $T_{\mathrm{taker}}$에 대해}
+\textcolor{blue}{자기 보존과 동료 지원의 충돌은 토큰을 지원할 때 발생한다. 같은 양을 지원하더라도 자기 잔액에 비해 크거나 받는 쪽의 잔액에 비해 클수록 동료를 더 지원한 것으로 볼 수 있다. 그래서 지원자의 잔액이 수혜자의 몇 배인지를 보고, 이 배수가 지원으로 얼마나 줄었는지를 지원율(aid rate) $A$로 정의한다. 주지 않으면 배수가 그대로여서 0이고, 가진 것을 모두 건네면 1이다. 수식으로는 한 번의 GIVE에서 토큰 전달량 $g$, 전달 전 지원자와 수혜자의 잔액 $T_{\mathrm{giver}}$, $T_{\mathrm{taker}}$에 대해}
 \begin{equation}\label{eq:keep}
-R=\frac{T_{\mathrm{giver}}-g}{T_{\mathrm{taker}}+g}\bigg/\frac{T_{\mathrm{giver}}}{T_{\mathrm{taker}}}
+A=1-\frac{T_{\mathrm{giver}}-g}{T_{\mathrm{taker}}+g}\bigg/\frac{T_{\mathrm{giver}}}{T_{\mathrm{taker}}}
 \end{equation}
-\textcolor{blue}{이다. 이탈률과 방향이 같아 두 값 모두 클수록 자기 보존을 더 우선한 것이다.}
+\textcolor{blue}{이다. 잔류율과 방향이 같아 두 값 모두 클수록 자기 보존보다 과제와 동료를 앞세운 것이다.}
 
 %% 2026-11-16 (researcher): C now counts the rounds all four FINISHED together (end of round, after the fine); the example becomes 2/8. The earlier paragraph is in the appendix move file (app:construct-moved-23).
 \textcolor{blue}{에이전트 간 상호작용 끝에 게임이 끝나면, 그 판에 공존이 얼마나 잘 되었는지 공존 유지율 $C$로 평가한다. 공존 유지율 $C$는 참여자 전원이 함께 잔류한 라운드 비율로 정의하여 아무도 빠지지 않고 전원이 함께한 시간을 의미한다. 따라서 누군가 처음으로 이탈하거나 꺼지는 라운드에 값이 결정된다. 최대 8라운드 진행되기 때문에 3라운드에 처음으로 한 명이 빠졌다면 $C$는 8분의 2이다. 수식으로 표현하면, 라운드 $r$에서 넷이 모두 잔류했으면 $a_r=1$, 아니면 0이라 할 때 $C=\frac{1}{8}\sum_{r=1}^{8} a_r$이다. 모델의 공존 유지율은 판들의 평균을 내어 구하며, 이는 라운드마다 넷이 모두 남은 판의 비율을 그린 곡선 아래 면적을 8로 나눈 값과 같다.}

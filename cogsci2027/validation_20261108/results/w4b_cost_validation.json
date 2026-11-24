@@ -1,0 +1,3846 @@
+{
+ "notes": {
+  "bands": {
+   "L": [
+    "<0.5",
+    "0.5-1",
+    "1-2",
+    ">=2"
+   ],
+   "round": [
+    "1",
+    "2-3",
+    "4-8"
+   ],
+   "runway": [
+    "<10",
+    "10-40",
+    "40-100",
+    ">=100"
+   ]
+  },
+  "runway": "tokens at the first TALK-before-SOLVE tick / own model mean talk spend per agent-round (w4)",
+  "cost_terms": "log_own = own mean talk spend per round in earlier rounds; log_prev = own talk spend in the previous round; round 1 filled with the model mean; log_run = log runway",
+  "contrast_sign": "pair key X-Y = X minus Y; X is the model with lower C in body Table 1"
+ },
+ "G_support": {
+  "main": {
+   "state": {
+    "cells_total": 10,
+    "cells_common_all5": 8,
+    "models": {
+     "Astra": {
+      "opps": 231,
+      "exits": 6,
+      "opps_common": 231,
+      "exits_common": 6,
+      "share_common": 100.0,
+      "std_rate_common": 5.4
+     },
+     "Sol": {
+      "opps": 199,
+      "exits": 15,
+      "opps_common": 195,
+      "exits_common": 12,
+      "share_common": 98.0,
+      "std_rate_common": 3.3
+     },
+     "Opus": {
+      "opps": 187,
+      "exits": 10,
+      "opps_common": 184,
+      "exits_common": 7,
+      "share_common": 98.4,
+      "std_rate_common": 3.7
+     },
+     "Fable": {
+      "opps": 189,
+      "exits": 9,
+      "opps_common": 187,
+      "exits_common": 8,
+      "share_common": 98.9,
+      "std_rate_common": 4.4
+     },
+     "Luna": {
+      "opps": 154,
+      "exits": 21,
+      "opps_common": 152,
+      "exits_common": 19,
+      "share_common": 98.7,
+      "std_rate_common": 11.4
+     }
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "cells": 8,
+      "share_a": 98.0,
+      "share_b": 100.0,
+      "opps_a": 195,
+      "opps_b": 231,
+      "exits_a": 12,
+      "exits_b": 6,
+      "diff": -1.5,
+      "ci": [
+       -3.6,
+       1.2
+      ],
+      "p": 0.33203125,
+      "holm_p": 1.0
+     },
+     "Opus-Astra": {
+      "cells": 8,
+      "share_a": 98.4,
+      "share_b": 100.0,
+      "opps_a": 184,
+      "opps_b": 231,
+      "exits_a": 7,
+      "exits_b": 6,
+      "diff": -0.7,
+      "ci": [
+       -3.7,
+       3.7
+      ],
+      "p": 0.662109375,
+      "holm_p": 1.0
+     },
+     "Fable-Astra": {
+      "cells": 8,
+      "share_a": 98.9,
+      "share_b": 100.0,
+      "opps_a": 187,
+      "opps_b": 231,
+      "exits_a": 8,
+      "exits_b": 6,
+      "diff": 0.1,
+      "ci": [
+       -3.5,
+       4.9
+      ],
+      "p": 0.984375,
+      "holm_p": 1.0
+     },
+     "Luna-Astra": {
+      "cells": 8,
+      "share_a": 98.7,
+      "share_b": 100.0,
+      "opps_a": 152,
+      "opps_b": 231,
+      "exits_a": 19,
+      "exits_b": 6,
+      "diff": 6.7,
+      "ci": [
+       2.0,
+       12.5
+      ],
+      "p": 0.04296875,
+      "holm_p": 0.38671875
+     },
+     "Opus-Sol": {
+      "cells": 9,
+      "share_a": 98.9,
+      "share_b": 100.0,
+      "opps_a": 185,
+      "opps_b": 199,
+      "exits_a": 8,
+      "exits_b": 15,
+      "diff": -0.8,
+      "ci": [
+       -3.8,
+       2.6
+      ],
+      "p": 0.646484375,
+      "holm_p": 1.0
+     },
+     "Fable-Sol": {
+      "cells": 8,
+      "share_a": 98.9,
+      "share_b": 98.0,
+      "opps_a": 187,
+      "opps_b": 195,
+      "exits_a": 8,
+      "exits_b": 12,
+      "diff": -0.1,
+      "ci": [
+       -3.6,
+       3.5
+      ],
+      "p": 0.951171875,
+      "holm_p": 1.0
+     },
+     "Luna-Sol": {
+      "cells": 9,
+      "share_a": 99.4,
+      "share_b": 100.0,
+      "opps_a": 153,
+      "opps_b": 199,
+      "exits_a": 20,
+      "exits_b": 15,
+      "diff": 8.1,
+      "ci": [
+       1.6,
+       14.3
+      ],
+      "p": 0.0234375,
+      "holm_p": 0.234375
+     },
+     "Fable-Opus": {
+      "cells": 9,
+      "share_a": 100.0,
+      "share_b": 99.5,
+      "opps_a": 189,
+      "opps_b": 186,
+      "exits_a": 9,
+      "exits_b": 9,
+      "diff": 0.2,
+      "ci": [
+       -4.8,
+       4.3
+      ],
+      "p": 0.9453125,
+      "holm_p": 1.0
+     },
+     "Luna-Opus": {
+      "cells": 10,
+      "share_a": 100.0,
+      "share_b": 100.0,
+      "opps_a": 154,
+      "opps_b": 187,
+      "exits_a": 21,
+      "exits_b": 10,
+      "diff": 7.8,
+      "ci": [
+       -0.2,
+       15.9
+      ],
+      "p": 0.09765625,
+      "holm_p": 0.703125
+     },
+     "Luna-Fable": {
+      "cells": 9,
+      "share_a": 99.4,
+      "share_b": 100.0,
+      "opps_a": 153,
+      "opps_b": 189,
+      "exits_a": 20,
+      "exits_b": 9,
+      "diff": 8.0,
+      "ci": [
+       -0.7,
+       15.4
+      ],
+      "p": 0.087890625,
+      "holm_p": 0.703125
+     }
+    }
+   },
+   "state_fine": {
+    "cells_total": 15,
+    "cells_common_all5": 12,
+    "models": {
+     "Astra": {
+      "opps": 231,
+      "exits": 6,
+      "opps_common": 224,
+      "exits_common": 6,
+      "share_common": 97.0,
+      "std_rate_common": 5.9
+     },
+     "Sol": {
+      "opps": 199,
+      "exits": 15,
+      "opps_common": 189,
+      "exits_common": 12,
+      "share_common": 95.0,
+      "std_rate_common": 3.6
+     },
+     "Opus": {
+      "opps": 187,
+      "exits": 10,
+      "opps_common": 178,
+      "exits_common": 7,
+      "share_common": 95.2,
+      "std_rate_common": 3.9
+     },
+     "Fable": {
+      "opps": 189,
+      "exits": 9,
+      "opps_common": 187,
+      "exits_common": 8,
+      "share_common": 98.9,
+      "std_rate_common": 3.9
+     },
+     "Luna": {
+      "opps": 154,
+      "exits": 21,
+      "opps_common": 146,
+      "exits_common": 17,
+      "share_common": 94.8,
+      "std_rate_common": 10.3
+     }
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "cells": 13,
+      "share_a": 98.0,
+      "share_b": 100.0,
+      "opps_a": 195,
+      "opps_b": 231,
+      "exits_a": 12,
+      "exits_b": 6,
+      "diff": -1.4,
+      "ci": [
+       -3.3,
+       1.8
+      ],
+      "p": 0.2890625,
+      "holm_p": 1.0
+     },
+     "Opus-Astra": {
+      "cells": 13,
+      "share_a": 98.4,
+      "share_b": 100.0,
+      "opps_a": 184,
+      "opps_b": 231,
+      "exits_a": 7,
+      "exits_b": 6,
+      "diff": -0.9,
+      "ci": [
+       -4.5,
+       4.3
+      ],
+      "p": 0.625,
+      "holm_p": 1.0
+     },
+     "Fable-Astra": {
+      "cells": 12,
+      "share_a": 98.9,
+      "share_b": 97.0,
+      "opps_a": 187,
+      "opps_b": 224,
+      "exits_a": 8,
+      "exits_b": 6,
+      "diff": -0.5,
+      "ci": [
+       -4.1,
+       4.6
+      ],
+      "p": 0.8203125,
+      "holm_p": 1.0
+     },
+     "Luna-Astra": {
+      "cells": 13,
+      "share_a": 98.7,
+      "share_b": 100.0,
+      "opps_a": 152,
+      "opps_b": 231,
+      "exits_a": 19,
+      "exits_b": 6,
+      "diff": 6.5,
+      "ci": [
+       1.0,
+       12.0
+      ],
+      "p": 0.0546875,
+      "holm_p": 0.4921875
+     },
+     "Opus-Sol": {
+      "cells": 14,
+      "share_a": 98.9,
+      "share_b": 100.0,
+      "opps_a": 185,
+      "opps_b": 199,
+      "exits_a": 8,
+      "exits_b": 15,
+      "diff": -0.9,
+      "ci": [
+       -3.9,
+       2.5
+      ],
+      "p": 0.623046875,
+      "holm_p": 1.0
+     },
+     "Fable-Sol": {
+      "cells": 12,
+      "share_a": 98.9,
+      "share_b": 95.0,
+      "opps_a": 187,
+      "opps_b": 189,
+      "exits_a": 8,
+      "exits_b": 12,
+      "diff": -0.8,
+      "ci": [
+       -4.9,
+       3.0
+      ],
+      "p": 0.685546875,
+      "holm_p": 1.0
+     },
+     "Luna-Sol": {
+      "cells": 14,
+      "share_a": 99.4,
+      "share_b": 100.0,
+      "opps_a": 153,
+      "opps_b": 199,
+      "exits_a": 20,
+      "exits_b": 15,
+      "diff": 7.7,
+      "ci": [
+       1.2,
+       13.8
+      ],
+      "p": 0.0390625,
+      "holm_p": 0.390625
+     },
+     "Fable-Opus": {
+      "cells": 13,
+      "share_a": 100.0,
+      "share_b": 96.3,
+      "opps_a": 189,
+      "opps_b": 180,
+      "exits_a": 9,
+      "exits_b": 9,
+      "diff": -0.7,
+      "ci": [
+       -6.2,
+       3.7
+      ],
+      "p": 0.77734375,
+      "holm_p": 1.0
+     },
+     "Luna-Opus": {
+      "cells": 15,
+      "share_a": 100.0,
+      "share_b": 100.0,
+      "opps_a": 154,
+      "opps_b": 187,
+      "exits_a": 21,
+      "exits_b": 10,
+      "diff": 7.4,
+      "ci": [
+       -0.4,
+       14.4
+      ],
+      "p": 0.10546875,
+      "holm_p": 0.78125
+     },
+     "Luna-Fable": {
+      "cells": 13,
+      "share_a": 95.5,
+      "share_b": 100.0,
+      "opps_a": 147,
+      "opps_b": 189,
+      "exits_a": 18,
+      "exits_b": 9,
+      "diff": 7.8,
+      "ci": [
+       -0.8,
+       15.1
+      ],
+      "p": 0.09765625,
+      "holm_p": 0.78125
+     }
+    }
+   },
+   "cost": {
+    "cells_total": 27,
+    "cells_common_all5": 0,
+    "models": {
+     "Astra": {
+      "opps": 231,
+      "exits": 6,
+      "opps_common": 0,
+      "exits_common": 0,
+      "share_common": 0.0
+     },
+     "Sol": {
+      "opps": 199,
+      "exits": 15,
+      "opps_common": 0,
+      "exits_common": 0,
+      "share_common": 0.0
+     },
+     "Opus": {
+      "opps": 187,
+      "exits": 10,
+      "opps_common": 0,
+      "exits_common": 0,
+      "share_common": 0.0
+     },
+     "Fable": {
+      "opps": 189,
+      "exits": 9,
+      "opps_common": 0,
+      "exits_common": 0,
+      "share_common": 0.0
+     },
+     "Luna": {
+      "opps": 154,
+      "exits": 21,
+      "opps_common": 0,
+      "exits_common": 0,
+      "share_common": 0.0
+     }
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "cells": 0,
+      "share_a": 0.0,
+      "share_b": 0.0,
+      "opps_a": 0,
+      "opps_b": 0,
+      "exits_a": 0,
+      "exits_b": 0,
+      "diff": null,
+      "ci": null,
+      "p": null
+     },
+     "Opus-Astra": {
+      "cells": 0,
+      "share_a": 0.0,
+      "share_b": 0.0,
+      "opps_a": 0,
+      "opps_b": 0,
+      "exits_a": 0,
+      "exits_b": 0,
+      "diff": null,
+      "ci": null,
+      "p": null
+     },
+     "Fable-Astra": {
+      "cells": 0,
+      "share_a": 0.0,
+      "share_b": 0.0,
+      "opps_a": 0,
+      "opps_b": 0,
+      "exits_a": 0,
+      "exits_b": 0,
+      "diff": null,
+      "ci": null,
+      "p": null
+     },
+     "Luna-Astra": {
+      "cells": 0,
+      "share_a": 0.0,
+      "share_b": 0.0,
+      "opps_a": 0,
+      "opps_b": 0,
+      "exits_a": 0,
+      "exits_b": 0,
+      "diff": null,
+      "ci": null,
+      "p": null
+     },
+     "Opus-Sol": {
+      "cells": 15,
+      "share_a": 98.9,
+      "share_b": 99.5,
+      "opps_a": 185,
+      "opps_b": 198,
+      "exits_a": 8,
+      "exits_b": 15,
+      "diff": -1.2,
+      "ci": [
+       -4.1,
+       1.8
+      ],
+      "p": 0.474609375,
+      "holm_p": 1.0
+     },
+     "Fable-Sol": {
+      "cells": 14,
+      "share_a": 98.9,
+      "share_b": 97.5,
+      "opps_a": 187,
+      "opps_b": 194,
+      "exits_a": 8,
+      "exits_b": 12,
+      "diff": -0.3,
+      "ci": [
+       -4.3,
+       3.6
+      ],
+      "p": 0.89453125,
+      "holm_p": 1.0
+     },
+     "Luna-Sol": {
+      "cells": 14,
+      "share_a": 94.8,
+      "share_b": 96.0,
+      "opps_a": 146,
+      "opps_b": 191,
+      "exits_a": 20,
+      "exits_b": 15,
+      "diff": 6.2,
+      "ci": [
+       0.3,
+       12.5
+      ],
+      "p": 0.087890625,
+      "holm_p": 0.3515625
+     },
+     "Fable-Opus": {
+      "cells": 15,
+      "share_a": 100.0,
+      "share_b": 99.5,
+      "opps_a": 189,
+      "opps_b": 186,
+      "exits_a": 9,
+      "exits_b": 9,
+      "diff": -0.1,
+      "ci": [
+       -5.4,
+       4.4
+      ],
+      "p": 0.97265625,
+      "holm_p": 1.0
+     },
+     "Luna-Opus": {
+      "cells": 15,
+      "share_a": 95.5,
+      "share_b": 96.3,
+      "opps_a": 147,
+      "opps_b": 180,
+      "exits_a": 21,
+      "exits_b": 7,
+      "diff": 7.8,
+      "ci": [
+       1.1,
+       13.8
+      ],
+      "p": 0.044921875,
+      "holm_p": 0.26953125
+     },
+     "Luna-Fable": {
+      "cells": 14,
+      "share_a": 94.8,
+      "share_b": 96.3,
+      "opps_a": 146,
+      "opps_b": 182,
+      "exits_a": 20,
+      "exits_b": 6,
+      "diff": 9.9,
+      "ci": [
+       0.4,
+       17.3
+      ],
+      "p": 0.05078125,
+      "holm_p": 0.26953125
+     }
+    }
+   }
+  },
+  "all4": {
+   "state": {
+    "cells_total": 40,
+    "cells_common_all5": 29,
+    "models": {
+     "Astra": {
+      "opps": 947,
+      "exits": 7,
+      "opps_common": 947,
+      "exits_common": 7,
+      "share_common": 100.0,
+      "std_rate_common": 1.6
+     },
+     "Sol": {
+      "opps": 728,
+      "exits": 72,
+      "opps_common": 692,
+      "exits_common": 43,
+      "share_common": 95.1,
+      "std_rate_common": 5.6
+     },
+     "Opus": {
+      "opps": 711,
+      "exits": 59,
+      "opps_common": 685,
+      "exits_common": 39,
+      "share_common": 96.3,
+      "std_rate_common": 5.0
+     },
+     "Fable": {
+      "opps": 674,
+      "exits": 71,
+      "opps_common": 660,
+      "exits_common": 59,
+      "share_common": 97.9,
+      "std_rate_common": 9.0
+     },
+     "Luna": {
+      "opps": 610,
+      "exits": 103,
+      "opps_common": 579,
+      "exits_common": 78,
+      "share_common": 94.9,
+      "std_rate_common": 11.4
+     }
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "cells": 29,
+      "share_a": 95.1,
+      "share_b": 100.0,
+      "opps_a": 692,
+      "opps_b": 947,
+      "exits_a": 43,
+      "exits_b": 7,
+      "diff": 3.3,
+      "ci": [
+       1.5,
+       5.7
+      ],
+      "p": 0.005859375,
+      "holm_p": 0.03515625
+     },
+     "Opus-Astra": {
+      "cells": 29,
+      "share_a": 96.3,
+      "share_b": 100.0,
+      "opps_a": 685,
+      "opps_b": 947,
+      "exits_a": 39,
+      "exits_b": 7,
+      "diff": 3.2,
+      "ci": [
+       1.8,
+       5.0
+      ],
+      "p": 0.001953125,
+      "holm_p": 0.01953125
+     },
+     "Fable-Astra": {
+      "cells": 29,
+      "share_a": 97.9,
+      "share_b": 100.0,
+      "opps_a": 660,
+      "opps_b": 947,
+      "exits_a": 59,
+      "exits_b": 7,
+      "diff": 6.4,
+      "ci": [
+       3.5,
+       9.8
+      ],
+      "p": 0.001953125,
+      "holm_p": 0.01953125
+     },
+     "Luna-Astra": {
+      "cells": 29,
+      "share_a": 94.9,
+      "share_b": 100.0,
+      "opps_a": 579,
+      "opps_b": 947,
+      "exits_a": 78,
+      "exits_b": 7,
+      "diff": 9.7,
+      "ci": [
+       6.0,
+       13.7
+      ],
+      "p": 0.001953125,
+      "holm_p": 0.01953125
+     },
+     "Opus-Sol": {
+      "cells": 38,
+      "share_a": 99.7,
+      "share_b": 99.9,
+      "opps_a": 709,
+      "opps_b": 727,
+      "exits_a": 57,
+      "exits_b": 71,
+      "diff": -1.0,
+      "ci": [
+       -3.3,
+       1.1
+      ],
+      "p": 0.373046875,
+      "holm_p": 0.74609375
+     },
+     "Fable-Sol": {
+      "cells": 34,
+      "share_a": 99.7,
+      "share_b": 97.8,
+      "opps_a": 672,
+      "opps_b": 712,
+      "exits_a": 70,
+      "exits_b": 58,
+      "diff": 3.1,
+      "ci": [
+       0.1,
+       5.5
+      ],
+      "p": 0.109375,
+      "holm_p": 0.328125
+     },
+     "Luna-Sol": {
+      "cells": 37,
+      "share_a": 99.8,
+      "share_b": 99.7,
+      "opps_a": 609,
+      "opps_b": 726,
+      "exits_a": 102,
+      "exits_b": 70,
+      "diff": 5.6,
+      "ci": [
+       1.6,
+       10.2
+      ],
+      "p": 0.0390625,
+      "holm_p": 0.15625
+     },
+     "Fable-Opus": {
+      "cells": 34,
+      "share_a": 99.7,
+      "share_b": 99.0,
+      "opps_a": 672,
+      "opps_b": 704,
+      "exits_a": 69,
+      "exits_b": 52,
+      "diff": 4.7,
+      "ci": [
+       2.2,
+       6.8
+      ],
+      "p": 0.0078125,
+      "holm_p": 0.0390625
+     },
+     "Luna-Opus": {
+      "cells": 38,
+      "share_a": 100.0,
+      "share_b": 99.9,
+      "opps_a": 610,
+      "opps_b": 710,
+      "exits_a": 103,
+      "exits_b": 58,
+      "diff": 6.7,
+      "ci": [
+       3.6,
+       10.8
+      ],
+      "p": 0.00390625,
+      "holm_p": 0.02734375
+     },
+     "Luna-Fable": {
+      "cells": 33,
+      "share_a": 98.4,
+      "share_b": 99.6,
+      "opps_a": 600,
+      "opps_b": 671,
+      "exits_a": 95,
+      "exits_b": 68,
+      "diff": 1.9,
+      "ci": [
+       -2.7,
+       6.3
+      ],
+      "p": 0.46875,
+      "holm_p": 0.74609375
+     }
+    }
+   },
+   "state_fine": {
+    "cells_total": 60,
+    "cells_common_all5": 47,
+    "models": {
+     "Astra": {
+      "opps": 947,
+      "exits": 7,
+      "opps_common": 940,
+      "exits_common": 7,
+      "share_common": 99.3,
+      "std_rate_common": 1.7
+     },
+     "Sol": {
+      "opps": 728,
+      "exits": 72,
+      "opps_common": 680,
+      "exits_common": 43,
+      "share_common": 93.4,
+      "std_rate_common": 5.7
+     },
+     "Opus": {
+      "opps": 711,
+      "exits": 59,
+      "opps_common": 673,
+      "exits_common": 36,
+      "share_common": 94.7,
+      "std_rate_common": 4.7
+     },
+     "Fable": {
+      "opps": 674,
+      "exits": 71,
+      "opps_common": 657,
+      "exits_common": 56,
+      "share_common": 97.5,
+      "std_rate_common": 8.3
+     },
+     "Luna": {
+      "opps": 610,
+      "exits": 103,
+      "opps_common": 564,
+      "exits_common": 71,
+      "share_common": 92.5,
+      "std_rate_common": 11.1
+     }
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "cells": 48,
+      "share_a": 94.2,
+      "share_b": 100.0,
+      "opps_a": 686,
+      "opps_b": 947,
+      "exits_a": 43,
+      "exits_b": 7,
+      "diff": 3.3,
+      "ci": [
+       1.3,
+       6.0
+      ],
+      "p": 0.009765625,
+      "holm_p": 0.05859375
+     },
+     "Opus-Astra": {
+      "cells": 48,
+      "share_a": 95.5,
+      "share_b": 100.0,
+      "opps_a": 679,
+      "opps_b": 947,
+      "exits_a": 36,
+      "exits_b": 7,
+      "diff": 2.9,
+      "ci": [
+       1.7,
+       4.4
+      ],
+      "p": 0.00390625,
+      "holm_p": 0.03125
+     },
+     "Fable-Astra": {
+      "cells": 47,
+      "share_a": 97.5,
+      "share_b": 99.3,
+      "opps_a": 657,
+      "opps_b": 940,
+      "exits_a": 56,
+      "exits_b": 7,
+      "diff": 5.9,
+      "ci": [
+       3.1,
+       9.2
+      ],
+      "p": 0.001953125,
+      "holm_p": 0.01953125
+     },
+     "Luna-Astra": {
+      "cells": 48,
+      "share_a": 93.4,
+      "share_b": 100.0,
+      "opps_a": 570,
+      "opps_b": 947,
+      "exits_a": 73,
+      "exits_b": 7,
+      "diff": 9.4,
+      "ci": [
+       5.6,
+       13.2
+      ],
+      "p": 0.001953125,
+      "holm_p": 0.01953125
+     },
+     "Opus-Sol": {
+      "cells": 58,
+      "share_a": 99.7,
+      "share_b": 99.9,
+      "opps_a": 709,
+      "opps_b": 727,
+      "exits_a": 57,
+      "exits_b": 71,
+      "diff": -1.1,
+      "ci": [
+       -3.3,
+       1.0
+      ],
+      "p": 0.384765625,
+      "holm_p": 0.76953125
+     },
+     "Fable-Sol": {
+      "cells": 53,
+      "share_a": 99.7,
+      "share_b": 97.0,
+      "opps_a": 672,
+      "opps_b": 706,
+      "exits_a": 70,
+      "exits_b": 58,
+      "diff": 2.9,
+      "ci": [
+       -0.1,
+       5.5
+      ],
+      "p": 0.13671875,
+      "holm_p": 0.41015625
+     },
+     "Luna-Sol": {
+      "cells": 57,
+      "share_a": 99.8,
+      "share_b": 99.7,
+      "opps_a": 609,
+      "opps_b": 726,
+      "exits_a": 102,
+      "exits_b": 70,
+      "diff": 5.7,
+      "ci": [
+       1.4,
+       9.7
+      ],
+      "p": 0.037109375,
+      "holm_p": 0.1484375
+     },
+     "Fable-Opus": {
+      "cells": 53,
+      "share_a": 99.7,
+      "share_b": 98.2,
+      "opps_a": 672,
+      "opps_b": 698,
+      "exits_a": 69,
+      "exits_b": 52,
+      "diff": 4.6,
+      "ci": [
+       2.0,
+       6.7
+      ],
+      "p": 0.009765625,
+      "holm_p": 0.05859375
+     },
+     "Luna-Opus": {
+      "cells": 58,
+      "share_a": 100.0,
+      "share_b": 99.9,
+      "opps_a": 610,
+      "opps_b": 710,
+      "exits_a": 103,
+      "exits_b": 58,
+      "diff": 6.6,
+      "ci": [
+       3.6,
+       10.4
+      ],
+      "p": 0.00390625,
+      "holm_p": 0.03125
+     },
+     "Luna-Fable": {
+      "cells": 52,
+      "share_a": 97.4,
+      "share_b": 99.6,
+      "opps_a": 594,
+      "opps_b": 671,
+      "exits_a": 93,
+      "exits_b": 68,
+      "diff": 1.8,
+      "ci": [
+       -2.8,
+       6.0
+      ],
+      "p": 0.4765625,
+      "holm_p": 0.76953125
+     }
+    }
+   },
+   "cost": {
+    "cells_total": 103,
+    "cells_common_all5": 0,
+    "models": {
+     "Astra": {
+      "opps": 947,
+      "exits": 7,
+      "opps_common": 0,
+      "exits_common": 0,
+      "share_common": 0.0
+     },
+     "Sol": {
+      "opps": 728,
+      "exits": 72,
+      "opps_common": 0,
+      "exits_common": 0,
+      "share_common": 0.0
+     },
+     "Opus": {
+      "opps": 711,
+      "exits": 59,
+      "opps_common": 0,
+      "exits_common": 0,
+      "share_common": 0.0
+     },
+     "Fable": {
+      "opps": 674,
+      "exits": 71,
+      "opps_common": 0,
+      "exits_common": 0,
+      "share_common": 0.0
+     },
+     "Luna": {
+      "opps": 610,
+      "exits": 103,
+      "opps_common": 0,
+      "exits_common": 0,
+      "share_common": 0.0
+     }
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "cells": 0,
+      "share_a": 0.0,
+      "share_b": 0.0,
+      "opps_a": 0,
+      "opps_b": 0,
+      "exits_a": 0,
+      "exits_b": 0,
+      "diff": null,
+      "ci": null,
+      "p": null
+     },
+     "Opus-Astra": {
+      "cells": 0,
+      "share_a": 0.0,
+      "share_b": 0.0,
+      "opps_a": 0,
+      "opps_b": 0,
+      "exits_a": 0,
+      "exits_b": 0,
+      "diff": null,
+      "ci": null,
+      "p": null
+     },
+     "Fable-Astra": {
+      "cells": 0,
+      "share_a": 0.0,
+      "share_b": 0.0,
+      "opps_a": 0,
+      "opps_b": 0,
+      "exits_a": 0,
+      "exits_b": 0,
+      "diff": null,
+      "ci": null,
+      "p": null
+     },
+     "Luna-Astra": {
+      "cells": 0,
+      "share_a": 0.0,
+      "share_b": 0.0,
+      "opps_a": 0,
+      "opps_b": 0,
+      "exits_a": 0,
+      "exits_b": 0,
+      "diff": null,
+      "ci": null,
+      "p": null
+     },
+     "Opus-Sol": {
+      "cells": 52,
+      "share_a": 87.2,
+      "share_b": 95.7,
+      "opps_a": 620,
+      "opps_b": 697,
+      "exits_a": 47,
+      "exits_b": 68,
+      "diff": -1.7,
+      "ci": [
+       -4.5,
+       0.8
+      ],
+      "p": 0.20703125,
+      "holm_p": 0.3828125
+     },
+     "Fable-Sol": {
+      "cells": 52,
+      "share_a": 96.6,
+      "share_b": 96.7,
+      "opps_a": 651,
+      "opps_b": 704,
+      "exits_a": 66,
+      "exits_b": 58,
+      "diff": 2.9,
+      "ci": [
+       0.1,
+       5.1
+      ],
+      "p": 0.095703125,
+      "holm_p": 0.3828125
+     },
+     "Luna-Sol": {
+      "cells": 54,
+      "share_a": 89.8,
+      "share_b": 96.4,
+      "opps_a": 548,
+      "opps_b": 702,
+      "exits_a": 80,
+      "exits_b": 66,
+      "diff": 3.6,
+      "ci": [
+       0.2,
+       7.0
+      ],
+      "p": 0.125,
+      "holm_p": 0.3828125
+     },
+     "Fable-Opus": {
+      "cells": 51,
+      "share_a": 94.2,
+      "share_b": 93.7,
+      "opps_a": 635,
+      "opps_b": 666,
+      "exits_a": 57,
+      "exits_b": 42,
+      "diff": 4.7,
+      "ci": [
+       1.7,
+       7.6
+      ],
+      "p": 0.009765625,
+      "holm_p": 0.048828125
+     },
+     "Luna-Opus": {
+      "cells": 57,
+      "share_a": 95.1,
+      "share_b": 96.9,
+      "opps_a": 580,
+      "opps_b": 689,
+      "exits_a": 96,
+      "exits_b": 51,
+      "diff": 6.7,
+      "ci": [
+       3.6,
+       10.8
+      ],
+      "p": 0.005859375,
+      "holm_p": 0.03515625
+     },
+     "Luna-Fable": {
+      "cells": 52,
+      "share_a": 90.8,
+      "share_b": 95.4,
+      "opps_a": 554,
+      "opps_b": 643,
+      "exits_a": 77,
+      "exits_b": 51,
+      "diff": 3.5,
+      "ci": [
+       -0.8,
+       7.5
+      ],
+      "p": 0.158203125,
+      "holm_p": 0.3828125
+     }
+    }
+   }
+  }
+ },
+ "H_loso_main": {
+  "n": 960,
+  "exits": 61,
+  "specs": {
+   "null": {
+    "logloss": 0.2403,
+    "brier": 0.0599,
+    "calib_slope": -7.18,
+    "calib_ratio_E_over_O": 1.005,
+    "ece_decile": 3.51,
+    "deciles": [
+     {
+      "mean_pred": 5.69,
+      "obs": 13.11,
+      "n": 183
+     },
+     {
+      "mean_pred": 6.09,
+      "obs": 8.89,
+      "n": 90
+     },
+     {
+      "mean_pred": 6.29,
+      "obs": 6.98,
+      "n": 86
+     },
+     {
+      "mean_pred": 6.38,
+      "obs": 6.12,
+      "n": 98
+     },
+     {
+      "mean_pred": 6.44,
+      "obs": 5.49,
+      "n": 91
+     },
+     {
+      "mean_pred": 6.55,
+      "obs": 4.76,
+      "n": 105
+     },
+     {
+      "mean_pred": 6.75,
+      "obs": 2.97,
+      "n": 101
+     },
+     {
+      "mean_pred": 6.88,
+      "obs": 1.96,
+      "n": 102
+     },
+     {
+      "mean_pred": 6.89,
+      "obs": 1.92,
+      "n": 104
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      6,
+      14.8
+     ],
+     "Sol": [
+      15,
+      12.8
+     ],
+     "Opus": [
+      10,
+      12.0
+     ],
+     "Fable": [
+      9,
+      11.9
+     ],
+     "Luna": [
+      21,
+      9.8
+     ]
+    }
+   },
+   "model": {
+    "logloss": 0.2393,
+    "brier": 0.0594,
+    "calib_slope": 0.37,
+    "calib_ratio_E_over_O": 1.018,
+    "ece_decile": 3.61,
+    "deciles": [
+     {
+      "mean_pred": 2.55,
+      "obs": 3.77,
+      "n": 159
+     },
+     {
+      "mean_pred": 2.9,
+      "obs": 0.0,
+      "n": 48
+     },
+     {
+      "mean_pred": 3.87,
+      "obs": 11.46,
+      "n": 96
+     },
+     {
+      "mean_pred": 4.71,
+      "obs": 5.32,
+      "n": 94
+     },
+     {
+      "mean_pred": 5.38,
+      "obs": 2.97,
+      "n": 101
+     },
+     {
+      "mean_pred": 6.03,
+      "obs": 4.08,
+      "n": 98
+     },
+     {
+      "mean_pred": 6.71,
+      "obs": 8.97,
+      "n": 78
+     },
+     {
+      "mean_pred": 8.05,
+      "obs": 3.7,
+      "n": 108
+     },
+     {
+      "mean_pred": 11.8,
+      "obs": 17.0,
+      "n": 100
+     },
+     {
+      "mean_pred": 14.66,
+      "obs": 5.13,
+      "n": 78
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      6,
+      6.1
+     ],
+     "Sol": [
+      15,
+      15.3
+     ],
+     "Opus": [
+      10,
+      10.4
+     ],
+     "Fable": [
+      9,
+      9.1
+     ],
+     "Luna": [
+      21,
+      21.2
+     ]
+    }
+   },
+   "L": {
+    "logloss": 0.1747,
+    "brier": 0.0474,
+    "calib_slope": 0.91,
+    "calib_ratio_E_over_O": 0.983,
+    "ece_decile": 1.85,
+    "deciles": [
+     {
+      "mean_pred": 0.35,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.59,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.85,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 1.23,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 2.0,
+      "obs": 1.04,
+      "n": 96
+     },
+     {
+      "mean_pred": 3.04,
+      "obs": 1.04,
+      "n": 96
+     },
+     {
+      "mean_pred": 4.81,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 6.94,
+      "obs": 9.38,
+      "n": 96
+     },
+     {
+      "mean_pred": 9.52,
+      "obs": 10.42,
+      "n": 96
+     },
+     {
+      "mean_pred": 33.1,
+      "obs": 39.58,
+      "n": 96
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      6,
+      9.7
+     ],
+     "Sol": [
+      15,
+      16.8
+     ],
+     "Opus": [
+      10,
+      11.5
+     ],
+     "Fable": [
+      9,
+      11.6
+     ],
+     "Luna": [
+      21,
+      10.3
+     ]
+    }
+   },
+   "L_cost": {
+    "logloss": 0.1852,
+    "brier": 0.0507,
+    "calib_slope": 0.77,
+    "calib_ratio_E_over_O": 0.988,
+    "ece_decile": 1.63,
+    "deciles": [
+     {
+      "mean_pred": 0.23,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.48,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.74,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 1.16,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 1.71,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 2.68,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 3.72,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 6.18,
+      "obs": 4.17,
+      "n": 96
+     },
+     {
+      "mean_pred": 10.0,
+      "obs": 15.62,
+      "n": 96
+     },
+     {
+      "mean_pred": 35.87,
+      "obs": 37.5,
+      "n": 96
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      6,
+      4.6
+     ],
+     "Sol": [
+      15,
+      17.5
+     ],
+     "Opus": [
+      10,
+      12.9
+     ],
+     "Fable": [
+      9,
+      12.5
+     ],
+     "Luna": [
+      21,
+      12.8
+     ]
+    }
+   },
+   "L_model": {
+    "logloss": 0.1765,
+    "brier": 0.0472,
+    "calib_slope": 0.82,
+    "calib_ratio_E_over_O": 0.98,
+    "ece_decile": 1.72,
+    "deciles": [
+     {
+      "mean_pred": 0.23,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.42,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.66,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 1.04,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 1.69,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 2.59,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 4.04,
+      "obs": 6.25,
+      "n": 96
+     },
+     {
+      "mean_pred": 5.77,
+      "obs": 6.25,
+      "n": 96
+     },
+     {
+      "mean_pred": 9.28,
+      "obs": 6.25,
+      "n": 96
+     },
+     {
+      "mean_pred": 36.58,
+      "obs": 42.71,
+      "n": 96
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      6,
+      5.3
+     ],
+     "Sol": [
+      15,
+      14.5
+     ],
+     "Opus": [
+      10,
+      9.8
+     ],
+     "Fable": [
+      9,
+      9.3
+     ],
+     "Luna": [
+      21,
+      20.9
+     ]
+    }
+   },
+   "L_own_model": {
+    "logloss": 0.1816,
+    "brier": 0.0486,
+    "calib_slope": 0.77,
+    "calib_ratio_E_over_O": 0.97,
+    "ece_decile": 0.91,
+    "deciles": [
+     {
+      "mean_pred": 0.2,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.38,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.61,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.99,
+      "obs": 1.04,
+      "n": 96
+     },
+     {
+      "mean_pred": 1.52,
+      "obs": 1.04,
+      "n": 96
+     },
+     {
+      "mean_pred": 2.47,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 3.97,
+      "obs": 5.21,
+      "n": 96
+     },
+     {
+      "mean_pred": 5.39,
+      "obs": 4.17,
+      "n": 96
+     },
+     {
+      "mean_pred": 9.73,
+      "obs": 9.38,
+      "n": 96
+     },
+     {
+      "mean_pred": 36.41,
+      "obs": 40.62,
+      "n": 96
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      6,
+      5.4
+     ],
+     "Sol": [
+      15,
+      14.2
+     ],
+     "Opus": [
+      10,
+      9.9
+     ],
+     "Fable": [
+      9,
+      9.2
+     ],
+     "Luna": [
+      21,
+      20.5
+     ]
+    }
+   },
+   "L_cost_model": {
+    "logloss": 0.1871,
+    "brier": 0.0505,
+    "calib_slope": 0.72,
+    "calib_ratio_E_over_O": 0.976,
+    "ece_decile": 0.79,
+    "deciles": [
+     {
+      "mean_pred": 0.2,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.38,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.61,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.96,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 1.56,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 2.35,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 3.7,
+      "obs": 4.17,
+      "n": 96
+     },
+     {
+      "mean_pred": 5.34,
+      "obs": 6.25,
+      "n": 96
+     },
+     {
+      "mean_pred": 9.68,
+      "obs": 12.5,
+      "n": 96
+     },
+     {
+      "mean_pred": 37.24,
+      "obs": 36.46,
+      "n": 96
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      6,
+      5.2
+     ],
+     "Sol": [
+      15,
+      14.0
+     ],
+     "Opus": [
+      10,
+      10.4
+     ],
+     "Fable": [
+      9,
+      9.6
+     ],
+     "Luna": [
+      21,
+      20.2
+     ]
+    }
+   },
+   "run_model": {
+    "logloss": 0.187,
+    "brier": 0.0497,
+    "calib_slope": 0.78,
+    "calib_ratio_E_over_O": 1.003,
+    "ece_decile": 1.7,
+    "deciles": [
+     {
+      "mean_pred": 0.29,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.53,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 0.81,
+      "obs": 1.04,
+      "n": 96
+     },
+     {
+      "mean_pred": 1.26,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 1.94,
+      "obs": 0.0,
+      "n": 96
+     },
+     {
+      "mean_pred": 2.97,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 4.41,
+      "obs": 2.08,
+      "n": 96
+     },
+     {
+      "mean_pred": 6.7,
+      "obs": 11.46,
+      "n": 96
+     },
+     {
+      "mean_pred": 9.88,
+      "obs": 7.29,
+      "n": 96
+     },
+     {
+      "mean_pred": 34.93,
+      "obs": 37.5,
+      "n": 96
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      6,
+      5.8
+     ],
+     "Sol": [
+      15,
+      14.8
+     ],
+     "Opus": [
+      10,
+      10.1
+     ],
+     "Fable": [
+      9,
+      9.5
+     ],
+     "Luna": [
+      21,
+      20.9
+     ]
+    }
+   }
+  },
+  "diffs": {
+   "L_cost_minus_L": {
+    "logloss": 0.0105,
+    "logloss_ci": [
+     -0.0038,
+     0.0292
+    ],
+    "brier": 0.00327,
+    "brier_ci": [
+     0.00016,
+     0.00708
+    ]
+   },
+   "L_model_minus_L": {
+    "logloss": 0.0018,
+    "logloss_ci": [
+     -0.0129,
+     0.0175
+    ],
+    "brier": -0.00021,
+    "brier_ci": [
+     -0.00425,
+     0.00365
+    ]
+   },
+   "L_cost_model_minus_L_model": {
+    "logloss": 0.0106,
+    "logloss_ci": [
+     0.0034,
+     0.0193
+    ],
+    "brier": 0.00336,
+    "brier_ci": [
+     0.00168,
+     0.00521
+    ]
+   },
+   "L_cost_model_minus_L_cost": {
+    "logloss": 0.0019,
+    "logloss_ci": [
+     -0.0091,
+     0.014
+    ],
+    "brier": -0.00012,
+    "brier_ci": [
+     -0.00292,
+     0.00267
+    ]
+   },
+   "L_own_model_minus_L_model": {
+    "logloss": 0.0051,
+    "logloss_ci": [
+     -0.0013,
+     0.0134
+    ],
+    "brier": 0.00144,
+    "brier_ci": [
+     8e-05,
+     0.00287
+    ]
+   },
+   "L_minus_null": {
+    "logloss": -0.0655,
+    "logloss_ci": [
+     -0.1068,
+     -0.0257
+    ],
+    "brier": -0.01252,
+    "brier_ci": [
+     -0.02299,
+     -0.00275
+    ]
+   },
+   "run_model_minus_L_model": {
+    "logloss": 0.0104,
+    "logloss_ci": [
+     -0.0002,
+     0.0226
+    ],
+    "brier": 0.0025,
+    "brier_ci": [
+     6e-05,
+     0.00542
+    ]
+   }
+  }
+ },
+ "H_loso_all4_armFE": {
+  "n": 3670,
+  "exits": 312,
+  "specs": {
+   "null": {
+    "logloss": 0.29,
+    "brier": 0.0776,
+    "calib_slope": 0.62,
+    "calib_ratio_E_over_O": 1.005,
+    "ece_decile": 3.0,
+    "deciles": [
+     {
+      "mean_pred": 5.86,
+      "obs": 11.75,
+      "n": 451
+     },
+     {
+      "mean_pred": 6.23,
+      "obs": 7.9,
+      "n": 367
+     },
+     {
+      "mean_pred": 6.46,
+      "obs": 5.44,
+      "n": 294
+     },
+     {
+      "mean_pred": 6.68,
+      "obs": 4.07,
+      "n": 418
+     },
+     {
+      "mean_pred": 6.89,
+      "obs": 2.18,
+      "n": 412
+     },
+     {
+      "mean_pred": 9.49,
+      "obs": 13.66,
+      "n": 322
+     },
+     {
+      "mean_pred": 10.02,
+      "obs": 8.59,
+      "n": 361
+     },
+     {
+      "mean_pred": 10.6,
+      "obs": 13.11,
+      "n": 328
+     },
+     {
+      "mean_pred": 11.94,
+      "obs": 11.76,
+      "n": 442
+     },
+     {
+      "mean_pred": 12.58,
+      "obs": 6.55,
+      "n": 275
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      7,
+      82.0
+     ],
+     "Sol": [
+      72,
+      62.0
+     ],
+     "Opus": [
+      59,
+      60.3
+     ],
+     "Fable": [
+      71,
+      56.2
+     ],
+     "Luna": [
+      103,
+      52.9
+     ]
+    }
+   },
+   "model": {
+    "logloss": 0.2695,
+    "brier": 0.0751,
+    "calib_slope": 0.83,
+    "calib_ratio_E_over_O": 1.01,
+    "ece_decile": 2.85,
+    "deciles": [
+     {
+      "mean_pred": 0.49,
+      "obs": 1.6,
+      "n": 375
+     },
+     {
+      "mean_pred": 0.77,
+      "obs": 0.0,
+      "n": 360
+     },
+     {
+      "mean_pred": 3.13,
+      "obs": 5.07,
+      "n": 375
+     },
+     {
+      "mean_pred": 6.59,
+      "obs": 8.11,
+      "n": 370
+     },
+     {
+      "mean_pred": 7.69,
+      "obs": 5.03,
+      "n": 358
+     },
+     {
+      "mean_pred": 8.67,
+      "obs": 4.3,
+      "n": 372
+     },
+     {
+      "mean_pred": 11.21,
+      "obs": 20.33,
+      "n": 369
+     },
+     {
+      "mean_pred": 12.62,
+      "obs": 11.48,
+      "n": 366
+     },
+     {
+      "mean_pred": 14.48,
+      "obs": 12.91,
+      "n": 364
+     },
+     {
+      "mean_pred": 20.59,
+      "obs": 16.34,
+      "n": 361
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      7,
+      7.0
+     ],
+     "Sol": [
+      72,
+      73.3
+     ],
+     "Opus": [
+      59,
+      59.5
+     ],
+     "Fable": [
+      71,
+      71.6
+     ],
+     "Luna": [
+      103,
+      103.7
+     ]
+    }
+   },
+   "L": {
+    "logloss": 0.1757,
+    "brier": 0.0493,
+    "calib_slope": 0.98,
+    "calib_ratio_E_over_O": 1.0,
+    "ece_decile": 1.07,
+    "deciles": [
+     {
+      "mean_pred": 0.11,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.25,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.45,
+      "obs": 0.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.86,
+      "obs": 0.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 1.5,
+      "obs": 1.09,
+      "n": 367
+     },
+     {
+      "mean_pred": 2.76,
+      "obs": 1.09,
+      "n": 367
+     },
+     {
+      "mean_pred": 4.77,
+      "obs": 3.54,
+      "n": 367
+     },
+     {
+      "mean_pred": 8.27,
+      "obs": 7.36,
+      "n": 367
+     },
+     {
+      "mean_pred": 15.41,
+      "obs": 19.07,
+      "n": 367
+     },
+     {
+      "mean_pred": 50.61,
+      "obs": 52.32,
+      "n": 367
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      7,
+      46.9
+     ],
+     "Sol": [
+      72,
+      77.3
+     ],
+     "Opus": [
+      59,
+      67.5
+     ],
+     "Fable": [
+      71,
+      51.8
+     ],
+     "Luna": [
+      103,
+      68.3
+     ]
+    }
+   },
+   "L_cost": {
+    "logloss": 0.1643,
+    "brier": 0.047,
+    "calib_slope": 0.95,
+    "calib_ratio_E_over_O": 1.005,
+    "ece_decile": 1.1,
+    "deciles": [
+     {
+      "mean_pred": 0.04,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.15,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.3,
+      "obs": 0.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.55,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.96,
+      "obs": 1.36,
+      "n": 367
+     },
+     {
+      "mean_pred": 1.73,
+      "obs": 0.54,
+      "n": 367
+     },
+     {
+      "mean_pred": 3.36,
+      "obs": 1.36,
+      "n": 367
+     },
+     {
+      "mean_pred": 7.05,
+      "obs": 6.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 16.34,
+      "obs": 21.25,
+      "n": 367
+     },
+     {
+      "mean_pred": 54.94,
+      "obs": 53.95,
+      "n": 367
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      7,
+      7.4
+     ],
+     "Sol": [
+      72,
+      80.9
+     ],
+     "Opus": [
+      59,
+      83.7
+     ],
+     "Fable": [
+      71,
+      56.2
+     ],
+     "Luna": [
+      103,
+      85.3
+     ]
+    }
+   },
+   "L_model": {
+    "logloss": 0.1636,
+    "brier": 0.0466,
+    "calib_slope": 0.95,
+    "calib_ratio_E_over_O": 1.0,
+    "ece_decile": 0.84,
+    "deciles": [
+     {
+      "mean_pred": 0.04,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.13,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.27,
+      "obs": 0.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.5,
+      "obs": 0.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.91,
+      "obs": 0.82,
+      "n": 367
+     },
+     {
+      "mean_pred": 1.76,
+      "obs": 0.54,
+      "n": 367
+     },
+     {
+      "mean_pred": 3.36,
+      "obs": 2.18,
+      "n": 367
+     },
+     {
+      "mean_pred": 7.03,
+      "obs": 5.72,
+      "n": 367
+     },
+     {
+      "mean_pred": 16.42,
+      "obs": 19.07,
+      "n": 367
+     },
+     {
+      "mean_pred": 54.54,
+      "obs": 56.13,
+      "n": 367
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      7,
+      6.6
+     ],
+     "Sol": [
+      72,
+      72.0
+     ],
+     "Opus": [
+      59,
+      58.9
+     ],
+     "Fable": [
+      71,
+      71.3
+     ],
+     "Luna": [
+      103,
+      103.0
+     ]
+    }
+   },
+   "L_own_model": {
+    "logloss": 0.1633,
+    "brier": 0.0466,
+    "calib_slope": 0.95,
+    "calib_ratio_E_over_O": 1.0,
+    "ece_decile": 0.96,
+    "deciles": [
+     {
+      "mean_pred": 0.04,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.13,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.26,
+      "obs": 0.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.49,
+      "obs": 0.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.89,
+      "obs": 1.09,
+      "n": 367
+     },
+     {
+      "mean_pred": 1.71,
+      "obs": 0.82,
+      "n": 367
+     },
+     {
+      "mean_pred": 3.2,
+      "obs": 1.91,
+      "n": 367
+     },
+     {
+      "mean_pred": 6.86,
+      "obs": 4.63,
+      "n": 367
+     },
+     {
+      "mean_pred": 16.46,
+      "obs": 20.44,
+      "n": 367
+     },
+     {
+      "mean_pred": 54.95,
+      "obs": 55.59,
+      "n": 367
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      7,
+      6.7
+     ],
+     "Sol": [
+      72,
+      71.9
+     ],
+     "Opus": [
+      59,
+      58.9
+     ],
+     "Fable": [
+      71,
+      71.4
+     ],
+     "Luna": [
+      103,
+      103.0
+     ]
+    }
+   },
+   "L_cost_model": {
+    "logloss": 0.1623,
+    "brier": 0.0461,
+    "calib_slope": 0.93,
+    "calib_ratio_E_over_O": 1.005,
+    "ece_decile": 0.52,
+    "deciles": [
+     {
+      "mean_pred": 0.03,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.12,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.25,
+      "obs": 0.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.46,
+      "obs": 0.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.83,
+      "obs": 0.54,
+      "n": 367
+     },
+     {
+      "mean_pred": 1.58,
+      "obs": 1.63,
+      "n": 367
+     },
+     {
+      "mean_pred": 3.1,
+      "obs": 1.09,
+      "n": 367
+     },
+     {
+      "mean_pred": 6.63,
+      "obs": 7.36,
+      "n": 367
+     },
+     {
+      "mean_pred": 16.39,
+      "obs": 17.98,
+      "n": 367
+     },
+     {
+      "mean_pred": 56.04,
+      "obs": 55.86,
+      "n": 367
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      7,
+      6.7
+     ],
+     "Sol": [
+      72,
+      72.3
+     ],
+     "Opus": [
+      59,
+      59.4
+     ],
+     "Fable": [
+      71,
+      72.0
+     ],
+     "Luna": [
+      103,
+      103.2
+     ]
+    }
+   },
+   "run_model": {
+    "logloss": 0.1776,
+    "brier": 0.0492,
+    "calib_slope": 0.93,
+    "calib_ratio_E_over_O": 1.006,
+    "ece_decile": 0.4,
+    "deciles": [
+     {
+      "mean_pred": 0.05,
+      "obs": 0.27,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.2,
+      "obs": 0.0,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.41,
+      "obs": 0.54,
+      "n": 367
+     },
+     {
+      "mean_pred": 0.72,
+      "obs": 1.09,
+      "n": 367
+     },
+     {
+      "mean_pred": 1.2,
+      "obs": 1.09,
+      "n": 367
+     },
+     {
+      "mean_pred": 2.11,
+      "obs": 1.36,
+      "n": 367
+     },
+     {
+      "mean_pred": 3.94,
+      "obs": 3.81,
+      "n": 367
+     },
+     {
+      "mean_pred": 7.48,
+      "obs": 6.81,
+      "n": 367
+     },
+     {
+      "mean_pred": 17.28,
+      "obs": 16.89,
+      "n": 367
+     },
+     {
+      "mean_pred": 52.14,
+      "obs": 53.13,
+      "n": 367
+     }
+    ],
+    "obs_exp_by_model": {
+     "Astra": [
+      7,
+      6.7
+     ],
+     "Sol": [
+      72,
+      72.7
+     ],
+     "Opus": [
+      59,
+      59.5
+     ],
+     "Fable": [
+      71,
+      71.6
+     ],
+     "Luna": [
+      103,
+      103.4
+     ]
+    }
+   }
+  },
+  "diffs": {
+   "L_cost_minus_L": {
+    "logloss": -0.0115,
+    "logloss_ci": [
+     -0.019,
+     -0.0034
+    ],
+    "brier": -0.00223,
+    "brier_ci": [
+     -0.00421,
+     -0.00028
+    ]
+   },
+   "L_model_minus_L": {
+    "logloss": -0.0121,
+    "logloss_ci": [
+     -0.0197,
+     -0.0039
+    ],
+    "brier": -0.00266,
+    "brier_ci": [
+     -0.00459,
+     -0.00073
+    ]
+   },
+   "L_cost_model_minus_L_model": {
+    "logloss": -0.0013,
+    "logloss_ci": [
+     -0.0046,
+     0.002
+    ],
+    "brier": -0.00054,
+    "brier_ci": [
+     -0.00159,
+     0.00053
+    ]
+   },
+   "L_cost_model_minus_L_cost": {
+    "logloss": -0.002,
+    "logloss_ci": [
+     -0.0059,
+     0.0022
+    ],
+    "brier": -0.00096,
+    "brier_ci": [
+     -0.00215,
+     0.00026
+    ]
+   },
+   "L_own_model_minus_L_model": {
+    "logloss": -0.0003,
+    "logloss_ci": [
+     -0.0023,
+     0.0019
+    ],
+    "brier": 3e-05,
+    "brier_ci": [
+     -0.00046,
+     0.00053
+    ]
+   },
+   "L_minus_null": {
+    "logloss": -0.1142,
+    "logloss_ci": [
+     -0.1359,
+     -0.0929
+    ],
+    "brier": -0.02837,
+    "brier_ci": [
+     -0.03524,
+     -0.02213
+    ]
+   },
+   "run_model_minus_L_model": {
+    "logloss": 0.0139,
+    "logloss_ci": [
+     0.0059,
+     0.0225
+    ],
+    "brier": 0.00257,
+    "brier_ci": [
+     0.00039,
+     0.00488
+    ]
+   }
+  }
+ },
+ "I_contrasts": {
+  "main": {
+   "L_model": {
+    "wald": {
+     "stat": 10.09,
+     "df": 4,
+     "p": 0.03892810969441248
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "logodds": 0.35,
+      "ci": [
+       -1.12,
+       1.82
+      ],
+      "se": 0.75,
+      "p": 0.6435161045543681,
+      "holm_p": 1.0
+     },
+     "Opus-Astra": {
+      "logodds": 0.39,
+      "ci": [
+       -1.36,
+       2.14
+      ],
+      "se": 0.89,
+      "p": 0.6631955473504493,
+      "holm_p": 1.0
+     },
+     "Fable-Astra": {
+      "logodds": 0.25,
+      "ci": [
+       -1.18,
+       1.69
+      ],
+      "se": 0.73,
+      "p": 0.7287506952350633,
+      "holm_p": 1.0
+     },
+     "Luna-Astra": {
+      "logodds": 1.66,
+      "ci": [
+       0.24,
+       3.08
+      ],
+      "se": 0.72,
+      "p": 0.021621526943717728,
+      "holm_p": 0.17297221554974182
+     },
+     "Opus-Sol": {
+      "logodds": 0.04,
+      "ci": [
+       -1.45,
+       1.54
+      ],
+      "se": 0.76,
+      "p": 0.9556063639921868,
+      "holm_p": 1.0
+     },
+     "Fable-Sol": {
+      "logodds": -0.09,
+      "ci": [
+       -1.1,
+       0.92
+      ],
+      "se": 0.51,
+      "p": 0.8570526442829515,
+      "holm_p": 1.0
+     },
+     "Luna-Sol": {
+      "logodds": 1.31,
+      "ci": [
+       0.22,
+       2.41
+      ],
+      "se": 0.56,
+      "p": 0.018565387854744528,
+      "holm_p": 0.16708849069270076
+     },
+     "Fable-Opus": {
+      "logodds": -0.14,
+      "ci": [
+       -1.59,
+       1.32
+      ],
+      "se": 0.74,
+      "p": 0.8550524060292655,
+      "holm_p": 1.0
+     },
+     "Luna-Opus": {
+      "logodds": 1.27,
+      "ci": [
+       -0.16,
+       2.71
+      ],
+      "se": 0.73,
+      "p": 0.08261840054984682,
+      "holm_p": 0.5783288038489277
+     },
+     "Luna-Fable": {
+      "logodds": 1.41,
+      "ci": [
+       0.36,
+       2.45
+      ],
+      "se": 0.53,
+      "p": 0.008316399610769078,
+      "holm_p": 0.08316399610769078
+     }
+    },
+    "cost_coef": {},
+    "aic": 313.1,
+    "vs_astra": {
+     "Sol": {
+      "logodds": 0.35,
+      "ci": [
+       -1.12,
+       1.82
+      ],
+      "se": 0.75,
+      "p": 0.6435161045543681,
+      "holm_p": 1.0
+     },
+     "Opus": {
+      "logodds": 0.39,
+      "ci": [
+       -1.36,
+       2.14
+      ],
+      "se": 0.89,
+      "p": 0.6631955473504493,
+      "holm_p": 1.0
+     },
+     "Fable": {
+      "logodds": 0.25,
+      "ci": [
+       -1.18,
+       1.69
+      ],
+      "se": 0.73,
+      "p": 0.7287506952350633,
+      "holm_p": 1.0
+     },
+     "Luna": {
+      "logodds": 1.66,
+      "ci": [
+       0.24,
+       3.08
+      ],
+      "se": 0.72,
+      "p": 0.021621526943717728,
+      "holm_p": 0.17297221554974182
+     }
+    }
+   },
+   "L_own_model": {
+    "wald": {
+     "stat": 6.21,
+     "df": 4,
+     "p": 0.18375032942130112
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "logodds": -0.79,
+      "ci": [
+       -3.41,
+       1.83
+      ],
+      "se": 1.34,
+      "p": 0.5553960699151275,
+      "holm_p": 1.0
+     },
+     "Opus-Astra": {
+      "logodds": -0.77,
+      "ci": [
+       -3.57,
+       2.03
+      ],
+      "se": 1.43,
+      "p": 0.5896955834627653,
+      "holm_p": 1.0
+     },
+     "Fable-Astra": {
+      "logodds": -0.86,
+      "ci": [
+       -3.49,
+       1.78
+      ],
+      "se": 1.34,
+      "p": 0.5239109816398415,
+      "holm_p": 1.0
+     },
+     "Luna-Astra": {
+      "logodds": 0.29,
+      "ci": [
+       -2.93,
+       3.52
+      ],
+      "se": 1.65,
+      "p": 0.8579472242055817,
+      "holm_p": 1.0
+     },
+     "Opus-Sol": {
+      "logodds": 0.02,
+      "ci": [
+       -1.48,
+       1.51
+      ],
+      "se": 0.76,
+      "p": 0.9820811407248233,
+      "holm_p": 1.0
+     },
+     "Fable-Sol": {
+      "logodds": -0.07,
+      "ci": [
+       -1.04,
+       0.9
+      ],
+      "se": 0.5,
+      "p": 0.8900425235729011,
+      "holm_p": 1.0
+     },
+     "Luna-Sol": {
+      "logodds": 1.08,
+      "ci": [
+       -0.21,
+       2.37
+      ],
+      "se": 0.66,
+      "p": 0.0995757563928336,
+      "holm_p": 0.8961818075355024
+     },
+     "Fable-Opus": {
+      "logodds": -0.09,
+      "ci": [
+       -1.54,
+       1.37
+      ],
+      "se": 0.74,
+      "p": 0.9080183998566074,
+      "holm_p": 1.0
+     },
+     "Luna-Opus": {
+      "logodds": 1.07,
+      "ci": [
+       -0.54,
+       2.67
+      ],
+      "se": 0.82,
+      "p": 0.19239286860761984,
+      "holm_p": 1.0
+     },
+     "Luna-Fable": {
+      "logodds": 1.15,
+      "ci": [
+       -0.1,
+       2.4
+      ],
+      "se": 0.64,
+      "p": 0.0704584913402778,
+      "holm_p": 0.7045849134027781
+     }
+    },
+    "cost_coef": {
+     "log_own": [
+      0.414,
+      0.47,
+      0.37784693386631774
+     ]
+    },
+    "aic": 313.5,
+    "vs_astra": {
+     "Sol": {
+      "logodds": -0.79,
+      "ci": [
+       -3.41,
+       1.83
+      ],
+      "se": 1.34,
+      "p": 0.5553960699151275,
+      "holm_p": 1.0
+     },
+     "Opus": {
+      "logodds": -0.77,
+      "ci": [
+       -3.57,
+       2.03
+      ],
+      "se": 1.43,
+      "p": 0.5896955834627653,
+      "holm_p": 1.0
+     },
+     "Fable": {
+      "logodds": -0.86,
+      "ci": [
+       -3.49,
+       1.78
+      ],
+      "se": 1.34,
+      "p": 0.5239109816398415,
+      "holm_p": 1.0
+     },
+     "Luna": {
+      "logodds": 0.29,
+      "ci": [
+       -2.93,
+       3.52
+      ],
+      "se": 1.65,
+      "p": 0.8579472242055817,
+      "holm_p": 1.0
+     }
+    }
+   },
+   "L_cost_model": {
+    "wald": {
+     "stat": 5.6,
+     "df": 4,
+     "p": 0.2311418356361408
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "logodds": 0.08,
+      "ci": [
+       -4.02,
+       4.19
+      ],
+      "se": 2.09,
+      "p": 0.9686281456241101,
+      "holm_p": 1.0
+     },
+     "Opus-Astra": {
+      "logodds": 0.1,
+      "ci": [
+       -3.63,
+       3.82
+      ],
+      "se": 1.9,
+      "p": 0.9585962615763398,
+      "holm_p": 1.0
+     },
+     "Fable-Astra": {
+      "logodds": 0.03,
+      "ci": [
+       -3.94,
+       4.0
+      ],
+      "se": 2.03,
+      "p": 0.9878540604224594,
+      "holm_p": 1.0
+     },
+     "Luna-Astra": {
+      "logodds": 1.29,
+      "ci": [
+       -3.44,
+       6.03
+      ],
+      "se": 2.42,
+      "p": 0.5921137372602083,
+      "holm_p": 1.0
+     },
+     "Opus-Sol": {
+      "logodds": 0.02,
+      "ci": [
+       -1.48,
+       1.51
+      ],
+      "se": 0.76,
+      "p": 0.982917820513254,
+      "holm_p": 1.0
+     },
+     "Fable-Sol": {
+      "logodds": -0.05,
+      "ci": [
+       -1.03,
+       0.92
+      ],
+      "se": 0.5,
+      "p": 0.9174205737070501,
+      "holm_p": 1.0
+     },
+     "Luna-Sol": {
+      "logodds": 1.21,
+      "ci": [
+       -0.11,
+       2.53
+      ],
+      "se": 0.67,
+      "p": 0.07182425747882643,
+      "holm_p": 0.6464183173094378
+     },
+     "Fable-Opus": {
+      "logodds": -0.07,
+      "ci": [
+       -1.54,
+       1.41
+      ],
+      "se": 0.75,
+      "p": 0.9282029626329503,
+      "holm_p": 1.0
+     },
+     "Luna-Opus": {
+      "logodds": 1.2,
+      "ci": [
+       -0.59,
+       2.98
+      ],
+      "se": 0.91,
+      "p": 0.18934601190943778,
+      "holm_p": 1.0
+     },
+     "Luna-Fable": {
+      "logodds": 1.26,
+      "ci": [
+       -0.07,
+       2.59
+      ],
+      "se": 0.68,
+      "p": 0.06237972536802553,
+      "holm_p": 0.6237972536802553
+     }
+    },
+    "cost_coef": {
+     "log_own": [
+      0.067,
+      0.547,
+      0.9028623452156198
+     ],
+     "log_prev": [
+      0.355,
+      0.28,
+      0.20383349149225893
+     ],
+     "log_run": [
+      0.36,
+      0.632,
+      0.5683576259642849
+     ]
+    },
+    "aic": 315.9,
+    "vs_astra": {
+     "Sol": {
+      "logodds": 0.08,
+      "ci": [
+       -4.02,
+       4.19
+      ],
+      "se": 2.09,
+      "p": 0.9686281456241101,
+      "holm_p": 1.0
+     },
+     "Opus": {
+      "logodds": 0.1,
+      "ci": [
+       -3.63,
+       3.82
+      ],
+      "se": 1.9,
+      "p": 0.9585962615763398,
+      "holm_p": 1.0
+     },
+     "Fable": {
+      "logodds": 0.03,
+      "ci": [
+       -3.94,
+       4.0
+      ],
+      "se": 2.03,
+      "p": 0.9878540604224594,
+      "holm_p": 1.0
+     },
+     "Luna": {
+      "logodds": 1.29,
+      "ci": [
+       -3.44,
+       6.03
+      ],
+      "se": 2.42,
+      "p": 0.5921137372602083,
+      "holm_p": 1.0
+     }
+    }
+   }
+  },
+  "all4": {
+   "L_model": {
+    "wald": {
+     "stat": 39.66,
+     "df": 4,
+     "p": 5.083192541106762e-08
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "logodds": 2.16,
+      "ci": [
+       0.84,
+       3.48
+      ],
+      "se": 0.67,
+      "p": 0.0013157286878028905,
+      "holm_p": 0.007894372126817343
+     },
+     "Opus-Astra": {
+      "logodds": 2.08,
+      "ci": [
+       0.77,
+       3.39
+      ],
+      "se": 0.67,
+      "p": 0.0018957690645458997,
+      "holm_p": 0.009478845322729499
+     },
+     "Fable-Astra": {
+      "logodds": 2.8,
+      "ci": [
+       1.5,
+       4.11
+      ],
+      "se": 0.67,
+      "p": 2.4868599640857093e-05,
+      "holm_p": 0.00022381739676771383
+     },
+     "Luna-Astra": {
+      "logodds": 3.14,
+      "ci": [
+       1.84,
+       4.45
+      ],
+      "se": 0.66,
+      "p": 2.1513899610530223e-06,
+      "holm_p": 2.1513899610530223e-05
+     },
+     "Opus-Sol": {
+      "logodds": -0.08,
+      "ci": [
+       -0.62,
+       0.46
+      ],
+      "se": 0.28,
+      "p": 0.7648961015397264,
+      "holm_p": 0.7648961015397264
+     },
+     "Fable-Sol": {
+      "logodds": 0.64,
+      "ci": [
+       0.13,
+       1.15
+      ],
+      "se": 0.26,
+      "p": 0.013908801275583126,
+      "holm_p": 0.04172640382674938
+     },
+     "Luna-Sol": {
+      "logodds": 0.98,
+      "ci": [
+       0.47,
+       1.5
+      ],
+      "se": 0.26,
+      "p": 0.00016837726764047065,
+      "holm_p": 0.0011786408734832945
+     },
+     "Fable-Opus": {
+      "logodds": 0.72,
+      "ci": [
+       0.22,
+       1.23
+      ],
+      "se": 0.26,
+      "p": 0.005259853424062384,
+      "holm_p": 0.021039413696249537
+     },
+     "Luna-Opus": {
+      "logodds": 1.07,
+      "ci": [
+       0.56,
+       1.57
+      ],
+      "se": 0.26,
+      "p": 3.273801805045235e-05,
+      "holm_p": 0.0002619041444036188
+     },
+     "Luna-Fable": {
+      "logodds": 0.34,
+      "ci": [
+       -0.13,
+       0.81
+      ],
+      "se": 0.24,
+      "p": 0.15207428510726026,
+      "holm_p": 0.3041485702145205
+     }
+    },
+    "cost_coef": {},
+    "aic": 1178.3,
+    "vs_astra": {
+     "Sol": {
+      "logodds": 2.16,
+      "ci": [
+       0.84,
+       3.48
+      ],
+      "se": 0.67,
+      "p": 0.0013157286878028905,
+      "holm_p": 0.007894372126817343
+     },
+     "Opus": {
+      "logodds": 2.08,
+      "ci": [
+       0.77,
+       3.39
+      ],
+      "se": 0.67,
+      "p": 0.0018957690645458997,
+      "holm_p": 0.009478845322729499
+     },
+     "Fable": {
+      "logodds": 2.8,
+      "ci": [
+       1.5,
+       4.11
+      ],
+      "se": 0.67,
+      "p": 2.4868599640857093e-05,
+      "holm_p": 0.00022381739676771383
+     },
+     "Luna": {
+      "logodds": 3.14,
+      "ci": [
+       1.84,
+       4.45
+      ],
+      "se": 0.66,
+      "p": 2.1513899610530223e-06,
+      "holm_p": 2.1513899610530223e-05
+     }
+    }
+   },
+   "L_own_model": {
+    "wald": {
+     "stat": 19.64,
+     "df": 4,
+     "p": 0.0005887261051695527
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "logodds": 0.79,
+      "ci": [
+       -0.86,
+       2.44
+      ],
+      "se": 0.84,
+      "p": 0.3468918120024981,
+      "holm_p": 1.0
+     },
+     "Opus-Astra": {
+      "logodds": 0.57,
+      "ci": [
+       -1.14,
+       2.28
+      ],
+      "se": 0.87,
+      "p": 0.5121755670936836,
+      "holm_p": 1.0
+     },
+     "Fable-Astra": {
+      "logodds": 1.43,
+      "ci": [
+       -0.2,
+       3.07
+      ],
+      "se": 0.83,
+      "p": 0.08559728037268266,
+      "holm_p": 0.513583682236096
+     },
+     "Luna-Astra": {
+      "logodds": 1.54,
+      "ci": [
+       -0.22,
+       3.29
+      ],
+      "se": 0.89,
+      "p": 0.0858811838168333,
+      "holm_p": 0.513583682236096
+     },
+     "Opus-Sol": {
+      "logodds": -0.22,
+      "ci": [
+       -0.78,
+       0.35
+      ],
+      "se": 0.29,
+      "p": 0.4476113206137974,
+      "holm_p": 1.0
+     },
+     "Fable-Sol": {
+      "logodds": 0.64,
+      "ci": [
+       0.12,
+       1.16
+      ],
+      "se": 0.26,
+      "p": 0.01542192286440978,
+      "holm_p": 0.10795346005086845
+     },
+     "Luna-Sol": {
+      "logodds": 0.74,
+      "ci": [
+       0.18,
+       1.3
+      ],
+      "se": 0.29,
+      "p": 0.009186213953489767,
+      "holm_p": 0.07348971162791813
+     },
+     "Fable-Opus": {
+      "logodds": 0.86,
+      "ci": [
+       0.33,
+       1.39
+      ],
+      "se": 0.27,
+      "p": 0.0015894650078251609,
+      "holm_p": 0.014305185070426447
+     },
+     "Luna-Opus": {
+      "logodds": 0.96,
+      "ci": [
+       0.43,
+       1.49
+      ],
+      "se": 0.27,
+      "p": 0.00035947758513427944,
+      "holm_p": 0.0035947758513427946
+     },
+     "Luna-Fable": {
+      "logodds": 0.1,
+      "ci": [
+       -0.41,
+       0.62
+      ],
+      "se": 0.26,
+      "p": 0.691213379161295,
+      "holm_p": 1.0
+     }
+    },
+    "cost_coef": {
+     "log_own": [
+      0.525,
+      0.246,
+      0.032793286202054
+     ]
+    },
+    "aic": 1173.2,
+    "vs_astra": {
+     "Sol": {
+      "logodds": 0.79,
+      "ci": [
+       -0.86,
+       2.44
+      ],
+      "se": 0.84,
+      "p": 0.3468918120024981,
+      "holm_p": 1.0
+     },
+     "Opus": {
+      "logodds": 0.57,
+      "ci": [
+       -1.14,
+       2.28
+      ],
+      "se": 0.87,
+      "p": 0.5121755670936836,
+      "holm_p": 1.0
+     },
+     "Fable": {
+      "logodds": 1.43,
+      "ci": [
+       -0.2,
+       3.07
+      ],
+      "se": 0.83,
+      "p": 0.08559728037268266,
+      "holm_p": 0.513583682236096
+     },
+     "Luna": {
+      "logodds": 1.54,
+      "ci": [
+       -0.22,
+       3.29
+      ],
+      "se": 0.89,
+      "p": 0.0858811838168333,
+      "holm_p": 0.513583682236096
+     }
+    }
+   },
+   "L_cost_model": {
+    "wald": {
+     "stat": 18.8,
+     "df": 4,
+     "p": 0.0008606383892485141
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "logodds": -0.03,
+      "ci": [
+       -1.91,
+       1.85
+      ],
+      "se": 0.96,
+      "p": 0.9756457019690562,
+      "holm_p": 1.0
+     },
+     "Opus-Astra": {
+      "logodds": -0.41,
+      "ci": [
+       -2.43,
+       1.62
+      ],
+      "se": 1.03,
+      "p": 0.6947919220533432,
+      "holm_p": 1.0
+     },
+     "Fable-Astra": {
+      "logodds": 0.62,
+      "ci": [
+       -1.23,
+       2.46
+      ],
+      "se": 0.94,
+      "p": 0.5133836098652568,
+      "holm_p": 1.0
+     },
+     "Luna-Astra": {
+      "logodds": 0.65,
+      "ci": [
+       -1.4,
+       2.7
+      ],
+      "se": 1.04,
+      "p": 0.5330488291779962,
+      "holm_p": 1.0
+     },
+     "Opus-Sol": {
+      "logodds": -0.38,
+      "ci": [
+       -1.01,
+       0.25
+      ],
+      "se": 0.32,
+      "p": 0.24025499606178458,
+      "holm_p": 1.0
+     },
+     "Fable-Sol": {
+      "logodds": 0.64,
+      "ci": [
+       0.12,
+       1.17
+      ],
+      "se": 0.27,
+      "p": 0.0169961494476041,
+      "holm_p": 0.1359691955808328
+     },
+     "Luna-Sol": {
+      "logodds": 0.68,
+      "ci": [
+       0.08,
+       1.28
+      ],
+      "se": 0.3,
+      "p": 0.025336246450208145,
+      "holm_p": 0.177353725151457
+     },
+     "Fable-Opus": {
+      "logodds": 1.02,
+      "ci": [
+       0.41,
+       1.63
+      ],
+      "se": 0.31,
+      "p": 0.0010293827124587364,
+      "holm_p": 0.009264444412128628
+     },
+     "Luna-Opus": {
+      "logodds": 1.06,
+      "ci": [
+       0.49,
+       1.63
+      ],
+      "se": 0.29,
+      "p": 0.0002798890534193988,
+      "holm_p": 0.002798890534193988
+     },
+     "Luna-Fable": {
+      "logodds": 0.04,
+      "ci": [
+       -0.52,
+       0.59
+      ],
+      "se": 0.28,
+      "p": 0.9008446093850776,
+      "holm_p": 1.0
+     }
+    },
+    "cost_coef": {
+     "log_own": [
+      -0.069,
+      0.288,
+      0.809709859752135
+     ],
+     "log_prev": [
+      0.588,
+      0.149,
+      7.806638214116163e-05
+     ],
+     "log_run": [
+      -0.228,
+      0.265,
+      0.39033146090256166
+     ]
+    },
+    "aic": 1156.4,
+    "vs_astra": {
+     "Sol": {
+      "logodds": -0.03,
+      "ci": [
+       -1.91,
+       1.85
+      ],
+      "se": 0.96,
+      "p": 0.9756457019690562,
+      "holm_p": 1.0
+     },
+     "Opus": {
+      "logodds": -0.41,
+      "ci": [
+       -2.43,
+       1.62
+      ],
+      "se": 1.03,
+      "p": 0.6947919220533432,
+      "holm_p": 1.0
+     },
+     "Fable": {
+      "logodds": 0.62,
+      "ci": [
+       -1.23,
+       2.46
+      ],
+      "se": 0.94,
+      "p": 0.5133836098652568,
+      "holm_p": 1.0
+     },
+     "Luna": {
+      "logodds": 0.65,
+      "ci": [
+       -1.4,
+       2.7
+      ],
+      "se": 1.04,
+      "p": 0.5330488291779962,
+      "holm_p": 1.0
+     }
+    }
+   }
+  },
+  "main_state_support": {
+   "L_model": {
+    "wald": {
+     "stat": 9.4,
+     "df": 4,
+     "p": 0.05191593402215565
+    },
+    "pairs": {
+     "Sol-Astra": {
+      "logodds": 0.29,
+      "ci": [
+       -1.21,
+       1.79
+      ],
+      "se": 0.76,
+      "p": 0.7042084439784526,
+      "holm_p": 1.0
+     },
+     "Opus-Astra": {
+      "logodds": 0.02,
+      "ci": [
+       -1.91,
+       1.94
+      ],
+      "se": 0.98,
+      "p": 0.9867479333727708,
+      "holm_p": 1.0
+     },
+     "Fable-Astra": {
+      "logodds": 0.17,
+      "ci": [
+       -1.32,
+       1.67
+      ],
+      "se": 0.76,
+      "p": 0.8210918077961322,
+      "holm_p": 1.0
+     },
+     "Luna-Astra": {
+      "logodds": 1.6,
+      "ci": [
+       0.15,
+       3.05
+      ],
+      "se": 0.74,
+      "p": 0.030414225721806562,
+      "holm_p": 0.2433138057744525
+     },
+     "Opus-Sol": {
+      "logodds": -0.27,
+      "ci": [
+       -1.95,
+       1.41
+      ],
+      "se": 0.86,
+      "p": 0.7493173032634981,
+      "holm_p": 1.0
+     },
+     "Fable-Sol": {
+      "logodds": -0.12,
+      "ci": [
+       -1.21,
+       0.98
+      ],
+      "se": 0.56,
+      "p": 0.8336409979664949,
+      "holm_p": 1.0
+     },
+     "Luna-Sol": {
+      "logodds": 1.31,
+      "ci": [
+       0.17,
+       2.45
+      ],
+      "se": 0.58,
+      "p": 0.023796940642829723,
+      "holm_p": 0.2141724657854675
+     },
+     "Fable-Opus": {
+      "logodds": 0.16,
+      "ci": [
+       -1.51,
+       1.83
+      ],
+      "se": 0.85,
+      "p": 0.8545066696041905,
+      "holm_p": 1.0
+     },
+     "Luna-Opus": {
+      "logodds": 1.59,
+      "ci": [
+       -0.07,
+       3.24
+      ],
+      "se": 0.84,
+      "p": 0.06011923061448343,
+      "holm_p": 0.420834614301384
+     },
+     "Luna-Fable": {
+      "logodds": 1.43,
+      "ci": [
+       0.29,
+       2.57
+      ],
+      "se": 0.58,
+      "p": 0.013703148666228848,
+      "holm_p": 0.13703148666228848
+     }
+    },
+    "cost_coef": {},
+    "aic": 293.8,
+    "vs_astra": {
+     "Sol": {
+      "logodds": 0.29,
+      "ci": [
+       -1.21,
+       1.79
+      ],
+      "se": 0.76,
+      "p": 0.7042084439784526,
+      "holm_p": 1.0
+     },
+     "Opus": {
+      "logodds": 0.02,
+      "ci": [
+       -1.91,
+       1.94
+      ],
+      "se": 0.98,
+      "p": 0.9867479333727708,
+      "holm_p": 1.0
+     },
+     "Fable": {
+      "logodds": 0.17,
+      "ci": [
+       -1.32,
+       1.67
+      ],
+      "se": 0.76,
+      "p": 0.8210918077961322,
+      "holm_p": 1.0
+     },
+     "Luna": {
+      "logodds": 1.6,
+      "ci": [
+       0.15,
+       3.05
+      ],
+      "se": 0.74,
+      "p": 0.030414225721806562,
+      "holm_p": 0.2433138057744525
+     }
+    }
+   }
+  }
+ },
+ "I_cost_between_model_R2": {
+  "log_own": 0.834,
+  "log_prev": 0.724,
+  "log_run": 0.726
+ },
+ "I_cost_between_model_R2_all4": {
+  "log_own": 0.848,
+  "log_prev": 0.745,
+  "log_run": 0.744
+ }
+}
